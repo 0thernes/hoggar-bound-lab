@@ -1,0 +1,162 @@
+name: Independent verification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: independent-verification-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  executable-checks:
+    name: C engine, independent matrices, and explorer
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - name: Install the numerical checker dependency
+        run: python -m pip install --disable-pip-version-check numpy==2.0.2
+      - name: Build the C engine and record its environment
+        run: |
+          mkdir -p build results
+          {
+            gcc --version
+            python --version
+            node --version
+          } | tee results/independent-ci-environment.log
+          gcc -O2 -std=gnu11 -Wall -Wextra \
+            src/hoggar.c third_party/quantum_rng/src/quantum_rng/quantum_rng.c \
+            -Ithird_party/quantum_rng/src/quantum_rng -lm -o build/hoggar
+          gcc -O2 -std=gnu11 -Wall -Wextra \
+            src/qgt_hoggar.c third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c \
+            -Ithird_party/qgtl/include -Ithird_party/qgtl/stub -lm -o build/qgt
+      - name: Independently verify contexts, witnesses, and falsification controls
+        run: python tests/independent_validation.py ./build/hoggar | tee results/independent-ci-matrix.log
+      - name: Reject malformed witnesses and invalid command arguments
+        run: python tests/independent_input_validation.py build/hoggar build/qgt | tee results/independent-ci-input.log
+      - name: Reproduce the committed explorer data
+        run: |
+          python scripts/independent_demo_data.py
+          git diff --exit-code -- independent-review/data.js
+      - name: Test explorer updates, search steps, and witness export
+        run: node tests/independent_demo_test.cjs | tee results/independent-ci-demo.log
+      - name: Preserve executable-check evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: independent-executable-evidence
+          path: |
+            results/independent-ci-*.log
+            results/independent_validation.json
+            results/independent-input-validation.json
+          if-no-files-found: error
+          retention-days: 30
+
+  lean-proof:
+    name: Lean kernel proof and axiom allowlist
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      # The finite kernel certificate reached about 10 GB on Windows.
+      # Build its prerequisites first and avoid parallel Lean workers.
+      LEAN_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Record resources and provide headroom for the finite proof
+        run: |
+          mkdir -p results
+          free -h | tee results/independent-ci-lean-resources.log
+          df -h / | tee -a results/independent-ci-lean-resources.log
+          # Public standard Ubuntu runners currently have 16 GB RAM; private
+          # runners have 8 GB. Add only the swap needed for 14 GiB total memory.
+          # This affects this disposable CI VM only. Failure is never ignored.
+          memory_kib=$(awk '/MemTotal:|SwapTotal:/ {sum += $2} END {print sum}' /proc/meminfo)
+          target_kib=$((14 * 1024 * 1024))
+          if (( memory_kib < target_kib )); then
+            extra_gib=$(((target_kib - memory_kib + 1048575) / 1048576))
+            free_kib=$(df --output=avail -k / | tail -n 1)
+            if (( free_kib < (extra_gib + 7) * 1024 * 1024 )); then
+              echo "::error::Insufficient disk for the required swap plus Lean/Mathlib. Use a runner with at least 16 GB RAM."
+              exit 1
+            fi
+            sudo fallocate -l "${extra_gib}G" /hoggar-independent.swap
+            sudo chmod 600 /hoggar-independent.swap
+            sudo mkswap /hoggar-independent.swap
+            sudo swapon /hoggar-independent.swap
+          fi
+          free -h | tee -a results/independent-ci-lean-resources.log
+      - name: Install the pinned Lean environment
+        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
+        with:
+          lake-package-directory: lean
+          auto-config: false
+          # Explicit steps below perform every build and the verification.
+          # Fetch only required Mathlib imports to conserve runner disk space.
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Retrieve pinned Mathlib dependencies
+        working-directory: lean
+        run: |
+          lake exe cache get Mathlib.Analysis.Matrix.Spectrum \
+            Mathlib.Algebra.Order.Chebyshev Mathlib.Data.ZMod.Basic Mathlib.Tactic
+          git diff --exit-code -- lean-toolchain lake-manifest.json
+      - name: Build the original general proof
+        working-directory: lean
+        run: lake build HoggarBound 2>&1 | tee ../results/independent-ci-lean-core.log
+      - name: Build the exact context correspondence
+        working-directory: lean
+        run: lake build HoggarBound.IndependentContexts 2>&1 | tee ../results/independent-ci-lean-contexts.log
+      - name: Kernel-check the finite witness
+        working-directory: lean
+        run: /usr/bin/time -v lake build HoggarBound.IndependentWitness 2>&1 | tee ../results/independent-ci-lean-witness.log
+      - name: Check final statements and print axiom dependencies
+        working-directory: lean
+        run: lake env lean IndependentVerification.lean 2>&1 | tee ../results/independent-ci-lean-verification.log
+      - name: Enforce the standard axiom allowlist
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+          allowed = {"propext", "Classical.choice", "Quot.sound"}
+          source = pathlib.Path("lean/IndependentVerification.lean").read_text(encoding="utf-8")
+          expected = set(re.findall(r"#print axioms\s+(\S+)", source))
+          assert len(expected) >= 22, "The audited declaration list was unexpectedly shortened"
+          log = pathlib.Path("results/independent-ci-lean-verification.log").read_text(encoding="utf-8")
+          found = dict(re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", log))
+          assert expected <= found.keys(), f"Missing axiom reports: {expected - found.keys()}"
+          for name in sorted(expected):
+              actual = {a.strip() for a in found[name].split(",") if a.strip()}
+              assert actual <= allowed, f"Unexpected axioms in {name}: {actual - allowed}"
+          print(f"Passed: all {len(expected)} audited declarations use only standard axioms")
+          PY
+      - name: Preserve Lean proof evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: independent-lean-evidence
+          path: results/independent-ci-lean-*.log
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,28 @@
+;; Independent exact-integer check of rounding in the third-moment bound.
+;; Assumes the theorem (proved in Lean); this checks numerical corollaries only.
+;; For every row, b = L - 2*d is feasible, while b+2 is not.
+(define (cube x) (* x x x))
+(define (lhs n b) (* 36 (- n 1) b b))
+(define (rhs n m) (* (- n 2) (- n 2) (cube m)))
+(define (check-row n m lines d)
+  (let ((b (- lines (* 2 d))))
+    (and (<= (lhs n b) (rhs n m))
+         (> (lhs n (+ b 2)) (rhs n m)))))
+(define full3 (check-row 8 63 315 63))
+(define full4 (check-row 16 255 5355 1451))
+(define full5 (check-row 32 1023 86955 28786))
+(define real4 (check-row 16 135 1575 315))
+(define real5 (check-row 32 527 23715 6426))
+;; Exact cubic equality for the Hoggar assignment, A spectrum (21,-3,...,-3).
+(define trace-square (+ (* 21 21) (* 7 9)))
+(define trace-cube (+ (cube 21) (* 7 (cube -3))))
+(define hoggar (and (= trace-square (* 8 63))
+                    (= trace-cube (* 6 8 (- 315 (* 2 63))))))
+(define all-pass (and full3 full4 full5 real4 real5 hoggar))
+(display "{\"full3\":") (display (if full3 "true" "false"))
+(display ",\"full4\":") (display (if full4 "true" "false"))
+(display ",\"full5\":") (display (if full5 "true" "false"))
+(display ",\"real4\":") (display (if real4 "true" "false"))
+(display ",\"real5\":") (display (if real5 "true" "false"))
+(display ",\"hoggar_spectral_identity\":") (display (if hoggar "true" "false"))
+(display ",\"pass\":") (display (if all-pass "true" "false")) (display "}") (newline)

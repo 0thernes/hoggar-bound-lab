@@ -1,0 +1,25 @@
+go: github.com/rhysd/actionlint@v1.7.12 requires go >= 1.25.0; switching to go1.26.10
+Updated workflow actionlint: PASS
+third_party/quantum_rng/src/quantum_rng/quantum_rng.c: In function ‘get_system_entropy’:
+third_party/quantum_rng/src/quantum_rng/quantum_rng.c:99:18: warning: unused variable ‘aux’ [-Wunused-variable]
+   99 |     unsigned int aux;
+      |                  ^~~
+third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c: In function ‘diffgeo_compute_bures_metric’:
+third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c:3023:24: warning: unused variable ‘idx_jk’ [-Wunused-variable]
+ 3023 |                 size_t idx_jk = j / dim == k ? j % dim : 0;
+      |                        ^~~~~~
+third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c:3022:24: warning: unused variable ‘idx_ik’ [-Wunused-variable]
+ 3022 |                 size_t idx_ik = i / dim == k ? i % dim : 0;
+      |                        ^~~~~~
+third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c: At top level:
+third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c:3538:22: warning: ‘complex_sqrt_scalar’ defined but not used [-Wunused-function]
+ 3538 | static ComplexDouble complex_sqrt_scalar(ComplexDouble z) {
+      |                      ^~~~~~~~~~~~~~~~~~~
+third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c:3431:13: warning: ‘solve_lyapunov_equation’ defined but not used [-Wunused-function]
+ 3431 | static bool solve_lyapunov_equation(const ComplexDouble* A, const ComplexDouble* C,
+      |             ^~~~~~~~~~~~~~~~~~~~~~~
+third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c:3284:13: warning: ‘complex_matrix_multiply’ defined but not used [-Wunused-function]
+ 3284 | static void complex_matrix_multiply(const ComplexDouble* A, const ComplexDouble* B,
+      |             ^~~~~~~~~~~~~~~~~~~~~~~
+PASS: 95 trusted-witness, malformed-input, and CLI regression cases
+Linux regression exit: 0. Windows report restored; Linux report preserved separately on success.

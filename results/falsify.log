@@ -1,0 +1,34 @@
+$ hoggar exhaust2
+N=2 type=f points=15 lines=15 bound_degree>=2 histogram(violated:count): 3:640 4:1920 5:2304 6:3840 7:7680 8:7680 9:3840 10:2304 11:1920 12:640
+N=2 type=h points=9 lines=6 bound_degree>=1 histogram(violated:count): 1:96 3:320 5:96
+$ hoggar falsify 2 f 11 20000 0
+N=2 type=f lines=15 lower_bound=2 trials=20000 mean_random=7.50 min_random=3 min_optimised=-1 counterexamples=0
+$ hoggar falsify 2 h 11 20000 0
+N=2 type=h lines=6 lower_bound=1 trials=20000 mean_random=3.01 min_random=1 min_optimised=-1 counterexamples=0
+$ hoggar falsify 3 f 13 20000 0
+N=3 type=f lines=315 lower_bound=63 trials=20000 mean_random=157.56 min_random=117 min_optimised=-1 counterexamples=0
+$ hoggar falsify 3 f 14 1500 20000
+N=3 type=f lines=315 lower_bound=63 trials=1500 mean_random=157.49 min_random=127 min_optimised=63 counterexamples=0
+$ hoggar falsify 3 h 13 20000 0
+N=3 type=h lines=105 lower_bound=14 trials=20000 mean_random=52.54 min_random=29 min_optimised=-1 counterexamples=0
+$ hoggar falsify 3 h 14 1500 20000
+N=3 type=h lines=105 lower_bound=14 trials=1500 mean_random=52.57 min_random=36 min_optimised=21 counterexamples=0
+$ hoggar falsify 3 e 13 20000 0
+N=3 type=e lines=45 lower_bound=9 trials=20000 mean_random=22.51 min_random=12 min_optimised=-1 counterexamples=0
+$ hoggar falsify 3 e 14 1500 20000
+N=3 type=e lines=45 lower_bound=9 trials=1500 mean_random=22.57 min_random=14 min_optimised=9 counterexamples=0
+$ hoggar falsify 4 f 17 5000 0
+N=4 type=f lines=5355 lower_bound=1451 trials=5000 mean_random=2678.31 min_random=2541 min_optimised=-1 counterexamples=0
+$ hoggar falsify 4 f 18 200 300000
+N=4 type=f lines=5355 lower_bound=1451 trials=200 mean_random=2675.76 min_random=2583 min_optimised=1575 counterexamples=0
+$ hoggar falsify 4 h 17 5000 0
+N=4 type=h lines=1575 lower_bound=315 trials=5000 mean_random=787.74 min_random=718 min_optimised=-1 counterexamples=0
+$ hoggar falsify 4 h 18 200 300000
+N=4 type=h lines=1575 lower_bound=315 trials=200 mean_random=785.61 min_random=719 min_optimised=315 counterexamples=0
+$ hoggar falsify 4 e 17 5000 0
+N=4 type=e lines=1071 lower_bound=291 trials=5000 mean_random=535.51 min_random=471 min_optimised=-1 counterexamples=0
+$ hoggar falsify 4 e 18 200 300000
+N=4 type=e lines=1071 lower_bound=291 trials=200 mean_random=535.92 min_random=485 min_optimised=315 counterexamples=0
+$ hoggar falsify 5 f 19 500 0
+N=5 type=f lines=86955 lower_bound=28786 trials=500 mean_random=43477.77 min_random=43029 min_optimised=-1 counterexamples=0
+$ hoggar falsify 5 f 20 12 4000000

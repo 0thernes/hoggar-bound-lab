@@ -1,0 +1,38 @@
+src\hoggar.c: In function 'print_row':
+src\hoggar.c:284:36: warning: format '%Lf' expects argument of type 'long double', but argument 7 has type 'double' [-Wformat=]
+  284 |     printf("%d %c %u %llu %llu %.6Lf %lld %lld %.6Lf\n", g->N, g->type, g->npts,
+      |                                ~~~~^
+      |                                    |
+      |                                    long double
+      |                                %.6f
+  285 |            (unsigned long long)g->nlines, (unsigned long long)g->nneg, (double)B, (long long)b, (long long)dlow,
+      |                                                                        ~~~~~~~~~
+      |                                                                        |
+      |                                                                        double
+src\hoggar.c:284:52: warning: format '%Lf' expects argument of type 'long double', but argument 10 has type 'double' [-Wformat=]
+  284 |     printf("%d %c %u %llu %llu %.6Lf %lld %lld %.6Lf\n", g->N, g->type, g->npts,
+      |                                                ~~~~^
+      |                                                    |
+      |                                                    long double
+      |                                                %.6f
+  285 |            (unsigned long long)g->nlines, (unsigned long long)g->nneg, (double)B, (long long)b, (long long)dlow,
+  286 |            g->nlines ? (double)dlow / (double)g->nlines : 0.0);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                         |
+      |                                                         double
+src\hoggar.c: In function 'cmd_verify':
+src\hoggar.c:308:128: warning: format '%Lf' expects argument of type 'long double', but argument 10 has type 'double' [-Wformat=]
+  308 |     printf("N=%d type=%c points=%u lines=%llu violated=%lld (independent recount %lld) beta=%lld bound_int=%lld bound_real=%.6Lf\n",
+      |                                                                                                                            ~~~~^
+      |                                                                                                                                |
+      |                                                                                                                                long double
+      |                                                                                                                            %.6f
+  309 |            N, type, g->npts, (unsigned long long)g->nlines, (long long)a->viol, (long long)v2,
+  310 |            (long long)((int64_t)g->nlines - 2 * a->viol), (long long)b, (double)B);
+      |                                                                         ~~~~~~~~~                                               
+      |                                                                         |
+      |                                                                         double
+third_party\quantum_rng\src\quantum_rng\quantum_rng.c: In function 'get_system_entropy':
+third_party\quantum_rng\src\quantum_rng\quantum_rng.c:99:18: warning: unused variable 'aux' [-Wunused-variable]
+   99 |     unsigned int aux;
+      |                  ^~~

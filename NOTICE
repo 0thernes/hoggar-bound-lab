@@ -1,0 +1,19 @@
+Third-party components vendored in this repository
+
+third_party/moonlab/        Moonlab quantum simulator, prebuilt WebAssembly engine and loader (v1.2.1)
+                            Copyright (c) 2024-2026 tsotchke. MIT licence (third_party/moonlab/LICENSE).
+                            https://github.com/tsotchke/moonlab
+
+third_party/quantum_rng/    quantum_rng, legacy seeded generator (quantum_rng.c, quantum_rng.h, secure_memory.h)
+                            Copyright (c) 2024 Tsotchke. MIT licence (third_party/quantum_rng/LICENSE).
+                            https://github.com/tsotchke/quantum_rng
+
+third_party/qgtl/           quantum_geometric_tensor (QGTL), one translation unit and its header
+                            (differential_geometry.c / .h). Copyright (c) 2024 Tsotchke. MIT licence
+                            (third_party/qgtl/LICENSE). https://github.com/tsotchke/quantum_geometric_tensor
+                            third_party/qgtl/stub/cblas.h is an empty stand-in written for this project.
+
+The files are unmodified copies; commits and hashes are recorded in the PROVENANCE.md file of each
+directory. "Derived from" these projects, not endorsed by their authors.
+
+The Lean development depends on Mathlib (Apache 2.0), fetched by Lake and not vendored.

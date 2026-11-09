@@ -1,0 +1,97 @@
+{
+  "platform": "Windows-10-10.0.29704-SP0",
+  "python": "3.9.13",
+  "numpy": "2.0.2",
+  "gcc": "gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r2) 16.1.0",
+  "node": "v25.8.2",
+  "qgtl": {
+    "status": "pass",
+    "kernels": [
+      "diffgeo_compute_fubini_study",
+      "diffgeo_compute_berry_curvature"
+    ],
+    "dimension": 8,
+    "parameters": 63,
+    "metric_diagonal": 0.22222222222222227,
+    "metric_rank_tolerance_1e_10": 14,
+    "metric_nonzero_eigenvalues": [
+      0.9999999999999998,
+      0.9999999999999999,
+      0.9999999999999999,
+      0.9999999999999999,
+      1.0,
+      1.0000000000000002,
+      1.0000000000000002,
+      1.0000000000000002,
+      1.0000000000000004,
+      1.0000000000000004,
+      1.0000000000000004,
+      1.0000000000000007,
+      1.0000000000000007,
+      1.0000000000000009
+    ],
+    "max_metric_reference_error": 1.3877787807814457e-17,
+    "max_curvature_reference_error": 5.551115123125783e-17,
+    "hoggar_pair_categories": {
+      "anticommuting": 1008,
+      "commuting_satisfied": 756,
+      "commuting_violated": 189
+    },
+    "metric_context_mismatches": 0,
+    "max_phase_gauge_error": 3.497202527569243e-15,
+    "random_cases": 20,
+    "max_random_reference_error": 7.105427357601002e-15,
+    "berry_curvature_convention": "F_ij = -2 Im Q_ij",
+    "scope": "Normalized pure-state derivative kernels only; no distributed/GPU or full-library validation",
+    "binary_sha256": "07b17af5c97a6da77049bb9be945af16a5ba9637a102b9081dd0798bb848308f",
+    "build_command": [
+      "gcc",
+      "-O2",
+      "-std=gnu11",
+      "-shared",
+      "-fPIC",
+      "-Ithird_party/qgtl/include",
+      "-Ithird_party/qgtl/stub",
+      "third_party/qgtl/src/quantum_geometric/distributed/differential_geometry.c",
+      "-o",
+      "Z:\\[Vibe Coded (AI)]\\CLAUDECODE\\Hoggar Bound Lab\\build\\stack_diffgeo.dll",
+      "-lm"
+    ]
+  },
+  "qrng": {
+    "status": "pass",
+    "classification": "Classical quantum-inspired software mixer",
+    "seed": 20261109,
+    "bytes": 4096,
+    "same_build_reproducible": true,
+    "different_seed_differs": true,
+    "stream_sha256": "fe1bd36a75fe8bdc1562d524dcba7865d79251d97737c78bb24df5c3293b3e05",
+    "binary_sha256": "0f00fc02806c1cbe904b6febbe9ab9f578f3ee238806cb73903d404fc2133f4d",
+    "scope": "No hardware entropy or statistical/cryptographic certification"
+  },
+  "eshkol": {
+    "status": "pass",
+    "version": "Eshkol Compiler v1.3.6-evolve",
+    "checks": {
+      "full3": true,
+      "full4": true,
+      "full5": true,
+      "real4": true,
+      "real5": true,
+      "hoggar_spectral_identity": true,
+      "pass": true
+    },
+    "executable_sha256": "4c71b6a06f7df77cc1dda983a963e0c035e39873247b0f1c667e5a1a811df681",
+    "scope": "Integer rounding certificates and Hoggar spectral moment equality"
+  },
+  "moonlab": {
+    "status": "pass",
+    "classification": "Classical state-vector simulation",
+    "mode": "Executed unchanged source snapshot in build/stack_moonlab_run",
+    "ideal_context_trials": 17055,
+    "result_sha256": "28355d7665a1dd3baec9d6b81d869664559f48411b5ed6f1ca1e88369b66df97",
+    "runner_sha256": "b0e8fcc69a583554d4fe178a2e17a462ec1ea99c4138e977dba22ff3fc8a8f14",
+    "wasm_sha256": "96eadbd927e77dbb6d2d6155c43f6440a8030a226b91c5b17d90ff890cfd0950",
+    "scope": "Simulation cannot establish physical contextuality or hardware quantum advantage; noisy-run sigma labels are not audited as statistical claims"
+  }
+}

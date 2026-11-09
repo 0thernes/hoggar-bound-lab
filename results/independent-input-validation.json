@@ -1,0 +1,391 @@
+{
+  "status": "pass",
+  "cases": 95,
+  "results": [
+    {
+      "case": "trusted n3_f_hoggar_moonlab.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted n4_e.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted n4_f.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted n4_h.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted n4_h_hoggar_moonlab.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted n5_e.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted n5_f.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted n5_h.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted n6_h.txt",
+      "exit_code": 0
+    },
+    {
+      "case": "trusted QGTL pair",
+      "exit_code": 0
+    },
+    {
+      "case": "hoggar empty",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt empty",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar missing hex",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt missing hex",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar wrong N",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt wrong N",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar negative N",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt negative N",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar overflow N",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt overflow N",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar unknown type",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt unknown type",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar long type",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt long type",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar quadric expansion",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt quadric expansion",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar negative count",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt negative count",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar overflow count",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt overflow count",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar impossible count",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt impossible count",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar count suffix",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt count suffix",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar NUL header",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt NUL header",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar invalid hex",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt invalid hex",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar punctuation hex",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt punctuation hex",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar NUL hex",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt NUL hex",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar short hex",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt short hex",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar long hex",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt long hex",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar megabyte hex",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt megabyte hex",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar internal whitespace",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt internal whitespace",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar trailing token",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt trailing token",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar trailing second hex",
+      "exit_code": 2
+    },
+    {
+      "case": "qgt trailing second hex",
+      "exit_code": 2
+    },
+    {
+      "case": "hoggar uppercase",
+      "exit_code": 0
+    },
+    {
+      "case": "qgt uppercase",
+      "exit_code": 0
+    },
+    {
+      "case": "hoggar whitespace",
+      "exit_code": 0
+    },
+    {
+      "case": "qgt whitespace",
+      "exit_code": 0
+    },
+    {
+      "case": "full-space restriction h",
+      "exit_code": 0
+    },
+    {
+      "case": "full-space search seed h",
+      "exit_code": 0
+    },
+    {
+      "case": "full-space restriction e",
+      "exit_code": 0
+    },
+    {
+      "case": "full-space search seed e",
+      "exit_code": 0
+    },
+    {
+      "case": "incompatible quadric",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid N -1",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid N 0",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid N 1",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid N 8",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid N 16",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid N 999999999999999999999",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid N x",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid N 4oops",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid type ''",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid type 'full'",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid type 'z'",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid table -1",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid table 8",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid table garbage",
+      "exit_code": 2
+    },
+    {
+      "case": "exhaust extra argument",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 3 -1",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 3 18446744073709551616",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 4 0",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 4 -1",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 4 2147483648",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 5 -1",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 6 nan",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 6 inf",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 6 0",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 7 -0.5",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid search 7 0.2oops",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid trials 0",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid trials -1",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid trials 1oops",
+      "exit_code": 2
+    },
+    {
+      "case": "invalid claim",
+      "exit_code": 2
+    },
+    {
+      "case": "QGT extra arguments",
+      "exit_code": 2
+    },
+    {
+      "case": "zero-step search remains valid",
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "src\\hoggar.c": "a17daee474a37b5fa732f8228ea2d0ff460397db3e7ef9bac094c7d364079536",
+    "src\\qgt_hoggar.c": "b016de4ed50b6a07c01596f92b471c8e6481c6c1e666d1d7ccc0ff07fd38b91a",
+    "src\\witness_io.h": "418017b1f493ec4649eda70f26a0cdc4ad9b4c239e737ab42d18bbe81adb8657"
+  }
+}

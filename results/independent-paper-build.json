@@ -1,0 +1,14 @@
+{
+  "pandoc": "pandoc 3.13",
+  "tectonic": "Tectonic 0.17.0",
+  "source_sha256": "63bb9788d4bde0e86faa18c93af96fdd126f438efb09004363bf8906d002e2e9",
+  "tex_sha256": "4d609122cf919f993e4cba2cd67f07473d3beb503e220daa1119b86f5e212c60",
+  "pdf_sha256": "05d11c8f312f8ea80cca8360426cbc11d85a2aa590ef2f7f589d4b921078ab9d",
+  "pdf_bytes": 89594,
+  "pandoc_binary_sha256": "7ab6244548ba15494fab956230050516fe8f57c36ec2dfb50133719ad3b5a791",
+  "tectonic_binary_sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+  "trusted_content": "Local independent research note; TeX insecure features disabled",
+  "source_lf_sha256": "caa163118c4084dad2d199402c1bf439b19d854920e13d7ea2dbc91ce80735d0",
+  "tex_lf_sha256": "0354a19ea318132b1dc71cf19d5e844dfd116c59457eeede1ba3164c22007839",
+  "text_hash_normalization": "Raw hashes describe local bytes; LF hashes replace CRLF with LF to match Git text normalization."
+}

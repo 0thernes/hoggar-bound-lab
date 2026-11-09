@@ -1,0 +1,111 @@
+note: Running TeX ...
+(independent-research-note.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24> (article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(size11.cloFontconfig error: Cannot load default config file: No such file: (null)
+)) (geometry.sty (keyval.sty) (ifvtex.sty (iftex.sty)))
+(fontspec.sty (xparse.sty (expl3.sty (l3backend-xetex.def)))
+(fontspec-xetex.sty (fontenc.sty) (fontspec.cfg))) (amsmath.sty
+For additional information on amsmath, use the `?' option.
+(amstext.sty (amsgen.sty)) (amsbsy.sty) (amsopn.sty)) (amssymb.sty
+(amsfonts.sty)) (unicode-math.sty (unicode-math-xetex.sty (l3keys2e.sty)
+(fix-cm.sty (ts1enc.def)) (unicode-math-table.tex))) (microtype.sty
+(etoolbox.sty) (microtype-xetex.def) (microtype.cfg)) (graphicx.sty
+(graphics.sty (trig.sty) (graphics.cfg) (xetex.def)))note: downloading float.sty
+ (float.sty) (caption.sty
+(caption3.sty)) (placeins.sty) (needspace.sty) (longtable.sty) (booktabs.sty)
+(array.sty) (calc.sty) (xcolor.sty (color.cfg)) (xurl.sty (url.sty))
+(hyperref.sty (ltxcmds.sty) (pdftexcmds.sty (infwarerr.sty)) (kvsetkeys.sty)
+(kvdefinekeys.sty) (pdfescape.sty) (hycolor.sty) (letltxmacro.sty) (auxhook.sty
+) (kvoptions.sty) (pd1enc.def) (intcalc.sty) (etexcmds.sty) (puenc.def)
+(bitset.sty (bigintcalc.sty)) (atbegshi-ltx.sty)) (hxetex.def (stringenc.sty)
+(rerunfilecheck.sty (atveryend-ltx.sty) (uniquecounter.sty))) (bookmark.sty
+(bkm-dvipdfm.def)) (fancyhdr.sty) (titlesec.sty)
+No file independent-research-note.aux.
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(ltcaption.sty) (nameref.sty (refcount.sty) (gettitlestring.sty))
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+(umsa.fd) (mt-msa.cfg) (umsb.fd) (mt-msb.cfg) [1] [2]
+warning: independent-research-note.tex:163: Underfull \hbox (badness 10000) in alignment at lines 149--163
+Underfull \hbox (badness 10000) in alignment at lines 149--163
+[] [] [] [] []
+
+warning: independent-research-note.tex:165: Underfull \hbox (badness 10000) in alignment at lines 163--165
+Underfull \hbox (badness 10000) in alignment at lines 163--165
+[] [] [] [] []
+
+warning: independent-research-note.tex:171: Underfull \hbox (badness 10000) in alignment at lines 165--171
+Underfull \hbox (badness 10000) in alignment at lines 165--171
+[] [] [] [] []
+[3] [4] [5] [6]
+warning: independent-research-note.tex:272: Underfull \hbox (badness 4531) in paragraph at lines 270--272
+Underfull \hbox (badness 4531) in paragraph at lines 270--272
+[]\TU/texgyrepagella(0)/m/n/10.95 A. Muller and M. Saniga. \TU/texgyrepagella(0
+)/m/it/10.95 Automated search for highly contextual Kochen-Specker proofs\TU/te
+xgyrepagella(0)/m/n/10.95 .
+[7] (independent-research-note.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)
+Output written on independent-research-note.xdv (7 pages, 223720 bytes).
+Transcript written on independent-research-note.log.
+note: Rerunning TeX because "independent-research-note.aux" changed ...
+(independent-research-note.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24> (article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(size11.clo)) (geometry.sty (keyval.sty) (ifvtex.sty (iftex.sty)))
+(fontspec.sty (xparse.sty (expl3.sty (l3backend-xetex.def)))
+(fontspec-xetex.sty (fontenc.sty) (fontspec.cfg))) (amsmath.sty
+For additional information on amsmath, use the `?' option.
+(amstext.sty (amsgen.sty)) (amsbsy.sty) (amsopn.sty)) (amssymb.sty
+(amsfonts.sty)) (unicode-math.sty (unicode-math-xetex.sty (l3keys2e.sty)
+(fix-cm.sty (ts1enc.def)) (unicode-math-table.tex))) (microtype.sty
+(etoolbox.sty) (microtype-xetex.def) (microtype.cfg)) (graphicx.sty
+(graphics.sty (trig.sty) (graphics.cfg) (xetex.def))) (float.sty) (caption.sty
+(caption3.sty)) (placeins.sty) (needspace.sty) (longtable.sty) (booktabs.sty)
+(array.sty) (calc.sty) (xcolor.sty (color.cfg)) (xurl.sty (url.sty))
+(hyperref.sty (ltxcmds.sty) (pdftexcmds.sty (infwarerr.sty)) (kvsetkeys.sty)
+(kvdefinekeys.sty) (pdfescape.sty) (hycolor.sty) (letltxmacro.sty) (auxhook.sty
+) (kvoptions.sty) (pd1enc.def) (intcalc.sty) (etexcmds.sty) (puenc.def)
+(bitset.sty (bigintcalc.sty)) (atbegshi-ltx.sty)) (hxetex.def (stringenc.sty)
+(rerunfilecheck.sty (atveryend-ltx.sty) (uniquecounter.sty))) (bookmark.sty
+(bkm-dvipdfm.def)) (fancyhdr.sty) (titlesec.sty) (independent-research-note.aux
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(ltcaption.sty) (nameref.sty (refcount.sty) (gettitlestring.sty)) (umsa.fd)
+(mt-msa.cfg) (umsb.fd) (mt-msb.cfg) [1] [2]
+warning: independent-research-note.tex:163: Underfull \hbox (badness 10000) in alignment at lines 149--163
+Underfull \hbox (badness 10000) in alignment at lines 149--163
+[] [] [] [] []
+
+warning: independent-research-note.tex:165: Underfull \hbox (badness 10000) in alignment at lines 163--165
+Underfull \hbox (badness 10000) in alignment at lines 163--165
+[] [] [] [] []
+
+warning: independent-research-note.tex:171: Underfull \hbox (badness 10000) in alignment at lines 165--171
+Underfull \hbox (badness 10000) in alignment at lines 165--171
+[] [] [] [] []
+[3] [4] [5] [6]
+warning: independent-research-note.tex:272: Underfull \hbox (badness 4531) in paragraph at lines 270--272
+Underfull \hbox (badness 4531) in paragraph at lines 270--272
+[]\TU/texgyrepagella(0)/m/n/10.95 A. Muller and M. Saniga. \TU/texgyrepagella(0
+)/m/it/10.95 Automated search for highly contextual Kochen-Specker proofs\TU/te
+xgyrepagella(0)/m/n/10.95 .
+[7] (independent-research-note.aux) )
+(see the transcript file for additional information)
+Output written on independent-research-note.xdv (7 pages, 223720 bytes).
+Transcript written on independent-research-note.log.
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+[1][2][3][4][5][6][7]89594 bytes written
+note: Writing `C:\Users\Alexa\AppData\Local\Temp\hoggar-independent-paper-_2qgtxp4\independent-research-note.pdf` (87.494140625 KiB)
+note: Writing `C:\Users\Alexa\AppData\Local\Temp\hoggar-independent-paper-_2qgtxp4\independent-research-note.log` (32.0625 KiB)
+note: Skipped writing 1 intermediate files (use --keep-intermediates to keep them)

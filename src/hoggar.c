@@ -20,7 +20,9 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
+#include <limits.h>
 #include "quantum_rng.h"
+#include "witness_io.h"
 
 typedef unsigned __int128 u128;
 
@@ -218,22 +220,7 @@ static void asg_write(const geo_t *g, const int8_t *f, int64_t viol, const char 
 }
 
 static void asg_read(const geo_t *g, int8_t *f, const char *path) {
-    FILE *fp = fopen(path, "r");
-    if (!fp) { perror(path); exit(2); }
-    int N; char type; long long v0;
-    if (fscanf(fp, "%d %c %lld", &N, &type, &v0) != 3 || N != g->N) { fprintf(stderr, "bad header in %s\n", path); exit(2); }
-    size_t len = g->n / 4;
-    char *hex = (char *)malloc(len + 16);
-    if (fscanf(fp, "%s", hex) != 1 || strlen(hex) != len) { fprintf(stderr, "bad hex length in %s\n", path); exit(2); }
-    memset(f, 1, g->n);
-    for (size_t k = 0; k < len; k++) {
-        char ch = hex[k];
-        unsigned x = (ch >= '0' && ch <= '9') ? (unsigned)(ch - '0') : (unsigned)(ch - 'a' + 10);
-        size_t nib = len - 1 - k;
-        for (int b = 0; b < 4; b++) if (x & (1u << b)) f[nib * 4 + b] = -1;
-    }
-    free(hex);
-    fclose(fp);
+    if (!witness_read(path, g->N, g->type, f)) exit(2);
 }
 
 /* ------------------------------------------------------------------ randomness: Tsotchke quantum_rng */
@@ -281,7 +268,7 @@ static void print_row(const geo_t *g) {
     int64_t b = beta_bound_int(g->npts, g->nlines, n, &B);
     int64_t dlow = ((int64_t)g->nlines - b) / 2;
     if (dlow < 0) dlow = 0;
-    printf("%d %c %u %llu %llu %.6Lf %lld %lld %.6Lf\n", g->N, g->type, g->npts,
+    printf("%d %c %u %llu %llu %.6f %lld %lld %.6f\n", g->N, g->type, g->npts,
            (unsigned long long)g->nlines, (unsigned long long)g->nneg, (double)B, (long long)b, (long long)dlow,
            g->nlines ? (double)dlow / (double)g->nlines : 0.0);
 }
@@ -298,14 +285,14 @@ static int cmd_table(int Nmax) {
     return 0;
 }
 
-static int cmd_verify(int N, char type, const char *path) {
+static int cmd_verify(int N, char type, const char *path, long long claim) {
     geo_t *g = geo_new(N, type, 1);
     asg_t *a = asg_new(g);
     asg_read(g, a->f, path);
     asg_recount(a);
     int64_t v2 = viol_from_scratch(g, a->f);
     long double B; int64_t b = beta_bound_int(g->npts, g->nlines, n_eff(g), &B);
-    printf("N=%d type=%c points=%u lines=%llu violated=%lld (independent recount %lld) beta=%lld bound_int=%lld bound_real=%.6Lf\n",
+    printf("N=%d type=%c points=%u lines=%llu violated=%lld (independent recount %lld) beta=%lld bound_int=%lld bound_real=%.6f\n",
            N, type, g->npts, (unsigned long long)g->nlines, (long long)a->viol, (long long)v2,
            (long long)((int64_t)g->nlines - 2 * a->viol), (long long)b, (double)B);
     /* per-point number of violated lines */
@@ -321,6 +308,11 @@ static int cmd_verify(int N, char type, const char *path) {
     printf("\n");
     if (a->viol != v2) { printf("MISMATCH between incremental and from-scratch counts\n"); return 1; }
     if ((int64_t)g->nlines - 2 * a->viol > b) { printf("THEOREM FALSIFIED: beta exceeds the bound\n"); return 3; }
+    if (claim >= 0 && a->viol < claim) {
+        printf("CLAIM REFUTED: an assignment with %lld violated contexts exists, below the claimed minimum %lld\n",
+               (long long)a->viol, claim);
+        return 3;
+    }
     return 0;
 }
 
@@ -419,24 +411,61 @@ static void usage(void) {
         "  hoggar table <Nmax>\n"
         "  hoggar exhaust2\n"
         "  hoggar lines <N> <f|h|e>\n"
-        "  hoggar verify <N> <f|h|e> <assignment-file>\n"
+        "  hoggar verify <N> <f|h|e> <assignment-file> [claimed-minimum]   (exit 3 if the file beats the claim)\n"
         "  hoggar search <N> <f|h|e> <seed> <restarts> <steps> <T0> <T1> <start-file|-> <out-file|->\n"
-        "  hoggar falsify <N> <f|h|e> <seed> <trials> <anneal-steps-per-trial>\n");
+        "  hoggar falsify <N> <f|h|e> <seed> <trials> <anneal-steps-per-trial>\n"
+        "  supported N: 2..7; restarts/trials and finite temperatures must be positive\n"
+        "  a same-N full-space witness may be restricted to h/e\n");
+}
+
+static uint64_t cli_uint(const char *text, uint64_t minimum, uint64_t maximum) {
+    uint64_t value;
+    if (!witness_u64(text, &value) || value < minimum || value > maximum) {
+        fprintf(stderr, "invalid integer argument: %s\n", text);
+        exit(2);
+    }
+    return value;
+}
+
+static char cli_type(const char *text) {
+    if (!text[0] || text[1] || !strchr("fhe", text[0])) {
+        fprintf(stderr, "invalid geometry type: %s (expected f, h, or e)\n", text);
+        exit(2);
+    }
+    return text[0];
+}
+
+static double cli_temperature(const char *text) {
+    char *end;
+    errno = 0;
+    double value = strtod(text, &end);
+    if (end == text || *end || errno == ERANGE || !isfinite(value) || value <= 0) {
+        fprintf(stderr, "invalid positive finite temperature: %s\n", text);
+        exit(2);
+    }
+    return value;
 }
 
 int main(int argc, char **argv) {
     if (argc < 2) { usage(); return 2; }
-    if (!strcmp(argv[1], "table") && argc == 3) return cmd_table(atoi(argv[2]));
-    if (!strcmp(argv[1], "exhaust2")) return cmd_exhaust2();
-    if (!strcmp(argv[1], "lines") && argc == 4) return cmd_lines(atoi(argv[2]), argv[3][0]);
-    if (!strcmp(argv[1], "verify") && argc == 5) return cmd_verify(atoi(argv[2]), argv[3][0], argv[4]);
+    if (!strcmp(argv[1], "table") && argc == 3)
+        return cmd_table((int)cli_uint(argv[2], HOGGAR_MIN_N, HOGGAR_MAX_N));
+    if (!strcmp(argv[1], "exhaust2") && argc == 2) return cmd_exhaust2();
+    if (!strcmp(argv[1], "lines") && argc == 4)
+        return cmd_lines((int)cli_uint(argv[2], HOGGAR_MIN_N, HOGGAR_MAX_N), cli_type(argv[3]));
+    if (!strcmp(argv[1], "verify") && (argc == 5 || argc == 6))
+        return cmd_verify((int)cli_uint(argv[2], HOGGAR_MIN_N, HOGGAR_MAX_N), cli_type(argv[3]), argv[4],
+                          argc == 6 ? (long long)cli_uint(argv[5], 0, LLONG_MAX) : -1);
     if (!strcmp(argv[1], "search") && argc == 11)
-        return cmd_search(atoi(argv[2]), argv[3][0], strtoull(argv[4], 0, 10), atoi(argv[5]), strtoull(argv[6], 0, 10),
-                          atof(argv[7]), atof(argv[8]), strcmp(argv[9], "-") ? argv[9] : NULL,
+        return cmd_search((int)cli_uint(argv[2], HOGGAR_MIN_N, HOGGAR_MAX_N), cli_type(argv[3]),
+                          cli_uint(argv[4], 0, UINT64_MAX), (int)cli_uint(argv[5], 1, INT_MAX),
+                          cli_uint(argv[6], 0, UINT64_MAX), cli_temperature(argv[7]), cli_temperature(argv[8]),
+                          strcmp(argv[9], "-") ? argv[9] : NULL,
                           strcmp(argv[10], "-") ? argv[10] : NULL);
     if (!strcmp(argv[1], "falsify") && argc == 7)
-        return cmd_falsify(atoi(argv[2]), argv[3][0], strtoull(argv[4], 0, 10), strtoull(argv[5], 0, 10),
-                           strtoull(argv[6], 0, 10));
+        return cmd_falsify((int)cli_uint(argv[2], HOGGAR_MIN_N, HOGGAR_MAX_N), cli_type(argv[3]),
+                           cli_uint(argv[4], 0, UINT64_MAX), cli_uint(argv[5], 1, UINT64_MAX),
+                           cli_uint(argv[6], 0, UINT64_MAX));
     usage();
     return 2;
 }

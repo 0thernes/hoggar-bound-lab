@@ -1,5 +1,14 @@
 # Working notes (internal lab notebook)
 
+> **Read this first (added 2026-11-09, late).** This file is the historical working record of the session.
+> Its early sections were written before the literature audit and their novelty language is **superseded**:
+> the bound was first posted by B. W. Jonah on 21 Oct 2026 as the "spectral floor"
+> (doi:10.5281/zenodo.23538829), with its Kramers form, its saturation cases and the exact values
+> 315 / 1575 / 6975 (doi:10.5281/zenodo.23510634); the scalar inequality is Okumura's lemma (1974).
+> The authoritative statement of what this lab contributes is `paper/spectral-floor.md`, Section 1.
+> Lesson recorded: search Zenodo as well as arXiv before calling anything new.
+
+
 Started 2026-11-09. Everything here is a working record; the paper in `paper/` is the polished statement.
 
 ## The result in one paragraph
@@ -108,3 +117,13 @@ Toolchain: Lean v4.35.0 + Mathlib v4.35.0.
   Witness files in `data/witness/`.
 * TODO: Moonlab experiment, QGTL kernel run, Eshkol cross-check, Python structure analysis + figures, Lean witness (N=3)
   and Kramers refinement, falsification suite, paper, GitHub push + Pages.
+
+* 2026-11-09 (later) Prior art found (first by the independent literature audit in `results/literature-audit.md`, then
+  confirmed by reading Jonah's four Zenodo notes). Paper reframed: contribution = Lean 4 formalization for all N and
+  arbitrary S, formally verified corollaries, independent reproduction, stack demonstration.
+* Other agent sessions work concurrently in this folder (files prefixed `independent`, `tests/`, `.github/`,
+  `src/witness_io.h`, hardening edits to `src/hoggar.c` and `src/qgt_hoggar.c`). Do not revert their files.
+* Experiments done: Moonlab E0-E4, QGTL kernels (Proposition 3 values), Eshkol replication + AD, analysis.py (62 checks),
+  ladder.py (14 checks), falsification suite (20 runs, negative control). Six-qubit annealing was stopped early
+  (reached 135591 on Q+(11,2), above the published 132391).
+* Paper: `paper/spectral-floor.md` -> `scripts/build_paper.py` -> HTML (docs/index.html) + PDF.

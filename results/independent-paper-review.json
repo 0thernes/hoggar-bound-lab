@@ -1,0 +1,70 @@
+{
+  "pages": 7,
+  "pdf_sha256": "05d11c8f312f8ea80cca8360426cbc11d85a2aa590ef2f7f589d4b921078ab9d",
+  "page_checks": [
+    {
+      "page": 1,
+      "characters": 2587,
+      "links": 0,
+      "words_outside_safe_page_box": 0
+    },
+    {
+      "page": 2,
+      "characters": 1732,
+      "links": 0,
+      "words_outside_safe_page_box": 0
+    },
+    {
+      "page": 3,
+      "characters": 2540,
+      "links": 0,
+      "words_outside_safe_page_box": 0
+    },
+    {
+      "page": 4,
+      "characters": 2969,
+      "links": 0,
+      "words_outside_safe_page_box": 0
+    },
+    {
+      "page": 5,
+      "characters": 3723,
+      "links": 0,
+      "words_outside_safe_page_box": 0
+    },
+    {
+      "page": 6,
+      "characters": 4015,
+      "links": 0,
+      "words_outside_safe_page_box": 0
+    },
+    {
+      "page": 7,
+      "characters": 3066,
+      "links": 25,
+      "words_outside_safe_page_box": 0
+    }
+  ],
+  "expected_content_markers": {
+    "6426": true,
+    "4743": true,
+    "three_qubit_exact_minimum": true,
+    "23715": true,
+    "378": true,
+    "315": true,
+    "6975": true,
+    "Jonah": true
+  },
+  "primary_prior_art_links": {
+    "23538829": true,
+    "23524332": true,
+    "23518569": true
+  },
+  "layout_log_check": {
+    "overfull_boxes": 0,
+    "missing_characters": 0,
+    "remaining_warnings": "Underfull alignment/paragraph warnings only; visually checked"
+  },
+  "visual_review": "Passed: all seven rendered pages inspected after primary-source attribution update; equations, table, figure, bibliography and margins readable. Final figure-flow adjustment changed only page 4; that page was rendered and rechecked.",
+  "status": "passed"
+}

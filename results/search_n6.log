@@ -1,0 +1,10 @@
+N=6 type=h points=2079 lines=365211 neg=159376 lower-bound=120901
+  restart 0: start 182917 -> best 135591
+  restart 1: start 182871 -> best 138031
+  restart 2: start 182024 -> best 135591
+N=6 type=h best=135591 recount=135591 lower_bound=120901 lines=365211
+N=6 type=e points=2015 lines=332475 neg=146880 lower-bound=125624
+  restart 0: start 166308 -> best 135023
+  restart 1: start 166565 -> best 135303
+N=6 type=f points=4095 lines=1396395 neg=615888 lower-bound=527621
+run stopped by the operator after the hyperbolic case and one elliptic restart (to free the executable for a rebuild); values above are upper bounds reached by this short run

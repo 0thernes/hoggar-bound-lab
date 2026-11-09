@@ -1,0 +1,205 @@
+{
+  "checker": "literal tensor-product Pauli matrices",
+  "python": "3.9.13",
+  "numpy": "2.0.2",
+  "geometries": [
+    {
+      "qubits": 2,
+      "family": "f",
+      "points": 15,
+      "lines": 15,
+      "lower_bound": 2,
+      "formal_scope": "general cubic theorem"
+    },
+    {
+      "qubits": 2,
+      "family": "h",
+      "points": 9,
+      "lines": 6,
+      "lower_bound": 1,
+      "formal_scope": "general cubic theorem"
+    },
+    {
+      "qubits": 2,
+      "family": "e",
+      "points": 5,
+      "lines": 0,
+      "lower_bound": 0,
+      "formal_scope": "elliptic Kramers refinement not Lean-checked"
+    },
+    {
+      "qubits": 3,
+      "family": "f",
+      "points": 63,
+      "lines": 315,
+      "lower_bound": 63,
+      "formal_scope": "general cubic theorem"
+    },
+    {
+      "qubits": 3,
+      "family": "h",
+      "points": 35,
+      "lines": 105,
+      "lower_bound": 14,
+      "formal_scope": "general cubic theorem"
+    },
+    {
+      "qubits": 3,
+      "family": "e",
+      "points": 27,
+      "lines": 45,
+      "lower_bound": 9,
+      "formal_scope": "elliptic Kramers refinement not Lean-checked"
+    },
+    {
+      "qubits": 4,
+      "family": "f",
+      "points": 255,
+      "lines": 5355,
+      "lower_bound": 1451,
+      "formal_scope": "general cubic theorem"
+    },
+    {
+      "qubits": 4,
+      "family": "h",
+      "points": 135,
+      "lines": 1575,
+      "lower_bound": 315,
+      "formal_scope": "general cubic theorem"
+    },
+    {
+      "qubits": 4,
+      "family": "e",
+      "points": 119,
+      "lines": 1071,
+      "lower_bound": 291,
+      "formal_scope": "elliptic Kramers refinement not Lean-checked"
+    },
+    {
+      "qubits": 5,
+      "family": "f",
+      "points": 1023,
+      "lines": 86955,
+      "lower_bound": 28786,
+      "formal_scope": "general cubic theorem"
+    },
+    {
+      "qubits": 5,
+      "family": "h",
+      "points": 527,
+      "lines": 23715,
+      "lower_bound": 6426,
+      "formal_scope": "general cubic theorem"
+    },
+    {
+      "qubits": 5,
+      "family": "e",
+      "points": 495,
+      "lines": 19635,
+      "lower_bound": 6501,
+      "formal_scope": "elliptic Kramers refinement not Lean-checked"
+    }
+  ],
+  "witnesses": [
+    {
+      "file": "data/witness/n3_f_hoggar_moonlab.txt",
+      "sha256": "58500ccd0057282bdc1606021a57bdae1e78b8cbc9c875f24827b061bde97c5c",
+      "violations": 63,
+      "contexts": 315,
+      "verified": true
+    },
+    {
+      "file": "data/witness/n4_e.txt",
+      "sha256": "5d4ad8d070227b670ef19389c2319ddb537877f8e9faa17dbcbd94abac88d697",
+      "violations": 315,
+      "contexts": 1071,
+      "verified": true
+    },
+    {
+      "file": "data/witness/n4_f.txt",
+      "sha256": "6dcc115105220c85b3caaf6b86873bc9e894634c4f434531e72f9f59b1d75390",
+      "violations": 1575,
+      "contexts": 5355,
+      "verified": true
+    },
+    {
+      "file": "data/witness/n4_h.txt",
+      "sha256": "3787ece89522bcfeae638c79e947e9528722473851101ed10299ac54ee2fc41f",
+      "violations": 315,
+      "contexts": 1575,
+      "verified": true
+    },
+    {
+      "file": "data/witness/n4_h_hoggar_moonlab.txt",
+      "sha256": "325bea7edfe9edca5cc4e469920abfd3e496989a48fefe1a2406e643f52f17af",
+      "violations": 315,
+      "contexts": 1575,
+      "verified": true
+    },
+    {
+      "file": "data/witness/n5_e.txt",
+      "sha256": "dfcb400cf45b4488a16921a985b48abbb8f9dc44248bd1a85d4e1bf5dc82f894",
+      "violations": 7087,
+      "contexts": 19635,
+      "verified": true
+    },
+    {
+      "file": "data/witness/n5_f.txt",
+      "sha256": "b89ec1d9c64a22b9986e12725bb4b66cd9b808adefc2a16111c6001ef0704294",
+      "violations": 31479,
+      "contexts": 86955,
+      "verified": true
+    },
+    {
+      "file": "data/witness/n5_h.txt",
+      "sha256": "eb18ddde55b975b3772890f6fd35e54ab1634c67fb4562d1c6578f260476b0a3",
+      "violations": 6975,
+      "contexts": 23715,
+      "verified": true
+    }
+  ],
+  "checks": {
+    "all_C_contexts_match_independent_tensor_algebra": true,
+    "random_sparse_supports": 120,
+    "trace_identity_max_error": 0.0,
+    "sign_mutation_detected": true,
+    "candidate_4743_excluded_by_integer_bound": true
+  },
+  "hoggar": {
+    "norm_squared": 12,
+    "Pauli_numerator_modulus": 4,
+    "violations": 63,
+    "trace_A2": 504,
+    "trace_A3": 9072,
+    "spectrum": [
+      -3.0000000000000036,
+      -3.000000000000002,
+      -3.0000000000000004,
+      -3.0,
+      -2.9999999999999982,
+      -2.9999999999999982,
+      -2.999999999999998,
+      21.0
+    ],
+    "incidence_graph": {
+      "vertices": 126,
+      "edges": 189,
+      "regular_degree": [
+        3
+      ],
+      "diameter": 6,
+      "girth": 12
+    }
+  },
+  "realified_hoggar": {
+    "points": 135,
+    "contexts": 1575,
+    "violations": 315,
+    "expectation_modulus": "1/3"
+  },
+  "source_sha256": {
+    "src/hoggar.c": "a17daee474a37b5fa732f8228ea2d0ff460397db3e7ef9bac094c7d364079536",
+    "tests/independent_validation.py": "07e785e5137c513b7a642b7144b8d6e978993c251269e016d5b90f0dd50a47df"
+  },
+  "status": "passed"
+}

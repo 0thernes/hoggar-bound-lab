@@ -1,0 +1,18 @@
+Hoggar fiducial (C^8), all 63 Pauli flows: N=3, 63 Pauli directions, state dimension 8
+  diagonal metric g_vv = 2/9                      max deviation 5.55e-17
+  anticommuting pairs  :   1008  |g| = 1/36         max deviation 2.43e-17 ; |F| = 1/6 max deviation 8.33e-17
+  commuting, satisfied :    756  |g| = 1/18         max deviation 2.78e-17
+  commuting, violated  :    189  |g| = 1/9          max deviation 5.55e-17
+  Berry curvature on commuting pairs = 0          max |F| 1.85e-17
+  pairs where (|g| > 1/12) disagrees with (context violated): 0
+  violated contexts recovered from the metric: 63 (each context = 3 pairs)
+  PASS
+Realified Hoggar (R^16), the 135 real Pauli flows (real state: Berry curvature vanishes): N=4, 135 Pauli directions, state dimension 16
+  diagonal metric g_vv = 2/9                      max deviation 5.55e-17
+  anticommuting pairs  :   4320  |g| = 1/36         max deviation 2.43e-17 ; |F| = 0 max deviation 0.00e+00
+  commuting, satisfied :   3780  |g| = 1/18         max deviation 2.78e-17
+  commuting, violated  :    945  |g| = 1/9          max deviation 5.55e-17
+  Berry curvature on commuting pairs = 0          max |F| 0.00e+00
+  pairs where (|g| > 1/12) disagrees with (context violated): 0
+  violated contexts recovered from the metric: 315 (each context = 3 pairs)
+  PASS

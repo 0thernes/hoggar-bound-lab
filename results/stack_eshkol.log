@@ -1,0 +1,5 @@
+{"full3":true,"full4":true,"full5":true,"real4":true,"real5":true,"hoggar_spectral_identity":true,"pass":true}
+[1m[31m     ERROR:[0m Generated Windows links require the compiler-rt builtins archive from the selected C++ driver 'clang++.exe', but no LLVM 21 clang_rt.builtins-{x86_64|aarch64}.lib was found. Set ESHKOL_CXX_COMPILER or LLVM_HOME to a complete matching LLVM toolchain.
+[REPL] Discovered 784 functions, 962 globals, 23 variadic entries from stdlib.bc
+[REPL] Loaded stdlib from cached object: Z:\Tools\eshkol\eshkol-v1.3.6-evolve-windows-x64-cuda\lib\stdlib-jit-v4-91D3D0DDCFD41769-x86_64-pc-windows-msvc-abi1h8s0a8.o
+[REPL] Warning: module defines __eshkol_init_parallel_workers but the symbol could not be resolved after JIT add.

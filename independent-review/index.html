@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hoggar Bound Lab · independent explorer</title>
+<meta name="description" content="An interactive, independently checked explorer of Pauli contextuality with Lean 4 lower bounds and reproducible witnesses.">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="brand" href="./">H<span>◈</span>GGAR / BOUND LAB</a><span class="edition">INDEPENDENT VERIFICATION · 09 NOV 2026</span></header>
+<main>
+  <section class="intro"><p class="eyebrow">QUANTUM CONSTRAINTS. CLASSICAL LIMITS. CHECKABLE PROOFS.</p>
+    <h1>A geometry that<br><em>refuses agreement.</em></h1>
+    <p class="dek">Give every Pauli observable a fixed +1 or −1. Each commuting triple demands a particular product. No assignment can satisfy them all. Change the signs and explore the obstruction.</p>
+    <div class="status"><span>● Lean 4 lower bounds</span><span>● Independent matrix checks</span><span>● Exportable witnesses</span></div>
+  </section>
+  <section class="lab" aria-label="Interactive contextuality explorer">
+    <div class="toolbar"><label for="profile">EXPERIMENT<select id="profile"></select></label><div class="buttons"><button id="reset">Restore witness</button><button id="random">Random signs</button><button id="greedy">Improve signs</button><button id="export">Export witness ↗</button></div></div>
+    <div class="metrics" aria-live="polite"><div><span>YOUR VIOLATIONS</span><strong id="violations">63</strong><small id="context-count">of 315 contexts</small></div><div><span>PROVEN LOWER BOUND</span><strong id="floor">63</strong><small>holds for every assignment</small></div><div><span>STORED WITNESS</span><strong id="witness">63</strong><small id="gap">meets the bound exactly</small></div><div><span>CLASSICAL SUCCESS</span><strong id="success">80.0%</strong><small>ideal quantum prediction: 100%</small></div></div>
+    <div class="visual-grid"><div class="graph-wrap"><canvas id="graph" aria-label="Pauli observables and violated commuting contexts"></canvas><div class="graph-caption"><span><i class="dot mint"></i> +1 <i class="dot coral"></i> −1</span><span id="draw-count"></span></div><p id="graph-hint">Click a point to flip its sign. Use the observable buttons below for keyboard access.</p></div>
+      <aside><p class="eyebrow">THE OBSTRUCTION</p><h2 id="result-title">The bound is saturated.</h2><p id="result-copy"></p><div class="formula">A = Σ f(v) Pᵥ<br>tr(A³) = 6D · (L − 2d)</div><p>One spectrum encodes the aggregate score of every context. A classical cubic-moment inequality limits that score.</p><div class="proof-card"><span>LEAN THEOREM</span><code id="theorem"></code><a href="../paper/independent-research-note.pdf">Read the research paper (PDF) ↗</a><a href="../results/lean-audit.md">Read the formal audit ↗</a></div><p class="small">The simulator is classical software. This explorer does not demonstrate a physical experiment or quantum speedup.</p></aside></div>
+    <details class="observables"><summary>Change individual observables <span id="point-count"></span></summary><div id="point-buttons"></div></details>
+    <details class="context-list"><summary>Inspect violated contexts</summary><p>Each row shows three jointly measurable observables, their required operator-product sign, and the product of your assigned signs. Showing the first 12 violated contexts.</p><table><thead><tr><th>Context</th><th>Required</th><th>Your product</th></tr></thead><tbody id="context-rows"></tbody></table></details>
+    <p id="action-status" role="status">Ready. The stored assignment is independently verified.</p>
+  </section>
+  <section class="evidence"><div><p class="eyebrow">WHAT HAS BEEN CHECKED</p><h2>A claim needs more<br>than a convincing picture.</h2><p>The independent checker builds literal tensor products of the four 2 × 2 Pauli matrices. It agrees with the C engine on <b>138,792 contexts across 12 geometries</b>, verifies eight witnesses, and tests the cubic trace identity on 120 random subsets.</p><a href="../results/independent_validation.json">Inspect the machine-readable evidence ↗</a></div><div class="evidence-list"><article><b>01 / Formal mathematics</b><p>Lean checks universal lower bounds in a finite Pauli model. Axioms and theorem scope are listed separately from numerical tests.</p></article><article><b>02 / Four tools, explicit roles</b><p>Moonlab simulates measurements. QGTL computes geometric tensors. The quantum-inspired RNG supplies classical seeded randomness. Eshkol cross-checks exact arithmetic.</p><a href="../results/stack-independent-audit.md">Integration evidence ↗</a></article><article><b>03 / Prior art is part of the result</b><p>Hoggar states, Okumura’s inequality, the spectral-floor formula, and several exact contextuality degrees predate this lab. Priority for this general Lean formalization has not been established.</p><a href="../results/literature-audit.md">Critical literature review ↗</a></article></div></section>
+</main><footer><span>HOGGAR BOUND LAB / AI-ASSISTED RESEARCH ARTIFACT</span><span>Proofs · hypotheses · measurements, separately stated.</span></footer>
+<script src="data.js"></script><script src="model.js"></script><script src="explorer.js"></script>
+</body></html>

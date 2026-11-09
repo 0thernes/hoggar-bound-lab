@@ -1,0 +1,22 @@
+{
+ "N4": {
+  "elliptic_quadrics": 120,
+  "hyperbolic_quadrics": 136,
+  "contexts_per_elliptic": 1071,
+  "elliptic_per_context": 24,
+  "d_elliptic_lower": 291,
+  "d_full_direct": 1451,
+  "d_full_averaged": 1455
+ },
+ "N5": {
+  "sub_spaces": 496,
+  "sub_spaces_per_context": 112,
+  "d_hyperbolic_direct": 6426,
+  "d_hyperbolic_averaged": 6444,
+  "elliptic_quadrics": 496,
+  "d_elliptic_lower": 6501,
+  "d_full_direct": 28786,
+  "d_full_averaged": 28791
+ },
+ "failures": []
+}

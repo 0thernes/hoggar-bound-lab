@@ -1,0 +1,50 @@
+[
+  {
+    "path": "lean/HoggarBound.lean",
+    "sha256": "c31d579a4554d94a5f27614e4639f37d541c2584563683dd2ca10205a1fb9741"
+  },
+  {
+    "path": "lean/HoggarBound/Moment.lean",
+    "sha256": "a18cb0f230b492a23440b0a1aec6f09ec7faf74c72b0c2d2ca9afa22eb496f8f"
+  },
+  {
+    "path": "lean/HoggarBound/Pauli.lean",
+    "sha256": "a6da704ff5b73ce5786746067f15cd2387ec94936921cebac6717956f9069e82"
+  },
+  {
+    "path": "lean/HoggarBound/Bound.lean",
+    "sha256": "8937ca5e9b112ba855d39e5334b3ef1e68dbd728f0d2b7347743691f9dc7d07a"
+  },
+  {
+    "path": "lean/HoggarBound/Counting.lean",
+    "sha256": "7e1b127e0a09557dd16c80e3d70966477665439dcc13fecd6e9d573a0915d2a0"
+  },
+  {
+    "path": "lean/HoggarBound/Corollaries.lean",
+    "sha256": "1a18fc4b16b6eb20c524dbcd89904955141434920246f9f35fabfbf81446402f"
+  },
+  {
+    "path": "lean/HoggarBound/Quadric.lean",
+    "sha256": "395b9302a6de20d3c5c055fa1e5600e6cc27c116e729bf14f0493c9cf2377d31"
+  },
+  {
+    "path": "lean/HoggarBound/IndependentWitness.lean",
+    "sha256": "6430f423cf3f64a88a571c9bd4a9f00206a01c15af8eb552fb7be04ad981eb3d"
+  },
+  {
+    "path": "lean/HoggarBound/IndependentContexts.lean",
+    "sha256": "46d58e06b36d761847574cfb538639b3dd6249ebb63543d68c4865bba6054546"
+  },
+  {
+    "path": "lean/IndependentVerification.lean",
+    "sha256": "1afcbf1551d1a9a3017f434d0d6af7950b4a1b244857634680502d4d92a21721"
+  },
+  {
+    "path": "lean/lean-toolchain",
+    "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+  },
+  {
+    "path": "lean/lake-manifest.json",
+    "sha256": "ca3bad5830d78d2c42add82578677369c1b494863c37dc19448ca0ee8067a480"
+  }
+]

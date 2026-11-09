@@ -1,0 +1,593 @@
+{
+ "witnesses": {
+  "n3_f_hoggar_moonlab.txt": {
+   "N": 3,
+   "type": "f",
+   "points": 63,
+   "lines": 315,
+   "violated": 63,
+   "lower_bound": 63
+  },
+  "n4_e.txt": {
+   "N": 4,
+   "type": "e",
+   "points": 119,
+   "lines": 1071,
+   "violated": 315,
+   "lower_bound": 291
+  },
+  "n4_f.txt": {
+   "N": 4,
+   "type": "f",
+   "points": 255,
+   "lines": 5355,
+   "violated": 1575,
+   "lower_bound": 1451
+  },
+  "n4_h.txt": {
+   "N": 4,
+   "type": "h",
+   "points": 135,
+   "lines": 1575,
+   "violated": 315,
+   "lower_bound": 315
+  },
+  "n4_h_hoggar_moonlab.txt": {
+   "N": 4,
+   "type": "h",
+   "points": 135,
+   "lines": 1575,
+   "violated": 315,
+   "lower_bound": 315
+  },
+  "n5_e.txt": {
+   "N": 5,
+   "type": "e",
+   "points": 495,
+   "lines": 19635,
+   "violated": 7087,
+   "lower_bound": 6501
+  },
+  "n5_f.txt": {
+   "N": 5,
+   "type": "f",
+   "points": 1023,
+   "lines": 86955,
+   "violated": 31479,
+   "lower_bound": 28786
+  },
+  "n5_h.txt": {
+   "N": 5,
+   "type": "h",
+   "points": 527,
+   "lines": 23715,
+   "violated": 6975,
+   "lower_bound": 6426
+  }
+ },
+ "spectra": {
+  "n3_f_hoggar_moonlab.txt": [
+   [
+    -3.0,
+    7
+   ],
+   [
+    21.0,
+    1
+   ]
+  ],
+  "n4_e.txt": [
+   [
+    -10.183326,
+    2
+   ],
+   [
+    -3.0,
+    12
+   ],
+   [
+    28.183326,
+    2
+   ]
+  ],
+  "n4_f.txt": [
+   [
+    -18.191836,
+    1
+   ],
+   [
+    -3.0,
+    14
+   ],
+   [
+    60.191836,
+    1
+   ]
+  ],
+  "n4_h.txt": [
+   [
+    -3.0,
+    15
+   ],
+   [
+    45.0,
+    1
+   ]
+  ],
+  "n4_h_hoggar_moonlab.txt": [
+   [
+    -3.0,
+    15
+   ],
+   [
+    45.0,
+    1
+   ]
+  ],
+  "n5_e.txt": [
+   [
+    -29.749838,
+    2
+   ],
+   [
+    -13.346549,
+    2
+   ],
+   [
+    -3.0,
+    26
+   ],
+   [
+    82.096387,
+    2
+   ]
+  ],
+  "n5_f.txt": [
+   [
+    -58.171941,
+    1
+   ],
+   [
+    -23.730121,
+    1
+   ],
+   [
+    -3.0,
+    29
+   ],
+   [
+    168.902062,
+    1
+   ]
+  ],
+  "n5_h.txt": [
+   [
+    -34.195959,
+    1
+   ],
+   [
+    -3.0,
+    30
+   ],
+   [
+    124.195959,
+    1
+   ]
+  ]
+ },
+ "hoggar_restrictions": {
+  "full": 63,
+  "hyperbolic": 21,
+  "elliptic": 9
+ },
+ "n3_hexagon": {
+  "lines": 63,
+  "diameter": 6,
+  "girth": 12,
+  "coplanar": true
+ },
+ "n4_hyperbolic_violated": {
+  "lines": 315,
+  "distance_distribution": [
+   [
+    1,
+    14,
+    56,
+    64
+   ]
+  ],
+  "intersection": [
+   [
+    0,
+    14,
+    0
+   ],
+   [
+    1,
+    12,
+    1
+   ],
+   [
+    2,
+    8,
+    3
+   ],
+   [
+    3,
+    0,
+    7
+   ]
+  ]
+ },
+ "n4_full_structure": {
+  "degree_pattern": {
+   "19": 105,
+   "21": 120,
+   "7": 30
+  },
+  "quadric_index": 37,
+  "violated_inside_quadric": 315,
+  "violated_outside": 1260
+ },
+ "n4_elliptic_degree_pattern": {
+  "9": 84,
+  "3": 14,
+  "7": 21
+ },
+ "n3_optimal_family": {
+  "violated_sets": 120,
+  "assignments_per_set": 128,
+  "assignments": 15360
+ },
+ "n4_hyperbolic_optimal_family": {
+  "violated_sets": 240,
+  "incidence_rank": 127,
+  "assignments_per_set": 256
+ },
+ "table": [
+  {
+   "N": 2,
+   "type": "f",
+   "points": 15,
+   "lines": 15,
+   "beta_bound": 11.180339887498947,
+   "beta_bound_int": 11,
+   "lower": 2,
+   "frac_lower": 0.13333333333333333,
+   "exact": 3,
+   "upper": 3,
+   "old_lower": 3
+  },
+  {
+   "N": 2,
+   "type": "h",
+   "points": 9,
+   "lines": 6,
+   "beta_bound": 5.196152422706632,
+   "beta_bound_int": 4,
+   "lower": 1,
+   "frac_lower": 0.16666666666666666,
+   "exact": 1,
+   "upper": 1,
+   "old_lower": 1
+  },
+  {
+   "N": 3,
+   "type": "f",
+   "points": 63,
+   "lines": 315,
+   "beta_bound": 189.0,
+   "beta_bound_int": 189,
+   "lower": 63,
+   "frac_lower": 0.2,
+   "exact": 63,
+   "upper": 63,
+   "old_lower": 63
+  },
+  {
+   "N": 3,
+   "type": "h",
+   "points": 35,
+   "lines": 105,
+   "beta_bound": 78.26237921249263,
+   "beta_bound_int": 77,
+   "lower": 14,
+   "frac_lower": 0.13333333333333333,
+   "exact": 21,
+   "upper": 21,
+   "old_lower": 21
+  },
+  {
+   "N": 3,
+   "type": "e",
+   "points": 27,
+   "lines": 45,
+   "beta_bound": 27.0,
+   "beta_bound_int": 27,
+   "lower": 9,
+   "frac_lower": 0.2,
+   "exact": 9,
+   "upper": 9,
+   "old_lower": 9
+  },
+  {
+   "N": 4,
+   "type": "f",
+   "points": 255,
+   "lines": 5355,
+   "beta_bound": 2453.2478472425078,
+   "beta_bound_int": 2453,
+   "lower": 1451,
+   "frac_lower": 0.27096171802054153,
+   "exact": null,
+   "upper": 1575,
+   "old_lower": 1071
+  },
+  {
+   "N": 4,
+   "type": "h",
+   "points": 135,
+   "lines": 1575,
+   "beta_bound": 944.9999999999999,
+   "beta_bound_int": 945,
+   "lower": 315,
+   "frac_lower": 0.2,
+   "exact": 315,
+   "upper": 315,
+   "old_lower": 315
+  },
+  {
+   "N": 4,
+   "type": "e",
+   "points": 119,
+   "lines": 1071,
+   "beta_bound": 490.64956944850155,
+   "beta_bound_int": 489,
+   "lower": 291,
+   "frac_lower": 0.27170868347338933,
+   "exact": null,
+   "upper": 315,
+   "old_lower": 215
+  },
+  {
+   "N": 5,
+   "type": "f",
+   "points": 1023,
+   "lines": 86955,
+   "beta_bound": 29383.43793704202,
+   "beta_bound_int": 29383,
+   "lower": 28786,
+   "frac_lower": 0.3310447932838825,
+   "exact": null,
+   "upper": 31479,
+   "old_lower": 17391
+  },
+  {
+   "N": 5,
+   "type": "h",
+   "points": 527,
+   "lines": 23715,
+   "beta_bound": 10864.383323502538,
+   "beta_bound_int": 10863,
+   "lower": 6426,
+   "frac_lower": 0.2709677419354839,
+   "exact": null,
+   "upper": 6975,
+   "old_lower": 4743
+  },
+  {
+   "N": 5,
+   "type": "e",
+   "points": 495,
+   "lines": 19635,
+   "beta_bound": 6634.969856751422,
+   "beta_bound_int": 6633,
+   "lower": 6501,
+   "frac_lower": 0.3310924369747899,
+   "exact": null,
+   "upper": 7087,
+   "old_lower": 3927
+  },
+  {
+   "N": 6,
+   "type": "f",
+   "points": 4095,
+   "lines": 1396395,
+   "beta_bound": 341154.43661925313,
+   "beta_bound_int": 341153,
+   "lower": 527621,
+   "frac_lower": 0.37784509397412624,
+   "exact": null,
+   "upper": 553140,
+   "old_lower": 279279
+  },
+  {
+   "N": 6,
+   "type": "h",
+   "points": 2079,
+   "lines": 365211,
+   "beta_bound": 123410.43933557648,
+   "beta_bound_int": 123409,
+   "lower": 120901,
+   "frac_lower": 0.33104424565525137,
+   "exact": null,
+   "upper": 132391,
+   "old_lower": 73043
+  },
+  {
+   "N": 6,
+   "type": "e",
+   "points": 2015,
+   "lines": 332475,
+   "beta_bound": 81227.24681410789,
+   "beta_bound_int": 81227,
+   "lower": 125624,
+   "frac_lower": 0.37784495074817653,
+   "exact": null,
+   "upper": 131700,
+   "old_lower": 66495
+  },
+  {
+   "N": 7,
+   "type": "f",
+   "points": 16383,
+   "lines": 22362795,
+   "beta_bound": 3907577.3280283273,
+   "beta_bound_int": 3907577,
+   "lower": 9227609,
+   "frac_lower": 0.412632186629623,
+   "exact": null,
+   "upper": 9406024,
+   "old_lower": 4472559
+  },
+  {
+   "N": 7,
+   "type": "h",
+   "points": 8255,
+   "lines": 5720715,
+   "beta_bound": 1397632.6919562952,
+   "beta_bound_int": 1397631,
+   "lower": 2161542,
+   "frac_lower": 0.37784472745102665,
+   "exact": null,
+   "upper": 2331191,
+   "old_lower": 1144143
+  },
+  {
+   "N": 7,
+   "type": "e",
+   "points": 8127,
+   "lines": 5458635,
+   "beta_bound": 953818.0879439224,
+   "beta_bound_int": 953817,
+   "lower": 2252409,
+   "frac_lower": 0.41263227894885807,
+   "exact": null,
+   "upper": 2294580,
+   "old_lower": 1091727
+  },
+  {
+   "N": 8,
+   "type": "f",
+   "points": 65535,
+   "lines": 357886635,
+   "beta_bound": 44475652.84333469,
+   "beta_bound_int": 44475651,
+   "lower": 156705492,
+   "frac_lower": 0.4378634927230518,
+   "exact": null,
+   "upper": null,
+   "old_lower": 71577327
+  },
+  {
+   "N": 8,
+   "type": "h",
+   "points": 32895,
+   "lines": 90516075,
+   "beta_bound": 15816384.422971802,
+   "beta_bound_int": 15816383,
+   "lower": 37349846,
+   "frac_lower": 0.4126321871557069,
+   "exact": null,
+   "upper": null,
+   "old_lower": 18103215
+  },
+  {
+   "N": 8,
+   "type": "e",
+   "points": 32639,
+   "lines": 88419051,
+   "beta_bound": 10988102.467176806,
+   "beta_bound_int": 10988101,
+   "lower": 38715475,
+   "frac_lower": 0.43786349844446987,
+   "exact": null,
+   "upper": null,
+   "old_lower": 17683811
+  },
+  {
+   "N": 9,
+   "type": "f",
+   "points": 262143,
+   "lines": 5726513835,
+   "beta_bound": 504679743.333121,
+   "beta_bound_int": 504679743,
+   "lower": 2610917046,
+   "frac_lower": 0.45593481850026824,
+   "exact": null,
+   "upper": null,
+   "old_lower": 1145302767
+  },
+  {
+   "N": 9,
+   "type": "h",
+   "points": 131327,
+   "lines": 1440000555,
+   "beta_bound": 178953217.34601596,
+   "beta_bound_int": 178953217,
+   "lower": 630523669,
+   "frac_lower": 0.4378634902678909,
+   "exact": null,
+   "upper": null,
+   "old_lower": 288000111
+  },
+  {
+   "N": 9,
+   "type": "e",
+   "points": 130815,
+   "lines": 1423223595,
+   "beta_bound": 125429212.13954279,
+   "beta_bound_int": 125429211,
+   "lower": 648897192,
+   "frac_lower": 0.45593481887152104,
+   "exact": null,
+   "upper": null,
+   "old_lower": 284644719
+  },
+  {
+   "N": 10,
+   "type": "f",
+   "points": 1048575,
+   "lines": 91625532075,
+   "beta_bound": 5718222857.67167,
+   "beta_bound_int": 5718222857,
+   "lower": 42953654609,
+   "frac_lower": 0.46879569085438244,
+   "exact": null,
+   "upper": null,
+   "old_lower": 18325106415
+  },
+  {
+   "N": 10,
+   "type": "h",
+   "points": 524799,
+   "lines": 22973426091,
+   "beta_bound": 2024656382.0775793,
+   "beta_bound_int": 2024656381,
+   "lower": 10474384855,
+   "frac_lower": 0.45593481849463513,
+   "exact": null,
+   "upper": null,
+   "old_lower": 4594685219
+  },
+  {
+   "N": 10,
+   "type": "e",
+   "points": 523775,
+   "lines": 22839208875,
+   "beta_bound": 1425363468.921091,
+   "beta_bound_int": 1425363467,
+   "lower": 10706922704,
+   "frac_lower": 0.46879569089277395,
+   "exact": null,
+   "upper": null,
+   "old_lower": 4567841775
+  }
+ ],
+ "figures": [
+  "fig1_fraction.png",
+  "fig2_noise.png",
+  "fig3_spectra.png"
+ ],
+ "failures": []
+}

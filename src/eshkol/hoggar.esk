@@ -1,0 +1,197 @@
+;; hoggar.esk - Hoggar Bound Lab, written in Eshkol (Tsotchke's Scheme with built-in automatic
+;; differentiation).  An independent re-implementation of the Pauli geometry, plus AD checks.
+;;
+;;   Part A  two qubits, exhaustive: all 2^15 assignments of the 15 observables; the minimum number
+;;           of violated contexts must be 3.
+;;   Part B  three qubits: Pauli expectation values of the Hoggar fiducial (all +-1/3), their sign
+;;           pattern violates exactly 63 of the 315 contexts.
+;;   Part C  automatic differentiation: the cubic form T(x) = sum over contexts of s x_u x_v x_w
+;;           takes the value (D-1)(D-2)/6 = 7 at the Hoggar Pauli vector, and its exact reverse-mode
+;;           gradient there equals 3 x (stationarity on the sphere: the Lagrange condition for a
+;;           maximiser); second derivatives along tangent directions are <= 0.
+;;
+;; run:  eshkol-run -r src/eshkol/hoggar.esk
+
+(define (popcount x)
+  (let loop ((x x) (c 0))
+    (if (= x 0) c (loop (quotient x 2) (+ c (remainder x 2))))))
+
+(define (xpart v N) (remainder v (expt 2 N)))
+(define (zpart v N) (quotient v (expt 2 N)))
+
+(define (commute? u v N)
+  (= 0 (remainder (+ (popcount (bitwise-and (xpart u N) (zpart v N)))
+                     (popcount (bitwise-and (zpart u N) (xpart v N)))) 2)))
+
+;; sign s with P_u P_v P_{u+v} = s * identity (u, v commuting)
+(define (line-sign u v N)
+  (let* ((au (xpart u N)) (cu (zpart u N)) (av (xpart v N)) (cv (zpart v N))
+         (k (remainder (+ (popcount (bitwise-and au cu))
+                          (popcount (bitwise-and av cv))
+                          (* 2 (popcount (bitwise-and cu av)))
+                          (* 3 (popcount (bitwise-and (bitwise-xor au av) (bitwise-xor cu cv)))))
+                       4)))
+    (if (= k 0) 1 -1)))
+
+;; number of lines u < v < w = u xor v
+(define (count-lines N)
+  (let ((n (expt 4 N)))
+    (let loop-u ((u 1) (acc 0))
+      (if (= u n) acc
+          (loop-u (+ u 1)
+                  (let loop-v ((v (+ u 1)) (acc acc))
+                    (if (>= v n) acc
+                        (loop-v (+ v 1)
+                                (if (and (> (bitwise-xor u v) v) (commute? u v N)) (+ acc 1) acc)))))))))
+
+;; fill the vectors U V W S with the lines; returns the number of lines
+(define (fill-lines! N U V W S)
+  (let ((n (expt 4 N)))
+    (let loop-u ((u 1) (idx 0))
+      (if (= u n) idx
+          (loop-u (+ u 1)
+                  (let loop-v ((v (+ u 1)) (idx idx))
+                    (if (>= v n) idx
+                        (if (and (> (bitwise-xor u v) v) (commute? u v N))
+                            (begin
+                              (vector-set! U idx u) (vector-set! V idx v)
+                              (vector-set! W idx (bitwise-xor u v))
+                              (vector-set! S idx (line-sign u v N))
+                              (loop-v (+ v 1) (+ idx 1)))
+                            (loop-v (+ v 1) idx)))))))))
+
+(define (violations f U V W S L)
+  (let loop ((i 0) (acc 0))
+    (if (= i L) acc
+        (loop (+ i 1)
+              (if (= (* (vector-ref f (vector-ref U i)) (vector-ref f (vector-ref V i)) (vector-ref f (vector-ref W i)))
+                     (vector-ref S i))
+                  acc (+ acc 1))))))
+
+;; ---------------------------------------------------------------- Part A: two qubits, exhaustive
+(define L2 (count-lines 2))
+(define U2 (make-vector L2 0)) (define V2 (make-vector L2 0))
+(define W2 (make-vector L2 0)) (define S2 (make-vector L2 0))
+(fill-lines! 2 U2 V2 W2 S2)
+
+(define (assignment-from-mask m n)
+  (let ((f (make-vector n 1)))
+    (let loop ((v 1) (m m))
+      (if (= v n) f
+          (begin
+            (if (= 1 (remainder m 2)) (vector-set! f v -1) 0)
+            (loop (+ v 1) (quotient m 2)))))))
+
+(define (exhaust-two-qubits)
+  (let loop ((m 0) (best 99) (count 0))
+    (if (= m 32768)
+        (begin
+          (display "A two-qubit exhaustive: contexts=") (display L2)
+          (display " min-violated=") (display best)
+          (display " minimisers=") (display count) (newline)
+          best)
+        (let ((d (violations (assignment-from-mask m 16) U2 V2 W2 S2 L2)))
+          (cond ((< d best) (loop (+ m 1) d 1))
+                ((= d best) (loop (+ m 1) best (+ count 1)))
+                (else (loop (+ m 1) best count)))))))
+(define result-a (exhaust-two-qubits))
+
+;; ---------------------------------------------------------------- Part B: three qubits, Hoggar
+(define L3 (count-lines 3))
+(define U3 (make-vector L3 0)) (define V3 (make-vector L3 0))
+(define W3 (make-vector L3 0)) (define S3 (make-vector L3 0))
+(fill-lines! 3 U3 V3 W3 S3)
+
+;; fiducial (-1+2i, 1, 1, 1, 1, 1, 1, 1)/sqrt(12)
+(define norm12 (sqrt 12.0))
+(define psi-re (vector (/ -1.0 norm12) (/ 1.0 norm12) (/ 1.0 norm12) (/ 1.0 norm12)
+                       (/ 1.0 norm12) (/ 1.0 norm12) (/ 1.0 norm12) (/ 1.0 norm12)))
+(define psi-im (vector (/ 2.0 norm12) 0.0 0.0 0.0 0.0 0.0 0.0 0.0))
+
+;; <psi| i^k X^a Z^c |psi>, real because the operator is Hermitian
+(define (expectation v)
+  (let* ((a (xpart v 3)) (c (zpart v 3)) (k (remainder (popcount (bitwise-and a c)) 4)))
+    (let loop ((x 0) (re 0.0) (im 0.0))
+      (if (= x 8)
+          (cond ((= k 0) re) ((= k 1) (- 0.0 im)) ((= k 2) (- 0.0 re)) (else im))
+          (let* ((y (bitwise-xor x a))
+                 (s (if (= 1 (remainder (popcount (bitwise-and c x)) 2)) -1.0 1.0))
+                 (br (vector-ref psi-re y)) (bi (vector-ref psi-im y))
+                 (kr (vector-ref psi-re x)) (ki (vector-ref psi-im x)))
+            (loop (+ x 1)
+                  (+ re (* s (+ (* br kr) (* bi ki))))
+                  (+ im (* s (- (* br ki) (* bi kr))))))))))
+
+(define xstar (make-vector 64 0.0))
+(define fstar (make-vector 64 1))
+(define (fill-expectations!)
+  (let loop ((v 1) (maxdev 0.0))
+    (if (= v 64) maxdev
+        (let* ((e (expectation v)) (dev (abs (- (abs e) (/ 1.0 3.0)))))
+          (vector-set! xstar v e)
+          (vector-set! fstar v (if (>= e 0.0) 1 -1))
+          (loop (+ v 1) (if (> dev maxdev) dev maxdev))))))
+(define maxdev-b (fill-expectations!))
+(define viol-b (violations fstar U3 V3 W3 S3 L3))
+(display "B three-qubit Hoggar: contexts=") (display L3)
+(display " max|abs<P>-1/3|=") (display maxdev-b)
+(display " violated=") (display viol-b) (newline)
+
+;; ---------------------------------------------------------------- Part C: automatic differentiation
+;; T(x) = sum over contexts of s * x_u * x_v * x_w   (x indexed by point; x_0 unused)
+(define (cubic-form x)
+  (let loop ((i 0) (acc 0.0))
+    (if (= i L3) acc
+        (loop (+ i 1)
+              (+ acc (* (vector-ref S3 i)
+                        (vector-ref x (vector-ref U3 i))
+                        (vector-ref x (vector-ref V3 i))
+                        (vector-ref x (vector-ref W3 i))))))))
+
+(define t-star (cubic-form xstar))
+(define grad-star (gradient cubic-form xstar))
+(define (max-grad-residual)
+  (let loop ((v 1) (m 0.0))
+    (if (= v 64) m
+        (let ((r (abs (- (vector-ref grad-star v) (* 3.0 (vector-ref xstar v))))))
+          (loop (+ v 1) (if (> r m) r m))))))
+(define grad-res (max-grad-residual))
+(display "C cubic form at the Hoggar Pauli vector: T=") (display t-star)
+(display " (prediction 7); max|grad T - 3 x|=") (display grad-res) (newline)
+
+;; second derivative of t -> T on the sphere through x* along the tangent direction e_p x_q - e_q x_p
+(define (sphere-curve-value p q t)
+  ;; y = x* + t (e_p x*_q - e_q x*_p); rescale to the radius of x* (|x*|^2 = 7)
+  (let* ((xp (vector-ref xstar p)) (xq (vector-ref xstar q))
+         (np (+ xp (* t xq))) (nq (- xq (* t xp)))
+         (norm2 (+ 7.0 (* t t (+ (* xp xp) (* xq xq)))))
+         (scale (sqrt (/ 7.0 norm2))))
+    ;; T is a cubic form: evaluate with the two modified coordinates, then scale^3
+    (let loop ((i 0) (acc 0.0))
+      (if (= i L3) (* acc scale scale scale)
+          (let* ((u (vector-ref U3 i)) (v (vector-ref V3 i)) (w (vector-ref W3 i))
+                 (xu (cond ((= u p) np) ((= u q) nq) (else (vector-ref xstar u))))
+                 (xv (cond ((= v p) np) ((= v q) nq) (else (vector-ref xstar v))))
+                 (xw (cond ((= w p) np) ((= w q) nq) (else (vector-ref xstar w)))))
+            (loop (+ i 1) (+ acc (* (vector-ref S3 i) xu xv xw))))))))
+
+(define (second-derivative-along p q)
+  (derivative (lambda (t) (derivative (lambda (s) (sphere-curve-value p q s)) t)) 0.0))
+
+(define (report-curvature p q)
+  (let ((d1 (derivative (lambda (t) (sphere-curve-value p q t)) 0.0))
+        (d2 (second-derivative-along p q)))
+    (display "C tangent direction (") (display p) (display ",") (display q)
+    (display "): first derivative=") (display d1)
+    (display " second derivative=") (display d2) (newline)
+    d2))
+
+(define c1 (report-curvature 1 2))
+(define c2 (report-curvature 5 40))
+(define c3 (report-curvature 17 63))
+(define c4 (report-curvature 9 33))
+
+(define all-ok
+  (and (= result-a 3) (= viol-b 63) (< maxdev-b 1e-12) (< (abs (- t-star 7.0)) 1e-12) (< grad-res 1e-12)
+       (<= c1 1e-9) (<= c2 1e-9) (<= c3 1e-9) (<= c4 1e-9)))
+(display (if all-ok "ESHKOL-PASS" "ESHKOL-FAIL")) (newline)

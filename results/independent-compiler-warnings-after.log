@@ -1,0 +1,4 @@
+third_party\quantum_rng\src\quantum_rng\quantum_rng.c: In function 'get_system_entropy':
+third_party\quantum_rng\src\quantum_rng\quantum_rng.c:99:18: warning: unused variable 'aux' [-Wunused-variable]
+   99 |     unsigned int aux;
+      |                  ^~~

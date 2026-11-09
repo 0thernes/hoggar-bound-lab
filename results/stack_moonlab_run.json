@@ -1,0 +1,302 @@
+{
+ "seed": 20261109,
+ "experiments": {
+  "E0": {
+   "max_expectation_deviation": 8.604228440844963e-16,
+   "repeated_measurement_consistent": true
+  },
+  "E1": {
+   "contexts": 315,
+   "max_deviation_from_one_third": 6.106226635438361e-16,
+   "violated": 63,
+   "points_on_violated_lines": 63,
+   "violated_lines_per_point": [
+    3
+   ]
+  },
+  "E2": {
+   "contexts": 1575,
+   "max_dev_real": 3.885780586188048e-16,
+   "max_abs_imaginary": 4.440892098500626e-16,
+   "violated": 315,
+   "violated_lines_per_point": [
+    7
+   ]
+  },
+  "E3": [
+   {
+    "N": 2,
+    "rep": 0,
+    "contexts": 15,
+    "agree": 15,
+    "gates": 198,
+    "measurements": 45
+   },
+   {
+    "N": 2,
+    "rep": 1,
+    "contexts": 15,
+    "agree": 15,
+    "gates": 198,
+    "measurements": 45
+   },
+   {
+    "N": 2,
+    "rep": 2,
+    "contexts": 15,
+    "agree": 15,
+    "gates": 198,
+    "measurements": 45
+   },
+   {
+    "N": 3,
+    "rep": 0,
+    "contexts": 315,
+    "agree": 315,
+    "gates": 6750,
+    "measurements": 945
+   },
+   {
+    "N": 3,
+    "rep": 1,
+    "contexts": 315,
+    "agree": 315,
+    "gates": 6750,
+    "measurements": 945
+   },
+   {
+    "N": 3,
+    "rep": 2,
+    "contexts": 315,
+    "agree": 315,
+    "gates": 6750,
+    "measurements": 945
+   },
+   {
+    "N": 4,
+    "rep": 0,
+    "contexts": 5355,
+    "agree": 5355,
+    "gates": 161406,
+    "measurements": 16065
+   },
+   {
+    "N": 4,
+    "rep": 1,
+    "contexts": 5355,
+    "agree": 5355,
+    "gates": 161406,
+    "measurements": 16065
+   },
+   {
+    "N": 4,
+    "rep": 2,
+    "contexts": 5355,
+    "agree": 5355,
+    "gates": 161406,
+    "measurements": 16065
+   }
+  ],
+  "E4": [
+   {
+    "N": 2,
+    "noise_per_qubit_per_measurement": 0,
+    "shots": 3000,
+    "quantum_success": 1,
+    "classical_best_known_on_same_contexts": null,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 2,
+    "noise_per_qubit_per_measurement": 0.01,
+    "shots": 3000,
+    "quantum_success": 0.979,
+    "classical_best_known_on_same_contexts": null,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 2,
+    "noise_per_qubit_per_measurement": 0.02,
+    "shots": 3000,
+    "quantum_success": 0.958,
+    "classical_best_known_on_same_contexts": null,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 2,
+    "noise_per_qubit_per_measurement": 0.05,
+    "shots": 3000,
+    "quantum_success": 0.8966666666666666,
+    "classical_best_known_on_same_contexts": null,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 2,
+    "noise_per_qubit_per_measurement": 0.1,
+    "shots": 3000,
+    "quantum_success": 0.8046666666666666,
+    "classical_best_known_on_same_contexts": null,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": false
+   },
+   {
+    "N": 2,
+    "noise_per_qubit_per_measurement": 0.2,
+    "shots": 3000,
+    "quantum_success": 0.669,
+    "classical_best_known_on_same_contexts": null,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": false
+   },
+   {
+    "N": 3,
+    "noise_per_qubit_per_measurement": 0,
+    "shots": 3000,
+    "quantum_success": 1,
+    "classical_best_known_on_same_contexts": 0.7966666666666666,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 3,
+    "noise_per_qubit_per_measurement": 0.01,
+    "shots": 3000,
+    "quantum_success": 0.9693333333333334,
+    "classical_best_known_on_same_contexts": 0.7996666666666666,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 3,
+    "noise_per_qubit_per_measurement": 0.02,
+    "shots": 3000,
+    "quantum_success": 0.939,
+    "classical_best_known_on_same_contexts": 0.7946666666666666,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 3,
+    "noise_per_qubit_per_measurement": 0.05,
+    "shots": 3000,
+    "quantum_success": 0.8673333333333333,
+    "classical_best_known_on_same_contexts": 0.8076666666666666,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 3,
+    "noise_per_qubit_per_measurement": 0.1,
+    "shots": 3000,
+    "quantum_success": 0.7466666666666667,
+    "classical_best_known_on_same_contexts": 0.784,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": false
+   },
+   {
+    "N": 3,
+    "noise_per_qubit_per_measurement": 0.2,
+    "shots": 3000,
+    "quantum_success": 0.6163333333333333,
+    "classical_best_known_on_same_contexts": 0.8026666666666666,
+    "ceiling_best_known": 0.8,
+    "ceiling_proven": 0.8,
+    "five_sigma": 0.04564354645876384,
+    "violates_proven_ceiling": false
+   },
+   {
+    "N": 4,
+    "noise_per_qubit_per_measurement": 0,
+    "shots": 4000,
+    "quantum_success": 1,
+    "classical_best_known_on_same_contexts": 0.70475,
+    "ceiling_best_known": 0.7058823529411764,
+    "ceiling_proven": 0.7290382819794585,
+    "five_sigma": 0.039528470752104736,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 4,
+    "noise_per_qubit_per_measurement": 0.01,
+    "shots": 4000,
+    "quantum_success": 0.95675,
+    "classical_best_known_on_same_contexts": 0.713,
+    "ceiling_best_known": 0.7058823529411764,
+    "ceiling_proven": 0.7290382819794585,
+    "five_sigma": 0.039528470752104736,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 4,
+    "noise_per_qubit_per_measurement": 0.02,
+    "shots": 4000,
+    "quantum_success": 0.93,
+    "classical_best_known_on_same_contexts": 0.7135,
+    "ceiling_best_known": 0.7058823529411764,
+    "ceiling_proven": 0.7290382819794585,
+    "five_sigma": 0.039528470752104736,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 4,
+    "noise_per_qubit_per_measurement": 0.05,
+    "shots": 4000,
+    "quantum_success": 0.83025,
+    "classical_best_known_on_same_contexts": 0.704,
+    "ceiling_best_known": 0.7058823529411764,
+    "ceiling_proven": 0.7290382819794585,
+    "five_sigma": 0.039528470752104736,
+    "violates_proven_ceiling": true
+   },
+   {
+    "N": 4,
+    "noise_per_qubit_per_measurement": 0.1,
+    "shots": 4000,
+    "quantum_success": 0.71675,
+    "classical_best_known_on_same_contexts": 0.7135,
+    "ceiling_best_known": 0.7058823529411764,
+    "ceiling_proven": 0.7290382819794585,
+    "five_sigma": 0.039528470752104736,
+    "violates_proven_ceiling": false
+   },
+   {
+    "N": 4,
+    "noise_per_qubit_per_measurement": 0.2,
+    "shots": 4000,
+    "quantum_success": 0.59125,
+    "classical_best_known_on_same_contexts": 0.7105,
+    "ceiling_best_known": 0.7058823529411764,
+    "ceiling_proven": 0.7290382819794585,
+    "five_sigma": 0.039528470752104736,
+    "violates_proven_ceiling": false
+   }
+  ]
+ },
+ "random_bytes_used": 3611884
+}

@@ -1,0 +1,11 @@
+⚠ [3324/3330] Replayed HoggarBound.Moment
+warning: HoggarBound\Moment.lean: imports `Mathlib.Analysis.Matrix.Spectrum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound\Moment.lean: imports `Mathlib.Algebra.Order.Chebyshev` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound\Moment.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3325/3330] Replayed HoggarBound.Pauli
+warning: HoggarBound\Pauli.lean: imports `Mathlib.Analysis.Matrix.Spectrum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound\Pauli.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound\Pauli.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [3329/3330] Built HoggarBound.IndependentContexts (15s)
+✔ [3330/3330] Built HoggarBound.IndependentWitness (87s)
+Build completed successfully (3330 jobs).
