@@ -93,3 +93,18 @@ Model: V = (Fin N -> ZMod 2) x (Fin N -> ZMod 2); Weyl W(a,c)[x,y] = [x = y + a]
 P = i^k W with k = #{i : a_i = c_i = 1}.  Lemmas: W_u W_v = eps(c_u . a_v) W_{u+v}; tr W = D [u = 0]; P Hermitian.
 Analytic: for reals with sum 0 and sum of squares n m: sum of cubes <= n m (n-2) a/(n-1) where a^2 = (n-1) m.
 Toolchain: Lean v4.35.0 + Mathlib v4.35.0.
+
+## Status log
+* 2026-11-09 Lean 4.35.0 + Mathlib v4.35.0 (56a005855e) installed via elan 4.2.4; project at `lean/` (build through
+  `subst H:` drive to avoid the bracket path).  ALL of the following compile, axioms = [propext, Classical.choice, Quot.sound]:
+  `Moment.lean` (sum_cube_le, trace_pow_eq_sum_eigenvalues_pow, trace_cube_le), `Pauli.lean` (weyl, pauli, tau,
+  context_product, pauli_comm, traces), `Bound.lean` (flags, beta6, opA, trace_opA_cube, **hoggar_bound**),
+  `Counting.lean` (violated, beta6_eq_card, card_flags_all, four_qubit_violated, violatedLines, four_qubit_contexts >= 1451),
+  `Corollaries.lean` (full_space_bound, full_space_fraction, three_qubit_contexts >= 63, five_qubit_contexts >= 28786),
+  `Quadric.lean` (realPoints, card_realPoints, card_flags_real, four_qubit_hyperbolic_contexts >= 315,
+  five_qubit_hyperbolic_contexts >= 6426).
+* Engine `src/hoggar.c` (table / exhaust2 / lines / verify / search / falsify) built to `build/hoggar.exe`; annealing with
+  quantum_rng reproduces 1575, 315, 315 (N=4 f,h,e) and 31479, 6975, 7087 (N=5 f,h,e) = literature upper bounds.
+  Witness files in `data/witness/`.
+* TODO: Moonlab experiment, QGTL kernel run, Eshkol cross-check, Python structure analysis + figures, Lean witness (N=3)
+  and Kramers refinement, falsification suite, paper, GitHub push + Pages.
