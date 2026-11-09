@@ -71,7 +71,9 @@ bash scripts/run_all.sh
 cd lean && lake exe cache get && lake build
 ```
 
-`run_all.sh` needs gcc, Python 3 with NumPy and Matplotlib, and Node; Eshkol is optional. The Lean
+`run_all.sh` needs gcc, Python 3 with NumPy and Matplotlib, and Node; Eshkol is optional. It prints one
+line per stage and ends with `ALL STAGES PASSED`; the last complete run is kept in
+[results/run_all.log](results/run_all.log) and [results/falsify.log](results/falsify.log). The Lean
 build needs [elan](https://github.com/leanprover/elan); it downloads Lean 4.35.0 and the Mathlib cache.
 
 ## What is and is not claimed

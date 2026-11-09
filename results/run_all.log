@@ -1,0 +1,9 @@
+PASS  exhaustive two-qubit enumeration
+PASS  exact integer bound table (N <= 6)
+PASS  falsification suite + negative control
+PASS  Moonlab experiment (E0-E4)
+PASS  QGTL kernels on the Hoggar state
+PASS  Eshkol replication + autodiff
+PASS  NumPy analysis (structure, spectra)
+PASS  averaging between families
+ALL STAGES PASSED

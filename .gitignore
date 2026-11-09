@@ -9,3 +9,4 @@ __pycache__/
 node_modules/
 # large regenerated intermediates
 /results/tmp/
+/results/.stage.log

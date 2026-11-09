@@ -32,3 +32,45 @@ N=4 type=e lines=1071 lower_bound=291 trials=200 mean_random=535.92 min_random=4
 $ hoggar falsify 5 f 19 500 0
 N=5 type=f lines=86955 lower_bound=28786 trials=500 mean_random=43477.77 min_random=43029 min_optimised=-1 counterexamples=0
 $ hoggar falsify 5 f 20 12 4000000
+N=5 type=f lines=86955 lower_bound=28786 trials=12 mean_random=43449.33 min_random=43165 min_optimised=31479 counterexamples=0
+$ hoggar falsify 5 h 19 500 0
+N=5 type=h lines=23715 lower_bound=6426 trials=500 mean_random=11856.91 min_random=11625 min_optimised=-1 counterexamples=0
+$ hoggar falsify 5 h 20 12 4000000
+N=5 type=h lines=23715 lower_bound=6426 trials=12 mean_random=11843.92 min_random=11732 min_optimised=6975 counterexamples=0
+$ hoggar falsify 5 e 19 500 0
+N=5 type=e lines=19635 lower_bound=6501 trials=500 mean_random=9815.61 min_random=9647 min_optimised=-1 counterexamples=0
+$ hoggar falsify 5 e 20 12 4000000
+N=5 type=e lines=19635 lower_bound=6501 trials=12 mean_random=9811.50 min_random=9702 min_optimised=7087 counterexamples=0
+$ hoggar verify 3 f data/witness/n3_f_hoggar_moonlab.txt
+N=3 type=f points=63 lines=315 violated=63 (independent recount 63) beta=189 bound_int=189 bound_real=189.000000
+violated-lines-per-point histogram: 3:63
+$ hoggar verify 4 e data/witness/n4_e.txt
+N=4 type=e points=119 lines=1071 violated=315 (independent recount 315) beta=441 bound_int=489 bound_real=490.649569
+violated-lines-per-point histogram: 3:14 7:21 9:84
+$ hoggar verify 4 f data/witness/n4_f.txt
+N=4 type=f points=255 lines=5355 violated=1575 (independent recount 1575) beta=2205 bound_int=2453 bound_real=2453.247847
+violated-lines-per-point histogram: 7:30 19:105 21:120
+$ hoggar verify 4 h data/witness/n4_h.txt
+N=4 type=h points=135 lines=1575 violated=315 (independent recount 315) beta=945 bound_int=945 bound_real=945.000000
+violated-lines-per-point histogram: 7:135
+$ hoggar verify 4 h data/witness/n4_h_hoggar_moonlab.txt
+N=4 type=h points=135 lines=1575 violated=315 (independent recount 315) beta=945 bound_int=945 bound_real=945.000000
+violated-lines-per-point histogram: 7:135
+$ hoggar verify 5 e data/witness/n5_e.txt
+N=5 type=e points=495 lines=19635 violated=7087 (independent recount 7087) beta=5461 bound_int=6633 bound_real=6634.969857
+violated-lines-per-point histogram: 7:2 19:12 21:16 31:12 35:48 37:24 43:49 45:120 47:108 49:72 51:32
+$ hoggar verify 5 f data/witness/n5_f.txt
+N=5 type=f points=1023 lines=86955 violated=31479 (independent recount 31479) beta=23997 bound_int=29383 bound_real=29383.437937
+violated-lines-per-point histogram: 15:6 39:8 43:48 71:48 75:24 77:96 97:288 99:105 101:96 103:288 105:16
+$ hoggar verify 5 h data/witness/n5_h.txt
+N=5 type=h points=527 lines=23715 violated=6975 (independent recount 6975) beta=9765 bound_int=10863 bound_real=10864.383324
+violated-lines-per-point histogram: 15:62 43:465
+$ hoggar verify 6 h data/witness/n6_h.txt
+N=6 type=h points=2079 lines=365211 violated=135591 (independent recount 135591) beta=94029 bound_int=123409 bound_real=123410.439336
+violated-lines-per-point histogram: 31:2 75:30 103:30 107:60 139:30 155:192 167:30 185:480 205:544 211:1 223:360 235:320
+$ negative control: false claim d(W(5,2)) >= 64 against the Hoggar witness
+N=3 type=f points=63 lines=315 violated=63 (independent recount 63) beta=189 bound_int=189 bound_real=189.000000
+violated-lines-per-point histogram: 3:63
+CLAIM REFUTED: an assignment with 63 violated contexts exists, below the claimed minimum 64
+  -> correctly refuted (exit 3)
+FALSIFICATION SUITE STATUS: 0 (0 = no counterexample found)

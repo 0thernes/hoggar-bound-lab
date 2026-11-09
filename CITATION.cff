@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite the paper below together with the prior work it
+  credits (see the priority note at the top of the paper).
+title: "A machine-checked spectral floor for Pauli contextuality"
+type: software
+authors:
+  - family-names: Donahue
+    given-names: "Alexander S."
+    alias: 0thernes
+    affiliation: "0thernes LLC"
+version: "1.0"
+date-released: 2026-11-09
+repository-code: "https://github.com/0thernes/hoggar-bound-lab"
+url: "https://0thernes.github.io/hoggar-bound-lab/"
+abstract: >-
+  Lean 4 formalization, for every number of qubits and arbitrary sets of Pauli observables,
+  of the spectral lower bound on the contextuality degree (first posted by B. W. Jonah,
+  doi:10.5281/zenodo.23538829), with formally verified numerical corollaries, an independent
+  reproduction of the known values for two to five qubits, and a demonstration on the
+  Tsotchke stack (Moonlab, quantum_geometric_tensor, quantum_rng, Eshkol).
+keywords:
+  - quantum contextuality
+  - Pauli group
+  - symplectic polar space
+  - Kochen-Specker theorem
+  - Lean 4
+  - formal verification
+preferred-citation:
+  type: report
+  title: "A machine-checked spectral floor for Pauli contextuality"
+  authors:
+    - family-names: Donahue
+      given-names: "Alexander S."
+  year: 2026
+  month: 11
+  institution:
+    name: "0thernes LLC"
+  url: "https://github.com/0thernes/hoggar-bound-lab/blob/main/paper/spectral-floor.pdf"
+  notes: >-
+    Research preprint, version 1.0, not peer reviewed. Produced with Claude (Anthropic) as AI
+    research system.
+references:
+  - type: generic
+    title: "Structure theorems for hyperplane completions in Pauli contextuality"
+    authors:
+      - family-names: Jonah
+        given-names: "B. W."
+    year: 2026
+    doi: 10.5281/zenodo.23538829
+  - type: generic
+    title: >-
+      A section-square law for Pauli quadrics, and an independently regenerated proof that the
+      four-qubit elliptic quadric has contextuality degree 315
+    authors:
+      - family-names: Jonah
+        given-names: "B. W."
+    year: 2026
+    doi: 10.5281/zenodo.23510634
