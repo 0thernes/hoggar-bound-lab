@@ -6,7 +6,7 @@ Chromium-based browser is available, a PDF.
   python scripts/build_paper.py            # writes paper/spectral-floor.html, docs/index.html, paper/spectral-floor.pdf
 
 The Markdown source is the canonical text (GitHub renders it directly). Mathematics is written as
-$...$ inline and as fenced ```math blocks; both are protected from the Markdown parser here.
+$...$ or $`...`$ inline and as fenced ```math blocks; all are protected from the Markdown parser here.
 Needs the `commonmark` Python package.
 """
 import base64, html, os, re, shutil, subprocess, sys
@@ -78,6 +78,10 @@ def protect_math(text):
             else:
                 out.append(part)          # ordinary code block: untouched
             continue
+        # GitHub's code form of inline math, $`...`$, which its renderer passes through verbatim; the
+        # source uses it wherever plain $...$ would be damaged there (backslash-punctuation such as \, \{ \#,
+        # a formula ending in ")" before ")", math after a quote or inside *emphasis*)
+        part = re.sub(r"\$`([^`\n]+)`\$", lambda m: keep(m.group(1), False), part)
         # inline code spans must not be searched for math
         pieces = re.split(r"(`[^`\n]+`)", part)
         for i, piece in enumerate(pieces):

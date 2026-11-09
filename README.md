@@ -16,7 +16,9 @@ Take $N$ qubits, $D = 2^N$. Give every Pauli observable in a set $S$ a value $+1
 is three mutually commuting observables of $S$ whose product is $\pm I$; quantum mechanics fixes the
 sign of the product of their values. Then, for every $S$ and every assignment,
 
-$$\#\text{satisfied} - \#\text{violated} \;\le\; \frac{(D-2)\,|S|^{3/2}}{6\sqrt{D-1}} .$$
+```math
+\#\text{satisfied} - \#\text{violated} \;\le\; \frac{(D-2)\,|S|^{3/2}}{6\sqrt{D-1}} .
+```
 
 For all $4^N - 1$ observables this means at least the fraction $\tfrac12 - \sqrt{D+1}/(D+2)$ of the
 contexts is violated: 63 of 315 for three qubits (exact), at least 1451 of 5355 for four, at least

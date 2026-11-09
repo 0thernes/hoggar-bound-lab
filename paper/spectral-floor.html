@@ -215,7 +215,7 @@ elementary proof through the integrality of the floor is in [J2]): for \(N = 3\)
 \(\langle P_v \rangle = \pm 1/3\) for all 63 three-qubit Pauli observables. We verified the following by
 exact counting in four independent implementations (Section 9); the values themselves are known
 [M1, dB, LGG, J2].</p>
-<div class="tablewrap"><table><thead><tr><th>configuration</th><th>assignment</th><th>violated</th><th>floor</th><th>spectrum of \(A\)</th></tr></thead><tbody><tr><td>\(W(5,2)\): 63 points, 315 contexts</td><td>signs of \(\langle\psi_H|P_v|\psi_H\rangle\)</td><td>63</td><td>63</td><td>\(\{21, (-3)^7\}\)</td></tr><tr><td>\(Q^-(5,2)\): 27 points, 45 contexts</td><td>the same signs, restricted</td><td>9</td><td>9</td><td>\(\{9^2, (-3)^6\}\)</td></tr><tr><td>\(Q^+(7,2)\): 135 points, 1575 contexts</td><td>signs of the realified \(\psi_H \in \mathbb{R}^{16}\)</td><td>315</td><td>315</td><td>\(\{45, (-3)^{15}\}\)</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>configuration</th><th>assignment</th><th>violated</th><th>floor</th><th>spectrum of \(A\)</th></tr></thead><tbody><tr><td>\(W(5,2)\): 63 points, 315 contexts</td><td>signs of \(\langle\psi_H\vert P_v\vert \psi_H\rangle\)</td><td>63</td><td>63</td><td>\(\{21, (-3)^7\}\)</td></tr><tr><td>\(Q^-(5,2)\): 27 points, 45 contexts</td><td>the same signs, restricted</td><td>9</td><td>9</td><td>\(\{9^2, (-3)^6\}\)</td></tr><tr><td>\(Q^+(7,2)\): 135 points, 1575 contexts</td><td>signs of the realified \(\psi_H \in \mathbb{R}^{16}\)</td><td>315</td><td>315</td><td>\(\{45, (-3)^{15}\}\)</td></tr></tbody></table></div>
 <p>In the third row, \(\mathbb{C}^8\) is read as \(\mathbb{R}^{16}\); the resulting real four-qubit state has
 expectation \(\pm 1/3\) on all 135 real Pauli observables and \(0\) on the 120 imaginary ones (this
 description of the optimal assignments of \(Q^+(7,2)\) as sign patterns of real Pauli-flat states is
@@ -251,7 +251,7 @@ inequality in 2010 and argued for exponential growth; his Lemma 3 identifies the
 of positive contexts, which is correct for two qubits but not for three, where 252 of the 315
 predictions can be satisfied rather than 225 [M1]. Corollary A proves the growth.</p>
 <p><strong>Noise.</strong> If imperfections scale every correlator by a visibility \(\eta\), the inequality is violated
-when \(\eta &gt; 1 - 2d/L\), hence whenever \(\eta &gt; 2\sqrt{D+1}/(D+2)\): above \(0.6\) for three qubits, \(0.458\)
+when \(\eta \gt 1 - 2d/L\), hence whenever \(\eta \gt 2\sqrt{D+1}/(D+2)\): above \(0.6\) for three qubits, \(0.458\)
 for four, \(0.338\) for five, \(0.062\) for ten. In the notation of [C, MS] the tolerated error per context
 \(\varepsilon = 2d/L\) is at least \(1 - 2\sqrt{D+1}/(D+2)\), which exceeds \(0.707\) (the largest value
 confirmed in the search of [MS], for configurations of a different kind) from six qubits on and tends
@@ -352,7 +352,7 @@ measurements on hardware or a loophole analysis.</p>
 <p><em>Figure 3. Spectra of \(A = \sum f(v)P_v\) for the best assignments at three and four qubits.</em></p>
 <p><strong>QGTL</strong> (<code>src/qgt_hoggar.c</code>). The kernels <code>diffgeo_compute_fubini_study</code> and
 <code>diffgeo_compute_berry_curvature</code>, applied to \(\psi_H\) and the 63 tangent vectors \(-\tfrac{i}{2}P_v\psi_H\),
-return the values of Proposition 3 to \(10^{-16}\), and the 189 pairs with \(|g_{uv}| &gt; 1/12\) are exactly
+return the values of Proposition 3 to \(10^{-16}\), and the 189 pairs with \(|g_{uv}| \gt 1/12\) are exactly
 the pairs on the 63 violated contexts. For the realified state the 945 largest entries recover the 315
 violated contexts and the Berry curvature vanishes identically, as it must for a real state.</p>
 <p><strong>Eshkol</strong> (<code>src/eshkol/hoggar.esk</code>). An exhaustive pass over all \(2^{15}\) two-qubit assignments gives

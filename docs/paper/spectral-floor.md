@@ -21,7 +21,7 @@ degree* is the least number of contexts an assignment must get wrong. We give a 
 Lean 4 proof (Lean 4.35, Mathlib; no axioms beyond the standard three) of the spectral floor: for every
 $N \ge 1$, every set $S$ of non-identity $N$-qubit Pauli observables with all of its induced contexts, and
 every assignment, the number of satisfied minus violated contexts is at most
-$(D-2)\,|S|^{3/2} / (6\sqrt{D-1})$, where $D = 2^N$. The formal development works with the explicit
+$`(D-2)\,|S|^{3/2} / (6\sqrt{D-1})`$, where $D = 2^N$. The formal development works with the explicit
 $2^N \times 2^N$ complex Pauli matrices and derives the context signs from matrix multiplication. Checked
 corollaries: every assignment violates at least the fraction $1/2 - \sqrt{D+1}/(D+2)$ of all contexts
 of the full $N$-qubit Pauli configuration, for every $N$; at least 63 of 315 contexts for three qubits
@@ -70,10 +70,10 @@ tests, a negative control and the Lean sources.
 * The exact value $315$ for the four-qubit hyperbolic quadric, its 240 optimal sets and a Lean proof of
   that value: Li, Gupta and Ganesh [LGG].
 * The exact values $d(Q^-(7,2)) = 315$, $d(W(7,2)) = 1575$, $d(Q^+(9,2)) = 6975$ (computer-assisted),
-  the operator $A = \sum_v f(v) P_v$ and its Hoggar spectrum $\{21, -3^7\}$: Jonah [J1].
+  the operator $A = \sum_v f(v) P_v$ and its Hoggar spectrum $`\{21, -3^7\}`$: Jonah [J1].
 * The spectral floor itself, its Kramers (quaternionic) form for elliptic quadrics, the description of
   quadrics by the antiunitaries $P_c K$, and the theorem that the floor is attained exactly for
-  $W(5,2)$, $Q^+(7,2)$, $Q^-(5,2)$ (and trivially $Q^-(3,2)$): Jonah [J2], with the trace formula also
+  $W(5,2)$, $Q^+(7,2)$, $Q^-(5,2)$ (and trivially $`Q^-(3,2)`$): Jonah [J2], with the trace formula also
   in [J3]. Stronger five-qubit lower bounds ($d(W(9,2)) \ge 28830$, $d(Q^-(9,2)) \ge 6510$) are
   announced, with proofs held privately, in [J4].
 * The scalar inequality behind the floor is classical: it is Okumura's lemma [O] (equivalently the
@@ -104,14 +104,14 @@ P_u P_v = \tau(u,v)\, P_{u+v}, \qquad
 
 and with the symplectic form $\langle u, v\rangle = c_u\cdot a_v + c_v \cdot a_u$ one has
 $\tau(v,u) = (-1)^{\langle u,v\rangle}\tau(u,v)$ and $\tau(u,v)^2 = (-1)^{\langle u,v\rangle}$.
-So $P_u$ and $P_v$ commute exactly when $\langle u,v\rangle = 0$, and then $\tau(u,v) = s(u,v) \in \{+1,-1\}$.
+So $P_u$ and $P_v$ commute exactly when $\langle u,v\rangle = 0$, and then $`\tau(u,v) = s(u,v) \in \{+1,-1\}`$.
 
-**Contexts.** A *context* (a line of the symplectic polar space $W(2N-1,2)$) is a set
-$\ell = \{u, v, u+v\}$ of three distinct points with $\langle u, v\rangle = 0$. Its three operators commute and
-$P_u P_v P_{u+v} = s_\ell\, I$ with $s_\ell = s(u,v)$, which does not depend on the order.
+**Contexts.** A *context* (a line of the symplectic polar space $`W(2N-1,2)`$) is a set
+$`\ell = \{u, v, u+v\}`$ of three distinct points with $\langle u, v\rangle = 0$. Its three operators commute and
+$`P_u P_v P_{u+v} = s_\ell\, I`$ with $s_\ell = s(u,v)$, which does not depend on the order.
 
 **Configurations and assignments.** Fix a set $S$ of points and let $\mathcal{L}(S)$ be the set of all
-contexts contained in $S$, $L_S = |\mathcal{L}(S)|$. An assignment $f : S \to \{+1,-1\}$ *violates*
+contexts contained in $S$, $L_S = |\mathcal{L}(S)|$. An assignment $`f : S \to \{+1,-1\}`$ *violates*
 $\ell$ when $f(u) f(v) f(u+v) \neq s_\ell$. Put
 
 ```math
@@ -123,9 +123,9 @@ $d(S)$ is the contextuality degree [dB]. For the noncontextuality inequality
 $\chi = \sum_\ell s_\ell \langle P_u P_v P_{u+v}\rangle \le L_S - 2 d(S)$ quantum mechanics gives
 $\chi = L_S$ in every state [C, LGG].
 
-**Three families.** The *full space* is $S = \mathbb{F}_2^{2N}\setminus\{0\}$, with $D^2-1$ points
+**Three families.** The *full space* is $`S = \mathbb{F}_2^{2N}\setminus\{0\}`$, with $D^2-1$ points
 and $L = (D^2-1)(D^2-4)/12$ contexts. For $c \in \mathbb{F}_2^{2N}$ let $q_0(v) = |a\wedge c| \bmod 2$ and
-$Q_c = \{ v \ne 0 : q_0(v) + \langle c, v\rangle = 0\}$. $Q_c$ is a *hyperbolic* quadric $Q^+(2N-1,2)$ if
+$`Q_c = \{ v \ne 0 : q_0(v) + \langle c, v\rangle = 0\}`$. $Q_c$ is a *hyperbolic* quadric $Q^+(2N-1,2)$ if
 $q_0(c) = 0$ and an *elliptic* quadric $Q^-(2N-1,2)$ if $q_0(c) = 1$. With $K$ complex conjugation in the
 computational basis, $\theta_c = P_c K$ is antiunitary, $\theta_c P_v \theta_c^{-1} = (-1)^{q_0(v) + \langle c,v\rangle} P_v$
 and $\theta_c^2 = (-1)^{q_0(c)}$. So the quadrics are the sets of Pauli observables fixed by a Pauli
@@ -136,7 +136,7 @@ number of $Y$ factors).
 ## 3. The spectral floor
 
 **Theorem 1 (spectral floor; Jonah [J2] for the three families; formalized here for arbitrary $S$).**
-Let $N \ge 1$, let $S$ be any set of points and $f : S \to \{\pm 1\}$. Then
+Let $N \ge 1$, let $S$ be any set of points and $`f : S \to \{\pm 1\}`$. Then
 
 ```math
 \beta_S(f) \;\le\; \frac{(D-2)\,|S|^{3/2}}{6\sqrt{D-1}},
@@ -147,8 +147,8 @@ d(S) \;\ge\; \frac{L_S}{2} - \frac{(D-2)\,|S|^{3/2}}{12\sqrt{D-1}} .
 *Proof.* Let $A = \sum_{v \in S} f(v) P_v$, a Hermitian $D \times D$ matrix.
 
 *(i) Three traces.* $\operatorname{tr} A = 0$ because $0 \notin S$. Since
-$\operatorname{tr}(P_u P_v) = D\,\delta_{uv}$ and $f(v)^2 = 1$, $\operatorname{tr} A^2 = D\,|S|$. Since
-$\operatorname{tr}(P_u P_v P_w) = D\,\tau(u,v)\,[w = u+v]$,
+$`\operatorname{tr}(P_u P_v) = D\,\delta_{uv}`$ and $f(v)^2 = 1$, $`\operatorname{tr} A^2 = D\,|S|`$. Since
+$`\operatorname{tr}(P_u P_v P_w) = D\,\tau(u,v)\,[w = u+v]`$,
 
 ```math
 \operatorname{tr} A^3 = D \sum_{\substack{u, v \in S \\ u+v \in S}} f(u) f(v) f(u+v)\, \tau(u,v).
@@ -157,7 +157,7 @@ $\operatorname{tr}(P_u P_v P_w) = D\,\tau(u,v)\,[w = u+v]$,
 The pairs with $\langle u,v\rangle = 1$ cancel against their transposes, because $\tau(v,u) = -\tau(u,v)$.
 The pairs with $\langle u,v \rangle = 0$ are the ordered pairs of distinct points of a context
 ($u = v$ would give $u + v = 0 \notin S$), six for each context, each contributing $s_\ell f(u)f(v)f(u+v)$.
-Therefore $\operatorname{tr} A^3 = 6 D\, \beta_S(f)$.
+Therefore $`\operatorname{tr} A^3 = 6 D\, \beta_S(f)`$.
 
 *(ii) A scalar inequality* (Okumura [O]). Let $x_1, \dots, x_n$ be real with $\sum x_i = 0$ and
 $\sum x_i^2 = n m$, $n \ge 2$, and let $a = \sqrt{(n-1)m}$. By the Cauchy–Schwarz inequality applied to
@@ -169,7 +169,7 @@ $(x_i - a)\big((n-1)x_i + a\big)^2 \le 0$. Summing over $i$ and using the two co
 ```
 
 *(iii) Conclusion.* Apply (ii) to the eigenvalues of $A$ with $n = D$, $m = |S|$:
-$(D-1) \cdot 6 D \beta \le D\,|S|\,(D-2)\sqrt{(D-1)|S|}$. $\qquad\blacksquare$
+$`(D-1) \cdot 6 D \beta \le D\,|S|\,(D-2)\sqrt{(D-1)|S|}`$. $\qquad\blacksquare$
 
 Three remarks. First, no closure property of $S$ is used: products that leave $S$ do not contribute to
 the trace. Second, the hypothesis $f = \pm 1$ enters only through $\operatorname{tr} A^2 = D|S|$, so the
@@ -188,7 +188,7 @@ antiunitary $\theta$ with $\theta^2 = -1$ (for instance, $S$ lies in an elliptic
 $A x = \lambda x$ then $A\theta x = \lambda \theta x$, and $\langle x, \theta x\rangle = 0$ because
 $\langle \theta x, \theta y\rangle = \overline{\langle x, y \rangle}$ gives
 $\langle x, \theta x\rangle = \overline{\langle \theta x, \theta^2 x\rangle} = -\langle x, \theta x\rangle$.
-Every eigenspace is therefore an orthogonal sum of planes $\{x, \theta x\}$ and every eigenvalue has even
+Every eigenspace is therefore an orthogonal sum of planes $`\{x, \theta x\}`$ and every eigenvalue has even
 multiplicity (Kramers). Apply (ii) to the $D/2$ distinct pair values, with the same $m$.
 $\qquad\blacksquare$
 
@@ -216,8 +216,8 @@ unit vector $\psi$ with
 \langle \psi | P_v | \psi \rangle = 0 \quad (v \notin S,\ v \ne 0).
 ```
 
-*Proof.* Equality in (ii) forces $x_i \in \{a, -a/(n-1)\}$ for every $i$, and the zero sum forces exactly
-one value $a$. So $A = (a-b)\,|\psi\rangle\langle\psi| + b\,I$ with $b = -a/(D-1)$; reading off Pauli
+*Proof.* Equality in (ii) forces $`x_i \in \{a, -a/(n-1)\}`$ for every $i$, and the zero sum forces exactly
+one value $a$. So $`A = (a-b)\,|\psi\rangle\langle\psi| + b\,I`$ with $b = -a/(D-1)$; reading off Pauli
 coefficients gives the claim, and the converse is the same computation backwards. $\qquad\blacksquare$
 
 For the full space the condition says that $\psi$ is a fiducial vector of a SIC covariant under the
@@ -231,9 +231,9 @@ exact counting in four independent implementations (Section 9); the values thems
 
 | configuration | assignment | violated | floor | spectrum of $A$ |
 |---|---|---|---|---|
-| $W(5,2)$: 63 points, 315 contexts | signs of $\langle\psi_H|P_v|\psi_H\rangle$ | 63 | 63 | $\{21, (-3)^7\}$ |
-| $Q^-(5,2)$: 27 points, 45 contexts | the same signs, restricted | 9 | 9 | $\{9^2, (-3)^6\}$ |
-| $Q^+(7,2)$: 135 points, 1575 contexts | signs of the realified $\psi_H \in \mathbb{R}^{16}$ | 315 | 315 | $\{45, (-3)^{15}\}$ |
+| $W(5,2)$: 63 points, 315 contexts | signs of $\langle\psi_H\vert P_v\vert \psi_H\rangle$ | 63 | 63 | $`\{21, (-3)^7\}`$ |
+| $Q^-(5,2)$: 27 points, 45 contexts | the same signs, restricted | 9 | 9 | $`\{9^2, (-3)^6\}`$ |
+| $Q^+(7,2)$: 135 points, 1575 contexts | signs of the realified $\psi_H \in \mathbb{R}^{16}$ | 315 | 315 | $`\{45, (-3)^{15}\}`$ |
 
 In the third row, $\mathbb{C}^8$ is read as $\mathbb{R}^{16}$; the resulting real four-qubit state has
 expectation $\pm 1/3$ on all 135 real Pauli observables and $0$ on the 120 imaginary ones (this
@@ -242,7 +242,7 @@ announced in [J4]). The violated contexts form, respectively, a classically embe
 hexagon (63 lines, three per point, incidence graph of diameter 6 and girth 12, the three lines through
 each point in one totally isotropic plane), nine pairwise disjoint lines, and a copy of the dual polar
 space $DW(5,2)$ (315 lines, seven per point, collinearity graph distance-regular with intersection
-array $\{14,12,8;1,3,7\}$), in agreement with [M1, S, M2, LGG].
+array $`\{14,12,8;1,3,7\}`$), in agreement with [M1, S, M2, LGG].
 
 By Theorem 3, the optimal assignments of $W(5,2)$ are exactly the sign patterns of Pauli-covariant SIC
 fiducials in dimension 8. Our enumeration finds 120 optimal violated sets in the orbit of the Hoggar
@@ -253,11 +253,11 @@ reflections of $O^+(8,2)$ has 240 elements, the number proved in [LGG].
 
 **Proposition 3 (violated contexts in the quantum metric).** Let $\psi$ be a state, $p_v = \langle P_v\rangle$,
 and let $Q_{uv} = \tfrac14\big(\langle P_u P_v\rangle - p_u p_v\big)$ be its quantum geometric tensor along
-the flows $e^{-itP_v/2}$. For a context $\{u, v, w\}$ with sign $s$, the Fubini–Study metric is
-$g_{uv} = \tfrac14 (s\,p_w - p_u p_v)$. If $f = \operatorname{sign}(p)$, the context is violated exactly when
+the flows $e^{-itP_v/2}$. For a context $`\{u, v, w\}`$ with sign $s$, the Fubini–Study metric is
+$`g_{uv} = \tfrac14 (s\,p_w - p_u p_v)`$. If $f = \operatorname{sign}(p)$, the context is violated exactly when
 $4|g_{uv}| = |p_w| + |p_u p_v|$ and satisfied exactly when $4|g_{uv}| = \big||p_w| - |p_u p_v|\big|$.
 
-*Proof.* $\langle P_uP_v\rangle = s\,p_w$; the context is violated when $s\,p_w$ and $p_u p_v$ have opposite
+*Proof.* $`\langle P_uP_v\rangle = s\,p_w`$; the context is violated when $`s\,p_w`$ and $p_u p_v$ have opposite
 signs. $\qquad\blacksquare$
 
 For $\psi_H$: $g_{vv} = 2/9$; $|g_{uv}| = 1/9$ on the 189 commuting pairs lying on the 63 violated contexts,
@@ -268,7 +268,7 @@ set of pairs of largest off-diagonal metric (computed with the QGTL kernels, Sec
 ## 5. Consequences for all $N$
 
 **Corollary A (full space).** For every $N \ge 1$ every assignment of the $D^2 - 1$ Pauli observables
-violates at least $\varphi(D)\,L$ contexts (Lean: `full_space_fraction`). Since a uniformly random
+violates at least $`\varphi(D)\,L`$ contexts (Lean: `full_space_fraction`). Since a uniformly random
 assignment violates $L/2$ contexts on average, $d/L \to 1/2$.
 
 **Exponential violation.** The ratio of the quantum value to the noncontextual bound of the full
@@ -278,7 +278,7 @@ of positive contexts, which is correct for two qubits but not for three, where 2
 predictions can be satisfied rather than 225 [M1]. Corollary A proves the growth.
 
 **Noise.** If imperfections scale every correlator by a visibility $\eta$, the inequality is violated
-when $\eta > 1 - 2d/L$, hence whenever $\eta > 2\sqrt{D+1}/(D+2)$: above $0.6$ for three qubits, $0.458$
+when $\eta \gt 1 - 2d/L$, hence whenever $\eta \gt 2\sqrt{D+1}/(D+2)$: above $0.6$ for three qubits, $0.458$
 for four, $0.338$ for five, $0.062$ for ten. In the notation of [C, MS] the tolerated error per context
 $\varepsilon = 2d/L$ is at least $1 - 2\sqrt{D+1}/(D+2)$, which exceeds $0.707$ (the largest value
 confirmed in the search of [MS], for configurations of a different kind) from six qubits on and tends
@@ -297,8 +297,8 @@ Pauli-covariant SIC exists, and $M_N \le C\sqrt{\log D / D}$ for an absolute con
 
 *Proof.* A pure state has $\operatorname{tr}\rho^3 = 1$; with $\rho = D^{-1}(I + \sum_v p_v P_v)$ and
 $\sum_{v\ne 0} p_v^2 = D-1$, the trace computation of Theorem 1 gives
-$T(p) = \sum_\ell s_\ell\, p_u p_v p_w = (D-1)(D-2)/6$ (the cubic purity condition [JL, St]). Choose the
-signs $f(v)$ independently with mean $p_v/M$. Then $\mathbb{E}\,\beta(f) = T(p)/M^3$, and some $f$ does at
+$`T(p) = \sum_\ell s_\ell\, p_u p_v p_w = (D-1)(D-2)/6`$ (the cubic purity condition [JL, St]). Choose the
+signs $f(v)$ independently with mean $p_v/M$. Then $`\mathbb{E}\,\beta(f) = T(p)/M^3`$, and some $f$ does at
 least as well. The upper bound on $M_N$ follows from Lévy's lemma for Haar-random states and a union
 bound over the $D^2-1$ observables [HLW]. $\qquad\blacksquare$
 
@@ -350,9 +350,9 @@ assignment for the full space at $N = 4, 5, 6, 7$. (3) For seven qubits the best
 the full space and of the elliptic quadric are within two per cent of the floor.
 
 An empirical regularity, also recorded for four qubits in [J1]: in every best assignment we computed,
-$A + 3I$ has low rank. The spectra of $A$ are $\{21 \pm 16\sqrt6, (-3)^{14}\}$ for $W(7,2)$,
-$\{(9 \pm 4\sqrt{23})^2, (-3)^{12}\}$ for $Q^-(7,2)$, $\{45 \pm 56\sqrt2, (-3)^{30}\}$ for $Q^+(9,2)$, and three
-(respectively three pairs of) eigenvalues different from $-3$ for $W(9,2)$ (respectively $Q^-(9,2)$).
+$A + 3I$ has low rank. The spectra of $A$ are $`\{21 \pm 16\sqrt6, (-3)^{14}\}`$ for $W(7,2)$,
+$`\{(9 \pm 4\sqrt{23})^2, (-3)^{12}\}`$ for $Q^-(7,2)$, $`\{45 \pm 56\sqrt2, (-3)^{30}\}`$ for $Q^+(9,2)$, and three
+(respectively three pairs of) eigenvalues different from $-3$ for $W(9,2)$ (respectively $`Q^-(9,2)`$).
 
 ## 7. The Lean 4 development
 
@@ -362,7 +362,7 @@ The sources are in `lean/HoggarBound/` (1273 lines in six modules; Lean 4.35.0, 
 |---|---|
 | `Moment.lean` | `sum_cube_le` (the scalar inequality); `trace_pow_eq_sum_eigenvalues_pow` ($\operatorname{tr}A^k = \sum \lambda_i^k$ for Hermitian $A$); `trace_cube_le` |
 | `Pauli.lean` | bit vectors `Fin N → ZMod 2`; Weyl operators and `pauli u` as explicit complex matrices; `pauli_mul`, `context_product` ($P_uP_vP_{u+v} = \tau(u,v) I$), `pauli_comm`; traces of one, two and three Pauli operators; $\tau = \pm 1$ on commuting pairs |
-| `Bound.lean` | `flags` (ordered commuting pairs with product in $S$: six per context), `beta6`, the operator `opA`; `trace_opA_cube` ($\operatorname{tr}A^3 = D\,\beta_6$); **`hoggar_bound`** |
+| `Bound.lean` | `flags` (ordered commuting pairs with product in $S$: six per context), `beta6`, the operator `opA`; `trace_opA_cube` ($`\operatorname{tr}A^3 = D\,\beta_6`$); **`hoggar_bound`** |
 | `Counting.lean` | `violated`, `beta6_eq_card`; the flag count of the full space for every $N$ (`card_flags_all`); `violatedLines` and `card_violated_le`; `four_qubit_contexts` |
 | `Corollaries.lean` | `full_space_bound`, `full_space_fraction` (all $N$); `three_qubit_contexts`, `five_qubit_contexts` |
 | `Quadric.lean` | the real quadric; its point and flag counts for every $N$ by character sums; `four_qubit_hyperbolic_contexts`, `five_qubit_hyperbolic_contexts` |
@@ -382,7 +382,7 @@ Table 2 lists the corollaries.
 
 | Lean theorem | statement |
 |---|---|
-| `full_space_fraction` | for all $N \ge 1$: $\#\text{violated flags} \ge \big(\tfrac12 - \sqrt{2^N+1}/(2^N+2)\big)\,\#\text{flags}$ |
+| `full_space_fraction` | for all $N \ge 1$: $`\#\text{violated flags} \ge \big(\tfrac12 - \sqrt{2^N+1}/(2^N+2)\big)\,\#\text{flags}`$ |
 | `three_qubit_contexts` | every assignment of the 63 observables violates at least 63 contexts |
 | `four_qubit_contexts` | every assignment of the 255 observables violates at least 1451 contexts |
 | `five_qubit_contexts` | every assignment of the 1023 observables violates at least 28786 contexts |
@@ -402,7 +402,7 @@ and without editing our files, re-checked the six modules from source, confirmed
 added two modules of its own (`IndependentContexts.lean`, `IndependentWitness.lean`). They prove that a
 violated context carries exactly six violated flags and, by kernel evaluation of an integer certificate
 (no `native_decide`), that the explicit assignment
-"$f(a,c) = +1$ if $a = 0$ or $c = 0$ or the number of $Y$ factors is at least 2, and $-1$ otherwise"
+"$`f(a,c) = +1`$ if $a = 0$ or $c = 0$ or the number of $Y$ factors is at least 2, and $-1$ otherwise"
 violates exactly 63 contexts; together with `three_qubit_contexts` this is a formal proof that the
 three-qubit degree is exactly 63. Their reports are in `results/lean-audit.md`,
 `results/literature-audit.md` and `results/stack-independent-audit.md`, and their companion note is
@@ -460,11 +460,11 @@ measurements on hardware or a loophole analysis.
 
 ![Figure 3](figures/fig3_spectra.png)
 
-*Figure 3. Spectra of $A = \sum f(v)P_v$ for the best assignments at three and four qubits.*
+*Figure 3. Spectra of $`A = \sum f(v)P_v`$ for the best assignments at three and four qubits.*
 
 **QGTL** (`src/qgt_hoggar.c`). The kernels `diffgeo_compute_fubini_study` and
 `diffgeo_compute_berry_curvature`, applied to $\psi_H$ and the 63 tangent vectors $-\tfrac{i}{2}P_v\psi_H$,
-return the values of Proposition 3 to $10^{-16}$, and the 189 pairs with $|g_{uv}| > 1/12$ are exactly
+return the values of Proposition 3 to $10^{-16}$, and the 189 pairs with $|g_{uv}| \gt 1/12$ are exactly
 the pairs on the 63 violated contexts. For the realified state the 945 largest entries recover the 315
 violated contexts and the Berry curvature vanishes identically, as it must for a real state.
 
