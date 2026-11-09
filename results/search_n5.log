@@ -1,0 +1,18 @@
+N=5 type=f points=1023 lines=86955 neg=35400 lower-bound=28786
+  restart 0: start 43599 -> best 32103
+  restart 1: start 43450 -> best 31479
+  restart 2: start 43478 -> best 31479
+  restart 3: start 43337 -> best 32631
+N=5 type=f best=31479 recount=31479 lower_bound=28786 lines=86955
+N=5 type=h points=527 lines=23715 neg=9420 lower-bound=6426
+  restart 0: start 11989 -> best 6975
+  restart 1: start 11800 -> best 6975
+  restart 2: start 11950 -> best 6975
+  restart 3: start 11753 -> best 6975
+N=5 type=h best=6975 recount=6975 lower_bound=6426 lines=23715
+N=5 type=e points=495 lines=19635 neg=8020 lower-bound=6501
+  restart 0: start 9906 -> best 7087
+  restart 1: start 9820 -> best 7263
+  restart 2: start 9793 -> best 7152
+  restart 3: start 9822 -> best 7152
+N=5 type=e best=7087 recount=7087 lower_bound=6501 lines=19635
