@@ -13,7 +13,7 @@
     "given_names": "Alexander S.",
     "family_name": "Donahue",
     "affiliation_recorded": "0thernes LLC",
-    "source": "User confirmation relayed by root agent on 2026-11-09; C3-specific metadata in paper/c3-citation.cff",
+    "source": "User confirmed this manuscript credit on 2026-11-09 and explicitly retained it after comparison with the arXiv profile; C3-specific metadata is in paper/c3-citation.cff",
     "c3_authorship_eligibility_confirmed": false,
     "c3_final_approval_observed": false,
     "email": "0_0@0thernes.art"
@@ -46,7 +46,15 @@
   "competing_interests": "The author is the sole operator of 0thernes LLC, with which this project is affiliated.",
   "other_competing_interests_confirmation": null,
   "declarations_note": "Funding and the stated LLC relationship were supplied by the author. No statement that other competing interests are absent has been supplied.",
-  "arxiv_account_status": "Author is unsure whether an existing account exists; verify through the platform before creating another account.",
+  "arxiv_account_status": "Authenticated author account observed on 2026-11-09; no submissions listed. Account access is resolved.",
+  "arxiv_workflow_status": "Deferred at the author's request; no submission started.",
+  "arxiv_profile_observed": {
+    "name": "Alexander Donahue",
+    "affiliation": "Independent Researcher",
+    "website": "https://www.0thernes.art",
+    "default_category": "math.QA",
+    "manuscript_credit_note": "The author explicitly chose to retain Alexander S. Donahue, 0thernes LLC on the manuscript. The account default category is separate from the prepared quant-ph paper classification."
+  },
   "human_contribution_statement": null,
   "ai_disclosure_scope": "Substantive OpenAI Codex agent assistance on 2026-11-09 included literature research, candidate search, derivation, implementation, formalization, verification, visualization and manuscript drafting. Complete actual model/version details and human contributions/review before submission; do not describe this as copy editing only.",
   "related_identifiers": [
