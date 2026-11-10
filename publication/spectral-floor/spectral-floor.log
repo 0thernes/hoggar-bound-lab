@@ -570,13 +570,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
 (Font)              scaled to size 9.84009pt on input line 32.
+LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
+(Font)              scaled to size 8.97906pt on input line 75.
  [1
 
-]
-LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
-(Font)              scaled to size 8.97906pt on input line 93.
- [2] [3]
-Overfull \hbox (6.1329pt too wide) in paragraph at lines 230--233
+] [2] [3]
+Overfull \hbox (6.1329pt too wide) in paragraph at lines 212--215
 []$\OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 S\OT1/cmr/m/n/1
 0.95 )$ \TU/lmr/m/n/10.95 is the contextuality degree [dB]. For the noncontextu
 ality inequality $\OML/cmm/m/it/10.95 ^^_ \OT1/cmr/m/n/10.95 = [][] \OML/cmm/m/
@@ -584,28 +583,28 @@ it/10.95 s[]\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 P[]P[]P[]\OMS/cmsy/m/n/10.
 95 i ^^T
  []
 
-[4] [5] [6] [7]
-Overfull \hbox (0.73146pt too wide) in paragraph at lines 443--443
+[4] [5] [6]
+Overfull \hbox (0.73146pt too wide) in paragraph at lines 425--425
 []|\TU/lmr/m/n/9 observables|  
  []
 
 
-Overfull \hbox (1.81253pt too wide) in paragraph at lines 443--443
+Overfull \hbox (1.81253pt too wide) in paragraph at lines 425--425
 []|\TU/lmr/m/n/9 modulus|  
  []
 
-[8] [9] [10]
-Overfull \hbox (4.03928pt too wide) in paragraph at lines 654--655
+[7] [8] [9] [10]
+Overfull \hbox (4.03928pt too wide) in paragraph at lines 636--637
 []|\TU/lmr/m/n/9 observables|  
  []
 
 
-Overfull \hbox (3.93723pt too wide) in paragraph at lines 663--663
+Overfull \hbox (3.93723pt too wide) in paragraph at lines 645--645
 []|\TU/lmr/m/n/9 33554431|  
  []
 
-[11]
-Overfull \hbox (15.09172pt too wide) detected at line 685
+
+Overfull \hbox (15.09172pt too wide) detected at line 667
 \OML/cmm/m/it/10.95 T\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X; Y; Z\OT1/cmr/m/
 n/10.95 ) = [] []\OML/cmm/m/it/10.95 x[]y[]z[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/
 it/10.95 x[]y[]z[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 x[]y[]z[] \OT1/cmr/
@@ -618,78 +617,80 @@ z\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 ^^L ^^[\OT1/cmr/m/n/10.95 (\OML/cmm
  []
 
 
-Overfull \hbox (12.66608pt too wide) detected at line 692
+Overfull \hbox (12.66608pt too wide) detected at line 674
 \OMS/cmsy/m/n/10.95 j\OT1/cmr/m/n/10.95 ^^H[]\OMS/cmsy/m/n/10.95 i \OT1/cmr/m/n
 /10.95 = \OML/cmm/m/it/10.95 CS[] CS[] CS[]  CCZ[] CCZ[] CCZ[]  CCZ[] CCZ[] CCZ
 [] CCZ[] CCZ[] \OMS/cmsy/m/n/10.95 j[]i[]
  []
 
-[12] [13]
-Overfull \hbox (6.32605pt too wide) in paragraph at lines 807--807
+[11] [12]
+Overfull \hbox (6.32605pt too wide) in paragraph at lines 789--789
 []|\TU/lmr/m/n/9 configuration|  
  []
 
 
-Overfull \hbox (0.57942pt too wide) in paragraph at lines 807--807
+Overfull \hbox (0.57942pt too wide) in paragraph at lines 789--789
 []|\TU/lmr/m/n/9 contexts|  
  []
 
 
-Overfull \hbox (4.13441pt too wide) in paragraph at lines 826--826
+Overfull \hbox (4.13441pt too wide) in paragraph at lines 808--808
 []|\TU/lmr/m/n/9 22362795|  
  []
 
 
-Overfull \hbox (2.53174pt too wide) in paragraph at lines 826--826
+Overfull \hbox (2.53174pt too wide) in paragraph at lines 808--808
 []|\TU/lmr/m/n/9 9227609|  
  []
 
 
-Overfull \hbox (2.53174pt too wide) in paragraph at lines 827--827
+Overfull \hbox (2.53174pt too wide) in paragraph at lines 809--809
 []|\TU/lmr/m/n/9 2161542|  
  []
 
 
-Overfull \hbox (2.53174pt too wide) in paragraph at lines 828--828
+Overfull \hbox (2.53174pt too wide) in paragraph at lines 810--810
 []|\TU/lmr/m/n/9 2252409|  
  []
 
+[13]
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
-(Font)              scaled to size 8.20007pt on input line 861.
+(Font)              scaled to size 8.20007pt on input line 843.
+
 
 LaTeX Font Warning: Font shape `TU/DejaVuSansMono.ttf(0)/b/n' undefined
 (Font)              using `TU/DejaVuSansMono.ttf(0)/m/n' instead on input line 
-863.
+845.
 
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/b/n' will be
-(Font)              scaled to size 8.20007pt on input line 869.
+(Font)              scaled to size 8.20007pt on input line 851.
 [14]
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
-(Font)              scaled to size 7.38007pt on input line 877.
- [15] [16]
-Underfull \hbox (badness 4279) in paragraph at lines 969--973
+(Font)              scaled to size 7.38007pt on input line 859.
+ [15]
+Underfull \hbox (badness 4279) in paragraph at lines 951--955
 []\TU/lmr/bx/n/10.95 Experiment on Moonlab, classical families \TU/lmr/m/n/10.9
 5 (\TU/DejaVuSansMono.ttf(0)/m/n/10.95 src/moonlab_experiment.mjs\TU/lmr/m/n/10
 .95 , seed
  []
 
-[17]
+[16] [17]
 File: figures/fig1_fraction.png Graphic file (type bmp)
 <figures/fig1_fraction.png>
- [18]
 File: figures/fig2_noise.png Graphic file (type bmp)
 <figures/fig2_noise.png>
+ [18]
 File: figures/fig3_spectra.png Graphic file (type bmp)
 <figures/fig3_spectra.png>
  [19] [20] [21]
-Underfull \hbox (badness 1189) in paragraph at lines 1232--1234
+Underfull \hbox (badness 1189) in paragraph at lines 1234--1236
 \TU/lmr/m/it/10.95 symplectic and quadric Pauli configurations\TU/lmr/m/n/10.95
  , preprint, Zenodo, 20 October 2026,
  []
 
 [22]
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
-(Font)              scaled to size 4.92004pt on input line 1268.
+(Font)              scaled to size 4.92004pt on input line 1270.
  [23] [24] (spectral-floor.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -697,4 +698,4 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `spectral-floor.out' has not changed.
 (rerunfilecheck)             Checksum: AAA087DCE0D017A7859FC59463C3D34B;4403.
  )
-Output written on spectral-floor.xdv (24 pages, 660108 bytes).
+Output written on spectral-floor.xdv (24 pages, 660064 bytes).

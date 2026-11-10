@@ -4,6 +4,17 @@ Versions of the spectral-floor paper and of the code that supports it. The indep
 and the companion C3 note in this repository are released separately by their own tags
 (`v0.1.0-independent-verification`, `v0.2.0-c3-certificate`).
 
+## 1.1.1 — 9 November 2026
+
+No change to any result, proof or program.
+
+* The author's ORCID iD (0009-0006-8168-9648) is given in the paper, the web page's indexing metadata,
+  `CITATION.cff`, the LaTeX source and the submission sheets.
+* The random census of seven-qubit forms now covers the last type (B of rank 7); the full title and DOI
+  of one reference were added; every reference was checked against Crossref, arXiv, Zenodo or the
+  journal's site.
+* `publication/spectral-floor/` records the state of each venue and what each requires of the author.
+
 ## 1.1.0 — 9 November 2026
 
 New results (paper, Section 5)

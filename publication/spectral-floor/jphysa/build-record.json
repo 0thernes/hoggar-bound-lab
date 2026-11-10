@@ -1,0 +1,19 @@
+{
+ "source": "paper/spectral-floor.md",
+ "source_sha256": "fcfc6b01a7e6a4e7a712f93c217d9913310b0b487589d9e29e26da9051202d1d",
+ "words_main_with_abstract_and_references": 9005,
+ "words_main_text_only": 8095,
+ "words_abstract": 302,
+ "words_supplement": 1738,
+ "manuscript_pdf_sha256": "f6535734384b4f970c762d12ff2c862049398c683b20ccfbae6ee6b7d5d8685c",
+ "manuscript_overfull_pt": [
+  "6.1329",
+  "6.32605",
+  "12.66608",
+  "15.09172"
+ ],
+ "supplementary_pdf_sha256": "a98034b17764501844f2f4862b26ced1376e2c230d0ee529167eda044e7e101a",
+ "supplementary_overfull_pt": [],
+ "tectonic": "Tectonic 0.17.0",
+ "pandoc": "pandoc 3.13"
+}

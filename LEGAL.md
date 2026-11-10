@@ -26,7 +26,8 @@ from those components and is not endorsed by their authors. See [NOTICE](NOTICE)
 
 ## Authorship and responsibility
 
-* Author: Alexander S. Donahue, 0thernes LLC. Correspondence: 0_0@0thernes.art.
+* Author: Alexander S. Donahue, 0thernes LLC, ORCID [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648).
+  Correspondence: 0_0@0thernes.art.
 * The research, the programs, the Lean proofs and the text were produced by an AI system (Claude,
   Anthropic) at the request and under the direction of the author, who is responsible for the release.
   A separate set of AI agent sessions wrote the independent companion review and the companion note in

@@ -8,7 +8,7 @@ quantum_rng, Eshkol).
 [![Saturated configurations](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml)
 [![Independent verification](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml)
 [![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
-[![Version 1.1.0](https://img.shields.io/badge/version-1.1.0-informational)](CHANGELOG.md)
+[![Version 1.1.1](https://img.shields.io/badge/version-1.1.1-informational)](CHANGELOG.md)
 
 **Paper:** [paper/spectral-floor.md](paper/spectral-floor.md) ([PDF](paper/spectral-floor.pdf), [typeset PDF](publication/spectral-floor/spectral-floor.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/))
 &nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
@@ -17,8 +17,9 @@ quantum_rng, Eshkol).
 **Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
 [GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, version 1.1.0, 9 November 2026. Not peer reviewed. AI-generated under human
-direction. Author: Alexander S. Donahue, 0thernes LLC.
+Status: research preprint, version 1.1.1, 9 November 2026. Not peer reviewed. AI-generated under human
+direction. Author: Alexander S. Donahue, 0thernes LLC
+([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
 
 **New finite result:** [Cospectral Pauli carriers with different completion spectra](paper/c3-spectral-counterexample.md)
 ([PDF](paper/c3-spectral-counterexample.pdf), [working exact-certificate demo](https://0thernes.github.io/hoggar-bound-lab/c3-lab/)).

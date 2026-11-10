@@ -27,8 +27,10 @@ Alexander S. Donahue (0thernes LLC)
 same: sign in, open *Your arXiv.org account*, *Change User Information*, and set **Affiliation** to
 `0thernes LLC` (it currently reads "Independent Researcher"). The same affiliation is used in the paper,
 in `CITATION.cff`, in the indexing tags of the paper's web page, and in the Zenodo and journal sheets.
+On the same account page, *Link your ORCID iD* connects the account to
+[0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648), the iD printed in the paper.
 
-**Abstract** (1 868 characters; arXiv's limit is 1 920)
+**Abstract** (plain text, 1 845 characters; arXiv's limit is 1 920)
 
 A noncontextual hidden-variable model assigns a value +1 or -1 to every N-qubit Pauli observable. The
 contextuality degree of a set of observables is the least number of its contexts (commuting triples with

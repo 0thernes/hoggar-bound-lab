@@ -10,7 +10,8 @@ authors:
     alias: 0thernes
     affiliation: "0thernes LLC"
     email: "0_0@0thernes.art"
-version: "1.1"
+    orcid: "https://orcid.org/0009-0006-8168-9648"
+version: "1.1.1"
 date-released: 2026-11-09
 repository-code: "https://github.com/0thernes/hoggar-bound-lab"
 url: "https://0thernes.github.io/hoggar-bound-lab/"
@@ -41,6 +42,8 @@ preferred-citation:
   authors:
     - family-names: Donahue
       given-names: "Alexander S."
+      affiliation: "0thernes LLC"
+      orcid: "https://orcid.org/0009-0006-8168-9648"
   year: 2026
   month: 11
   institution:

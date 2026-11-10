@@ -119,11 +119,8 @@ def split_source(text):
 
 
 def prepare(md):
-    # figure: image paragraph followed by an italic caption paragraph  ->  one image with that caption
-    def fig(m):
-        cap = re.sub(r"^Figure \d+\.\s*", "", m.group(2).strip())
-        return "![%s](%s)" % (cap, m.group(1))
-    return re.sub(r"!\[Figure \d+\]\(([^)]+)\)\s*\n\s*\n\*(Figure \d+\.[^\n]*)\*", fig, md)
+    """Figures stay as the Markdown has them: an image paragraph followed by an italic caption paragraph."""
+    return md
 
 
 def pandoc(exe, md):
@@ -131,7 +128,10 @@ def pandoc(exe, md):
     out = subprocess.run(cmd, input=md.encode("utf-8"), capture_output=True)
     if out.returncode != 0:
         sys.exit("pandoc failed: " + out.stderr.decode("utf-8", "replace"))
-    return out.stdout.decode("utf-8")
+    tex = out.stdout.decode("utf-8")
+    # centre each image; its caption is the italic paragraph that follows
+    return re.sub(r"(?m)^(\\pandocbounded\{\\includegraphics.*\}\})$",
+                  lambda m: BS + "begin{center}" + m.group(1) + BS + "end{center}", tex)
 
 
 def main():
@@ -149,10 +149,13 @@ def main():
             shutil.copyfile(os.path.join(ROOT, "paper", "figures", f), os.path.join(OUT, "figures", f))
     # byline[0]: "Name, affiliation ... Correspondence: address";  the other lines become a note under the title
     who, _, mail = byline[0].partition("Correspondence:")
+    who, _, orcid = who.partition("ORCID:")
     name, _, affiliation = who.strip().rstrip(".").partition(",")
     tex = lambda s: pandoc(args.pandoc, s).strip()
-    author = "%s%s%s %s%s%s %stexttt{%s}" % (tex(name), BS, BS, tex(affiliation.strip()), BS, BS, BS,
-                                              mail.strip().replace("_", BS + "_"))
+    author = "%s%s%s %s%s%s " % (tex(name), BS, BS, tex(affiliation.strip()), BS, BS)
+    if orcid.strip():
+        author += "ORCID %s%s%s " % (tex(orcid.strip().rstrip(".")), BS, BS)
+    author += "%stexttt{%s}" % (BS, mail.strip().replace("_", BS + "_"))
     status = " ".join(tex(b) for b in byline[1:])
     doc = [PREAMBLE,
            "%stitle{%s%s%s[0.7em]%slarge %s}" % (BS, tex(title), BS, BS, BS, tex(subtitle)),

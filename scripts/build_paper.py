@@ -20,6 +20,7 @@ OUT_PDF = os.path.join(ROOT, "paper", "spectral-floor.pdf")
 DOCS = os.path.join(ROOT, "docs")
 AUTHOR = "Donahue, Alexander S."
 INSTITUTION = "0thernes LLC"
+ORCID = "https://orcid.org/0009-0006-8168-9648"
 SITE = "https://0thernes.github.io/hoggar-bound-lab/"
 
 CSS = """
@@ -154,6 +155,7 @@ def build(embed_images=False):
               "November", "December"]
     date = "%s/%02d/%02d" % (m.group(4), months.index(m.group(3)) + 1, int(m.group(2)))
     tags = [("citation_title", title), ("citation_author", AUTHOR), ("citation_author_institution", INSTITUTION),
+            ("citation_author_orcid", ORCID),
             ("citation_publication_date", date), ("citation_online_date", date),
             ("citation_technical_report_institution", INSTITUTION),
             ("citation_technical_report_number", "Hoggar Bound Lab, version " + m.group(1)),

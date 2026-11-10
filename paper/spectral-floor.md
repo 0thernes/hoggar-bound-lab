@@ -2,7 +2,7 @@
 
 **Lean 4 formalization for every number of qubits; exact contextuality degrees of four-, five- and seven-qubit configurations outside the classical families; a classification of flat third-level phase states; a running demonstration on the Tsotchke stack**
 
-Alexander S. Donahue, 0thernes LLC, Washington, USA. Correspondence: 0_0@0thernes.art<br>
+Alexander S. Donahue, 0thernes LLC, Washington, USA. ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648). Correspondence: 0_0@0thernes.art<br>
 Hoggar Bound Lab, version 1.1, 9 November 2026. Research preprint. Not peer reviewed.<br>
 Produced with an AI research system (Claude, Anthropic) under the author's direction; see Section 12.
 
@@ -16,43 +16,25 @@ Produced with an AI research system (Claude, Anthropic) under the author's direc
 
 ## Abstract
 
-For $N$ qubits, a noncontextual hidden-variable model assigns a value $\pm 1$ to every Pauli observable.
-Quantum mechanics fixes the sign of the product of any three mutually commuting Pauli observables whose
-product is $\pm I$ (a *context*), and no assignment can reproduce all of these signs. The *contextuality
-degree* $d(S)$ of a set $S$ of observables is the least number of its contexts an assignment must get
-wrong. We give a complete, kernel-checked Lean 4 proof (Lean 4.35, Mathlib; no axioms beyond the standard
-three) of the spectral floor, an inequality first posted by B. W. Jonah in October 2026: for every
-$N \ge 1$, every set $S$ of non-identity $N$-qubit Pauli observables with all of its induced contexts, and
-every assignment, the number of satisfied minus violated contexts is at most
-$`(D-2)\,|S|^{3/2} / (6\sqrt{D-1})`$, where $D = 2^N$. The Lean theorem has no closure hypothesis on $S$,
-and we use that generality. The floor is attained exactly when some pure state has Pauli expectation
-values of one modulus on $S$ and zero on every other observable, equivalently when every observable of
-$S$ lies on the same excess of satisfied over violated contexts and certain sums outside $S$ cancel. We
-exhibit configurations outside the classical families where this happens. The first is a set of 135
-four-qubit observables that is not a quadric and not closed under products; it has 1095 contexts and
-contextuality degree exactly 75, and it is the Pauli support of the state
-$`(|0011\rangle+|0111\rangle+|1011\rangle+|1100\rangle+|1101\rangle+i\,|1110\rangle)/\sqrt6`$, which we did
-not find in the literature. The second is the set of 496 five-qubit observables supported by a state
-published by Cieśliński in October 2026; it has 10880 contexts and degree exactly 480. Both exact degrees
-are proved in Lean, lower bound and witness, with the finite counts evaluated by the kernel. We then
-determine, by exhaustive enumeration, all states $U|{+}\cdots{+}\rangle$ with $U$ a diagonal gate of the
-third level of the Clifford hierarchy that have this property on up to five qubits: there is none on
-four qubits and exactly one class on five, represented by a circuit of three controlled-S gates ($CS$)
-and two $CCZ$ gates, whose configuration is the five-qubit one above up to a Clifford operation. On seven
-qubits a circuit of three $CS$ and eight $CCZ$ gates prepares such a state: its 8128
-observables contain 2 824 192 contexts and the contextuality degree is exactly 729 344, a value obtained
-from the Lean-checked inequality and counts made by three independent programs. The Pauli support of
-every such state is a two-character set of the symplectic space, and in these three cases the support of
-a bent function. For the
-classical families the checked corollaries are: every assignment violates at least the fraction
-$1/2 - \sqrt{D+1}/(D+2)$ of the contexts of the full $N$-qubit configuration, for every $N$; exactly 63
-of 315 for three qubits; at least 1451 of 5355 for four qubits and 28786 of 86955 for five; exactly 315
-of 1575 on the four-qubit hyperbolic quadric; and at least 6426 of 23715 on the five-qubit one. We
-reproduce the best known assignments for two to five qubits with an independent search and run the
-corresponding state-independent contextuality tests end to end on Tsotchke's Moonlab simulator, with the
-quantum geometric tensor kernels of QGTL, the quantum_rng generator and the Eshkol language as
-independent components. Every numerical claim is a test that can fail; the repository contains the tests,
-a negative control and the Lean sources.
+A noncontextual hidden-variable model assigns a value $\pm 1$ to every $N$-qubit Pauli observable. The
+*contextuality degree* of a set of observables is the least number of its contexts (commuting triples
+with product $\pm I$) that such an assignment must get wrong. We give a kernel-checked Lean 4 proof, for
+every $N$ and for arbitrary sets $S$, of the spectral floor first posted by B. W. Jonah:
+the number of satisfied minus violated contexts is at most $`(D-2)\,|S|^{3/2} / (6\sqrt{D-1})`$, where
+$D = 2^N$. The floor is attained exactly when a pure state has Pauli expectation values of one modulus
+on $S$ and zero elsewhere. We exhibit such configurations outside the classical families and determine
+their degrees exactly: 135 four-qubit observables with 1095 contexts (degree 75) and 496 five-qubit
+observables with 10880 contexts (degree 480), both proved in Lean with kernel-evaluated counts, and 8128
+seven-qubit observables with 2 824 192 contexts (degree 729 344). The Pauli support of any such state is
+a two-character set, hence gives a strongly regular graph, and a bent function in the three-, five- and
+seven-qubit cases. By exhaustive enumeration we classify the states $U|{+}\cdots{+}\rangle$, with $U$ a
+diagonal gate of the third level of the Clifford hierarchy, that have this property on up to five
+qubits: there is none on four qubits and one class on five, a circuit of three controlled-S and two
+$CCZ$ gates whose configuration is Clifford-equivalent to the support of a state found numerically by
+Cieśliński. On seven qubits a circuit of three controlled-S and eight $CCZ$ gates gives the configuration
+above. For the classical families the checked corollaries include a violated fraction of at least
+$1/2 - \sqrt{D+1}/(D+2)$ for the full $N$-qubit configuration, for every $N$. The work was produced with
+an AI research system under the author's direction, as disclosed in the paper.
 
 ## 1. Scope
 
@@ -1017,18 +999,32 @@ number in this paper.
 
 ## 12. Disclosure, availability, licence
 
-The research direction, derivations, programs, Lean proofs and text were produced on 9 November 2026 by
-an AI system (Claude, Anthropic) in a single working session at the request and under the direction of
-the author, who is responsible for the release. A second group of AI agent sessions audited the first
-part of the work independently (Section 8). No human has refereed it. The Lean statements are checked by
-the Lean kernel; everything else should be read as an unrefereed preprint.
+**How the work was produced.** The research direction, derivations, programs, Lean proofs and text were
+produced on 9 November 2026 by an AI system, Claude Fable 5 (Anthropic), used through the Claude Code
+agent, at the request and under the direction of the author. Within the author's brief the system
+chose the problem, searched the literature, derived the statements, wrote and ran the programs and the
+Lean proofs, and wrote the text. Its output was validated as follows: the theorems of Section 8 by the
+Lean kernel; every number in the paper by a program that counts in exact integer arithmetic, and the
+main ones by two or three programs that share no code; every reference against Crossref, arXiv, Zenodo
+or the publisher's site; and the first part of the work by a second group of AI agent sessions working
+independently (Section 8).
 
-Affiliation: 0thernes LLC, Washington, USA. The work was funded by the author through 0thernes LLC;
-there was no external funding and there are no competing interests.
+**AI disclosure statement.** Claude Fable 5 (Anthropic) was used for the research itself and for the
+preparation of the manuscript, as described in the previous paragraph. No human has refereed the
+mathematics. The author directed the work and is responsible for its release; the Lean statements are
+checked by the Lean kernel, and everything else should be read as an unrefereed preprint.
 
-Code, proofs, data and this paper: <https://github.com/0thernes/hoggar-bound-lab>. Third-party
-components (Moonlab, quantum_rng, quantum_geometric_tensor) are MIT-licensed by their authors and are
-vendored with their licences and provenance records.
+**Funding and competing interests.** Affiliation: 0thernes LLC, Washington, USA, the author's own
+company. The work was funded by the author through 0thernes LLC. There was no external funding and
+there are no other competing interests.
+
+**Data availability statement.** All data, programs and formal proofs that support the findings are
+openly available at <https://github.com/0thernes/hoggar-bound-lab> (tagged releases; the repository is
+archived by Software Heritage under that address).
+
+**Licence.** The repository is distributed under a verification licence (see its `LICENSE` file).
+Third-party components (Moonlab, quantum_rng, quantum_geometric_tensor) are MIT-licensed by their
+authors and are vendored with their licences and provenance records.
 
 ## References
 
