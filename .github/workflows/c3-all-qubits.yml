@@ -18,6 +18,7 @@ on:
       - "scripts/cospectral_family_tensor_check.py"
       - "scripts/cospectral_family_cone_lift.py"
       - "scripts/c3_sparse_search.py"
+      - "scripts/conjecture_e.py"
       - ".github/workflows/c3-all-qubits.yml"
   workflow_dispatch:
 
@@ -59,6 +60,10 @@ jobs:
         run: |
           python scripts/cospectral_family_cone_lift.py | tee results/ci-c3-cone-lift.log
           tail -1 results/ci-c3-cone-lift.log | grep -q "21 of 21 checks passed"
+      - name: Conjecture E - all nine vertex cases on the complete configurations, n = 3 to 5 (81 checks)
+        run: |
+          python scripts/conjecture_e.py | tee results/ci-c3-conjecture-e.log
+          tail -1 results/ci-c3-conjecture-e.log | grep -q "81 of 81 checks passed"
       - name: Exhaustive search near the all-plus carrier, four qubits
         run: |
           python scripts/c3_sparse_search.py 3 3 | tee results/ci-c3-sparse-search.log
@@ -67,7 +72,7 @@ jobs:
       - name: The regenerated results are the committed ones
         run: |
           git diff --exit-code -- results/cospectral_family.json results/cospectral_family_cone_lift.json \
-            results/c3_sparse_search.json
+            results/c3_sparse_search.json results/conjecture_e.json
       - name: Preserve the logs
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7

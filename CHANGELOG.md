@@ -6,6 +6,15 @@ Project releases cover the spectral-floor study and the surrounding repository. 
 
 ## Unreleased - after 1.2.0
 
+- [Addendum](publication/ADDENDUM-conjecture-e.md), proposed for the next revision of the combined
+  paper: **Jonah's Conjecture E holds** (Theorem 19). On sign carriers the strict law fails in all nine
+  vertex cases C1, C3, C5, C6, C8, C11, C12, C14, C15 for every n >= 4 (C1, C3, C6, C11 already for
+  n = 3). Explicit carriers: graphs over R, C and H for C1, C3, C5; the complex graph between the two
+  P_e-blocks for C12 and C15; a pair swap for the cones C6, C11, C14; C1 on n - 1 qubits for C8. The
+  proof uses the source's restriction lemma and graded law. `scripts/conjecture_e.py` builds every case
+  from the definitions for n = 3, 4, 5 and checks equal carrier characteristic polynomials and
+  different completion cubic traces in exact arithmetic (81 checks, `results/conjecture_e.json`). Only
+  case C3 is a Lean theorem; the other eight cases are not formalized.
 - [Addendum](publication/ADDENDUM-seven-qubit-lean.md), proposed for the next revision of the combined
   paper: **the seven-qubit contextuality degree 729344 is proved in Lean, with its counts.** The new
   theorems `phase7_degree` and `phase7_contexts` (`lean/HoggarBound/SaturatedPhaseSeven.lean`) have the
