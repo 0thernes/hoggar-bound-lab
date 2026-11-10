@@ -1,6 +1,6 @@
 {
   "status": "published_and_preserved",
-  "recorded_at_utc": "2026-11-10T15:12:00Z",
+  "recorded_at_utc": "2026-11-10T15:30:00Z",
   "version": "1.4.0",
   "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E",
   "author": "Alexander S. Donahue, 0thernes LLC (ORCID 0009-0006-8168-9648)",
@@ -63,7 +63,12 @@
     "independent_verification": {
       "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831332",
       "commit": "7d746a3",
-      "conclusion_at_recording": "in progress (C engine, independent matrices and explorer job: success; Lean kernel job running)"
+      "conclusion": "success",
+      "completed_at_utc": "2026-11-10T15:24:27Z",
+      "jobs": {
+        "Lean kernel proof and axiom allowlist": "success",
+        "C engine, independent matrices, and explorer": "success"
+      }
     },
     "run_all_local": "scripts/run_all.sh in a fresh clone of 7d746a3: all 24 stages passed in 21 min 26 s and reproduced every committed record apart from elapsed seconds (results/run_all.log).",
     "note": "The release commit 7fddd50 differs from 7d746a3 only in the paper text of Section 9, its builds, the changelog, results/run_all.log and the archived CI logs; programs and Lean files are the same."
@@ -81,7 +86,11 @@
     "landing_page": "https://0thernes.github.io/hoggar-bound-lab/",
     "paper_html": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
     "paper_pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
-    "live_check": "Live PDF SHA-256 89532166e85088b98b157d5521785955c501f1b75e33f53e4d199a4ce58ea203 equals the release PDF; live HTML byte-identical to the release HTML; landing page shows edition v1.4.0."
+    "live_check": "Live PDF SHA-256 89532166e85088b98b157d5521785955c501f1b75e33f53e4d199a4ce58ea203 equals the release PDF; live HTML byte-identical to the release HTML; landing page shows edition v1.4.0.",
+    "triggered_after_verification": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42843994226",
+      "outcome": "success; skipped publishing the superseded snapshot 7d746a3 because main had moved on, so the site stays the 7fddd50 deployment (live PDF SHA-256 rechecked: 89532166...)."
+    }
   },
   "software_heritage": {
     "save_request": "https://archive.softwareheritage.org/api/1/origin/save/2636689/",
