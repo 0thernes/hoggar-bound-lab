@@ -11,6 +11,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 RESEARCH_COMMIT = "d3811e3b53048fa8f3206f08494f0a9834eed287"
+SATURATION_COMMIT = "87f08a0fb5007c8529abc13eabeec093027c0eba"
 PDF_HASH = "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836"
 
 
@@ -58,6 +59,14 @@ def main():
         require(a == b, "Research artifact changed; new verification is needed: " + name)
         checked[name] = {"sha256": sha(a), "normalization": "raw" if binary else "LF"}
     require(sha((ROOT / "paper/c3-spectral-counterexample.pdf").read_bytes()) == PDF_HASH, "Unexpected paper PDF")
+    saturation_files = [name for name in git("ls-tree", "-r", "--name-only", SATURATION_COMMIT, "lean").decode().splitlines()
+                        if name.endswith((".lean", ".toml", ".json", "lean-toolchain"))]
+    saturation_hashes = {}
+    for name in saturation_files:
+        current = normalized((ROOT / name).read_bytes())
+        original = normalized(git("show", SATURATION_COMMIT + ":" + name))
+        require(current == original, "Lean source changed since saturation CI: " + name)
+        saturation_hashes[name] = sha(current)
     metadata = json.loads((ROOT / "publication/c3-metadata-draft.json").read_text(encoding="utf-8"))
     require(metadata["author_identity_confirmed_by_user"]["given_names"] == "Alexander S.", "Author name mismatch")
     require(metadata["author_identity_confirmed_by_user"]["family_name"] == "Donahue", "Author name mismatch")
@@ -72,6 +81,10 @@ def main():
     require(axiom_report["declarations"] == 42 and len(axiom_report["actual"]) == 42, "Unexpected C3 audit size")
     allowed = {"propext", "Classical.choice", "Quot.sound"}
     require(all(set(axioms) <= allowed for axioms in axiom_report["actual"].values()), "Nonstandard axiom in retained report")
+    saturation_audit = json.loads((ROOT / "results/saturation-ci-audit.json").read_text())
+    require(saturation_audit["checked_commit"] == SATURATION_COMMIT and saturation_audit["workflow_conclusion"] == "success", "Unexpected saturation CI provenance")
+    require(saturation_audit["axiom_declarations"] == 14 and len(saturation_audit["actual_axioms"]) == 14, "Unexpected saturation audit size")
+    require(all(set(a) <= allowed for a in saturation_audit["actual_axioms"].values()), "Nonstandard saturation axiom")
     report = {
         "status": "pass",
         "verification_kind": "Documentation-release continuity, not a new Lean compilation",
@@ -86,12 +99,17 @@ def main():
         "affiliation": "0thernes LLC",
         "license_and_notice_unchanged": True,
         "successful_linux_proof_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42728421086",
+        "saturation_ci_commit": SATURATION_COMMIT,
+        "saturation_ci_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638912",
+        "saturation_and_shared_lean_files_unchanged": len(saturation_files),
+        "saturation_audited_declarations": 14,
+        "saturation_source_lf_sha256": saturation_hashes,
         "checks": checked,
     }
     output = ROOT / args.output
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({k: v for k, v in report.items() if k != "checks"}, indent=2))
+    print(json.dumps({k: v for k, v in report.items() if k not in {"checks", "saturation_source_lf_sha256"}}, indent=2))
 
 
 if __name__ == "__main__":

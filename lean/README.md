@@ -92,9 +92,12 @@ The last command prints the axioms of the fourteen declarations of the exact-deg
 expected output is in `../results/lean-saturated-axioms.log`. `IndependentVerification.lean` does the
 same for the core modules (expected output: `../results/lean-axioms.log`).
 
-Resources: the default build takes a few minutes after the Mathlib cache is fetched. Each of the two
-five-qubit modules takes ten to twenty minutes and under 5 GB of memory; `Saturated.lean` takes one to
-two minutes.
+Resources: the default build takes a few minutes after the Mathlib cache is fetched. In the successful
+[Ubuntu run 42741638912](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638912), the two
+five-qubit modules took 6:48.05 and 6:49.55, with maximum resident memory of 6,350,756 and 6,490,260 KiB.
+`Saturated.lean` took 53.31 seconds with 6,047,364 KiB maximum resident memory. These are measurements
+from that runner, not hardware-independent guarantees. Run the substantial builds sequentially; the
+separate C3 certificate has a larger memory and runtime budget described in [VERIFICATION.md](../VERIFICATION.md).
 
 ## How the finite counts are checked
 
@@ -117,3 +120,15 @@ paper. That link is not part of the Lean statements, and the statements do not n
 fails if any declaration uses an axiom outside the allowlist or if a source file contains `sorry`,
 `native_decide` or an `axiom` declaration. `.github/workflows/independent-verification.yml` does the same
 for the core proof and the companion modules.
+
+## Exact four-qubit C3 certificate
+
+The C3 development proves that two explicitly encoded section assignments give the same carrier
+spectrum and different completion spectra, including the bridge to the original Pauli matrices and
+signed contexts. Its 42-declaration audit is separate from the saturation audit above.
+
+See [VERIFICATION.md](../VERIFICATION.md) for sequential build commands, source/evidence hashes,
+measured runtime and memory, and the successful independent Linux run. The [claim register](../docs/CLAIMS.md)
+maps theorem names to each asserted result and identifies the paper's algebraic conclusions outside Lean.
+`python scripts/publication_release_audit.py`, run from the repository root, checks that a documentation
+release retains the verified C3 artifacts. It is a continuity check, not a fresh Lean compilation.

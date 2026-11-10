@@ -1,6 +1,6 @@
 # Summary in plain language
 
-Version 1.1, 9 November 2026. Research preprint, not peer reviewed. Produced with an AI research system
+Repository version 1.1.1, 9 November 2026. Research preprint, not peer reviewed. Produced with an AI research system
 (Claude, Anthropic) under the direction of Alexander S. Donahue, 0thernes LLC.
 
 ## The question
@@ -85,3 +85,16 @@ cd lean && lake exe cache get && lake build && lake build HoggarBound.Saturated 
 
 See [INDEX.md](INDEX.md) for where each claim is proved and tested, and [GLOSSARY.md](GLOSSARY.md) for
 the terms.
+
+## A separate four-qubit spectral result
+
+The C3 companion gives two explicit sign assignments with identical carrier spectra but different
+completion spectra. Their exact completion cubic traces are 14976 and 15360. This establishes the
+four-qubit C3 instance left open in the cited prior work. The 42-declaration Lean audit includes the
+connection to the original Pauli model and eigenvalue multiplicities. The paper's largest-eigenvalue
+gap of 2 and continuous-relaxation gap of 32 have separate algebraic proofs and are outside that Lean audit.
+
+Read the [C3 summary](docs/RESEARCH-SUMMARY.md), try the [working verifier](https://0thernes.github.io/hoggar-bound-lab/c3-lab/),
+or follow the [claim-to-proof register](docs/CLAIMS.md). This study is distinct from the spectral floor
+and saturation configurations described above; its original research artifact is fixed at
+[v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate).

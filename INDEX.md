@@ -1,6 +1,6 @@
 # Index: where each claim is proved, tested and recorded
 
-Version 1.1.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
+Repository version 1.1.1. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
 [SUMMARY.md](SUMMARY.md); for the full text see the [paper](paper/spectral-floor.md).
 
 ## Documents
@@ -8,7 +8,7 @@ Version 1.1.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical
 | document | what it is |
 |---|---|
 | [README.md](README.md) | the front page: statement, attribution, layout, how to reproduce |
-| [paper/spectral-floor.md](paper/spectral-floor.md) | the paper (canonical source), with [PDF](paper/spectral-floor.pdf) and [web page](https://0thernes.github.io/hoggar-bound-lab/) |
+| [paper/spectral-floor.md](paper/spectral-floor.md) | the paper (canonical source), with [PDF](paper/spectral-floor.pdf) and [web page](https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.html) |
 | [publication/spectral-floor/](publication/spectral-floor/) | LaTeX source, typeset PDF, arXiv archive and submission sheets |
 | [SUMMARY.md](SUMMARY.md) | plain-language summary |
 | [GLOSSARY.md](GLOSSARY.md) | terms |
@@ -18,6 +18,14 @@ Version 1.1.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical
 | [lean/README.md](lean/README.md) | the Lean 4 development: modules, theorems, how to build and audit |
 | [INDEPENDENT-REVIEW.md](INDEPENDENT-REVIEW.md) | the independent companion review (separate agent sessions) |
 | [paper/c3-spectral-counterexample.md](paper/c3-spectral-counterexample.md) | the companion note on a four-qubit C3 instance (separate work, same repository) |
+
+## C3 research and publication guide
+
+- [C3 summary](docs/RESEARCH-SUMMARY.md): the explicit four-qubit pair and what it establishes.
+- [Claim register](docs/CLAIMS.md): named C3 theorems, the 42-declaration audit, six stability declarations, and the separately scoped 14 saturation declarations.
+- [Verification guide](VERIFICATION.md): original-model connection, exact commands, evidence and measured proof-checking costs.
+- [Affiliation records](publication/AFFILIATIONS.md): 0thernes LLC across prepared records and the observed state of each live service.
+- [Publication status](publication/STATUS.md): public releases versus pending archive/journal steps.
 
 ## Claims and their evidence
 

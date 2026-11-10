@@ -16,12 +16,15 @@
     "source": "User confirmed this manuscript credit on 2026-11-09 and explicitly retained it after comparison with the arXiv profile; C3-specific metadata is in paper/c3-citation.cff",
     "c3_authorship_eligibility_confirmed": false,
     "c3_final_approval_observed": false,
-    "email": "0_0@0thernes.art"
+    "email": "0_0@0thernes.art",
+    "orcid": "https://orcid.org/0009-0006-8168-9648",
+    "orcid_source": "User supplied on 2026-11-09; format/checksum checked locally, but no independent live profile or ownership verification is implied."
   },
   "creators_for_submission": [
     {
       "name": "Donahue, Alexander S.",
-      "affiliation": "0thernes LLC"
+      "affiliation": "0thernes LLC",
+      "orcid": "https://orcid.org/0009-0006-8168-9648"
     }
   ],
   "corresponding_author_email": "0_0@0thernes.art",
@@ -58,7 +61,7 @@
   "affiliation_standard": "0thernes LLC across scholarly profiles, manuscript, archive creators and journal forms; see publication/AFFILIATIONS.md for observed external status.",
   "zenodo_account_status": "Authenticated profile saved and verified on 2026-11-09 with affiliation 0thernes LLC. No deposit made.",
   "journal_account_status": "ScholarOne account setup deferred by the author; prepared manuscript affiliation is 0thernes LLC.",
-  "google_scholar_profile_status": "Setup retains Alexander S. Donahue and 0thernes LLC; article-selection step incomplete. No public profile completion or indexing claimed.",
+  "google_scholar_profile_status": "Existing setup details confirmed by the user; setup retains Alexander S. Donahue and 0thernes LLC. Article selection remains incomplete; no completed public profile or indexing is claimed.",
   "human_contribution_statement": null,
   "ai_disclosure_scope": "Substantive OpenAI Codex agent assistance on 2026-11-09 included literature research, candidate search, derivation, implementation, formalization, verification, visualization and manuscript drafting. Complete actual model/version details and human contributions/review before submission; do not describe this as copy editing only.",
   "related_identifiers": [
@@ -81,7 +84,7 @@
   "first_journal_recommendation": "Journal of Physics A: Mathematical and Theoretical",
   "first_journal_article_type": "Paper",
   "journal_submitting_author_orcid_required": true,
-  "journal_submitting_author_orcid_status": "Not supplied; obtain or recover the author's own ORCID before IOP submission.",
+  "journal_submitting_author_orcid_status": "User supplied https://orcid.org/0009-0006-8168-9648; journal account linking/authentication remains pending.",
   "simultaneous_journal_submissions_allowed": false,
   "release_commit": "d3811e3b53048fa8f3206f08494f0a9834eed287",
   "pdf_sha256": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
@@ -107,5 +110,7 @@
   "release_published_at_utc": "2026-11-10T01:33:37Z",
   "release_url": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate",
   "paper_record_url": "https://0thernes.github.io/hoggar-bound-lab/paper/c3-spectral-counterexample.html",
-  "demo_url": "https://0thernes.github.io/hoggar-bound-lab/c3-lab/"
+  "demo_url": "https://0thernes.github.io/hoggar-bound-lab/c3-lab/",
+  "openaire_account_status": "An authenticated OpenAIRE My ORCID links page was observed by the root browser session and displayed No ORCID links found. The account identity was supplied by the user; no paper linkage, indexing, deposit or submission is established.",
+  "paperpal_account_status": "User reports Paperpal account access; no independent live verification or manuscript upload/submission is recorded."
 }

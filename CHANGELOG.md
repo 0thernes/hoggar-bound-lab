@@ -4,7 +4,7 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
-## 1.1.1 - planned documentation and metadata release
+## 1.1.1 - documentation and metadata release
 
 This release brings the repository documentation together after `v1.1.0`. It preserves the spectral-floor study's mathematical content and the fixed C3 paper and proof content; it does not announce a new theorem or repeat another study's verification as if it were the C3 audit.
 
@@ -14,8 +14,10 @@ This release brings the repository documentation together after `v1.1.0`. It pre
 - Preserve the existing custom verification license and third-party notices. Explain the disclosed Claude/Anthropic and OpenAI Codex research workflows separately.
 - Distinguish the spectral-floor and saturation modules from the 42-declaration C3 audit. For C3, the printed factorization, block/Jordan argument, largest-eigenvalue gap 2 and continuous-relaxation gap 32 retain separate algebraic/executable evidence.
 - Distinguish public preprints, automated checks, human critical review and journal peer review.
+- Replace the unsupported blanket competing-interest statement in the spectral-floor publication package with the author-confirmed self-funding and sole-operator disclosures; regenerate the affected document formats.
+- Prevent an older completed verification workflow from replacing a newer Pages deployment.
 
-The C3 reference PDF remains the nine-page artifact with SHA-256 `5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836`, first released at commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. Project `VERSION` is intended to become `1.1.1`; the final tag and publication timestamp are recorded when the release is published.
+The C3 reference PDF remains the nine-page artifact with SHA-256 `5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836`, first released at commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. Project `VERSION` is `1.1.1`; the [release record](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.1) identifies its fixed commit and publication timestamp.
 
 ## 1.1.0 — 9 November 2026
 

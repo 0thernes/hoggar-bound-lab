@@ -1,0 +1,128 @@
+{
+  "status": "pass",
+  "observed_at_utc": "2026-11-10T02:34:10.650601+00:00",
+  "run_id": 42741638912,
+  "run_url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638912",
+  "checked_commit": "87f08a0fb5007c8529abc13eabeec093027c0eba",
+  "workflow_conclusion": "success",
+  "jobs": [
+    {
+      "job_id": 129583857603,
+      "name": "Exact arithmetic, census, Moonlab circuits, QGTL",
+      "conclusion": "success",
+      "checkout_git_log_line_numbers": [
+        120
+      ],
+      "log_sha256": "00fc0a9db86d0d24905cf6611b68f3cded7cdbcd8847d230e5a8ccb2a53f9f6f"
+    },
+    {
+      "job_id": 129583857990,
+      "name": "Lean kernel - exact contextuality degrees",
+      "conclusion": "success",
+      "checkout_git_log_line_numbers": [
+        123
+      ],
+      "log_sha256": "3426716c76b55a5c7e804ac79b15f9482a9990eb143f615d353e8611377a9a23"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13730870158,
+      "name": "saturated-lean-evidence",
+      "sha256": "37a58fd5106d2ffcd181d9dfd4a655443008e151ea3d11fcc60b469baad68b21",
+      "digest_matches_github": true
+    },
+    {
+      "id": 13729791969,
+      "name": "saturated-exact-evidence",
+      "sha256": "000cfd5d240bf04fe4c493033342d94689e90fd1e9fd84a69b6843767ade06a1",
+      "digest_matches_github": true
+    }
+  ],
+  "axiom_declarations": 14,
+  "actual_axioms": {
+    "HoggarBound.card_flags_cfg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.card_violated_cfg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.degree_of_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.contexts_of_flags": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.lly_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.ccz_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.hoggar_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.quadric_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.pivot_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.pivot_contexts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.cieslinski5_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.cieslinski5_contexts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.phase5_degree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "HoggarBound.phase5_contexts": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "source_sha256_lf": {
+    "lean/HoggarBound/FlatData.lean": "c548a8a68bcdd5d7e42d4eda5c6695dcafe84b9887651e4c21f40af8fcd83cb4",
+    "lean/HoggarBound/MaskConfig.lean": "50fc3332d62e522d15bec2dc1ab667a9321ccefd266d4b52f49cfbba13e86682",
+    "lean/HoggarBound/PhaseData.lean": "2c55163ba87c4890eadddc09b03a03f7672e56c7c9645439f1a001ecfca6874a",
+    "lean/HoggarBound/Saturated.lean": "4395b5caaebdccd7a413141b28a914ed7d6521f7a301f5e2242ef0974147af5c",
+    "lean/HoggarBound/SaturatedFive.lean": "a0c318f3c213d904118e7db021408c10085dbbf6fb6cd01773f8531bb07292c0",
+    "lean/HoggarBound/SaturatedPhaseFive.lean": "f27b106201d6d13331d3b36e41c4ac320367dc0a3d74054b5bac2f3fc2e8ea54",
+    "lean/SaturatedVerification.lean": "6ebe69584c5cbeea20905a5cff1274cf9c94914734f9a37df5ea62f242bbd461",
+    "lean/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lean/lakefile.toml": "78d3303ad998ec1a2d573a6516f189d01341b42c58a1df079da73eaee3b92407",
+    "lean/lake-manifest.json": "ca3bad5830d78d2c42add82578677369c1b494863c37dc19448ca0ee8067a480"
+  },
+  "scope": "Independent archive and audit of successful Ubuntu CI logs, exact checkout commit, artifact digests, and all 14 axiom reports; no new local proof compilation."
+}

@@ -1,5 +1,5 @@
 {
-  "_note": "Draft metadata for a Zenodo record of release v1.1.0. Nothing has been deposited. The licence field is left for the author: the repository uses a restrictive verification licence (see LICENSE and LEGAL.md), so Zenodo's default CC BY 4.0 must not be accepted without a decision.",
+  "_note": "Draft metadata for a Zenodo record of release v1.1.1. Nothing has been deposited. The licence field is left for the author: the repository uses a restrictive verification licence (see LICENSE and LEGAL.md), so Zenodo's default CC BY 4.0 must not be accepted without a decision. Account affiliation was saved as 0thernes LLC; this is a local preparation file, not a deposit acknowledgment.",
   "metadata": {
     "upload_type": "publication",
     "publication_type": "preprint",
@@ -7,11 +7,12 @@
     "creators": [
       {
         "name": "Donahue, Alexander S.",
-        "affiliation": "0thernes LLC"
+        "affiliation": "0thernes LLC",
+        "orcid": "0009-0006-8168-9648"
       }
     ],
     "publication_date": "2026-11-09",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "language": "eng",
     "description": "Lean 4 formalization, for every number of qubits and arbitrary sets of Pauli observables, of the spectral lower bound on the contextuality degree first posted by B. W. Jonah (doi:10.5281/zenodo.23538829). The bound is attained exactly when a pure state has Pauli expectation values of one modulus on the set and zero elsewhere. New configurations of this kind outside the classical families, with exact contextuality degrees: 135 four-qubit observables with 1095 contexts (degree 75) and 496 five-qubit observables with 10880 contexts (degree 480), both proved in Lean, and 8128 seven-qubit observables with 2824192 contexts (degree 729344). The Pauli support of such a state is a two-character set. All flat states obtained from T, controlled-S and CCZ gates on up to five qubits are classified by exhaustive enumeration. Includes the Lean sources, programs, data and a demonstration on the Tsotchke stack. Research preprint, not peer reviewed. The research, programs, proofs and text were produced with an AI system (Claude, Anthropic) under the direction of the author, as disclosed in the paper.",
     "keywords": [
@@ -25,15 +26,41 @@
       "Lean 4",
       "formal verification"
     ],
-    "notes": "Produced with an AI research system (Claude, Anthropic) under the author's direction; see Section 12 of the paper and LEGAL.md. Funded by the author through 0thernes LLC.",
+    "notes": "Produced with an AI research system (Claude, Anthropic) under the author's direction; see Section 12 of the paper and LEGAL.md. This research was self-funded by the author. The author is the sole operator of 0thernes LLC, with which this project is affiliated. Additional competing interests remain undeclared. Version 1.1.1 changes disclosure and publication presentation only; mathematical content is unchanged.",
     "related_identifiers": [
-      {"identifier": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.0", "relation": "isSupplementedBy", "scheme": "url"},
-      {"identifier": "https://0thernes.github.io/hoggar-bound-lab/", "relation": "isIdenticalTo", "scheme": "url"},
-      {"identifier": "10.5281/zenodo.23538829", "relation": "cites", "scheme": "doi"},
-      {"identifier": "10.5281/zenodo.23510634", "relation": "cites", "scheme": "doi"},
-      {"identifier": "arXiv:2610.07172", "relation": "cites", "scheme": "arxiv"},
-      {"identifier": "arXiv:2610.26465", "relation": "cites", "scheme": "arxiv"}
+      {
+        "identifier": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.1",
+        "relation": "isSupplementedBy",
+        "scheme": "url"
+      },
+      {
+        "identifier": "https://0thernes.github.io/hoggar-bound-lab/",
+        "relation": "isIdenticalTo",
+        "scheme": "url"
+      },
+      {
+        "identifier": "10.5281/zenodo.23538829",
+        "relation": "cites",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.5281/zenodo.23510634",
+        "relation": "cites",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "arXiv:2610.07172",
+        "relation": "cites",
+        "scheme": "arxiv"
+      },
+      {
+        "identifier": "arXiv:2610.26465",
+        "relation": "cites",
+        "scheme": "arxiv"
+      }
     ],
     "license": "TO BE CHOSEN BY THE AUTHOR"
-  }
+  },
+  "_release_link_status": "Prepared for v1.1.1; verify the release exists before using this metadata in a deposit.",
+  "_orcid_provenance": "Author-supplied https://orcid.org/0009-0006-8168-9648; included in prepared creator metadata. No independent live ORCID verification, profile linking, deposit or submission is implied."
 }

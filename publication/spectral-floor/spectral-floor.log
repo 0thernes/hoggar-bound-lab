@@ -682,14 +682,14 @@ File: figures/fig2_noise.png Graphic file (type bmp)
 File: figures/fig3_spectra.png Graphic file (type bmp)
 <figures/fig3_spectra.png>
  [19] [20] [21]
-Underfull \hbox (badness 1189) in paragraph at lines 1232--1234
+Underfull \hbox (badness 1189) in paragraph at lines 1233--1235
 \TU/lmr/m/it/10.95 symplectic and quadric Pauli configurations\TU/lmr/m/n/10.95
  , preprint, Zenodo, 20 October 2026,
  []
 
 [22]
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono.ttf(0)/m/n' will be
-(Font)              scaled to size 4.92004pt on input line 1268.
+(Font)              scaled to size 4.92004pt on input line 1269.
  [23] [24] (spectral-floor.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -697,4 +697,4 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package rerunfilecheck Info: File `spectral-floor.out' has not changed.
 (rerunfilecheck)             Checksum: AAA087DCE0D017A7859FC59463C3D34B;4403.
  )
-Output written on spectral-floor.xdv (24 pages, 659428 bytes).
+Output written on spectral-floor.xdv (24 pages, 660136 bytes).

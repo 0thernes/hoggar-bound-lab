@@ -1,35 +1,43 @@
 {
- "source": "paper/spectral-floor.md",
- "source_sha256": "4682ca5e1481f7c1c3fe373e2e7ce0176a2b8f6b37ad13ca0ad9df3e8d3f87ff",
- "tex_sha256": "8f89dae1480d62ead46583f0a57a95cf4ac43c2ca792643744de3afcbceb541b",
- "engine": "XeLaTeX (compiled here with Tectonic)",
- "pandoc": "pandoc 3.13",
- "tectonic": "Tectonic 0.17.0",
- "pdf_sha256": "5e35ea25b63169d5c4c80ef8c95766ff9640af1e35f41b72336ffbad0dabb913",
- "pdf_bytes": 381496,
- "overfull_boxes_pt": [
-  "0.57942",
-  "0.73146",
-  "1.81253",
-  "2.53174",
-  "3.93723",
-  "4.03928",
-  "4.13441",
-  "6.1329",
-  "6.32605",
-  "12.66608",
-  "15.09172"
- ],
- "missing_characters": [],
- "arxiv_source_zip": {
-  "files": [
-   "00README.json",
-   "spectral-floor.tex",
-   "figures/fig1_fraction.png",
-   "figures/fig2_noise.png",
-   "figures/fig3_spectra.png"
+  "source": "paper/spectral-floor.md",
+  "source_sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
+  "tex_sha256": "f39852a4d814f0465787ba36ad633c6b7af1497e7051d7f0767742317475d776",
+  "engine": "XeLaTeX (compiled here with Tectonic)",
+  "pandoc": "pandoc 3.13",
+  "tectonic": "Tectonic 0.17.0",
+  "pdf_sha256": "f81c554663f11fc960d30e856216e556fb1f7005f8d964cb22d754be826d3613",
+  "pdf_bytes": 381641,
+  "overfull_boxes_pt": [
+    "0.57942",
+    "0.73146",
+    "1.81253",
+    "2.53174",
+    "3.93723",
+    "4.03928",
+    "4.13441",
+    "6.1329",
+    "6.32605",
+    "12.66608",
+    "15.09172"
   ],
-  "bytes": 181435,
-  "sha256": "a642e117fd91a443d307d609f814d29fc6f55a517e168823458deef8d1fae41b"
- }
+  "missing_characters": [],
+  "arxiv_source_zip": {
+    "files": [
+      "00README.json",
+      "spectral-floor.tex",
+      "figures/fig1_fraction.png",
+      "figures/fig2_noise.png",
+      "figures/fig3_spectra.png"
+    ],
+    "bytes": 181465,
+    "sha256": "d4efa34e3982a54ab6682986916c6d672206699d3b93bd49872e70f8aad23432"
+  },
+  "publication_version": "1.1.1",
+  "pdf_pages": 24,
+  "source_sha256_note": "SHA-256 of UTF-8 text after Python newline normalization; equivalent to LF-normalized source.",
+  "source_raw_sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
+  "source_lf_sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
+  "tex_lf_sha256": "6f70d746d4cbe61642969a244d06ec209c4760a3383c69f20d32f1d8364d2325",
+  "revision_scope": "Byline version and disclosure only; mathematical source unchanged from 14390f3.",
+  "submission_status": "Prepared only; no arXiv, Zenodo or journal submission."
 }

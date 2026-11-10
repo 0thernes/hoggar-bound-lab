@@ -1,6 +1,6 @@
 # arXiv submission sheet: the spectral-floor paper
 
-Prepared 9 November 2026. Nothing has been submitted. The steps marked **author** need the author's own
+Prepared for version 1.1.1 on 9 November 2026. Nothing has been submitted. The steps marked **author** need the author's own
 arXiv login and personal confirmation; they cannot be done for the author.
 
 ## Files
@@ -23,10 +23,14 @@ A machine-checked spectral floor for Pauli contextuality, and new configurations
 
 Alexander S. Donahue (0thernes LLC)
 
-**Affiliation, everywhere:** 0thernes LLC, Washington, USA. The arXiv account profile must say the
-same: sign in, open *Your arXiv.org account*, *Change User Information*, and set **Affiliation** to
-`0thernes LLC` (it currently reads "Independent Researcher"). The same affiliation is used in the paper,
-in `CITATION.cff`, in the indexing tags of the paper's web page, and in the Zenodo and journal sheets.
+**ORCID:** [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648) (author-supplied; account linking not independently verified).
+
+**Affiliation, everywhere:** 0thernes LLC, Washington, USA. The arXiv account affiliation was saved
+as `0thernes LLC` and the success state verified on 9 November 2026. The account display name remains
+Alexander Donahue; the confirmed manuscript credit is Alexander S. Donahue. The Zenodo account
+affiliation was also saved. These profile changes are not paper submissions or deposits. See
+[the affiliation record](../AFFILIATIONS.md). The same publication affiliation is used in the paper,
+citation metadata, indexing tags and venue templates.
 
 **Abstract** (1 868 characters; arXiv's limit is 1 920)
 
@@ -65,7 +69,8 @@ the mathematical side (math.CO).
 
 ## Steps
 
-1. **Author:** sign in at arxiv.org and choose *Start new submission*.
+1. **Author:** resume the authenticated arXiv account when ready. Submission remains deferred at the
+   author's request; no paper draft or submission has been started.
 2. **Author:** read and accept arXiv's submission terms. They include statements only the author can
    make: that the submitter is an author of the work, that the author takes responsibility for all of
    its content, and the choice of a licence. The repository's own licence is a restrictive

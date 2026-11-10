@@ -1,4 +1,4 @@
-# Cover letter draft (journal submission)
+# Cover letter draft (journal submission, version 1.1.1)
 
 Draft for the author to review, correct and send personally. Not sent. First choice of journal:
 *Journal of Physics A: Mathematical and Theoretical* (see [../ROUTES.md](../ROUTES.md) for its AI-use
@@ -9,6 +9,7 @@ and authorship rules). Submit to one journal at a time, after the arXiv posting.
 Alexander S. Donahue
 0thernes LLC, Washington, USA
 0_0@0thernes.art
+ORCID: https://orcid.org/0009-0006-8168-9648 (author-supplied)
 
 To the Editors,
 
@@ -36,9 +37,13 @@ disclosure section of the manuscript. The formal statements are checked by the L
 computation can be re-run from the public repository,
 https://github.com/0thernes/hoggar-bound-lab. I take responsibility for the content of the submission.
 
-The manuscript has not been published and is not under consideration elsewhere. A preprint is available
-at [arXiv identifier, once assigned]. The work was funded by me through 0thernes LLC; there are no
-competing interests. Data and code are public at the address above.
+A research preprint, data and code are public in the repository above. No arXiv identifier or journal
+submission has been assigned. This research was self-funded by the author. The author is the sole
+operator of 0thernes LLC, with which this project is affiliated.
+
+[Before submission, complete the author's actual final approval, responsibility, exclusive-submission
+and any additional competing-interest declarations. No declaration that other interests are absent
+has been supplied. Replace this preparation instruction only with confirmed statements.]
 
 Suggested areas of expertise for referees: quantum contextuality and Kochen–Specker sets of multi-qubit
 Pauli observables; finite geometry of symplectic polar spaces; formalization of mathematics in Lean.

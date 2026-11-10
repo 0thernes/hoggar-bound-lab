@@ -1,16 +1,18 @@
 cff-version: 1.2.0
 message: >-
   If you use this repository, please cite the paper below together with the prior work it
-  credits (see the priority note at the top of the paper).
+  credits (see the priority note at the top of the paper). For the four-qubit C3 companion,
+  use paper/c3-citation.cff.
 title: "A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it"
 type: software
 authors:
   - family-names: Donahue
     given-names: "Alexander S."
+    orcid: "https://orcid.org/0009-0006-8168-9648"
     alias: 0thernes
     affiliation: "0thernes LLC"
     email: "0_0@0thernes.art"
-version: "1.1"
+version: "1.1.1"
 date-released: 2026-11-09
 repository-code: "https://github.com/0thernes/hoggar-bound-lab"
 url: "https://0thernes.github.io/hoggar-bound-lab/"
@@ -41,13 +43,14 @@ preferred-citation:
   authors:
     - family-names: Donahue
       given-names: "Alexander S."
+      orcid: "https://orcid.org/0009-0006-8168-9648"
   year: 2026
   month: 11
   institution:
     name: "0thernes LLC"
-  url: "https://github.com/0thernes/hoggar-bound-lab/blob/main/paper/spectral-floor.pdf"
+  url: "https://github.com/0thernes/hoggar-bound-lab/releases/download/v1.1.1/spectral-floor.pdf"
   notes: >-
-    Research preprint, version 1.1, not peer reviewed. Produced with Claude (Anthropic) as AI
+    Research preprint, version 1.1.1, not peer reviewed. Produced with Claude (Anthropic) as AI
     research system under the author's direction.
 references:
   - type: generic

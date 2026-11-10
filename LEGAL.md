@@ -48,4 +48,4 @@ The [C3 formal audit](results/frontier-c3-lean-audit.md) covers 42 declarations 
 
 These works are research preprints, not peer-reviewed journal articles. A public GitHub release, a DOI deposit, an arXiv announcement, indexing, journal submission, and acceptance are distinct events. [Publication status](publication/STATUS.md) records the C3 dissemination history; the spectral-floor submission materials are under [publication/spectral-floor/](publication/spectral-floor/).
 
-The planned `v1.1.1` project release updates presentation and metadata after `v1.1.0`, preserving both studies' mathematical content and the fixed `v0.2.0-c3-certificate` paper and proof. It grants no additional rights. Consult [CHANGELOG.md](CHANGELOG.md) and the release record for version history.
+The `v1.1.1` project release updates presentation and metadata after `v1.1.0`, preserving both studies' mathematical content and the fixed `v0.2.0-c3-certificate` paper and proof. It grants no additional rights. Consult [CHANGELOG.md](CHANGELOG.md) and the release record for version history.

@@ -6,7 +6,7 @@ The numbers **42** and **6** count audited declarations: 42 for C3 and six for t
 
 ## Frozen research and documentation versions
 
-The mathematical record is [research release `v0.2.0-c3-certificate`](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), at commit [`d3811e3b53048fa8f3206f08494f0a9834eed287`](https://github.com/0thernes/hoggar-bound-lab/tree/d3811e3b53048fa8f3206f08494f0a9834eed287). It was published on 10 November 2026 at 01:33:37 UTC. This guide is prepared for the planned documentation release `v1.1.1`, with the same proof sources. The research release, PDF, and historical verification records retain their original version identifiers.
+The mathematical record is [research release `v0.2.0-c3-certificate`](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), at commit [`d3811e3b53048fa8f3206f08494f0a9834eed287`](https://github.com/0thernes/hoggar-bound-lab/tree/d3811e3b53048fa8f3206f08494f0a9834eed287). It was published on 10 November 2026 at 01:33:37 UTC. This guide accompanies documentation release `v1.1.1`, with the same proof sources. The research release, PDF, and historical verification records retain their original version identifiers.
 
 The [source manifest](results/frontier-c3-lean-source-sha256.json) records 21 proof/configuration files, exact local hashes, and hashes after normalizing CRLF to LF. All 21 LF hashes match this documentation checkout and the frozen research sources. The [published Linux source-equivalence record](https://github.com/0thernes/hoggar-bound-lab/releases/download/v0.2.0-c3-certificate/linux-proof-source-equivalence.json) connects the successful Linux proof to the publication commit.
 

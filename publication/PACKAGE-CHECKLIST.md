@@ -21,8 +21,9 @@ Prepared 2026-11-09. This is a checklist, not a completed submission or an attes
 - [ ] Record the author's actual intellectual contribution, critical revisions, verification performed, final approval and responsibility. Do not substitute automated agent review for a statement that the human personally performed it.
 - [ ] Resolve Zenodo's human-conducted research eligibility before deposit. The certificate's mathematical validity does not answer that separate policy question.
 - [x] Use the user-confirmed affiliation, 0thernes LLC. No honorary university affiliations or invented credentials.
-- [x] Use the user-designated business correspondence address `0_0@0thernes.art` in the publication package. No ORCID was supplied; omit it. No personal account email belongs in the package.
-- [ ] Obtain or recover the author's own ORCID for Journal of Physics A: IOP requires it for the submitting author. The current absence of an identifier is a pending account requirement, not a reason to invent one.
+- [x] Use the user-designated business correspondence address `0_0@0thernes.art` in the publication package. The author supplied ORCID [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648); include it in editable submission metadata. No personal account email belongs in the package.
+- [x] Record the author-supplied ORCID [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648). Its format/checksum was checked locally; no independent live ownership verification is claimed.
+- [ ] Connect/authenticate that ORCID in the Journal of Physics A submission account when required. Supplying an identifier does not complete that account step.
 - [x] Record the author-supplied funding statement: “This research was self-funded by the author.”
 - [x] Record the author-supplied relationship disclosure: “The author is the sole operator of 0thernes LLC, with which this project is affiliated.”
 - [ ] Complete any additional competing-interest declaration required by the venue. No statement that other interests are absent has been supplied; do not infer “none.”

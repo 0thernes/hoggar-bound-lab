@@ -1,0 +1,139 @@
+{
+  "version": "1.1.1",
+  "baseline_commit": "14390f3",
+  "source_change_check": "PASS: reverting exactly the version-line and disclosure-paragraph substitutions reproduces the baseline canonical Markdown byte-for-byte after LF normalization.",
+  "mathematics_and_references_unchanged": true,
+  "proof_sources_modified_by_this_revision": false,
+  "builders": [
+    "scripts/build_latex.py --pandoc <Pandoc 3.13> --tectonic <Tectonic 0.17.0>",
+    "scripts/build_paper.py build(embed_images=False/True), followed by its headless Edge print flags on a temporary embedded document; docs/index.html preserved"
+  ],
+  "pdfs": [
+    {
+      "path": "paper/spectral-floor.pdf",
+      "pages": 27,
+      "baseline_pages": 27,
+      "bytes": 1066679,
+      "sha256": "b7eb44c66fd079c602424de8e26c3bddfe802c5f0555454d0fa8cebdc6a16bda",
+      "confirmed_disclosure_text_present": true,
+      "unsupported_statement_absent": true,
+      "text_check_normalization": "Unicode NFKC for PDF ligatures and collapsed whitespace"
+    },
+    {
+      "path": "publication/spectral-floor/spectral-floor.pdf",
+      "pages": 24,
+      "baseline_pages": 24,
+      "bytes": 381641,
+      "sha256": "f81c554663f11fc960d30e856216e556fb1f7005f8d964cb22d754be826d3613",
+      "confirmed_disclosure_text_present": true,
+      "unsupported_statement_absent": true,
+      "text_check_normalization": "Unicode NFKC for PDF ligatures and collapsed whitespace"
+    }
+  ],
+  "arxiv_archive_matches_generated_tex_raw_bytes": true,
+  "archive_sha256": "d4efa34e3982a54ab6682986916c6d672206699d3b93bd49872e70f8aad23432",
+  "visual_review": "PASS: first page and disclosure page 24 of the browser PDF, plus first page and disclosure page 22 of the typeset PDF, inspected individually. Version and confirmed declarations readable; no clipping or missing glyph observed on these changed pages. Browser mathematics pages 6 and 7 also visually checked. Page counts unchanged (27 browser, 24 typeset).",
+  "tex_warning_comparison": "Overfull widths and empty missing-character list exactly match 87f08a0 baseline. No new reported overfull width or missing glyph.",
+  "existing_tex_overfull_widths_pt": [
+    "0.57942",
+    "0.73146",
+    "1.81253",
+    "2.53174",
+    "3.93723",
+    "4.03928",
+    "4.13441",
+    "6.1329",
+    "6.32605",
+    "12.66608",
+    "15.09172"
+  ],
+  "tex_missing_characters": [],
+  "c3_pdf_sha256_unchanged": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
+  "files": {
+    "paper/spectral-floor.md": {
+      "sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
+      "bytes": 79857
+    },
+    "paper/spectral-floor.html": {
+      "sha256": "e917d64415aaf7742cd5d53b8225059539721d579e0e9e0dd7edc3ff80d59f94",
+      "bytes": 95015
+    },
+    "paper/spectral-floor.pdf": {
+      "sha256": "b7eb44c66fd079c602424de8e26c3bddfe802c5f0555454d0fa8cebdc6a16bda",
+      "bytes": 1066679
+    },
+    "docs/paper/spectral-floor.md": {
+      "sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
+      "bytes": 79857
+    },
+    "docs/paper/spectral-floor.html": {
+      "sha256": "e917d64415aaf7742cd5d53b8225059539721d579e0e9e0dd7edc3ff80d59f94",
+      "bytes": 95015
+    },
+    "docs/paper/spectral-floor.pdf": {
+      "sha256": "b7eb44c66fd079c602424de8e26c3bddfe802c5f0555454d0fa8cebdc6a16bda",
+      "bytes": 1066679
+    },
+    "docs/spectral-floor.pdf": {
+      "sha256": "b7eb44c66fd079c602424de8e26c3bddfe802c5f0555454d0fa8cebdc6a16bda",
+      "bytes": 1066679
+    },
+    "publication/spectral-floor/spectral-floor.tex": {
+      "sha256": "f39852a4d814f0465787ba36ad633c6b7af1497e7051d7f0767742317475d776",
+      "bytes": 93899
+    },
+    "publication/spectral-floor/spectral-floor.pdf": {
+      "sha256": "f81c554663f11fc960d30e856216e556fb1f7005f8d964cb22d754be826d3613",
+      "bytes": 381641
+    },
+    "publication/spectral-floor/arxiv-source.zip": {
+      "sha256": "d4efa34e3982a54ab6682986916c6d672206699d3b93bd49872e70f8aad23432",
+      "bytes": 181465
+    },
+    "publication/spectral-floor/build-record.json": {
+      "sha256": "711af6044edb755684dd5f9140fec9d3ce8e42f28993e51616ddf6e3b8f846b5",
+      "bytes": 1586
+    },
+    "publication/spectral-floor/README.md": {
+      "sha256": "ec9918f5e68e541cd326b2a26409010a85b7c4bca3f5136d9f39aaec7c5dc931",
+      "bytes": 4094
+    },
+    "publication/spectral-floor/ARXIV-SUBMISSION.md": {
+      "sha256": "6225b3d25783cea26dbe229566699fcc253939c090a74d3d8e71fd7b4b11d522",
+      "bytes": 7776
+    },
+    "publication/spectral-floor/ZENODO-METADATA.json": {
+      "sha256": "d98677ee98935bbf237e99cb85bcedf2e0cd7b7c630cbd95fb44154898347779",
+      "bytes": 3617
+    },
+    "publication/spectral-floor/JOURNAL-COVER-LETTER.md": {
+      "sha256": "4b782af4f2f8fb5535808eaf55d1c761829a915b7feaac893d199066220a8229",
+      "bytes": 2916
+    }
+  },
+  "submission_status": "No submission/deposit. Saved arXiv and Zenodo affiliation states are recorded separately in publication/AFFILIATIONS.md.",
+  "raster_comparison_0_8_scale": [
+    {
+      "file": "paper/spectral-floor.pdf",
+      "raster_pages_changed_from_baseline": [
+        1,
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    {
+      "file": "publication/spectral-floor/spectral-floor.pdf",
+      "raster_pages_changed_from_baseline": [
+        1,
+        22,
+        23,
+        24
+      ]
+    }
+  ],
+  "layout_comparison": "Raster comparison at 0.8 scale finds changes only on browser pages 1 and 24-27 and typeset pages 1 and 22-24: version line, disclosure and following references. All intervening mathematics pages are pixel-identical to baseline.",
+  "pdf_text_bounds_note": "Typeset PDF has no text spans outside page bounds. Browser PDF has six atypical stretched MathJax glyph bounding boxes on pages 6,7,9,12, identical to baseline; affected mathematics pages are raster-identical, and pages 6 and 7 visually show intact equations. These text-extraction metrics are not treated as a new clipping failure.",
+  "mirrors_match_canonical_files": true
+}

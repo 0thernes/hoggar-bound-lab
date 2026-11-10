@@ -1,6 +1,6 @@
 # Journal of Physics A submission preparation
 
-Prepared 2026-11-09. Local draft only: not submitted, not signed, and not a declaration of completed human critical review. The author identity and publication correspondence address below were explicitly confirmed by the user. No ORCID was supplied.
+Prepared 2026-11-09. Local draft only: not submitted, not signed, and not a declaration of completed human critical review. The author identity and publication correspondence address below were explicitly confirmed by the user. The author supplied ORCID [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648); platform linking has not been observed.
 
 ## Form metadata
 
@@ -13,7 +13,7 @@ Prepared 2026-11-09. Local draft only: not submitted, not signed, and not a decl
 | Affiliation | 0thernes LLC |
 | Corresponding author | Alexander S. Donahue |
 | Publication correspondence | 0_0@0thernes.art |
-| Submitting-author ORCID | Required by IOP; none supplied. Obtain or recover the author's own identifier before submission. |
+| Submitting-author ORCID | [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648) (author-supplied); connect/authenticate it through the journal account when required. |
 | Suggested subject | Quantum mechanics and quantum information theory; foundations of quantum mechanics |
 | Additional subject, if available | Mathematical physics; physical combinatorics; operator theory |
 | Keywords | Quantum contextuality; Pauli operators; spectral invariants; finite geometry; formal verification; reproducible computation |

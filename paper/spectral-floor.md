@@ -3,7 +3,7 @@
 **Lean 4 formalization for every number of qubits; exact contextuality degrees of four-, five- and seven-qubit configurations outside the classical families; a classification of flat third-level phase states; a running demonstration on the Tsotchke stack**
 
 Alexander S. Donahue, 0thernes LLC, Washington, USA. Correspondence: 0_0@0thernes.art<br>
-Hoggar Bound Lab, version 1.1, 9 November 2026. Research preprint. Not peer reviewed.<br>
+Hoggar Bound Lab, version 1.1.1, 9 November 2026. Research preprint. Not peer reviewed.<br>
 Produced with an AI research system (Claude, Anthropic) under the author's direction; see Section 12.
 
 > **Priority note.** The inequality formalized here was first posted by B. W. Jonah on 21 October 2026
@@ -1023,8 +1023,9 @@ the author, who is responsible for the release. A second group of AI agent sessi
 part of the work independently (Section 8). No human has refereed it. The Lean statements are checked by
 the Lean kernel; everything else should be read as an unrefereed preprint.
 
-Affiliation: 0thernes LLC, Washington, USA. The work was funded by the author through 0thernes LLC;
-there was no external funding and there are no competing interests.
+Affiliation: 0thernes LLC, Washington, USA. This research was self-funded by the author.
+The author is the sole operator of 0thernes LLC, with which this project is affiliated.
+Any additional competing interests have not yet been declared.
 
 Code, proofs, data and this paper: <https://github.com/0thernes/hoggar-bound-lab>. Third-party
 components (Moonlab, quantum_rng, quantum_geometric_tensor) are MIT-licensed by their authors and are
