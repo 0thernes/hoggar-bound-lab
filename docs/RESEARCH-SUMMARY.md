@@ -57,7 +57,7 @@ F(\sigma,y)=560-\frac14 y^{\mathsf T}\Lambda_\sigma y,
 \min_{\|y\|^2=64}F(\sigma,y)=560-16\lambda_{\max}(\Lambda_\sigma).
 ```
 
-Assignment B's relaxed minimum is 32 lower than Assignment A's. The restriction to binary signs is different: the paper does not determine the exact binary minima, or even establish that they differ.
+Assignment B's relaxed minimum is 32 lower than Assignment A's. The restriction to binary signs is different: the C3 paper does not determine the exact binary minima, or even establish that they differ; Corollary 16 of the combined paper, version 1.3.0, shows that they differ (at least 347 against at most 344).
 
 ## Prior work and the contribution
 
@@ -65,7 +65,7 @@ B. W. Jonah's *The reach of the section-square law*, v0.5, defines C3 and Conjec
 
 Jonah's earlier *Structure theorems for hyperplane completions in Pauli contextuality*, v0.3, already supplies the spectral-floor formula and related structure results. The repository's earlier bound work is presented with that attribution. The C3 witness is a separate result, using the existing spectral framework. [Prior spectral-bound source](https://doi.org/10.5281/zenodo.23538829).
 
-The [source comparison](../results/frontier-prior-art.md) is a bounded literature audit, not an exhaustive priority proof or a statistical meta-analysis. This project does not establish all remaining dimensions of C3, all cases of Conjecture E, a classification of every cospectral carrier, or historical first priority.
+The [source comparison](../results/frontier-prior-art.md) is a bounded literature audit, not an exhaustive priority proof or a statistical meta-analysis. The four-qubit certificate does not establish all remaining dimensions of C3, all cases of Conjecture E, a classification of every cospectral carrier, or historical first priority. Version 1.3.0 of the combined paper settles case C3 for every N >= 4 (Theorem 17, in Lean) and Conjecture E in all nine vertex cases (Theorem 19, on paper outside case C3); see the [claim register](CLAIMS.md#version-130-additions).
 
 ## How to inspect or challenge the result
 

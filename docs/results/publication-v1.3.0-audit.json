@@ -47,7 +47,7 @@
     "lean/lakefile.toml": "78d3303ad998ec1a2d573a6516f189d01341b42c58a1df079da73eaee3b92407",
     "lean/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
   },
-  "seven_qubit_ci_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861",
+  "seven_qubit_ci_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42808984960",
   "seven_qubit_audited_declarations": 13,
   "c3_all_qubits_commit": "5dcea35",
   "c3_all_qubits_audited_declarations": 74,

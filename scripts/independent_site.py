@@ -3,6 +3,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 import hashlib
 import json
+import re
 import shutil
 import sys
 from urllib.parse import unquote, urlsplit
@@ -58,6 +59,12 @@ for name in FILES:
     payload=src.read_bytes()
     if src.suffix not in {'.png','.pdf'}:
         payload=payload.replace(b'\r\n',b'\n')
+    if name.startswith('publication/ADDENDUM-') and name.endswith('.md'):
+        # The addenda link to repository files with relative paths, which do not exist on the site.
+        payload=re.sub(rb'\]\(\.\./([^)\s]+)\)',lambda m:b'](https://github.com/0thernes/hoggar-bound-lab/'+
+                       (b'tree' if m.group(1).endswith(b'/') else b'blob')+b'/v1.3.0/'+m.group(1)+b')',payload)
+        if b'](../' in payload:
+            raise RuntimeError(f'Unrewritten relative link in {name}')
     dst.write_bytes(payload)
     manifest[name]=hashlib.sha256(dst.read_bytes()).hexdigest()
 main_page=(ROOT/'docs'/'research-index.html').read_text(encoding='utf-8')

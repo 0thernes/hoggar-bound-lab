@@ -57,9 +57,11 @@ precursors; no released artifact is silently rewritten.
 
 ## Version 1.3.0 (10 November 2026)
 
-Two entries above describe the state of version 1.2.0 and are superseded by later work, not by a
+Three statements above describe the state of version 1.2.0 and are superseded by later work, not by a
 correction of the record: the exact-degree statements now cover all eight masks of the flat-state
-table, and the seven-qubit counts are kernel-evaluated (`phase7_contexts`, `phase7_degree`; see
-[ADDENDUM-seven-qubit-lean.md](ADDENDUM-seven-qubit-lean.md)). Version 1.3.0 of the combined
+table; the seven-qubit counts are kernel-evaluated (`phase7_contexts`, `phase7_degree`; see
+[ADDENDUM-seven-qubit-lean.md](ADDENDUM-seven-qubit-lean.md)); and the author has since declared no
+competing interests (Section 13 of version 1.3.0; [AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md)).
+The canonical manuscript named in the first paragraph is now version 1.3.0. Version 1.3.0 of the combined
 manuscript also folds in the other addenda of this folder; see [PAPER-MAP.md](PAPER-MAP.md) and the
 [changelog](../CHANGELOG.md).

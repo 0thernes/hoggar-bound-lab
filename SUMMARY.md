@@ -92,7 +92,7 @@ bash scripts/run_all.sh
 ```
 
 ```bash
-cd lean && lake exe cache get && lake build && lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive
+cd lean && lake exe cache get && lake build && lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven && lake env lean HoggarBound/CarrierFamily.lean
 ```
 
 See [INDEX.md](INDEX.md) for where each claim is proved and tested, and [GLOSSARY.md](GLOSSARY.md) for

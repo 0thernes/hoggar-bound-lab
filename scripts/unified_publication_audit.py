@@ -7,6 +7,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 import hashlib
 import json
+import re
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +47,11 @@ def main():
     require(0 < len(metadata['abstract_plain_text']) <= 1920, 'Plain abstract exceeds the arXiv limit of 1920 characters')
     require(digest(source.replace(b'\r\n', b'\n')) == build['source_lf_sha256'], 'Canonical manuscript changed since build')
     require(source.decode('utf-8').splitlines()[0] == '# ' + metadata['title'], 'Manuscript title mismatch')
+    text = source.replace(b'\r\n', b'\n').decode('utf-8')
+    found = re.search(r'\n## Abstract\n\n(.*?)\n\n## 1\. ', text, re.S)
+    require(found is not None and found.group(1) == metadata['abstract'], 'Metadata abstract differs from the paper')
+    plain = (ROOT / 'publication/unified-abstract.txt').read_text(encoding='utf-8').strip()
+    require(plain == metadata['abstract_plain_text'], 'Plain-text abstract file differs from the metadata')
     for name, record in build['artifacts'].items():
         path = (ROOT / name).resolve()
         require(ROOT.resolve() in path.parents and path.is_file() and not path.is_symlink(), 'Unsafe or missing artifact: ' + name)

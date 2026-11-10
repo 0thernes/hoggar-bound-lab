@@ -1,34 +1,38 @@
 {
  "status": "pass",
- "observed_at_utc": "2026-11-10T09:54:01.669274+00:00",
+ "observed_at_utc": "2026-11-10T11:55:53.064325+00:00",
  "workflow": "Saturated configurations",
  "event": "workflow_dispatch",
- "run_id": 42791713861,
- "run_url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861",
- "checked_commit": "77a529fdf7f838c2ce1d3424e74800d2af800a3f",
+ "run_id": 42808984960,
+ "run_url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42808984960",
+ "checked_commit": "b7b02732c51cfbaab222f4749d0eecabfd37ef86",
  "workflow_conclusion": "success",
  "jobs": [
   {
    "name": "Lean kernel - exact contextuality degrees",
    "conclusion": "success",
-   "started_at": "2026-11-10T09:33:35Z",
-   "completed_at": "2026-11-10T09:51:52Z"
+   "started_at": "2026-11-10T11:37:29Z",
+   "completed_at": "2026-11-10T11:55:11Z"
   },
   {
    "name": "Exact arithmetic, census, Moonlab circuits, QGTL",
    "conclusion": "success",
-   "started_at": "2026-11-10T09:33:35Z",
-   "completed_at": "2026-11-10T09:36:43Z"
+   "started_at": "2026-11-10T11:37:29Z",
+   "completed_at": "2026-11-10T11:40:01Z"
   }
  ],
  "lean_build": {
   "HoggarBound.MaskRows": {
-   "elapsed_wall_clock": "0:07.82",
-   "maximum_resident_set_kib": 3931588
+   "elapsed_wall_clock": "0:06.66",
+   "maximum_resident_set_kib": 3919684,
+   "built_from_source": true,
+   "lake_build_time": "4.5s"
   },
   "HoggarBound.SaturatedPhaseSeven": {
-   "elapsed_wall_clock": "1:28.59",
-   "maximum_resident_set_kib": 6271352
+   "elapsed_wall_clock": "1:26.31",
+   "maximum_resident_set_kib": 6271660,
+   "built_from_source": true,
+   "lake_build_time": "84s"
   }
  },
  "python_check_last_line": "14 of 14 checks passed",
@@ -96,12 +100,21 @@
   "HoggarBound.sign_table": []
  },
  "source_sha256_lf": {
-  "lean/HoggarBound/MaskRows.lean": "fb64a239681cc2d1c06320af2de31b9ed251b1825b612bcb019f363b4a803abe",
+  "lean/HoggarBound/MaskRows.lean": "d6435f6842baedf27b0abea9d9d2d598b3961a15c31776fb87257d62528cd3d8",
   "lean/HoggarBound/SaturatedPhaseSeven.lean": "7e0600e3b0d1d81a302f0b0a2e9db1604c9563bd970a361de8561f3a1acc0cfc",
   "lean/SaturatedSevenVerification.lean": "0c377af38c37e7533a9343951b84f86e724d1d244cf4fba172b2ef62cb6fbe7e",
   "lean/HoggarBound/MaskConfig.lean": "50fc3332d62e522d15bec2dc1ab667a9321ccefd266d4b52f49cfbba13e86682",
   "lean/HoggarBound/PhaseData.lean": "2c55163ba87c4890eadddc09b03a03f7672e56c7c9645439f1a001ecfca6874a",
-  "scripts/phase_seven_lean.py": "b1981c762fe4ff0732e2478a4fb60b2c4d5d0943fade4521d718b234ed38c249"
+  "scripts/phase_seven_lean.py": "62fcc4912fd7c1617f2cf1deffda9750cf0fffa402a3421db26b00d7df815580"
  },
- "scope": "Record of one successful Ubuntu run of the workflow at the commit above: the Python check, the Lean build of the two new modules from source, and the 13 axiom reports. Read from the run and its artifact saturated-lean-evidence; no local proof compilation."
+ "logs_kept_in": "results/ci-run-42808984960/",
+ "previous_runs": [
+  {
+   "run_id": 42791713861,
+   "run_url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861",
+   "checked_commit": "77a529fdf7f838c2ce1d3424e74800d2af800a3f",
+   "logs_kept_in": "results/ci-run-42791713861/"
+  }
+ ],
+ "scope": "Record of one successful Ubuntu run of the workflow at the commit above: the Python check, the Lean build of the two new modules from source, and the 13 axiom reports, which equal the committed results/lean-saturated-seven-axioms.log. Read from the run and its artifact saturated-lean-evidence, whose logs are kept in the folder named above; no local proof compilation."
 }

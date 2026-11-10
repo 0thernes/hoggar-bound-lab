@@ -372,7 +372,9 @@ for every number of qubits* runs this on a clean machine and enforces the list.
 python scripts/cospectral_family.py --six
 ```
 
-The last line must read `43 of 43 checks passed` (without `--six`: 35 checks, a few seconds). For
+The last line must read `43 of 43 checks passed` (without `--six`: 35 checks, a few seconds, written
+to `results/cospectral_family_n3-5.json` since 10 November 2026, so that the committed record is not
+overwritten). For
 $N = 3, 4, 5, 6$ the script builds every real Pauli matrix, the section, all outside contexts and their
 signs (from a phase formula and, up to five qubits, again from products of three matrices), both
 carriers as sign tables on the section, the carrier operators, and both completion matrices from the
@@ -403,7 +405,9 @@ python scripts/cospectral_family_cone_lift.py
 ```
 
 Case C11: the last line must read `21 of 21 checks passed`. The three programs are stages of
-`scripts/run_all.sh` and steps of the workflow *Saturated configurations*.
+`scripts/run_all.sh` and steps of the workflow *Case C3 for every number of qubits*
+(`.github/workflows/c3-all-qubits.yml`; corrected on 10 November 2026, the first statement named the
+workflow *Saturated configurations*).
 
 ```bash
 python scripts/c3_sparse_search.py 3 3

@@ -34,7 +34,8 @@ tensor factor (so 2^(2N-1) is Z I ... I; for N = 4 this is 128 = ZIII), as in th
 
   python scripts/cospectral_family.py [--six]
 
-Writes results/cospectral_family.json.
+Writes results/cospectral_family.json with --six (the record that CI compares) and
+results/cospectral_family_n3-5.json without it, so that a quick run never overwrites the record.
 """
 import itertools, json, os, random, sys
 import numpy as np
@@ -379,7 +380,8 @@ def main():
     npass = sum(1 for _, ok in CHECKS if ok)
     out["checks"] = [{"name": nme, "pass": ok} for nme, ok in CHECKS]
     out["passed"], out["total"] = npass, len(CHECKS)
-    with open(os.path.join(ROOT, "results", "cospectral_family.json"), "w", encoding="utf-8", newline="\n") as fh:
+    record = "cospectral_family.json" if "--six" in sys.argv else "cospectral_family_n3-5.json"
+    with open(os.path.join(ROOT, "results", record), "w", encoding="utf-8", newline="\n") as fh:
         json.dump(out, fh, indent=1)
     print("\n%d of %d checks passed" % (npass, len(CHECKS)))
     sys.exit(0 if npass == len(CHECKS) else 1)

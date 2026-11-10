@@ -63,15 +63,17 @@ Prepared descriptive cover text:
 The descriptive cover text above makes no certification of journal exclusivity, acceptance, or
 completed human critical review. The later [author declarations](AUTHOR-DECLARATIONS.md) record
 conditional approval/accountability, the no-competing-interest statement and accepted arXiv rights
-and license. Use their precise scope for this final version. An AI tool must not write responses
+and license. They were recorded for version 1.2.0; use their precise scope, and record any approval
+of version 1.3.0 before submitting it. An AI tool must not write responses
 to future referee reports where the publisher requires the author's own evaluation.
 
 ## Author-controlled declarations
 
 Confirmed: the research was self-funded; the author is the sole operator of affiliated 0thernes LLC
-and declares no competing interests. The author approved this version and accepted accountability
+and declares no competing interests. The author approved version 1.2.0 and accepted accountability
 conditional on the assistant's readiness assessment, which supports offering it as a disclosed research
-preprint. His recorded direction, goals, resources and funding are described in
+preprint. For version 1.3.0 the author directed the assistant to fold in the addenda and publish; no
+separate author review or approval of the 1.3.0 text is recorded (AUTHOR-DECLARATIONS.md, Version 1.3.0). His recorded direction, goals, resources and funding are described in
 [AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md); no personal mathematical/reference review or
 critical intellectual revision was identified. Those activities cannot be inferred from permission.
 The listed distribution destinations are repositories/indexes/archives, with no other journal named.

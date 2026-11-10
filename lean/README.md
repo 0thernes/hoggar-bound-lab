@@ -53,7 +53,7 @@ sum on packed sets of codes and proves, for every N, that the result is the row;
 the 2^14 rows in 16 blocks (`SaturatedPhaseSeven.lean`; in CI the whole build took about 1.5 minutes
 and at most 6.4 GB of memory, one block of 1024 rows about 2.5 GB in a local test).
 
-### Case C3 for every number of qubits
+### Case C3 for every number of qubits from four on
 
 `HoggarBound/CarrierFamily.lean` (a separate build target, not imported by `HoggarBound.lean`) proves
 that the strict law fails for sign carriers in case C3 of Jonah's classification for every N ≥ 4:
@@ -86,7 +86,7 @@ See Section 9.3 of the combined paper for what the statement leaves to the reade
 | `HoggarBound/SaturatedFive.lean`, `SaturatedPhaseFive.lean` | generated: the five-qubit counts, 16 kernel-evaluated blocks per sum |
 | `HoggarBound/Saturated.lean` | the two-, three- and four-qubit counts and the exact-degree theorems |
 | `HoggarBound/MaskRows.lean`, `SaturatedPhaseSeven.lean` | rows of the counts on packed sets of codes; the seven-qubit counts and **`phase7_degree`** |
-| `HoggarBound/CarrierFamily.lean` | case C3 for every number of qubits: **`c3_strict_law_fails_general`** |
+| `HoggarBound/CarrierFamily.lean` | case C3 for every number of qubits from four on: **`c3_strict_law_fails_general`** |
 | `HoggarBound/IndependentContexts.lean`, `IndependentWitness.lean` | written by the independent companion review |
 | `HoggarBound/C3*.lean`, `Stability.lean` | the companion C3 note (separate work) |
 
@@ -111,8 +111,27 @@ lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive
 lake env lean SaturatedVerification.lean
 ```
 
-The last command prints the axioms of the fourteen declarations of the exact-degree modules; the
-expected output is in `../results/lean-saturated-axioms.log`. `IndependentVerification.lean` does the
+```bash
+lake build HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven
+```
+
+```bash
+lake env lean SaturatedSevenVerification.lean
+```
+
+```bash
+lake build HoggarBound.Bound HoggarBound.Quadric
+```
+
+```bash
+lake env lean HoggarBound/CarrierFamily.lean
+```
+
+`SaturatedVerification.lean` prints the axioms of the fourteen declarations of the two- to five-qubit
+exact-degree modules (expected output `../results/lean-saturated-axioms.log`),
+`SaturatedSevenVerification.lean` those of the thirteen seven-qubit declarations
+(`../results/lean-saturated-seven-axioms.log`), and `CarrierFamily.lean` those of its 74 declarations
+(`../results/lean-c3-all-qubits-axioms.log`). `IndependentVerification.lean` does the
 same for the core modules (expected output: `../results/lean-axioms.log`).
 
 Resources: the default build takes a few minutes after the Mathlib cache is fetched. In the successful
@@ -142,7 +161,9 @@ paper. That link is not part of the Lean statements, and the statements do not n
 `.github/workflows/saturated-configurations.yml` builds the exact-degree modules, prints the axioms and
 fails if any declaration uses an axiom outside the allowlist or if a source file contains `sorry`,
 `native_decide` or an `axiom` declaration. `.github/workflows/independent-verification.yml` does the same
-for the core proof and the companion modules.
+for the core proof and the companion modules. `.github/workflows/c3-all-qubits.yml` checks
+`CarrierFamily.lean`, enforces the allowlist on its 74 declarations and fails if the file contains
+`sorry`, `admit`, `native_decide`, `unsafe`, `set_option` or an `axiom` declaration.
 
 ## Exact four-qubit C3 certificate
 

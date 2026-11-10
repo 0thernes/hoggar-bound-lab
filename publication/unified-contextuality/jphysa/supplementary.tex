@@ -314,7 +314,7 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   \(\operatorname{tr}A^k\) for all \(k\le2^N\) and the completion traces.
 \item
   \nolinkurl{scripts/cospectral_family_cone_lift.py} (21 checks) builds the C11 configurations with 4, 5 and 6
-  qubits from the definitions, without the lifting lemma, and checks the lifted pairs of Table 7.
+  qubits from the definitions, without the lifting lemma, and checks the lifted pairs of Table 5.
 \item
   \texttt{scripts/conjecture\_e.py} (81 checks; with the argument \texttt{6} a further 36 checks at six qubits, record
   \nolinkurl{results/conjecture_e_n6.json}) builds every vertex case at four and five qubits, and at three
@@ -322,7 +322,9 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   as in {[}J3, Table 1{]}, the vertex set of the section, the outside lines and their signs (checked against
   products of three matrices at three and four qubits). It compares power sums \(\operatorname{tr}A^k\), \(k\le2^N\), with
   Python integers on Gaussian-integer matrices, and requires different completion cubic traces. The cone
-  cases are done twice, by the pair swap and by the cone lift. The record is \nolinkurl{results/conjecture_e.json}.
+  cases are done twice, by the pair swap and by the cone lift, except C6 and C11 at three qubits and C14
+  at four, which have no base pair to lift and are done by the pair swap only. The record is
+  \nolinkurl{results/conjecture_e.json}.
 \item
   \texttt{scripts/c3\_sparse\_search.py\ 3\ 3} is the exhaustive four-qubit search of Remark (d); \texttt{3\ 4} is the
   five-qubit search, about fifteen minutes.
@@ -407,14 +409,15 @@ lake env lean SaturatedVerification.lean
 # the seven-qubit degree (in CI about 1.5 minutes and 6.4 GB of memory)
 lake build HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven
 lake env lean SaturatedSevenVerification.lean
-# case C3 for every number of qubits (Theorem 17)
+# case C3 for every number of qubits from four on (Theorem 17)
 lake build HoggarBound.Bound HoggarBound.Quadric
 lake env lean HoggarBound/CarrierFamily.lean
 # the seven-qubit enumeration of Theorem 13 (about eight core-hours)
 cd .. && bash scripts/run_family7.sh
 \end{verbatim}
 
-The completion minima, the carrier families and the nine vertex cases, from the repository root:
+The completion minima, the seven-qubit evaluation, the carrier families and the nine vertex cases, from
+the repository root:
 
 \begin{verbatim}
 python scripts/cospectral_pair.py
@@ -423,10 +426,12 @@ python scripts/cospectral_family.py --six
 python scripts/cospectral_family_tensor_check.py
 python scripts/cospectral_family_cone_lift.py
 python scripts/conjecture_e.py
+python scripts/conjecture_e.py 6
 python scripts/c3_sparse_search.py 3 3
 \end{verbatim}
 
-Their last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21} and \texttt{81\ of\ 81\ checks\ passed}; the search prints its class counts. NumPy is required.
+Their last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21}, \texttt{81\ of\ 81} and
+\texttt{36\ of\ 36\ checks\ passed}; the search prints its class counts. NumPy is required.
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 
@@ -508,8 +513,8 @@ The best completion found for \(\sigma_0\), 368 violated outside lines (500 in a
 
 The record is \nolinkurl{results/cospectral_pair.json} (\texttt{completion\_witnesses}). The carriers of Sections 8.6 and
 8.7 are defined by formulas; their complete sign tables, graphs and characteristic polynomials are in
-\nolinkurl{results/cospectral_family.json}, \nolinkurl{results/cospectral_family_cone_lift.json} and
-\nolinkurl{results/conjecture_e.json}.
+\nolinkurl{results/cospectral_family.json}, \nolinkurl{results/cospectral_family_cone_lift.json},
+\nolinkurl{results/conjecture_e.json} and \nolinkurl{results/conjecture_e_n6.json}.
 
 
 \end{document}

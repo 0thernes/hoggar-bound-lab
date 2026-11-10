@@ -1,40 +1,40 @@
 note: Running TeX ...
 note: Rerunning TeX because "manuscript.aux" changed ...
 note: Running xdvipdfmx ...
-note: Writing `manuscript.pdf` (405.0107421875 KiB)
-note: Writing `manuscript.log` (24.4208984375 KiB)
+note: Writing `manuscript.log` (24.427734375 KiB)
+note: Writing `manuscript.pdf` (408.0693359375 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
 Fontconfig error: Cannot load default config file: No such file: (null)
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-warning: manuscript.tex:245: Overfull \hbox (6.1329pt too wide) in paragraph at lines 242--245
-warning: manuscript.tex:462: Overfull \hbox (0.73146pt too wide) in paragraph at lines 462--462
-warning: manuscript.tex:462: Overfull \hbox (1.81253pt too wide) in paragraph at lines 462--462
-warning: manuscript.tex:677: Overfull \hbox (4.03928pt too wide) in paragraph at lines 676--677
-warning: manuscript.tex:685: Overfull \hbox (3.93723pt too wide) in paragraph at lines 685--685
-warning: manuscript.tex:709: Overfull \hbox (15.09172pt too wide) detected at line 709
-warning: manuscript.tex:716: Overfull \hbox (12.66608pt too wide) detected at line 716
-warning: manuscript.tex:840: Overfull \hbox (6.32605pt too wide) in paragraph at lines 840--840
-warning: manuscript.tex:840: Overfull \hbox (0.57942pt too wide) in paragraph at lines 840--840
-warning: manuscript.tex:859: Overfull \hbox (4.13441pt too wide) in paragraph at lines 859--859
-warning: manuscript.tex:859: Overfull \hbox (2.53174pt too wide) in paragraph at lines 859--859
-warning: manuscript.tex:860: Overfull \hbox (2.53174pt too wide) in paragraph at lines 860--860
-warning: manuscript.tex:861: Overfull \hbox (2.53174pt too wide) in paragraph at lines 861--861
-warning: manuscript.tex:1469: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1468--1469
-warning: manuscript.tex:1704: Underfull \hbox (badness 2119) in paragraph at lines 1697--1704
+warning: manuscript.tex:248: Overfull \hbox (6.1329pt too wide) in paragraph at lines 245--248
+warning: manuscript.tex:465: Overfull \hbox (0.73146pt too wide) in paragraph at lines 465--465
+warning: manuscript.tex:465: Overfull \hbox (1.81253pt too wide) in paragraph at lines 465--465
+warning: manuscript.tex:680: Overfull \hbox (4.03928pt too wide) in paragraph at lines 679--680
+warning: manuscript.tex:688: Overfull \hbox (3.93723pt too wide) in paragraph at lines 688--688
+warning: manuscript.tex:712: Overfull \hbox (15.09172pt too wide) detected at line 712
+warning: manuscript.tex:719: Overfull \hbox (12.66608pt too wide) detected at line 719
+warning: manuscript.tex:847: Overfull \hbox (6.32605pt too wide) in paragraph at lines 847--847
+warning: manuscript.tex:847: Overfull \hbox (0.57942pt too wide) in paragraph at lines 847--847
+warning: manuscript.tex:866: Overfull \hbox (4.13441pt too wide) in paragraph at lines 866--866
+warning: manuscript.tex:866: Overfull \hbox (2.53174pt too wide) in paragraph at lines 866--866
+warning: manuscript.tex:867: Overfull \hbox (2.53174pt too wide) in paragraph at lines 867--867
+warning: manuscript.tex:868: Overfull \hbox (2.53174pt too wide) in paragraph at lines 868--868
+warning: manuscript.tex:1485: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1484--1485
+warning: manuscript.tex:1721: Underfull \hbox (badness 2119) in paragraph at lines 1714--1721
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-warning: manuscript.tex:245: Overfull \hbox (6.1329pt too wide) in paragraph at lines 242--245
-warning: manuscript.tex:462: Overfull \hbox (0.73146pt too wide) in paragraph at lines 462--462
-warning: manuscript.tex:462: Overfull \hbox (1.81253pt too wide) in paragraph at lines 462--462
-warning: manuscript.tex:677: Overfull \hbox (4.03928pt too wide) in paragraph at lines 676--677
-warning: manuscript.tex:685: Overfull \hbox (3.93723pt too wide) in paragraph at lines 685--685
-warning: manuscript.tex:709: Overfull \hbox (15.09172pt too wide) detected at line 709
-warning: manuscript.tex:716: Overfull \hbox (12.66608pt too wide) detected at line 716
-warning: manuscript.tex:840: Overfull \hbox (6.32605pt too wide) in paragraph at lines 840--840
-warning: manuscript.tex:840: Overfull \hbox (0.57942pt too wide) in paragraph at lines 840--840
-warning: manuscript.tex:859: Overfull \hbox (4.13441pt too wide) in paragraph at lines 859--859
-warning: manuscript.tex:859: Overfull \hbox (2.53174pt too wide) in paragraph at lines 859--859
-warning: manuscript.tex:860: Overfull \hbox (2.53174pt too wide) in paragraph at lines 860--860
-warning: manuscript.tex:861: Overfull \hbox (2.53174pt too wide) in paragraph at lines 861--861
-warning: manuscript.tex:1469: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1468--1469
-warning: manuscript.tex:1704: Underfull \hbox (badness 2119) in paragraph at lines 1697--1704
+warning: manuscript.tex:248: Overfull \hbox (6.1329pt too wide) in paragraph at lines 245--248
+warning: manuscript.tex:465: Overfull \hbox (0.73146pt too wide) in paragraph at lines 465--465
+warning: manuscript.tex:465: Overfull \hbox (1.81253pt too wide) in paragraph at lines 465--465
+warning: manuscript.tex:680: Overfull \hbox (4.03928pt too wide) in paragraph at lines 679--680
+warning: manuscript.tex:688: Overfull \hbox (3.93723pt too wide) in paragraph at lines 688--688
+warning: manuscript.tex:712: Overfull \hbox (15.09172pt too wide) detected at line 712
+warning: manuscript.tex:719: Overfull \hbox (12.66608pt too wide) detected at line 719
+warning: manuscript.tex:847: Overfull \hbox (6.32605pt too wide) in paragraph at lines 847--847
+warning: manuscript.tex:847: Overfull \hbox (0.57942pt too wide) in paragraph at lines 847--847
+warning: manuscript.tex:866: Overfull \hbox (4.13441pt too wide) in paragraph at lines 866--866
+warning: manuscript.tex:866: Overfull \hbox (2.53174pt too wide) in paragraph at lines 866--866
+warning: manuscript.tex:867: Overfull \hbox (2.53174pt too wide) in paragraph at lines 867--867
+warning: manuscript.tex:868: Overfull \hbox (2.53174pt too wide) in paragraph at lines 868--868
+warning: manuscript.tex:1485: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1484--1485
+warning: manuscript.tex:1721: Underfull \hbox (badness 2119) in paragraph at lines 1714--1721
 warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

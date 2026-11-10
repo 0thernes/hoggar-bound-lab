@@ -12,10 +12,10 @@ configurations and a proof of Jonah's Conjecture E*. It folds in the four addend
 
 - Section 8.5: Corollary 16, the binary completion minima of the four-qubit pair differ.
 - Section 8.6: Theorem 17, case C3 for every N >= 4 by graph carriers, with the Lean theorem
-  `c3_strict_law_fails_general`; Corollary 18, case C11; Remarks (a) to (d); Table 7.
-- Section 8.7: Theorem 19, Conjecture E in all nine vertex cases; Tables 8 and 9. Outside case C3 the
+  `c3_strict_law_fails_general`; Corollary 18, case C11; Remarks (a) to (d); Table 5.
+- Section 8.7: Theorem 19, Conjecture E in all nine vertex cases; Tables 6 and 7. Outside case C3 the
   proof is on paper and uses [J3, Theorems A and B3]; it is checked by exact computation.
-- Section 8.8; Section 9.3 (the Lean statement and what it leaves to the reader); Table 6 and the
+- Section 8.8; Section 9.3 (the Lean statement and what it leaves to the reader); Table 9 and the
   module tables; Section 11.3 (the programs); Sections 12 and 13; Appendices A and B.
 - Section 5.3, 9.1 and abstract: the seven-qubit degree 729344 is a Lean theorem with kernel-evaluated
   counts.
@@ -28,6 +28,18 @@ workflow *Case C3 for every number of qubits* and a stage of `scripts/run_all.sh
 seven-qubit check `scripts/phase_seven_lean.py`. Corrections from an independent review of Theorem 19
 (no error found; wording and notation in Sections 8.6 and 8.7) and from the review of the seven-qubit
 work (Sections 5.1, 5.3, 9.1, 9.3 and Appendix A) are included.
+
+A final review of the whole change set in four independent lenses (mathematics and numbers, Lean
+fidelity and reproducibility, consistency between documents, scholarly integrity), each with an
+adversarial verifier, confirmed no critical finding; its 39 confirmed minor and major findings are
+corrected. Among them: the Lean result for case C3 is stated for N >= 4 throughout; the proof of
+Theorem 13 names which program computes what; the CI runs of the C3 workflow are described with the
+checks each one ran; notation in Section 8.7; the tables are numbered in order of appearance (the new
+tables of Section 8 are 5 to 7, the formal tables of Section 9 are 8 and 9); stale v1.2.0 statements
+in the README, glossary, research summary, submission notes and errata; the metadata and plain-text
+abstracts, which the unified audit now compares with the paper; addenda links on the site.
+`scripts/cospectral_family.py` without `--six` now writes its own record instead of overwriting the
+committed one.
 
 Publication machinery: `scripts/build_unified_paper.py` takes the version from one constant and the
 archive date from the byline; both publication audits move to 1.3.0 and gain checks (sources of the

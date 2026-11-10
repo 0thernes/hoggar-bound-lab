@@ -32,7 +32,7 @@ direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-964
   pair swap for cones. Outside case C3 the proof is on paper, uses Theorems A and B3 of the note, and is
   checked by exact computation for three to six qubits (`python scripts/conjecture_e.py`, 81 checks, and
   `python scripts/conjecture_e.py 6`, 36 checks).
-* **Case C3 for every number of qubits, in Lean** (Theorem 17): `c3_strict_law_fails_general` in
+* **Case C3 for every number of qubits from four on, in Lean** (Theorem 17): `c3_strict_law_fails_general` in
   [lean/HoggarBound/CarrierFamily.lean](lean/HoggarBound/CarrierFamily.lean), about the library's own
   Pauli matrices, real quadric and context signs; 74 audited declarations, standard axioms only. Case
   C11 follows by the note's cone lift (Corollary 18).
@@ -107,9 +107,9 @@ What this repository adds:
 * an **independent reproduction** of the best known assignments for two to five qubits, of the
   geometry of their violated contexts, and of the three cases where the bound is attained;
 * the **state-independent contextuality experiment** run end to end on a simulator;
-* **exact contextuality degrees outside the classical families**: 75 (four qubits, 1095 contexts) and 480
-  (five qubits, 10880 contexts) proved in Lean, lower bound and witness, and 729344 (seven qubits,
-  2824192 contexts) from the Lean inequality and exact counts;
+* **exact contextuality degrees outside the classical families**: 75 (four qubits, 1095 contexts), 480
+  (five qubits, 10880 contexts) and 729344 (seven qubits, 2824192 contexts), each proved in Lean with
+  lower bound, witness and kernel-evaluated counts;
 * a **criterion and a classification**: which states built from T, controlled-S and CCZ gates on the
   all-plus state have a single non-zero Pauli modulus, exhaustively for up to five qubits; and the fact
   that the Pauli support of any such state is a two-character set (the support of a bent function in the
@@ -119,7 +119,7 @@ What this repository adds:
 
 | path | what |
 |---|---|
-| `lean/HoggarBound/` | the Lean 4 development (`Moment`, `Pauli`, `Bound`, `Counting`, `Corollaries`, `Quadric`; the exact degrees `MaskConfig`, `Saturated`, `SaturatedFive`, `SaturatedPhaseFive` with generated data `FlatData`, `PhaseData`; plus the independently written `IndependentContexts`, `IndependentWitness`) |
+| `lean/HoggarBound/` | the Lean 4 development (`Moment`, `Pauli`, `Bound`, `Counting`, `Corollaries`, `Quadric`; the exact degrees `MaskConfig`, `Saturated`, `SaturatedFive`, `SaturatedPhaseFive`, `MaskRows`, `SaturatedPhaseSeven` with generated data `FlatData`, `PhaseData`; case C3 for every N >= 4, `CarrierFamily`; plus the independently written `IndependentContexts`, `IndependentWitness`) |
 | `src/hoggar.c` | engine: geometry, exact integer bounds, verification, annealing search, falsification harness |
 | `src/moonlab_experiment.mjs` | the experiment on Moonlab (WebAssembly) |
 | `src/qgt_hoggar.c` | quantum geometric tensor of the Hoggar state with the QGTL kernels |
@@ -155,6 +155,17 @@ for each of the two five-qubit configurations):
 cd lean && lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive && lake env lean SaturatedVerification.lean
 ```
 
+The seven-qubit degree (about 1.5 minutes and 6.4 GB of memory in CI) and case C3 for every number of
+qubits from four on:
+
+```bash
+cd lean && lake build HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven && lake env lean SaturatedSevenVerification.lean
+```
+
+```bash
+cd lean && lake build HoggarBound.Bound HoggarBound.Quadric && lake env lean HoggarBound/CarrierFamily.lean
+```
+
 `run_all.sh` needs gcc, Python 3 with NumPy and Matplotlib, and Node; Eshkol is optional. It prints one
 line per stage and ends with `ALL STAGES PASSED`; the last complete run is kept in
 [results/run_all.log](results/run_all.log) and [results/falsify.log](results/falsify.log). The Lean
@@ -166,9 +177,13 @@ build needs [elan](https://github.com/leanprover/elan); it downloads Lean 4.35.0
 * Lower bounds are proved. Upper bounds are explicit assignments that anyone can recount.
   Optimality of the four- and five-qubit assignments of the classical families is not proved here,
   except for the four-qubit hyperbolic quadric.
-* For the configurations of Section 5 both bounds are proved in Lean up to five qubits. The seven-qubit
-  degree uses the Lean inequality with counts made by three independent programs, not by the kernel. The
-  uniqueness statement for seven qubits is proved by enumeration inside one family of forms only.
+* For the configurations of Section 5 both bounds are proved in Lean, for seven qubits as well
+  (`phase7_degree`, `phase7_contexts`, counts evaluated by the kernel); that the masks are the supports
+  of the named states is checked by programs, outside Lean. The uniqueness statement for seven qubits
+  is proved by enumeration inside one family of forms only.
+* Conjecture E (Theorem 19) is proved on paper; only case C3 is a Lean theorem, for every N >= 4. The
+  other eight cases use two structure theorems of Jonah's preprint and are checked by exact
+  computation for three to six qubits.
 * Novelty of the Section 5 results is claimed to the extent of a bounded literature search.
 * The quaternionic refinement for elliptic quadrics is proved on paper and tested numerically only.
 * Moonlab is a classical simulator; quantum_rng is a classical "quantum-inspired" generator; only the

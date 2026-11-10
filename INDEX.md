@@ -26,7 +26,7 @@ Repository version 1.3.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 ## C3 research and publication guide
 
 - [C3 summary](docs/RESEARCH-SUMMARY.md): the explicit four-qubit pair and what it establishes.
-- [Claim register](docs/CLAIMS.md): named C3 theorems, the 42-declaration audit, six stability declarations, and the separately scoped 14 saturation declarations.
+- [Claim register](docs/CLAIMS.md): named C3 theorems, the 42-declaration audit, six stability declarations, the separately scoped 14 saturation declarations, and for version 1.3.0 the 13 seven-qubit and 74 `CarrierFamily.lean` declarations.
 - [Verification guide](VERIFICATION.md): original-model connection, exact commands, evidence and measured proof-checking costs.
 - [Affiliation records](publication/AFFILIATIONS.md): 0thernes LLC across prepared records and the observed state of each live service.
 - [Publication status](publication/STATUS.md): public releases versus pending archive/journal steps.

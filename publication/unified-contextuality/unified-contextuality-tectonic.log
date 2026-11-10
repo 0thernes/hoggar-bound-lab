@@ -1,40 +1,40 @@
 note: Running TeX ...
 note: Rerunning TeX because "unified-contextuality.aux" changed ...
 note: Running xdvipdfmx ...
-note: Writing `unified-contextuality.pdf` (488.82421875 KiB)
-note: Writing `unified-contextuality.log` (24.7626953125 KiB)
+note: Writing `unified-contextuality.log` (24.7685546875 KiB)
+note: Writing `unified-contextuality.pdf` (491.9736328125 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
 Fontconfig error: Cannot load default config file: No such file: (null)
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-warning: unified-contextuality.tex:243: Overfull \hbox (6.1329pt too wide) in paragraph at lines 240--243
-warning: unified-contextuality.tex:460: Overfull \hbox (0.73146pt too wide) in paragraph at lines 460--460
-warning: unified-contextuality.tex:460: Overfull \hbox (1.81253pt too wide) in paragraph at lines 460--460
-warning: unified-contextuality.tex:675: Overfull \hbox (4.03928pt too wide) in paragraph at lines 674--675
-warning: unified-contextuality.tex:683: Overfull \hbox (3.93723pt too wide) in paragraph at lines 683--683
-warning: unified-contextuality.tex:707: Overfull \hbox (15.09172pt too wide) detected at line 707
-warning: unified-contextuality.tex:714: Overfull \hbox (12.66608pt too wide) detected at line 714
-warning: unified-contextuality.tex:838: Overfull \hbox (6.32605pt too wide) in paragraph at lines 838--838
-warning: unified-contextuality.tex:838: Overfull \hbox (0.57942pt too wide) in paragraph at lines 838--838
-warning: unified-contextuality.tex:857: Overfull \hbox (4.13441pt too wide) in paragraph at lines 857--857
-warning: unified-contextuality.tex:857: Overfull \hbox (2.53174pt too wide) in paragraph at lines 857--857
-warning: unified-contextuality.tex:858: Overfull \hbox (2.53174pt too wide) in paragraph at lines 858--858
-warning: unified-contextuality.tex:859: Overfull \hbox (2.53174pt too wide) in paragraph at lines 859--859
-warning: unified-contextuality.tex:1467: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1466--1467
-warning: unified-contextuality.tex:1702: Underfull \hbox (badness 2119) in paragraph at lines 1695--1702
+warning: unified-contextuality.tex:246: Overfull \hbox (6.1329pt too wide) in paragraph at lines 243--246
+warning: unified-contextuality.tex:463: Overfull \hbox (0.73146pt too wide) in paragraph at lines 463--463
+warning: unified-contextuality.tex:463: Overfull \hbox (1.81253pt too wide) in paragraph at lines 463--463
+warning: unified-contextuality.tex:678: Overfull \hbox (4.03928pt too wide) in paragraph at lines 677--678
+warning: unified-contextuality.tex:686: Overfull \hbox (3.93723pt too wide) in paragraph at lines 686--686
+warning: unified-contextuality.tex:710: Overfull \hbox (15.09172pt too wide) detected at line 710
+warning: unified-contextuality.tex:717: Overfull \hbox (12.66608pt too wide) detected at line 717
+warning: unified-contextuality.tex:845: Overfull \hbox (6.32605pt too wide) in paragraph at lines 845--845
+warning: unified-contextuality.tex:845: Overfull \hbox (0.57942pt too wide) in paragraph at lines 845--845
+warning: unified-contextuality.tex:864: Overfull \hbox (4.13441pt too wide) in paragraph at lines 864--864
+warning: unified-contextuality.tex:864: Overfull \hbox (2.53174pt too wide) in paragraph at lines 864--864
+warning: unified-contextuality.tex:865: Overfull \hbox (2.53174pt too wide) in paragraph at lines 865--865
+warning: unified-contextuality.tex:866: Overfull \hbox (2.53174pt too wide) in paragraph at lines 866--866
+warning: unified-contextuality.tex:1483: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1482--1483
+warning: unified-contextuality.tex:1719: Underfull \hbox (badness 2119) in paragraph at lines 1712--1719
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-warning: unified-contextuality.tex:243: Overfull \hbox (6.1329pt too wide) in paragraph at lines 240--243
-warning: unified-contextuality.tex:460: Overfull \hbox (0.73146pt too wide) in paragraph at lines 460--460
-warning: unified-contextuality.tex:460: Overfull \hbox (1.81253pt too wide) in paragraph at lines 460--460
-warning: unified-contextuality.tex:675: Overfull \hbox (4.03928pt too wide) in paragraph at lines 674--675
-warning: unified-contextuality.tex:683: Overfull \hbox (3.93723pt too wide) in paragraph at lines 683--683
-warning: unified-contextuality.tex:707: Overfull \hbox (15.09172pt too wide) detected at line 707
-warning: unified-contextuality.tex:714: Overfull \hbox (12.66608pt too wide) detected at line 714
-warning: unified-contextuality.tex:838: Overfull \hbox (6.32605pt too wide) in paragraph at lines 838--838
-warning: unified-contextuality.tex:838: Overfull \hbox (0.57942pt too wide) in paragraph at lines 838--838
-warning: unified-contextuality.tex:857: Overfull \hbox (4.13441pt too wide) in paragraph at lines 857--857
-warning: unified-contextuality.tex:857: Overfull \hbox (2.53174pt too wide) in paragraph at lines 857--857
-warning: unified-contextuality.tex:858: Overfull \hbox (2.53174pt too wide) in paragraph at lines 858--858
-warning: unified-contextuality.tex:859: Overfull \hbox (2.53174pt too wide) in paragraph at lines 859--859
-warning: unified-contextuality.tex:1467: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1466--1467
-warning: unified-contextuality.tex:1702: Underfull \hbox (badness 2119) in paragraph at lines 1695--1702
+warning: unified-contextuality.tex:246: Overfull \hbox (6.1329pt too wide) in paragraph at lines 243--246
+warning: unified-contextuality.tex:463: Overfull \hbox (0.73146pt too wide) in paragraph at lines 463--463
+warning: unified-contextuality.tex:463: Overfull \hbox (1.81253pt too wide) in paragraph at lines 463--463
+warning: unified-contextuality.tex:678: Overfull \hbox (4.03928pt too wide) in paragraph at lines 677--678
+warning: unified-contextuality.tex:686: Overfull \hbox (3.93723pt too wide) in paragraph at lines 686--686
+warning: unified-contextuality.tex:710: Overfull \hbox (15.09172pt too wide) detected at line 710
+warning: unified-contextuality.tex:717: Overfull \hbox (12.66608pt too wide) detected at line 717
+warning: unified-contextuality.tex:845: Overfull \hbox (6.32605pt too wide) in paragraph at lines 845--845
+warning: unified-contextuality.tex:845: Overfull \hbox (0.57942pt too wide) in paragraph at lines 845--845
+warning: unified-contextuality.tex:864: Overfull \hbox (4.13441pt too wide) in paragraph at lines 864--864
+warning: unified-contextuality.tex:864: Overfull \hbox (2.53174pt too wide) in paragraph at lines 864--864
+warning: unified-contextuality.tex:865: Overfull \hbox (2.53174pt too wide) in paragraph at lines 865--865
+warning: unified-contextuality.tex:866: Overfull \hbox (2.53174pt too wide) in paragraph at lines 866--866
+warning: unified-contextuality.tex:1483: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1482--1483
+warning: unified-contextuality.tex:1719: Underfull \hbox (badness 2119) in paragraph at lines 1712--1719
 warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

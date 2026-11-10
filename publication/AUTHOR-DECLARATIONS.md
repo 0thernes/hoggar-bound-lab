@@ -110,7 +110,8 @@ the combined paper, and to publish it. The declarations above were recorded for 
 competing-interest text prepared above is used in Section 13 of v1.3.0. Two statements of the
 assessment above describe v1.2.0 and are superseded: the seven-qubit finite counts are now Lean
 theorems (`phase7_contexts`, `phase7_degree`), and besides the binary-completion addendum, v1.3.0
-contains three further results (case C3 for every number of qubits, case C11, Conjecture E). No
+contains three further results (case C3 for every number of qubits from four on, case C11,
+Conjecture E). No
 separate author review or approval of the v1.3.0 text, and no new arXiv, journal or Zenodo
 declaration, is recorded. The
 assessment limits stated above apply unchanged: the new results are AI-originated, Theorem 19 relies
