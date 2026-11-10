@@ -1,0 +1,84 @@
+{
+  "version": "1.2.0",
+  "observed_at_utc": "2026-11-10T03:51:14.417881+00:00",
+  "canonical_title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate",
+  "release_commit": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
+  "release_url": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0",
+  "release_published_at_utc": "2026-11-10T03:46:37Z",
+  "release_assets_verified": 19,
+  "public_pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+  "public_pdf_sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+  "destinations": {
+    "google_scholar": {
+      "status": "discoverable_hosting_ready_indexing_not_observed",
+      "observed_exact_title_query": "Spectral bounds and their limits in Pauli contextuality",
+      "result": "No matching articles. Profile setup remains at article selection; no unrelated work selected."
+    },
+    "arxiv": {
+      "status": "draft_opened_agreement_pending",
+      "account_affiliation": "0thernes LLC",
+      "orcid_linked": true,
+      "files_uploaded": false,
+      "agreement_accepted": false,
+      "public_identifier": null,
+      "required_next": "Author agreement and rights confirmation; irrevocable distribution license choice. User question pending; endorsement/moderation not yet assessed."
+    },
+    "journal_of_physics_a": {
+      "status": "package_prepared_not_submitted",
+      "main_pdf_pages": 25,
+      "supplement_pages": 8,
+      "acknowledgments_ai_disclosure": true,
+      "account_observation": "ScholarOne login screen",
+      "submission_identifier": null,
+      "required_next": "Sign-in and truthful human intellectual contribution, critical review, final approval, accountability, rights/exclusivity and competing-interest declarations."
+    },
+    "zenodo": {
+      "status": "eligibility_unresolved_not_deposited",
+      "account_affiliation": "0thernes LLC",
+      "doi": null,
+      "required_next": "Resolve human-conducted-research eligibility under the disclosed AI-originated workflow; license choice. No support message sent."
+    },
+    "orcid": {
+      "status": "public_preprint_entry_verified",
+      "record": "https://orcid.org/0009-0006-8168-9648",
+      "work_put_code": 232756235,
+      "work_type": "preprint",
+      "visibility": "public",
+      "publication_date": "2026-11-09",
+      "source": "self-asserted author record",
+      "public_title_url_citation_description_verified": true,
+      "biography_affiliation": "Alexander S. Donahue - 0thernes LLC",
+      "employment_record_created": false,
+      "private_email_visibility_changed": false
+    },
+    "openaire": {
+      "status": "indexing_not_observed",
+      "observed_exact_title_query": "Spectral bounds and their limits in Pauli contextuality",
+      "result": "0 research products; no correct record available to claim. Latest record update displayed 17 October 2026; ORCID sync displayed 10 October 2026."
+    },
+    "software_heritage": {
+      "status": "preserved_verified",
+      "snapshot": "swh:1:snp:dd46d03179324a4b6c977e1199863ac634b7beef",
+      "release": "swh:1:rel:ee70041f7d3c7f6f1de4aaa624b1d804059b37e5",
+      "revision": "swh:1:rev:3073955de6e261ecdbcc3fc739615d9df48caf0b",
+      "archived_md_html_pdf_sha256_verified": true,
+      "external_github_release_attachments_included": false
+    },
+    "internet_archive": {
+      "status": "preserved_verified",
+      "html_capture": "https://web.archive.org/web/20261110034540/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "pdf_capture": "https://web.archive.org/web/20261110034603/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "archived_html_pdf_sha256_verified": true
+    }
+  },
+  "live_browser_check": {
+    "rendered_math_nodes": 1047,
+    "math_errors": 0,
+    "loaded_figures": 4,
+    "document_horizontal_overflow": false,
+    "c3_original_pair": "pass",
+    "c3_flip_ZIII_in_B": "rejected",
+    "c3_restored_pair": "pass"
+  },
+  "scope": "A public preprint release, author record and verified preservation; no DOI, arXiv announcement, journal submission/acceptance or search indexing is claimed."
+}

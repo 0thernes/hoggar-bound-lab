@@ -1,0 +1,144 @@
+{
+  "status": "pass",
+  "verified_at_utc": "2026-11-10T03:45:07.532873+00:00",
+  "release_id": 439920874,
+  "tag": "v1.2.0",
+  "source_commit": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
+  "assets_downloaded_and_verified": 19,
+  "assets": [
+    {
+      "name": "full-ci-87-executable-evidence.zip",
+      "bytes": 13006,
+      "sha256": "cf64560c3b520b8df17443eaea7097d81879a40828fc37be441fed6ea63eebb9",
+      "asset_id": 729990954,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/full-ci-87-executable-evidence.zip"
+    },
+    {
+      "name": "full-ci-87-executable-job.log",
+      "bytes": 118726,
+      "sha256": "fbe8cecca33a1463deb0f44ac55d0b059a613669ce53f2b72bbc484a4b49b96d",
+      "asset_id": 729990961,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/full-ci-87-executable-job.log"
+    },
+    {
+      "name": "full-ci-87-lean-evidence.zip",
+      "bytes": 8238,
+      "sha256": "db39d4b0974f53cd1088b2bd7abeccebef8567b0d11431c41bc78fb72296c747",
+      "asset_id": 729990956,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/full-ci-87-lean-evidence.zip"
+    },
+    {
+      "name": "full-ci-87-lean-job.log",
+      "bytes": 134107,
+      "sha256": "8e0a6efca451321600827443b32e0a6542ca7a6435c48db2f5c07e6c5ebbd1dc",
+      "asset_id": 729990960,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/full-ci-87-lean-job.log"
+    },
+    {
+      "name": "manual-ci-evidence.zip",
+      "bytes": 10106,
+      "sha256": "3741c6804f46a2cdd2612575ce7bef367a82638c88a061bb19274239bb2e3d49",
+      "asset_id": 729990958,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/manual-ci-evidence.zip"
+    },
+    {
+      "name": "manual-ci-report.json",
+      "bytes": 21366,
+      "sha256": "0dccb277fe845d8c4a8f86cb3c96b29580abfaeaef525089e1451698b0da2acb",
+      "asset_id": 729990977,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/manual-ci-report.json"
+    },
+    {
+      "name": "public-site-verification.json",
+      "bytes": 24790,
+      "sha256": "ead2a02e3df45df9fbf98c852d867819da5581c18fb7de3f8ddb2e59be425395",
+      "asset_id": 729990976,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/public-site-verification.json"
+    },
+    {
+      "name": "publication-guide-v1.2.0.zip",
+      "bytes": 80518,
+      "sha256": "ac5d0ec6d52f9cce69bfe3da02cdc84159557bfebf7dacd16815fe1ec6167f1c",
+      "asset_id": 729990978,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/publication-guide-v1.2.0.zip"
+    },
+    {
+      "name": "release-manifest.json",
+      "bytes": 9225,
+      "sha256": "5c31e8dd5d7586caf2d402926e14724bdc5bacefbfdac4cad1ed375bcb5c78f1",
+      "asset_id": 729990979,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/release-manifest.json"
+    },
+    {
+      "name": "saturation-ci-exact-evidence.zip",
+      "bytes": 6529,
+      "sha256": "000cfd5d240bf04fe4c493033342d94689e90fd1e9fd84a69b6843767ade06a1",
+      "asset_id": 729990995,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/saturation-ci-exact-evidence.zip"
+    },
+    {
+      "name": "saturation-ci-exact-job.log",
+      "bytes": 132408,
+      "sha256": "00fc0a9db86d0d24905cf6611b68f3cded7cdbcd8847d230e5a8ccb2a53f9f6f",
+      "asset_id": 729991002,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/saturation-ci-exact-job.log"
+    },
+    {
+      "name": "saturation-ci-lean-evidence.zip",
+      "bytes": 3372,
+      "sha256": "37a58fd5106d2ffcd181d9dfd4a655443008e151ea3d11fcc60b469baad68b21",
+      "asset_id": 729991012,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/saturation-ci-lean-evidence.zip"
+    },
+    {
+      "name": "saturation-ci-lean-job.log",
+      "bytes": 105399,
+      "sha256": "3426716c76b55a5c7e804ac79b15f9482a9990eb143f615d353e8611377a9a23",
+      "asset_id": 729991039,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/saturation-ci-lean-job.log"
+    },
+    {
+      "name": "SHA256SUMS",
+      "bytes": 1691,
+      "sha256": "766162bf4b095a13c92af3d9dec05038ed9fe8277936a98cc8133377e5a9039a",
+      "asset_id": 729991017,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/SHA256SUMS"
+    },
+    {
+      "name": "unified-arxiv-source.zip",
+      "bytes": 209519,
+      "sha256": "b4da6282b9adbaee8ad1d80b56c48f7bf8d8971402162950289afa7f670b9c78",
+      "asset_id": 729991037,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/unified-arxiv-source.zip"
+    },
+    {
+      "name": "unified-contextuality.md",
+      "bytes": 101500,
+      "sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+      "asset_id": 729991046,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/unified-contextuality.md"
+    },
+    {
+      "name": "unified-contextuality.pdf",
+      "bytes": 437176,
+      "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "asset_id": 729991045,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/unified-contextuality.pdf"
+    },
+    {
+      "name": "unified-jphysa-manuscript.pdf",
+      "bytes": 356663,
+      "sha256": "6072d31b887df90318993632c17386e3f6f99d16ca5f63148dd8a303efde1b77",
+      "asset_id": 729991050,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/unified-jphysa-manuscript.pdf"
+    },
+    {
+      "name": "unified-jphysa-supplementary.pdf",
+      "bytes": 158202,
+      "sha256": "ee08624f86b31821ee642df7fae5530f96bb30b9e6e9747291cda00f3bedcff2",
+      "asset_id": 729991063,
+      "url": "https://github.com/0thernes/hoggar-bound-lab/releases/download/untagged-152701ce774a8ff9962d/unified-jphysa-supplementary.pdf"
+    }
+  ],
+  "note": "All19 draft assets round-trip downloaded and compared with local SHA256 values before publication."
+}

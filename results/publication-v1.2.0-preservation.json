@@ -1,0 +1,507 @@
+{
+  "status": "preservation_verified",
+  "observed_at_utc": "2026-11-10T03:39:22.104303+00:00",
+  "scope": "Authorized public preservation requests and independent verification only; no account credentials, emails, support messages or private content.",
+  "release": "v1.2.0",
+  "final_commit": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
+  "tag": "v1.2.0",
+  "targets": {
+    "repository": "https://github.com/0thernes/hoggar-bound-lab",
+    "landing": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+    "pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf"
+  },
+  "prior_source_records": {
+    "software_heritage": {
+      "latest_observed_visit": 3,
+      "visit_date": "2026-11-10T02:56:31.694000+00:00",
+      "visit_status": "full",
+      "snapshot": "978634bdad8256f62bd0c250029b9924820b073c",
+      "main_revision": "c656f52aef29b21f97e0daa241915aa7fbc0de2b",
+      "tags_observed": [
+        "v0.1.0-independent-verification",
+        "v0.2.0-c3-certificate",
+        "v1.1.0",
+        "v1.1.1"
+      ],
+      "combined_v1_2_0_present": false,
+      "evidence": "Read-only public JSON GET of origin visits and snapshot; response200."
+    },
+    "internet_archive": {
+      "previous_source_landing_capture": "https://web.archive.org/web/20261110025627/https://0thernes.github.io/hoggar-bound-lab/?v=1.1.1",
+      "previous_source_pdf_capture": "https://web.archive.org/web/20261110025652/https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf?v=1.1.1",
+      "previous_record_source": "publication/spectral-floor/README.md",
+      "combined_pdf_availability_result": {
+        "archived_snapshots": {}
+      },
+      "combined_pdf_cdx_result": [],
+      "scope": "Old captures are historical source-study records, not combined-paper preservation. Combined PDF availability and CDX GETs returned200 with no capture."
+    }
+  },
+  "official_sources": [
+    "https://docs.softwareheritage.org/_modules/swh/web/save_code_now/api_views.html",
+    "https://docs.softwareheritage.org/devel/apidoc/swh.web.save_code_now.origin_save.html",
+    "https://help.archive.org/help/save-pages-in-the-wayback-machine/",
+    "https://archive.org/help/wayback_api.php",
+    "https://web.archive.org/save/",
+    "https://github.com/internetarchive/openlibrary/blob/master/openlibrary/core/ia.py"
+  ],
+  "planned_checks": [
+    "Wait for root to supply final public release commit and tag. Independently GET the live canonical HTML/PDF and compare title/version and expected SHA256 before requesting preservation.",
+    "POST Software Heritage origin save for public Git repository, retain request ID and poll request status at bounded intervals. Accepted or succeeded alone is not sufficient: resolve resulting snapshot tag (including annotated-release indirection) to exact final revision.",
+    "Traverse archived revision directory to paper/unified-contextuality.md and .pdf; retrieve archived content and compare expected raw or LF hashes as appropriate. Repository preservation does not imply archival of GitHub release attachments.",
+    "Submit separate public Save Page Now requests for the canonical combined HTML and direct PDF via the current public form/API without account credentials, email options or support messages.",
+    "Verify each actual timestamped playback URL and HTTP result; reject silent substitution of an older capture. Fetch archived PDF via identity replay, confirm application/pdf or PDF magic, and match SHA256 to the released PDF.",
+    "Record requested, succeeded, verified or failed separately for each service and artifact; do not count historical source captures as combined preservation."
+  ],
+  "access_observations": {
+    "software_heritage_web_tool": "Web retrieval saw Anubis access denied; ordinary public JSON HTTP GETs worked without cookies/authentication.",
+    "wayback_public_form": "Read-only current Save Page Now HTML exposes POST /save with url input. Sign-in is offered for extra screenshot/account/email features; no such features requested. API example in official OpenLibrary code uses credentials, which will not be accessed."
+  },
+  "requests": [
+    {
+      "service": "software_heritage",
+      "method": "POST",
+      "url": "https://archive.softwareheritage.org/api/1/origin/save/?visit_type=git&origin_url=https%3A%2F%2Fgithub.com%2F0thernes%2Fhoggar-bound-lab",
+      "requested_at_utc": "2026-11-10T03:41:12.531505+00:00",
+      "http_status": 200,
+      "body": {
+        "id": 2635170,
+        "origin_url": "https://github.com/0thernes/hoggar-bound-lab",
+        "visit_type": "git",
+        "save_request_date": "2026-11-10T03:41:20.410484+00:00",
+        "save_request_status": "accepted",
+        "save_task_status": "pending",
+        "visit_status": null,
+        "visit_date": null,
+        "loading_task_id": 422564176,
+        "note": "",
+        "from_webhook": false,
+        "webhook_origin": "",
+        "snapshot_swhid": null,
+        "next_run": "2026-11-10T03:41:20.348516Z",
+        "request_url": "https://archive.softwareheritage.org/api/1/origin/save/2635170/"
+      }
+    },
+    {
+      "service": "internet_archive",
+      "target": "landing",
+      "method": "POST",
+      "url": "https://web.archive.org/save",
+      "public_target": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "requested_at_utc": "2026-11-10T03:42:50.171328+00:00",
+      "http_status": 401,
+      "error": "HTTP Error 401: UNAUTHORIZED",
+      "response_excerpt": "{\"message\":\"You need to be logged in to use Save Page Now.\"}"
+    },
+    {
+      "service": "internet_archive",
+      "target": "landing",
+      "method": "public_browser_form_submit",
+      "public_target": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "browser_tab_id": "1888442132",
+      "observed_at_utc": "2026-11-10T03:46:21.713152+00:00",
+      "observed_form_result": "Saving page; Processing...",
+      "browser_page_url": "https://web.archive.org/save/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "save_error_pages": false,
+      "signed_in": false,
+      "scope": "UI submission observed; capture success not yet verified. No account/email options selected."
+    },
+    {
+      "service": "internet_archive",
+      "target": "pdf",
+      "method": "public_browser_form_submit",
+      "public_target": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "browser_tab_id": "1888442133",
+      "observed_at_utc": "2026-11-10T03:46:21.713152+00:00",
+      "observed_form_result": "Saving page; Processing...",
+      "browser_page_url": "https://web.archive.org/save/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "save_error_pages": false,
+      "signed_in": false,
+      "scope": "UI submission observed; capture success not yet verified. No account/email options selected."
+    }
+  ],
+  "verification_results": [
+    {
+      "target": "landing",
+      "url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "error": "HTTP Error 404: Not Found",
+      "observed_at_utc": "2026-11-10T03:40:58.394368+00:00"
+    },
+    {
+      "target": "pdf",
+      "url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "error": "HTTP Error 404: Not Found",
+      "observed_at_utc": "2026-11-10T03:40:58.277657+00:00"
+    },
+    {
+      "target": "software_heritage_request",
+      "url": "https://archive.softwareheritage.org/api/1/origin/save/2635170/",
+      "observed_at_utc": "2026-11-10T03:42:15.947266+00:00",
+      "http_status": 200,
+      "final_url": "https://archive.softwareheritage.org/api/1/origin/save/2635170/",
+      "content_type": "application/json",
+      "body": {
+        "id": 2635170,
+        "origin_url": "https://github.com/0thernes/hoggar-bound-lab",
+        "visit_type": "git",
+        "save_request_date": "2026-11-10T03:41:20.410484+00:00",
+        "save_request_status": "accepted",
+        "save_task_status": "succeeded",
+        "visit_status": "full",
+        "visit_date": "2026-11-10T03:41:27.897000+00:00",
+        "loading_task_id": 422564176,
+        "note": "",
+        "from_webhook": false,
+        "webhook_origin": "",
+        "snapshot_swhid": "swh:1:snp:dd46d03179324a4b6c977e1199863ac634b7beef",
+        "next_run": "2026-11-10T03:41:20.348516Z",
+        "metadata": {},
+        "snapshot_url": "https://archive.softwareheritage.org/api/1/snapshot/dd46d03179324a4b6c977e1199863ac634b7beef/",
+        "request_url": "https://archive.softwareheritage.org/api/1/origin/save/2635170/"
+      }
+    },
+    {
+      "target": "landing",
+      "url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "observed_at_utc": "2026-11-10T03:42:15.950780+00:00",
+      "http_status": 200,
+      "final_url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "bytes": 156616
+    },
+    {
+      "target": "pdf",
+      "url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "observed_at_utc": "2026-11-10T03:42:16.057195+00:00",
+      "http_status": 200,
+      "final_url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "content_type": "application/pdf",
+      "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "bytes": 437176
+    },
+    {
+      "target": "software_heritage_snapshot",
+      "url": "https://archive.softwareheritage.org/api/1/snapshot/dd46d03179324a4b6c977e1199863ac634b7beef/",
+      "http_status": 200,
+      "observed_at_utc": "2026-11-10T03:43:25.619509+00:00",
+      "body": {
+        "id": "dd46d03179324a4b6c977e1199863ac634b7beef",
+        "branches": {
+          "HEAD": {
+            "target": "refs/heads/main",
+            "target_type": "alias",
+            "target_url": "https://archive.softwareheritage.org/api/1/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/"
+          },
+          "refs/heads/ci/c3-certificate-verification-20261109": {
+            "target": "85520dc263c83de55d1a3d107cd80e7068be8616",
+            "target_type": "revision",
+            "target_url": "https://archive.softwareheritage.org/api/1/revision/85520dc263c83de55d1a3d107cd80e7068be8616/"
+          },
+          "refs/heads/docs/c3-publication-20261109": {
+            "target": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
+            "target_type": "revision",
+            "target_url": "https://archive.softwareheritage.org/api/1/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/"
+          },
+          "refs/heads/main": {
+            "target": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
+            "target_type": "revision",
+            "target_url": "https://archive.softwareheritage.org/api/1/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/"
+          },
+          "refs/tags/v0.1.0-independent-verification": {
+            "target": "acecfff612bb8c00706abe6a824b4fac9d408015",
+            "target_type": "revision",
+            "target_url": "https://archive.softwareheritage.org/api/1/revision/acecfff612bb8c00706abe6a824b4fac9d408015/"
+          },
+          "refs/tags/v0.2.0-c3-certificate": {
+            "target": "07c40d475edbe54bcc6f79fd372d5b7e392912da",
+            "target_type": "release",
+            "target_url": "https://archive.softwareheritage.org/api/1/release/07c40d475edbe54bcc6f79fd372d5b7e392912da/"
+          },
+          "refs/tags/v1.1.0": {
+            "target": "4514b16b85d29e9102bd399a7335cc3351c50256",
+            "target_type": "revision",
+            "target_url": "https://archive.softwareheritage.org/api/1/revision/4514b16b85d29e9102bd399a7335cc3351c50256/"
+          },
+          "refs/tags/v1.1.1": {
+            "target": "c656f52aef29b21f97e0daa241915aa7fbc0de2b",
+            "target_type": "revision",
+            "target_url": "https://archive.softwareheritage.org/api/1/revision/c656f52aef29b21f97e0daa241915aa7fbc0de2b/"
+          },
+          "refs/tags/v1.2.0": {
+            "target": "ee70041f7d3c7f6f1de4aaa624b1d804059b37e5",
+            "target_type": "release",
+            "target_url": "https://archive.softwareheritage.org/api/1/release/ee70041f7d3c7f6f1de4aaa624b1d804059b37e5/"
+          }
+        },
+        "next_branch": null
+      }
+    },
+    {
+      "target": "software_heritage_release",
+      "url": "https://archive.softwareheritage.org/api/1/release/ee70041f7d3c7f6f1de4aaa624b1d804059b37e5/",
+      "http_status": 200,
+      "observed_at_utc": "2026-11-10T03:43:30.466951+00:00",
+      "body": {
+        "name": "v1.2.0",
+        "message": "Combined spectral-bound and C3 research preprint with verification evidence\n",
+        "target": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
+        "target_type": "revision",
+        "synthetic": false,
+        "author": {
+          "fullname": "0thernes <0_0@0thernes.art>",
+          "name": "0thernes",
+          "email": "0_0@0thernes.art"
+        },
+        "date": "2026-11-09T19:39:58-08:00",
+        "id": "ee70041f7d3c7f6f1de4aaa624b1d804059b37e5",
+        "target_url": "https://archive.softwareheritage.org/api/1/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/"
+      }
+    },
+    {
+      "target": "software_heritage_revision",
+      "url": "https://archive.softwareheritage.org/api/1/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/",
+      "http_status": 200,
+      "observed_at_utc": "2026-11-10T03:43:25.639300+00:00",
+      "body": {
+        "message": "Align journal AI disclosure with IOP requirements and freeze final artifacts [skip ci]\n",
+        "author": {
+          "fullname": "0thernes <0_0@0thernes.art>",
+          "name": "0thernes",
+          "email": "0_0@0thernes.art"
+        },
+        "committer": {
+          "fullname": "0thernes <0_0@0thernes.art>",
+          "name": "0thernes",
+          "email": "0_0@0thernes.art"
+        },
+        "date": "2026-11-09T19:38:59-08:00",
+        "committer_date": "2026-11-09T19:38:59-08:00",
+        "type": "git",
+        "directory": "0c002e768dc53635c7668cda1d52dfdae180aa57",
+        "synthetic": false,
+        "metadata": {},
+        "parents": [
+          {
+            "id": "7c6ea94b8fb508e926533e30822cabfdb682d8b8",
+            "url": "https://archive.softwareheritage.org/api/1/revision/7c6ea94b8fb508e926533e30822cabfdb682d8b8/"
+          }
+        ],
+        "id": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
+        "extra_headers": [],
+        "merge": false,
+        "url": "https://archive.softwareheritage.org/api/1/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/",
+        "history_url": "https://archive.softwareheritage.org/api/1/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/log/",
+        "directory_url": "https://archive.softwareheritage.org/api/1/directory/0c002e768dc53635c7668cda1d52dfdae180aa57/"
+      }
+    },
+    {
+      "target": "software_heritage_content",
+      "path": "paper/unified-contextuality.md",
+      "url": "https://archive.softwareheritage.org/api/1/content/sha256:dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e/raw/",
+      "http_status": 200,
+      "sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+      "bytes": 101500,
+      "content_swhid": "swh:1:cnt:c0404be4a2ef3a0e0c8be8b74eb2b2a7e720cbd4",
+      "matches_release_local_file": true,
+      "observed_at_utc": "2026-11-10T03:44:23.369376+00:00"
+    },
+    {
+      "target": "software_heritage_content",
+      "path": "paper/unified-contextuality.html",
+      "url": "https://archive.softwareheritage.org/api/1/content/sha256:b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95/raw/",
+      "http_status": 200,
+      "sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "bytes": 156616,
+      "content_swhid": "swh:1:cnt:57d48e6ff8dfd221b901bd90682c3905c4f18eb0",
+      "matches_release_local_file": true,
+      "observed_at_utc": "2026-11-10T03:44:07.425268+00:00"
+    },
+    {
+      "target": "software_heritage_content",
+      "path": "paper/unified-contextuality.pdf",
+      "url": "https://archive.softwareheritage.org/api/1/content/sha256:24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf/raw/",
+      "http_status": 200,
+      "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "bytes": 437176,
+      "content_swhid": "swh:1:cnt:305a8c91a35fe4a64885361eb065935218526544",
+      "matches_release_local_file": true,
+      "observed_at_utc": "2026-11-10T03:44:06.615610+00:00"
+    },
+    {
+      "target": "internet_archive_landing",
+      "requested_timestamp": "20261110034540",
+      "capture_url": "https://web.archive.org/web/20261110034540/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "identity_replay_url": "https://web.archive.org/web/20261110034540id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "observed_at_utc": "2026-11-10T03:47:41.056033+00:00",
+      "http_status": 200,
+      "final_url": "https://web.archive.org/web/20261110034540id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "content_type": "text/html; charset=utf-8",
+      "memento_datetime": "Tue, 10 Nov 2026 03:45:40 GMT",
+      "x_archive_orig_content_type": null,
+      "sha256": "74f7df4ab3f54b0276a6c26ea2fb7183543b69b68e0fe6c977a147d29c537c73",
+      "expected_sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "bytes": 45054,
+      "pdf_magic": null,
+      "matches_release": false,
+      "exact_capture_timestamp_in_final_url": true,
+      "status": "verification_mismatch",
+      "resolution": "Earlier comparison used gzip-encoded transport bytes. Subsequent Content-Encoding-aware fetch decodes gzip and exactly matches the released HTML."
+    },
+    {
+      "target": "internet_archive_pdf",
+      "requested_timestamp": "20261110034603",
+      "capture_url": "https://web.archive.org/web/20261110034603/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "identity_replay_url": "https://web.archive.org/web/20261110034603id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "observed_at_utc": "2026-11-10T03:47:41.058033+00:00",
+      "http_status": 200,
+      "final_url": "https://web.archive.org/web/20261110034603id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "content_type": "application/pdf",
+      "memento_datetime": "Tue, 10 Nov 2026 03:46:03 GMT",
+      "x_archive_orig_content_type": null,
+      "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "expected_sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "bytes": 437176,
+      "pdf_magic": true,
+      "matches_release": true,
+      "exact_capture_timestamp_in_final_url": true,
+      "status": "verified"
+    },
+    {
+      "target": "internet_archive_landing",
+      "requested_timestamp": "20261110034540",
+      "capture_url": "https://web.archive.org/web/20261110034540/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "identity_replay_url": "https://web.archive.org/web/20261110034540id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "observed_at_utc": "2026-11-10T03:48:28.198410+00:00",
+      "http_status": 200,
+      "final_url": "https://web.archive.org/web/20261110034540id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "content_type": "text/html; charset=utf-8",
+      "content_encoding": "gzip",
+      "wire_bytes": 45054,
+      "wire_sha256": "74f7df4ab3f54b0276a6c26ea2fb7183543b69b68e0fe6c977a147d29c537c73",
+      "bytes": 156616,
+      "sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "expected_sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "matches_release": true,
+      "exact_capture_timestamp_in_final_url": true,
+      "memento_datetime": "Tue, 10 Nov 2026 03:45:40 GMT",
+      "status": "verified",
+      "normalization": "HTTP Content-Encoding gzip decoded before artifact SHA256 comparison; no HTML rewriting or text normalization."
+    }
+  ],
+  "annotated_tag_object": "ee70041f7d3c7f6f1de4aaa624b1d804059b37e5",
+  "final_ci_run": 42750833792,
+  "pages_run": 42750928933,
+  "expected_html_sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+  "expected_pdf_sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+  "expected_pdf_bytes": 437176,
+  "public_tag_verification": {
+    "observed_at_utc": "2026-11-10T03:40:57.770299+00:00",
+    "ls_remote": "ee70041f7d3c7f6f1de4aaa624b1d804059b37e5\trefs/tags/v1.2.0\n3073955de6e261ecdbcc3fc739615d9df48caf0b\trefs/tags/v1.2.0^{}\n",
+    "matches": true
+  },
+  "live_release_hashes_verified": true,
+  "software_heritage": {
+    "status": "verified",
+    "request_id": 2635170,
+    "snapshot_swhid": "swh:1:snp:dd46d03179324a4b6c977e1199863ac634b7beef",
+    "release_swhid": "swh:1:rel:ee70041f7d3c7f6f1de4aaa624b1d804059b37e5",
+    "revision_swhid": "swh:1:rev:3073955de6e261ecdbcc3fc739615d9df48caf0b",
+    "directory_swhid": "swh:1:dir:0c002e768dc53635c7668cda1d52dfdae180aa57",
+    "browse_url": "https://archive.softwareheritage.org/browse/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/",
+    "paper_directory_swhid": "swh:1:dir:96f0cc52031ee4f781105964796d7012eb4bed01",
+    "verified_contents": [
+      {
+        "target": "software_heritage_content",
+        "path": "paper/unified-contextuality.md",
+        "url": "https://archive.softwareheritage.org/api/1/content/sha256:dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e/raw/",
+        "http_status": 200,
+        "sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+        "bytes": 101500,
+        "content_swhid": "swh:1:cnt:c0404be4a2ef3a0e0c8be8b74eb2b2a7e720cbd4",
+        "matches_release_local_file": true,
+        "observed_at_utc": "2026-11-10T03:44:23.369376+00:00"
+      },
+      {
+        "target": "software_heritage_content",
+        "path": "paper/unified-contextuality.html",
+        "url": "https://archive.softwareheritage.org/api/1/content/sha256:b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95/raw/",
+        "http_status": 200,
+        "sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+        "bytes": 156616,
+        "content_swhid": "swh:1:cnt:57d48e6ff8dfd221b901bd90682c3905c4f18eb0",
+        "matches_release_local_file": true,
+        "observed_at_utc": "2026-11-10T03:44:07.425268+00:00"
+      },
+      {
+        "target": "software_heritage_content",
+        "path": "paper/unified-contextuality.pdf",
+        "url": "https://archive.softwareheritage.org/api/1/content/sha256:24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf/raw/",
+        "http_status": 200,
+        "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+        "bytes": 437176,
+        "content_swhid": "swh:1:cnt:305a8c91a35fe4a64885361eb065935218526544",
+        "matches_release_local_file": true,
+        "observed_at_utc": "2026-11-10T03:44:06.615610+00:00"
+      }
+    ],
+    "verification_scope": "Final annotated tag resolves to exact final revision; archived canonical Markdown, HTML and PDF were fetched and SHA256-matched against the release files. GitHub release attachments are outside this repository-preservation claim."
+  },
+  "internet_archive": {
+    "status": "verified",
+    "targets": [
+      "landing",
+      "pdf"
+    ],
+    "api_anonymous_post_status": 401,
+    "captures": [
+      {
+        "target": "internet_archive_landing",
+        "requested_timestamp": "20261110034540",
+        "capture_url": "https://web.archive.org/web/20261110034540/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+        "identity_replay_url": "https://web.archive.org/web/20261110034540id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+        "observed_at_utc": "2026-11-10T03:48:28.198410+00:00",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/20261110034540id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+        "content_type": "text/html; charset=utf-8",
+        "content_encoding": "gzip",
+        "wire_bytes": 45054,
+        "wire_sha256": "74f7df4ab3f54b0276a6c26ea2fb7183543b69b68e0fe6c977a147d29c537c73",
+        "bytes": 156616,
+        "sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+        "expected_sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+        "matches_release": true,
+        "exact_capture_timestamp_in_final_url": true,
+        "memento_datetime": "Tue, 10 Nov 2026 03:45:40 GMT",
+        "status": "verified",
+        "normalization": "HTTP Content-Encoding gzip decoded before artifact SHA256 comparison; no HTML rewriting or text normalization."
+      },
+      {
+        "target": "internet_archive_pdf",
+        "requested_timestamp": "20261110034603",
+        "capture_url": "https://web.archive.org/web/20261110034603/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+        "identity_replay_url": "https://web.archive.org/web/20261110034603id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+        "observed_at_utc": "2026-11-10T03:47:41.058033+00:00",
+        "http_status": 200,
+        "final_url": "https://web.archive.org/web/20261110034603id_/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+        "content_type": "application/pdf",
+        "memento_datetime": "Tue, 10 Nov 2026 03:46:03 GMT",
+        "x_archive_orig_content_type": null,
+        "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+        "expected_sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+        "bytes": 437176,
+        "pdf_magic": true,
+        "matches_release": true,
+        "exact_capture_timestamp_in_final_url": true,
+        "status": "verified"
+      }
+    ],
+    "browser_observation": "Both separate public-form submissions displayed Done, First Archive and the exact capture URLs. No login, account credentials or email options used."
+  },
+  "completed_at_utc": "2026-11-10T03:48:28.198410+00:00",
+  "summary": {
+    "software_heritage": "Exact final tag, commit and canonical source/HTML/PDF content preserved and hash-verified.",
+    "internet_archive": "Separate canonical HTML/PDF captures at exact timestamps verified; HTML after HTTP gzip decoding and PDF raw bytes match the release.",
+    "scope": "Public repository and combined canonical paper preservation only; no DOI, scholarly indexing, peer review, journal submission or preservation of external GitHub release attachments implied."
+  }
+}

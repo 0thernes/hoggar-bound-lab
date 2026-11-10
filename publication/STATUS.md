@@ -14,19 +14,37 @@ the spectral-floor source study. The general Lean bound and existing proof sourc
 
 | Destination | Observed status |
 | --- | --- |
-| GitHub / project website | Combined release, public PDF and HTML are being prepared; older source-study releases remain public. |
-| Google Scholar | Correct combined HTML/PDF metadata is being prepared. Profile setup was incomplete at article selection; no combined-paper indexing observed. |
+| GitHub / project website | **Public.** [Release v1.2.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0), published 10 November 2026 at 03:46:37 UTC (9 November locally), fixes commit `3073955de6e261ecdbcc3fc739615d9df48caf0b`. All 19 uploaded assets were downloaded and hash-checked. [Combined HTML](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html) and [PDF](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf) are live. |
+| Google Scholar | **Hosting ready; indexing not observed.** The live paper has matching citation metadata and a searchable 437176-byte PDF. Exact-title search returned no matching articles. Profile setup remains at article selection; no unrelated work was selected. |
 | arXiv | Account access, saved affiliation 0thernes LLC and linked ORCID verified. A combined-paper draft was opened at the agreement/license step; no files uploaded, agreement accepted, or paper submitted. Combined source archive prepared; no public identifier. The latest eight-destination instruction supersedes the earlier source-paper deferral. |
 | Journal of Physics A: Mathematical and Theoretical | Combined main manuscript and supplement prepared. ScholarOne still showed its login screen. No journal submission, review or acceptance. |
 | Zenodo | Saved profile affiliation 0thernes LLC verified. No combined-paper deposit or DOI. AI-origin/human-research eligibility and distribution-license decisions remain unresolved. |
-| ORCID | Matching public record and authenticated editor verified. Works (0) was observed; no combined-work entry saved yet. |
-| OpenAIRE | Authenticated account observed with “No ORCID links found.” No combined research-product record or indexing observed. |
-| Software Heritage | Earlier source releases are archived; no snapshot of the completed combined release verified yet. |
-| Internet Archive | Earlier source-study captures are recorded separately; no combined landing-page/PDF capture verified yet. |
+| ORCID | **Public preprint entry verified.** [Author record](https://orcid.org/0009-0006-8168-9648) now shows the combined title, preprint date 9 November 2026, correct public URL, BibTeX and abstract. The public biography identifies Alexander S. Donahue - 0thernes LLC. This is a self-asserted author record. |
+| OpenAIRE | **Not yet discovered.** Exact-title search returned 0 research products. Its displayed latest record update was 17 October 2026 and ORCID synchronization 10 October 2026. No correct combined-work record was available to claim. |
+| Software Heritage | **Preserved and verified.** Snapshot `swh:1:snp:dd46d03179324a4b6c977e1199863ac634b7beef` contains annotated tag `v1.2.0` resolving to [revision 3073955](https://archive.softwareheritage.org/browse/revision/3073955de6e261ecdbcc3fc739615d9df48caf0b/). Archived manuscript Markdown, HTML and PDF hashes match the release. External GitHub release attachments are outside this Git archive. |
+| Internet Archive | **Preserved and verified.** Separate [HTML capture](https://web.archive.org/web/20261110034540/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html) and [PDF capture](https://web.archive.org/web/20261110034603/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf). Identity replay verifies both exact timestamps and matching content hashes; the PDF is 437176 bytes. |
 
 These are different outcomes: a saved account is not a submission; a preprint or archive is not peer
 review; an ORCID entry does not establish Scholar or OpenAIRE indexing. Each final action needs its
 own observed receipt or public record.
+
+## Final publication receipts
+
+[Distribution record](../results/publication-v1.2.0-distribution.json),
+[release asset round-trip verification](../results/publication-v1.2.0-release-assets.json),
+[public-site verification](../results/publication-v1.2.0-site-verification.json), and
+[preservation receipt](../results/publication-v1.2.0-preservation.json) record the actual results.
+The complete PDF has SHA-256 `24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf`.
+
+[Publication CI 42750833792](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42750833792)
+and [Pages deployment 42750928933](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42750928933)
+passed at the release commit. All 77 served files match the Linux site manifest. In the live browser,
+1047 formulas render with no MathJax errors and all 4 figures load. The original C3 pair passes,
+a deliberate sign flip fails, and restoring the pair passes again.
+
+The release tag and scientific artifacts are fixed. Later publication-receipt documentation on main
+records events after that release. The shared original checkout still contains another chat's unfinished
+changes; this release was prepared in an isolated worktree and does not overwrite those edits.
 
 ## Verification evidence
 
