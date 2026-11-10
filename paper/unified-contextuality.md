@@ -1790,7 +1790,10 @@ qubits (81 checks). Version 1.3.0 added the six-qubit step (`scripts/conjecture_
 commit `6189b62`, whose programs and Lean files are those of that release, the workflow ran every
 step and passed ([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684); logs in
 `results/ci-run-42817286684/`). Version 1.4.0 adds the checks of Lemmas 20 and 21
-(`scripts/conjecture_e_lemmas.py` and its six-qubit run, Section 11.3) to the same workflow.
+(`scripts/conjecture_e_lemmas.py` and its six-qubit run, Section 11.3) to the same workflow. At commit
+`7d746a3`, whose programs and Lean files are those of this release, it ran every step, both lemma steps
+included, and passed ([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831157); logs in
+`results/ci-run-42834831157/`).
 
 <!-- journal:supplement -->
 ## 10. A running example on the Tsotchke stack

@@ -1,8 +1,8 @@
 {
   "status": "pass",
   "version": "1.4.0",
-  "manuscript_lf_sha256": "0d96428a816567d70823415edd51f7fe789d92aa83fa1492d09de97604b04160",
-  "public_pdf_sha256": "d6dc1986fed4ae2c012ff60aa9454ec133b5b77e75e34a50ee0a3a6b386f5296",
+  "manuscript_lf_sha256": "d0d4653fc4f93ccf348f25b05f0687b05dad60792617650ae8fea715aa9fd44c",
+  "public_pdf_sha256": "89532166e85088b98b157d5521785955c501f1b75e33f53e4d199a4ce58ea203",
   "compiled_artifacts_checked": 24,
   "scholarly_metadata_consistent": true,
   "public_pdf_equals_typeset_pdf": true,

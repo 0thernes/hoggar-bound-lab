@@ -1,0 +1,45 @@
+PASS  blocks of 2 qubits, 25 random graphs with random sets of components: the signed Pauli sums are the graph blocks, the carrier polynomials agree, and the trace formula gives the difference -(3/2) n^3 |F|
+PASS  blocks of 3 qubits, 25 random graphs with random sets of components: the signed Pauli sums are the graph blocks, the carrier polynomials agree, and the trace formula gives the difference -(3/2) n^3 |F|
+PASS  blocks of 4 qubits, 25 random graphs with random sets of components: the signed Pauli sums are the graph blocks, the carrier polynomials agree, and the trace formula gives the difference -(3/2) n^3 |F|
+PASS  blocks of 5 qubits, 25 random graphs with random sets of components: the signed Pauli sums are the graph blocks, the carrier polynomials agree, and the trace formula gives the difference -(3/2) n^3 |F|
+PASS  N = 4: 135 real observables, section 71 = 1 + (n-1)(n+2), outside 64 = n^2; p = ZIII
+PASS  N = 4: 1120 = n^2 |R| / 2 outside contexts, each with one section point; 35 through every outside point
+PASS  N = 4: context signs from the phase formula agree with the matrix products, all 1120
+PASS  N = 4: both carrier operators are block diagonal, with the blocks -I + 2n|t><t| + n Adj and -I + n Adj of the construction
+PASS  N = 4: the two carriers differ exactly at the 4 points Z (x) W (x) X, W a word in I and Z
+PASS  N = 4: the carrier operators have the same characteristic polynomial (degree 16: the exact product of the two block polynomials), and the blocks C have different ones
+PASS  N = 4: the 64 outside blocks M_p are orthogonal of norm n, and each completion matrix is the matrix of M -> (CM + MD)/2 in this basis
+PASS  N = 4: tr Lambda^3 from the contexts equals (n trC^3 + 3 trC^2 trD + 3 trC trD^2 + n trD^3)/8 for both carriers   [tr Lambda^3 = 15744 and 16512]
+PASS  N = 4: the cubic traces differ by -(3/2) n^3 |F| = -768, so the completion spectra differ; tr Lambda^2 is the same
+PASS  N = 5: 527 real observables, section 271 = 1 + (n-1)(n+2), outside 256 = n^2; p = ZIIII
+PASS  N = 5: 17280 = n^2 |R| / 2 outside contexts, each with one section point; 135 through every outside point
+PASS  N = 5: context signs from the phase formula agree with the matrix products, all 17280
+PASS  N = 5: both carrier operators are block diagonal, with the blocks -I + 2n|t><t| + n Adj and -I + n Adj of the construction
+PASS  N = 5: the two carriers differ exactly at the 8 points Z (x) W (x) X, W a word in I and Z
+PASS  N = 5: the carrier operators have the same characteristic polynomial (degree 32: the exact product of the two block polynomials), and the blocks C have different ones
+PASS  N = 5: the 256 outside blocks M_p are orthogonal of norm n, and each completion matrix is the matrix of M -> (CM + MD)/2 in this basis
+PASS  N = 5: tr Lambda^3 from the contexts equals (n trC^3 + 3 trC^2 trD + 3 trC trD^2 + n trD^3)/8 for both carriers   [tr Lambda^3 = 649728 and 655872]
+PASS  N = 5: the cubic traces differ by -(3/2) n^3 |F| = -6144, so the completion spectra differ; tr Lambda^2 is the same
+PASS  N = 6: 2079 real observables, section 1055 = 1 + (n-1)(n+2), outside 1024 = n^2; p = ZIIIII
+PASS  N = 6: 269824 = n^2 |R| / 2 outside contexts, each with one section point; 527 through every outside point
+PASS  N = 6: both carrier operators are block diagonal, with the blocks -I + 2n|t><t| + n Adj and -I + n Adj of the construction
+PASS  N = 6: the two carriers differ exactly at the 16 points Z (x) W (x) X, W a word in I and Z
+PASS  N = 6: the carrier operators have the same characteristic polynomial (degree 64: the exact product of the two block polynomials), and the blocks C have different ones
+PASS  N = 6: the 1024 outside blocks M_p are orthogonal of norm n, and each completion matrix is the matrix of M -> (CM + MD)/2 in this basis
+PASS  N = 6: tr Lambda^3 from the contexts equals (n trC^3 + 3 trC^2 trD + 3 trC trD^2 + n trD^3)/8 for both carriers   [tr Lambda^3 = 23021568 and 23070720]
+PASS  N = 6: the cubic traces differ by -(3/2) n^3 |F| = -49152, so the completion spectra differ; tr Lambda^2 is the same
+PASS  N = 3: 35 real observables, section 19 = 1 + (n-1)(n+2), outside 16 = n^2; p = ZII
+PASS  N = 3: 72 = n^2 |R| / 2 outside contexts, each with one section point; 9 through every outside point
+PASS  N = 3: context signs from the phase formula agree with the matrix products, all 72
+PASS  N = 3: both carrier operators are block diagonal, with the blocks -I + 2n|t><t| + n Adj and -I + n Adj of the construction
+PASS  N = 3: the two carriers differ at 6 = |F| n/2 section points
+PASS  N = 3: the carrier operators have the same characteristic polynomial (degree 8: the exact product of the two block polynomials), and the blocks C have different ones
+PASS  N = 3: the 16 outside blocks M_p are orthogonal of norm n, and each completion matrix is the matrix of M -> (CM + MD)/2 in this basis
+PASS  N = 3: tr Lambda^3 from the contexts equals (n trC^3 + 3 trC^2 trD + 3 trC trD^2 + n trD^3)/8 for both carriers   [tr Lambda^3 = 0 and 288]
+PASS  N = 3: the cubic traces differ by -(3/2) n^3 |F| = -288, so the completion spectra differ; tr Lambda^2 is the same
+PASS  N = 3: 12 random graphs with random sets of components, on the full configuration: every check above holds   [|F| in [3]]
+PASS  N = 4: 12 random graphs with random sets of components, on the full configuration: every check above holds   [|F| in [1, 6, 7]]
+PASS  negative control, N = 4: moving the edge {4, 6}, which is not a whole component, destroys the equality of the characteristic polynomials (the block formulas still hold)
+PASS  negative control, N = 4: moving the component that contains the loop vertex destroys it too
+
+43 of 43 checks passed

@@ -56,6 +56,15 @@ written out; real dimension; the four lifts in Corollary 18; and in the program 
 outside block of C12 and C15 is twice a unitary in bases lying in the right eigenspaces, with a fourth
 negative control. The record is in `results/review-lemmas-20-21/`.
 
+Verification of the release: at commit `7d746a3`, whose programs and Lean files are those of the
+release, the workflow *Case C3 for every number of qubits* passed every step, both lemma steps included
+([run 42834831157](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831157); logs kept in
+`results/ci-run-42834831157/`), and so did the publication documentation checks
+([run 42834873547](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834873547)). The result of
+Independent verification at the same commit ([run 42834831332](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831332))
+is recorded in `publication/STATUS.md`. A complete `scripts/run_all.sh` in a fresh clone of `7d746a3`
+passed all 24 stages (`results/run_all.log`).
+
 Version strings, the metadata (with the 1.3.0 release kept as `previous_release`), `CITATION.cff`, the
 BibTeX entry, the plain abstract (1903 characters), README, summary, index, glossary, claim register,
 landing page, submission notes, errata, author declarations and the headers of two addenda are updated.

@@ -1,0 +1,83 @@
+PASS  C1, n = 3: X = W(2n-1,2), d = ZII; 63 points, section 31, outside 32; vertices of the section ZII
+PASS  C1, n = 3: the carriers differ at 12 section points; tr A^k agrees for k = 1 .. 8 (equal characteristic polynomials)   [tr A^3 = 528]
+PASS  C1, n = 3: 240 outside lines (signs checked by matrix products); tr Lambda^2 = 480 for both; tr Lambda^3 = -192 and 960 differ
+PASS  C3, n = 3: X = Q+ (c = 0), q(d) = 0; 35 points, section 19, outside 16; vertices of the section ZII
+PASS  C3, n = 3: the carriers differ at 6 section points; tr A^k agrees for k = 1 .. 8 (equal characteristic polynomials)   [tr A^3 = 432]
+PASS  C3, n = 3: 72 outside lines (signs checked by matrix products); tr Lambda^2 = 144 for both; tr Lambda^3 = 0 and 288 differ
+PASS  C6, n = 3: cone with e = ZII, d = IZI; pair swap; 31 points, section 15, outside 16; vertices of the section IZI ZII ZZI
+PASS  C6, n = 3: the carriers differ at 6 section points; tr A^k agrees for k = 1 .. 8 (equal characteristic polynomials)   [tr A^3 = -240]
+PASS  C6, n = 3: 56 outside lines (signs checked by matrix products); tr Lambda^2 = 112 for both; tr Lambda^3 = -288 and 288 differ
+PASS  C11, n = 3: cone with e = ZII, d = IZI; pair swap; 19 points, section 11, outside 8; vertices of the section IZI ZII ZZI
+PASS  C11, n = 3: the carriers differ at 4 section points; tr A^k agrees for k = 1 .. 8 (equal characteristic polynomials)   [tr A^3 = -144]
+PASS  C11, n = 3: 20 outside lines (signs checked by matrix products); tr Lambda^2 = 40 for both; tr Lambda^3 = -96 and 96 differ
+PASS  C1, n = 4: X = W(2n-1,2), d = ZIII; 255 points, section 127, outside 128; vertices of the section ZIII
+PASS  C1, n = 4: the carriers differ at 8 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 34848]
+PASS  C1, n = 4: 4032 outside lines (signs checked by matrix products); tr Lambda^2 = 8064 for both; tr Lambda^3 = 57600 and 60672 differ
+PASS  C3, n = 4: X = Q+ (c = 0), q(d) = 0; 135 points, section 71, outside 64; vertices of the section ZIII
+PASS  C3, n = 4: the carriers differ at 4 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 19104]
+PASS  C3, n = 4: 1120 outside lines (signs checked by matrix products); tr Lambda^2 = 2240 for both; tr Lambda^3 = 15744 and 16512 differ
+PASS  C5, n = 4: X = Q- (c = IIIY, q0(c) = 1), q_c(d) = 0; 119 points, section 55, outside 64; vertices of the section ZIII
+PASS  C5, n = 4: the carriers differ at 24 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 1440]
+PASS  C5, n = 4: 864 outside lines (signs checked by matrix products); tr Lambda^2 = 1728 for both; tr Lambda^3 = -1152 and 3456 differ
+PASS  C12, n = 4: CP = Q+ cut by e-perp, e = ZIII singular, d = IYII in e-perp with q(d) = 1; 71 points, section 31, outside 40; vertices of the section ZIII
+PASS  C12, n = 4: the carriers differ at 12 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 1056]
+PASS  C12, n = 4: 380 outside lines (signs checked by matrix products); tr Lambda^2 = 760 for both; tr Lambda^3 = 1776 and 624 differ
+PASS  C15, n = 4: CM = Q- cut by e-perp, e = ZIII singular, d = IYII in e-perp with q(d) = 1; 55 points, section 31, outside 24; vertices of the section ZIII
+PASS  C15, n = 4: the carriers differ at 12 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 1056]
+PASS  C15, n = 4: 132 outside lines (signs checked by matrix products); tr Lambda^2 = 264 for both; tr Lambda^3 = 720 and -432 differ
+PASS  C8, n = 4: PAR, e = YIII nonsingular (q(e) = 1), d = r = IZII in e-perp; 63 points, section 31, outside 32; vertices of the section IZII
+PASS  C8, n = 4: the carriers differ at 12 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 1056]
+PASS  C8, n = 4: 240 outside lines (signs checked by matrix products); tr Lambda^2 = 480 for both; tr Lambda^3 = -192 and 960 differ
+PASS  C6, n = 4: HW = W cut by e-perp, e = ZIII, d = IZII in e-perp, q(d) = 0; pair swap; 127 points, section 63, outside 64; vertices of the section IZII ZIII ZZII
+PASS  C6, n = 4: the carriers differ at 30 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 11040]
+PASS  C6, n = 4: 992 outside lines (signs checked by matrix products); tr Lambda^2 = 1984 for both; tr Lambda^3 = 8064 and 19584 differ
+PASS  C11, n = 4: CP, e = ZIII, d = IZII in e-perp, q(d) = 0; pair swap; 71 points, section 39, outside 32; vertices of the section IZII ZIII ZZII
+PASS  C11, n = 4: the carriers differ at 18 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 4512]
+PASS  C11, n = 4: 304 outside lines (signs checked by matrix products); tr Lambda^2 = 608 for both; tr Lambda^3 = 1344 and 4800 differ
+PASS  C14, n = 4: CM, e = ZIII, d = IZII in e-perp, q(d) = 0; pair swap; 55 points, section 23, outside 32; vertices of the section IZII ZIII ZZII
+PASS  C14, n = 4: the carriers differ at 10 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = -864]
+PASS  C14, n = 4: 176 outside lines (signs checked by matrix products); tr Lambda^2 = 352 for both; tr Lambda^3 = -960 and 960 differ
+PASS  C6 lift, n = 4: cone over the C1 pair on 3 qubits, e = ZIII, d = IZII; 127 points, section 63, outside 64; vertices of the section IZII ZIII ZZII
+PASS  C6 lift, n = 4: the carriers differ at 24 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 7200]
+PASS  C6 lift, n = 4: 992 outside lines (signs checked by matrix products); tr Lambda^2 = 1984 for both; tr Lambda^3 = 4224 and 13440 differ
+PASS  C11 lift, n = 4: cone over the C3 pair on 3 qubits, e = ZIII, d = IZII; 71 points, section 39, outside 32; vertices of the section IZII ZIII ZZII
+PASS  C11 lift, n = 4: the carriers differ at 12 section points; tr A^k agrees for k = 1 .. 16 (equal characteristic polynomials)   [tr A^3 = 5280]
+PASS  C11 lift, n = 4: 304 outside lines (signs checked by matrix products); tr Lambda^2 = 608 for both; tr Lambda^3 = 1728 and 4032 differ
+PASS  C1, n = 5: X = W(2n-1,2), d = ZIIII; 1023 points, section 511, outside 512; vertices of the section ZIIII
+PASS  C1, n = 5: the carriers differ at 16 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 671808]
+PASS  C1, n = 5: 65280 outside lines; tr Lambda^2 = 130560 for both; tr Lambda^3 = 2491392 and 2515968 differ
+PASS  C3, n = 5: X = Q+ (c = 0), q(d) = 0; 527 points, section 271, outside 256; vertices of the section ZIIII
+PASS  C3, n = 5: the carriers differ at 8 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 350784]
+PASS  C3, n = 5: 17280 outside lines; tr Lambda^2 = 34560 for both; tr Lambda^3 = 649728 and 655872 differ
+PASS  C5, n = 5: X = Q- (c = IIIIY, q0(c) = 1), q_c(d) = 0; 495 points, section 239, outside 256; vertices of the section ZIIII
+PASS  C5, n = 5: the carriers differ at 16 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 132672]
+PASS  C5, n = 5: 15232 outside lines; tr Lambda^2 = 30464 for both; tr Lambda^3 = 219648 and 231936 differ
+PASS  C12, n = 5: CP = Q+ cut by e-perp, e = ZIIII singular, d = IYIII in e-perp with q(d) = 1; 271 points, section 127, outside 144; vertices of the section ZIIII
+PASS  C12, n = 5: the carriers differ at 8 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 69696]
+PASS  C12, n = 5: 5112 outside lines; tr Lambda^2 = 10224 for both; tr Lambda^3 = 116640 and 113568 differ
+PASS  C15, n = 5: CM = Q- cut by e-perp, e = ZIIII singular, d = IYIII in e-perp with q(d) = 1; 239 points, section 127, outside 112; vertices of the section ZIIII
+PASS  C15, n = 5: the carriers differ at 8 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 69696]
+PASS  C15, n = 5: 3080 outside lines; tr Lambda^2 = 6160 for both; tr Lambda^3 = 46944 and 43872 differ
+PASS  C8, n = 5: PAR, e = YIIII nonsingular (q(e) = 1), d = r = IZIII in e-perp; 255 points, section 127, outside 128; vertices of the section IZIII
+PASS  C8, n = 5: the carriers differ at 8 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 69696]
+PASS  C8, n = 5: 4032 outside lines; tr Lambda^2 = 8064 for both; tr Lambda^3 = 57600 and 60672 differ
+PASS  C6, n = 5: HW = W cut by e-perp, e = ZIIII, d = IZIII in e-perp, q(d) = 0; pair swap; 511 points, section 255, outside 256; vertices of the section IZIII ZIIII ZZIII
+PASS  C6, n = 5: the carriers differ at 126 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 390720]
+PASS  C6, n = 5: 16256 outside lines; tr Lambda^2 = 32512 for both; tr Lambda^3 = 732672 and 926208 differ
+PASS  C11, n = 5: CP, e = ZIIII, d = IZIII in e-perp, q(d) = 0; pair swap; 271 points, section 143, outside 128; vertices of the section IZIII ZIIII ZZIII
+PASS  C11, n = 5: the carriers differ at 70 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 143424]
+PASS  C11, n = 5: 4544 outside lines; tr Lambda^2 = 9088 for both; tr Lambda^3 = 129792 and 183552 differ
+PASS  C14, n = 5: CM, e = ZIIII, d = IZIII in e-perp, q(d) = 0; pair swap; 239 points, section 111, outside 128; vertices of the section IZIII ZIIII ZZIII
+PASS  C14, n = 5: the carriers differ at 54 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 48192]
+PASS  C14, n = 5: 3520 outside lines; tr Lambda^2 = 7040 for both; tr Lambda^3 = 37632 and 79104 differ
+PASS  C6 lift, n = 5: cone over the C1 pair on 4 qubits, e = ZIIII, d = IZIII; 511 points, section 255, outside 256; vertices of the section IZIII ZIIII ZZIII
+PASS  C6 lift, n = 5: the carriers differ at 16 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 303168]
+PASS  C6 lift, n = 5: 16256 outside lines; tr Lambda^2 = 32512 for both; tr Lambda^3 = 557568 and 582144 differ
+PASS  C11 lift, n = 5: cone over the C3 pair on 4 qubits, e = ZIIII, d = IZIII; 271 points, section 143, outside 128; vertices of the section IZIII ZIIII ZZIII
+PASS  C11 lift, n = 5: the carriers differ at 8 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 166464]
+PASS  C11 lift, n = 5: 4544 outside lines; tr Lambda^2 = 9088 for both; tr Lambda^3 = 152832 and 158976 differ
+PASS  C14 lift, n = 5: cone over the C5 pair on 4 qubits, e = ZIIII, d = IZIII; 239 points, section 111, outside 128; vertices of the section IZIII ZIIII ZZIII
+PASS  C14 lift, n = 5: the carriers differ at 48 section points; tr A^k agrees for k = 1 .. 32 (equal characteristic polynomials)   [tr A^3 = 22080]
+PASS  C14 lift, n = 5: 3520 outside lines; tr Lambda^2 = 7040 for both; tr Lambda^3 = 11520 and 48384 differ
+
+81 of 81 checks passed
