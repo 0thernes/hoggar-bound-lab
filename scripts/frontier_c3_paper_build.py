@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import html
 import json
+import re
 import shutil
 import subprocess
 import tempfile
@@ -55,6 +56,10 @@ def main():
         shutil.copyfile(Path(tmp)/(STEM+'.log'),ROOT/'results/frontier-c3-paper-tex.log')
     title=markdown.splitlines()[0].removeprefix('# ')
     abstract=markdown.split('## Abstract',1)[1].split('\n## ',1)[0].strip()
+    # The abstract uses only dimension products; plain Unicode keeps the
+    # scholarly landing page readable without a client-side math renderer.
+    abstract=re.sub(r'\$(\d+)\\times(\d+)\$',lambda m:m[1]+' × '+m[2],abstract)
+    if '$' in abstract:raise RuntimeError('Add an HTML renderer for new abstract mathematics')
     base='https://0thernes.github.io/hoggar-bound-lab/paper/'
     record='''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

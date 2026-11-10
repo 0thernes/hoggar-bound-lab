@@ -4,8 +4,8 @@
   "tex_sha256": "56107c5941a92c12f04f508c09031859b9957025b8606f5524bbbe3dcbcb7142",
   "tex_lf_sha256": "9e6ca0f4b51ce3ec5bf25b32bfe335e8bc42f105c752fbaf7b085a40c70159c8",
   "pdf_sha256": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
-  "html_sha256": "c6177c8e5a14f39cecd2680cc5570f16840a20141d75eda2bc30d9737738d0ed",
-  "html_lf_sha256": "b692384d4ad5f95d808e5719953234a4e5a39b06f8f957e4d01d0a4aaa606b61",
+  "html_sha256": "e7c86a24ee7125c8e9bfa01b2cb1d1c9f030a3502516ef046f01e98806513e94",
+  "html_lf_sha256": "88790fa9b41715984b232821067c79f55594f4b0a798dffb8c5011180dc44a30",
   "pandoc": "pandoc 3.13",
   "tectonic": "Tectonic 0.17.0",
   "purpose": "Research preprint; exact theorem and declared formal boundary, not a claim of peer review"
