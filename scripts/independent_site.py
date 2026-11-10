@@ -42,10 +42,12 @@ FILES=[
     'results/unified-section-score.json','results/unified-publication-audit.json',
     'results/full-ci-87-audit.json','results/saturation-ci-audit.json',
     'results/publication-v1.2.0-audit.json','results/publication-v1.3.0-audit.json',
+    'results/publication-v1.4.0-audit.json',
     'publication/ADDENDUM-completion-optima.md','publication/ADDENDUM-seven-qubit-lean.md',
     'publication/ADDENDUM-c3-all-qubits.md','publication/ADDENDUM-conjecture-e.md',
     'results/cospectral_pair.json','results/cospectral_family.json','results/cospectral_family_cone_lift.json',
     'results/conjecture_e.json','results/conjecture_e_n6.json','results/c3_sparse_search.json','results/lean-c3-all-qubits-axioms.log',
+    'results/conjecture_e_lemmas.json','results/conjecture_e_lemmas_n6.json',
     'results/phase_seven_lean.json','results/saturation-seven-ci-audit.json','results/lean-saturated-seven-axioms.log',
 ]
 FILES += [str(p.relative_to(ROOT)).replace('\\','/') for p in sorted((ROOT/'paper'/'figures').glob('*.png'))]
@@ -62,7 +64,7 @@ for name in FILES:
     if name.startswith('publication/ADDENDUM-') and name.endswith('.md'):
         # The addenda link to repository files with relative paths, which do not exist on the site.
         payload=re.sub(rb'\]\(\.\./([^)\s]+)\)',lambda m:b'](https://github.com/0thernes/hoggar-bound-lab/'+
-                       (b'tree' if m.group(1).endswith(b'/') else b'blob')+b'/v1.3.0/'+m.group(1)+b')',payload)
+                       (b'tree' if m.group(1).endswith(b'/') else b'blob')+b'/v1.4.0/'+m.group(1)+b')',payload)
         if b'](../' in payload:
             raise RuntimeError(f'Unrewritten relative link in {name}')
     dst.write_bytes(payload)

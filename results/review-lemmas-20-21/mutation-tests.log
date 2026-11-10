@@ -1,0 +1,139 @@
+== kappa_C3: 109 of 115 checks passed 
+     FAIL  C3, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C3, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C3, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C3, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C3, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C3, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+== kappa_C6: 111 of 115 checks passed 
+     FAIL  C6, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C6, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C6, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C6, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+== eps_C12: 109 of 115 checks passed 
+     FAIL  C12, n = 4: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixe
+     FAIL  C12, n = 4, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^
+     FAIL  C12, n = 4, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^j,
+     FAIL  C12, n = 5: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixe
+     FAIL  C12, n = 5, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^
+     FAIL  C12, n = 5, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^j,
+== drop_outside: 29 of 115 checks passed 
+     FAIL  C1, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 31 outside points
+     FAIL  C1, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 31 outside points
+     FAIL  C1, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C3, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 15 outside points
+     FAIL  C3, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     ... 86 failing checks
+== lambda_sign: 32 of 115 checks passed 
+     FAIL  C1, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+     FAIL  C1, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+     FAIL  C1, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C3, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+     FAIL  C3, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+     ... 83 failing checks
+== lambda_no_sL: 32 of 115 checks passed 
+     FAIL  C1, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+     FAIL  C1, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+     FAIL  C1, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C3, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+     FAIL  C3, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     ... 83 failing checks
+== tau_order: 115 of 115 checks passed 
+== cone_pairs_by_e: 107 of 115 checks passed 
+     FAIL  C6, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C11, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j
+     FAIL  C6, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C11, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j
+     FAIL  C14, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j
+     FAIL  C6, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     ... 8 failing checks
+== base_pairs_wrong_qubit: 99 of 115 checks passed 
+     FAIL  C1, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C3, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C3, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C1, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     ... 16 failing checks
+== C5_wrong_J: 113 of 115 checks passed 
+     FAIL  C5, n = 4: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 64, and every block matrix is fixed
+     FAIL  C5, n = 5: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 256, and every block matrix is fixe
+== C15_no_Pc: 113 of 115 checks passed 
+     FAIL  C15, n = 4: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixe
+     FAIL  C15, n = 5: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixe
+== f_basis_minus_i: 115 of 115 checks passed 
+== f_basis_minus_i_and_noTheta: 115 of 115 checks passed 
+== C12_proj_Pd_minus: 115 of 115 checks passed 
+== C12_proj_no_Pd: 107 of 115 checks passed 
+     FAIL  C12, n = 4, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2
+     FAIL  C12, n = 4, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j
+     FAIL  C15, n = 4, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^
+     FAIL  C15, n = 4, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^j,
+     FAIL  C12, n = 5, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2
+     FAIL  C12, n = 5, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j
+     ... 8 failing checks
+== swap_pred_no_eps: 107 of 115 checks passed 
+     FAIL  C12, n = 4, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2
+     FAIL  C12, n = 4, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j
+     FAIL  C15, n = 4, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^
+     FAIL  C15, n = 4, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^j,
+     FAIL  C12, n = 5, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2
+     FAIL  C12, n = 5, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j
+     ... 8 failing checks
+== jmax_3: 75 of 115 checks passed 
+     FAIL  C1, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C3, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C3, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C6, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C6, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     ... 40 failing checks
+== jmax_1: 75 of 115 checks passed 
+     FAIL  C1, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C3, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C3, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C6, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C6, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     ... 40 failing checks
+== C8_phi_wrong: PASS  C8, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points ERROR AssertionError
+== C8_tau_not_moved: 115 of 115 checks passed 
+== count_C1: 115 of 115 checks passed 
+== cone_no_pair: 107 of 115 checks passed 
+     FAIL  C6, n = 3: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+     FAIL  C11, n = 3: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+     FAIL  C6, n = 4: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+     FAIL  C11, n = 4: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+     FAIL  C14, n = 4: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+     FAIL  C6, n = 5: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+     ... 8 failing checks
+== lemma20_half: 71 of 115 checks passed 
+     FAIL  C1, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+     FAIL  C1, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+     FAIL  C3, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+     FAIL  C3, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+     FAIL  C6, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+     FAIL  C6, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+     ... 44 failing checks
+== eps_C15: 109 of 115 checks passed 
+     FAIL  C15, n = 4: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixe
+     FAIL  C15, n = 4, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2
+     FAIL  C15, n = 4, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j
+     FAIL  C15, n = 5: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixe
+     FAIL  C15, n = 5, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2
+     FAIL  C15, n = 5, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j
+== kappa_C1: 109 of 115 checks passed 
+     FAIL  C1, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C1, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+     FAIL  C1, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^
+     FAIL  C1, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j,
+== kappa_C14: 111 of 115 checks passed 
+     FAIL  C14, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2
+     FAIL  C14, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j
+     FAIL  C14, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2
+     FAIL  C14, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j

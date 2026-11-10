@@ -3,7 +3,7 @@
 **A general Lean 4 bound, configurations that attain it, and cospectral sign carriers with different completion spectra in every vertex case**
 
 Alexander S. Donahue, 0thernes LLC, Washington, USA. ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648). Correspondence: 0_0@0thernes.art<br>
-Hoggar Bound Lab, version 1.3.0, 10 November 2026. Research preprint. Not peer reviewed.<br>
+Hoggar Bound Lab, version 1.4.0, 10 November 2026. Research preprint. Not peer reviewed.<br>
 Research and manuscript preparation used Claude (Anthropic) and OpenAI Codex agents under the author's direction; see Section 13.
 
 > **Prior work and scope.** The spectral floor and its saturation in the three classical families are
@@ -12,8 +12,9 @@ Research and manuscript preparation used Claude (Anthropic) and OpenAI Codex age
 > representation of the completion, the cone lift and Conjecture E are due to Jonah [J3]. This paper
 > combines a formalization and exact configurations attaining the floor with explicit sign carriers
 > that prove Conjecture E in all nine vertex cases. Case C3 is proved in Lean for every number of
-> qubits from four on; the other eight cases are proved on paper, using two structure theorems of [J3], and checked
-> by exact computation. None of this invalidates the spectral floor.
+> qubits from four on; the other eight cases are proved on paper, with the arguments of [J3, Theorem A
+> and the proof of Theorem B3] that they need written out (Lemmas 20 and 21), and checked by exact
+> computation. None of this invalidates the spectral floor.
 
 ## Abstract
 
@@ -34,8 +35,8 @@ their $64\times64$ completion operators have cubic traces 14976 and 15360, and t
 completion minima differ. A graph construction extends the trace gap to every $N\ge4$, with cubic traces that
 differ by $`\tfrac32\,8^{N-1}`$; Lean proves this case, C3, for every $N\ge4$ in the actual Pauli model.
 Variants over the real, complex and quaternionic numbers and a pair swap for cones give such carriers
-in all nine vertex cases for every $N\ge4$, proving Jonah's Conjecture E. Outside case C3 the proof uses two structure theorems of Jonah and is
-checked by exact computation up to six qubits. Independent exact verifiers, falsification controls
+in all nine vertex cases for every $N\ge4$, proving Jonah's Conjecture E. Outside case C3 the proof is self-contained on paper and is checked by
+exact computation up to six qubits. Independent exact verifiers, falsification controls
 and Tsotchke software demonstrations accompany the paper. The work is AI-assisted and is neither
 externally peer reviewed nor a quantum-hardware experiment.
 
@@ -84,10 +85,12 @@ printed factorizations and Corollary 16 rest on exact algebraic and executable c
 different completion spectra for every $N\ge4$, built from
 graphs with one edge for each nonzero difference (Theorem 17); its Lean statement
 `c3_strict_law_fails_general` is about the same Pauli matrices, real quadric and context signs as the
-floor. By a lifting lemma of [J3] this also settles case C11 (Corollary 18). Finally, variants of the
-construction prove Conjecture E in all nine vertex cases (Theorem 19). That proof is on paper outside
-case C3, uses Theorems A and B3 of [J3], and is checked by exact computation on the complete
-configurations for three to six qubits.
+floor. By the cone lift of [J3], whose proof we repeat, this also settles case C11 (Corollary 18).
+Finally, variants of the construction prove Conjecture E in all nine vertex cases (Theorem 19). Outside
+case C3 that proof is on paper. It writes out the arguments of Theorem A and of the proof of Theorem B3
+of [J3] that it needs (Lemmas 20 and 21), so that it uses [J3] only through its definitions and its
+case list, and the lemmas, their hypotheses in each case and the resulting traces are checked by exact
+computation on the complete configurations for three to six qubits.
 
 The two 135-point configurations must be distinguished. The pivot support $S_B$ is not a quadric and
 has 1095 contexts and degree 75. The C3 ambient configuration is the real quadric $Q^+(7,2)$, with
@@ -1172,7 +1175,7 @@ spectra $`\operatorname{spec}M_1\uplus\operatorname{spec}M_2\uplus\{0^{\,k}\}`$.
 real $k\times k$ block $M_p$, and the $k^2$ blocks $M_p$ are a basis of the real $k\times k$ matrices. A
 section point $s$ commuting with $p\in O$ gives exactly one outside context $`\{s,p,q\}`$ with
 $`P_sP_p=s_\ell P_q`$, every such context arises once, and $`p_\star`$ commutes with no outside point. As in
-(C6) and [J3, Theorem A], $\Lambda_\sigma$ is therefore the matrix of $M\mapsto\frac12(C_\sigma M+MD_\sigma)$ in the
+(C6), [J3, Theorem A] and Lemma 20 below, $\Lambda_\sigma$ is therefore the matrix of $M\mapsto\frac12(C_\sigma M+MD_\sigma)$ in the
 basis of the $M_p$. Its eigenvalues are $\frac12(\gamma_i+\delta_j)$ for $1\le i,j\le k$, where $\gamma_i$ and
 $\delta_j$ are the eigenvalues of $C_\sigma$ and $D_\sigma$, so
 
@@ -1205,8 +1208,19 @@ completion spectra is that of [J3, Lemma D (D1)], which treats cases C1 and C6.
 qubits into such a pair in case C11 on $N+1$ qubits: add a qubit, let $e$ be $Z$ on it, keep the polar
 point, give $e$ the value $+1$, and give $s$ and $e+s$ the value $\sigma(s)$. The carrier spectrum becomes
 $2\operatorname{spec}A+1$ together with $D$ copies of $-1$, and the completion spectrum
-$2\operatorname{spec}\Lambda+1$ together with $|O|$ copies of $-1$. Apply this to Theorem 17, and for four
-qubits to the three-qubit pair of Remark (a) below. $\qquad\blacksquare$
+$2\operatorname{spec}\Lambda+1$ together with $|O|$ copies of $-1$. We repeat the short proof of
+[J3, Lemma D (D2)]. Since $P_{e+s}=P_eP_s$, the lifted carrier is $I+2A$ on $P_e=+1$ and $-I$ on
+$P_e=-1$. Each outside line $`\{s,p,q\}`$ of the base has the four lifts $`\{s,p,q\}`$, $`\{s,e+p,e+q\}`$,
+$`\{e+s,p,e+q\}`$ and $`\{e+s,e+p,q\}`$, all with its sign, because $P_e$ commutes with every base Pauli and
+$P_e^2=I$; the other outside lines are the $`\{e,p,e+p\}`$, with sign $+1$. So in the basis $(p,e+p)$ the
+lifted completion matrix is
+
+```math
+\Lambda'=\begin{pmatrix}\Lambda&\Lambda+I\\\Lambda+I&\Lambda\end{pmatrix},
+```
+
+with the eigenvalues $2\lambda+1$ on the vectors $(x,x)$ and $-1$ on the vectors $(x,-x)$. Apply this to
+Theorem 17, and for four qubits to the three-qubit pair of Remark (a) below. $\qquad\blacksquare$
 
 For the lifted pair
 $`\operatorname{tr}\Lambda'^3=8\operatorname{tr}\Lambda^3+12\operatorname{tr}\Lambda^2+6\operatorname{tr}\Lambda`$, and
@@ -1250,7 +1264,8 @@ complete configuration built from the definitions (Section 11.3).
 We use the notation of [J3]: $X$ is the configuration of the case, $q_c=q_0+\langle c,\cdot\rangle$ with
 $q_0(a\mid c)=|a\wedge c|$ modulo two, $`Q_c=\{v\neq0:q_c(v)=0\}`$ (hyperbolic for $q_0(c)=0$, elliptic for
 $q_0(c)=1$), $d$ the point that defines the hyperplane, $H=X\cap d^\perp$ the section and $O=X\setminus H$.
-For a line $`L=\{s,p,q\}`$, $`P_sP_pP_q=s_LI`$. Carrier operators and completion matrices are defined as
+For a line $`\ell=\{s,p,q\}`$, $`P_sP_pP_q=s_\ell I`$ is its sign, as in Section 2. Carrier operators and
+completion matrices are defined as
 in Section 8.2.
 
 **Theorem 19 (Conjecture E).** In each of the nine vertex cases and for every $N\ge4$ there are sign
@@ -1272,11 +1287,70 @@ section points at which $\sigma$ and $\tau$ differ, and $\lvert Y_0\rvert$ is th
 $Y_0$ of the section, a nondegenerate $W$, $Q^+$ or $Q^-$ on $N-2$ qubits (see the pair swap below),
 which is positive for $N\ge4$.
 
-Two facts from [J3, Theorems A and B3] are used: Theorem A identifies $\Lambda_\sigma$ with Jordan
-multiplication by $A_\sigma$ on the span of the outside observables, and Theorem B3 decomposes that
-operator. Let $\chi$ run over the joint eigenspaces $E_\chi$ of the
-central Paulis of the case and let $A_\chi$ be the block of $A_\sigma$ on $E_\chi$; a coupled pair is two
-eigenspaces that differ only in the eigenvalue of $P_d$.
+Each construction below fixes one hyperplane class $(X,d)$ of the stated type, and a pair of carriers
+for that class witnesses the failure of the strict law in the case, as in the proof of [J3, Corollary 3].
+It also gives such a pair for every other class of the case. By [J3, Theorem B4] these classes form one orbit of the group of
+symplectic maps $g$ with $g(X)=X$, and each such $g$ is induced by a Clifford unitary $U$ with
+$`UP_vU^\dagger=\nu(v)P_{gv}`$, $\nu(v)=\pm1$ [J3, Section 4]. For a sign carrier $\sigma$ on the section of
+$(X,d)$, $`\sigma'(gs)=\nu(s)\sigma(s)`$ is one on the section of $(X,gd)$, with $`A_{\sigma'}=UA_\sigma U^\dagger`$.
+Conjugating $`P_sP_pP_q=s_\ell I`$ by $U$ gives $`s_{g\ell}=\nu(s)\nu(p)\nu(q)s_\ell`$, so
+$`(\Lambda_{\sigma'})_{gp,gq}=\nu(p)\nu(q)(\Lambda_\sigma)_{pq}`$: the completion matrix is conjugated by a
+signed permutation. Both spectra are therefore preserved.
+
+The proof uses two lemmas of [J3], whose proofs we write out so that the argument can be checked
+here. Lemma 20 is [J3, Theorem A], with essentially its proof. Lemma 21 is the linear algebra of Steps 3
+and 4 of the proof of [J3, Theorem B3], and the case paragraphs below follow Steps 1, 2 and 5 of that
+proof for the chosen representatives; in case C5 a real form of the complex matrices replaces the
+quaternionic description of [J3]. Theorem 19 therefore uses [J3] only through its definitions and,
+for the passage to every hyperplane class above, its case list.
+
+**Lemma 20 (restriction).** Let $X$ be a set of points that contains $u+v$ whenever it contains two
+distinct commuting points $u$ and $v$, let $d$ be a point, $H=X\cap d^\perp$ and $O=X\setminus H$, and put
+$\Psi_\sigma(T)=\frac12(A_\sigma T+TA_\sigma)$. Then $\Psi_\sigma$ maps the real span $\mathcal V$ of the $P_p$,
+$p\in O$, into itself, and its matrix in the basis $`(P_p)_{p\in O}`$ is $\Lambda_\sigma$. In particular
+$\dim\mathcal V=|O|$, and $\Lambda_\sigma$ has the spectrum of $\Psi_\sigma$ on $\mathcal V$.
+
+*Proof.* Distinct Pauli matrices are orthogonal for the Hilbert–Schmidt inner product, so the $P_p$ are
+a basis of $\mathcal V$. Let $p\in O$ and $s\in H$. If $\langle s,p\rangle=1$, then $P_sP_p+P_pP_s=0$. If
+$\langle s,p\rangle=0$, then $s\neq p$, so $q=s+p\in X$; since $\langle q,d\rangle=\langle p,d\rangle=1$, $q\in O$, and
+$`\ell=\{s,p,q\}`$ is a line with $`P_sP_p=P_pP_s=s_\ell P_q`$, so $P_q$ gets the coefficient
+$`s_\ell\sigma(s)=(\Lambda_\sigma)_{qp}`$. Every line $`\{p,u,p+u\}`$ through $p$ has exactly one point in $H$, because $\langle u,d\rangle+\langle p+u,d\rangle=1$. Hence
+$`\Psi_\sigma(P_p)=\sum_{q\in O}(\Lambda_\sigma)_{qp}P_q`$. $\qquad\blacksquare$
+
+The configurations of the nine cases have this closure property: $W$ trivially, a quadric because
+$q_c(u+v)=q_c(u)+q_c(v)$ for commuting $u$ and $v$, an intersection with $e^\perp$ because $e^\perp$ is
+closed under sums, and a cone because its base is.
+
+**Lemma 21 (Jordan multiplication between two blocks).** Let $C$ and $D$ be Hermitian $k\times k$
+matrices with eigenvalues $\gamma_i$ and $\delta_j$, and $\Phi(M)=\frac12(CM+MD)$ on the complex
+$k\times k$ matrices.
+
+(a) $\Phi$ has the eigenvalues $\frac12(\gamma_i+\delta_j)$, $1\le i,j\le k$. As a real-linear map of the
+$2k^2$-dimensional real space it has each of them twice. On a $\Phi$-invariant real subspace
+$\mathcal U$ with $`\mathcal U\oplus i\,\mathcal U`$ equal to all complex matrices it has each of them once.
+
+(b) If $D=\bar C$ and $\eta=\pm1$, then $\Phi$ maps $`\{M:M^{\mathsf T}=\eta M\}`$ into itself and has
+there, as a real-linear map, the eigenvalues $\frac12(\gamma_i+\gamma_j)$ with $i\le j$ for $\eta=1$
+and $i\lt j$ for $\eta=-1$, each twice.
+
+*Proof.* (a) With $C=\Omega_1\operatorname{diag}(\gamma)\Omega_1^\dagger$ and
+$D=\Omega_2\operatorname{diag}(\delta)\Omega_2^\dagger$ for unitary $\Omega_1$, $\Omega_2$, the matrices
+$\Omega_1E_{ij}\Omega_2^\dagger$ are eigenvectors with the eigenvalues $\frac12(\gamma_i+\delta_j)$. A
+complex-linear map regarded as real-linear has the characteristic polynomial $\chi\bar\chi$, which doubles
+real eigenvalues. If $`\mathcal U\oplus i\,\mathcal U`$ is everything, $u\otimes z\mapsto zu$ identifies
+$`\mathcal U\otimes_{\mathbb R}\mathbb C`$ with the complex matrices and $`\Phi|_{\mathcal U}\otimes1`$ with $\Phi$, so
+$`\Phi|_{\mathcal U}`$ has the characteristic polynomial of $\Phi$. (b) Since $C^{\mathsf T}=\bar C$,
+$(CM+M\bar C)^{\mathsf T}=\eta(CM+M\bar C)$ when $M^{\mathsf T}=\eta M$. With
+$C=\Omega\operatorname{diag}(\gamma)\Omega^\dagger$, the substitution $M=\Omega N\Omega^{\mathsf T}$ preserves the
+symmetry type and turns $CM+M\bar C$ into $\Omega\bigl(\operatorname{diag}(\gamma)N+N\operatorname{diag}(\gamma)\bigr)\Omega^{\mathsf T}$;
+the matrices $E_{ij}+\eta E_{ji}$, with $i\le j$ or $i\lt j$, are eigenvectors with the eigenvalues
+$\frac12(\gamma_i+\gamma_j)$, and passing to the real space doubles them. $\qquad\blacksquare$
+
+*Proof of Theorem 19.* Let $\chi$ run over the joint eigenspaces $E_\chi$ of the central Paulis of the
+case ($P_d$, and $P_e$ when the case has a point $e$), let $A_\chi$ be the block of $A_\sigma$ on $E_\chi$, and call two
+eigenspaces that differ only in the eigenvalue of $P_d$ a coupled pair. The outside Paulis anticommute
+with $P_d$ and commute with $P_e$, so they map each eigenspace to its partner. The case paragraphs below
+verify the hypotheses of Lemma 21 and so obtain two trace formulas.
 
 1. *Preserved pairs* (cases C1, C3, C5, C6, C11 and C14). On a coupled pair, $\Lambda_\sigma$ acts on a
    real space of dimension $\kappa k_\chi^2$, where $k_\chi$ is the common dimension of the two
@@ -1307,7 +1381,23 @@ $`\operatorname{tr}A_\chi^2=k(1+4r_\chi)`$ with $r_\chi$ the number of block obs
 
 **C1, C3, C5: graphs over $\mathbb C$, $\mathbb R$ and $\mathbb H$.** Put $d=Z$ on qubit $N-1$ and let the other
 $N-1$ qubits form the block, so that $`H=\{d\}\cup\{I\otimes P,\,Z\otimes P:P\in R\}`$ with $R$ the block
-observables in $X$ and $A_\sigma=C\oplus D$ as in Section 8.6. Case C3 ($X=Q^+$) is Theorem 17. In case C1
+observables in $X$ and $A_\sigma=C\oplus D$ as in Section 8.6. Here $X=W$ in case C1, and $X=Q_c$ in cases
+C3 and C5, with $c=0$ and with $c=Y$ on qubit 0 respectively. An outside Pauli is $X\otimes P'$ or
+$Y\otimes P'$ for a Pauli $P'$ of the block, that is an operator with zero diagonal blocks and the block
+$M=P'$ or $M=-iP'$ from the eigenspace $P_d=-1$ to $P_d=+1$, and $\Psi_\sigma$ acts on that block as
+$\Phi(M)=\frac12(CM+MD)$. By Lemma 20, $\Lambda_\sigma$ is therefore
+the matrix of $\Phi$ on the real span of these $M$, in the basis that they form. In case C1 both forms
+occur for every $P'$, so the $M$ span all complex matrices, and Lemma 21(a) gives (E8) with $\kappa=2$. In
+cases C3 and C5 exactly one of $X\otimes P'$ and $Y\otimes P'$ is a point of the configuration, because their values of $q_c$
+differ by one, so $|O|=k^2$. Let $\theta_c$ be the antiunitary $\psi\mapsto P_c\bar\psi$ and
+$\Theta_c(T)=\theta_cT\theta_c^{-1}=P_c\bar TP_c$. Since $\bar P_v=(-1)^{q_0(v)}P_v$ and
+$P_cP_vP_c=(-1)^{\langle c,v\rangle}P_v$, we have $\Theta_c(P_v)=(-1)^{q_c(v)}P_v$, so $\Theta_c$ fixes every
+outside Pauli. As $P_c$ acts inside the block, as a matrix $J$ with $J\bar J=\pm I$, the $M$ are fixed by the
+antilinear involution $M\mapsto J\bar MJ$. Its fixed points form a real subspace $\mathcal U$ with
+$`\mathcal U\oplus i\,\mathcal U`$ equal to all complex matrices, so $\dim\mathcal U=k^2$; the $k^2$ linearly
+independent $M$ therefore span $\mathcal U$, and Lemma 21(a) gives (E8) with $\kappa=1$.
+
+Case C3 ($X=Q^+$) is Theorem 17 for $N\ge4$ and Remark (a) for $N=3$. In case C1
 ($X=W$), $R$ contains all observables. For $a\neq0$ and $a\cdot c$ odd put
 $`\varepsilon(P_{a,c})=(-1)^{c\cdot u_a}(-1)^{(a\cdot c-1)/2}`$, so that
 $`\varepsilon(P_{a,c})P_{a,c}=(-1)^{c\cdot u_a}\,iX^aZ^c`$, and keep (E2) where $a\cdot c$ is even. Summing over the
@@ -1327,8 +1417,8 @@ qubit 0, which is elliptic with $q_c(d)=0$) qubit 0 of the block carries a quate
 the other $N-2$ qubits carry the graph. Then $R$ consists of the $P''\otimes I$ with $P''$ real and the
 $P''\otimes X$, $P''\otimes Y$, $P''\otimes Z$ with $P''$ imaginary (qubit 0 is the rightmost factor). With
 the signs of case C1, $\varepsilon(P''\otimes I)=\varepsilon(P'')$ and each of $P''\otimes X$, $P''\otimes Y$,
-$P''\otimes Z$ also gets the sign $\varepsilon(P'')$; the block is a quaternion-Hermitian graph with edges in the four quaternion units for each
-direction. In each case the observables of one
+$P''\otimes Z$ also gets the sign $\varepsilon(P'')$; the block is a quaternion-Hermitian graph with edges in
+the four quaternion units for each direction. In each case the observables of one
 direction and one edge type form a unit. Moving the units of a union of components away from $t$ to
 $D$ (that is, $\tau(Z\otimes P)=-\sigma(Z\otimes P)$ on them) leaves the carrier spectrum unchanged as in step
 (iv), and (E8) with $\operatorname{tr}C=k$, $\operatorname{tr}D=-k$ gives the difference
@@ -1346,18 +1436,40 @@ $X=Q_c\cap e^\perp$ with $c=Y$ on base qubit 0. The section is
 H=\{e\}\cup\{Z_e^{\,\alpha}Y_d^{\,q_c(w)}\otimes w:\alpha\in\{0,1\},\;w\neq0\text{ a base observable}\}.
 ```
 
-On the eigenspace $Z_e=s$, $Y_d=+1$ the carrier acts as the Jordan block
-$`A'_s=s\,\sigma(e)+\sum_w\bigl(\sigma(I\otimes w)+s\,\sigma(Z_e\otimes w)\bigr)P_w`$, and on $Y_d=-1$ as its conjugate by
-the antiunitary of [J3, equation (1)], with the same spectrum. These are the complex blocks of C1 on
-$N-1$ qubits, with the graph on the $N-2$ base qubits. Take the complex graph signs of C1 on the base,
+On the eigenspace $Z_e=s$, $Y_d=+1$ the carrier acts as the block
+$`A'_s=s\,\sigma(e)I+\sum_w\bigl(\sigma(I\otimes w)+s\,\sigma(Z_e\otimes w)\bigr)P_w`$, where $`\sigma(I\otimes w)`$ and
+$`\sigma(Z_e\otimes w)`$ stand for the values at $`Y_d^{\,q_c(w)}\otimes w`$ and $`Z_eY_d^{\,q_c(w)}\otimes w`$, and on
+$Y_d=-1$ as its conjugate: since $\Theta_c(P_v)=(-1)^{q_c(v)}P_v$, every point of $X$ has $q_c=0$ and
+$q_c(d)=1$, the map $\Theta_c$ of the C1, C3, C5 paragraph fixes $A_\sigma$ and $P_e$ and sends $P_d$ to
+$-P_d$, so $\theta_c$ maps the eigenspace
+$Z_e=s$, $Y_d=+1$ onto $Z_e=s$, $Y_d=-1$, and $A_\sigma$ has the matrix $\bar A'_s$ in the basis $\theta_cf_i$
+when it has the matrix $A'_s$ in the basis $f_i$. These are the complex blocks of C1 on $N-1$ qubits,
+with the graph on the $N-2$ base qubits. Take the complex graph signs of C1 on the base,
 $\sigma(e)=1$, and every observable in the block $s=+1$; the graph is the triangle of Remark (a) when the
 base has two qubits and the graph of Theorem 17 when it has more. With $k_b=2^{N-2}$ and $\Gamma$ the
 Hermitian graph matrix $\sum_a(E_a+iJ_a)$ of the edges of $G$,
 $`A'_+=-I+2k_b|t\rangle\langle t|+k_b\Gamma_G`$ and $`A'_-=-I`$, because $e$ contributes $I$ and the observables
 with $a=0$ contribute $`2k_b|t\rangle\langle t|-2I`$. Moving the units of a component $F$ away from $t$ (all
-units for the triangle, those of direction 1 otherwise) to the block $s=-1$ gives
-$`A'_+=-I+2k_b|t\rangle\langle t|+k_b\Gamma_{G-F}`$ and $`A'_-=-I+k_b\Gamma_F`$, and the union of the two Jordan
-spectra is unchanged. In (E9), $`p_1(A'_\pm)=\pm k_b`$ for both carriers, and $`p_2(A'_+)+p_2(A'_-)`$ and
+units for the triangle, those of direction 1 otherwise) to the block $s=-1$, that is
+$`\tau(Z_e\otimes w)=-\sigma(Z_e\otimes w)`$ for their observables $w$, so that $r$ is the number of these,
+gives $`A'_+=-I+2k_b|t\rangle\langle t|+k_b\Gamma_{G-F}`$ and $`A'_-=-I+k_b\Gamma_F`$, and the union of the
+spectra of the two blocks is unchanged.
+
+Formula (E9) follows from Lemma 21(b). Every point of $X$ commutes with $e$, and for an outside point
+$p$ also $e+p$ is outside, with $P_{e+p}=\pm P_eP_p$; so $\mathcal V$ is the sum of the $\Psi_\sigma$-invariant
+parts $\Pi_a\mathcal V$, $a=\pm1$, with $\Pi_a=\frac12(I+aP_e)$. On $P_e=a$ take the orthonormal basis $f_i$ of
+the eigenspace $Y_d=+1$ in which $A_\sigma$ has the matrix $`A'_a`$ (products of the eigenvectors of $Z_e$
+and $Y_d$ with the computational basis of the base), and the basis $`g_i=\theta_cf_i`$ of $Y_d=-1$, in which
+it has the matrix $`\bar A'_a`$. An outside operator restricted to $P_e=a$ is $`T+T^\dagger`$ with
+$`Tg_i=\sum_jM_{ji}f_j`$, and $\Psi_\sigma$ acts as $`M\mapsto\frac12(A'_aM+M\bar A'_a)`$. Outside Paulis are
+fixed by $\Theta_c$, and since $\theta_c^2=P_c\bar P_c=\eta$, with $\eta=1$ for C12 and $-1$ for C15, this
+invariance means $M^{\mathsf T}=\eta M$. An outside point is $`Z_e^{\,\alpha}\otimes R\otimes w`$ with
+$`R\in\{X,Z\}`$ on qubit $N-2$ and $q_c(w)=0$, the identity included, so each part has real dimension
+$`2\#\{w:q_c(w)=0\}=k_b(k_b+\eta)`$, the real dimension of the complex matrices with $M^{\mathsf T}=\eta M$;
+the injective real-linear map from $\Pi_a\mathcal V$ to these matrices is therefore onto. Lemma 21(b) gives
+the eigenvalues, and summing their cubes gives (E9).
+
+In (E9), $`p_1(A'_\pm)=\pm k_b`$ for both carriers, and $`p_2(A'_+)+p_2(A'_-)`$ and
 $`p_3(A'_+)+p_3(A'_-)`$ are fixed by the carrier spectrum. Summed over the two blocks, (E9) is therefore a
 constant minus $`\tfrac32k_b\,p_2(A'_-)`$, and $`p_2(A'_-)`$ increases by $4k_br$ from $\sigma$ to $\tau$, so the
 difference is $6k_b^2r\gt0$ in both cases. The graph needs two base qubits, hence $N\ge4$; with one
@@ -1383,7 +1495,13 @@ The blocks on $(Z_e,Z_d)=(\pm,\pm)$ have constant terms $3,-1,-1,-1$ for $(+,+)$
 Under $\sigma$ every base observable sits in the block $(-,-)$ with coefficient 4, under $\tau$ in the block
 $(+,-)$, and both blocks have the constant $-1$. So $A_\tau=UA_\sigma U^\dagger$ for the controlled-NOT $U$
 that flips $Z_e$ when $Z_d=-1$, and the carrier spectra agree. The coupled pairs are
-$`\{(+,+),(+,-)\}`$ and $`\{(-,+),(-,-)\}`$, so the base moves from one pair to the other. With
+$`\{(+,+),(+,-)\}`$ and $`\{(-,+),(-,-)\}`$, so the base moves from one pair to the other. Every point of
+$X$ commutes with $e$, and for an outside point $y$ also $e+y$ is outside, with $P_{e+y}=\pm P_eP_y$; so
+$\mathcal V$ is the sum of the $\Psi_\sigma$-invariant parts $\Pi_a\mathcal V$, $a=\pm1$, $\Pi_a=\frac12(I+aP_e)$.
+On the eigenspace $P_e=a$, a copy of the $N-1$ qubits of $Y$, the outside Paulis act, up to sign, as
+those of $Y$ for the point $d$, and $A_\sigma$ acts as a Hermitian operator that commutes with $P_d$. The
+argument of the C1, C3 and C5 paragraph, applied to $Y$, therefore gives (E8) on each coupled pair, with
+$k_\chi=k_b$ and $\kappa=2$, $1$, $1$ for $Y=W$, $Q^+$, $Q^-$. With
 $`T_0=\sum_{w\in Y_0}P_w`$ and $k_b=2^{N-2}$, (E8) gives
 
 ```math
@@ -1403,8 +1521,8 @@ $N-2$. Every point of $X$ is $I\otimes P'$ with $P'$ real or $Y\otimes P'$ with 
 nonidentity Pauli $P'$ on the other $N-1$ qubits. Two points commute exactly when their $P'$ do, and on
 every line the factors $Y$ occur an even number of times, so the line signs are those of
 $W(2N-3,2)$. On the eigenspace $Y=+1$ the carrier operator is the C1 carrier operator on $N-1$ qubits for
-the transported carrier, and on $Y=-1$ its complex conjugate. So $\operatorname{spec}A_\sigma$ is twice the C1
-spectrum on $N-1$ qubits and $\Lambda_\sigma$ is the C1 completion matrix on $N-1$ qubits; this is
+the transported carrier, and on $Y=-1$ its complex conjugate. So $\operatorname{spec}A_\sigma$ is the C1
+spectrum on $N-1$ qubits with every multiplicity doubled and $\Lambda_\sigma$ is the C1 completion matrix on $N-1$ qubits; this is
 [J3, Remark 2] made explicit. The C1 pairs on $N-1\ge3$ qubits give C8 for every $N\ge4$.
 $\qquad\blacksquare$
 
@@ -1622,7 +1740,7 @@ The 74 audited declarations of the file depend only on `propext`, `Classical.cho
 definitions with the objects of [J3], the fact that equal characteristic polynomials of Hermitian or
 real symmetric matrices mean equal spectra with multiplicities, and the trust base: the Lean kernel,
 Mathlib at the pinned revision and the three standard axioms. Corollary 18, Remarks (a) to (g),
-Corollary 16 and Theorem 19 outside case C3 are not formalized.
+Corollary 16, Lemmas 20 and 21 and Theorem 19 outside case C3 are not formalized.
 
 **Table 9. Boundaries that matter for interpreting the combined result.**
 
@@ -1634,7 +1752,7 @@ Corollary 16 and Theorem 19 outside case C3 are not formalized.
 | Four-qubit C3 carrier cospectrality, unequal completion spectra and cube traces | Complete 42-declaration Lean audit, including original Pauli and context-sign bridges |
 | Printed C3 block/carrier factorizations, largest-eigenvalue gap 2, spherical gap 32 and the binary minima of Corollary 16 | Exact algebraic and executable checks; not included in those 42 Lean declarations |
 | Case C3 for every $N\ge4$ (Theorem 17) | Lean theorem `c3_strict_law_fails_general` about the library's Pauli matrices, real quadric and context signs; 74 audited declarations |
-| Case C11 (Corollary 18) and the other cases of Theorem 19 | Paper proofs that use [J3, Theorems A and B3, Lemma D and Remark 2]; exact computation on the complete configurations for three to six qubits; not in Lean |
+| Case C11 (Corollary 18) and the other cases of Theorem 19 | Paper proofs from the definitions and case list of [J3], with the arguments of its Theorem A and of the proof of its Theorem B3 that they use written out (Lemmas 20 and 21; for Corollary 18 also the proof of its Lemma D); exact computation of the lemmas, their hypotheses and the traces on the complete configurations for three to six qubits; not in Lean |
 | Physical hardware, compiler correctness, historical priority or external peer review | Not established by these theorem checks |
 
 The floor, saturation and C3 audits have different scopes. The independent audit of the original
@@ -1668,11 +1786,11 @@ able to fail and corrected a comment, the first run
 ([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42801908151)). The first run also
 repeated the C3 checks of Section 11.3 (`scripts/cospectral_family.py --six`, the tensor check, the
 cone lifts and the four-qubit search); the second added `scripts/conjecture_e.py` for three to five
-qubits (81 checks). The six-qubit step (`scripts/conjecture_e.py 6`, 36 checks) was added to the
-workflow in this version. At commit `6189b62`, whose programs and Lean files are those of this
-release, the workflow ran every step, the six-qubit one included, and passed
-([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684); logs in
-`results/ci-run-42817286684/`).
+qubits (81 checks). Version 1.3.0 added the six-qubit step (`scripts/conjecture_e.py 6`, 36 checks); at
+commit `6189b62`, whose programs and Lean files are those of that release, the workflow ran every
+step and passed ([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684); logs in
+`results/ci-run-42817286684/`). Version 1.4.0 adds the checks of Lemmas 20 and 21
+(`scripts/conjecture_e_lemmas.py` and its six-qubit run, Section 11.3) to the same workflow.
 
 <!-- journal:supplement -->
 ## 10. A running example on the Tsotchke stack
@@ -1895,10 +2013,24 @@ completion polynomials, the enclosure of $\rho$ and the two witnesses of Corolla
   cases are done twice, by the pair swap and by the cone lift, except C6 and C11 at three qubits and C14
   at four, which have no base pair to lift and are done by the pair swap only. The record is
   `results/conjecture_e.json`.
+* `scripts/conjecture_e_lemmas.py` (115 checks; with the argument `6` a further 46 checks at six qubits,
+  record `results/conjecture_e_lemmas_n6.json`) checks Lemmas 20 and 21 on the pairs of Table 6, in
+  Gaussian-integer arithmetic on the same configurations. For both carriers of every pair it checks the
+  identity $`\frac12(A_\sigma P_p+P_pA_\sigma)=\sum_q(\Lambda_\sigma)_{qp}P_q`$ for every outside point $p$, with
+  $\Lambda_\sigma$ filled from the outside lines; the hypotheses verified in the proof (the form and number
+  of the outside Paulis, the real form fixed by $M\mapsto J\bar MJ$ in C3, C5 and the bases of C11 and
+  C14, the splitting by $P_e$, and in C12 and C15 the action of $\Theta_c$, the sign of $\theta_c^2$, the
+  eigenspaces of the two bases and the symmetry $M^{\mathsf T}=\eta M$ of every outside block, which must
+  be twice a unitary); the reduction of C8 to C1; and the
+  conclusion of Lemma 21, by comparing $\operatorname{tr}\Lambda_\sigma^j$, $j\le6$, with the power sums of
+  the eigenvalues that the lemma predicts from the blocks of $A_\sigma$. Four negative controls,
+  $\kappa=1$ in C1, one flipped sign of $\Lambda_\sigma$, $\eta=-1$ in C12 and, in C12, a second basis
+  equal to the first, must fail. The record is
+  `results/conjecture_e_lemmas.json`.
 * `scripts/c3_sparse_search.py 3 3` is the exhaustive four-qubit search of Remark (d); `3 4` is the
   five-qubit search, about fifteen minutes.
 
-All five are stages of `scripts/run_all.sh` and steps of the workflow *Case C3 for every number of
+All six are stages of `scripts/run_all.sh` and steps of the workflow *Case C3 for every number of
 qubits*, which also requires the regenerated JSON records to equal the committed ones. No floating
 point enters a comparison of characteristic polynomials.
 
@@ -1930,10 +2062,14 @@ point enters a comparison of characteristic polynomials.
 * The quaternionic form (Theorem 2) and the equivalences of Theorems 3 and 4 are proved on paper and
   tested numerically, not formalized.
 * Conjecture E is settled for sign carriers in all nine vertex cases, but only case C3 is formalized
-  in Lean. The proofs of the other eight cases use Theorems A and B3 of [J3] (with Lemma D and Remark 2
-  for C11 and C8), which are results of a preprint that is not peer reviewed and that we did not
-  formalize; their instances are checked by exact computation for at most six qubits. The carriers are particular constructions: carriers in general are not classified, and
-  for the families the completion optima are not studied.
+  in Lean. The proofs of the other eight cases are on paper and use [J3] only through its definitions
+  and its case list (Theorem B4, to pass from one hyperplane class to every class of a case); the
+  arguments of its Theorem A and of the proof of its Theorem B3 that they need are written out here as
+  Lemmas 20 and 21, and the second proof of case C11 (Corollary 18) repeats the proof of its Lemma D.
+  None of this is formalized. The instances, including the hypotheses of the lemmas, are checked by
+  exact computation for at most six qubits, and no referee has read the proofs. The carriers are
+  particular constructions: carriers in general are not classified, and for the families the
+  completion optima are not studied.
 * For the four-qubit pair the exact binary completion minima are only enclosed, in $[347,368]$ and
   $[315,344]$; the upper ends come from a heuristic search. The completion results do not invalidate
   the spectral floor or revise the contextuality degrees.
@@ -1976,6 +2112,15 @@ were tested again before they were accepted; among the changes they caused are C
 Lean part that ties the completion matrix to the library's contexts. This is internal checking, not
 peer review; the record is in `publication/ADDENDUM-c3-all-qubits.md`. Theorem 19 was checked by its
 program and by one separate pass of the same kind, recorded in `publication/ADDENDUM-conjecture-e.md`.
+Version 1.4.0, prepared the same day in the same way, writes out in that proof the arguments of
+[J3, Theorem A and the proof of Theorem B3] that it uses (Lemmas 20 and 21) instead of citing them,
+repeats the proof of the cone lift in Corollary 18, adds the transport from one hyperplane class to
+every class of a case and the program `scripts/conjecture_e_lemmas.py`, and changes no theorem
+statement. Before release its changes were examined by seven further separate passes of the same
+kind (the two lemmas, the three groups of cases, the program with deliberate faults, and the
+dependence on [J3]), each finding by one or two adversarial verifiers. No mathematical error was
+found; the 13 confirmed findings, on notation, on credit to [J3] and on the passage from one
+hyperplane class to all, are corrected (`results/review-lemmas-20-21/`).
 
 **AI disclosure statement.** Claude and Codex were used for substantive research, software,
 formalization and writing, not merely language correction. The recorded checks comprise Lean kernel
@@ -2063,11 +2208,13 @@ python scripts/cospectral_family_tensor_check.py
 python scripts/cospectral_family_cone_lift.py
 python scripts/conjecture_e.py
 python scripts/conjecture_e.py 6
+python scripts/conjecture_e_lemmas.py
+python scripts/conjecture_e_lemmas.py 6
 python scripts/c3_sparse_search.py 3 3
 ```
 
-Their last lines read `30 of 30`, `14 of 14`, `43 of 43`, `18 of 18`, `21 of 21`, `81 of 81` and
-`36 of 36 checks passed`; the search prints its class counts. NumPy is required.
+Their last lines read `30 of 30`, `14 of 14`, `43 of 43`, `18 of 18`, `21 of 21`, `81 of 81`,
+`36 of 36`, `115 of 115` and `46 of 46 checks passed`; the search prints its class counts. NumPy is required.
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 
@@ -2151,4 +2298,5 @@ The best completion found for $`\sigma_0`$, 368 violated outside lines (500 in a
 The record is `results/cospectral_pair.json` (`completion_witnesses`). The carriers of Sections 8.6 and
 8.7 are defined by formulas; their complete sign tables, graphs and characteristic polynomials are in
 `results/cospectral_family.json`, `results/cospectral_family_cone_lift.json`,
-`results/conjecture_e.json` and `results/conjecture_e_n6.json`.
+`results/conjecture_e.json`, `results/conjecture_e_n6.json`, `results/conjecture_e_lemmas.json` and
+`results/conjecture_e_lemmas_n6.json`.

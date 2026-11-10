@@ -4,7 +4,7 @@
 the result as first stated.
 
 **Status.** Originally proposed change for the next revision of the combined paper
-([paper/unified-contextuality.md](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
+([paper/unified-contextuality.md](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
 artifacts are not changed by this file. The result was obtained on 10 November 2026 by the Claude
 (Anthropic) line of work, under the direction of Alexander S. Donahue, 0thernes LLC. It is a Lean 4
 statement. The lower bound is the theorem `hoggar_bound` of the paper, and the three finite counts are
@@ -120,14 +120,14 @@ The second command prints the axioms of thirteen declarations, among them `phase
 `Classical.choice` and `Quot.sound`. Eleven lines, those of `phase7_degree` and `phase7_contexts` among
 them, list exactly these three; `viol_bit` lists two of them and `sign_table`, a finite case check,
 none. The expected output is
-[results/lean-saturated-seven-axioms.log](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/lean-saturated-seven-axioms.log).
+[results/lean-saturated-seven-axioms.log](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/lean-saturated-seven-axioms.log).
 
 In the Ubuntu run
 [42791713861](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861) of the workflow
 *Saturated configurations*, at commit `77a529f`, `lake build HoggarBound.SaturatedPhaseSeven` took
 1 minute 29 seconds, with a maximum resident set of 6.3 GB, and `lake build HoggarBound.MaskRows` took
 8 seconds; the record is
-[results/saturation-seven-ci-audit.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/saturation-seven-ci-audit.json). On a desktop
+[results/saturation-seven-ci-audit.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/saturation-seven-ci-audit.json). On a desktop
 computer under Windows 11, `lake env lean` checked `SaturatedPhaseSeven.lean` in 5 to 14 minutes,
 depending on the load of the machine, with a peak working set of 4.3 GB. The file has its declarations
 checked one after the other (`set_option Elab.async false`), because the kernel needs about 3 GB for
@@ -145,7 +145,7 @@ configurations, on the five-qubit phase state (the 32 block totals that the kern
 direct double sum), and on sixteen sampled rows of the seven-qubit configuration. It recomputes the 16
 blocks above, shows by two negative controls that the totals change when one bit of the data is
 changed, and checks that `SaturatedPhaseSeven.lean` is the file it generates. The record is
-[results/phase_seven_lean.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/phase_seven_lean.json). The Lean file does not depend on the
+[results/phase_seven_lean.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/phase_seven_lean.json). The Lean file does not depend on the
 script: every number in it is evaluated by the kernel.
 
 The workflow *Saturated configurations* runs the three commands in its job `lean-degrees` and fails if
@@ -231,7 +231,7 @@ first stated; the corrections are listed here.
   `SaturatedPhaseSeven`, 6 271 352 KiB, is 6.4 GB (6.0 GiB), not 6.3 GB; the message of commit `cb1f16a`
   repeats the wrong figure. The local peak working set, 4325 MiB, is 4.5 GB, not 4.3 GB. One block of
   1024 rows needed a peak working set of 2346 MiB (2.5 GB) in a test file, not about 3 GB. The local
-  measurements are recorded in [results/lean-saturated-seven-local.log](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/lean-saturated-seven-local.log).
+  measurements are recorded in [results/lean-saturated-seven-local.log](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/lean-saturated-seven-local.log).
 * **Term-by-term estimate.** Scaled from the five-qubit modules ($2^{21}$ terms in about seven minutes
   in CI), the $2^{29}$ terms of the two seven-qubit sums would take about 30 hours, and more because each
   term tests bits of a mask sixteen times longer. "An estimated 40 core-hours" was not derived; the
@@ -259,7 +259,7 @@ first stated; the corrections are listed here.
 * **CI evidence.** The run 42791713861 was started by hand (`workflow_dispatch`): the commits of this
   repository carry `[skip ci]`, so the push trigger does not fire. Its artifact expires on 10 December
   2026 and its job logs about three months after the run, so the logs of the artifact are kept in
-  [results/ci-run-42791713861/](https://github.com/0thernes/hoggar-bound-lab/tree/v1.3.0/results/ci-run-42791713861/).
+  [results/ci-run-42791713861/](https://github.com/0thernes/hoggar-bound-lab/tree/v1.4.0/results/ci-run-42791713861/).
 * **Text proposed for the next revision.** Version 1.3.0 of the combined paper, prepared at the same
   time, incorporates this work. The instructions above contained four errors: the Section 1.1 instruction ("In the sentence before it ...
   then covers the three configurations") misread the order of the sentences; the note under Table 1 in
@@ -277,5 +277,5 @@ first stated; the corrections are listed here.
   check 7 (14 of 14), the comparisons with the committed record, Lean file and axiom report, and the
   build of `MaskRows` and `SaturatedPhaseSeven` from source. `SaturatedPhaseSeven` took 1 minute 26
   seconds, with a maximum resident set of 6 271 660 KiB (6.4 GB). It was again started by hand.
-  [results/saturation-seven-ci-audit.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/saturation-seven-ci-audit.json) now records this
-  run, and its logs are kept in [results/ci-run-42808984960/](https://github.com/0thernes/hoggar-bound-lab/tree/v1.3.0/results/ci-run-42808984960/).
+  [results/saturation-seven-ci-audit.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/saturation-seven-ci-audit.json) now records this
+  run, and its logs are kept in [results/ci-run-42808984960/](https://github.com/0thernes/hoggar-bound-lab/tree/v1.4.0/results/ci-run-42808984960/).

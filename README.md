@@ -10,7 +10,7 @@ experiments use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 [![Independent verification](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml)
 [![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
 [![Case C3 for every number of qubits](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml)
-[![Version 1.3.0](https://img.shields.io/badge/version-1.3.0-informational)](CHANGELOG.md)
+[![Version 1.4.0](https://img.shields.io/badge/version-1.4.0-informational)](CHANGELOG.md)
 
 **Unified paper:** [Spectral bounds and their limits in Pauli contextuality](paper/unified-contextuality.md) ([PDF](paper/unified-contextuality.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html)).
 &nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
@@ -19,8 +19,19 @@ experiments use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 **Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
 [GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, repository version 1.3.0, 10 November 2026. Not peer reviewed. AI-generated under human
+Status: research preprint, repository version 1.4.0, 10 November 2026. Not peer reviewed. AI-generated under human
 direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
+
+**New in 1.4.0** (paper Sections 8.6 and 8.7):
+
+* **The proof of Conjecture E is self-contained.** Theorem 19 no longer only cites two structure
+  theorems of Jonah's preprint: Lemmas 20 and 21 write out his Theorem A and the linear algebra of his
+  proof of Theorem B3, each case paragraph verifies their hypotheses, the proof of his cone lift is
+  repeated for Corollary 18, and a short transport argument carries each construction to every
+  hyperplane class of its case. The proof now uses the preprint only through its definitions and case
+  list. `python scripts/conjecture_e_lemmas.py` (115 checks; with the argument `6`, 46 more at six
+  qubits) checks the lemmas, their hypotheses and the predicted traces in exact arithmetic, with four
+  negative controls. No theorem statement changes.
 
 **New in 1.3.0** (paper Sections 8.5 to 8.8 and 9.3; first recorded in the addenda under
 [publication/](publication/)):
@@ -29,13 +40,13 @@ direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-964
   [Jonah's note](https://doi.org/10.5281/zenodo.23524332) and for every $N \ge 4$ there are two sign
   carriers with the same carrier spectrum and different completion spectra. The carriers come from graphs
   with one edge for each nonzero difference, over the real, complex and quaternionic numbers, and from a
-  pair swap for cones. Outside case C3 the proof is on paper, uses Theorems A and B3 of the note, and is
-  checked by exact computation for three to six qubits (`python scripts/conjecture_e.py`, 81 checks, and
+  pair swap for cones. Outside case C3 the proof is on paper (in version 1.3.0 it used Theorems A and B3
+  of the note; see 1.4.0 above) and is checked by exact computation for three to six qubits (`python scripts/conjecture_e.py`, 81 checks, and
   `python scripts/conjecture_e.py 6`, 36 checks).
 * **Case C3 for every number of qubits from four on, in Lean** (Theorem 17): `c3_strict_law_fails_general` in
   [lean/HoggarBound/CarrierFamily.lean](lean/HoggarBound/CarrierFamily.lean), about the library's own
   Pauli matrices, real quadric and context signs; 74 audited declarations, standard axioms only. Case
-  C11 follows by the note's cone lift (Corollary 18).
+  C11 follows by the note's cone lift, whose proof the paper repeats (Corollary 18).
 * **The binary completion minima of the four-qubit pair differ** (Corollary 16): at least 347 against at
   most 344 violated outside contexts.
 * **The seven-qubit degree 729344 is a Lean theorem** (`phase7_degree`), with kernel-evaluated counts.
@@ -43,7 +54,7 @@ direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-964
 **Research website:** [Hoggar Bound Lab](https://0thernes.github.io/hoggar-bound-lab/).
 The [C3 research summary](docs/RESEARCH-SUMMARY.md), [verification guide](VERIFICATION.md),
 and [claim register](docs/CLAIMS.md) connect the four-qubit spectral result to exact data and Lean theorem names.
-The combined manuscript editions `v1.2.0` and `v1.3.0` preserve the C3 scientific paper and proof artifacts in
+The combined manuscript editions `v1.2.0`, `v1.3.0` and `v1.4.0` preserve the C3 scientific paper and proof artifacts in
 [v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate).
 See the [source-paper map](publication/PAPER-MAP.md) and [eight-destination distribution plan](publication/DISTRIBUTION-PLAN.md).
 See [affiliation records](publication/AFFILIATIONS.md) for confirmed platform updates and remaining account steps.
@@ -184,8 +195,9 @@ build needs [elan](https://github.com/leanprover/elan); it downloads Lean 4.35.0
   of the named states is checked by programs, outside Lean. The uniqueness statement for seven qubits
   is proved by enumeration inside one family of forms only.
 * Conjecture E (Theorem 19) is proved on paper; only case C3 is a Lean theorem, for every N >= 4. The
-  other eight cases use two structure theorems of Jonah's preprint and are checked by exact
-  computation for three to six qubits.
+  other eight cases rest on Lemmas 20 and 21, which write out Jonah's Theorem A and the linear algebra
+  of his proof of Theorem B3 (version 1.3.0 cited them instead), and are checked by exact computation
+  for three to six qubits. No referee has read these proofs.
 * Novelty of the Section 5 results is claimed to the extent of a bounded literature search.
 * The quaternionic refinement for elliptic quadrics is proved on paper and tested numerically only.
 * Moonlab is a classical simulator; quantum_rng is a classical "quantum-inspired" generator; only the

@@ -1,7 +1,9 @@
 # Addendum: Conjecture E holds in all nine vertex cases
 
 **Folded into the combined paper, version 1.3.0 (10 November 2026), Section 8.7 (Theorem 19).** This file keeps
-the result as first stated.
+the result as first stated. Since version 1.4.0 the paper's proof no longer only cites [J3, Theorems A
+and B3]: Lemmas 20 and 21 of Section 8.7 write out the arguments it needs, and
+`scripts/conjecture_e_lemmas.py` checks them.
 
 **Status.** Originally proposed addition for the next revision of the combined paper
 ([paper/unified-contextuality.md](../paper/unified-contextuality.md)), after

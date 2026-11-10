@@ -1,25 +1,25 @@
 # Addendum: the strict law fails in case C3 for every number of qubits
 
 **Folded into the combined paper, version 1.3.0 (10 November 2026), Sections 8.6 and 9.3 (Theorem 17, Corollary 18).** This file keeps
-the result as first stated.
+the result as first stated. Since version 1.4.0 the paper repeats the proof of the cone lift used in Corollary 18.
 
 **Status.** Originally proposed addition for the next revision of the combined paper
-([paper/unified-contextuality.md](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
+([paper/unified-contextuality.md](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
 artifacts are not changed by this file. The result was obtained on 10 November 2026 by the Claude
 (Anthropic) line of work, under the direction of Alexander S. Donahue, 0thernes LLC.
 
 * **Proof.** Written out below, in six short steps.
 * **Lean 4.** The statement that the strict law fails in case C3 for every $N \ge 4$ is proved in
-  [lean/HoggarBound/CarrierFamily.lean](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/lean/HoggarBound/CarrierFamily.lean) (theorem
+  [lean/HoggarBound/CarrierFamily.lean](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/lean/HoggarBound/CarrierFamily.lean) (theorem
   `c3_strict_law_fails_general`; standard axioms only), with the definitions of the library that
   carries the other Lean theorems of the combined paper. What the Lean statement says, and what it
   leaves to the reader, is listed under [Formal verification](#formal-verification).
 * **Exact computation.** The carriers are checked in integer arithmetic on the complete configurations
-  for three, four, five and six qubits by [scripts/cospectral_family.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/scripts/cospectral_family.py)
+  for three, four, five and six qubits by [scripts/cospectral_family.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/scripts/cospectral_family.py)
   (43 checks), and for three, four and five qubits by a second program that shares no method with it,
-  [scripts/cospectral_family_tensor_check.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/scripts/cospectral_family_tensor_check.py) (18 checks).
+  [scripts/cospectral_family_tensor_check.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/scripts/cospectral_family_tensor_check.py) (18 checks).
   The consequence for case C11 is checked by
-  [scripts/cospectral_family_cone_lift.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/scripts/cospectral_family_cone_lift.py) (21 checks).
+  [scripts/cospectral_family_cone_lift.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/scripts/cospectral_family_cone_lift.py) (21 checks).
 * **Review.** Automated review passes, described under [Review record](#review-record). Not peer
   reviewed.
 
@@ -263,12 +263,12 @@ Case C11, the cone lifts of the first three rows:
 | 6 | 1055, 543, 512, 69376 | 5612544 and 5661696 |
 
 The complete sign tables, the graph and the characteristic polynomials are in
-[results/cospectral_family.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/cospectral_family.json) and
-[results/cospectral_family_cone_lift.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/cospectral_family_cone_lift.json).
+[results/cospectral_family.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/cospectral_family.json) and
+[results/cospectral_family_cone_lift.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/cospectral_family_cone_lift.json).
 
 ## Formal verification
 
-[lean/HoggarBound/CarrierFamily.lean](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/lean/HoggarBound/CarrierFamily.lean) is a new file for Lean
+[lean/HoggarBound/CarrierFamily.lean](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/lean/HoggarBound/CarrierFamily.lean) is a new file for Lean
 4.35.0 with Mathlib v4.35.0. It has no `sorry` and no `native_decide`, and each of its audited
 statements depends only on the axioms `propext`, `Classical.choice` and `Quot.sound`. It changes no
 existing Lean file. Its main theorem is

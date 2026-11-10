@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RESEARCH_COMMIT = "d3811e3b53048fa8f3206f08494f0a9834eed287"
 SATURATION_COMMIT = "87f08a0fb5007c8529abc13eabeec093027c0eba"
 C3_ALL_QUBITS_COMMIT = "5dcea35"  # CarrierFamily.lean as checked by its workflow
-VERSION = "1.3.0"
+VERSION = "1.4.0"
 PDF_HASH = "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836"
 
 
@@ -112,6 +112,14 @@ def main():
     require(len(audited) == 74 and audited == set(reports), "C3 all-qubits axiom report does not match the file")
     require(all(a <= allowed for a in reports.values()), "Nonstandard axiom in CarrierFamily.lean")
     require("HoggarBound.C3AllQubits.c3_strict_law_fails_general" in reports, "Main C3 theorem not audited")
+    # Addition of version 1.4.0: the exact checks of Lemmas 20 and 21 in the proof of Theorem 19.
+    lemma_checks = {}
+    for record, total in (("results/conjecture_e_lemmas.json", 115), ("results/conjecture_e_lemmas_n6.json", 46)):
+        counts = json.loads((ROOT / record).read_text(encoding="utf-8"))["checks"]
+        require(counts == {"passed": total, "total": total}, "Lemma checks incomplete: " + record)
+        lemma_checks[record] = counts
+    require("conjecture_e_lemmas.py" in (ROOT / ".github/workflows/c3-all-qubits.yml").read_text(encoding="utf-8"),
+            "The lemma checks are not a CI step")
     report = {
         "status": "pass",
         "verification_kind": "Documentation-release continuity, not a new Lean compilation",
@@ -136,6 +144,7 @@ def main():
         "seven_qubit_audited_declarations": 13,
         "c3_all_qubits_commit": C3_ALL_QUBITS_COMMIT,
         "c3_all_qubits_audited_declarations": len(audited),
+        "theorem_19_lemma_checks": lemma_checks,
         "checks": checked,
     }
     output = ROOT / args.output

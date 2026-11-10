@@ -57,7 +57,7 @@ F(\sigma,y)=560-\frac14 y^{\mathsf T}\Lambda_\sigma y,
 \min_{\|y\|^2=64}F(\sigma,y)=560-16\lambda_{\max}(\Lambda_\sigma).
 ```
 
-Assignment B's relaxed minimum is 32 lower than Assignment A's. The restriction to binary signs is different: the C3 paper does not determine the exact binary minima, or even establish that they differ; Corollary 16 of the combined paper, version 1.3.0, shows that they differ (at least 347 against at most 344).
+Assignment B's relaxed minimum is 32 lower than Assignment A's. The restriction to binary signs is different: the C3 paper does not determine the exact binary minima, or even establish that they differ; Corollary 16 of the combined paper (since version 1.3.0) shows that they differ (at least 347 against at most 344).
 
 ## Prior work and the contribution
 

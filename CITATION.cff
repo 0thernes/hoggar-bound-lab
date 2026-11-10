@@ -11,7 +11,7 @@ authors:
   alias: 0thernes
   affiliation: 0thernes LLC
   email: 0_0@0thernes.art
-version: 1.3.0
+version: 1.4.0
 date-released: 2026-11-10
 repository-code: https://github.com/0thernes/hoggar-bound-lab
 url: https://0thernes.github.io/hoggar-bound-lab/
@@ -20,8 +20,8 @@ abstract: A combined study of spectral bounds and their information limits in Pa
   degrees 75, 480 and 729344 with finite Lean certificates, and explicit cospectral sign carriers whose
   completion spectra differ. A four-qubit C3 pair has completion cubic traces 14976 and 15360 and different
   binary completion minima; a graph family settles case C3 for every number of qubits from four on, with a
-  Lean proof; variants settle all nine vertex cases, proving Jonah's Conjecture E (outside case C3 on
-  paper, using two structure theorems of Jonah, and checked by exact computation). The manuscript
+  Lean proof; variants settle all nine vertex cases, proving Jonah's Conjecture E (outside case C3 by a
+  self-contained paper proof, checked by exact computation). The manuscript
   distinguishes kernel-checked statements, paper proofs, executable counts, prior work, and open questions.
 keywords:
 - quantum contextuality
@@ -49,8 +49,8 @@ preferred-citation:
   institution:
     name: 0thernes LLC
   url: https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf
-  notes: Combined research preprint, version 1.3.0, not peer reviewed. Spectral-floor and saturation work
-    and the results added in version 1.3.0 used Claude/Anthropic; the four-qubit C3 study, independent
+  notes: Combined research preprint, version 1.4.0, not peer reviewed. Spectral-floor and saturation work
+    and the results added in versions 1.3.0 and 1.4.0 used Claude/Anthropic; the four-qubit C3 study, independent
     validation and the version 1.2.0 integration used OpenAI Codex. See the manuscript for the actual roles
     and verification boundaries.
 references:

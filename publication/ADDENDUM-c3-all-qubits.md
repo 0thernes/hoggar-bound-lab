@@ -1,7 +1,7 @@
 # Addendum: the strict law fails in case C3 for every number of qubits
 
 **Folded into the combined paper, version 1.3.0 (10 November 2026), Sections 8.6 and 9.3 (Theorem 17, Corollary 18).** This file keeps
-the result as first stated.
+the result as first stated. Since version 1.4.0 the paper repeats the proof of the cone lift used in Corollary 18.
 
 **Status.** Originally proposed addition for the next revision of the combined paper
 ([paper/unified-contextuality.md](../paper/unified-contextuality.md)). Release `v1.2.0` and its frozen

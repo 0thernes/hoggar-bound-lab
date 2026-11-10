@@ -33,7 +33,7 @@ jobs:
         with:
           name: publication-documentation-evidence
           path: |
-            results/publication-v1.3.0-audit.json
+            results/publication-v1.4.0-audit.json
             results/unified-publication-audit.json
             results/unified-section-score.json
             build/independent-site/artifact-sha256.json

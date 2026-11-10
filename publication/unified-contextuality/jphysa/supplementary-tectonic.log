@@ -1,8 +1,8 @@
 note: Running TeX ...
 note: Rerunning TeX because "supplementary.aux" changed ...
 note: Running xdvipdfmx ...
-note: Writing `supplementary.pdf` (161.376953125 KiB)
-note: Writing `supplementary.log` (20.8525390625 KiB)
+note: Writing `supplementary.pdf` (166.1982421875 KiB)
+note: Writing `supplementary.log` (20.8583984375 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
 Fontconfig error: Cannot load default config file: No such file: (null)
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.

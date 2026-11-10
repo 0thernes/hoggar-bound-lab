@@ -4,6 +4,63 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
+## 1.4.0 - 10 November 2026: a self-contained proof of Conjecture E
+
+The combined paper is revised to version 1.4.0; its title and its theorem statements are unchanged.
+In version 1.3.0 the proof of Theorem 19 (Conjecture E in all nine vertex cases) cited two structure
+theorems of Jonah's preprint, which is not peer reviewed: Theorem A (the completion matrix is Jordan
+multiplication by the carrier) and Theorem B3 (its decomposition into blocks). The paper now writes
+out the arguments it needs, with credit, and uses the preprint only through its definitions and its
+case list:
+
+- Section 8.7, Lemma 20 (restriction), which is Jonah's Theorem A with essentially his proof: for a
+  configuration that contains the sum of any two distinct commuting points, the completion matrix is
+  the matrix of T -> (A T + T A)/2 on the real span of the outside Paulis. The nine configurations
+  have this property.
+- Section 8.7, Lemma 21 (Jordan multiplication between two blocks), the linear algebra of Steps 3 and
+  4 of his proof of Theorem B3: the eigenvalues of M -> (C M + M D)/2 on all complex matrices, on a
+  real form of them (case C5 uses a real form instead of his quaternionic description), and, when D is
+  the complex conjugate of C, on the symmetric or antisymmetric matrices.
+- The case paragraphs verify the hypotheses of Lemma 21 explicitly: the form and number of the outside
+  Paulis, the antiunitary map Theta_c(T) = P_c conj(T) P_c and the real form it fixes (cases C3, C5 and
+  the bases of C11 and C14), the splitting by P_e (cones, C12, C15), and in C12 and C15 the symmetry
+  M^T = eta M of every outside block with eta = theta_c^2. The trace formulas (E8) and (E9) follow.
+- Section 8.7, before the lemmas: each construction fixes one hyperplane class of its case; a Clifford
+  unitary carries a pair to every class of the case (by Jonah's case list, Theorem B4, these form one
+  orbit), conjugating the carrier operators and the completion matrices by signed permutations.
+- Section 8.6, Corollary 18: the proof of Jonah's cone lift is repeated (the four lifts of each
+  outside line, lifted carrier I + 2A and -I, lifted completion matrix with blocks Lambda and
+  Lambda + I).
+- Abstract, scope box, Sections 1.1, 9.3 (Table 9), 11.3, 12 and 13, and Appendix A state the new
+  dependence. Section 8.6 step (v) points to Lemma 20.
+
+New program `scripts/conjecture_e_lemmas.py`: for both carriers of every pair of Table 6 it checks the
+identity of Lemma 20 at every outside point, each hypothesis that the proof verifies, the reduction of
+C8 to C1, and the conclusion of Lemma 21 through tr Lambda^j, j <= 6, against the power sums of the
+predicted eigenvalues, in Gaussian-integer arithmetic; four negative controls must fail. It passes 115
+checks for three to five qubits (`results/conjecture_e_lemmas.json`, about ten seconds) and 46 at six
+qubits (`results/conjecture_e_lemmas_n6.json`). Both runs are steps of the workflow *Case C3 for every
+number of qubits*, whose regenerated records must equal the committed ones, and stages of
+`scripts/run_all.sh`. The release audit (`scripts/publication_release_audit.py`, version 1.4.0) also
+requires both records to be complete and the program to be a CI step.
+
+Review before release: seven separate passes of the same AI system, each started without the others'
+work (Lemma 20 and the closure property; Lemma 21 with (E8) and (E9); the C1, C3, C5 hypotheses; C12
+and C15; the cones, C8 and Corollary 18; the program, with deliberate faults; the dependence on and
+credit to Jonah's preprint), each finding examined by one or two adversarial verifiers. No
+mathematical error was found. The 13 confirmed findings are corrected: the lemmas are credited as
+Jonah's arguments written out rather than as special cases proved independently; a transport
+paragraph carries each construction from its hyperplane class to every class of the case; one symbol
+for the line sign; eta instead of epsilon for the sign of theta_c^2; the carrier tau of C12 and C15
+written out; real dimension; the four lifts in Corollary 18; and in the program a guard that every
+outside block of C12 and C15 is twice a unitary in bases lying in the right eigenspaces, with a fourth
+negative control. The record is in `results/review-lemmas-20-21/`.
+
+Version strings, the metadata (with the 1.3.0 release kept as `previous_release`), `CITATION.cff`, the
+BibTeX entry, the plain abstract (1903 characters), README, summary, index, glossary, claim register,
+landing page, submission notes, errata, author declarations and the headers of two addenda are updated.
+No Lean file changes; every Lean file of the earlier audits remains byte-identical.
+
 ## 1.3.0 - 10 November 2026: combined paper with Conjecture E
 
 The combined paper ([paper/unified-contextuality.md](paper/unified-contextuality.md)) is revised to

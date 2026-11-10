@@ -65,3 +65,11 @@ competing interests (Section 13 of version 1.3.0; [AUTHOR-DECLARATIONS.md](AUTHO
 The canonical manuscript named in the first paragraph is now version 1.3.0. Version 1.3.0 of the combined
 manuscript also folds in the other addenda of this folder; see [PAPER-MAP.md](PAPER-MAP.md) and the
 [changelog](../CHANGELOG.md).
+
+## Version 1.4.0 (10 November 2026)
+
+No erratum. The canonical manuscript is now version 1.4.0. Its proof of Theorem 19 writes out the
+arguments of [J3, Theorem A and the proof of Theorem B3] that it used to cite (Lemmas 20 and 21 of
+Section 8.7), repeats the proof of the cone lift in Corollary 18 and adds the transport from one
+hyperplane class to every class of a case; the statements of version 1.3.0 are unchanged. Descriptions in version 1.3.0 that Theorem 19
+uses two structure theorems of Jonah's preprint were true of that version and are superseded.

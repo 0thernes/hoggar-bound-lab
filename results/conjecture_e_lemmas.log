@@ -1,0 +1,117 @@
+PASS  C1, n = 3: every outside Pauli is X or Y on the top qubit times a block Pauli, both occur for every block Pauli, |O| = 2k^2 = 32 (the block matrices span all complex matrices)
+PASS  C1, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+PASS  C1, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = -192]
+PASS  C1, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+PASS  C1, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 960]
+PASS  C3, n = 3: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 16, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C3, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+PASS  C3, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 0]
+PASS  C3, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+PASS  C3, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 288]
+PASS  C6, n = 3: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+PASS  C6 base, n = 2: every outside Pauli is X or Y on the top qubit times a block Pauli, both occur for every block Pauli, |O| = 2k^2 = 8 (the block matrices span all complex matrices)
+PASS  C6, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+PASS  C6, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = -288]
+PASS  C6, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 16 outside points
+PASS  C6, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 288]
+PASS  C11, n = 3: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+PASS  C11 base, n = 2: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 4, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C11, n = 3, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 8 outside points
+PASS  C11, n = 3, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = -96]
+PASS  C11, n = 3, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 8 outside points
+PASS  C11, n = 3, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 96]
+PASS  C1, n = 4: every outside Pauli is X or Y on the top qubit times a block Pauli, both occur for every block Pauli, |O| = 2k^2 = 128 (the block matrices span all complex matrices)
+PASS  C1, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 128 outside points
+PASS  C1, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 57600]
+PASS  C1, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 128 outside points
+PASS  C1, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 60672]
+PASS  C3, n = 4: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 64, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C3, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 64 outside points
+PASS  C3, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 15744]
+PASS  C3, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 64 outside points
+PASS  C3, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 16512]
+PASS  C5, n = 4: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 64, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C5, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 64 outside points
+PASS  C5, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = -1152]
+PASS  C5, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 64 outside points
+PASS  C5, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 3456]
+PASS  C12, n = 4: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixes A and P_e and sends P_d to -P_d, theta^2 = +1; f in P_d = +1 and g = theta f in P_d = -1; every block matrix has M^T = +1 M and is twice a unitary; |O| = 2 k_b (k_b + 1) = 40
+PASS  C12, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 40 outside points
+PASS  C12, n = 4, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j, j = 1 .. 6   [tr Lambda^3 = 1776]
+PASS  C12, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 40 outside points
+PASS  C12, n = 4, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j, j = 1 .. 6   [tr Lambda^3 = 624]
+PASS  C15, n = 4: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixes A and P_e and sends P_d to -P_d, theta^2 = -1; f in P_d = +1 and g = theta f in P_d = -1; every block matrix has M^T = -1 M and is twice a unitary; |O| = 2 k_b (k_b - 1) = 24
+PASS  C15, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 24 outside points
+PASS  C15, n = 4, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^j, j = 1 .. 6   [tr Lambda^3 = 720]
+PASS  C15, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 24 outside points
+PASS  C15, n = 4, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^j, j = 1 .. 6   [tr Lambda^3 = -432]
+PASS  C8, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+PASS  C8, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+PASS  C8, n = 4: the map I (x) P' -> P', Y (x) P' -> P' is a bijection onto W(5, 2), the completion matrix is the C1 completion matrix on 3 qubits, and tr A^j = 2 tr A_C1^j, j = 1 .. 6
+PASS  C6, n = 4: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+PASS  C6 base, n = 3: every outside Pauli is X or Y on the top qubit times a block Pauli, both occur for every block Pauli, |O| = 2k^2 = 32 (the block matrices span all complex matrices)
+PASS  C6, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 64 outside points
+PASS  C6, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 8064]
+PASS  C6, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 64 outside points
+PASS  C6, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 19584]
+PASS  C11, n = 4: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+PASS  C11 base, n = 3: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 16, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C11, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+PASS  C11, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 1344]
+PASS  C11, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+PASS  C11, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 4800]
+PASS  C14, n = 4: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+PASS  C14 base, n = 3: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 16, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C14, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+PASS  C14, n = 4, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = -960]
+PASS  C14, n = 4, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points
+PASS  C14, n = 4, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 960]
+PASS  C1, n = 5: every outside Pauli is X or Y on the top qubit times a block Pauli, both occur for every block Pauli, |O| = 2k^2 = 512 (the block matrices span all complex matrices)
+PASS  C1, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 512 outside points
+PASS  C1, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 2491392]
+PASS  C1, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 512 outside points
+PASS  C1, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 2515968]
+PASS  C3, n = 5: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 256, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C3, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 256 outside points
+PASS  C3, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 649728]
+PASS  C3, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 256 outside points
+PASS  C3, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 655872]
+PASS  C5, n = 5: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 256, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C5, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 256 outside points
+PASS  C5, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 219648]
+PASS  C5, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 256 outside points
+PASS  C5, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 231936]
+PASS  C12, n = 5: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixes A and P_e and sends P_d to -P_d, theta^2 = +1; f in P_d = +1 and g = theta f in P_d = -1; every block matrix has M^T = +1 M and is twice a unitary; |O| = 2 k_b (k_b + 1) = 144
+PASS  C12, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 144 outside points
+PASS  C12, n = 5, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j, j = 1 .. 6   [tr Lambda^3 = 116640]
+PASS  C12, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 144 outside points
+PASS  C12, n = 5, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i <= j} (mu_i + mu_j)^j / 2^j, j = 1 .. 6   [tr Lambda^3 = 113568]
+PASS  C15, n = 5: every outside Pauli commutes with P_e and P_e P_p = +-P_(e+p) with e + p outside; Theta fixes A and P_e and sends P_d to -P_d, theta^2 = -1; f in P_d = +1 and g = theta f in P_d = -1; every block matrix has M^T = -1 M and is twice a unitary; |O| = 2 k_b (k_b - 1) = 112
+PASS  C15, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 112 outside points
+PASS  C15, n = 5, carrier sigma: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^j, j = 1 .. 6   [tr Lambda^3 = 46944]
+PASS  C15, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 112 outside points
+PASS  C15, n = 5, carrier tau: tr Lambda^j = sum over the P_e-blocks of 2 * sum_{i < j} (mu_i + mu_j)^j / 2^j, j = 1 .. 6   [tr Lambda^3 = 43872]
+PASS  C8, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 128 outside points
+PASS  C8, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 128 outside points
+PASS  C8, n = 5: the map I (x) P' -> P', Y (x) P' -> P' is a bijection onto W(7, 2), the completion matrix is the C1 completion matrix on 4 qubits, and tr A^j = 2 tr A_C1^j, j = 1 .. 6
+PASS  C6, n = 5: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+PASS  C6 base, n = 4: every outside Pauli is X or Y on the top qubit times a block Pauli, both occur for every block Pauli, |O| = 2k^2 = 128 (the block matrices span all complex matrices)
+PASS  C6, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 256 outside points
+PASS  C6, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 732672]
+PASS  C6, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 256 outside points
+PASS  C6, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 2)   [tr Lambda^3 = 926208]
+PASS  C11, n = 5: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+PASS  C11 base, n = 4: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 64, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C11, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 128 outside points
+PASS  C11, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 129792]
+PASS  C11, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 128 outside points
+PASS  C11, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 183552]
+PASS  C14, n = 5: every outside Pauli commutes with P_e, and P_e P_y = +-P_(e+y) with e + y outside
+PASS  C14 base, n = 4: exactly one of X (x) P', Y (x) P' is outside, |O| = k^2 = 64, and every block matrix is fixed by M -> J conj(M) J (J conj(J) = +-I: a real form)
+PASS  C14, n = 5, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 128 outside points
+PASS  C14, n = 5, carrier sigma: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 37632]
+PASS  C14, n = 5, carrier tau: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 128 outside points
+PASS  C14, n = 5, carrier tau: tr Lambda^j = sum over coupled pairs of kappa * sum (gamma_i + delta_j)^j / 2^j, j = 1 .. 6 (kappa = 1)   [tr Lambda^3 = 79104]
+PASS  negative controls, n = 4: kappa = 1 for C1, one flipped sign in Lambda, eta = -1 for C12, and g = f for C12 each make the corresponding check fail
+
+115 of 115 checks passed

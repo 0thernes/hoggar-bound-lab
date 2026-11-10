@@ -4,11 +4,11 @@
 the result as first stated.
 
 **Status.** Originally proposed addition for the next revision of the combined paper
-([paper/unified-contextuality.md](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
+([paper/unified-contextuality.md](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
 artifacts are not changed by this file. The result was obtained on 9 November 2026 by the Claude
 (Anthropic) line of work, under the direction of Alexander S. Donahue, 0thernes LLC, while Section 8 of
 the combined paper was being re-derived independently. It is checked in exact integer and rational
-arithmetic by [scripts/cospectral_pair.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/scripts/cospectral_pair.py) (30 checks). It is not
+arithmetic by [scripts/cospectral_pair.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/scripts/cospectral_pair.py) (30 checks). It is not
 formalized in Lean and not peer reviewed.
 
 ## What the paper leaves open
@@ -91,9 +91,9 @@ contexts and their signs from the definition of the Pauli matrices (two routes f
 carrier polynomials, the block polynomials, the identity between each completion matrix and the map
 $`M \mapsto \tfrac12 (CM + MD)`$, the degree-64 characteristic polynomials of both completion matrices, the
 enclosure of $\rho$, and both witnesses above by direct count. It shares no code with the programs of
-the C3 study. The record is [results/cospectral_pair.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/cospectral_pair.json)
+the C3 study. The record is [results/cospectral_pair.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/cospectral_pair.json)
 (`completion_witnesses`, `completion_minimum_intervals`); the log is
-[results/cospectral_pair.log](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/cospectral_pair.log). The check is a stage of
+[results/cospectral_pair.log](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/cospectral_pair.log). The check is a stage of
 `scripts/run_all.sh` and a step of the workflow *Saturated configurations*.
 
 ## Scope

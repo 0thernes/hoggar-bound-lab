@@ -1,6 +1,6 @@
 {
   "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "type": "research preprint",
   "author": {
     "name": "Alexander S. Donahue",
@@ -14,7 +14,7 @@
   "canonical_source": "paper/unified-contextuality.md",
   "public_landing_page": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
   "public_pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
-  "source_release": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.3.0",
+  "source_release": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.4.0",
   "destinations": [
     "Google Scholar",
     "arXiv",
@@ -25,7 +25,7 @@
     "Software Heritage",
     "Internet Archive"
   ],
-  "abstract": "Spectral methods give rigorous bounds on Pauli contextuality, but a spectrum need not retain the\ninformation required by a related completion problem.\nFor $N$ qubits, $D=2^N$, and an arbitrary set $S$ of nonidentity Pauli observables, a Lean 4 development\nproves Jonah's spectral floor: satisfied minus violated commuting triples is at most\n$(D-2)|S|^{3/2}/(6\\sqrt{D-1})$. Saturating configurations outside the classical families have exact\ncontextuality degrees 75 on 135 four-qubit observables, 480 on 496 five-qubit observables, and 729344\non 8128 seven-qubit observables; all three degrees are proved in Lean with kernel-checked counts. We\nrelate saturation to pure states with a single nonzero Pauli modulus, two-character sets and flat\nphase states, and classify a specified third-level phase-state family through five qubits.\n\nWe then turn to Jonah's strict law: does the spectrum of a sign carrier on a hyperplane section\ndetermine the spectrum of the completion operator on the remaining observables? Two sign assignments\non a 71-point section of the real four-qubit configuration have cospectral $16\\times16$ carriers, but\ntheir $64\\times64$ completion operators have cubic traces 14976 and 15360, and their exact binary\ncompletion minima differ. A graph construction extends the trace gap to every $N\\ge4$, with cubic traces that\ndiffer by $`\\tfrac32\\,8^{N-1}`$; Lean proves this case, C3, for every $N\\ge4$ in the actual Pauli model.\nVariants over the real, complex and quaternionic numbers and a pair swap for cones give such carriers\nin all nine vertex cases for every $N\\ge4$, proving Jonah's Conjecture E. Outside case C3 the proof uses two structure theorems of Jonah and is\nchecked by exact computation up to six qubits. Independent exact verifiers, falsification controls\nand Tsotchke software demonstrations accompany the paper. The work is AI-assisted and is neither\nexternally peer reviewed nor a quantum-hardware experiment.",
+  "abstract": "Spectral methods give rigorous bounds on Pauli contextuality, but a spectrum need not retain the\ninformation required by a related completion problem.\nFor $N$ qubits, $D=2^N$, and an arbitrary set $S$ of nonidentity Pauli observables, a Lean 4 development\nproves Jonah's spectral floor: satisfied minus violated commuting triples is at most\n$(D-2)|S|^{3/2}/(6\\sqrt{D-1})$. Saturating configurations outside the classical families have exact\ncontextuality degrees 75 on 135 four-qubit observables, 480 on 496 five-qubit observables, and 729344\non 8128 seven-qubit observables; all three degrees are proved in Lean with kernel-checked counts. We\nrelate saturation to pure states with a single nonzero Pauli modulus, two-character sets and flat\nphase states, and classify a specified third-level phase-state family through five qubits.\n\nWe then turn to Jonah's strict law: does the spectrum of a sign carrier on a hyperplane section\ndetermine the spectrum of the completion operator on the remaining observables? Two sign assignments\non a 71-point section of the real four-qubit configuration have cospectral $16\\times16$ carriers, but\ntheir $64\\times64$ completion operators have cubic traces 14976 and 15360, and their exact binary\ncompletion minima differ. A graph construction extends the trace gap to every $N\\ge4$, with cubic traces that\ndiffer by $`\\tfrac32\\,8^{N-1}`$; Lean proves this case, C3, for every $N\\ge4$ in the actual Pauli model.\nVariants over the real, complex and quaternionic numbers and a pair swap for cones give such carriers\nin all nine vertex cases for every $N\\ge4$, proving Jonah's Conjecture E. Outside case C3 the proof is self-contained on paper and is checked by\nexact computation up to six qubits. Independent exact verifiers, falsification controls\nand Tsotchke software demonstrations accompany the paper. The work is AI-assisted and is neither\nexternally peer reviewed nor a quantum-hardware experiment.",
   "doi": null,
   "arxiv_identifier": null,
   "journal_submission_identifier": null,
@@ -35,31 +35,42 @@
   "additional_competing_interests_declared": "The author declares no competing interests; the sole-operator relationship with 0thernes LLC remains disclosed.",
   "human_critical_review_and_final_approval_observed": false,
   "human_critical_review_observed": false,
-  "author_final_approval": "Author approved v1.2.0 and accepted accountability conditional on the assistant's readiness assessment. For v1.3.0 the author directed the assistant to continue, fold the new results into the combined paper and publish it (10 November 2026); no separate author review or approval of the v1.3.0 text is recorded.",
+  "author_final_approval": "Author approved v1.2.0 and accepted accountability conditional on the assistant's readiness assessment. For v1.3.0 the author directed the assistant to continue, fold the new results into the combined paper and publish it (10 November 2026), and that direction to continue covers v1.4.0; no separate author review or approval of the v1.3.0 or v1.4.0 text is recorded.",
   "author_declarations_record": "publication/AUTHOR-DECLARATIONS.md",
   "distribution_license_choice": "arXiv.org perpetual, non-exclusive distribution license (arXiv only)",
   "arxiv_agreement_and_rights_authorized": true,
   "arxiv_endorsement_status": "quant-ph endorsement required; author signed in and endorsement email issuance was confirmed; author deferred obtaining an endorser",
   "license_note": "Existing repository verification license and third-party notices preserved. Author explicitly authorized arXiv's perpetual non-exclusive license. No CC BY or license for another repository inferred.",
-  "ai_provenance": "Claude/Anthropic: spectral-floor and saturation study, and the v1.3.0 results (binary completion minima, kernel evaluation of the seven-qubit counts, case C3 for every number of qubits with its Lean proof, case C11, Conjecture E in all nine vertex cases) and their integration. OpenAI Codex: independent validation, the four-qubit C3 study and the v1.2.0 manuscript integration. Full substantive roles must remain disclosed.",
+  "ai_provenance": "Claude/Anthropic: spectral-floor and saturation study, the v1.3.0 results (binary completion minima, kernel evaluation of the seven-qubit counts, case C3 for every number of qubits with its Lean proof, case C11, Conjecture E in all nine vertex cases) and their integration, and the v1.4.0 revision that writes out the arguments of Jonah used in the proof of Conjecture E. OpenAI Codex: independent validation, the four-qubit C3 study and the v1.2.0 manuscript integration. Full substantive roles must remain disclosed.",
   "suggested_arxiv_primary": "quant-ph",
   "suggested_arxiv_cross_list": [
     "math.CO"
   ],
-  "status": "v1.3.0: public research preprint on GitHub (release v1.3.0) and GitHub Pages; Software Heritage snapshot swh:1:snp:6eba76b04ebd5568e40a7f3b97152bbcce3d2c13 holds tag v1.3.0; Internet Archive captures of the HTML, PDF and landing page verified. The ORCID entry still names v1.2.0. No arXiv announcement, Zenodo DOI, journal submission, Scholar or OpenAIRE indexing observed.",
+  "status": "v1.4.0: prepared; its release, Pages deployment and preservation are recorded after publication. v1.3.0: public on GitHub and GitHub Pages, preserved in Software Heritage and the Internet Archive. The ORCID entry still names v1.2.0. No arXiv announcement, Zenodo DOI, journal submission, Scholar or OpenAIRE indexing observed.",
   "abstract_format": "Markdown with TeX math",
-  "abstract_plain_text": "Spectral methods give rigorous bounds on Pauli contextuality, but a spectrum need not retain the information required by a related completion problem. For N qubits, D=2^N, and an arbitrary set S of nonidentity Pauli observables, a Lean 4 development proves Jonah's spectral floor: satisfied minus violated commuting triples is at most (D-2)|S|^(3/2)/(6 sqrt(D-1)). Saturating configurations outside the classical families have exact contextuality degrees 75 on 135 four-qubit observables, 480 on 496 five-qubit observables, and 729344 on 8128 seven-qubit observables; all three degrees are proved in Lean with kernel-checked counts. We relate saturation to pure states with a single nonzero Pauli modulus, two-character sets and flat phase states, and classify a specified third-level phase-state family through five qubits.\n\nWe then turn to Jonah's strict law: does the spectrum of a sign carrier on a hyperplane section determine the spectrum of the completion operator on the remaining observables? Two sign assignments on a 71-point section of the real four-qubit configuration have cospectral 16-by-16 carriers, but their 64-by-64 completion operators have cubic traces 14976 and 15360, and their exact binary completion minima differ. A graph construction extends the trace gap to every N>=4, with cubic traces that differ by (3/2)8^(N-1); Lean proves this case, C3, for every N>=4 in the actual Pauli model. Variants over the real, complex and quaternionic numbers and a pair swap for cones give such carriers in all nine vertex cases for every N>=4, proving Jonah's Conjecture E. Outside case C3 the proof uses two structure theorems of Jonah and is checked by exact computation up to six qubits. Independent exact verifiers, falsification controls and Tsotchke software demonstrations accompany the paper. The work is AI-assisted and is neither externally peer reviewed nor a quantum-hardware experiment.",
-  "release_published_at_utc": "2026-11-10T12:48:51Z",
-  "release_commit": "e6b62d7f143f3e4a2cb6b4d092578f16d3d6a508",
-  "distribution_record": "results/publication-v1.3.0-distribution.json",
-  "lean_scope": "Lean 4 proves the spectral floor, the degrees 75, 480 and 729344 with kernel-evaluated counts, the four-qubit C3 certificate and case C3 for every N >= 4 (c3_strict_law_fails_general). Corollary 16, Corollary 18 and Theorem 19 outside case C3 are paper proofs with exact computations, not Lean theorems; Theorem 19 uses Theorems A and B3 of Jonah (doi:10.5281/zenodo.23524332).",
+  "abstract_plain_text": "Spectral methods give rigorous bounds on Pauli contextuality, but a spectrum need not retain the information required by a related completion problem. For N qubits, D=2^N, and an arbitrary set S of nonidentity Pauli observables, a Lean 4 development proves Jonah's spectral floor: satisfied minus violated commuting triples is at most (D-2)|S|^(3/2)/(6 sqrt(D-1)). Saturating configurations outside the classical families have exact contextuality degrees 75 on 135 four-qubit observables, 480 on 496 five-qubit observables, and 729344 on 8128 seven-qubit observables; all three degrees are proved in Lean with kernel-checked counts. We relate saturation to pure states with a single nonzero Pauli modulus, two-character sets and flat phase states, and classify a specified third-level phase-state family through five qubits.\n\nWe then turn to Jonah's strict law: does the spectrum of a sign carrier on a hyperplane section determine the spectrum of the completion operator on the remaining observables? Two sign assignments on a 71-point section of the real four-qubit configuration have cospectral 16-by-16 carriers, but their 64-by-64 completion operators have cubic traces 14976 and 15360, and their exact binary completion minima differ. A graph construction extends the trace gap to every N>=4, with cubic traces that differ by (3/2)8^(N-1); Lean proves this case, C3, for every N>=4 in the actual Pauli model. Variants over the real, complex and quaternionic numbers and a pair swap for cones give such carriers in all nine vertex cases for every N>=4, proving Jonah's Conjecture E. Outside case C3 the proof is self-contained on paper and is checked by exact computation up to six qubits. Independent exact verifiers, falsification controls and Tsotchke software demonstrations accompany the paper. The work is AI-assisted and is neither externally peer reviewed nor a quantum-hardware experiment.",
+  "release_published_at_utc": null,
+  "release_commit": null,
+  "distribution_record": null,
+  "lean_scope": "Lean 4 proves the spectral floor, the degrees 75, 480 and 729344 with kernel-evaluated counts, the four-qubit C3 certificate and case C3 for every N >= 4 (c3_strict_law_fails_general). Corollary 16, Corollary 18, Lemmas 20 and 21 and Theorem 19 outside case C3 are paper proofs with exact computations, not Lean theorems; since v1.4.0 they write out the arguments of Jonah (doi:10.5281/zenodo.23524332) that they use and depend on his preprint only through its definitions and case list.",
   "previous_release": {
-    "version": "1.2.0",
-    "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate",
-    "source_release": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0",
-    "release_published_at_utc": "2026-11-10T03:46:37Z",
-    "release_commit": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
-    "distribution_record": "results/publication-v1.2.0-distribution.json",
-    "author_final_approval": "Author approved v1.2.0 and accepted accountability conditional on the assistant's readiness assessment. The documented assessment supports offering it as a disclosed research preprint, not certification of all IOP authorship criteria."
+    "version": "1.3.0",
+    "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E",
+    "source_release": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.3.0",
+    "release_published_at_utc": "2026-11-10T12:48:51Z",
+    "release_commit": "e6b62d7f143f3e4a2cb6b4d092578f16d3d6a508",
+    "distribution_record": "results/publication-v1.3.0-distribution.json",
+    "author_final_approval": "Author approved v1.2.0 and accepted accountability conditional on the assistant's readiness assessment. For v1.3.0 the author directed the assistant to continue, fold the new results into the combined paper and publish it (10 November 2026); no separate author review or approval of the v1.3.0 text is recorded.",
+    "status": "v1.3.0: public research preprint on GitHub (release v1.3.0) and GitHub Pages; Software Heritage snapshot swh:1:snp:6eba76b04ebd5568e40a7f3b97152bbcce3d2c13 holds tag v1.3.0; Internet Archive captures of the HTML, PDF and landing page verified. The ORCID entry still names v1.2.0. No arXiv announcement, Zenodo DOI, journal submission, Scholar or OpenAIRE indexing observed.",
+    "lean_scope": "Lean 4 proves the spectral floor, the degrees 75, 480 and 729344 with kernel-evaluated counts, the four-qubit C3 certificate and case C3 for every N >= 4 (c3_strict_law_fails_general). Corollary 16, Corollary 18 and Theorem 19 outside case C3 are paper proofs with exact computations, not Lean theorems; Theorem 19 uses Theorems A and B3 of Jonah (doi:10.5281/zenodo.23524332).",
+    "previous_release": {
+      "version": "1.2.0",
+      "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate",
+      "source_release": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0",
+      "release_published_at_utc": "2026-11-10T03:46:37Z",
+      "release_commit": "3073955de6e261ecdbcc3fc739615d9df48caf0b",
+      "distribution_record": "results/publication-v1.2.0-distribution.json",
+      "author_final_approval": "Author approved v1.2.0 and accepted accountability conditional on the assistant's readiness assessment. The documented assessment supports offering it as a disclosed research preprint, not certification of all IOP authorship criteria."
+    }
   }
 }

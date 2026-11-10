@@ -1,23 +1,25 @@
 # Addendum: Conjecture E holds in all nine vertex cases
 
 **Folded into the combined paper, version 1.3.0 (10 November 2026), Section 8.7 (Theorem 19).** This file keeps
-the result as first stated.
+the result as first stated. Since version 1.4.0 the paper's proof no longer only cites [J3, Theorems A
+and B3]: Lemmas 20 and 21 of Section 8.7 write out the arguments it needs, and
+`scripts/conjecture_e_lemmas.py` checks them.
 
 **Status.** Originally proposed addition for the next revision of the combined paper
-([paper/unified-contextuality.md](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/paper/unified-contextuality.md)), after
+([paper/unified-contextuality.md](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/paper/unified-contextuality.md)), after
 [ADDENDUM-c3-all-qubits.md](ADDENDUM-c3-all-qubits.md) (Theorem 17, case C3). Release `v1.2.0` is not
 changed by this file. Obtained on 10 November 2026 by the Claude (Anthropic) line of work, under the
 direction of Alexander S. Donahue, 0thernes LLC.
 
 * **Proof.** Below. It uses two results of the source: the restriction lemma and the graded law
   ([J3, Theorems A and B3]). For case C8 it also uses the identification of [J3, Remark 2].
-* **Exact computation.** [scripts/conjecture_e.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/scripts/conjecture_e.py) builds each case at
+* **Exact computation.** [scripts/conjecture_e.py](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/scripts/conjecture_e.py) builds each case at
   $n = 4$ and $n = 5$ from the definitions of [J3]: the configuration, the hyperplane, the section,
   the outside lines and their signs. It checks the type of the case and both claims in exact
   arithmetic. It does the same at $n = 3$ for the four cases that already fail there (81 checks;
-  [results/conjecture_e.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/results/conjecture_e.json)).
+  [results/conjecture_e.json](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/results/conjecture_e.json)).
 * **Lean.** Only case C3 is a Lean theorem (`c3_strict_law_fails_general`,
-  [lean/HoggarBound/CarrierFamily.lean](https://github.com/0thernes/hoggar-bound-lab/blob/v1.3.0/lean/HoggarBound/CarrierFamily.lean)). The other eight
+  [lean/HoggarBound/CarrierFamily.lean](https://github.com/0thernes/hoggar-bound-lab/blob/v1.4.0/lean/HoggarBound/CarrierFamily.lean)). The other eight
   cases are not formalized.
 * Not peer reviewed.
 
@@ -335,7 +337,7 @@ review.
   the table above for $n = 3, 4, 5$, the C3 values for $n = 6$, Theorem A in all nine cases at
   $n = 3, 4$, the block-trace predictions of the trace formulas, and the controlled-NOT conjugation of
   the pair swap. The program and its outputs are kept in
-  [results/review-theorem19/](https://github.com/0thernes/hoggar-bound-lab/tree/v1.3.0/results/review-theorem19/) (`python verify19.py 4` from that folder
+  [results/review-theorem19/](https://github.com/0thernes/hoggar-bound-lab/tree/v1.4.0/results/review-theorem19/) (`python verify19.py 4` from that folder
   reproduces `out_N4.txt`).
 * **Minor findings, all corrected in Section 8.7 of the combined paper (version 1.3.0):** the C12/C15
   step said that only $`p_2(A'_-)`$ changes, while both $p_2$ and $p_3$ of both blocks change and only

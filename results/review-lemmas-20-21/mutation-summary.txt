@@ -1,0 +1,26 @@
+== kappa_C3: 109 of 115 checks passed
+== kappa_C6: 111 of 115 checks passed
+== eps_C12: 109 of 115 checks passed
+== drop_outside: 29 of 115 checks passed
+== lambda_sign: 32 of 115 checks passed
+== lambda_no_sL: 32 of 115 checks passed
+== tau_order: 115 of 115 checks passed
+== cone_pairs_by_e: 107 of 115 checks passed
+== base_pairs_wrong_qubit: 99 of 115 checks passed
+== C5_wrong_J: 113 of 115 checks passed
+== C15_no_Pc: 113 of 115 checks passed
+== f_basis_minus_i: 115 of 115 checks passed
+== f_basis_minus_i_and_noTheta: 115 of 115 checks passed
+== C12_proj_Pd_minus: 115 of 115 checks passed
+== C12_proj_no_Pd: 107 of 115 checks passed
+== swap_pred_no_eps: 107 of 115 checks passed
+== jmax_3: 75 of 115 checks passed
+== jmax_1: 75 of 115 checks passed
+== C8_phi_wrong: PASS  C8, n = 4, carrier sigma: Lemma 20, (A P_p + P_p A)/2 = sum_q Lambda_qp P_q for all 32 outside points ERROR AssertionError
+== C8_tau_not_moved: 115 of 115 checks passed
+== count_C1: 115 of 115 checks passed
+== cone_no_pair: 107 of 115 checks passed
+== lemma20_half: 71 of 115 checks passed
+== eps_C15: 109 of 115 checks passed
+== kappa_C1: 109 of 115 checks passed
+== kappa_C14: 111 of 115 checks passed

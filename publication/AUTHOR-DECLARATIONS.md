@@ -116,3 +116,15 @@ separate author review or approval of the v1.3.0 text, and no new arXiv, journal
 declaration, is recorded. The
 assessment limits stated above apply unchanged: the new results are AI-originated, Theorem 19 relies
 on two structure theorems of an unreviewed preprint, and only case C3 of it is proved in Lean.
+
+## Version 1.4.0 (10 November 2026)
+
+The author's standing direction to continue and to publish covers this revision; no new declaration
+was made. Version 1.4.0 changes the proof of Theorem 19, not its statement: the arguments of the two
+structure theorems of Jonah's preprint that it used are now written out in the paper, with credit
+(Lemmas 20 and 21), the proof of the cone lift of Corollary 18 is repeated, and the preprint is used
+only through its definitions and case list. The sentence above that Theorem 19 relies on two
+structure theorems of an unreviewed preprint therefore describes version 1.3.0 only. The other
+limits apply unchanged: the results are AI-originated, nothing is peer reviewed, only case C3 is
+proved in Lean, and no separate author review or approval of the v1.4.0 text, and no new arXiv,
+journal or Zenodo declaration, is recorded.

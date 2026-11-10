@@ -1,6 +1,6 @@
 # Index: where each claim is proved, tested and recorded
 
-Repository version 1.3.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
+Repository version 1.4.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
 [SUMMARY.md](SUMMARY.md); for the full text see the [unified paper](paper/unified-contextuality.md).
 
 ## Documents
@@ -26,7 +26,7 @@ Repository version 1.3.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 ## C3 research and publication guide
 
 - [C3 summary](docs/RESEARCH-SUMMARY.md): the explicit four-qubit pair and what it establishes.
-- [Claim register](docs/CLAIMS.md): named C3 theorems, the 42-declaration audit, six stability declarations, the separately scoped 14 saturation declarations, and for version 1.3.0 the 13 seven-qubit and 74 `CarrierFamily.lean` declarations.
+- [Claim register](docs/CLAIMS.md): named C3 theorems, the 42-declaration audit, six stability declarations, the separately scoped 14 saturation declarations, for version 1.3.0 the 13 seven-qubit and 74 `CarrierFamily.lean` declarations, and for version 1.4.0 the lemma checks of Theorem 19.
 - [Verification guide](VERIFICATION.md): original-model connection, exact commands, evidence and measured proof-checking costs.
 - [Affiliation records](publication/AFFILIATIONS.md): 0thernes LLC across prepared records and the observed state of each live service.
 - [Publication status](publication/STATUS.md): public releases versus pending archive/journal steps.
@@ -64,8 +64,9 @@ Repository version 1.3.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 | Four-qubit C3 pair: equal carrier spectra, completion cubic traces 14976 and 15360 (Theorem 14) | `four_qubit_C3_spectral_counterexample` and 41 more (`C3Spectra.lean` and companions) | `scripts/frontier_c3_verify.py`, `scripts/frontier_c3_context_verify.py`, `scripts/cospectral_pair.py` | `frontier-c3-lean-audit.md`, `cospectral_pair.json` |
 | The binary completion minima of that pair differ: at least 347 against at most 344 (Corollary 16) | none (paper proof) | `scripts/cospectral_pair.py` (30 checks, exact) | `cospectral_pair.json` |
 | Case C3 for every N >= 4: cospectral carriers, cubic traces differ by 3/2 8^(N-1) (Theorem 17) | `c3_strict_law_fails_general` (`CarrierFamily.lean`, 74 audited declarations) | `scripts/cospectral_family.py --six` (43), `scripts/cospectral_family_tensor_check.py` (18), `scripts/c3_sparse_search.py` | `lean-c3-all-qubits-axioms.log`, `cospectral_family.json`, `c3_sparse_search.json` |
-| Case C11 for every N >= 4 (Corollary 18) | none (Jonah's cone lift) | `scripts/cospectral_family_cone_lift.py` (21) | `cospectral_family_cone_lift.json` |
+| Case C11 for every N >= 4 (Corollary 18) | none (Jonah's cone lift, verified in the paper) | `scripts/cospectral_family_cone_lift.py` (21) | `cospectral_family_cone_lift.json` |
 | Conjecture E: all nine vertex cases, every N >= 4 (Theorem 19) | case C3 only | `scripts/conjecture_e.py` (81, N = 3 to 5; argument `6`: 36 more, N = 6) | `conjecture_e.json`, `conjecture_e_n6.json` |
+| Lemmas 20 and 21 of its proof, their hypotheses in every case and the predicted traces | none (paper proofs) | `scripts/conjecture_e_lemmas.py` (115, N = 3 to 5; argument `6`: 46 more, N = 6) | `conjecture_e_lemmas.json`, `conjecture_e_lemmas_n6.json` |
 
 ### Structure and classification (paper, Section 5.3)
 
@@ -95,13 +96,14 @@ Repository version 1.3.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 |---|---|
 | [Saturated configurations](.github/workflows/saturated-configurations.yml) | the exact checks of Section 5 and the Lean build of the exact degrees, with an axiom allowlist |
 | [Independent verification](.github/workflows/independent-verification.yml) | the independent companion checks, the core Lean proof and the companion Lean certificates |
-| [Case C3 for every number of qubits](.github/workflows/c3-all-qubits.yml) | `CarrierFamily.lean` with an axiom allowlist, and the exact checks of the carrier families and of Conjecture E (paper, Section 11.3) |
+| [Case C3 for every number of qubits](.github/workflows/c3-all-qubits.yml) | `CarrierFamily.lean` with an axiom allowlist, and the exact checks of the carrier families, of Conjecture E and of Lemmas 20 and 21 (paper, Section 11.3) |
 
 ## What is not proved
 
 Listed in the combined paper, Sections 9 ("Formal verification and its boundary") and 12, and in the README under "What is and
 is not claimed". In short: nothing is peer reviewed; the quaternionic refinement, the equivalences of
 Theorems 3 and 4 and the propositions about states are proved on paper only; the enumerations are
-computations; Corollaries 16 and 18 and Theorem 19 outside case C3 are proved on paper and checked by
-exact computation, not in Lean, and Theorem 19 uses two structure theorems of Jonah's preprint; novelty
-rests on a bounded search.
+computations; Corollaries 16 and 18, Lemmas 20 and 21 and Theorem 19 outside case C3 are proved on
+paper and checked by exact computation, not in Lean (since version 1.4.0 the proof of Theorem 19
+writes out the arguments of Jonah's preprint that it uses, instead of citing them); novelty rests on
+a bounded search.

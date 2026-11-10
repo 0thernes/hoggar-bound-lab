@@ -37,10 +37,10 @@
 
 \maketitle
 
-Hoggar Bound Lab, version 1.3.0, 10 November 2026. Research preprint. Not peer reviewed.
+Hoggar Bound Lab, version 1.4.0, 10 November 2026. Research preprint. Not peer reviewed.
 Research and manuscript preparation used Claude (Anthropic) and OpenAI Codex agents under the author\textquotesingle s direction; see Section 13.
 
-This journal-format document is derived from the complete paper, version 1.3.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
+This journal-format document is derived from the complete paper, version 1.4.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
 
 \subsection{10. A running example on the Tsotchke stack}\label{10-a-running-example-on-the-tsotchke-stack}
 
@@ -326,11 +326,26 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   at four, which have no base pair to lift and are done by the pair swap only. The record is
   \nolinkurl{results/conjecture_e.json}.
 \item
+  \nolinkurl{scripts/conjecture_e_lemmas.py} (115 checks; with the argument \texttt{6} a further 46 checks at six qubits,
+  record \nolinkurl{results/conjecture_e_lemmas_n6.json}) checks Lemmas 20 and 21 on the pairs of Table 6, in
+  Gaussian-integer arithmetic on the same configurations. For both carriers of every pair it checks the
+  identity \(\frac12(A_\sigma P_p+P_pA_\sigma)=\sum_q(\Lambda_\sigma)_{qp}P_q\) for every outside point \(p\), with
+  \(\Lambda_\sigma\) filled from the outside lines; the hypotheses verified in the proof (the form and number
+  of the outside Paulis, the real form fixed by \(M\mapsto J\bar MJ\) in C3, C5 and the bases of C11 and
+  C14, the splitting by \(P_e\), and in C12 and C15 the action of \(\Theta_c\), the sign of \(\theta_c^2\), the
+  eigenspaces of the two bases and the symmetry \(M^{\mathsf T}=\eta M\) of every outside block, which must
+  be twice a unitary); the reduction of C8 to C1; and the
+  conclusion of Lemma 21, by comparing \(\operatorname{tr}\Lambda_\sigma^j\), \(j\le6\), with the power sums of
+  the eigenvalues that the lemma predicts from the blocks of \(A_\sigma\). Four negative controls,
+  \(\kappa=1\) in C1, one flipped sign of \(\Lambda_\sigma\), \(\eta=-1\) in C12 and, in C12, a second basis
+  equal to the first, must fail. The record is
+  \nolinkurl{results/conjecture_e_lemmas.json}.
+\item
   \texttt{scripts/c3\_sparse\_search.py\ 3\ 3} is the exhaustive four-qubit search of Remark (d); \texttt{3\ 4} is the
   five-qubit search, about fifteen minutes.
 \end{itemize}
 
-All five are stages of \texttt{scripts/run\_all.sh} and steps of the workflow \emph{Case C3 for every number of
+All six are stages of \texttt{scripts/run\_all.sh} and steps of the workflow \emph{Case C3 for every number of
 qubits}, which also requires the regenerated JSON records to equal the committed ones. No floating
 point enters a comparison of characteristic polynomials.
 
@@ -427,11 +442,13 @@ python scripts/cospectral_family_tensor_check.py
 python scripts/cospectral_family_cone_lift.py
 python scripts/conjecture_e.py
 python scripts/conjecture_e.py 6
+python scripts/conjecture_e_lemmas.py
+python scripts/conjecture_e_lemmas.py 6
 python scripts/c3_sparse_search.py 3 3
 \end{verbatim}
 
-Their last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21}, \texttt{81\ of\ 81} and
-\texttt{36\ of\ 36\ checks\ passed}; the search prints its class counts. NumPy is required.
+Their last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21}, \texttt{81\ of\ 81},
+\texttt{36\ of\ 36}, \texttt{115\ of\ 115} and \texttt{46\ of\ 46\ checks\ passed}; the search prints its class counts. NumPy is required.
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 
@@ -514,7 +531,8 @@ The best completion found for \(\sigma_0\), 368 violated outside lines (500 in a
 The record is \nolinkurl{results/cospectral_pair.json} (\texttt{completion\_witnesses}). The carriers of Sections 8.6 and
 8.7 are defined by formulas; their complete sign tables, graphs and characteristic polynomials are in
 \nolinkurl{results/cospectral_family.json}, \nolinkurl{results/cospectral_family_cone_lift.json},
-\nolinkurl{results/conjecture_e.json} and \nolinkurl{results/conjecture_e_n6.json}.
+\nolinkurl{results/conjecture_e.json}, \nolinkurl{results/conjecture_e_n6.json}, \nolinkurl{results/conjecture_e_lemmas.json} and
+\nolinkurl{results/conjecture_e_lemmas_n6.json}.
 
 
 \end{document}
