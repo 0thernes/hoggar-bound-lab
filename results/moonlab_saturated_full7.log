@@ -1,0 +1,70 @@
+PASS  S1 lly: on Moonlab the 12 nonzero Pauli expectation values all have modulus 0.500000 = sqrt((D-1)/|S|) (deviation 6.7e-16)
+PASS  S1 lly: support and signs read from the simulator equal the masks in data/flat/n2_lly.txt
+PASS  S1 lly: 12 observables, 8 contexts, the signs violate 0; satisfied minus violated = 8 = the floor value
+PASS  S1 ccz: on Moonlab the 28 nonzero Pauli expectation values all have modulus 0.500000 = sqrt((D-1)/|S|) (deviation 2.2e-16)
+PASS  S1 ccz: support and signs read from the simulator equal the masks in data/flat/n3_ccz.txt
+PASS  S1 ccz: 28 observables, 56 contexts, the signs violate 0; satisfied minus violated = 56 = the floor value
+PASS  S1 hoggar: on Moonlab the 63 nonzero Pauli expectation values all have modulus 0.333333 = sqrt((D-1)/|S|) (deviation 8.9e-16)
+PASS  S1 hoggar: support and signs read from the simulator equal the masks in data/flat/n3_hoggar.txt
+PASS  S1 hoggar: 63 observables, 315 contexts, the signs violate 63; satisfied minus violated = 189 = the floor value
+PASS  S1 quadric: on Moonlab the 135 nonzero Pauli expectation values all have modulus 0.333333 = sqrt((D-1)/|S|) (deviation 6.7e-16)
+PASS  S1 quadric: support and signs read from the simulator equal the masks in data/flat/n4_quadric.txt
+PASS  S1 quadric: 135 observables, 1575 contexts, the signs violate 315; satisfied minus violated = 945 = the floor value
+PASS  S1 pivot: on Moonlab the 135 nonzero Pauli expectation values all have modulus 0.333333 = sqrt((D-1)/|S|) (deviation 1.2e-15)
+PASS  S1 pivot: support and signs read from the simulator equal the masks in data/flat/n4_pivot.txt
+PASS  S1 pivot: 135 observables, 1095 contexts, the signs violate 75; satisfied minus violated = 945 = the floor value
+PASS  S1 cieslinski5: on Moonlab the 496 nonzero Pauli expectation values all have modulus 0.250000 = sqrt((D-1)/|S|) (deviation 1.1e-15)
+PASS  S1 cieslinski5: support and signs read from the simulator equal the masks in data/flat/n5_cieslinski5.txt
+PASS  S1 cieslinski5: 496 observables, 10880 contexts, the signs violate 480; satisfied minus violated = 9920 = the floor value
+PASS  S1 phase5: the circuit (5 H, 3 CS, 2 CCZ; 14 Moonlab gates) prepares the state with amplitudes i^q / sqrt(D) (deviation 1.4e-16)
+PASS  S1 phase5: on Moonlab the 496 nonzero Pauli expectation values all have modulus 0.250000 = sqrt((D-1)/|S|) (deviation 2.6e-15)
+PASS  S1 phase5: support and signs read from the simulator equal the masks in data/flat/n5_phase5.txt
+PASS  S1 phase5: 496 observables, 10880 contexts, the signs violate 480; satisfied minus violated = 9920 = the floor value
+PASS  S1 phase7: the circuit (7 H, 3 CS, 8 CCZ; 34 Moonlab gates) prepares the state with amplitudes i^q / sqrt(D) (deviation 1.2e-16)
+PASS  S1 phase7: on Moonlab the 8128 nonzero Pauli expectation values all have modulus 0.125000 = sqrt((D-1)/|S|) (deviation 3.0e-15)
+PASS  S1 phase7: support and signs read from the simulator equal the masks in data/flat/n7_phase7.txt
+PASS  S1 phase7: 8128 observables, 2824192 contexts, the signs violate 729344; satisfied minus violated = 1365504 = the floor value
+PASS  S2 pivot run 0: 1095/1095 contexts give the quantum sign on a random state (3285 projective measurements, 29894 gates)
+PASS  S2 pivot run 1: 1095/1095 contexts give the quantum sign on a random state (3285 projective measurements, 29894 gates)
+PASS  S2 pivot run 2: 1095/1095 contexts give the quantum sign on a random state (3285 projective measurements, 29894 gates)
+PASS  S2 cieslinski5 run 0: 10880/10880 contexts give the quantum sign on a random state (32640 projective measurements, 421504 gates)
+PASS  S2 phase5 run 0: 10880/10880 contexts give the quantum sign on a random state (32640 projective measurements, 429568 gates)
+PASS  S2 phase7 run 0: 2824192/2824192 contexts give the quantum sign on a random state (8472576 projective measurements, 161550336 gates)
+S3 pivot noise=0: simulated success 1.0000 | classical ceiling 0.9315 (exact) | optimal classical assignment on the same sample 0.9287 | above ceiling by 5 sigma: true
+PASS  S3 pivot: without noise every sampled context gives the quantum sign
+S3 pivot noise=0.002: simulated success 0.9930 | classical ceiling 0.9315 (exact) | optimal classical assignment on the same sample 0.9300 | above ceiling by 5 sigma: true
+S3 pivot noise=0.005: simulated success 0.9815 | classical ceiling 0.9315 (exact) | optimal classical assignment on the same sample 0.9303 | above ceiling by 5 sigma: true
+S3 pivot noise=0.01: simulated success 0.9643 | classical ceiling 0.9315 (exact) | optimal classical assignment on the same sample 0.9293 | above ceiling by 5 sigma: true
+S3 pivot noise=0.02: simulated success 0.9215 | classical ceiling 0.9315 (exact) | optimal classical assignment on the same sample 0.9293 | above ceiling by 5 sigma: false
+S3 pivot noise=0.05: simulated success 0.8350 | classical ceiling 0.9315 (exact) | optimal classical assignment on the same sample 0.9297 | above ceiling by 5 sigma: false
+S3 pivot noise=0.1: simulated success 0.7165 | classical ceiling 0.9315 (exact) | optimal classical assignment on the same sample 0.9270 | above ceiling by 5 sigma: false
+S3 cieslinski5 noise=0: simulated success 1.0000 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9575 | above ceiling by 5 sigma: true
+PASS  S3 cieslinski5: without noise every sampled context gives the quantum sign
+S3 cieslinski5 noise=0.002: simulated success 0.9912 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9535 | above ceiling by 5 sigma: true
+S3 cieslinski5 noise=0.005: simulated success 0.9782 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9583 | above ceiling by 5 sigma: true
+S3 cieslinski5 noise=0.01: simulated success 0.9557 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9575 | above ceiling by 5 sigma: false
+S3 cieslinski5 noise=0.02: simulated success 0.9058 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9557 | above ceiling by 5 sigma: false
+S3 cieslinski5 noise=0.05: simulated success 0.8007 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9555 | above ceiling by 5 sigma: false
+S3 cieslinski5 noise=0.1: simulated success 0.6750 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9557 | above ceiling by 5 sigma: false
+S3 phase5 noise=0: simulated success 1.0000 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9567 | above ceiling by 5 sigma: true
+PASS  S3 phase5: without noise every sampled context gives the quantum sign
+S3 phase5 noise=0.002: simulated success 0.9908 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9545 | above ceiling by 5 sigma: true
+S3 phase5 noise=0.005: simulated success 0.9770 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9527 | above ceiling by 5 sigma: true
+S3 phase5 noise=0.01: simulated success 0.9523 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9575 | above ceiling by 5 sigma: false
+S3 phase5 noise=0.02: simulated success 0.9125 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9555 | above ceiling by 5 sigma: false
+S3 phase5 noise=0.05: simulated success 0.8003 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9540 | above ceiling by 5 sigma: false
+S3 phase5 noise=0.1: simulated success 0.6625 | classical ceiling 0.9559 (exact) | optimal classical assignment on the same sample 0.9553 | above ceiling by 5 sigma: false
+S3 phase7 noise=0: simulated success 1.0000 | classical ceiling 0.7418 (exact) | optimal classical assignment on the same sample 0.7468 | above ceiling by 5 sigma: true
+PASS  S3 phase7: without noise every sampled context gives the quantum sign
+S3 phase7 noise=0.002: simulated success 0.9890 | classical ceiling 0.7418 (exact) | optimal classical assignment on the same sample 0.7278 | above ceiling by 5 sigma: true
+S3 phase7 noise=0.005: simulated success 0.9680 | classical ceiling 0.7418 (exact) | optimal classical assignment on the same sample 0.7432 | above ceiling by 5 sigma: true
+S3 phase7 noise=0.01: simulated success 0.9365 | classical ceiling 0.7418 (exact) | optimal classical assignment on the same sample 0.7325 | above ceiling by 5 sigma: true
+S3 phase7 noise=0.02: simulated success 0.8742 | classical ceiling 0.7418 (exact) | optimal classical assignment on the same sample 0.7452 | above ceiling by 5 sigma: true
+S3 phase7 noise=0.05: simulated success 0.7335 | classical ceiling 0.7418 (exact) | optimal classical assignment on the same sample 0.7430 | above ceiling by 5 sigma: false
+S3 phase7 noise=0.1: simulated success 0.6102 | classical ceiling 0.7418 (exact) | optimal classical assignment on the same sample 0.7250 | above ceiling by 5 sigma: false
+MOONLAB-SATURATED-PASS
+
+real	1m26.412s
+user	0m0.000s
+sys	0m0.046s
+exit=0

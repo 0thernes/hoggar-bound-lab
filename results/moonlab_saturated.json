@@ -1,0 +1,389 @@
+{
+ "seed": 20261110,
+ "S1": [
+  {
+   "name": "lly",
+   "N": 2,
+   "observables": 12,
+   "contexts": 8,
+   "violated": 0,
+   "modulus": 0.5000000000000004,
+   "max_deviation": 6.661338147750939e-16
+  },
+  {
+   "name": "ccz",
+   "N": 3,
+   "observables": 28,
+   "contexts": 56,
+   "violated": 0,
+   "modulus": 0.5,
+   "max_deviation": 2.220446049250313e-16
+  },
+  {
+   "name": "hoggar",
+   "N": 3,
+   "observables": 63,
+   "contexts": 315,
+   "violated": 63,
+   "modulus": 0.3333333333333339,
+   "max_deviation": 8.881784197001252e-16
+  },
+  {
+   "name": "quadric",
+   "N": 4,
+   "observables": 135,
+   "contexts": 1575,
+   "violated": 315,
+   "modulus": 0.3333333333333337,
+   "max_deviation": 6.661338147750939e-16
+  },
+  {
+   "name": "pivot",
+   "N": 4,
+   "observables": 135,
+   "contexts": 1095,
+   "violated": 75,
+   "modulus": 0.33333333333333415,
+   "max_deviation": 1.2212453270876722e-15
+  },
+  {
+   "name": "cieslinski5",
+   "N": 5,
+   "observables": 496,
+   "contexts": 10880,
+   "violated": 480,
+   "modulus": 0.25000000000000067,
+   "max_deviation": 1.1102230246251565e-15
+  },
+  {
+   "name": "phase5",
+   "N": 5,
+   "observables": 496,
+   "contexts": 10880,
+   "violated": 480,
+   "modulus": 0.25000000000000155,
+   "max_deviation": 2.55351295663786e-15
+  },
+  {
+   "name": "phase7",
+   "N": 7,
+   "observables": 8128,
+   "contexts": 2824192,
+   "violated": 729344,
+   "modulus": 0.12500000000000155,
+   "max_deviation": 2.9976021664879227e-15
+  }
+ ],
+ "S2": [
+  {
+   "name": "pivot",
+   "rep": 0,
+   "contexts": 1095,
+   "measured": 1095,
+   "agree": 1095,
+   "measurements": 3285,
+   "gates": 29894
+  },
+  {
+   "name": "pivot",
+   "rep": 1,
+   "contexts": 1095,
+   "measured": 1095,
+   "agree": 1095,
+   "measurements": 3285,
+   "gates": 29894
+  },
+  {
+   "name": "pivot",
+   "rep": 2,
+   "contexts": 1095,
+   "measured": 1095,
+   "agree": 1095,
+   "measurements": 3285,
+   "gates": 29894
+  },
+  {
+   "name": "cieslinski5",
+   "rep": 0,
+   "contexts": 10880,
+   "measured": 10880,
+   "agree": 10880,
+   "measurements": 32640,
+   "gates": 421504
+  },
+  {
+   "name": "phase5",
+   "rep": 0,
+   "contexts": 10880,
+   "measured": 10880,
+   "agree": 10880,
+   "measurements": 32640,
+   "gates": 429568
+  },
+  {
+   "name": "phase7",
+   "rep": 0,
+   "contexts": 2824192,
+   "measured": 30000,
+   "agree": 30000,
+   "measurements": 90000,
+   "gates": 1716232
+  }
+ ],
+ "S3": [
+  {
+   "name": "pivot",
+   "noise_per_qubit_per_measurement": 0,
+   "shots": 4000,
+   "quantum_success": 1,
+   "optimal_classical_on_same_contexts": 0.92625,
+   "classical_ceiling": 0.9315068493150684,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "pivot",
+   "noise_per_qubit_per_measurement": 0.002,
+   "shots": 4000,
+   "quantum_success": 0.99175,
+   "optimal_classical_on_same_contexts": 0.9335,
+   "classical_ceiling": 0.9315068493150684,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "pivot",
+   "noise_per_qubit_per_measurement": 0.005,
+   "shots": 4000,
+   "quantum_success": 0.98175,
+   "optimal_classical_on_same_contexts": 0.93075,
+   "classical_ceiling": 0.9315068493150684,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "pivot",
+   "noise_per_qubit_per_measurement": 0.01,
+   "shots": 4000,
+   "quantum_success": 0.9615,
+   "optimal_classical_on_same_contexts": 0.932,
+   "classical_ceiling": 0.9315068493150684,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "pivot",
+   "noise_per_qubit_per_measurement": 0.02,
+   "shots": 4000,
+   "quantum_success": 0.92875,
+   "optimal_classical_on_same_contexts": 0.92775,
+   "classical_ceiling": 0.9315068493150684,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "pivot",
+   "noise_per_qubit_per_measurement": 0.05,
+   "shots": 4000,
+   "quantum_success": 0.8345,
+   "optimal_classical_on_same_contexts": 0.92825,
+   "classical_ceiling": 0.9315068493150684,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "pivot",
+   "noise_per_qubit_per_measurement": 0.1,
+   "shots": 4000,
+   "quantum_success": 0.71875,
+   "optimal_classical_on_same_contexts": 0.93325,
+   "classical_ceiling": 0.9315068493150684,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "cieslinski5",
+   "noise_per_qubit_per_measurement": 0,
+   "shots": 4000,
+   "quantum_success": 1,
+   "optimal_classical_on_same_contexts": 0.961,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "cieslinski5",
+   "noise_per_qubit_per_measurement": 0.002,
+   "shots": 4000,
+   "quantum_success": 0.98925,
+   "optimal_classical_on_same_contexts": 0.9575,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "cieslinski5",
+   "noise_per_qubit_per_measurement": 0.005,
+   "shots": 4000,
+   "quantum_success": 0.98075,
+   "optimal_classical_on_same_contexts": 0.96025,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "cieslinski5",
+   "noise_per_qubit_per_measurement": 0.01,
+   "shots": 4000,
+   "quantum_success": 0.95475,
+   "optimal_classical_on_same_contexts": 0.95575,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "cieslinski5",
+   "noise_per_qubit_per_measurement": 0.02,
+   "shots": 4000,
+   "quantum_success": 0.91275,
+   "optimal_classical_on_same_contexts": 0.954,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "cieslinski5",
+   "noise_per_qubit_per_measurement": 0.05,
+   "shots": 4000,
+   "quantum_success": 0.8065,
+   "optimal_classical_on_same_contexts": 0.9535,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "cieslinski5",
+   "noise_per_qubit_per_measurement": 0.1,
+   "shots": 4000,
+   "quantum_success": 0.67875,
+   "optimal_classical_on_same_contexts": 0.96,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "phase5",
+   "noise_per_qubit_per_measurement": 0,
+   "shots": 4000,
+   "quantum_success": 1,
+   "optimal_classical_on_same_contexts": 0.95725,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "phase5",
+   "noise_per_qubit_per_measurement": 0.002,
+   "shots": 4000,
+   "quantum_success": 0.98975,
+   "optimal_classical_on_same_contexts": 0.95925,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "phase5",
+   "noise_per_qubit_per_measurement": 0.005,
+   "shots": 4000,
+   "quantum_success": 0.978,
+   "optimal_classical_on_same_contexts": 0.95325,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "phase5",
+   "noise_per_qubit_per_measurement": 0.01,
+   "shots": 4000,
+   "quantum_success": 0.9485,
+   "optimal_classical_on_same_contexts": 0.95075,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "phase5",
+   "noise_per_qubit_per_measurement": 0.02,
+   "shots": 4000,
+   "quantum_success": 0.9155,
+   "optimal_classical_on_same_contexts": 0.95675,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "phase5",
+   "noise_per_qubit_per_measurement": 0.05,
+   "shots": 4000,
+   "quantum_success": 0.79675,
+   "optimal_classical_on_same_contexts": 0.953,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "phase5",
+   "noise_per_qubit_per_measurement": 0.1,
+   "shots": 4000,
+   "quantum_success": 0.66975,
+   "optimal_classical_on_same_contexts": 0.95425,
+   "classical_ceiling": 0.9558823529411765,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "phase7",
+   "noise_per_qubit_per_measurement": 0,
+   "shots": 4000,
+   "quantum_success": 1,
+   "optimal_classical_on_same_contexts": 0.74,
+   "classical_ceiling": 0.741751269035533,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "phase7",
+   "noise_per_qubit_per_measurement": 0.002,
+   "shots": 4000,
+   "quantum_success": 0.9855,
+   "optimal_classical_on_same_contexts": 0.74325,
+   "classical_ceiling": 0.741751269035533,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "phase7",
+   "noise_per_qubit_per_measurement": 0.005,
+   "shots": 4000,
+   "quantum_success": 0.96325,
+   "optimal_classical_on_same_contexts": 0.746,
+   "classical_ceiling": 0.741751269035533,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "phase7",
+   "noise_per_qubit_per_measurement": 0.01,
+   "shots": 4000,
+   "quantum_success": 0.93775,
+   "optimal_classical_on_same_contexts": 0.7395,
+   "classical_ceiling": 0.741751269035533,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "phase7",
+   "noise_per_qubit_per_measurement": 0.02,
+   "shots": 4000,
+   "quantum_success": 0.877,
+   "optimal_classical_on_same_contexts": 0.7535,
+   "classical_ceiling": 0.741751269035533,
+   "exceeds_ceiling_by_5_sigma": true
+  },
+  {
+   "name": "phase7",
+   "noise_per_qubit_per_measurement": 0.05,
+   "shots": 4000,
+   "quantum_success": 0.73325,
+   "optimal_classical_on_same_contexts": 0.74375,
+   "classical_ceiling": 0.741751269035533,
+   "exceeds_ceiling_by_5_sigma": false
+  },
+  {
+   "name": "phase7",
+   "noise_per_qubit_per_measurement": 0.1,
+   "shots": 4000,
+   "quantum_success": 0.597,
+   "optimal_classical_on_same_contexts": 0.744,
+   "classical_ceiling": 0.741751269035533,
+   "exceeds_ceiling_by_5_sigma": false
+  }
+ ],
+ "random_bytes_used": 9924280,
+ "failures": 0
+}

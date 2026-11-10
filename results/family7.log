@@ -1,0 +1,35 @@
+# family7: all third-level forms on seven qubits with B alternating of rank 6
+# started 2026-11-10T01:21:17Z, 16 slices
+slice s=[0x0,+0x800): nondegenerate graphs 576, with solutions 120, solutions 552960
+slice s=[0x800,+0x800): nondegenerate graphs 768, with solutions 168, solutions 774144
+slice s=[0x5000,+0x800): nondegenerate graphs 896, with solutions 168, solutions 774144
+slice s=[0x5800,+0x800): nondegenerate graphs 896, with solutions 216, solutions 995328
+slice s=[0x6000,+0x800): nondegenerate graphs 896, with solutions 192, solutions 884736
+slice s=[0x6800,+0x800): nondegenerate graphs 896, with solutions 192, solutions 884736
+slice s=[0x7000,+0x800): nondegenerate graphs 896, with solutions 192, solutions 884736
+slice s=[0x7800,+0x800): nondegenerate graphs 896, with solutions 192, solutions 884736
+slice s=[0x1000,+0x800): nondegenerate graphs 768, with solutions 168, solutions 774144
+slice s=[0x1800,+0x800): nondegenerate graphs 1024, with solutions 216, solutions 995328
+slice s=[0x2000,+0x800): nondegenerate graphs 896, with solutions 192, solutions 884736
+slice s=[0x2800,+0x800): nondegenerate graphs 896, with solutions 192, solutions 884736
+slice s=[0x3000,+0x800): nondegenerate graphs 896, with solutions 192, solutions 884736
+slice s=[0x3800,+0x800): nondegenerate graphs 896, with solutions 192, solutions 884736
+slice s=[0x4000,+0x800): nondegenerate graphs 896, with solutions 120, solutions 552960
+slice s=[0x4800,+0x800): nondegenerate graphs 896, with solutions 168, solutions 774144
+# solutions file: 106168320 bytes
+solutions 13271040, images outside the solution set or the normal form: 0
+orbit 1: size 13271040 stabiliser 7.0000  fewest gates 8  s=0xa58 w=0x901
+orbits 1
+ORBITS7-PASS
+# random census of the other types of B (3e8 forms each)
+T gates 0, CS pairs 0, samples 300000000:
+T gates 0, CS pairs 1, samples 300000000:
+T gates 0, CS pairs 2, samples 300000000:
+T gates 0, CS pairs 3, samples 2000000:  constant rank 6: 741 (first w=0x19991178e)
+T gates 1, CS pairs 0, samples 300000000:
+T gates 2, CS pairs 0, samples 300000000:
+T gates 3, CS pairs 0, samples 300000000:
+T gates 4, CS pairs 0, samples 300000000:
+T gates 5, CS pairs 0, samples 300000000:
+T gates 6, CS pairs 0, samples 300000000:
+# finished 2026-11-10T01:47:26Z

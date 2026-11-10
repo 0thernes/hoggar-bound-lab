@@ -4,7 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spectral Floor, Machine-Checked</title>
-<meta name="description" content="A machine-checked spectral floor for Pauli contextuality">
+<meta name="description" content="A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it">
+<meta name="citation_title" content="A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it">
+<meta name="citation_author" content="Donahue, Alexander S.">
+<meta name="citation_author_institution" content="0thernes LLC">
+<meta name="citation_publication_date" content="2026/11/09">
+<meta name="citation_online_date" content="2026/11/09">
+<meta name="citation_technical_report_institution" content="0thernes LLC">
+<meta name="citation_technical_report_number" content="Hoggar Bound Lab, version 1.1">
+<meta name="citation_pdf_url" content="https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf">
+<meta name="citation_abstract_html_url" content="https://0thernes.github.io/hoggar-bound-lab/">
+<meta name="citation_language" content="en">
+<meta name="DC.title" content="A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it">
+<meta name="DC.creator" content="Donahue, Alexander S.">
+<meta name="DC.publisher" content="0thernes LLC">
+<meta name="DC.date" content="2026-11-09">
+<meta name="DC.type" content="Text">
+<meta name="DC.language" content="en">
+<meta name="author" content="Alexander S. Donahue (0thernes LLC)">
 <style>
 :root{--bg:#fbfaf7;--ink:#1b1f27;--muted:#5b6370;--rule:#d9d6cc;--accent:#0f7a62;--code:#f1efe8;--note:#f3f1e9}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#14171c;--ink:#e6e3da;--muted:#9aa3b0;--rule:#2f353f;--accent:#5ef2c8;--code:#1d2128;--note:#1a1e25}}
@@ -45,63 +62,108 @@ window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]
 </head>
 <body>
 <main>
-<h1>A machine-checked spectral floor for Pauli contextuality</h1>
-<p><strong>Lean 4 formalization for every number of qubits, an independent reproduction of the October 2026 results, and an end-to-end demonstration on the Tsotchke stack</strong></p>
-<p>0thernes (Alexander S. Donahue), 0thernes LLC, with Claude (Anthropic) as AI research system<br>
-Hoggar Bound Lab, version 1.0, 9 November 2026. Research preprint. Not peer reviewed.</p>
+<h1>A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it</h1>
+<p><strong>Lean 4 formalization for every number of qubits; exact contextuality degrees of four-, five- and seven-qubit configurations outside the classical families; a classification of flat third-level phase states; a running demonstration on the Tsotchke stack</strong></p>
+<p>Alexander S. Donahue, 0thernes LLC, Washington, USA. Correspondence: 0_0@0thernes.art<br>
+Hoggar Bound Lab, version 1.1, 9 November 2026. Research preprint. Not peer reviewed.<br>
+Produced with an AI research system (Claude, Anthropic) under the author's direction; see Section 12.</p>
 <blockquote>
 <p><strong>Priority note.</strong> The inequality formalized here was first posted by B. W. Jonah on 21 October 2026
 (Zenodo, <a href="https://doi.org/10.5281/zenodo.23538829">doi:10.5281/zenodo.23538829</a>), where it is called the
 <em>spectral lower bound</em> or <em>spectral floor</em>. We derived it independently on 9 November 2026 and learned of the
 earlier notes the same day, during our own literature audit. Priority for the bound, for its saturation
-by Hoggar-type states, and for the exact four- and five-qubit values belongs to the works cited in
-Section 1.2. What is new here is stated in Section 1.1.</p>
+by Hoggar-type states in the three classical families, and for the exact four- and five-qubit values of
+those families belongs to the works cited in Section 1.2. What is new here is stated in Section 1.1; the
+results of Section 5 were found after that audit and were checked against the same sources.</p>
 </blockquote>
 <h2>Abstract</h2>
 <p>For \(N\) qubits, a noncontextual hidden-variable model assigns a value \(\pm 1\) to every Pauli observable.
 Quantum mechanics fixes the sign of the product of any three mutually commuting Pauli observables whose
 product is \(\pm I\) (a <em>context</em>), and no assignment can reproduce all of these signs. The <em>contextuality
-degree</em> is the least number of contexts an assignment must get wrong. We give a complete, kernel-checked
-Lean 4 proof (Lean 4.35, Mathlib; no axioms beyond the standard three) of the spectral floor: for every
+degree</em> \(d(S)\) of a set \(S\) of observables is the least number of its contexts an assignment must get
+wrong. We give a complete, kernel-checked Lean 4 proof (Lean 4.35, Mathlib; no axioms beyond the standard
+three) of the spectral floor, an inequality first posted by B. W. Jonah in October 2026: for every
 \(N \ge 1\), every set \(S\) of non-identity \(N\)-qubit Pauli observables with all of its induced contexts, and
 every assignment, the number of satisfied minus violated contexts is at most
-\((D-2)\,|S|^{3/2} / (6\sqrt{D-1})\), where \(D = 2^N\). The formal development works with the explicit
-\(2^N \times 2^N\) complex Pauli matrices and derives the context signs from matrix multiplication. Checked
-corollaries: every assignment violates at least the fraction \(1/2 - \sqrt{D+1}/(D+2)\) of all contexts
-of the full \(N\)-qubit Pauli configuration, for every \(N\); at least 63 of 315 contexts for three qubits
-(the known exact value); at least 1451 of 5355 for four qubits; at least 28786 of 86955 for five qubits;
-at least 315 of 1575 on the four-qubit hyperbolic quadric (the known exact value); and at least 6426 of
-23715 on the five-qubit hyperbolic quadric. The last statement is, to our knowledge, the first formally
-verified proof that the degree of \(Q^+(9,2)\) is not \(4743\), a question raised by Li, Gupta and Ganesh
-and first answered, with computer assistance, by Jonah. We also reproduce the best known assignments
-for two to five qubits with an independent search, confirm the geometry of their violated contexts, and
-run the corresponding state-independent contextuality test end to end on Tsotchke's Moonlab simulator,
-with the quantum geometric tensor kernels of QGTL, the quantum_rng generator and the Eshkol language
-as independent components. Every numerical claim is a test that can fail; the repository contains the
-tests, a negative control and the Lean sources.</p>
+\((D-2)\,|S|^{3/2} / (6\sqrt{D-1})\), where \(D = 2^N\). The Lean theorem has no closure hypothesis on \(S\),
+and we use that generality. The floor is attained exactly when some pure state has Pauli expectation
+values of one modulus on \(S\) and zero on every other observable, equivalently when every observable of
+\(S\) lies on the same excess of satisfied over violated contexts and certain sums outside \(S\) cancel. We
+exhibit configurations outside the classical families where this happens. The first is a set of 135
+four-qubit observables that is not a quadric and not closed under products; it has 1095 contexts and
+contextuality degree exactly 75, and it is the Pauli support of the state
+\((|0011\rangle+|0111\rangle+|1011\rangle+|1100\rangle+|1101\rangle+i\,|1110\rangle)/\sqrt6\), which we did
+not find in the literature. The second is the set of 496 five-qubit observables supported by a state
+published by Cieśliński in October 2026; it has 10880 contexts and degree exactly 480. Both exact degrees
+are proved in Lean, lower bound and witness, with the finite counts evaluated by the kernel. We then
+determine, by exhaustive enumeration, all states \(U|{+}\cdots{+}\rangle\) with \(U\) a diagonal gate of the
+third level of the Clifford hierarchy that have this property on up to five qubits: there is none on
+four qubits and exactly one class on five, represented by a circuit of three controlled-S gates (\(CS\))
+and two \(CCZ\) gates, whose configuration is the five-qubit one above up to a Clifford operation. On seven
+qubits a circuit of three \(CS\) and eight \(CCZ\) gates prepares such a state: its 8128
+observables contain 2 824 192 contexts and the contextuality degree is exactly 729 344, a value obtained
+from the Lean-checked inequality and counts made by three independent programs. The Pauli support of
+every such state is a two-character set of the symplectic space, and in these three cases the support of
+a bent function. For the
+classical families the checked corollaries are: every assignment violates at least the fraction
+\(1/2 - \sqrt{D+1}/(D+2)\) of the contexts of the full \(N\)-qubit configuration, for every \(N\); exactly 63
+of 315 for three qubits; at least 1451 of 5355 for four qubits and 28786 of 86955 for five; exactly 315
+of 1575 on the four-qubit hyperbolic quadric; and at least 6426 of 23715 on the five-qubit one. We
+reproduce the best known assignments for two to five qubits with an independent search and run the
+corresponding state-independent contextuality tests end to end on Tsotchke's Moonlab simulator, with the
+quantum geometric tensor kernels of QGTL, the quantum_rng generator and the Eshkol language as
+independent components. Every numerical claim is a test that can fail; the repository contains the tests,
+a negative control and the Lean sources.</p>
 <h2>1. Scope</h2>
 <h3>1.1 What is new in this work</h3>
 <ol>
-<li><strong>A formal proof.</strong> The spectral floor is proved in Lean 4 for every number of qubits \(N \ge 1\) and
-for <em>arbitrary</em> sets of observables with their induced contexts (theorem <code>hoggar_bound</code>). The proof
-is about the actual matrices: Pauli operators are defined as explicit complex matrices indexed by bit
-vectors, their product phases and commutation rule are theorems, and the bound is derived from the
-spectral theorem. Earlier accounts of the bound are explicitly not formally verified [J2], and the
-earlier Lean development of Li, Gupta and Ganesh [LGG] covers one four-qubit configuration by a
-different (combinatorial) argument.</li>
-<li><strong>Formally verified numerical corollaries</strong>, listed in the abstract and in Table 2, including formal
-answers to two questions asked in [LGG]: the degree of \(Q^+(9,2)\) exceeds \(4743\), and the violated
-fraction of the four-qubit full space and of the five-qubit hyperbolic quadric is strictly above \(1/5\).</li>
-<li><strong>A statement for arbitrary observable sets.</strong> The published statements of the floor concern
-line-closed families (the full space and the quadrics). The trace argument needs no closure
-hypothesis, and the Lean theorem has none.</li>
+<li><strong>A formal proof of the floor.</strong> The spectral floor is proved in Lean 4 for every number of qubits
+\(N \ge 1\) and for <em>arbitrary</em> sets of observables with their induced contexts (theorem
+<code>hoggar_bound</code>). The proof is about the actual matrices: Pauli operators are defined as explicit
+complex matrices indexed by bit vectors, their product phases and commutation rule are theorems, and
+the bound is derived from the spectral theorem. Earlier accounts of the bound are explicitly not
+formally verified [J2], and the earlier Lean development of Li, Gupta and Ganesh [LGG] covers one
+four-qubit configuration by a different (combinatorial) argument.</li>
+<li><strong>Exact degrees outside the classical families</strong> (Section 5). The published statements of the floor
+and of its equality case concern families closed under products of commuting pairs: the full space
+and the quadrics [J2]. The trace argument needs no closure, and the floor is attained on sets that are
+not closed. We determine two such degrees exactly: 75 for a 135-point four-qubit configuration with
+1095 contexts, and 480 for a 496-point five-qubit configuration with 10880 contexts. Both are
+proved in Lean in full (theorems <code>pivot_degree</code> and <code>cieslinski5_degree</code>): the lower bound is an
+instance of <code>hoggar_bound</code>, the upper bound an explicit assignment, and the counts are kernel
+evaluations.</li>
+<li><strong>A four-qubit state.</strong> The state \(\psi_B\) of the abstract has Pauli expectation values \(\pm 1/3\) on
+135 observables and \(0\) on the other 120, like the known state \((-3,1,\dots,1)/\sqrt{24}\), but its
+support is not a quadric. We classify all \(4^6\) states with fourth-root-of-unity amplitudes on the
+same six basis states: they fall into exactly two classes, according to the parity of the number of
+imaginary amplitudes (Proposition 6).</li>
+<li><strong>A saturation criterion for arbitrary sets</strong> (Theorem 4), in spectral, state and purely combinatorial
+form; the observation that for every such state the violated contexts are the pairs of largest
+quantum metric (Proposition 8); and the fact that the support of such a state is a two-character
+set, so that it defines a strongly regular graph, and a bent function when the modulus is
+\(2^{-(N-1)/2}\) (Proposition 10).</li>
+<li><strong>Flat phase states</strong> (Section 5.3). A state \(U|{+}\cdots{+}\rangle\) with \(U\) a product of \(T\),
+controlled-S (\(CS\)) and \(CCZ\) gates has a single non-zero modulus exactly when a symmetric trilinear form
+over \(\mathbb{F}_2\) has constant rank (Proposition 11). We enumerate all such forms on up to five
+qubits (Theorem 12): none on four qubits, one class on five. The five-qubit class gives a
+five-gate circuit for a state with the Pauli support of [Ci]'s numerically found \(s_5\), up to a
+Clifford operation.</li>
+<li><strong>Seven qubits</strong> (Theorem 13). A circuit of three \(CS\) and eight \(CCZ\) gates prepares a state
+with expectation values \(\pm 1/8\) on 8128 observables and \(0\) on the others. The configuration has
+2 824 192 contexts and contextuality degree exactly 729 344. Within the family of forms we could
+enumerate completely (about \(1.5 \times 10^{10}\) forms) it is unique up to CNOT circuits.</li>
+<li><strong>Formally verified numerical corollaries for the classical families</strong>, listed in the abstract and in
+Table 2, including formal answers to two questions asked in [LGG]: the degree of \(Q^+(9,2)\) exceeds
+\(4743\), and the violated fraction of the four-qubit full space and of the five-qubit hyperbolic
+quadric is strictly above \(1/5\). The exact values 63 (three qubits) and 315 (four-qubit hyperbolic
+quadric) are also proved in full, by the spectral route.</li>
 <li><strong>Consequences spelled out for all \(N\)</strong>: an exponentially growing quantum-to-classical ratio with
 a proof (the 2010 argument for such growth rests on a lemma that fails at three qubits), a noise
-threshold that tends to zero, a two-sided estimate of the optimal violated fraction (Proposition 4),
-and a reading of violated contexts in terms of the quantum geometric tensor (Proposition 3).</li>
+threshold that tends to zero, and a two-sided estimate of the optimal violated fraction (Proposition 4).</li>
 <li><strong>An independent reproduction and a running demonstration</strong>: a search engine, four independent
 implementations of the geometry (C, Python, JavaScript, Eshkol) and the Lean model agree on every
-count; the experiment runs on the Tsotchke stack with each component labelled for what it is.</li>
+count; the experiments run on the Tsotchke stack with each component labelled for what it is. The
+five- and seven-qubit states are prepared there as circuits.</li>
 </ol>
 <h3>1.2 What is not new, and whose it is</h3>
 <ul>
@@ -114,18 +176,36 @@ that value: Li, Gupta and Ganesh [LGG].</li>
 <li>The exact values \(d(Q^-(7,2)) = 315\), \(d(W(7,2)) = 1575\), \(d(Q^+(9,2)) = 6975\) (computer-assisted),
 the operator \(A = \sum_v f(v) P_v\) and its Hoggar spectrum \(\{21, -3^7\}\): Jonah [J1].</li>
 <li>The spectral floor itself, its Kramers (quaternionic) form for elliptic quadrics, the description of
-quadrics by the antiunitaries \(P_c K\), and the theorem that the floor is attained exactly for
+quadrics by the antiunitaries \(P_c K\), the operator identity for \(A^2\) on sets closed under products,
+and the theorem that among the three families the floor is attained exactly for
 \(W(5,2)\), \(Q^+(7,2)\), \(Q^-(5,2)\) (and trivially \(Q^-(3,2)\)): Jonah [J2], with the trace formula also
 in [J3]. Stronger five-qubit lower bounds (\(d(W(9,2)) \ge 28830\), \(d(Q^-(9,2)) \ge 6510\)) are
-announced, with proofs held privately, in [J4].</li>
+announced, with proofs held privately, in [J4]. Sets that are not closed under products are named in
+[J2] as not covered.</li>
+<li>Pure states whose Pauli expectation values are zero or of one modulus: the two-qubit state of Liu, Low
+and Yin [LLY]; the four-qubit state \((-3,1,\dots,1)/\sqrt{24}\) and the five-qubit state \(|s_5\rangle\)
+with 135 and 496 non-zero values, found numerically by Cieśliński [Ci], who calls a (possibly mixed)
+state <em>Pauli flat</em> when all of its Pauli expectation values have one modulus and lists these pure
+states under the relaxed condition; real four-qubit states of this kind as the optima of \(Q^+(7,2)\)
+[J4]. Kang [K] proves that no four-qubit state, and no state of an odd number \(N \gt 1\) of qubits, has
+all squared Pauli expectation values in \(\{0, 2^{-N}\}\). None of [LLY, Ci, K] discusses contextuality,
+phase states, or more than five qubits.</li>
+<li>Diagonal gates of the Clifford hierarchy and their phase polynomials: Cui, Gottesman and Krishna
+[CGK]. \(\mathbb{Z}_4\)-valued quadratic forms and their character sums: [CCKS]. Two-character sets,
+two-weight codes and strongly regular graphs: Calderbank and Kantor [CK]. The bent functions of
+Maiorana and McFarland: [McF].</li>
 <li>The scalar inequality behind the floor is classical: it is Okumura's lemma [O] (equivalently the
 maximal sample skewness, Wilkins [W]).</li>
 <li>The Hoggar lines and the cubic purity condition for quantum states: Hoggar [H], Stacey [St],
-Jones and Linden [JL].</li>
+Jones and Linden [JL]. Bent functions and their difference sets: Rothaus [R]. Point sets with the
+hyperplane intersection numbers of a quadric (quasi-quadrics): De Clerck, Hamilton, O'Keefe and
+Penttila [DHOP].</li>
 </ul>
-<p>Our derivation in Sections 3 to 5 was made without knowledge of [J1]–[J4]; where it coincides with
+<p>Our derivation in Sections 3, 4 and 6 was made without knowledge of [J1]–[J4]; where it coincides with
 them we say so. We did not re-run the exhaustive computations behind the exact values of [J1] and do
-not vouch for them; we only observe that every assignment we found is consistent with them.</p>
+not vouch for them; we only observe that every assignment we found is consistent with them. A companion
+note in the same repository, written by a separate set of AI agent sessions, settles an instance of a
+conjecture of [J3] that is unrelated to the results here; it is not part of this paper.</p>
 <h2>2. Setting</h2>
 <p><strong>Pauli operators.</strong> Let \(D = 2^N\). A <em>point</em> is a nonzero vector \(v = (a \mid c) \in \mathbb{F}_2^{2N}\).
 It labels the Hermitian operator</p>
@@ -141,7 +221,8 @@ So \(P_u\) and \(P_v\) commute exactly when \(\langle u,v\rangle = 0\), and then
 \(\ell = \{u, v, u+v\}\) of three distinct points with \(\langle u, v\rangle = 0\). Its three operators commute and
 \(P_u P_v P_{u+v} = s_\ell\, I\) with \(s_\ell = s(u,v)\), which does not depend on the order.</p>
 <p><strong>Configurations and assignments.</strong> Fix a set \(S\) of points and let \(\mathcal{L}(S)\) be the set of all
-contexts contained in \(S\), \(L_S = |\mathcal{L}(S)|\). An assignment \(f : S \to \{+1,-1\}\) <em>violates</em>
+contexts contained in \(S\), \(L_S = |\mathcal{L}(S)|\). \(S\) is <em>closed</em> if the product of any two commuting
+observables of \(S\) is again in \(S\). An assignment \(f : S \to \{+1,-1\}\) <em>violates</em>
 \(\ell\) when \(f(u) f(v) f(u+v) \neq s_\ell\). Put</p>
 <p>\[\beta_S(f) = \sum_{\ell \in \mathcal{L}(S)} s_\ell\, f(u) f(v) f(u+v) = L_S - 2\,\mathrm{viol}(f),
 \qquad d(S) = \min_f \mathrm{viol}(f).\]</p>
@@ -156,7 +237,7 @@ computational basis, \(\theta_c = P_c K\) is antiunitary, \(\theta_c P_v \theta_
 and \(\theta_c^2 = (-1)^{q_0(c)}\). So the quadrics are the sets of Pauli observables fixed by a Pauli
 antiunitary: a real structure (\(\theta^2 = 1\)) for hyperbolic quadrics and a quaternionic structure
 (\(\theta^2 = -1\)) for elliptic ones [J2]. \(Q_0\) is the set of real symmetric Pauli matrices (an even
-number of \(Y\) factors).</p>
+number of \(Y\) factors). All three families are closed.</p>
 <h2>3. The spectral floor</h2>
 <p><strong>Theorem 1 (spectral floor; Jonah [J2] for the three families; formalized here for arbitrary \(S\)).</strong>
 Let \(N \ge 1\), let \(S\) be any set of points and \(f : S \to \{\pm 1\}\). Then</p>
@@ -194,32 +275,34 @@ antiunitary \(\theta\) with \(\theta^2 = -1\) (for instance, \(S\) lies in an el
 Every eigenspace is therefore an orthogonal sum of planes \(\{x, \theta x\}\) and every eigenvalue has even
 multiplicity (Kramers). Apply (ii) to the \(D/2\) distinct pair values, with the same \(m\).
 \(\qquad\blacksquare\)</p>
-<p>Theorem 2 is not part of the Lean development; it is checked numerically (Section 9).</p>
+<p>Theorem 2 is not part of the Lean development; it is checked numerically (Section 10).</p>
 <p><strong>Closed forms.</strong> With the standard counts, Theorems 1 and 2 give for the three families the same
 expression in different arguments. Writing \(\varphi(D) = \tfrac12 - \sqrt{D+1}/(D+2)\),</p>
 <div class="tablewrap"><table><thead><tr><th>family</th><th>points</th><th>contexts \(L\)</th><th>violated fraction at least</th></tr></thead><tbody><tr><td>full space \(W(2N-1,2)\)</td><td>\(D^2-1\)</td><td>\((D^2-1)(D^2-4)/12\)</td><td>\(\varphi(D)\)</td></tr><tr><td>elliptic quadric \(Q^-(2N-1,2)\)</td><td>\((D+1)(D-2)/2\)</td><td>\((D+1)(D-2)(D+2)(D-4)/48\)</td><td>\(\varphi(D)\)</td></tr><tr><td>hyperbolic quadric \(Q^+(2N-1,2)\)</td><td>\((D-1)(D+2)/2\)</td><td>\((D-1)(D+2)(D-2)(D+4)/48\)</td><td>\(\varphi(D/2)\)</td></tr></tbody></table></div>
 <p>The three cases are the complex, quaternionic and real members of Dyson's threefold way; the real
 family at \(N\) qubits has the same floor as the complex family at \(N-1\) qubits.</p>
-<h2>4. Saturation</h2>
-<p><strong>Theorem 3 (equality; Jonah [J2, Theorem 6]).</strong> Equality holds in Theorem 1 if and only if there is a
-unit vector \(\psi\) with</p>
+<h2>4. Saturation in the classical families</h2>
+<p><strong>Theorem 3 (equality; Jonah [J2, Theorem 6] for the three families).</strong> Equality holds in Theorem 1 if
+and only if there is a unit vector \(\psi\) with</p>
 <p>\[\langle \psi | P_v | \psi \rangle = f(v)\,\sqrt{\frac{D-1}{|S|}} \quad (v \in S), \qquad
 \langle \psi | P_v | \psi \rangle = 0 \quad (v \notin S,\ v \ne 0).\]</p>
 <p><em>Proof.</em> Equality in (ii) forces \(x_i \in \{a, -a/(n-1)\}\) for every \(i\), and the zero sum forces exactly
 one value \(a\). So \(A = (a-b)\,|\psi\rangle\langle\psi| + b\,I\) with \(b = -a/(D-1)\); reading off Pauli
 coefficients gives the claim, and the converse is the same computation backwards. \(\qquad\blacksquare\)</p>
-<p>For the full space the condition says that \(\psi\) is a fiducial vector of a SIC covariant under the
-\(N\)-qubit Pauli group. Such vectors exist only for \(N = 1\) and \(N = 3\) (Godsil and Roy [GR]; an
-elementary proof through the integrality of the floor is in [J2]): for \(N = 3\) they are the Hoggar lines.</p>
+<p>We call such a \(\psi\) <em>flat on</em> \(S\), after [Ci]. For the full space the condition says that \(\psi\) is a
+fiducial vector of a SIC covariant under the \(N\)-qubit Pauli group. Such vectors exist only for \(N = 1\)
+and \(N = 3\) (Godsil and Roy [GR]; an elementary proof through the integrality of the floor is in [J2]):
+for \(N = 3\) they are the Hoggar lines.</p>
 <p><strong>The three saturated cases.</strong> The Hoggar fiducial \(\psi_H \propto (-1+2i, 1, 1, 1, 1, 1, 1, 1)\) has
 \(\langle P_v \rangle = \pm 1/3\) for all 63 three-qubit Pauli observables. We verified the following by
-exact counting in four independent implementations (Section 9); the values themselves are known
+exact counting in four independent implementations (Section 10); the values themselves are known
 [M1, dB, LGG, J2].</p>
 <div class="tablewrap"><table><thead><tr><th>configuration</th><th>assignment</th><th>violated</th><th>floor</th><th>spectrum of \(A\)</th></tr></thead><tbody><tr><td>\(W(5,2)\): 63 points, 315 contexts</td><td>signs of \(\langle\psi_H\vert P_v\vert \psi_H\rangle\)</td><td>63</td><td>63</td><td>\(\{21, (-3)^7\}\)</td></tr><tr><td>\(Q^-(5,2)\): 27 points, 45 contexts</td><td>the same signs, restricted</td><td>9</td><td>9</td><td>\(\{9^2, (-3)^6\}\)</td></tr><tr><td>\(Q^+(7,2)\): 135 points, 1575 contexts</td><td>signs of the realified \(\psi_H \in \mathbb{R}^{16}\)</td><td>315</td><td>315</td><td>\(\{45, (-3)^{15}\}\)</td></tr></tbody></table></div>
 <p>In the third row, \(\mathbb{C}^8\) is read as \(\mathbb{R}^{16}\); the resulting real four-qubit state has
 expectation \(\pm 1/3\) on all 135 real Pauli observables and \(0\) on the 120 imaginary ones (this
-description of the optimal assignments of \(Q^+(7,2)\) as sign patterns of real Pauli-flat states is
-announced in [J4]). The violated contexts form, respectively, a classically embedded split Cayley
+description of the optimal assignments of \(Q^+(7,2)\) as sign patterns of real flat states is
+announced in [J4]; the state \((-3,1,\dots,1)/\sqrt{24}\) of [Ci] is of this kind). The violated contexts
+form, respectively, a classically embedded split Cayley
 hexagon (63 lines, three per point, incidence graph of diameter 6 and girth 12, the three lines through
 each point in one totally isotropic plane), nine pairwise disjoint lines, and a copy of the dual polar
 space \(DW(5,2)\) (315 lines, seven per point, collinearity graph distance-regular with intersection
@@ -240,8 +323,258 @@ signs. \(\qquad\blacksquare\)</p>
 <p>For \(\psi_H\): \(g_{vv} = 2/9\); \(|g_{uv}| = 1/9\) on the 189 commuting pairs lying on the 63 violated contexts,
 \(1/18\) on the 756 pairs lying on satisfied contexts, \(1/36\) on the 1008 anticommuting pairs; the Berry
 curvature has modulus \(1/6\) on anticommuting pairs and vanishes on commuting ones. The hexagon is the
-set of pairs of largest off-diagonal metric (computed with the QGTL kernels, Section 8).</p>
-<h2>5. Consequences for all \(N\)</h2>
+set of pairs of largest off-diagonal metric (computed with the QGTL kernels, Section 9).</p>
+<h2>5. Saturation outside the classical families</h2>
+<h3>5.1 The criterion</h3>
+<p>The statements of this section concern arbitrary sets \(S\), which need not be closed. For an assignment
+\(f\) and a point \(w \in S\) let the <em>excess</em> \(e_w(f)\) be the number of satisfied minus the number of violated
+contexts of \(S\) through \(w\). For a point \(w \notin S\), \(w \ne 0\), let the <em>outside sum</em> be
+\(b_w(f) = \sum s(u,v) f(u) f(v)\) over the unordered pairs of commuting points \(u, v\) of \(S\) with
+\(u + v = w\).</p>
+<p><strong>Theorem 4 (saturation criterion).</strong> Let \(S\) be a set of points, \(f : S \to \{\pm1\}\) and
+\(A = \sum_{v\in S} f(v) P_v\). Then</p>
+<p>\[A^2 \;=\; |S|\, I \;+\; 2 \sum_{w \in S} e_w(f)\, f(w)\, P_w \;+\; 2 \sum_{w \notin S,\ w \neq 0} b_w(f)\, P_w ,\]</p>
+<p>and the following are equivalent:</p>
+<ul>
+<li>(a) \(f\) attains the floor: \(\beta_S(f) = (D-2)|S|^{3/2}/(6\sqrt{D-1})\);</li>
+<li>(b) \(A\) has the simple eigenvalue \(\sqrt{(D-1)|S|}\) and the eigenvalue \(-\sqrt{|S|/(D-1)}\) with multiplicity \(D-1\);</li>
+<li>(c) some pure state is flat on \(S\) with signs \(f\) (Theorem 3);</li>
+<li>(d) \(e_w(f) = (D-2)\sqrt{|S|}\,/\,(2\sqrt{D-1})\) for every \(w \in S\), and \(b_w(f) = 0\) for every \(w \notin S\).</li>
+</ul>
+<p>When they hold, \(d(S) = \tfrac12 L_S - (D-2)|S|^{3/2}/(12\sqrt{D-1})\) exactly, \(f\) is optimal, and,
+for \(N \ge 2\), \((D-1)|S|\) is a perfect square.</p>
+<p><em>Proof.</em> In \(A^2 = \sum_{u,v} f(u)f(v)P_uP_v\) the diagonal terms give \(|S|\,I\) and the two orders of an
+anticommuting pair cancel. A commuting pair \(u \ne v\) contributes \(2 s(u,v) f(u) f(v) P_{u+v}\). If
+\(w = u+v \in S\), the pair is a context through \(w\) and \(s(u,v)f(u)f(v) = \pm f(w)\) according to whether it
+is satisfied; summing over the contexts through \(w\) gives \(2 e_w(f) f(w) P_w\). If \(w \notin S\) the pairs
+give \(2 b_w(f) P_w\). This is the identity; for closed \(S\) the last sum is empty and it is Theorem 1 of
+[J2]. (a) \(\Leftrightarrow\) (b) is the equality case of the scalar inequality, and (b) \(\Leftrightarrow\) (c)
+is Theorem 3. Condition (b) says \((A - a)(A + a/(D-1)) = 0\) with \(a = \sqrt{(D-1)|S|}\), that is
+\(A^2 = |S|\,I + \tfrac{a(D-2)}{D-1} A\) (a traceless matrix with these two eigenvalues has the larger one
+exactly once); comparing Pauli coefficients with the identity gives (d). The floor is an integer when
+attained, which for \(D \gt 2\) forces \(\sqrt{(D-1)|S|}\) to be rational. \(\qquad\blacksquare\)</p>
+<p>Condition (d) replaces the <em>violation-regularity</em> of [J2, Theorem 6], to which it reduces when every
+point lies on the same number of contexts. For \(N \le 5\) the number \(D - 1\) is squarefree, so a set that
+attains the floor has \(|S| = (D-1)k^2\) and excess \((D-2)k/2\): \(|S| \in \{3, 12\}\) for two qubits,
+\(\{7, 28, 63\}\) for three, \(\{15, 60, 135, 240\}\) for four, \(\{31, 124, 279, 496, 775\}\) for five.</p>
+<p><strong>Table 3. The configurations we know to attain the floor</strong> (besides the stabilizer case
+\(|S| = D-1\), \(d = 0\), a maximal commuting set with the signs of a stabilizer state).</p>
+<div class="tablewrap"><table><thead><tr><th>state</th><th>\(N\)</th><th>observables</th><th>contexts</th><th>degree</th><th>modulus</th><th>excess</th><th>closed</th><th>state from</th></tr></thead><tbody><tr><td>\((i,i,i,1)/2\)</td><td>2</td><td>12</td><td>8</td><td>0</td><td>\(1/2\)</td><td>2</td><td>no</td><td>[LLY]</td></tr><tr><td>\(CCZ\) applied to \((1,\dots,1)/\sqrt8\)</td><td>3</td><td>28</td><td>56</td><td>0</td><td>\(1/2\)</td><td>6</td><td>no</td><td>folklore</td></tr><tr><td>Hoggar fiducial</td><td>3</td><td>63</td><td>315</td><td>63</td><td>\(1/3\)</td><td>9</td><td>yes</td><td>[H]</td></tr><tr><td>\((-3,1,\dots,1)/\sqrt{24}\)</td><td>4</td><td>135</td><td>1575</td><td>315</td><td>\(1/3\)</td><td>21</td><td>yes</td><td>[J4, Ci]</td></tr><tr><td>\(\psi_B\) (pivot state)</td><td>4</td><td>135</td><td>1095</td><td><strong>75</strong></td><td>\(1/3\)</td><td>21</td><td>no</td><td>this work</td></tr><tr><td>\(s_5\)</td><td>5</td><td>496</td><td>10880</td><td><strong>480</strong></td><td>\(1/4\)</td><td>60</td><td>no</td><td>[Ci]</td></tr><tr><td>\(\Phi_5\) (3 \(CS\), 2 \(CCZ\))</td><td>5</td><td>496</td><td>10880</td><td><strong>480</strong></td><td>\(1/4\)</td><td>60</td><td>no</td><td>this work</td></tr><tr><td>\(\Phi_7\) (3 \(CS\), 8 \(CCZ\))</td><td>7</td><td>8128</td><td>2824192</td><td><strong>729344</strong></td><td>\(1/8\)</td><td>504</td><td>no</td><td>this work</td></tr></tbody></table></div>
+<p>The degrees in bold are new, as is the reading of the first two rows: the 12 two-qubit observables
+outside a maximal commuting set, and the 28 real three-qubit observables that are not diagonal, are
+noncontextual configurations on which the floor is nevertheless exact. The configurations of \(s_5\) and
+\(\Phi_5\) are equivalent under the Clifford group (Theorem 12). The first seven rows are proved in Lean
+(Section 8); all eight are reproduced on Moonlab (Section 9).</p>
+<h3>5.2 A four-qubit and a five-qubit configuration</h3>
+<p><strong>Theorem 5 (the pivot configuration).</strong> Let</p>
+<p>\[\psi_B \;=\; \tfrac{1}{\sqrt6}\big(\,|0011\rangle + |0111\rangle + |1011\rangle + |1100\rangle + |1101\rangle + i\,|1110\rangle\,\big),\]</p>
+<p>with qubit 0 written on the right, and let \(S_B\) be the set of observables with non-zero expectation
+value in \(\psi_B\).</p>
+<ol>
+<li>The expectation values are \(\pm 1/3\) on \(S_B\), and \(|S_B| = 135\): the 15 diagonal observables
+\((0 \mid c)\), and for each \(a \ne 0\) the eight observables \((a \mid c)\) with \(a \cdot c = \epsilon(a)\), where
+\(\epsilon(a) = 1\) for the five values \(a \in E = \{0010, 0011, 0101, 1001, 1101\}\) and \(\epsilon(a) = 0\)
+otherwise.</li>
+<li>\(S_B\) contains 1095 contexts: 35 through each diagonal observable and 23 through each of the other
+120. It is not closed and it is not a quadric, but every hyperplane \(w^\perp\) meets it in 71 points if
+\(w \in S_B\) and in 63 points otherwise, as for \(Q^+(7,2)\): it is a quasi-quadric in the sense of
+[DHOP]. It differs from the quadric \(a \cdot c = 0\) in 80 points, those with \(a \in E\), and \(E\)
+consists of five pairwise non-orthogonal vectors (an ovoid) of the doily \(W(3,2)\) defined by the form
+\(x_0y_1 + x_1y_0 + x_2y_3 + x_3y_2\).</li>
+<li>\(d(S_B) = 75\). The assignment given by the signs of the expectation values violates the 15 lines of
+that doily, read among the diagonal observables, and 60 further contexts, each with exactly one
+diagonal observable. Every non-diagonal observable of \(S_B\) lies on exactly one violated context and
+every diagonal one on seven.</li>
+</ol>
+<p><em>Proof.</em> Items 1 and 2 and the count of 75 violated contexts are finite computations in \(\mathbb{Z}[i]\)
+(Section 10); item 1 also follows from Proposition 6. The bound \(d(S_B) \ge 75\) is Theorem 1 with
+\(|S| = 135\), \(D = 16\), \(L = 1095\): \(\beta \le 14 \cdot 135 \cdot 45 / (6 \cdot 15) = 945\). In Lean this
+is <code>pivot_degree</code>. \(\qquad\blacksquare\)</p>
+<p>The noncontextuality inequality of this configuration has classical bound \(945\) and quantum value
+\(1095\) in every state. The quadric \(Q^+(7,2)\) has the same number of observables and the same classical
+bound, with quantum value \(1575\).</p>
+<p><strong>Proposition 6 (flat states on a bent support).</strong> Let \(T\) be the set of the six \(x \in \mathbb{F}_2^4\) with
+\(x_0x_1 + x_2x_3 = 1\), the support of a bent function, and let \(\phi : T \to \mathbb{C}\) with \(|\phi| = 1\).
+The state \(\psi_\phi = 6^{-1/2}\sum_{x \in T}\phi(x)|x\rangle\) is flat on its Pauli support if and only if, up
+to a global phase, all \(\phi(x)\) are fourth roots of unity. In that case the support has 135 points and the
+modulus is \(1/3\); it is a hyperbolic quadric (1575 contexts, degree 315) when the number of imaginary
+amplitudes is even, and it has 1095 contexts and degree 75 when that number is odd. The two classes are
+not related by any Clifford operation.</p>
+<p><em>Proof.</em> \(T\) is a difference set with parameters \((16,6,2)\) [R]: every non-trivial character sum over \(T\)
+is \(\pm 2\), and for every \(a \ne 0\) exactly one unordered pair \(x_a, x_a + a\) lies in \(T\). Hence
+\(\langle Z^c\rangle = \pm 1/3\) for \(c \ne 0\), and for \(a \ne 0\), with \(z_a = \overline{\phi(x_a + a)}\,\phi(x_a)\),</p>
+<p>\[\langle X^a Z^c \rangle = \tfrac16 (-1)^{c \cdot x_a}\big( z_a + (-1)^{c \cdot a}\, \overline{z_a} \big),\]</p>
+<p>so the expectation value of \(P_{(a|c)}\) is \(\pm\tfrac13 \operatorname{Re} z_a\) when \(a \cdot c = 0\) and
+\(\pm\tfrac13 \operatorname{Im} z_a\) when \(a \cdot c = 1\). A common modulus must be \(1/3\), which holds exactly
+when every \(z_a\) is \(\pm 1\) or \(\pm i\), that is, when all ratios of amplitudes are fourth roots of unity.
+Then for each \(a \ne 0\) exactly the eight observables with \(a \cdot c = \epsilon(a)\) are in the support,
+where \(\epsilon(a) = 0\) if \(z_a\) is real and \(1\) if it is imaginary. Write \(\phi = i^{k}\) and
+\(\kappa = k \bmod 2\); then \(\epsilon(x + x') = \kappa_x + \kappa_{x'}\). A diagonal Clifford operation
+multiplies \(\phi\) by \(i^{q(x)}\) for a \(\mathbb{Z}_4\)-valued quadratic form \(q\) and changes \(\kappa\) by the
+restriction to \(T\) of a linear functional; these sixteen restrictions have weights 0, 2 and 4, and
+together with the all-ones vector (a global factor \(i\)) they span the even-weight vectors of
+\(\mathbb{F}_2^{T}\). So \(\kappa\) of even weight is equivalent to \(\kappa = 0\), a real state, whose support is
+the quadric \(a \cdot c = 0\); and \(\kappa\) of odd weight is equivalent to a single imaginary amplitude, as
+in \(\psi_B\). Symplectic maps preserve the number of contexts, and \(1575 \ne 1095\). The two counts were
+computed for all 32 supports that occur, over all 4096 phase patterns (Section 10). \(\qquad\blacksquare\)</p>
+<p><strong>Theorem 7 (five qubits).</strong> Let \(S_5\) be the set of the 496 five-qubit observables with non-zero
+expectation value in the state \(s_5\) of Cieśliński [Ci, eq. (18)], all equal to \(\pm 1/4\). Then
+\(S_5\) contains 10880 contexts and \(d(S_5) = 480\). The optimal assignment, the signs of the expectation
+values, leaves 16 observables on no violated context (60 contexts through
+each), 240 on two (of 64) and 240 on four (of 68). Every hyperplane \(w^\perp\) meets \(S_5\) in 256 points
+if \(w \in S_5\) and in 240 otherwise, as for the complement of \(Q^+(9,2)\); \(S_5\) is not such a complement.</p>
+<p><em>Proof.</em> The counts are finite computations in \(\mathbb{Z}[i]\). The lower bound is Theorem 1 with
+\(|S| = 496\), \(D = 32\): \(\beta \le 30 \cdot 496 \cdot 124/(6 \cdot 31) = 9920 = 10880 - 2\cdot 480\). In Lean
+this is <code>cieslinski5_degree</code>. No state vanishes on every observable of a hyperbolic quadric: these are the
+observables commuting with an antiunitary \(\theta\) with \(\theta^2 = 1\), and the condition would give
+\(\rho + \theta\rho\,\theta^{-1} = 2I/D\), of rank \(D\), for a projector \(\rho\) of rank one. \(\qquad\blacksquare\)</p>
+<p><strong>Proposition 8 (the optimum in the quantum metric).</strong> Let \(\psi\) be flat on \(S\) with modulus \(\mu\), and
+let \(f\) be the signs of its expectation values. For \(u \ne v\) in \(S\) the Fubini–Study metric of
+Proposition 3 has \(|g_{uv}| = (\mu + \mu^2)/4\) if \(u, v, u+v\) form a context of \(S\) violated by \(f\),
+\(|g_{uv}| = (\mu - \mu^2)/4\) if they form a satisfied context of \(S\), and \(|g_{uv}| = \mu^2/4\) otherwise
+(\(u\), \(v\) anticommute, or their product is outside \(S\)). So the violated contexts of the optimal
+assignment are exactly the pairs with \(4|g_{uv}|\) larger than \(\mu\). The Berry curvature has modulus
+\(\mu/2\) on anticommuting pairs whose product is in \(S\) and vanishes on all other pairs.</p>
+<p><em>Proof.</em> Proposition 3 with \(|p| = \mu\) on \(S\) and \(p = 0\) outside; for anticommuting \(u, v\) the product
+\(P_uP_v\) is \(\pm i P_{u+v}\), so \(\langle P_uP_v\rangle\) is imaginary, of modulus \(|p_{u+v}|\).
+\(\qquad\blacksquare\)</p>
+<p><strong>Proposition 9 (two mutually unbiased stabilizer states).</strong> Let \(s_1, s_2\) be stabilizer state vectors
+whose stabilizer groups meet only in the identity, so that \(|\langle s_1|s_2\rangle| = D^{-1/2}\),
+and let \(\varphi = \theta + \arg\langle s_1|s_2\rangle\). The normalized state proportional to
+\(s_1 + e^{i\theta}s_2\) is flat on a set that is not a stabilizer group exactly in the following cases:
+\(N = 1\) with \(\cos\varphi = (\sqrt6 - \sqrt2)/4\) or \(-(\sqrt6 + \sqrt2)/4\) (all 3 observables, modulus
+\(1/\sqrt3\)); \(N = 2\) with \(\varphi = \pm\pi/2\) (12 observables, modulus \(1/2\)); \(N = 3\) with
+\(\varphi = \pm 3\pi/4\) (all 63, modulus \(1/3\): the Hoggar fiducial is \(\sqrt8\) times the uniform vector
+plus \((-2+2i)\) times the first basis vector); \(N = 4\) with \(\varphi = \pi\) (the 135 observables of a
+hyperbolic quadric, modulus \(1/3\): \((-3,1,\dots,1)\) is 4 times the uniform unit vector minus 4 times the
+first basis vector). There is none for \(N \ge 5\).</p>
+<p><em>Proof.</em> Let \(t = D^{-1/2}\) and \(n = 2 + 2t\cos\varphi\) the squared norm. An observable of the first
+stabilizer group has expectation \(\pm(1 + 2t\cos\varphi)/n\), and so has one of the second. Every other
+observable is, up to a phase, a product \(P_1P_2\) of non-identity elements of the two groups, and its
+expectation is \(\pm 2t\cos\varphi/n\) if \(P_1, P_2\) commute and \(\pm 2t\sin\varphi/n\) if they anticommute.
+Equating the non-zero moduli: all three are equal only if \(|\cos\varphi| = |\sin\varphi|\) and
+\(1 - \sqrt2\,t = \sqrt2\,t\), so \(D = 8\); with \(\sin\varphi = 0\) one needs \(1 - 2t = 2t\), so \(D = 16\) and
+\(\cos\varphi = -1\); with \(\cos\varphi = 0\) one needs \(1 = 2t\), so \(D = 4\); for \(D = 2\) there are no
+commuting products and \(|1 + \sqrt2\cos\varphi| = \sqrt2|\sin\varphi|\) has the two stated solutions.
+The remaining case \(1 + 2t\cos\varphi = 0\) gives a stabilizer state. \(\qquad\blacksquare\)</p>
+<p>So the SIC fiducials of one and three qubits, a state with the Pauli spectrum of [LLY], and the
+quadric state are four members of one family, and that family stops at four qubits. The pivot state is
+not in it: it is a combination of three pairwise unbiased stabilizer states.</p>
+<h3>5.3 Flat phase states, and a seven-qubit configuration</h3>
+<p><strong>Proposition 10 (the support is a two-character set).</strong> Let \(\psi\) be flat on \(S\) and let
+\(k^2 = |S|/(D-1)\), the inverse square of the modulus. For every point \(w\),</p>
+<p>\[\sum_{v \in S} (-1)^{\langle v, w\rangle} \;=\; D\,[w \in S] \;-\; k^2 .\]</p>
+<p>Equivalently, exactly \((D-2)|S|/(2(D-1)) + \tfrac{D}{2}[w \in S]\) observables of \(S\) commute with \(P_w\).
+Hence the graph on \(\mathbb{F}_2^{2N}\) in which \(u\) and \(v\) are adjacent when \(u + v \in S\) is strongly
+regular (or complete), with eigenvalues \(|S|\), \(D - k^2\) and \(-k^2\) [CK]. If \(k^2 = D/2\) the sum takes
+the values \(\pm D/2\): then \(S\) is a Hadamard difference set, the support of a bent function on the
+\(2N\)-dimensional space.</p>
+<p><em>Proof.</em> For a pure state \(\rho\) and any \(w\), \(\operatorname{tr}(\rho P_w \rho P_w) = \langle P_w\rangle^2\).
+Writing \(\rho = D^{-1}\sum_v p_v P_v\) with \(p_0 = 1\) and using \(P_wP_vP_w = (-1)^{\langle v,w\rangle}P_v\)
+gives \(p_w^2 = D^{-1}\sum_v (-1)^{\langle v,w\rangle}p_v^2\). Insert \(p_v^2 = k^{-2}\) on \(S\), \(1\) at \(v = 0\)
+and \(0\) elsewhere. \(\qquad\blacksquare\)</p>
+<p>The identity for \(p_w^2\) holds for every pure state and is standard; we did not find its consequence for
+flat states stated. It accounts for the hyperplane numbers in Theorems 5 and 7. For the two four-qubit
+rows of Table 3 it gives a strongly regular graph with the parameters \((256, 135, 70, 72)\) of the affine
+polar graph of \(Q^+(7,2)\); for the three-, five- and seven-qubit rows with modulus \(2^{-(N-1)/2}\) it gives
+bent functions in 6, 10 and 14 variables.</p>
+<p><strong>Phase states.</strong> Let \(a_j \in \mathbb{Z}_8\), \(b_{jk} \in \mathbb{Z}_4\), \(c_{jkl} \in \mathbb{Z}_2\) and</p>
+<p>\[p(x) = \sum_j a_j x_j + 2\sum_{j \lt k} b_{jk}\, x_j x_k + 4\sum_{j \lt k \lt l} c_{jkl}\, x_j x_k x_l \pmod 8,
+\qquad |\Phi_p\rangle = D^{-1/2}\sum_{x} e^{i\pi p(x)/4}\,|x\rangle .\]</p>
+<p>\(\Phi_p\) is obtained from \(|{+}\cdots{+}\rangle\) by \(T\) gates (\(a_j\)), controlled-S gates \(CS\) (\(b_{jk}\)) and
+\(CCZ\) gates (\(c_{jkl}\)); these are the diagonal gates of the third level of the Clifford hierarchy [CGK].
+Let \(T\) be the symmetric trilinear form on \(\mathbb{F}_2^N\) with \(T(e_j,e_j,e_j) = a_j\),
+\(T(e_j,e_j,e_k) = T(e_j,e_k,e_k) = b_{jk}\) and \(T(e_j,e_k,e_l) = c_{jkl}\) modulo 2. Then
+\(B(x,z) = T(x,x,z)\) is a symmetric bilinear form, alternating exactly when there is no \(T\) gate. A linear
+change of variables in \(T\) is a CNOT circuit on the state, and two polynomials with the same form differ
+by a diagonal Clifford gate.</p>
+<p><strong>Proposition 11 (phase states of the third level).</strong> For \(a \ne 0\) let \(R_a\) be the radical and \(r_a\)
+the rank of the symmetric bilinear form \(T(a,\cdot,\cdot)\). The expectation value of \(X^aZ^c\) in \(\Phi_p\)
+has modulus \(2^{-r_a/2}\) for the \(2^{r_a}\) vectors \(c\) of one coset of \(R_a^{\perp}\) and vanishes for every
+other \(c\); diagonal observables have expectation value zero. So \(\Phi_p\) has a single non-zero modulus
+exactly when \(r_a = r\) is the same for every \(a \ne 0\). Then the modulus is \(2^{-r/2}\), the support has
+\((D-1)2^r\) points, \(r\) is even if \(N \ge 2\), and \(\Phi_p\) attains the floor on its support. If moreover
+\(r = N-1\), each \(R_a\) has one non-zero element \(\rho(a)\), the map \(\rho\) is an involution of the non-zero
+vectors, and</p>
+<p>\[S = \{\,(a \mid c) \;:\; a \ne 0,\ \ c\cdot\rho(a) = \epsilon(a)\,\}\]</p>
+<p>for a function \(\epsilon\): the support of a bent function of Maiorana–McFarland type [McF].</p>
+<p><em>Proof.</em> Modulo 8 the third difference of \(p\) is \(4T\), independent of the base point, and the second
+difference is even. So \(p(x) - p(x+a) = h_a + 2q_a(x)\) with \(q_a(0) = 0\) and
+\(q_a(x+y) = q_a(x) + q_a(y) + 2T(a,x,y)\) modulo 4, a \(\mathbb{Z}_4\)-valued quadratic form [CCKS], and
+\(\langle X^aZ^c\rangle = D^{-1}e^{i\pi h_a/4}\sum_x i^{q_a(x)}(-1)^{c\cdot x}\). Now</p>
+<p>\[\Big|\sum_x i^{q_a(x)}(-1)^{c\cdot x}\Big|^2 = \sum_z i^{q_a(z)}(-1)^{c\cdot z}\sum_y (-1)^{T(a,y,z)}
+ = D \sum_{z \in R_a} i^{q_a(z)}(-1)^{c\cdot z} .\]</p>
+<p>On \(R_a\) the map \(z \mapsto i^{q_a(z)}\) is a character with values \(\pm1\), so the last sum is
+\(2^{N-r_a}\) when \((-1)^{c\cdot z}\) agrees with it on \(R_a\) and \(0\) otherwise. That \(r\) is even follows
+from Theorem 4. If \(r = N-1\) then \(T(a,\rho(a),\cdot) = 0\), which is symmetric in \(a\) and \(\rho(a)\), so
+\(\rho(\rho(a)) = a\). \(\qquad\blacksquare\)</p>
+<p><strong>Theorem 12 (all flat phase states of the third level on at most five qubits).</strong> Among the non-zero
+forms \(T\) in \(N \le 5\) variables, those of constant rank are the following.</p>
+<div class="tablewrap"><table><thead><tr><th>\(N\)</th><th>forms</th><th>of constant rank</th><th>classes under CNOT circuits</th><th>gates of a representative</th><th>\(r\)</th><th>observables</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>\(T\)</td><td>1</td><td>2</td></tr><tr><td>2</td><td>7</td><td>1</td><td>1</td><td>\(CS(0,1)\)</td><td>2</td><td>12</td></tr><tr><td>3</td><td>127</td><td>8</td><td>2</td><td>\(CCZ(0,1,2)\); \(CS(0,1)\) \(CS(0,2)\)</td><td>2</td><td>28</td></tr><tr><td>4</td><td>16383</td><td>0</td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td>33554431</td><td>166656</td><td>1</td><td>\(CS(0,1)\) \(CS(1,3)\) \(CS(2,4)\) \(CCZ(0,1,4)\) \(CCZ(0,2,3)\)</td><td>4</td><td>496</td></tr></tbody></table></div>
+<p>For five qubits the stabilizer of the form in \(GL(5,2)\) has order 60. Write \(\Phi_5\) for the state of the
+last row. The supports of the two three-qubit classes are equivalent under \(Sp(6,2)\), and the support
+of \(\Phi_5\) is mapped onto the set \(S_5\) of Theorem 7 by a symplectic map of \(\mathbb{F}_2^{10}\). So no
+state of this kind is flat on four qubits; on five qubits every one of them is obtained from \(\Phi_5\) by
+a CNOT circuit and a diagonal Clifford gate; and the configuration found numerically in [Ci] is, up to a
+Clifford operation, the Pauli support of a circuit of five gates.</p>
+<p><em>Proof.</em> Exhaustive enumeration, with the orbits computed from the transvections that generate
+\(GL(N,2)\) (<code>src/third_level.c</code>; for \(N \le 4\) also <code>scripts/phase_states.py</code>). The two symplectic maps
+are found by search and verified on every point; the second is recorded in <code>results/phase_states.json</code>.
+\(\qquad\blacksquare\)</p>
+<p>For \(N = 2\) the state is that of [LLY] up to a phase and complex conjugation. In coordinates
+\(X = (x_1, x_2, \alpha) \in \mathbb{F}_q \times \mathbb{F}_q \times \mathbb{F}_2\) with \(q = 4\), the
+five-qubit form is</p>
+<p>\[T(X,Y,Z) = \operatorname{Tr}\big[x_1y_1z_2^2 + x_1y_2^2z_1 + x_2^2y_1z_1 + x_2y_2z_1^2 + x_2y_1^2z_2 + x_1^2y_2z_2\big]
+ + \alpha\,\sigma(y,z) + \beta\,\sigma(x,z) + \gamma\,\sigma(x,y),\]</p>
+<p>where \(\sigma(y,z) = \operatorname{Tr}[a\,(y_1z_2 + y_2z_1)]\), \(\operatorname{Tr}\) is the trace to
+\(\mathbb{F}_2\) and \(a\) generates \(\mathbb{F}_4\). It is invariant under \((x_1, x_2) \mapsto (\lambda x_1, \lambda^{-1}x_2)\).</p>
+<p><strong>Theorem 13 (seven qubits).</strong> Let</p>
+<p>\[|\Phi_7\rangle = CS_{01}\,CS_{23}\,CS_{45}\;\, CCZ_{012}\,CCZ_{035}\,CCZ_{124}\;\, CCZ_{046}\,CCZ_{056}\,CCZ_{136}\,CCZ_{236}\,CCZ_{256}\; |{+}\rangle^{\otimes 7}\]</p>
+<p>and let \(S_7\) be its Pauli support.</p>
+<ol>
+<li>\(\Phi_7\) has expectation values \(\pm 1/8\) on \(S_7\) and \(0\) elsewhere, and \(|S_7| = 8128 = 2^6(2^7-1)\).</li>
+<li>\(S_7\) contains 2 824 192 contexts and \(d(S_7) = 729\,344\). In the optimal assignment every observable
+of \(S_7\) lies on 504 more satisfied than violated contexts; the number of contexts through an
+observable is 1008, 1024, 1040, 1056, 1072 or 1104 (for 64, 3584, 1792, 1344, 896 and 448 observables).</li>
+<li>Let \(\mathcal{F}\) be the family of forms on \(\mathbb{F}_2^7\) for which \(B\) is alternating of rank 6.
+The forms of constant rank in \(\mathcal{F}\) are a single class under CNOT circuits, and the stabilizer
+of such a form in \(GL(7,2)\) has order 7. In coordinates
+\(\mathbb{F}_8 \times \mathbb{F}_8 \times \mathbb{F}_2\) the form is the one displayed above, with the
+trace of \(\mathbb{F}_8\), with \(a^3 + a^2 + 1 = 0\), and with the additional term \(\operatorname{Det}(x_1,y_1,z_1)\),
+the alternating trilinear form of \(\mathbb{F}_8\) over \(\mathbb{F}_2\).</li>
+<li>For each of the nine other types of \(B\) (alternating of rank 0, 2 or 4; not alternating, of rank 1
+to 6) we tested \(3 \times 10^8\) random forms; none has constant rank.</li>
+</ol>
+<p><em>Proof.</em> Item 1 and the counts of item 2 are finite computations in \(\mathbb{Z}[i]\), made by three
+programs that share no code (Section 10). The lower bound is Theorem 1 with \(|S| = 8128\), \(D = 128\):
+\(\beta \le 126 \cdot 8128 \cdot 1016/(6\cdot 127) = 1\,365\,504 = 2\,824\,192 - 2 \cdot 729\,344\). For item 3,
+choose a basis in which \(e_6\) spans the radical of \(B\) and \(e_0,\dots,e_5\) is a symplectic basis of a
+complement. Every form of \(\mathcal{F}\) is then the third difference of
+\(2(x_0x_1 + x_2x_3 + x_4x_5) + 4w(x_0,\dots,x_5) + 4x_6\,s(x_0,\dots,x_5)\) for a set \(w\) of \(CCZ\) gates
+on the first six qubits (\(2^{20}\) choices) and a graph \(s\) on them, which must be nondegenerate (13888
+choices). All \(1.46 \times 10^{10}\) such forms were tested (<code>src/family7.c</code>): 13 271 040 have constant
+rank. The group that preserves the normal form has order \(64\,|Sp(6,2)| = 92\,897\,280\), and the
+solutions are one orbit of it, of size \(92\,897\,280/7\) (<code>src/orbits7.c</code>). \(\qquad\blacksquare\)</p>
+<p>The noncontextuality inequality of \(S_7\) has classical bound \(1\,365\,504\) and quantum value \(2\,824\,192\):
+no noncontextual model reproduces more than \(74.2\) per cent of its contexts. Item 4 is evidence, not
+proof, that \(\Phi_7\) is the only flat phase state of the third level on seven qubits. The numbers of
+observables for three, five and seven qubits, 28, 496 and 8128, are \(2^{N-1}(2^N-1)\); that they are the
+second, third and fourth perfect numbers reflects only that 7, 31 and 127 are prime. We do not know
+whether a flat phase state exists on nine qubits (it would have 130 816 observables of modulus \(1/16\)):
+the forms with the symmetry \((x_1,x_2) \mapsto (\lambda x_1,\lambda^{-1}x_2)\) of the five- and seven-qubit
+ones do not have constant rank for nine or eleven qubits.</p>
+<h3>5.4 What does not attain the floor</h3>
+<p>For the \(D^2 - D\) observables outside a maximal commuting set (the
+non-diagonal ones, say) there are \((D-1)(D-2)D^2/12\) contexts and Theorem 1 gives a violated fraction of
+at least \(\tfrac12 - 2^{-N/2}\). By Theorem 4, equality would need a state with all non-diagonal
+expectation values of modulus \(2^{-N/2}\), that is, a state whose orbit under the Pauli group forms,
+with the computational basis, a complete set of mutually unbiased bases. For two qubits this is the
+first row of Table 3. For four qubits and for every odd \(N \ge 3\) no such state exists [K], so the
+degree is strictly above the floor there. A numerical search from random starts found flat four-qubit
+states only with \(|S| = 135\) (both classes of Proposition 6) and flat five-qubit states only with
+\(|S| = 496\); it found none with \(|S| = 60\), or with \(|S|\) equal to 124, 279 or 775. This is evidence, not
+proof, that Table 3 is complete up to five qubits.</p>
+<h2>6. Consequences for all \(N\)</h2>
 <p><strong>Corollary A (full space).</strong> For every \(N \ge 1\) every assignment of the \(D^2 - 1\) Pauli observables
 violates at least \(\varphi(D)\,L\) contexts (Lean: <code>full_space_fraction</code>). Since a uniformly random
 assignment violates \(L/2\) contexts on average, \(d/L \to 1/2\).</p>
@@ -277,11 +610,11 @@ observable, each a signed copy of \(W(7,2)\) [LGG, J1]; we re-verified these inc
 With Theorem 2 and integer rounding this gives \(d(Q^-(7,2)) \ge 291\), \(d(W(7,2)) \ge 1455\),
 \(d(Q^+(9,2)) \ge 6444\), \(d(W(9,2)) \ge 28791\), each below the values of [J1, J4] and stated here only to
 show what the floor alone yields.</p>
-<h2>6. The data against the floor</h2>
-<p>Table 1 confronts every published or pre-printed value we know with the floor. &quot;Floor&quot; is the integer
-bound of Theorem 1 (Theorem 2 for elliptic quadrics), computed in exact integer arithmetic.
-&quot;Best assignment&quot; is the smallest number of violated contexts known; all entries up to five qubits were
-reproduced by our own search (Section 9).</p>
+<h2>7. The data against the floor</h2>
+<p>Table 1 confronts every published or pre-printed value we know for the classical families with the
+floor. &quot;Floor&quot; is the integer bound of Theorem 1 (Theorem 2 for elliptic quadrics), computed in exact
+integer arithmetic. &quot;Best assignment&quot; is the smallest number of violated contexts known; all entries up
+to five qubits were reproduced by our own search (Section 10).</p>
 <div class="tablewrap"><table><thead><tr><th>configuration</th><th>\(N\)</th><th>points</th><th>contexts</th><th>averaging bound \(\lceil L/5\rceil\) [M2, LGG]</th><th>floor</th><th>best assignment</th><th>exact value</th></tr></thead><tbody><tr><td>\(W(3,2)\)</td><td>2</td><td>15</td><td>15</td><td>3</td><td>2</td><td>3</td><td>3 [dB]</td></tr><tr><td>\(Q^+(3,2)\)</td><td>2</td><td>9</td><td>6</td><td>–</td><td>1</td><td>1</td><td>1</td></tr><tr><td>\(W(5,2)\)</td><td>3</td><td>63</td><td>315</td><td>63</td><td><strong>63</strong></td><td>63</td><td>63 [M1]</td></tr><tr><td>\(Q^+(5,2)\)</td><td>3</td><td>35</td><td>105</td><td>21</td><td>14</td><td>21</td><td>21 [dB]</td></tr><tr><td>\(Q^-(5,2)\)</td><td>3</td><td>27</td><td>45</td><td>9</td><td><strong>9</strong></td><td>9</td><td>9 [dB]</td></tr><tr><td>\(W(7,2)\)</td><td>4</td><td>255</td><td>5355</td><td>1071</td><td>1451</td><td>1575 [M2]</td><td>1575 [J1]*</td></tr><tr><td>\(Q^+(7,2)\)</td><td>4</td><td>135</td><td>1575</td><td>315</td><td><strong>315</strong></td><td>315 [M2]</td><td>315 [LGG]</td></tr><tr><td>\(Q^-(7,2)\)</td><td>4</td><td>119</td><td>1071</td><td>215</td><td>291</td><td>315 [M2]</td><td>315 [J1]*</td></tr><tr><td>\(W(9,2)\)</td><td>5</td><td>1023</td><td>86955</td><td>17391</td><td>28786</td><td>31479 [M2]</td><td>open (\(\ge 28830\) [J4]*)</td></tr><tr><td>\(Q^+(9,2)\)</td><td>5</td><td>527</td><td>23715</td><td>4743</td><td>6426</td><td>6975 [M2]</td><td>6975 [J1]*</td></tr><tr><td>\(Q^-(9,2)\)</td><td>5</td><td>495</td><td>19635</td><td>3927</td><td>6501</td><td>7087 [M2]</td><td>open (\(\ge 6510\) [J4]*)</td></tr><tr><td>\(W(11,2)\)</td><td>6</td><td>4095</td><td>1396395</td><td>279279</td><td>527621</td><td>553140 [M2]</td><td>open</td></tr><tr><td>\(Q^+(11,2)\)</td><td>6</td><td>2079</td><td>365211</td><td>73043</td><td>120901</td><td>132391 [M2]</td><td>open</td></tr><tr><td>\(Q^-(11,2)\)</td><td>6</td><td>2015</td><td>332475</td><td>66495</td><td>125624</td><td>131700 [M2]</td><td>open</td></tr><tr><td>\(W(13,2)\)</td><td>7</td><td>16383</td><td>22362795</td><td>4472559</td><td>9227609</td><td>9406024 [M2]</td><td>open</td></tr><tr><td>\(Q^+(13,2)\)</td><td>7</td><td>8255</td><td>5720715</td><td>1144143</td><td>2161542</td><td>2331191 [M2]</td><td>open</td></tr><tr><td>\(Q^-(13,2)\)</td><td>7</td><td>8127</td><td>5458635</td><td>1091727</td><td>2252409</td><td>2294580 [M2]</td><td>open</td></tr></tbody></table></div>
 <p>* computer-assisted, not formally verified, not peer reviewed; we did not re-run these computations.</p>
 <p>Reading of the table. (1) All 17 rows are consistent with the floor; it is attained in the three rows
@@ -289,14 +622,15 @@ in bold and, after rounding, in \(Q^+(3,2)\), the Mermin–Peres square. (2) Fro
 hyperbolic quadrics) the floor exceeds the averaging bound \(L/5\), and the gap to the best assignment
 shrinks: the floor closes 75, 81, 91 and 96 per cent of the interval between \(L/5\) and the best
 assignment for the full space at \(N = 4, 5, 6, 7\). (3) For seven qubits the best known assignments of
-the full space and of the elliptic quadric are within two per cent of the floor.</p>
+the full space and of the elliptic quadric are within two per cent of the floor. (4) Outside these
+families the floor is exact for the configurations of Table 3.</p>
 <p>An empirical regularity, also recorded for four qubits in [J1]: in every best assignment we computed,
 \(A + 3I\) has low rank. The spectra of \(A\) are \(\{21 \pm 16\sqrt6, (-3)^{14}\}\) for \(W(7,2)\),
 \(\{(9 \pm 4\sqrt{23})^2, (-3)^{12}\}\) for \(Q^-(7,2)\), \(\{45 \pm 56\sqrt2, (-3)^{30}\}\) for \(Q^+(9,2)\), and three
 (respectively three pairs of) eigenvalues different from \(-3\) for \(W(9,2)\) (respectively \(Q^-(9,2)\)).</p>
-<h2>7. The Lean 4 development</h2>
-<p>The sources are in <code>lean/HoggarBound/</code> (1273 lines in six modules; Lean 4.35.0, Mathlib v4.35.0).</p>
-<div class="tablewrap"><table><thead><tr><th>module</th><th>content</th></tr></thead><tbody><tr><td><code>Moment.lean</code></td><td><code>sum_cube_le</code> (the scalar inequality); <code>trace_pow_eq_sum_eigenvalues_pow</code> (\(\operatorname{tr}A^k = \sum \lambda_i^k\) for Hermitian \(A\)); <code>trace_cube_le</code></td></tr><tr><td><code>Pauli.lean</code></td><td>bit vectors <code>Fin N → ZMod 2</code>; Weyl operators and <code>pauli u</code> as explicit complex matrices; <code>pauli_mul</code>, <code>context_product</code> (\(P_uP_vP_{u+v} = \tau(u,v) I\)), <code>pauli_comm</code>; traces of one, two and three Pauli operators; \(\tau = \pm 1\) on commuting pairs</td></tr><tr><td><code>Bound.lean</code></td><td><code>flags</code> (ordered commuting pairs with product in \(S\): six per context), <code>beta6</code>, the operator <code>opA</code>; <code>trace_opA_cube</code> (\(\operatorname{tr}A^3 = D\,\beta_6\)); <strong><code>hoggar_bound</code></strong></td></tr><tr><td><code>Counting.lean</code></td><td><code>violated</code>, <code>beta6_eq_card</code>; the flag count of the full space for every \(N\) (<code>card_flags_all</code>); <code>violatedLines</code> and <code>card_violated_le</code>; <code>four_qubit_contexts</code></td></tr><tr><td><code>Corollaries.lean</code></td><td><code>full_space_bound</code>, <code>full_space_fraction</code> (all \(N\)); <code>three_qubit_contexts</code>, <code>five_qubit_contexts</code></td></tr><tr><td><code>Quadric.lean</code></td><td>the real quadric; its point and flag counts for every \(N\) by character sums; <code>four_qubit_hyperbolic_contexts</code>, <code>five_qubit_hyperbolic_contexts</code></td></tr></tbody></table></div>
+<h2>8. The Lean 4 development</h2>
+<p>The sources are in <code>lean/HoggarBound/</code> (Lean 4.35.0, Mathlib v4.35.0).</p>
+<div class="tablewrap"><table><thead><tr><th>module</th><th>content</th></tr></thead><tbody><tr><td><code>Moment.lean</code></td><td><code>sum_cube_le</code> (the scalar inequality); <code>trace_pow_eq_sum_eigenvalues_pow</code> (\(\operatorname{tr}A^k = \sum \lambda_i^k\) for Hermitian \(A\)); <code>trace_cube_le</code></td></tr><tr><td><code>Pauli.lean</code></td><td>bit vectors <code>Fin N → ZMod 2</code>; Weyl operators and <code>pauli u</code> as explicit complex matrices; <code>pauli_mul</code>, <code>context_product</code> (\(P_uP_vP_{u+v} = \tau(u,v) I\)), <code>pauli_comm</code>; traces of one, two and three Pauli operators; \(\tau = \pm 1\) on commuting pairs</td></tr><tr><td><code>Bound.lean</code></td><td><code>flags</code> (ordered commuting pairs with product in \(S\): six per context), <code>beta6</code>, the operator <code>opA</code>; <code>trace_opA_cube</code> (\(\operatorname{tr}A^3 = D\,\beta_6\)); <strong><code>hoggar_bound</code></strong></td></tr><tr><td><code>Counting.lean</code></td><td><code>violated</code>, <code>beta6_eq_card</code>; the flag count of the full space for every \(N\) (<code>card_flags_all</code>); <code>violatedLines</code> and <code>card_violated_le</code>; <code>four_qubit_contexts</code></td></tr><tr><td><code>Corollaries.lean</code></td><td><code>full_space_bound</code>, <code>full_space_fraction</code> (all \(N\)); <code>three_qubit_contexts</code>, <code>five_qubit_contexts</code></td></tr><tr><td><code>Quadric.lean</code></td><td>the real quadric; its point and flag counts for every \(N\) by character sums; <code>four_qubit_hyperbolic_contexts</code>, <code>five_qubit_hyperbolic_contexts</code></td></tr><tr><td><code>MaskConfig.lean</code></td><td>configurations and assignments given by bit masks; <code>card_flags_cfg</code>, <code>card_violated_cfg</code> (their flag counts as sums the kernel can evaluate); <code>degree_of_certificate</code></td></tr><tr><td><code>FlatData.lean</code>, <code>SaturatedFive.lean</code></td><td>generated: the masks of the first six rows of Table 3, and the five-qubit counts in 32 blocks</td></tr><tr><td><code>Saturated.lean</code></td><td><strong><code>pivot_degree</code></strong>, <strong><code>cieslinski5_degree</code></strong>, <code>quadric_degree</code>, <code>hoggar_degree</code>, <code>ccz_degree</code>, <code>lly_degree</code></td></tr><tr><td><code>PhaseData.lean</code>, <code>SaturatedPhaseFive.lean</code></td><td>generated: the masks of \(\Phi_5\) and \(\Phi_7\); <strong><code>phase5_degree</code></strong></td></tr></tbody></table></div>
 <p>The main theorem, as checked:</p>
 <pre><code class="language-lean">theorem hoggar_bound (hN : 1 ≤ N) (S : Finset (Pt N)) (h0 : (0 : Pt N) ∉ S) (f : Pt N → ℝ)
     (hf : ∀ u ∈ S, f u = 1 ∨ f u = -1) :
@@ -306,24 +640,40 @@ the full space and of the elliptic quadric are within two per cent of the floor.
 <p>Here <code>beta6 S f</code> is six times \(\beta_S(f)\), a sum over ordered pairs, and the sign of a context is by
 definition the real part of the scalar \(\tau(u,v)\) with <code>pauli u * pauli v * pauli (u + v) = tau u v • 1</code>.
 Table 2 lists the corollaries.</p>
-<div class="tablewrap"><table><thead><tr><th>Lean theorem</th><th>statement</th></tr></thead><tbody><tr><td><code>full_space_fraction</code></td><td>for all \(N \ge 1\): \(\#\text{violated flags} \ge \big(\tfrac12 - \sqrt{2^N+1}/(2^N+2)\big)\,\#\text{flags}\)</td></tr><tr><td><code>three_qubit_contexts</code></td><td>every assignment of the 63 observables violates at least 63 contexts</td></tr><tr><td><code>four_qubit_contexts</code></td><td>every assignment of the 255 observables violates at least 1451 contexts</td></tr><tr><td><code>five_qubit_contexts</code></td><td>every assignment of the 1023 observables violates at least 28786 contexts</td></tr><tr><td><code>four_qubit_hyperbolic_contexts</code></td><td>every assignment of the 135 real observables violates at least 315 contexts</td></tr><tr><td><code>five_qubit_hyperbolic_contexts</code></td><td>every assignment of the 527 real observables violates at least 6426 contexts</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Lean theorem</th><th>statement</th></tr></thead><tbody><tr><td><code>full_space_fraction</code></td><td>for all \(N \ge 1\): \(\#\text{violated flags} \ge \big(\tfrac12 - \sqrt{2^N+1}/(2^N+2)\big)\,\#\text{flags}\)</td></tr><tr><td><code>three_qubit_contexts</code></td><td>every assignment of the 63 observables violates at least 63 contexts</td></tr><tr><td><code>four_qubit_contexts</code></td><td>every assignment of the 255 observables violates at least 1451 contexts</td></tr><tr><td><code>five_qubit_contexts</code></td><td>every assignment of the 1023 observables violates at least 28786 contexts</td></tr><tr><td><code>four_qubit_hyperbolic_contexts</code></td><td>every assignment of the 135 real observables violates at least 315 contexts</td></tr><tr><td><code>five_qubit_hyperbolic_contexts</code></td><td>every assignment of the 527 real observables violates at least 6426 contexts</td></tr><tr><td><code>pivot_degree</code></td><td>for the 135 observables of \(S_B\): every assignment violates at least 75 contexts, and some assignment violates exactly 75</td></tr><tr><td><code>cieslinski5_degree</code></td><td>for the 496 observables of \(S_5\): at least 480, and exactly 480 for some assignment</td></tr><tr><td><code>phase5_degree</code></td><td>the same statement for the 496 observables in the support of the circuit state \(\Phi_5\)</td></tr><tr><td><code>quadric_degree</code>, <code>hoggar_degree</code></td><td>the same two-sided statements with 315 (four-qubit hyperbolic quadric) and 63 (three qubits)</td></tr><tr><td><code>ccz_degree</code>, <code>lly_degree</code></td><td>some assignment of the 28 (respectively 12) observables violates no context</td></tr></tbody></table></div>
 <p><code>#print axioms</code> reports <code>[propext, Classical.choice, Quot.sound]</code> for each of them: no <code>sorry</code>, no
 <code>native_decide</code>, no additional axiom.</p>
+<p><strong>How the exact degrees are checked.</strong> The statement of <code>pivot_degree</code> is about a set of 135 explicit
+complex \(16 \times 16\) matrices, given by a 256-bit mask: bit \(a + 16c\) says whether \(P_{(a|c)}\) belongs to
+it. <code>MaskConfig.lean</code> proves, for every \(N\) and every mask, that the number of flags of the configuration
+and the number of flags violated by an assignment that is itself given by a mask are double sums over
+codes of Boolean expressions built from bit tests, exclusive or and addition of natural numbers. The
+kernel evaluates these sums (<code>decide +kernel</code>); for five qubits each sum has \(2^{20}\) terms and is
+evaluated in 16 blocks. <code>degree_of_certificate</code> then combines three evaluated numbers (observables,
+flags, flags violated by the witness) with <code>hoggar_bound</code>. That the masks are the supports and sign
+patterns of the states of Table 3 is checked by the programs of Section 10 in exact arithmetic; it is
+not needed for, and not part of, the Lean statements. For seven qubits the two sums have \(2^{28}\) terms
+each and were not evaluated in the kernel: the degree \(729\,344\) of \(S_7\) rests on <code>hoggar_bound</code>, which
+needs only the number 8128, and on a count of contexts and violated contexts made by programs.</p>
 <p><strong>What is not formalized.</strong> Theorem 2 (the quaternionic form) and all elliptic-quadric numbers;
-Theorem 3 and every statement about equality or geometry; Proposition 4; the limit statement as a
-theorem about limits (the inequality for each \(N\) is formal); the exact values of [J1]. Upper bounds are
-witnesses checked by the programs of Section 9.</p>
+Theorems 3 and 4 as equivalences, and every statement about states, spectra or geometry (the Lean
+results are the inequality and the two-sided degree statements); Propositions 4, 6 and 8 to 11; the
+enumerations of Theorems 12 and 13 and the seven-qubit counts; the limit
+statement as a theorem about limits (the inequality for each \(N\) is formal); the exact values of [J1].
+For the classical families beyond three qubits and \(Q^+(7,2)\), upper bounds are witnesses checked by
+the programs of Section 10.</p>
 <p><strong>Independent audit.</strong> A separate set of agent sessions, working concurrently in the same repository
-and without editing our files, re-checked the six modules from source, confirmed the axiom report, and
-added two modules of its own (<code>IndependentContexts.lean</code>, <code>IndependentWitness.lean</code>). They prove that a
-violated context carries exactly six violated flags and, by kernel evaluation of an integer certificate
-(no <code>native_decide</code>), that the explicit assignment
+and without editing our files, re-checked the first six modules from source, confirmed the axiom
+report, and added two modules of its own (<code>IndependentContexts.lean</code>, <code>IndependentWitness.lean</code>). They
+prove that a violated context carries exactly six violated flags (used in <code>MaskConfig.lean</code>) and, by
+kernel evaluation of an integer certificate, that the explicit assignment
 &quot;\(f(a,c) = +1\) if \(a = 0\) or \(c = 0\) or the number of \(Y\) factors is at least 2, and \(-1\) otherwise&quot;
-violates exactly 63 contexts; together with <code>three_qubit_contexts</code> this is a formal proof that the
-three-qubit degree is exactly 63. Their reports are in <code>results/lean-audit.md</code>,
+violates exactly 63 contexts. Their reports are in <code>results/lean-audit.md</code>,
 <code>results/literature-audit.md</code> and <code>results/stack-independent-audit.md</code>, and their companion note is
-<code>paper/independent-research-note.md</code>. The literature audit is what first pointed us to [J1].</p>
-<h2>8. A running example on the Tsotchke stack</h2>
+<code>paper/independent-research-note.md</code>. The literature audit is what first pointed us to [J1]. The
+modules from <code>MaskConfig.lean</code> on, and everything in Section 5, were written after that audit and are
+not covered by it.</p>
+<h2>9. A running example on the Tsotchke stack</h2>
 <p>All four components are used for what they are.</p>
 <ul>
 <li><strong>Moonlab</strong> (v1.2.1, prebuilt WebAssembly engine) is a classical state-vector simulator. It plays
@@ -336,37 +686,51 @@ curvature), which we had verified earlier against closed forms, are used.</li>
 <li><strong>Eshkol</strong> (v1.3.6) is a Scheme dialect with automatic differentiation. It carries an independent
 implementation of the geometry and the differentiation checks.</li>
 </ul>
-<p><strong>Experiment on Moonlab</strong> (<code>src/moonlab_experiment.mjs</code>, seed 20261109). A Pauli observable is
-measured projectively by rotating its eigenbasis onto \(Z\) of one qubit (gates \(H\), \(S^\dagger\), CNOT),
-calling Moonlab's single-qubit measurement with a number from quantum_rng, and undoing the rotation.</p>
+<p><strong>Experiment on Moonlab, classical families</strong> (<code>src/moonlab_experiment.mjs</code>, seed 20261109). A Pauli
+observable is measured projectively by rotating its eigenbasis onto \(Z\) of one qubit (gates \(H\),
+\(S^\dagger\), CNOT), calling Moonlab's single-qubit measurement with a number from quantum_rng, and
+undoing the rotation.</p>
 <div class="tablewrap"><table><thead><tr><th>step</th><th>what is done</th><th>result</th></tr></thead><tbody><tr><td>E0</td><td>Moonlab's \(\langle P\rangle\) against a direct evaluation; repeated measurement</td><td>agree to \(8.6\times10^{-16}\); repeats agree</td></tr><tr><td>E1</td><td>\(\psi_H\) on 3 simulated qubits; 63 expectation values; signs as an assignment</td><td>all \(\pm 1/3\) (to \(6\times10^{-16}\)); 63 of 315 contexts violated, three through each point</td></tr><tr><td>E2</td><td>realified \(\psi_H\) on 4 simulated qubits</td><td>\(\pm 1/3\) on 135 real observables, \(0\) on 120 imaginary ones; 315 of 1575 violated, seven through each point</td></tr><tr><td>E3</td><td>every context measured sequentially on random states, \(N = 2,3,4\), three runs each</td><td>\(15/15\), \(315/315\), \(5355/5355\) products equal to the quantum sign (16065 projective measurements and 161406 gates per four-qubit run)</td></tr><tr><td>E4</td><td>the same with a random Pauli error of probability \(p\) on each qubit before each measurement; 3000 to 4000 sampled contexts</td><td>Figure 2 and the table below</td></tr></tbody></table></div>
 <p>Fraction of sampled contexts whose three outcomes multiply to the quantum sign in the simulation, against the proved ceiling \(1 - d_{\text{floor}}/L\) for noncontextual models:</p>
 <div class="tablewrap"><table><thead><tr><th>error \(p\)</th><th>\(N=2\)</th><th>\(N=3\)</th><th>\(N=4\)</th></tr></thead><tbody><tr><td>0</td><td>1.000</td><td>1.000</td><td>1.000</td></tr><tr><td>0.01</td><td>0.979</td><td>0.969</td><td>0.957</td></tr><tr><td>0.02</td><td>0.958</td><td>0.939</td><td>0.930</td></tr><tr><td>0.05</td><td>0.897</td><td>0.867</td><td>0.830</td></tr><tr><td>0.10</td><td>0.805</td><td>0.747</td><td>0.717</td></tr><tr><td>0.20</td><td>0.669</td><td>0.616</td><td>0.591</td></tr><tr><td>ceiling, proved</td><td>0.800</td><td>0.800</td><td>0.729</td></tr><tr><td>best classical model known</td><td>0.800</td><td>0.800</td><td>0.706</td></tr></tbody></table></div>
-<p>These are frequencies in a seeded software simulation. They illustrate the inequality and are not
+<p><strong>Experiment on Moonlab, the configurations of Table 3</strong> (<code>src/moonlab_saturated.mjs</code>, seed 20261110).</p>
+<div class="tablewrap"><table><thead><tr><th>step</th><th>what is done</th><th>result</th></tr></thead><tbody><tr><td>S1</td><td>the first six states of Table 3 loaded as amplitudes; \(\Phi_5\) and \(\Phi_7\) prepared by running their circuits (Hadamard, controlled-phase and Toffoli gates of Moonlab: 14 and 34 gates); every Pauli expectation value read through Moonlab's gates</td><td>the circuits give the phase states to \(10^{-16}\); non-zero expectation values of one modulus to \(10^{-15}\); supports and signs equal the masks in <code>data/flat/</code>; contexts and violated contexts as in Table 3, including 2 824 192 and 729 344 for seven qubits</td></tr><tr><td>S2</td><td>every context of \(S_B\) (three runs), of \(S_5\) and of the support of \(\Phi_5\) measured sequentially on random states; for \(S_7\) a sample of 30000 contexts, and once all of them</td><td>\(1095/1095\), \(10880/10880\), \(10880/10880\), \(30000/30000\) products equal to the quantum sign; in the full seven-qubit run \(2\,824\,192/2\,824\,192\) (8 472 576 projective measurements, 161 550 336 gates)</td></tr><tr><td>S3</td><td>the same with Pauli noise; 4000 sampled contexts</td><td>the table below</td></tr></tbody></table></div>
+<p>Because the degrees are exact, the ceilings in this table are exact as well: \(1 - d/L\). For the four-
+and five-qubit configurations they are much higher than for the full space, so the test tolerates much
+less noise; for \(S_7\) the ceiling is \(0.742\) and the simulated test stays above it up to an error
+probability of two per cent per qubit and measurement.</p>
+<div class="tablewrap"><table><thead><tr><th>error \(p\)</th><th>\(S_B\) (four qubits)</th><th>\(S_5\) (five qubits)</th><th>support of \(\Phi_5\)</th><th>\(S_7\) (seven qubits)</th></tr></thead><tbody><tr><td>0</td><td>1.000</td><td>1.000</td><td>1.000</td><td>1.000</td></tr><tr><td>0.002</td><td>0.992</td><td>0.989</td><td>0.990</td><td>0.986</td></tr><tr><td>0.005</td><td>0.982</td><td>0.981</td><td>0.978</td><td>0.963</td></tr><tr><td>0.01</td><td>0.962</td><td>0.955</td><td>0.949</td><td>0.938</td></tr><tr><td>0.02</td><td>0.929</td><td>0.913</td><td>0.916</td><td>0.877</td></tr><tr><td>0.05</td><td>0.835</td><td>0.807</td><td>0.797</td><td>0.733</td></tr><tr><td>0.10</td><td>0.719</td><td>0.679</td><td>0.670</td><td>0.597</td></tr><tr><td>ceiling, exact</td><td>0.932</td><td>0.956</td><td>0.956</td><td>0.742</td></tr></tbody></table></div>
+<p>These are frequencies in a seeded software simulation. They illustrate the inequalities and are not
 measurements on hardware or a loophole analysis.</p>
 <p><img src="figures/fig1_fraction.png" alt="Figure 1" /></p>
 <p><em>Figure 1. Lower bound on the fraction of violated contexts for the full N-qubit Pauli configuration, the earlier bound 1/5, and the best assignments known.</em></p>
 <p><img src="figures/fig2_noise.png" alt="Figure 2" /></p>
-<p><em>Figure 2. Simulated success fraction on Moonlab against the classical ceilings.</em></p>
+<p><em>Figure 2. Simulated success fraction on Moonlab against the classical ceilings, for the full space.</em></p>
 <p><img src="figures/fig3_spectra.png" alt="Figure 3" /></p>
 <p><em>Figure 3. Spectra of \(A = \sum f(v)P_v\) for the best assignments at three and four qubits.</em></p>
-<p><strong>QGTL</strong> (<code>src/qgt_hoggar.c</code>). The kernels <code>diffgeo_compute_fubini_study</code> and
+<p><strong>QGTL</strong> (<code>src/qgt_hoggar.c</code>, <code>src/qgt_flat.c</code>). The kernels <code>diffgeo_compute_fubini_study</code> and
 <code>diffgeo_compute_berry_curvature</code>, applied to \(\psi_H\) and the 63 tangent vectors \(-\tfrac{i}{2}P_v\psi_H\),
 return the values of Proposition 3 to \(10^{-16}\), and the 189 pairs with \(|g_{uv}| \gt 1/12\) are exactly
-the pairs on the 63 violated contexts. For the realified state the 945 largest entries recover the 315
-violated contexts and the Berry curvature vanishes identically, as it must for a real state.</p>
-<p><strong>Eshkol</strong> (<code>src/eshkol/hoggar.esk</code>). An exhaustive pass over all \(2^{15}\) two-qubit assignments gives
-minimum 3, attained 640 times. The Hoggar signs violate 63 contexts. Reverse-mode automatic
-differentiation of the cubic form at the Hoggar Pauli vector \(x^\ast\) gives \(T(x^\ast) = 7 = (D-1)(D-2)/6\) and
-\(\nabla T(x^\ast) = 3x^\ast\) to \(7\times10^{-16}\) (the Lagrange condition for a maximizer on the sphere); nested
-forward-mode second derivatives along four tangent directions are negative (\(-0.59\) to \(-0.74\)).</p>
-<h2>9. Falsifiability and replication</h2>
+the pairs on the 63 violated contexts. For the eight states of Table 3 and the tangent vectors of their
+supports they return the three values of Proposition 8 to \(10^{-16}\); the pairs above the threshold
+recover the 75 violated contexts of \(S_B\) (225 pairs of 9045), the 480 of \(S_5\) and of the support of
+\(\Phi_5\) (1440 pairs of 122760), and the 729 344 of \(S_7\) (2 188 032 pairs of 33 028 128), and no others.</p>
+<p><strong>Eshkol</strong> (<code>src/eshkol/hoggar.esk</code>, <code>src/eshkol/saturated.esk</code>). An exhaustive pass over all \(2^{15}\)
+two-qubit assignments gives minimum 3, attained 640 times. The Hoggar signs violate 63 contexts.
+Reverse-mode automatic differentiation of the cubic form at the Hoggar Pauli vector \(x^\ast\) gives
+\(T(x^\ast) = 7 = (D-1)(D-2)/6\) and \(\nabla T(x^\ast) = 3x^\ast\) to \(7\times10^{-16}\) (the Lagrange condition
+for a maximizer on the sphere); nested forward-mode second derivatives along four tangent directions are
+negative (\(-0.59\) to \(-0.74\)). For the pivot state the second script finds 135 non-zero expectation
+values, 1095 contexts and 75 violated ones, \(T = 35 = (D-1)(D-2)/6\), and \(\nabla T = 7x\) to
+\(1.3\times10^{-15}\), which is condition (d) of Theorem 4.</p>
+<h2>10. Falsifiability and replication</h2>
 <p><strong>Predictions that could fail.</strong> (P1) No assignment violates fewer contexts than the floor. (P2) The
-three saturated cases are reached exactly. (P3) For every \(S\) and \(f\), \(\operatorname{tr}A = 0\),
+saturated cases are reached exactly. (P3) For every \(S\) and \(f\), \(\operatorname{tr}A = 0\),
 \(\operatorname{tr}A^2 = D|S|\), \(\operatorname{tr}A^3 = 6D\beta\). (P4) On an elliptic quadric the spectrum of
 \(A\) is doubly degenerate. (P5) For every pure state \(T(p) = (D-1)(D-2)/6\). (P6) Ideal sequential
-measurements reproduce every context sign in every state. A single counterexample to P1 would be an
-assignment whose violation count anyone can recompute in milliseconds.</p>
+measurements reproduce every context sign in every state. (P7) For a flat state, condition (d) of
+Theorem 4 holds. A single counterexample to P1 would be an assignment whose violation count anyone can
+recompute in milliseconds.</p>
 <p><strong>Tests</strong> (<code>scripts/run_all.sh</code>).</p>
 <ul>
 <li><code>hoggar exhaust2</code>: all 32768 two-qubit assignments; minimum 3 (640 assignments); for the square,
@@ -377,40 +741,85 @@ uniformly random assignments and 1500, 200 and 12 annealed ones per configuratio
 1575, 315, 315 (\(N=4\)); 31479, 6975, 7087 (\(N=5\)). These equal the best known values in every case.</li>
 <li>A negative control: the false claim \(d(W(5,2)) \ge 64\) is refuted by the Hoggar witness with exit
 code 3, showing that the harness can fail.</li>
+<li><code>scripts/flat_states.py</code> (68 checks, integer arithmetic in \(\mathbb{Z}[i]\) except one labelled check):
+for the six states of Table 3, the single modulus, the support, the number of contexts, the number
+violated, the floor, condition (d) at every point and the vanishing of every outside sum; the statements
+of Theorem 5 about \(S_B\); Proposition 6 on all 4096 phase patterns; Proposition 9 for one to four
+qubits; and an annealing search from random starts on \(S_B\) and \(S_5\), which reaches 75 and 480 and
+never goes below.</li>
+<li><code>build/third_level</code> (seven seconds): the enumeration of Theorem 12, all 33 554 431 forms for five
+qubits included, with the orbit computation; it fails if any count differs from the table.</li>
+<li><code>scripts/phase_states.py</code> (81 checks, integer arithmetic): for \(CS|{+}{+}\rangle\), \(CCZ|{+}{+}{+}\rangle\),
+\(CS\,CS|{+}{+}{+}\rangle\), \(\Phi_5\) and \(\Phi_7\), the constant rank, the single modulus, the support, the
+numbers of contexts and violated contexts, condition (d) and the outside sums, and the description of
+the support in Proposition 11; Proposition 10 for all eleven states of this paper; the enumeration of
+Theorem 12 for \(N \le 4\) by a second implementation; the two symplectic maps of Theorem 12; and the
+finite-field descriptions of the five- and seven-qubit forms.</li>
+<li><code>scripts/run_family7.sh</code> (about eight core-hours, not part of the everyday run): the enumeration of
+Theorem 13, the orbit computation, and the random census of the other types; its output is
+<code>results/family7.log</code>. The two counts agree: 13 271 040 solutions found, and
+\(92\,897\,280/7 = 13\,271\,040\) for one orbit with a stabilizer of order 7.</li>
+<li>The seven-qubit numbers 8128, 2 824 192 and 729 344 are computed three times without shared code: in
+Python with exact integers, in C from the masks (inside the QGTL program) and in JavaScript from the
+expectation values returned by Moonlab.</li>
 <li><code>scripts/analysis.py</code> (62 checks) and <code>scripts/ladder.py</code> (14 checks): P3 on random data to machine
 precision; P4 on all 120 four-qubit elliptic quadrics; P5; the geometry of the violated sets; closed-form
 counts against enumeration; agreement of the C and Python integer bounds.</li>
-<li>Witness files (<code>data/witness/</code>) are recounted by an independent routine that uses no tables.</li>
+<li>Witness files (<code>data/witness/</code>, <code>data/flat/</code>) are recounted by independent routines that use no tables.</li>
 </ul>
 <p><strong>Independent implementations.</strong> The geometry, the context signs and the counts are implemented five
-times: C (<code>src/hoggar.c</code>), Python/NumPy with explicit matrices (<code>scripts/analysis.py</code>), JavaScript
-(<code>src/moonlab_experiment.mjs</code>), Eshkol, and the Lean model, in which the signs are theorems about matrix
-products. They agree on every number in this paper.</p>
-<h2>10. Limitations and open problems</h2>
+times: C (<code>src/hoggar.c</code>), Python with explicit matrices or exact integers (<code>scripts/analysis.py</code>,
+<code>scripts/flat_states.py</code>), JavaScript (<code>src/moonlab_experiment.mjs</code>, <code>src/moonlab_saturated.mjs</code>),
+Eshkol, and the Lean model, in which the signs are theorems about matrix products. They agree on every
+number in this paper.</p>
+<h2>11. Limitations and open problems</h2>
 <ul>
-<li>The floor is not attained beyond the three listed cases [J2]. Exact values for five or more qubits
-are open except \(Q^+(9,2)\) [J1]; the floor alone leaves the intervals of Table 1.</li>
-<li>The exact four- and five-qubit values rest on computer-assisted work that is neither formally verified
-nor peer reviewed [J1]. A formal proof of \(d(W(7,2)) = 1575\) would be a natural next target; our
-Lean development gives the lower bound 1451 only.</li>
-<li>The quaternionic form (Theorem 2) is proved on paper and tested numerically, not formalized.</li>
-<li>The literature search was bounded (arXiv and Zenodo queries on 9 November 2026). Statements of the
-form &quot;to our knowledge&quot; mean exactly that.</li>
+<li>Novelty is claimed to the extent of a bounded search (arXiv and Zenodo queries on 9 November 2026,
+and the sources of Section 1.2). The field moved quickly in October 2026, and several of the relevant
+preprints are less than a month old. Statements of the form &quot;to our knowledge&quot; mean exactly that.</li>
+<li>The configurations \(S_B\), \(S_5\) and \(S_7\) are defined by states, not by a classical geometric
+construction. We do not know an infinite family of non-closed configurations that attain the floor:
+Proposition 9 shows that the simplest family of states stops at four qubits, and for flat phase
+states we have three, five and seven qubits only, with nine open. Theorem 12 is complete for its class
+of states; whether Table 3 is complete for all states on \(N \le 5\) qubits is supported by numerical
+search only. Whether the states of the odd class of Proposition 6 form a single Clifford orbit was not
+determined.</li>
+<li>For seven qubits the uniqueness statement is proved only inside the family \(\mathcal{F}\) of
+Theorem 13; outside it there is a random census. The enumeration behind it (and the one of
+Theorem 12) is a computation, repeated here by one program only, apart from the agreement of the
+count with the orbit size and the second implementation for \(N \le 4\). The seven-qubit counts of
+contexts are checked by three programs but not by the Lean kernel.</li>
+<li>Within the classical families the floor is not attained beyond the three listed cases [J2]. Exact
+values for five or more qubits are open except \(Q^+(9,2)\) [J1]; the floor alone leaves the intervals
+of Table 1.</li>
+<li>The exact four- and five-qubit values of the classical families rest on computer-assisted work that is
+neither formally verified nor peer reviewed [J1]. A formal proof of \(d(W(7,2)) = 1575\) would be a
+natural next target; our Lean development gives the lower bound 1451 only.</li>
+<li>The quaternionic form (Theorem 2) and the equivalences of Theorems 3 and 4 are proved on paper and
+tested numerically, not formalized.</li>
 <li>Nothing here is an experiment on quantum hardware, and nothing shows a computational advantage.
 The simulation demonstrates what quantum mechanics predicts and what no noncontextual model can do.</li>
 </ul>
-<h2>11. Disclosure, availability, licence</h2>
+<h2>12. Disclosure, availability, licence</h2>
 <p>The research direction, derivations, programs, Lean proofs and text were produced on 9 November 2026 by
 an AI system (Claude, Anthropic) in a single working session at the request and under the direction of
-the first author, who is responsible for the release. A second group of AI agent sessions audited the
-work independently (Section 7). No human has refereed it.</p>
+the author, who is responsible for the release. A second group of AI agent sessions audited the first
+part of the work independently (Section 8). No human has refereed it. The Lean statements are checked by
+the Lean kernel; everything else should be read as an unrefereed preprint.</p>
+<p>Affiliation: 0thernes LLC, Washington, USA. The work was funded by the author through 0thernes LLC;
+there was no external funding and there are no competing interests.</p>
 <p>Code, proofs, data and this paper: <a href="https://github.com/0thernes/hoggar-bound-lab">https://github.com/0thernes/hoggar-bound-lab</a>. Third-party
 components (Moonlab, quantum_rng, quantum_geometric_tensor) are MIT-licensed by their authors and are
 vendored with their licences and provenance records.</p>
 <h2>References</h2>
 <ul>
 <li>[C] A. Cabello, <em>Proposed test of macroscopic quantum contextuality</em>, Phys. Rev. A 82, 032110 (2010), arXiv:1002.3135.</li>
+<li>[CCKS] A. R. Calderbank, P. J. Cameron, W. M. Kantor, J. J. Seidel, <em>Z4-Kerdock codes, orthogonal spreads, and extremal Euclidean line-sets</em>, Proc. London Math. Soc. 75, 436 (1997).</li>
+<li>[CGK] S. X. Cui, D. Gottesman, A. Krishna, <em>Diagonal gates in the Clifford hierarchy</em>, Phys. Rev. A 95, 012329 (2017), arXiv:1608.06596.</li>
+<li>[CK] R. Calderbank, W. M. Kantor, <em>The geometry of two-weight codes</em>, Bull. London Math. Soc. 18, 97 (1986).</li>
+<li>[Ci] P. Cieśliński, <em>Pauli flat quantum states mimicking maximal magic</em>, arXiv:2610.07172 (5 October 2026).</li>
 <li>[dB] H. de Boutray, F. Holweck, A. Giorgetti, P.-A. Masson, M. Saniga, <em>Contextuality degree of quadrics in multi-qubit symplectic polar spaces</em>, J. Phys. A 55, 475301 (2022), arXiv:2105.13798.</li>
+<li>[DHOP] F. De Clerck, N. Hamilton, C. M. O'Keefe, T. Penttila, <em>Quasi-quadrics and related structures</em>, Australas. J. Combin. 22, 151 (2000).</li>
 <li>[GR] C. Godsil, A. Roy, <em>Equiangular lines, mutually unbiased bases, and spin models</em>, European J. Combin. 30, 246 (2009), arXiv:quant-ph/0511004.</li>
 <li>[H] S. G. Hoggar, <em>64 lines from a quaternionic polytope</em>, Geom. Dedicata 69, 287 (1998).</li>
 <li>[HLW] P. Hayden, D. W. Leung, A. Winter, <em>Aspects of generic entanglement</em>, Commun. Math. Phys. 265, 95 (2006).</li>
@@ -419,22 +828,31 @@ vendored with their licences and provenance records.</p>
 <li>[J3] B. W. Jonah, <em>The reach of the section-square law: hyperplane completions of symplectic and quadric Pauli configurations</em>, preprint, Zenodo, 20 October 2026, doi:10.5281/zenodo.23524332.</li>
 <li>[J4] B. W. Jonah, <em>Results digest, 20 October 2026: multi-qubit contextuality degrees, Pauli-flat states and certification</em>, Zenodo, doi:10.5281/zenodo.23518569.</li>
 <li>[JL] N. S. Jones, N. Linden, <em>Parts of quantum states</em>, Phys. Rev. A 71, 012324 (2005).</li>
+<li>[K] S. Kang, <em>No Pauli-orbit mutually unbiased bases for four qubits or for an odd number of qubits greater than one</em>, Zenodo, 27 October 2026, doi:10.5281/zenodo.23692357.</li>
 <li>[LGG] Z. Li, A. Gupta, V. Ganesh, <em>The four-qubit hyperbolic quadric has contextuality degree 315</em>, arXiv:2610.26465 (19 October 2026).</li>
+<li>[LLY] Q. Liu, I. Low, Z. Yin, Quantum Sci. Technol. 11, 015035 (2026).</li>
+<li>[McF] R. L. McFarland, <em>A family of difference sets in non-cyclic groups</em>, J. Combin. Theory Ser. A 15, 1 (1973).</li>
 <li>[M1] A. Muller, M. Saniga, A. Giorgetti, H. de Boutray, F. Holweck, <em>New and improved bounds on the contextuality degree of multi-qubit configurations</em>, Math. Struct. Comput. Sci. 34, 322 (2024), arXiv:2305.10225.</li>
 <li>[M2] A. Muller, M. Saniga, A. Giorgetti, F. Holweck, C. Kelleher, <em>A new heuristic approach for contextuality degree estimates and its four- to six-qubit portrayals</em>, J. Phys. A 58, 215302 (2025), arXiv:2407.02928.</li>
 <li>[MS] A. Muller, M. Saniga, <em>Automated search for highly contextual Kochen–Specker proofs</em>, arXiv:2609.19862 (2026).</li>
 <li>[O] M. Okumura, <em>Hypersurfaces and a pinching problem on the second fundamental tensor</em>, Amer. J. Math. 96, 207 (1974).</li>
+<li>[R] O. S. Rothaus, <em>On &quot;bent&quot; functions</em>, J. Combin. Theory Ser. A 20, 300 (1976).</li>
 <li>[S] M. Saniga, F. Holweck, C. Kelleher, A. Muller, A. Giorgetti, H. de Boutray, <em>Hexagons govern three-qubit contextuality</em>, Quantum 9, 1601 (2025), arXiv:2312.07738.</li>
 <li>[St] B. C. Stacey, <em>Geometric and information-theoretic properties of the Hoggar lines</em>, arXiv:1609.03075 (2016).</li>
 <li>[W] J. E. Wilkins, <em>A note on skewness and kurtosis</em>, Ann. Math. Statist. 15, 333 (1944).</li>
 </ul>
 <h2>Appendix A. Reproduction</h2>
-<pre><code class="language-bash"># engine, random source, QGT program (gcc; no other dependency)
+<pre><code class="language-bash"># engine, random source, QGT programs (gcc; no other dependency)
 bash scripts/build.sh
-# every test: exhaustive N=2, falsification suite, analysis, ladder, Moonlab, QGTL, Eshkol
+# every test: exhaustive N=2, falsification suite, flat states, analysis, ladder, Moonlab, QGTL, Eshkol
 bash scripts/run_all.sh
 # Lean (needs elan; fetches Lean 4.35.0 and the Mathlib cache)
 cd lean &amp;&amp; lake exe cache get &amp;&amp; lake build
+# the exact degrees of Section 5 (kernel evaluations; about a quarter of an hour, under 5 GB each)
+lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive
+lake env lean SaturatedVerification.lean
+# the seven-qubit enumeration of Theorem 13 (about eight core-hours)
+cd .. &amp;&amp; bash scripts/run_family7.sh
 </code></pre>
 <h2>Appendix B. Witness assignments</h2>
 <p><code>data/witness/nN_t.txt</code> holds, for \(N\) qubits and family \(t\) (<code>f</code> full, <code>h</code> hyperbolic, <code>e</code> elliptic), one
@@ -444,6 +862,16 @@ three-qubit Hoggar witness produced by the Moonlab run is</p>
 163e5efe76fefe00
 </code></pre>
 <p><code>build/hoggar verify N t file</code> recounts any witness from the definitions.</p>
+<p><code>data/flat/nN_name.txt</code> holds the configurations of Table 3: a header line with \(N\), the numbers of
+observables and contexts and the degree; the mask of the configuration; and the mask of the optimal
+assignment. For the pivot configuration:</p>
+<pre><code class="language-text">4 135 1095 75
+b4451eef7889d22344b5ee1f887922d34b45e1ef87892d23bbb5111f7779ddd2
+20011cc01888c2204424221f001100c34244212f01010c038880111177790000
+</code></pre>
+<p>The same two numbers are <code>pivotMask</code> and <code>pivotNeg</code> in <code>lean/HoggarBound/FlatData.lean</code>. The files
+<code>n5_phase5.txt</code> and <code>n7_phase7.txt</code> hold the supports of \(\Phi_5\) and \(\Phi_7\) in the same format; the
+seven-qubit masks have 4096 hexadecimal digits.</p>
 
 </main>
 </body>

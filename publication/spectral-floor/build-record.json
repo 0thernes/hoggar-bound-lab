@@ -1,0 +1,35 @@
+{
+ "source": "paper/spectral-floor.md",
+ "source_sha256": "4682ca5e1481f7c1c3fe373e2e7ce0176a2b8f6b37ad13ca0ad9df3e8d3f87ff",
+ "tex_sha256": "8f89dae1480d62ead46583f0a57a95cf4ac43c2ca792643744de3afcbceb541b",
+ "engine": "XeLaTeX (compiled here with Tectonic)",
+ "pandoc": "pandoc 3.13",
+ "tectonic": "Tectonic 0.17.0",
+ "pdf_sha256": "5e35ea25b63169d5c4c80ef8c95766ff9640af1e35f41b72336ffbad0dabb913",
+ "pdf_bytes": 381496,
+ "overfull_boxes_pt": [
+  "0.57942",
+  "0.73146",
+  "1.81253",
+  "2.53174",
+  "3.93723",
+  "4.03928",
+  "4.13441",
+  "6.1329",
+  "6.32605",
+  "12.66608",
+  "15.09172"
+ ],
+ "missing_characters": [],
+ "arxiv_source_zip": {
+  "files": [
+   "00README.json",
+   "spectral-floor.tex",
+   "figures/fig1_fraction.png",
+   "figures/fig2_noise.png",
+   "figures/fig3_spectra.png"
+  ],
+  "bytes": 181435,
+  "sha256": "a642e117fd91a443d307d609f814d29fc6f55a517e168823458deef8d1fae41b"
+ }
+}

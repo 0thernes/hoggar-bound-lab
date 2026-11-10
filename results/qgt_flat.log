@@ -1,0 +1,73 @@
+lly: N=2, 12 Pauli directions (the support), mu = 0.500000
+  g_vv = (1-mu^2)/4                                       max deviation 0.00e+00
+  pairs on violated contexts   :       0  |g| = (mu+mu^2)/4  max deviation 0.00e+00
+  pairs on satisfied contexts  :      24  |g| = (mu-mu^2)/4  max deviation 0.00e+00
+  other pairs (anticommuting 36, product outside 6): |g| = mu^2/4  max deviation 0.00e+00
+  Berry curvature (mu/2 on anticommuting pairs with product in the support, else 0)  max deviation 0.00e+00
+  pairs where (|g| > mu/4) disagrees with (context violated): 0
+  contexts recovered from the metric: 0 violated of 8 (file: 0 of 8)
+  PASS
+ccz: N=3, 28 Pauli directions (the support), mu = 0.500000
+  g_vv = (1-mu^2)/4                                       max deviation 0.00e+00
+  pairs on violated contexts   :       0  |g| = (mu+mu^2)/4  max deviation 0.00e+00
+  pairs on satisfied contexts  :     168  |g| = (mu-mu^2)/4  max deviation 0.00e+00
+  other pairs (anticommuting 168, product outside 42): |g| = mu^2/4  max deviation 3.47e-17
+  Berry curvature (mu/2 on anticommuting pairs with product in the support, else 0)  max deviation 0.00e+00
+  pairs where (|g| > mu/4) disagrees with (context violated): 0
+  contexts recovered from the metric: 0 violated of 56 (file: 0 of 56)
+  PASS
+hoggar: N=3, 63 Pauli directions (the support), mu = 0.333333
+  g_vv = (1-mu^2)/4                                       max deviation 5.55e-17
+  pairs on violated contexts   :     189  |g| = (mu+mu^2)/4  max deviation 5.55e-17
+  pairs on satisfied contexts  :     756  |g| = (mu-mu^2)/4  max deviation 2.78e-17
+  other pairs (anticommuting 1008, product outside 0): |g| = mu^2/4  max deviation 2.43e-17
+  Berry curvature (mu/2 on anticommuting pairs with product in the support, else 0)  max deviation 8.33e-17
+  pairs where (|g| > mu/4) disagrees with (context violated): 0
+  contexts recovered from the metric: 63 violated of 315 (file: 63 of 315)
+  PASS
+quadric: N=4, 135 Pauli directions (the support), mu = 0.333333
+  g_vv = (1-mu^2)/4                                       max deviation 1.11e-16
+  pairs on violated contexts   :     945  |g| = (mu+mu^2)/4  max deviation 6.94e-17
+  pairs on satisfied contexts  :    3780  |g| = (mu-mu^2)/4  max deviation 4.16e-17
+  other pairs (anticommuting 4320, product outside 0): |g| = mu^2/4  max deviation 3.47e-17
+  Berry curvature (mu/2 on anticommuting pairs with product in the support, else 0)  max deviation 0.00e+00
+  pairs where (|g| > mu/4) disagrees with (context violated): 0
+  contexts recovered from the metric: 315 violated of 1575 (file: 315 of 1575)
+  PASS
+pivot: N=4, 135 Pauli directions (the support), mu = 0.333333
+  g_vv = (1-mu^2)/4                                       max deviation 5.55e-17
+  pairs on violated contexts   :     225  |g| = (mu+mu^2)/4  max deviation 4.16e-17
+  pairs on satisfied contexts  :    3060  |g| = (mu-mu^2)/4  max deviation 2.08e-17
+  other pairs (anticommuting 4320, product outside 1440): |g| = mu^2/4  max deviation 1.73e-17
+  Berry curvature (mu/2 on anticommuting pairs with product in the support, else 0)  max deviation 5.55e-17
+  pairs where (|g| > mu/4) disagrees with (context violated): 0
+  contexts recovered from the metric: 75 violated of 1095 (file: 75 of 1095)
+  PASS
+cieslinski5: N=5, 496 Pauli directions (the support), mu = 0.250000
+  g_vv = (1-mu^2)/4                                       max deviation 0.00e+00
+  pairs on violated contexts   :    1440  |g| = (mu+mu^2)/4  max deviation 1.39e-17
+  pairs on satisfied contexts  :   31200  |g| = (mu-mu^2)/4  max deviation 2.78e-17
+  other pairs (anticommuting 59520, product outside 30600): |g| = mu^2/4  max deviation 2.08e-17
+  Berry curvature (mu/2 on anticommuting pairs with product in the support, else 0)  max deviation 5.55e-17
+  pairs where (|g| > mu/4) disagrees with (context violated): 0
+  contexts recovered from the metric: 480 violated of 10880 (file: 480 of 10880)
+  PASS
+phase5: N=5, 496 Pauli directions (the support), mu = 0.250000
+  g_vv = (1-mu^2)/4                                       max deviation 2.78e-17
+  pairs on violated contexts   :    1440  |g| = (mu+mu^2)/4  max deviation 2.78e-17
+  pairs on satisfied contexts  :   31200  |g| = (mu-mu^2)/4  max deviation 1.39e-17
+  other pairs (anticommuting 59520, product outside 30600): |g| = mu^2/4  max deviation 1.56e-17
+  Berry curvature (mu/2 on anticommuting pairs with product in the support, else 0)  max deviation 2.78e-17
+  pairs where (|g| > mu/4) disagrees with (context violated): 0
+  contexts recovered from the metric: 480 violated of 10880 (file: 480 of 10880)
+  PASS
+phase7: N=7, 8128 Pauli directions (the support), mu = 0.125000
+  g_vv = (1-mu^2)/4                                       max deviation 2.78e-17
+  pairs on violated contexts   : 2188032  |g| = (mu+mu^2)/4  max deviation 6.94e-18
+  pairs on satisfied contexts  : 6284544  |g| = (mu-mu^2)/4  max deviation 6.94e-18
+  other pairs (anticommuting 16386048, product outside 8169504): |g| = mu^2/4  max deviation 1.43e-17
+  Berry curvature (mu/2 on anticommuting pairs with product in the support, else 0)  max deviation 2.54e-17
+  pairs where (|g| > mu/4) disagrees with (context violated): 0
+  contexts recovered from the metric: 729344 violated of 2824192 (file: 729344 of 2824192)
+  PASS
+QGT-FLAT-PASS

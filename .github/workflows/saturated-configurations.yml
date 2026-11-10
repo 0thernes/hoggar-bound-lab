@@ -1,0 +1,159 @@
+name: Saturated configurations
+
+# Checks of Section 5 of the paper: the configurations on which the spectral floor is attained.
+#   exact-checks   integer-arithmetic verification of eleven states, the census of flat third-level phase
+#                  states on up to five qubits, the Moonlab circuits and the QGTL kernels
+#   lean-degrees   the kernel-checked exact contextuality degrees (two, three, four and five qubits)
+# The seven-qubit enumeration (scripts/run_family7.sh, about eight core-hours) is not run here.
+
+on:
+  push:
+    paths:
+      - "lean/HoggarBound/MaskConfig.lean"
+      - "lean/HoggarBound/FlatData.lean"
+      - "lean/HoggarBound/PhaseData.lean"
+      - "lean/HoggarBound/Saturated*.lean"
+      - "lean/SaturatedVerification.lean"
+      - "scripts/flat_states.py"
+      - "scripts/phase_states.py"
+      - "src/third_level.c"
+      - "src/qgt_flat.c"
+      - "src/moonlab_saturated.mjs"
+      - "data/flat/**"
+      - ".github/workflows/saturated-configurations.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: saturated-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  exact-checks:
+    name: Exact arithmetic, census, Moonlab circuits, QGTL
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - name: Build the native programs
+        run: bash scripts/build.sh
+      - name: Six flat states in exact arithmetic (68 checks)
+        run: |
+          mkdir -p results
+          python scripts/flat_states.py --lean | tee results/ci-flat-states.log
+          tail -1 results/ci-flat-states.log | grep -q "68 of 68 checks passed"
+      - name: Census of flat third-level phase states on up to five qubits
+        run: |
+          ./build/third_level | tee results/ci-third-level.log
+          grep -q THIRD-LEVEL-PASS results/ci-third-level.log
+      - name: Phase states in exact arithmetic, seven qubits included (81 checks)
+        run: |
+          python scripts/phase_states.py --lean | tee results/ci-phase-states.log
+          tail -1 results/ci-phase-states.log | grep -q "81 of 81 checks passed"
+      - name: The regenerated masks and Lean data are the committed ones
+        run: |
+          git diff --exit-code -- lean/HoggarBound/FlatData.lean lean/HoggarBound/SaturatedFive.lean \
+            lean/HoggarBound/PhaseData.lean lean/HoggarBound/SaturatedPhaseFive.lean data/flat
+      - name: Moonlab - eight states, two circuits, every five-qubit context
+        run: |
+          node src/moonlab_saturated.mjs | tee results/ci-moonlab-saturated.log
+          grep -q MOONLAB-SATURATED-PASS results/ci-moonlab-saturated.log
+      - name: QGTL kernels on the eight states
+        run: |
+          ./build/qgt_flat | tee results/ci-qgt-flat.log
+          grep -q QGT-FLAT-PASS results/ci-qgt-flat.log
+      - name: Preserve the logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: saturated-exact-evidence
+          path: results/ci-*.log
+          if-no-files-found: error
+          retention-days: 30
+
+  lean-degrees:
+    name: Lean kernel - exact contextuality degrees
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    env:
+      LEAN_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Install the pinned Lean environment
+        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
+        with:
+          lake-package-directory: lean
+          auto-config: false
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Retrieve pinned Mathlib dependencies
+        working-directory: lean
+        run: |
+          lake exe cache get Mathlib.Analysis.Matrix.Spectrum \
+            Mathlib.Algebra.Order.Chebyshev Mathlib.Data.ZMod.Basic Mathlib.Tactic \
+            Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+          git diff --exit-code -- lean-toolchain lake-manifest.json
+      - name: Build the general proof and the mask bridge
+        working-directory: lean
+        run: |
+          mkdir -p ../results
+          lake build HoggarBound HoggarBound.MaskConfig 2>&1 | tee ../results/ci-lean-saturated-core.log
+      - name: Kernel-check the five-qubit counts (two configurations, 64 blocks)
+        working-directory: lean
+        run: |
+          /usr/bin/time -v lake build HoggarBound.SaturatedFive 2>&1 | tee ../results/ci-lean-saturated-five.log
+          /usr/bin/time -v lake build HoggarBound.SaturatedPhaseFive 2>&1 | tee ../results/ci-lean-saturated-phase-five.log
+      - name: Kernel-check the two-, three- and four-qubit counts and assemble the degrees
+        working-directory: lean
+        run: /usr/bin/time -v lake build HoggarBound.Saturated 2>&1 | tee ../results/ci-lean-saturated.log
+      - name: Print axiom dependencies
+        working-directory: lean
+        run: lake env lean SaturatedVerification.lean 2>&1 | tee ../results/ci-lean-saturated-axioms.log
+      - name: Enforce the standard axiom allowlist
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+          allowed = {"propext", "Classical.choice", "Quot.sound"}
+          source = pathlib.Path("lean/SaturatedVerification.lean").read_text(encoding="utf-8")
+          expected = set(re.findall(r"#print axioms\s+(\S+)", source))
+          assert len(expected) >= 14, "The audited declaration list was unexpectedly shortened"
+          log = pathlib.Path("results/ci-lean-saturated-axioms.log").read_text(encoding="utf-8")
+          found = dict(re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", log))
+          assert expected <= found.keys(), f"Missing axiom reports: {expected - found.keys()}"
+          for name in sorted(expected):
+              actual = {a.strip() for a in found[name].split(",") if a.strip()}
+              assert actual <= allowed, f"Unexpected axioms in {name}: {actual - allowed}"
+          for src in pathlib.Path("lean/HoggarBound").glob("*.lean"):
+              if src.name.startswith(("MaskConfig", "FlatData", "PhaseData", "Saturated")):
+                  text = src.read_text(encoding="utf-8")
+                  code = re.sub(r"/-.*?-/", "", text, flags=re.S)
+                  code = re.sub(r"--.*", "", code)
+                  assert "sorry" not in code and "native_decide" not in code and not re.search(r"^\s*axiom\b", code, flags=re.M), src.name
+          print(f"Passed: all {len(expected)} audited declarations use only the standard axioms")
+          PY
+      - name: Preserve Lean evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: saturated-lean-evidence
+          path: results/ci-lean-saturated*.log
+          if-no-files-found: error
+          retention-days: 30
