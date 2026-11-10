@@ -20,6 +20,29 @@ Project releases cover the spectral-floor study and the surrounding repository. 
 - `scripts/phase_seven_lean.py` (14 checks, two negative controls): the same evaluation in Python,
   compared with the direct double sums; it generates `SaturatedPhaseSeven.lean`. The workflow *Saturated
   configurations* runs it, builds the two new modules and enforces the axiom allowlist.
+- [Addendum](publication/ADDENDUM-c3-all-qubits.md), proposed for the next revision of the combined
+  paper: **the strict law fails in case C3 for every number of qubits N >= 4**, not only for N = 4,
+  and therefore, by the cone lift of the source, **in case C11 for every N >= 4**. An explicit family
+  of sign carriers, described by graphs on the block's basis states, gives for every N two carriers
+  with the same carrier spectrum whose completion cubic traces differ by (3/2) n^3, n = 2^(N-1); the
+  two carriers differ at the n/2 points Z (x) W (x) X. The proof is written out in the addendum.
+  - Lean: `lean/HoggarBound/CarrierFamily.lean`, theorem `c3_strict_law_fails_general`, for every
+    N >= 4, with the definitions of the existing library (real quadric, polar point, section, contexts
+    and their signs). No `sorry`, no `native_decide`, the standard three axioms. A new file; no existing
+    Lean file is changed. The addendum lists what the statement leaves to the reader.
+  - Exact integer arithmetic on the complete configurations: `scripts/cospectral_family.py` (N = 3 to 6,
+    random graphs, two negative controls; 43 checks), `scripts/cospectral_family_tensor_check.py` (a
+    second route; 18 checks), `scripts/cospectral_family_cone_lift.py` (case C11 with 4, 5 and 6
+    qubits; 21 checks).
+  - The new workflow *Case C3 for every number of qubits* runs the programs and the Lean check.
+  - The addendum records the automated review of the result and what it changed. Release 1.2.0 is
+    unchanged.
+- `scripts/c3_sparse_search.py`: exhaustive and exact search of the sign carriers with +1 at the polar
+  point that differ from the all-plus carrier in at most three block observables (a sign flip, or a
+  move to the other block with either sign). Five qubits: 10 908 676 carriers, no two cospectral with
+  different block spectra. Four qubits: 182 176 carriers, exactly four classes of cospectral carriers
+  with different block spectra, three of them with different completion cubic traces; the program
+  finds the pair of the combined paper in one of the three (`results/c3_sparse_search.json`).
 - [Addendum](publication/ADDENDUM-completion-optima.md), proposed for the next revision of the combined
   paper: the exact binary completion minima of the two C3 carriers differ. Every completion of the
   first carrier violates at least 347 of the 1120 outside lines, and an explicit completion of the

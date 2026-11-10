@@ -1,0 +1,148 @@
+name: Case C3 for every number of qubits
+
+# Checks of publication/ADDENDUM-c3-all-qubits.md.
+#   exact-checks  the carriers of Theorem 17 on the complete configurations (N = 3 to 6), a second route,
+#                 the cone lifts to case C11 (4 to 6 qubits) and the exhaustive four-qubit search
+#   lean          lean/HoggarBound/CarrierFamily.lean, checked by the Lean kernel: the strict law fails in
+#                 case C3 for every N >= 4
+# The five-qubit search (python scripts/c3_sparse_search.py 3 4, about fifteen minutes) is not run here.
+
+on:
+  push:
+    paths:
+      - "lean/HoggarBound/CarrierFamily.lean"
+      - "lean/HoggarBound/Pauli.lean"
+      - "lean/HoggarBound/Bound.lean"
+      - "lean/HoggarBound/Quadric.lean"
+      - "scripts/cospectral_family.py"
+      - "scripts/cospectral_family_tensor_check.py"
+      - "scripts/cospectral_family_cone_lift.py"
+      - "scripts/c3_sparse_search.py"
+      - ".github/workflows/c3-all-qubits.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: c3-all-qubits-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  exact-checks:
+    name: Exact arithmetic on the complete configurations
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: "3.12"
+      - name: Install NumPy
+        run: python -m pip install --quiet numpy==2.0.2
+      - name: The carriers of Theorem 17 on the complete configurations, N = 3 to 6 (43 checks)
+        run: |
+          mkdir -p results
+          python scripts/cospectral_family.py --six | tee results/ci-c3-family.log
+          tail -1 results/ci-c3-family.log | grep -q "43 of 43 checks passed"
+      - name: Second route by tensor products of literal Pauli matrices (18 checks)
+        run: |
+          python scripts/cospectral_family_tensor_check.py | tee results/ci-c3-family-tensor.log
+          tail -1 results/ci-c3-family-tensor.log | grep -q "18 of 18 checks passed"
+      - name: Case C11 - cone lifts on the complete configurations with 4, 5 and 6 qubits (21 checks)
+        run: |
+          python scripts/cospectral_family_cone_lift.py | tee results/ci-c3-cone-lift.log
+          tail -1 results/ci-c3-cone-lift.log | grep -q "21 of 21 checks passed"
+      - name: Exhaustive search near the all-plus carrier, four qubits
+        run: |
+          python scripts/c3_sparse_search.py 3 3 | tee results/ci-c3-sparse-search.log
+          grep -q "different block spectra: 4; of these with different r_D (different completion cubic traces): 3" results/ci-c3-sparse-search.log
+          grep -q "the pair of Section 8: .* cospectral: True; class number 2" results/ci-c3-sparse-search.log
+      - name: The regenerated results are the committed ones
+        run: |
+          git diff --exit-code -- results/cospectral_family.json results/cospectral_family_cone_lift.json \
+            results/c3_sparse_search.json
+      - name: Preserve the logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: c3-all-qubits-exact-evidence
+          path: results/ci-c3-*.log
+          if-no-files-found: error
+          retention-days: 30
+
+  lean:
+    name: Lean kernel - the strict law fails in case C3 for every N >= 4
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Install the pinned Lean environment
+        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
+        with:
+          lake-package-directory: lean
+          auto-config: false
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Retrieve pinned Mathlib dependencies
+        working-directory: lean
+        run: |
+          lake exe cache get Mathlib.Analysis.Matrix.Spectrum \
+            Mathlib.Algebra.Order.Chebyshev Mathlib.Data.ZMod.Basic Mathlib.Tactic \
+            Mathlib.LinearAlgebra.Matrix.Charpoly.Basic Mathlib.LinearAlgebra.Matrix.Kronecker \
+            Mathlib.LinearAlgebra.Matrix.Trace Mathlib.LinearAlgebra.Matrix.Block
+          git diff --exit-code -- lean-toolchain lake-manifest.json
+      - name: Build the library modules that the file imports (Pauli matrices, bound, quadric)
+        working-directory: lean
+        run: |
+          mkdir -p ../results
+          lake build HoggarBound.Bound HoggarBound.Quadric 2>&1 | tee ../results/ci-lean-c3-all-qubits-library.log
+      - name: Check the file and print the axiom dependencies
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean HoggarBound/CarrierFamily.lean 2>&1 | tee ../results/ci-lean-c3-all-qubits.log
+      - name: Enforce the standard axiom allowlist
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+          allowed = {"propext", "Classical.choice", "Quot.sound"}
+          source = pathlib.Path("lean/HoggarBound/CarrierFamily.lean").read_text(encoding="utf-8")
+          expected = set(re.findall(r"#print axioms\s+(\S+)", source))
+          assert len(expected) >= 70, "The audited declaration list was unexpectedly shortened"
+          main = {"HoggarBound.C3AllQubits.c3_strict_law_fails_general", "HoggarBound.C3AllQubits.c3_strict_law_fails",
+                  "HoggarBound.C3AllQubits.c3_all_qubits_completion"}
+          assert main <= expected, f"Main theorems are not audited: {main - expected}"
+          log = pathlib.Path("results/ci-lean-c3-all-qubits.log").read_text(encoding="utf-8")
+          assert "error" not in log and "sorry" not in log, "The Lean check reported an error or a sorry"
+          flat = re.sub(r"\s+", " ", log)
+          found = dict(re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", flat))
+          found.update((name, "") for name in re.findall(r"'([^']+)' does not depend on any axioms", flat))
+          assert expected <= found.keys(), f"Missing axiom reports: {expected - found.keys()}"
+          for name in sorted(expected):
+              actual = {a.strip() for a in found[name].split(",") if a.strip()}
+              assert actual <= allowed, f"Unexpected axioms in {name}: {actual - allowed}"
+          code = re.sub(r"/-.*?-/", "", source, flags=re.S)
+          code = re.sub(r"--.*", "", code)
+          for word in ("sorry", "admit", "native_decide", "unsafe", "set_option"):
+              assert word not in code, f"Forbidden construct in the file: {word}"
+          assert not re.search(r"^\s*axiom\b", code, flags=re.M), "The file declares an axiom"
+          print(f"Passed: all {len(expected)} audited declarations use only the standard axioms")
+          PY
+      - name: Preserve Lean evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: c3-all-qubits-lean-evidence
+          path: results/ci-lean-c3-all-qubits*.log
+          if-no-files-found: error
+          retention-days: 30

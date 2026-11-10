@@ -37,6 +37,11 @@ if [ -n "$ESHKOL" ]; then
 fi
 # ---- the cospectral pair (combined paper, Section 8) and the completion minima (publication/ADDENDUM-completion-optima.md)
 stage "cospectral pair, exact arithmetic (30 checks)"  bash -c 'python scripts/cospectral_pair.py | tee results/cospectral_pair.log | tail -1 | grep -q "30 of 30"'
+# ---- case C3 for every number of qubits (publication/ADDENDUM-c3-all-qubits.md)
+stage "C3 family, full configurations N = 3..6 (43 checks)" bash -c 'python scripts/cospectral_family.py --six | tee results/cospectral_family.log | tail -1 | grep -q "43 of 43"'
+stage "C3 family, second route by tensor products (18 checks)" bash -c 'python scripts/cospectral_family_tensor_check.py | tee results/cospectral_family_tensor.log | tail -1 | grep -q "18 of 18"'
+stage "C11: cone lifts of the C3 family, 4 to 6 qubits (21 checks)" bash -c 'python scripts/cospectral_family_cone_lift.py | tee results/cospectral_family_cone_lift.log | tail -1 | grep -q "21 of 21"'
+stage "C3: exhaustive search near the all-plus carrier, four qubits" bash -c 'python scripts/c3_sparse_search.py 3 3 | grep -v "^time:" | tee results/c3_sparse_search_four.log | grep -q "different block spectra: 4; of these with different r_D (different completion cubic traces): 3"'
 rm -f results/.stage.log
 [ $fail -eq 0 ] && echo "ALL STAGES PASSED" || echo "SOME STAGES FAILED"
 exit $fail

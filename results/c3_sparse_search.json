@@ -1,0 +1,240 @@
+{
+ "kmax3_block3": {
+  "block_qubits": 3,
+  "qubits": 4,
+  "max_changes": 3,
+  "real_block_paulis": 35,
+  "carriers": 182176,
+  "distinct_keys": 3289,
+  "d_spectrum_table": {
+   "matrices": 54811,
+   "pairs_tr_D3_tr_D4": 10,
+   "single_valued": true
+  },
+  "groups_with_two_d_values": 6,
+  "members_settled_exactly": 1056,
+  "cospectral_classes_with_different_blocks": 4,
+  "cospectral_classes_with_different_rD": 3,
+  "classes": [
+   [
+    {
+     "r_D": 0,
+     "members": 6,
+     "changes": [
+      [
+       3,
+       "IXX",
+       1
+      ],
+      [
+       56,
+       "ZZZ",
+       1
+      ]
+     ]
+    },
+    {
+     "r_D": 2,
+     "members": 168,
+     "changes": [
+      [
+       31,
+       "XYY",
+       2
+      ],
+      [
+       61,
+       "YZY",
+       2
+      ]
+     ]
+    }
+   ],
+   [
+    {
+     "r_D": 0,
+     "members": 18,
+     "changes": [
+      [
+       1,
+       "IIX",
+       1
+      ],
+      [
+       56,
+       "ZZZ",
+       1
+      ]
+     ]
+    },
+    {
+     "r_D": 2,
+     "members": 288,
+     "changes": [
+      [
+       8,
+       "IIZ",
+       2
+      ],
+      [
+       31,
+       "XYY",
+       1
+      ],
+      [
+       40,
+       "ZIZ",
+       2
+      ]
+     ]
+    }
+   ],
+   [
+    {
+     "r_D": 3,
+     "members": 48,
+     "changes": [
+      [
+       3,
+       "IXX",
+       2
+      ],
+      [
+       7,
+       "XXX",
+       2
+      ],
+      [
+       27,
+       "IYY",
+       2
+      ]
+     ]
+    },
+    {
+     "r_D": 3,
+     "members": 48,
+     "changes": [
+      [
+       7,
+       "XXX",
+       2
+      ],
+      [
+       14,
+       "XXZ",
+       2
+      ],
+      [
+       55,
+       "YYX",
+       2
+      ]
+     ]
+    }
+   ],
+   [
+    {
+     "r_D": 1,
+     "members": 48,
+     "changes": [
+      [
+       7,
+       "XXX",
+       1
+      ],
+      [
+       14,
+       "XXZ",
+       1
+      ],
+      [
+       62,
+       "YYZ",
+       2
+      ]
+     ]
+    },
+    {
+     "r_D": 3,
+     "members": 96,
+     "changes": [
+      [
+       3,
+       "IXX",
+       2
+      ],
+      [
+       31,
+       "XYY",
+       2
+      ],
+      [
+       61,
+       "YZY",
+       2
+      ]
+     ]
+    }
+   ]
+  ],
+  "section8_pair": {
+   "changes": {
+    "sigma0": [
+     [
+      24,
+      "IZZ",
+      1
+     ],
+     [
+      54,
+      "YYI",
+      1
+     ]
+    ],
+    "sigma1": [
+     [
+      8,
+      "IIZ",
+      2
+     ],
+     [
+      24,
+      "IZZ",
+      2
+     ],
+     [
+      47,
+      "YXY",
+      1
+     ]
+    ]
+   },
+   "r_D": {
+    "sigma0": 0,
+    "sigma1": 2
+   },
+   "both_in_the_visited_set": true,
+   "cospectral": true,
+   "class_index_in_classes": 1
+  }
+ },
+ "kmax3_block4": {
+  "block_qubits": 4,
+  "qubits": 5,
+  "max_changes": 3,
+  "real_block_paulis": 135,
+  "carriers": 10908676,
+  "distinct_keys": 78713,
+  "d_spectrum_table": {
+   "matrices": 3244411,
+   "pairs_tr_D3_tr_D4": 10,
+   "single_valued": true
+  },
+  "groups_with_two_d_values": 0,
+  "members_settled_exactly": 0,
+  "cospectral_classes_with_different_blocks": 0,
+  "cospectral_classes_with_different_rD": 0,
+  "classes": []
+ }
+}

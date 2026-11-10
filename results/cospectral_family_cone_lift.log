@@ -1,0 +1,23 @@
+PASS  base C3 pair, N = 3: 19 section points, 16 outside points, 72 outside contexts; cubic traces 0 and 288 as recorded
+PASS  lift to 4 qubits: X' is e-perp in the hyperbolic quadric (71 points); d' is on it, in e-perp, not e; the vertices of the section are e, d', e + d'
+PASS  lifted case: 39 section points, 32 outside points, 304 outside contexts
+PASS  lifted carrier operators: A' = Z_e + (1 + Z_e) (x) A for both carriers
+PASS  the two lifted carrier operators have the same characteristic polynomial (degree 16, exact)
+PASS  lifted completion cubic traces 1728 and 4032 differ by -2304 = 8 * (-288)
+PASS  as the lemma predicts: tr L'^3 = 8 tr L^3 + 12 tr L^2 + 6 tr L for both carriers
+PASS  base C3 pair, N = 4: 71 section points, 64 outside points, 1120 outside contexts; cubic traces 15744 and 16512 as recorded
+PASS  lift to 5 qubits: X' is e-perp in the hyperbolic quadric (271 points); d' is on it, in e-perp, not e; the vertices of the section are e, d', e + d'
+PASS  lifted case: 143 section points, 128 outside points, 4544 outside contexts
+PASS  lifted carrier operators: A' = Z_e + (1 + Z_e) (x) A for both carriers
+PASS  the two lifted carrier operators have the same characteristic polynomial (degree 32, exact)
+PASS  lifted completion cubic traces 152832 and 158976 differ by -6144 = 8 * (-768)
+PASS  as the lemma predicts: tr L'^3 = 8 tr L^3 + 12 tr L^2 + 6 tr L for both carriers
+PASS  base C3 pair, N = 5: 271 section points, 256 outside points, 17280 outside contexts; cubic traces 649728 and 655872 as recorded
+PASS  lift to 6 qubits: X' is e-perp in the hyperbolic quadric (1055 points); d' is on it, in e-perp, not e; the vertices of the section are e, d', e + d'
+PASS  lifted case: 543 section points, 512 outside points, 69376 outside contexts
+PASS  lifted carrier operators: A' = Z_e + (1 + Z_e) (x) A for both carriers
+PASS  the two lifted carrier operators have the same characteristic polynomial (degree 64, exact)
+PASS  lifted completion cubic traces 5612544 and 5661696 differ by -49152 = 8 * (-6144)
+PASS  as the lemma predicts: tr L'^3 = 8 tr L^3 + 12 tr L^2 + 6 tr L for both carriers
+
+21 of 21 checks passed
