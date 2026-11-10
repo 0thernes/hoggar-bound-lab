@@ -5,6 +5,7 @@ import hashlib
 import json
 import shutil
 import sys
+from urllib.parse import unquote, urlsplit
 
 ROOT=Path(__file__).resolve().parents[1]
 DEST=ROOT/'build'/'independent-site'
@@ -45,37 +46,52 @@ for name in FILES:
     dst.parent.mkdir(parents=True,exist_ok=True)
     shutil.copyfile(src,dst)
     manifest[name]=hashlib.sha256(dst.read_bytes()).hexdigest()
-main_page=(ROOT/'docs'/'index.html').read_text(encoding='utf-8')
-navigation='<nav style="max-width:46rem;margin:1rem auto;padding:0 16px;font:14px system-ui">' \
-    '<a href="c3-lab/">New: four-qubit C3 certificate</a> · ' \
-    '<a href="paper/c3-spectral-counterexample.html">C3 research paper</a> · ' \
-    '<a href="independent-review/">Interactive explorer</a> · ' \
-    '<a href="paper/spectral-floor.pdf">Main paper (PDF)</a> · ' \
-    '<a href="paper/independent-research-note.pdf">Independent verification (PDF)</a> · ' \
-    '<a href="https://github.com/0thernes/hoggar-bound-lab">Code and proofs</a></nav>'
-(DEST/'index.html').write_text(main_page.replace('<body>','<body>'+navigation,1),encoding='utf-8')
+main_page=(ROOT/'docs'/'research-index.html').read_text(encoding='utf-8')
+if '\ufffd' in main_page:
+    raise RuntimeError('Research landing page contains a Unicode replacement character')
+(DEST/'index.html').write_text(main_page,encoding='utf-8')
+manifest['index.html']=hashlib.sha256((DEST/'index.html').read_bytes()).hexdigest()
 (DEST/'.nojekyll').write_text('')
 (DEST/'artifact-sha256.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
 
 class Links(HTMLParser):
-    def __init__(self,base):
+    def __init__(self,page):
         super().__init__()
-        self.base=base
+        self.page=page
+        self.ids=set()
+        self.references=[]
     def handle_starttag(self,tag,attrs):
         for key,value in attrs:
-            if key in ('href','src') and value and not value.startswith(('https:','http:','mailto:','data:','#')):
-                target=(self.base/value).resolve()
-                if not target.exists():
-                    raise RuntimeError(f'Broken local explorer link: {value}')
-for directory in ('independent-review','c3-lab'):
-    Links(DEST/directory).feed((DEST/directory/'index.html').read_text(encoding='utf-8'))
-Links(DEST/'paper').feed((DEST/'paper/c3-spectral-counterexample.html').read_text(encoding='utf-8'))
+            if key=='id' and value:
+                self.ids.add(value)
+            if key in ('href','src') and value:
+                parsed=urlsplit(value)
+                if not parsed.scheme and not parsed.netloc:
+                    target=(self.page.parent/unquote(parsed.path)).resolve() if parsed.path else self.page.resolve()
+                    if target.is_dir():
+                        target=target/'index.html'
+                    if not target.is_file():
+                        raise RuntimeError(f'Broken local link in {self.page.name}: {value}')
+                    self.references.append((target,unquote(parsed.fragment),value))
+pages=[DEST/'index.html']+[DEST/name for name in FILES if name.endswith('.html')]
+parsed_pages={}
+for page in pages:
+    parser=Links(page)
+    parser.feed(page.read_text(encoding='utf-8'))
+    parser.close()
+    parsed_pages[page.resolve()]=parser
+for page,parser in parsed_pages.items():
+    for target,fragment,value in parser.references:
+        if fragment and target in parsed_pages and fragment not in parsed_pages[target].ids:
+            raise RuntimeError(f'Broken local fragment in {page.name}: {value}')
 if '--mirror-docs' in sys.argv:
-    # Preserve the main author's docs/index.html, while making the companion
-    # available to either a workflow deployment or branch-based Pages hosting.
+    # Preserve the main author's docs/index.html. Workflow Pages uses the new
+    # assembled index; a branch-based mirror exposes docs/research-index.html.
     for name in FILES:
         dst=ROOT/'docs'/name
         dst.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(DEST/name,dst)
-    shutil.copyfile(DEST/'artifact-sha256.json',ROOT/'docs'/'artifact-sha256.json')
-print(f'Assembled {len(FILES)} files; all local explorer links resolve: {DEST}')
+    mirror_manifest={name:sha for name,sha in manifest.items() if name!='index.html'}
+    mirror_manifest['research-index.html']=hashlib.sha256((ROOT/'docs'/'research-index.html').read_bytes()).hexdigest()
+    (ROOT/'docs'/'artifact-sha256.json').write_text(json.dumps(mirror_manifest,indent=2)+'\n',encoding='utf-8')
+print(f'Assembled {len(FILES)+1} files; all local links and HTML fragments resolve across {len(pages)} pages: {DEST}')

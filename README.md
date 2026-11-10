@@ -4,11 +4,19 @@ A machine-checked lower bound on how badly any noncontextual hidden-variable mod
 $N$-qubit Pauli observables, with an independent reproduction of the known values and a running
 demonstration on the Tsotchke stack (Moonlab, quantum_geometric_tensor, quantum_rng, Eshkol).
 
-**Paper:** [paper/spectral-floor.md](paper/spectral-floor.md) ([PDF](paper/spectral-floor.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/))
+**Paper:** [paper/spectral-floor.md](paper/spectral-floor.md) ([PDF](paper/spectral-floor.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.html))
 &nbsp;·&nbsp; **Proofs:** [lean/HoggarBound](lean/HoggarBound)
 &nbsp;·&nbsp; **Independent review:** [INDEPENDENT-REVIEW.md](INDEPENDENT-REVIEW.md)
 
 Status: research preprint, 9 November 2026. Not peer reviewed. AI-generated under human direction.
+
+**Research website:** [Hoggar Bound Lab](https://0thernes.github.io/hoggar-bound-lab/) —
+Alexander S. Donahue / 0thernes LLC.
+Start with the [research summary](docs/RESEARCH-SUMMARY.md), [glossary](GLOSSARY.md),
+[verification guide](VERIFICATION.md), [claim register](docs/CLAIMS.md),
+[legal and attribution notes](LEGAL.md), or [release history](CHANGELOG.md).
+The documentation edition `v1.1.1` leaves the scientific paper and proof artifacts in
+[v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate) unchanged.
 
 **New finite result:** [Cospectral Pauli carriers with different completion spectra](paper/c3-spectral-counterexample.md)
 ([PDF](paper/c3-spectral-counterexample.pdf), [working exact-certificate demo](https://0thernes.github.io/hoggar-bound-lab/c3-lab/)).

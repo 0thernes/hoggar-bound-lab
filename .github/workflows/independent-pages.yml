@@ -35,6 +35,23 @@ jobs:
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: build/independent-site
+      - name: Check that this snapshot is still the main revision
+        id: current_revision
+        shell: bash
+        run: |
+          checked_commit=$(git rev-parse HEAD)
+          main_commit=$(git ls-remote origin refs/heads/main | cut -f1)
+          if [ -z "$main_commit" ]; then
+            echo "Could not establish the current main revision."
+            exit 1
+          fi
+          if [ "$checked_commit" = "$main_commit" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping superseded snapshot $checked_commit; main is $main_commit."
+          fi
       - name: Publish the checked snapshot
         id: deployment
+        if: steps.current_revision.outputs.publish == 'true'
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
