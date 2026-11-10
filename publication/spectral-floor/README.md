@@ -24,8 +24,8 @@ for further venues (fees, licences) are in [../ROUTES.md](../ROUTES.md), written
 |---|---|---|
 | GitHub repository, releases `v1.1.0` and `v1.1.1` (adds the ORCID iD) | published | — |
 | Project web page (GitHub Pages), with indexing metadata for Google Scholar | published. Google Scholar indexes such pages by itself; that takes days to weeks and is not guaranteed | — |
-| Software Heritage | archived. The visit of 10 November 2026, 02:35 UTC, includes the tag `v1.1.0`: snapshot `swh:1:snp:e668d136e57bf7971a488db2706bd58ffbabede5` ([browse](https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/0thernes/hoggar-bound-lab)) | — |
-| Internet Archive | snapshots of the final paper page and PDF: [page](https://web.archive.org/web/20261110023747/https://0thernes.github.io/hoggar-bound-lab/?v=1.1.0), [PDF](https://web.archive.org/web/20261110023819/https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf?v=1.1.0). Its capture of the github.com pages failed (the repository itself is in Software Heritage) | — |
+| Software Heritage | archived. The visit of 10 November 2026, 02:56 UTC, includes the tags `v1.1.0` and `v1.1.1`: snapshot `swh:1:snp:978634bdad8256f62bd0c250029b9924820b073c`; the commit of release `v1.1.1` is `swh:1:rev:c656f52aef29b21f97e0daa241915aa7fbc0de2b` ([browse](https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/0thernes/hoggar-bound-lab)). The earlier visit, with `v1.1.0` only, is `swh:1:snp:e668d136e57bf7971a488db2706bd58ffbabede5` | — |
+| Internet Archive | snapshots of the paper page and PDF as of `v1.1.1`: [page](https://web.archive.org/web/20261110025627/https://0thernes.github.io/hoggar-bound-lab/?v=1.1.1), [PDF](https://web.archive.org/web/20261110025652/https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf?v=1.1.1); as of `v1.1.0`: [page](https://web.archive.org/web/20261110023747/https://0thernes.github.io/hoggar-bound-lab/?v=1.1.0), [PDF](https://web.archive.org/web/20261110023819/https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf?v=1.1.0). Its capture of the github.com pages failed twice (the repository itself is in Software Heritage) | — |
 | arXiv (quant-ph, cross-list math.CO) | package ready; **not submitted** | the author: set the account affiliation to 0thernes LLC, obtain an endorsement, accept the submission terms, submit |
 | Zenodo (DOI) | metadata ready; **not deposited**, see `ZENODO-NOTE.md` | the author, after asking Zenodo whether the work is in scope |
 | Journal of Physics A: Mathematical and Theoretical | manuscript, supplement, cover letter and form sheet ready (`JPHYSA-SUBMISSION.md`); **not submitted** | the author: write the statement of his own verification, then upload and confirm the declarations. One journal at a time |
@@ -45,7 +45,7 @@ All of them carry the same identity: Alexander S. Donahue, 0thernes LLC, 0_0@0th
 | Google Scholar profile | lists the author's papers. Scholar finds the paper's page by itself (the page carries the tags it reads); until then use *Add article manually* with the values below |
 | OpenAIRE | no upload: OpenAIRE harvests arXiv and Zenodo records and lets the author claim them with the ORCID iD |
 | Zenodo | a DOI for the release, if Zenodo confirms the work is in scope; see `ZENODO-NOTE.md` |
-| IOP (Journal of Physics A), Paperpal Preflight | the journal submission and its optional pre-check; upload `spectral-floor.pdf` from this directory |
+| IOP (Journal of Physics A), Paperpal Preflight | the journal submission and its optional pre-check; upload `jphysa/manuscript.pdf`, with `jphysa/supplementary.pdf` as supplementary material |
 
 Values for *Add article manually* in Google Scholar: title "A machine-checked spectral floor for Pauli
 contextuality, and new configurations that attain it"; author "Donahue, Alexander S."; publication date
