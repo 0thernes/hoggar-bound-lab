@@ -1,0 +1,108 @@
+{
+  "status": "published_and_preserved",
+  "recorded_at_utc": "2026-11-10T12:58:00Z",
+  "version": "1.3.0",
+  "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E",
+  "author": "Alexander S. Donahue, 0thernes LLC (ORCID 0009-0006-8168-9648)",
+  "release": {
+    "url": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.3.0",
+    "tag": "v1.3.0",
+    "tag_object": "0e8b20658564e5a7ebfb9fcf2474ea04ec8b39bc",
+    "commit": "e6b62d7f143f3e4a2cb6b4d092578f16d3d6a508",
+    "published_at_utc": "2026-11-10T12:48:51Z",
+    "marked_latest": true,
+    "assets": {
+      "unified-contextuality.pdf": {
+        "sha256": "e1ae8380f4e77759f6604e505855e9bcf0080687d7643e7ea0244c1f2fa0b35a",
+        "bytes": 504073
+      },
+      "unified-jphysa-manuscript.pdf": {
+        "sha256": "95355477843592c366847d4e1f7082b9d31df5a4169dad3126a7a4d302d30f23",
+        "bytes": 418105
+      },
+      "unified-jphysa-supplementary.pdf": {
+        "sha256": "c501fb6e907c4e659caaa7c072d467612a5478fc7293cec18d17bc6a28a2e9da",
+        "bytes": 165250
+      },
+      "unified-contextuality.md": {
+        "sha256": "e0765ca74fa4c66c15c7e95abd9ac895ff0857cd0988f86a35d92567a89a07bc",
+        "bytes": 143061
+      },
+      "c3-all-qubits-ci-evidence.zip": {
+        "sha256": "0838703090e9771f0b7cf28580a2f6655567d753c10329f3161ddcab05625f77",
+        "bytes": 7687
+      },
+      "seven-qubit-ci-evidence.zip": {
+        "sha256": "cfa087612d3242925616ceb38319631cb49d9d36adfc51d77e4a9a9b79eb5d87",
+        "bytes": 14915
+      },
+      "unified-arxiv-source.zip": {
+        "sha256": "003d96c1c1ab0dffc5740e17dd0f8e1f33cb471f04c95332f4bd06813ecdf491",
+        "bytes": 223945
+      }
+    },
+    "asset_round_trip": "All eight assets downloaded again from the release and checked against SHA256SUMS: OK."
+  },
+  "verification_runs": {
+    "c3_all_qubits": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684",
+      "commit": "6189b6269d42745f1141b649800b32c88cc21509",
+      "conclusion": "success",
+      "scope": "CarrierFamily.lean from source with the axiom allowlist (74 declarations); every exact check including Conjecture E at n = 6 (36 checks); logs in results/ci-run-42817286684/."
+    },
+    "publication_documentation": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817314224",
+      "commit": "6189b6269d42745f1141b649800b32c88cc21509",
+      "conclusion": "success"
+    },
+    "saturated_configurations_seven_qubit": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42808984960",
+      "commit": "b7b02732c51cfbaab222f4749d0eecabfd37ef86",
+      "conclusion": "success"
+    },
+    "independent_verification": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286457",
+      "commit": "6189b6269d42745f1141b649800b32c88cc21509",
+      "conclusion_at_recording": "in progress (C engine, matrices and explorer job: success; Lean kernel job running)"
+    },
+    "run_all_local": "scripts/run_all.sh in a fresh clone of 28dc811: all 22 stages passed (results/run_all.log).",
+    "note": "The release commit e6b62d7 differs from 6189b62 only in the paper text, its builds, README, CHANGELOG, results/run_all.log and the archived CI logs; programs and Lean files are the same."
+  },
+  "github_pages": {
+    "deployment_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42818997220",
+    "commit": "e6b62d7f143f3e4a2cb6b4d092578f16d3d6a508",
+    "conclusion": "success",
+    "landing_page": "https://0thernes.github.io/hoggar-bound-lab/",
+    "paper_html": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+    "paper_pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+    "live_check": "Live PDF SHA-256 e1ae8380f4e77759f6604e505855e9bcf0080687d7643e7ea0244c1f2fa0b35a equals the release PDF; live HTML byte-identical to the release HTML; landing page shows edition v1.3.0."
+  },
+  "software_heritage": {
+    "save_request": "https://archive.softwareheritage.org/api/1/origin/save/2636388/",
+    "save_request_status": "accepted",
+    "save_task_status": "succeeded",
+    "visit_date": "2026-11-10T12:50:17.865000+00:00",
+    "visit_status": "full",
+    "snapshot": "swh:1:snp:6eba76b04ebd5568e40a7f3b97152bbcce3d2c13",
+    "tag_v1_3_0": "refs/tags/v1.3.0 -> release 0e8b20658564e5a7ebfb9fcf2474ea04ec8b39bc (the annotated tag object)",
+    "main": "refs/heads/main -> revision e6b62d7f143f3e4a2cb6b4d092578f16d3d6a508",
+    "browse": "https://archive.softwareheritage.org/browse/revision/e6b62d7f143f3e4a2cb6b4d092578f16d3d6a508/"
+  },
+  "internet_archive": {
+    "method": "Save Page Now through its public save URL in a browser, without an account, for version-tagged URLs (?v=1.3.0), as for earlier releases. The anonymous HTTP endpoint only redirected to the v1.2.0 capture or was rate limited.",
+    "captures": {
+      "paper_html": "https://web.archive.org/web/20261110125246/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html?v=1.3.0",
+      "paper_pdf": "https://web.archive.org/web/20261110125355/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf?v=1.3.0",
+      "landing_page": "https://web.archive.org/web/20261110125416/https://0thernes.github.io/hoggar-bound-lab/?v=1.3.0"
+    },
+    "content_check": "Archived PDF (id_ form) SHA-256 equals the release PDF; archived HTML is the release HTML (served gzip-compressed, identical after decompression)."
+  },
+  "not_done": {
+    "arXiv": "Needs an endorser for quant-ph and the author's own submission; not attempted.",
+    "Journal of Physics A": "Needs the author's ScholarOne login, declarations and authorship assessment; not attempted.",
+    "Zenodo": "The AI-originated research workflow needs an eligibility decision under Zenodo's policy; no deposit, no DOI.",
+    "ORCID": "The public work entry still names version 1.2.0 and its title; updating it needs the author's login.",
+    "Google Scholar and OpenAIRE": "Indexing is automatic and not observed; nothing submitted.",
+    "peer review": "None. Internal automated reviews only."
+  }
+}

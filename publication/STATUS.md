@@ -1,7 +1,35 @@
-# Publication status: combined paper v1.2.0
+# Publication status: combined paper v1.3.0
 
-The author requested one combined research paper for eight destinations. The current manuscript is
-**Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate**,
+## Version 1.3.0 (10 November 2026)
+
+The current manuscript is **Spectral bounds and their limits in Pauli contextuality: exact
+configurations and a proof of Jonah's Conjecture E**, version 1.3.0, by **Alexander S. Donahue —
+0thernes LLC**. It folds the four addenda of this folder into the combined paper. The
+[distribution record](../results/publication-v1.3.0-distribution.json) holds every receipt below.
+
+| Destination | Observed status for v1.3.0 |
+| --- | --- |
+| GitHub / project website | **Public.** [Release v1.3.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.3.0), published 2026-11-10 12:48:51 UTC, marked Latest, tag on commit `e6b62d7`; eight assets checked again after download. [Pages deployment 42818997220](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42818997220): the live PDF (SHA-256 `e1ae8380…`) and HTML are byte-identical to the release. |
+| Software Heritage | **Preserved and verified.** Save request 2636388 succeeded; snapshot `swh:1:snp:6eba76b04ebd5568e40a7f3b97152bbcce3d2c13` holds `refs/tags/v1.3.0` (tag object `0e8b2065…`) and `main` at [revision e6b62d7](https://archive.softwareheritage.org/browse/revision/e6b62d7f143f3e4a2cb6b4d092578f16d3d6a508/). |
+| Internet Archive | **Preserved and verified.** [HTML](https://web.archive.org/web/20261110125246/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html?v=1.3.0), [PDF](https://web.archive.org/web/20261110125355/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf?v=1.3.0) and [landing page](https://web.archive.org/web/20261110125416/https://0thernes.github.io/hoggar-bound-lab/?v=1.3.0); the archived PDF has the release hash and the archived HTML equals the release HTML. |
+| ORCID | The public work entry still shows version 1.2.0 and its title. Updating it needs the author's login. |
+| arXiv | Not submitted. The quant-ph endorsement is still needed; the submission is the author's. |
+| Journal of Physics A | Not submitted. The ScholarOne login, the declarations and the authorship assessment are the author's. |
+| Zenodo | No deposit, no DOI. The eligibility of AI-originated research under Zenodo's policy is still to be decided. |
+| Google Scholar, OpenAIRE | Indexing is automatic; not observed. |
+
+Verification of the release content: [C3 workflow run 42817286684](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684)
+and [publication documentation run 42817314224](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817314224),
+both at `6189b62` (the programs and Lean files of the release), passed; a complete `scripts/run_all.sh`
+passed all 22 stages. No author review or approval of the 1.3.0 text is recorded
+([AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md)). Nothing here is peer review.
+
+The rest of this page records the v1.2.0 release, which remains as published.
+
+## Version 1.2.0
+
+The author requested one combined research paper for eight destinations. The manuscript of version
+1.2.0 was **Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate**,
 by **Alexander S. Donahue — 0thernes LLC**, ORCID
 [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648), correspondence **0_0@0thernes.art**.
 
