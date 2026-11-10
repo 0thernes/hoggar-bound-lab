@@ -119,11 +119,16 @@ them, list exactly these three; `viol_bit` lists two of them and `sign_table`, a
 none. The expected output is
 [results/lean-saturated-seven-axioms.log](../results/lean-saturated-seven-axioms.log).
 
-On a desktop computer (Windows 11, 10 November 2026) `MaskRows.lean` was checked in half a minute and
-`SaturatedPhaseSeven.lean` in 5 to 14 minutes, depending on the load of the machine, with a peak
-working set of 4.3 GB. The second file has its declarations checked one after the other
-(`set_option Elab.async false`), because the kernel needs about 3 GB for one block of rows. These are
-measurements, not guarantees.
+In the Ubuntu run
+[42791713861](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861) of the workflow
+*Saturated configurations*, at commit `77a529f`, `lake build HoggarBound.SaturatedPhaseSeven` took
+1 minute 29 seconds, with a maximum resident set of 6.3 GB, and `lake build HoggarBound.MaskRows` took
+8 seconds; the record is
+[results/saturation-seven-ci-audit.json](../results/saturation-seven-ci-audit.json). On a desktop
+computer under Windows 11, `lake env lean` checked `SaturatedPhaseSeven.lean` in 5 to 14 minutes,
+depending on the load of the machine, with a peak working set of 4.3 GB. The file has its declarations
+checked one after the other (`set_option Elab.async false`), because the kernel needs about 3 GB for
+one block of rows. These are measurements, not guarantees.
 
 From the repository root:
 
@@ -142,7 +147,7 @@ script: every number in it is evaluated by the kernel.
 
 The workflow *Saturated configurations* runs the three commands in its job `lean-degrees` and fails if
 a declaration uses an axiom outside the allowlist or if a source file contains `sorry`, `native_decide`
-or an `axiom` declaration.
+or an `axiom` declaration. The run named above passed.
 
 ## Scope
 
