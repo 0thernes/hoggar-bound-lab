@@ -17,7 +17,7 @@ Prepared 2026-11-09. Local draft only: not submitted, not signed, and not a decl
 | Additional subject, if available | Mathematical physics; physical combinatorics; operator theory |
 | Keywords | Quantum contextuality; Pauli operators; spectral invariants; finite geometry; formal verification; reproducible computation |
 | Publication model recommendation | Standard subscription route; no optional gold-open-access purchase requested |
-| Existing preprint location | Final GitHub paper/release URL to be inserted after release; no arXiv ID or Zenodo DOI has been observed in this preparation task |
+| Existing preprint location | [Public paper record](https://0thernes.github.io/hoggar-bound-lab/paper/c3-spectral-counterexample.html) and [versioned release](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate); no arXiv ID or Zenodo DOI has been assigned |
 | Funding declaration | This research was self-funded by the author. |
 | Competing interests disclosed so far | The author is the sole operator of 0thernes LLC, with which this project is affiliated. |
 | Other competing interests | Not yet explicitly declared; do not infer that none exist. |
@@ -58,9 +58,9 @@ For IOP submission, put the substantive research-tool use in Methods and a conci
 
 ## Data and code availability draft
 
-The explicitly defined Pauli sign assignments, finite matrices, exact certificates, verification programs and formalization source are available in the Hoggar Bound Lab repository. The final manuscript must cite an immutable release identifier and its actual public URL. A DOI archive may be added if a compliant deposit is completed. The project currently uses a custom verification license permitting download, build, execution, study and attributed quotation for checking and reproducing the results; it does not grant unrestricted modified redistribution or commercial use. Third-party components retain their own licenses. See the release's `LICENSE` and `NOTICE` files.
+The explicitly defined Pauli sign assignments, finite matrices, exact certificates, verification programs and formalization source are available in the Hoggar Bound Lab [release v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), at fixed commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. The release includes the final paper and checksummed verification evidence. A DOI archive may be added if a compliant deposit is completed. The project currently uses a custom verification license permitting download, build, execution, study and attributed quotation for checking and reproducing the results; it does not grant unrestricted modified redistribution or commercial use. Third-party components retain their own licenses. See the release's `LICENSE` and `NOTICE` files.
 
-Replace the repository's moving branch link with an observed release/commit before submission. Do not call the code FOSS or claim a DOI that has only been proposed. If a paper-specific license is later authorized, identify it separately from the code license.
+Use that fixed release for submission and reproducibility. No DOI has been assigned to this paper. If a paper-specific license is later authorized, identify it separately from the code license.
 
 ## Attachments to prepare
 

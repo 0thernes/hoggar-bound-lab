@@ -4,7 +4,7 @@ Prepared 2026-11-09. This is a checklist, not a completed submission or an attes
 
 ## Claim and manuscript
 
-- [ ] Freeze a release commit and record its full hash.
+- [x] Freeze release commit `d3811e3b53048fa8f3206f08494f0a9834eed287`, published as `v0.2.0-c3-certificate`. See `STATUS.md` for observed public records.
 - [x] Produce the final technical manuscript `paper/c3-spectral-counterexample.md`, its LaTeX source and nine-page PDF. Human critical review and approval remain separate below.
 - [x] Replace the formal-verification placeholder with checked theorem names, exact statement boundaries, Lean/Mathlib 4.35.0 and the successful 42-declaration axiom report. The factored polynomial and exact gaps 2 and 32 are explicitly outside the Lean theorem conclusions.
 - [x] Preserve the exact claim: 71-point section, 64 outside labels, 1120 outside contexts; equal carrier characteristic polynomials; completion cubic traces 14976/15360; largest-eigenvalue gap 2 and continuous-relaxation gap 32.
@@ -36,19 +36,19 @@ The bracketed instruction is an unfinished field, not a completed attestation. R
 
 ## Reproducibility payload
 
-- [ ] Final paper PDF, editable TeX/Markdown, figure files, references and concise build instructions.
-- [ ] Exact witness and matrix/certificate JSON, including `results/frontier-c3-n4-pair.json`, the literal-matrix verification report, completion data and integer similarity certificate.
-- [ ] Independent signed-context verifier and `results/frontier-c3-context-verification.json`, including the negative-control results.
-- [ ] Browser model and `tests/frontier_c3_browser_test.cjs`; identify the exact release used by the public demo.
-- [ ] Lean sources, `lean-toolchain`, dependency lock information, exact reproduction command, complete successful log and axiom audit for the final C3 theorem.
-- [ ] Eshkol program generation, integer-bound replay, current successful execution report and process-local toolchain requirements. Keep its tested serial scope explicit.
-- [ ] Environment/dependency manifest and SHA-256 checksums. Identify LF-normalized source hashes where Git line-ending conversion applies.
-- [ ] Package only relevant research artifacts: no API tokens, private account data, local caches, temporary downloads, build dependency trees, unsupported attestations or unrelated chat transcripts.
-- [ ] Retain original third-party copyright and license notices. Prompts/provenance may be summarized or included where needed for reproducibility, after a privacy review; do not claim omitted information was independently checked by a human.
+- [x] Final paper PDF, editable TeX/Markdown, figure files, references and concise build instructions.
+- [x] Exact witness and matrix/certificate JSON, including `results/frontier-c3-n4-pair.json`, the literal-matrix verification report, completion data and integer similarity certificate.
+- [x] Independent signed-context verifier and `results/frontier-c3-context-verification.json`, including the negative-control results.
+- [x] Browser model and `tests/frontier_c3_browser_test.cjs`; the public demo was checked against release commit `d3811e3b53048fa8f3206f08494f0a9834eed287`.
+- [x] Lean sources, `lean-toolchain`, dependency lock information, exact reproduction command, complete successful log and axiom audit for the final C3 theorem.
+- [x] Eshkol program generation, integer-bound replay, successful execution report and process-local toolchain requirements in `results/frontier-c3-eshkol.json`. Its qualification is explicitly serial.
+- [x] Dependency versions and environment information in the context verifier, Lean audit, paper/source build and Eshkol reports; SHA-256 checksums in the release. The Lean manifest distinguishes raw-byte and LF-normalized source hashes.
+- [x] Package only relevant research artifacts: the release asset and portable-source allowlists exclude private correspondence, caches, dependency trees and unrelated chat transcripts. Published source and evidence received a scoped contact/privacy check.
+- [x] Retain original third-party copyright and license notices. The manuscript summarizes AI provenance; no independent human provenance review is asserted.
 
 ## Licenses and identifiers
 
-- [ ] Read the current repository `LICENSE` and `NOTICE`. It is a custom verification license, not MIT/Apache/CC BY and not unrestricted open source.
+- [x] Read the current repository `LICENSE` and `NOTICE`. It is a custom verification license, not MIT/Apache/CC BY and not unrestricted open source.
 - [ ] Make an explicit paper license decision. CC BY 4.0 is compatible with the checked Quantum/SciPost final-publication requirements, but selecting it grants rights beyond the existing project license; do not apply it automatically to all code and third-party files.
 - [ ] Put any separately authorized paper license in a clear paper-level notice. Ensure Zenodo license metadata accurately describes each included class of file; it supports mixed/custom licenses.
 - [ ] Use a version DOI for the fixed paper/artifact and record its relationship to repository releases and any separate supplement. Do not invent DOI strings or assign competing DOIs to the same deposited object.
@@ -59,7 +59,7 @@ The bracketed instruction is an unfinished field, not a completed attestation. R
 
 **Zenodo:** account authentication; human-author eligibility; correct resource type (preprint for paper, software/dataset for distinct supplements); files, creators, description, publication date, version, license and related identifiers. Reserve the DOI before final PDF build if appropriate; publish only the finalized files.
 
-**arXiv:** genuine author account, any required quant-ph endorsement, informed license choice, author-controlled submission attestations. The author is unsure whether an account already exists; check through the platform before creating a duplicate. Create a minimal TeX archive with figures and bibliography; test arXiv compilation. The current polished PDF alone is insufficient because it derives from LaTeX. Put large artifacts in the linked DOI archive and include only useful ancillary files.
+**arXiv:** genuine author account, any required quant-ph endorsement, informed license choice, author-controlled submission attestations. The author is unsure whether an account already exists; check through the platform before creating a duplicate. The minimal XeLaTeX archive with its figure and ancillary notices is prepared, locally compiled and included in the public release as `c3-source-xelatex.zip`; arXiv's own server compilation remains to be tested. The current polished PDF alone is insufficient because it derives from LaTeX. Keep large artifacts in the versioned GitHub release, or a DOI archive if subsequently deposited, and include only useful ancillary files.
 
 **Journal of Physics A:** complete PDF and supplements; truthful author/contact/contribution/funding/interest statements; research-data availability; separate AI acknowledgment and research-method description; concise cover text explaining the C3 result and its boundary; original research Paper classification. Standard subscription publication avoids an optional APC.
 

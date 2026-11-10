@@ -1,6 +1,6 @@
 # C3 public announcement drafts
 
-Text only; neither post has been sent. Use after the linked final paper and demonstration are publicly available. These describe the C3 certificate, not the earlier known spectral lower bound.
+Text only; neither post has been sent. The linked final paper and demonstration are now publicly available. These describe the C3 certificate, not the earlier known spectral lower bound.
 
 ## X
 

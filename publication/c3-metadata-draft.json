@@ -1,11 +1,11 @@
 {
-  "status": "local preparation only; not submitted; finite mathematical verification complete; human authorship, critical review and final approval pending",
+  "status": "Public GitHub research preprint and demonstration; scholarly submissions have not been made",
   "prepared_on": "2026-11-09",
   "title": "Cospectral Pauli carriers with different completion spectra: an exact four-qubit C3 certificate",
   "resource_type": "publication-preprint",
   "language": "eng",
-  "version": null,
-  "publication_date": null,
+  "version": "0.2.0-c3-certificate",
+  "publication_date": "2026-11-09",
   "doi": null,
   "arxiv_id": null,
   "journal_submission_id": null,
@@ -53,7 +53,7 @@
     {
       "identifier": "https://github.com/0thernes/hoggar-bound-lab",
       "type": "url",
-      "relation_note": "Project source repository; freeze an exact release commit."
+      "relation_note": "Project source repository; the fixed v0.2.0-c3-certificate release and exact commit are recorded in release_url and release_commit."
     },
     {
       "identifier": "10.5281/zenodo.23524332",
@@ -69,7 +69,7 @@
   "first_journal_recommendation": "Journal of Physics A: Mathematical and Theoretical",
   "first_journal_article_type": "Paper",
   "simultaneous_journal_submissions_allowed": false,
-  "release_commit": null,
+  "release_commit": "d3811e3b53048fa8f3206f08494f0a9834eed287",
   "pdf_sha256": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
   "final_formal_verification_audit": "results/frontier-c3-lean-audit.md",
   "formal_verification": {
@@ -89,5 +89,9 @@
       "exact largest-eigenvalue gap 2",
       "continuous-relaxation gap 32"
     ]
-  }
+  },
+  "release_published_at_utc": "2026-11-10T01:33:37Z",
+  "release_url": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate",
+  "paper_record_url": "https://0thernes.github.io/hoggar-bound-lab/paper/c3-spectral-counterexample.html",
+  "demo_url": "https://0thernes.github.io/hoggar-bound-lab/c3-lab/"
 }
