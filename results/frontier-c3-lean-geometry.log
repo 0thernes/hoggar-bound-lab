@@ -1,0 +1,10 @@
+⚠ [3324/3332] Replayed HoggarBound.Moment
+warning: HoggarBound\Moment.lean: imports `Mathlib.Analysis.Matrix.Spectrum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound\Moment.lean: imports `Mathlib.Algebra.Order.Chebyshev` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound\Moment.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3325/3332] Replayed HoggarBound.Pauli
+warning: HoggarBound\Pauli.lean: imports `Mathlib.Analysis.Matrix.Spectrum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound\Pauli.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound\Pauli.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [3332/3332] Built HoggarBound.C3Geometry (212s)
+Build completed successfully (3332 jobs).

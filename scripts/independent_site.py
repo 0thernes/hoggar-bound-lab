@@ -9,6 +9,22 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 DEST=ROOT/'build'/'independent-site'
 FILES=[
+    'c3-lab/index.html','c3-lab/style.css','c3-lab/model.js','c3-lab/app.js','c3-lab/README.md',
+    'paper/c3-spectral-counterexample.pdf','paper/c3-spectral-counterexample.md','paper/c3-spectral-counterexample.tex',
+    'paper/c3-spectral-counterexample.html','paper/c3-citation.cff',
+    'paper/c3-figures/spectra.png','paper/c3-figures/spectra.pdf','paper/c3-figures/spectra.svg',
+    'results/frontier-c3-n4-pair.json','results/frontier-c3-n4-verification.json',
+    'results/frontier-c3-context-verification.json','results/frontier-c3-n4-similarity.json',
+    'results/frontier-c3-integer-bounds.json','results/frontier-c3-eshkol.json',
+    'results/frontier-prior-art.md','results/frontier-c3-paper-build.json',
+    'results/frontier-c3-lean-audit.md','results/frontier-c3-lean-axioms.log',
+    'results/frontier-c3-lean-source-sha256.json','results/frontier-c3-certificate-audit.json',
+    'results/frontier-c3-lean-certificate.log','results/frontier-c3-lean-certificate-process.json',
+    'results/frontier-c3-lean-geometry.log','results/frontier-c3-lean-theorem.log',
+    'results/frontier-c3-lean-spectra.log','results/frontier-c3-spectra-check.json',
+    'results/frontier-c3-axioms.json','results/frontier-c3-paper-review.md',
+    'results/frontier-c3-source-bundle-xelatex.json',
+    'results/stability-lean-build.log','results/stability-lean-axioms.log','results/stability-axioms.json',
     'independent-review/index.html','independent-review/style.css','independent-review/explorer.js',
     'independent-review/model.js','independent-review/data.js','independent-review/README.md',
     'paper/independent-research-note.pdf','paper/independent-research-note.md','paper/independent-research-note.tex',
@@ -31,6 +47,8 @@ for name in FILES:
     manifest[name]=hashlib.sha256(dst.read_bytes()).hexdigest()
 main_page=(ROOT/'docs'/'index.html').read_text(encoding='utf-8')
 navigation='<nav style="max-width:46rem;margin:1rem auto;padding:0 16px;font:14px system-ui">' \
+    '<a href="c3-lab/">New: four-qubit C3 certificate</a> · ' \
+    '<a href="paper/c3-spectral-counterexample.html">C3 research paper</a> · ' \
     '<a href="independent-review/">Interactive explorer</a> · ' \
     '<a href="paper/spectral-floor.pdf">Main paper (PDF)</a> · ' \
     '<a href="paper/independent-research-note.pdf">Independent verification (PDF)</a> · ' \
@@ -40,13 +58,18 @@ navigation='<nav style="max-width:46rem;margin:1rem auto;padding:0 16px;font:14p
 (DEST/'artifact-sha256.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
 
 class Links(HTMLParser):
+    def __init__(self,base):
+        super().__init__()
+        self.base=base
     def handle_starttag(self,tag,attrs):
         for key,value in attrs:
-            if key in ('href','src') and value and not value.startswith(('https:','http:','#')):
-                target=(DEST/'independent-review'/value).resolve()
+            if key in ('href','src') and value and not value.startswith(('https:','http:','mailto:','data:','#')):
+                target=(self.base/value).resolve()
                 if not target.exists():
                     raise RuntimeError(f'Broken local explorer link: {value}')
-Links().feed((DEST/'independent-review/index.html').read_text(encoding='utf-8'))
+for directory in ('independent-review','c3-lab'):
+    Links(DEST/directory).feed((DEST/directory/'index.html').read_text(encoding='utf-8'))
+Links(DEST/'paper').feed((DEST/'paper/c3-spectral-counterexample.html').read_text(encoding='utf-8'))
 if '--mirror-docs' in sys.argv:
     # Preserve the main author's docs/index.html, while making the companion
     # available to either a workflow deployment or branch-based Pages hosting.

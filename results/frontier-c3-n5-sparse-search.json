@@ -1,0 +1,8 @@
+{
+  "status": "no collision in restricted sparse family",
+  "N": 5,
+  "A_screened": 9045,
+  "A_unique_spectra": 322,
+  "B_screened": 13965,
+  "meaning": "Does not rule out collisions in the full sign-carrier space"
+}

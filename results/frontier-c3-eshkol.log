@@ -1,0 +1,4 @@
+returncode: 0
+--- stdout ---
+{"intertwines":true,"right_inverse":true,"left_inverse":true,"completion_cube_a":14976,"completion_cube_b":15360,"pass":true}
+--- stderr ---

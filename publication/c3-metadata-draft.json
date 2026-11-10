@@ -1,0 +1,93 @@
+{
+  "status": "local preparation only; not submitted; finite mathematical verification complete; human authorship, critical review and final approval pending",
+  "prepared_on": "2026-11-09",
+  "title": "Cospectral Pauli carriers with different completion spectra: an exact four-qubit C3 certificate",
+  "resource_type": "publication-preprint",
+  "language": "eng",
+  "version": null,
+  "publication_date": null,
+  "doi": null,
+  "arxiv_id": null,
+  "journal_submission_id": null,
+  "author_identity_confirmed_by_user": {
+    "given_names": "Alexander S.",
+    "family_name": "Donahue",
+    "affiliation_recorded": "0thernes LLC",
+    "source": "User confirmation relayed by root agent on 2026-11-09; C3-specific metadata in paper/c3-citation.cff",
+    "c3_authorship_eligibility_confirmed": false,
+    "c3_final_approval_observed": false,
+    "email": "0_0@0thernes.art"
+  },
+  "creators_for_submission": [
+    {
+      "name": "Donahue, Alexander S.",
+      "affiliation": "0thernes LLC"
+    }
+  ],
+  "corresponding_author_email": "0_0@0thernes.art",
+  "abstract": "We specify two sign assignments on a 71-point hyperplane section of the real four-qubit Pauli configuration. Their 16-by-16 carrier operators have identical characteristic polynomials, while their 64-by-64 completion operators have cubic traces 14976 and 15360. The carrier spectrum therefore does not determine the completion spectrum in case C3 of Jonah's classification. This establishes the four-qubit C3 instance of the failure predicted by Conjecture E in the cited preprint. Each assignment is specified by four negative Pauli words. Four block-polynomial factorizations and an exact trace identity give an algebraic certificate. The mechanism redistributes eigenvalues between the two eigenspaces of the polar Pauli observable while preserving their combined multiset. A Lean 4 development verifies carrier cospectrality and completion noncospectrality, including the connection to the original Pauli model and the two exact cubic traces. Separately, algebraic arguments give a largest-completion-eigenvalue gap of two and a continuous-relaxation gap of 32. Independent literal-matrix and signed-context programs provide reproducible checks, including deliberate sign-mutation controls. The result does not settle higher-dimensional cases, exact binary completion optima, historical priority, or physical experiments.",
+  "keywords": [
+    "quantum contextuality",
+    "Pauli operators",
+    "spectral invariants",
+    "finite geometry",
+    "formal verification",
+    "reproducible computation"
+  ],
+  "suggested_arxiv_primary": "quant-ph",
+  "suggested_arxiv_cross_list": [
+    "math.CO"
+  ],
+  "classification_note": "Subject assessment only; arXiv moderation determines final classification.",
+  "license_for_paper": null,
+  "proposed_arxiv_license": "arXiv non-exclusive perpetual distribution license; choose deliberately at final submission review",
+  "license_note": "Current repository uses a restrictive custom verification license. No CC BY or FOSS grant is inferred. Determine paper-specific and per-file artifact licenses explicitly.",
+  "funding": "This research was self-funded by the author.",
+  "competing_interests": "The author is the sole operator of 0thernes LLC, with which this project is affiliated.",
+  "other_competing_interests_confirmation": null,
+  "declarations_note": "Funding and the stated LLC relationship were supplied by the author. No statement that other competing interests are absent has been supplied.",
+  "arxiv_account_status": "Author is unsure whether an existing account exists; verify through the platform before creating another account.",
+  "human_contribution_statement": null,
+  "ai_disclosure_scope": "Substantive OpenAI Codex agent assistance on 2026-11-09 included literature research, candidate search, derivation, implementation, formalization, verification, visualization and manuscript drafting. Complete actual model/version details and human contributions/review before submission; do not describe this as copy editing only.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/0thernes/hoggar-bound-lab",
+      "type": "url",
+      "relation_note": "Project source repository; freeze an exact release commit."
+    },
+    {
+      "identifier": "10.5281/zenodo.23524332",
+      "type": "doi",
+      "relation_note": "Cited prior work defining C3 and Conjecture E."
+    },
+    {
+      "identifier": "10.5281/zenodo.23538829",
+      "type": "doi",
+      "relation_note": "Cited prior spectral-bound and structure results; not a DOI for this paper."
+    }
+  ],
+  "first_journal_recommendation": "Journal of Physics A: Mathematical and Theoretical",
+  "first_journal_article_type": "Paper",
+  "simultaneous_journal_submissions_allowed": false,
+  "release_commit": null,
+  "pdf_sha256": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
+  "final_formal_verification_audit": "results/frontier-c3-lean-audit.md",
+  "formal_verification": {
+    "status": "passed",
+    "lean_version": "4.35.0",
+    "mathlib_version": "4.35.0",
+    "audited_declarations": 42,
+    "axiom_allowlist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "scope": "Original four-qubit real Pauli polar section, explicit sign assignments, original complex Pauli carrier cospectrality, original real signed-context completion noncospectrality, and completion cubic traces 14976 and 15360.",
+    "excluded_from_lean_theorems": [
+      "printed factored carrier polynomial",
+      "block/Jordan proof used in the manuscript",
+      "exact largest-eigenvalue gap 2",
+      "continuous-relaxation gap 32"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "scripts": [
+    {
+      "script": "scripts\\frontier_c3_demo.py",
+      "exit_code": 1,
+      "rejects_optimized_execution": true
+    },
+    {
+      "script": "scripts\\frontier_c3_extend.py",
+      "exit_code": 1,
+      "rejects_optimized_execution": true
+    },
+    {
+      "script": "scripts\\frontier_c3_search.py",
+      "exit_code": 1,
+      "rejects_optimized_execution": true
+    },
+    {
+      "script": "scripts\\frontier_c3_similarity.py",
+      "exit_code": 1,
+      "rejects_optimized_execution": true
+    },
+    {
+      "script": "scripts\\frontier_c3_sparse_family.py",
+      "exit_code": 1,
+      "rejects_optimized_execution": true
+    },
+    {
+      "script": "scripts\\frontier_c3_verify.py",
+      "exit_code": 1,
+      "rejects_optimized_execution": true
+    }
+  ]
+}

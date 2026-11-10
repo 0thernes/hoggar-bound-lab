@@ -1,0 +1,82 @@
+{
+  "status": "pass",
+  "scope": "Exact data and geometric-convention audit; Lean compilation is a separate check",
+  "checks": [
+    "All 135 real Pauli entry formulas agree with literal tensors",
+    "All 64 outside labels agree, in order",
+    "Both Lean carriers equal the fixed signed Pauli sums",
+    "Both Lean completions equal all 1120 literal signed contexts",
+    "Both intermediate Lean matrix squares equal exact integer products",
+    "Exact characteristic polynomials, cubic traces, intertwiner and both inverse identities"
+  ],
+  "runs": [
+    {
+      "negative_labels": [
+        48,
+        102,
+        176,
+        230
+      ],
+      "outside_contexts": 1120,
+      "completion_trace_cube": 14976,
+      "carrier_charpoly": [
+        1,
+        0,
+        -568,
+        -6112,
+        4716,
+        302272,
+        1056216,
+        -1584288,
+        -15112746,
+        -24586112,
+        22670136,
+        142620896,
+        242617100,
+        224392896,
+        121805992,
+        36642720,
+        4741425
+      ]
+    },
+    {
+      "negative_labels": [
+        87,
+        144,
+        176,
+        215
+      ],
+      "outside_contexts": 1120,
+      "completion_trace_cube": 15360,
+      "carrier_charpoly": [
+        1,
+        0,
+        -568,
+        -6112,
+        4716,
+        302272,
+        1056216,
+        -1584288,
+        -15112746,
+        -24586112,
+        22670136,
+        142620896,
+        242617100,
+        224392896,
+        121805992,
+        36642720,
+        4741425
+      ]
+    }
+  ],
+  "source_sha256": {
+    "lean/HoggarBound/C3Data.lean": "a7150262f5edf80aca74e5e4a5f02dba49001a32c27d97c0094a7ae07251dbf8",
+    "lean/HoggarBound/C3Geometry.lean": "bb66e7238e78e1227d1e69fa25dff3ca2e77a74576c5ac32dc50bdc6065d2679",
+    "lean/HoggarBound/C3Certificate.lean": "3052cd0f9acd53afd66d6496189ceeace749114c4bdedcb80589eac15a2aa9e1",
+    "paper/c3-spectral-counterexample.md": "7b394af67904619b5d77bb3bca7f911396d8c90879e4b561875da0053c678453",
+    "lean/HoggarBound/C3Theorem.lean": "0625ca6d1f52511ce13978eb9691bd71b50d10f9923a4668ca38e2d9d57b06ee",
+    "lean/HoggarBound/C3Spectra.lean": "42e302aa4b3eca2ca61d11ff73703e49ba5e0ae27d3136c1d19f07a8ec270b1c"
+  },
+  "script_sha256": "c07e1cc5803cd9bfc7fb3fee567c67885f918c3cd17374803dbd1f4d7ca6f750",
+  "arithmetic": "Python arbitrary-precision integers for every certificate product; exact literal entries 0,+/-1,+/-i during tensor construction"
+}

@@ -1,0 +1,142 @@
+{
+  "status": "pass",
+  "generated_at_utc": "2026-11-10T00:49:20.855427+00:00",
+  "lean_version": "4.35.0",
+  "lean_commit": "eb6cafb7290e8bd5f2937522d8d804f58f02bafc",
+  "lean_platform": "x86_64-w64-windows-gnu",
+  "mathlib_revision": "56a005855ea17e0b0958f73ec801ae140b0a1679",
+  "baseline_manifest": "results/lean-source-sha256.json",
+  "baseline_files_checked": 12,
+  "baseline_files_changed": [],
+  "c3_audited_declarations": 42,
+  "stability_audited_declarations": 6,
+  "normalization": "sha256 is the exact local byte hash; sha256_lf normalizes CRLF to LF for Git cross-platform comparison.",
+  "files": [
+    {
+      "path": "lean/HoggarBound.lean",
+      "bytes_raw": 162,
+      "sha256": "c31d579a4554d94a5f27614e4639f37d541c2584563683dd2ca10205a1fb9741",
+      "sha256_lf": "c31d579a4554d94a5f27614e4639f37d541c2584563683dd2ca10205a1fb9741"
+    },
+    {
+      "path": "lean/HoggarBound/Moment.lean",
+      "bytes_raw": 5513,
+      "sha256": "a18cb0f230b492a23440b0a1aec6f09ec7faf74c72b0c2d2ca9afa22eb496f8f",
+      "sha256_lf": "a18cb0f230b492a23440b0a1aec6f09ec7faf74c72b0c2d2ca9afa22eb496f8f"
+    },
+    {
+      "path": "lean/HoggarBound/Pauli.lean",
+      "bytes_raw": 11513,
+      "sha256": "a6da704ff5b73ce5786746067f15cd2387ec94936921cebac6717956f9069e82",
+      "sha256_lf": "a6da704ff5b73ce5786746067f15cd2387ec94936921cebac6717956f9069e82"
+    },
+    {
+      "path": "lean/HoggarBound/Bound.lean",
+      "bytes_raw": 8670,
+      "sha256": "8937ca5e9b112ba855d39e5334b3ef1e68dbd728f0d2b7347743691f9dc7d07a",
+      "sha256_lf": "8937ca5e9b112ba855d39e5334b3ef1e68dbd728f0d2b7347743691f9dc7d07a"
+    },
+    {
+      "path": "lean/HoggarBound/Counting.lean",
+      "bytes_raw": 10973,
+      "sha256": "7e1b127e0a09557dd16c80e3d70966477665439dcc13fecd6e9d573a0915d2a0",
+      "sha256_lf": "7e1b127e0a09557dd16c80e3d70966477665439dcc13fecd6e9d573a0915d2a0"
+    },
+    {
+      "path": "lean/HoggarBound/Corollaries.lean",
+      "bytes_raw": 7017,
+      "sha256": "1a18fc4b16b6eb20c524dbcd89904955141434920246f9f35fabfbf81446402f",
+      "sha256_lf": "1a18fc4b16b6eb20c524dbcd89904955141434920246f9f35fabfbf81446402f"
+    },
+    {
+      "path": "lean/HoggarBound/Quadric.lean",
+      "bytes_raw": 11559,
+      "sha256": "395b9302a6de20d3c5c055fa1e5600e6cc27c116e729bf14f0493c9cf2377d31",
+      "sha256_lf": "395b9302a6de20d3c5c055fa1e5600e6cc27c116e729bf14f0493c9cf2377d31"
+    },
+    {
+      "path": "lean/HoggarBound/IndependentWitness.lean",
+      "bytes_raw": 2641,
+      "sha256": "6430f423cf3f64a88a571c9bd4a9f00206a01c15af8eb552fb7be04ad981eb3d",
+      "sha256_lf": "6430f423cf3f64a88a571c9bd4a9f00206a01c15af8eb552fb7be04ad981eb3d"
+    },
+    {
+      "path": "lean/HoggarBound/IndependentContexts.lean",
+      "bytes_raw": 6648,
+      "sha256": "46d58e06b36d761847574cfb538639b3dd6249ebb63543d68c4865bba6054546",
+      "sha256_lf": "46d58e06b36d761847574cfb538639b3dd6249ebb63543d68c4865bba6054546"
+    },
+    {
+      "path": "lean/IndependentVerification.lean",
+      "bytes_raw": 3663,
+      "sha256": "1afcbf1551d1a9a3017f434d0d6af7950b4a1b244857634680502d4d92a21721",
+      "sha256_lf": "1afcbf1551d1a9a3017f434d0d6af7950b4a1b244857634680502d4d92a21721"
+    },
+    {
+      "path": "lean/lean-toolchain",
+      "bytes_raw": 25,
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "sha256_lf": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+    },
+    {
+      "path": "lean/lake-manifest.json",
+      "bytes_raw": 3145,
+      "sha256": "ca3bad5830d78d2c42add82578677369c1b494863c37dc19448ca0ee8067a480",
+      "sha256_lf": "ca3bad5830d78d2c42add82578677369c1b494863c37dc19448ca0ee8067a480"
+    },
+    {
+      "path": "lean/lakefile.toml",
+      "bytes_raw": 248,
+      "sha256": "78d3303ad998ec1a2d573a6516f189d01341b42c58a1df079da73eaee3b92407",
+      "sha256_lf": "78d3303ad998ec1a2d573a6516f189d01341b42c58a1df079da73eaee3b92407"
+    },
+    {
+      "path": "lean/HoggarBound/C3Data.lean",
+      "bytes_raw": 31220,
+      "sha256": "a7150262f5edf80aca74e5e4a5f02dba49001a32c27d97c0094a7ae07251dbf8",
+      "sha256_lf": "cd7fd590e1b5e7ba747fbdc966c77e3879db3251a204ff9eb4b2b946601d4476"
+    },
+    {
+      "path": "lean/HoggarBound/C3Geometry.lean",
+      "bytes_raw": 6840,
+      "sha256": "bb66e7238e78e1227d1e69fa25dff3ca2e77a74576c5ac32dc50bdc6065d2679",
+      "sha256_lf": "692df9385ee625a2edee35d6cb7d4dc6a57b4547c4b30e7bdf9d32494d19f7ea"
+    },
+    {
+      "path": "lean/HoggarBound/C3Certificate.lean",
+      "bytes_raw": 31720,
+      "sha256": "3052cd0f9acd53afd66d6496189ceeace749114c4bdedcb80589eac15a2aa9e1",
+      "sha256_lf": "5c52678a7450bf8acfbff90abef85ee62727a15f9a3a758efd476ef34f685842"
+    },
+    {
+      "path": "lean/HoggarBound/C3Theorem.lean",
+      "bytes_raw": 5072,
+      "sha256": "0625ca6d1f52511ce13978eb9691bd71b50d10f9923a4668ca38e2d9d57b06ee",
+      "sha256_lf": "77201cec43172d4cb46ad8507a33738afb24625cb65b67ed9a2cead47919138b"
+    },
+    {
+      "path": "lean/HoggarBound/C3Spectra.lean",
+      "bytes_raw": 5277,
+      "sha256": "42e302aa4b3eca2ca61d11ff73703e49ba5e0ae27d3136c1d19f07a8ec270b1c",
+      "sha256_lf": "42e302aa4b3eca2ca61d11ff73703e49ba5e0ae27d3136c1d19f07a8ec270b1c"
+    },
+    {
+      "path": "lean/C3Verification.lean",
+      "bytes_raw": 2340,
+      "sha256": "c5be078b258fcf577fb78cc3334bfc299813ce5d6cad811dddb8c8a9d7ef2cba",
+      "sha256_lf": "c5be078b258fcf577fb78cc3334bfc299813ce5d6cad811dddb8c8a9d7ef2cba"
+    },
+    {
+      "path": "lean/HoggarBound/Stability.lean",
+      "bytes_raw": 8346,
+      "sha256": "ad6c73dbefd20e1e51b2c8eea2eeae46db06c90c087213b8646548c6c9feff7a",
+      "sha256_lf": "ad6c73dbefd20e1e51b2c8eea2eeae46db06c90c087213b8646548c6c9feff7a"
+    },
+    {
+      "path": "lean/StabilityVerification.lean",
+      "bytes_raw": 337,
+      "sha256": "9e36c3f54ba234adc4d9cf291e719a38c72a2cd24058a71b60a54ac4245ed2ea",
+      "sha256_lf": "42596cd8c494aabb14e459d3c15f63fcc3b0ddd2808c0962c26061b1c13b1099"
+    }
+  ]
+}

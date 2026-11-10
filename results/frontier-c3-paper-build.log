@@ -1,0 +1,140 @@
+note: Running TeX ...
+(c3-spectral-counterexample.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24> (article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(size11.clo)) (geometry.sty (keyval.sty) (ifvtex.sty (iftex.sty)))
+(fontspec.sty (xparse.sty (expl3.sty (l3backend-xetex.def)))
+(fontspec-xetex.sty (fontenc.sty) (fontspec.cfg))) (amsmath.sty
+For additional information on amsmath, use the `?' option.
+(amstext.sty (amsgen.sty)) (amsbsy.sty) (amsopn.sty)) (amssymb.sty
+(amsfonts.sty)) (unicode-math.sty (unicode-math-xetex.sty (l3keys2e.sty)
+(fix-cm.sty (ts1enc.def)) (unicode-math-table.tex))) (microtype.sty
+(etoolbox.sty) (microtype-xetex.def) (microtype.cfg)) (graphicx.sty
+(graphics.sty (trig.sty) (graphics.cfg) (xetex.def))) (float.sty) (caption.sty
+(caption3.sty)) (placeins.sty) (needspace.sty) (longtable.sty) (booktabs.sty)
+(array.sty) (calc.sty) (xcolor.sty (color.cfg)) (xurl.sty (url.sty))
+(hyperref.sty (ltxcmds.sty) (pdftexcmds.sty (infwarerr.sty)) (kvsetkeys.sty)
+(kvdefinekeys.sty) (pdfescape.sty) (hycolor.sty) (letltxmacro.sty) (auxhook.sty
+) (kvoptions.sty) (pd1enc.def) (intcalc.sty) (etexcmds.sty) (puenc.def)
+(bitset.sty (bigintcalc.sty)) (atbegshi-ltx.sty)) (hxetex.def (stringenc.sty)
+(rerunfilecheck.sty (atveryend-ltx.sty) (uniquecounter.sty))) (bookmark.sty
+(bkm-dvipdfm.def)) (fancyhdr.sty) (titlesec.sty)
+No file c3-spectral-counterexample.aux.
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(ltcaption.sty) (nameref.sty (refcount.sty) (gettitlestring.sty))
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+(umsa.fd) (mt-msa.cfg) (umsb.fd) (mt-msb.cfg) [1]
+Underfull \hbox (badness 10000) in alignment at lines 114--118
+[] [] []
+
+Underfull \hbox (badness 10000) in alignment at lines 118--120
+[] [] []
+
+Underfull \hbox (badness 10000) in alignment at lines 120--123
+[] [] []
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 123.
+
+[2] [3]
+Underfull \hbox (badness 10000) in alignment at lines 199--203
+[] []
+
+Underfull \hbox (badness 10000) in alignment at lines 203--205
+[] []
+
+Underfull \hbox (badness 10000) in alignment at lines 205--210
+[] []
+[4] [5] [6] [7]
+Underfull \hbox (badness 5756) in paragraph at lines 351--352
+[]\TU/texgyrepagella(0)/m/n/10.95 The principal records are results/frontier-c3
+-n4-pair.json, results/frontier-c3-n4-verification.json,
+[8]
+
+Package longtable Warning: Table widths have changed. Rerun LaTeX.
+
+[9] (c3-spectral-counterexample.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)
+Output written on c3-spectral-counterexample.xdv (9 pages, 241744 bytes).
+Transcript written on c3-spectral-counterexample.log.
+note: Rerunning TeX because "c3-spectral-counterexample.aux" changed ...
+(c3-spectral-counterexample.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24> (article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(size11.clo)) (geometry.sty (keyval.sty) (ifvtex.sty (iftex.sty)))
+(fontspec.sty (xparse.sty (expl3.sty (l3backend-xetex.def)))
+(fontspec-xetex.sty (fontenc.sty) (fontspec.cfg))) (amsmath.sty
+For additional information on amsmath, use the `?' option.
+(amstext.sty (amsgen.sty)) (amsbsy.sty) (amsopn.sty)) (amssymb.sty
+(amsfonts.sty)) (unicode-math.sty (unicode-math-xetex.sty (l3keys2e.sty)
+(fix-cm.sty (ts1enc.def)) (unicode-math-table.tex))) (microtype.sty
+(etoolbox.sty) (microtype-xetex.def) (microtype.cfg)) (graphicx.sty
+(graphics.sty (trig.sty) (graphics.cfg) (xetex.def))) (float.sty) (caption.sty
+(caption3.sty)) (placeins.sty) (needspace.sty) (longtable.sty) (booktabs.sty)
+(array.sty) (calc.sty) (xcolor.sty (color.cfg)) (xurl.sty (url.sty))
+(hyperref.sty (ltxcmds.sty) (pdftexcmds.sty (infwarerr.sty)) (kvsetkeys.sty)
+(kvdefinekeys.sty) (pdfescape.sty) (hycolor.sty) (letltxmacro.sty) (auxhook.sty
+) (kvoptions.sty) (pd1enc.def) (intcalc.sty) (etexcmds.sty) (puenc.def)
+(bitset.sty (bigintcalc.sty)) (atbegshi-ltx.sty)) (hxetex.def (stringenc.sty)
+(rerunfilecheck.sty (atveryend-ltx.sty) (uniquecounter.sty))) (bookmark.sty
+(bkm-dvipdfm.def)) (fancyhdr.sty) (titlesec.sty)
+(c3-spectral-counterexample.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(ltcaption.sty) (nameref.sty (refcount.sty) (gettitlestring.sty)) (umsa.fd)
+(mt-msa.cfg) (umsb.fd) (mt-msb.cfg) [1]
+Underfull \hbox (badness 10000) in alignment at lines 114--118
+[] [] []
+
+Underfull \hbox (badness 10000) in alignment at lines 118--120
+[] [] []
+
+Underfull \hbox (badness 10000) in alignment at lines 120--123
+[] [] []
+[2] [3]
+Underfull \hbox (badness 10000) in alignment at lines 199--203
+[] []
+
+Underfull \hbox (badness 10000) in alignment at lines 203--205
+[] []
+
+Underfull \hbox (badness 10000) in alignment at lines 205--210
+[] []
+[4] [5] [6] [7]
+Underfull \hbox (badness 5756) in paragraph at lines 351--352
+[]\TU/texgyrepagella(0)/m/n/10.95 The principal records are results/frontier-c3
+-n4-pair.json, results/frontier-c3-n4-verification.json,
+[8] [9] (c3-spectral-counterexample.aux) )
+(see the transcript file for additional information)
+Output written on c3-spectral-counterexample.xdv (9 pages, 241744 bytes).
+Transcript written on c3-spectral-counterexample.log.
+note: Running xdvipdfmx ...
+[1][2][3][4][5][6][7][8][9]96260 bytes written
+note: Writing `C:\Users\Alexa\AppData\Local\Temp\hoggar-c3-paper-9negm8jj\c3-spectral-counterexample.log` (33.265625 KiB)
+note: Writing `C:\Users\Alexa\AppData\Local\Temp\hoggar-c3-paper-9negm8jj\c3-spectral-counterexample.pdf` (94.00390625 KiB)
+note: Skipped writing 1 intermediate files (use --keep-intermediates to keep them)
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: c3-spectral-counterexample.tex:118: Underfull \hbox (badness 10000) in alignment at lines 114--118
+warning: c3-spectral-counterexample.tex:120: Underfull \hbox (badness 10000) in alignment at lines 118--120
+warning: c3-spectral-counterexample.tex:123: Underfull \hbox (badness 10000) in alignment at lines 120--123
+warning: c3-spectral-counterexample.tex:203: Underfull \hbox (badness 10000) in alignment at lines 199--203
+warning: c3-spectral-counterexample.tex:205: Underfull \hbox (badness 10000) in alignment at lines 203--205
+warning: c3-spectral-counterexample.tex:210: Underfull \hbox (badness 10000) in alignment at lines 205--210
+warning: c3-spectral-counterexample.tex:352: Underfull \hbox (badness 5756) in paragraph at lines 351--352
+warning: c3-spectral-counterexample.tex:118: Underfull \hbox (badness 10000) in alignment at lines 114--118
+warning: c3-spectral-counterexample.tex:120: Underfull \hbox (badness 10000) in alignment at lines 118--120
+warning: c3-spectral-counterexample.tex:123: Underfull \hbox (badness 10000) in alignment at lines 120--123
+warning: c3-spectral-counterexample.tex:203: Underfull \hbox (badness 10000) in alignment at lines 199--203
+warning: c3-spectral-counterexample.tex:205: Underfull \hbox (badness 10000) in alignment at lines 203--205
+warning: c3-spectral-counterexample.tex:210: Underfull \hbox (badness 10000) in alignment at lines 205--210
+warning: c3-spectral-counterexample.tex:352: Underfull \hbox (badness 5756) in paragraph at lines 351--352
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

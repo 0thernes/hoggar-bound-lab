@@ -1,0 +1,13 @@
+{
+  "scope": "Process-local toolchain discovery; no persistent environment or installed files changed",
+  "overrides": {
+    "ESHKOL_CXX_COMPILER": "Z:/Tools/LLVM-21/bin/clang++.exe",
+    "LLVM_HOME": "Z:/Tools/LLVM-21",
+    "ESHKOL_CUDA_LIBRARY_PATH": "Z:/Tools/cuda-12.9-redist/lib/x64",
+    "CUDA_HOME": "Z:/Tools/cuda-12.9-redist"
+  },
+  "path_prepend": "Z:/Tools/cuda-12.9-redist/bin",
+  "returncode": 0,
+  "stdout": "{\"intertwines\":true,\"right_inverse\":true,\"left_inverse\":true,\"completion_cube_a\":14976,\"completion_cube_b\":15360,\"pass\":true}\n",
+  "stderr": ""
+}

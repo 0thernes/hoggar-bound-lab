@@ -1,0 +1,5 @@
+COMMAND: C:\Users\Alexa\.elan\bin\lake.exe env lean HoggarBound/C3Theorem.lean -o .lake/build/lib/lean/HoggarBound/C3Theorem.olean
+EXIT CODE: 0
+STDOUT:
+
+STDERR:

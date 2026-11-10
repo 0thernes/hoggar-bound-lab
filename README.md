@@ -10,6 +10,16 @@ demonstration on the Tsotchke stack (Moonlab, quantum_geometric_tensor, quantum_
 
 Status: research preprint, 9 November 2026. Not peer reviewed. AI-generated under human direction.
 
+**New finite result:** [Cospectral Pauli carriers with different completion spectra](paper/c3-spectral-counterexample.md)
+([PDF](paper/c3-spectral-counterexample.pdf), [working exact-certificate demo](https://0thernes.github.io/hoggar-bound-lab/c3-lab/)).
+Two explicit four-qubit sign carriers have the same characteristic polynomial, while their completion
+cubic traces are 14976 and 15360. This establishes the four-qubit C3 instance left open in
+[Jonah's Conjecture E, v0.5](https://zenodo.org/records/23524332).
+The [Lean spectral theorem](lean/HoggarBound/C3Spectra.lean) and [42-declaration axiom audit](results/frontier-c3-lean-audit.md)
+verify the Pauli-model connection, carrier cospectrality and completion noncospectrality. Independent integer
+checks and an Eshkol execution record accompany the paper. This finite result is separate from the previously known spectral floor below;
+it does not settle the conjecture in every dimension or establish historical priority.
+
 ## The statement
 
 Take $N$ qubits, $D = 2^N$. Give every Pauli observable in a set $S$ a value $+1$ or $-1$. A *context*
