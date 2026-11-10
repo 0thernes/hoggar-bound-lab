@@ -1,0 +1,347 @@
+{
+ "N": 4,
+ "d": {
+  "label": 128,
+  "word": "ZIII"
+ },
+ "counts": {
+  "points": 135,
+  "section": 71,
+  "outside": 64,
+  "contexts": 1575,
+  "contexts_in_section": 455,
+  "outside_contexts": 1120,
+  "negative_contexts": 532
+ },
+ "carriers": {
+  "sigma0": {
+   "negative_labels": [
+    48,
+    102,
+    176,
+    230
+   ],
+   "negative_words": [
+    "IIZZ",
+    "IYYI",
+    "ZIZZ",
+    "ZYYI"
+   ]
+  },
+  "sigma1": {
+   "negative_labels": [
+    87,
+    144,
+    176,
+    215
+   ],
+   "negative_words": [
+    "IYXY",
+    "ZIIZ",
+    "ZIZZ",
+    "ZYXY"
+   ]
+  }
+ },
+ "carrier_charpoly": [
+  1,
+  0,
+  -568,
+  -6112,
+  4716,
+  302272,
+  1056216,
+  -1584288,
+  -15112746,
+  -24586112,
+  22670136,
+  142620896,
+  242617100,
+  224392896,
+  121805992,
+  36642720,
+  4741425
+ ],
+ "carrier_charpoly_text": "t^16-568t^14-6112t^13+4716t^12+302272t^11+1056216t^10-1584288t^9-15112746t^8-24586112t^7+22670136t^6+142620896t^5+242617100t^4+224392896t^3+121805992t^2+36642720t+4741425",
+ "block_charpolys": {
+  "C0": [
+   1,
+   -8,
+   -532,
+   -1688,
+   33494,
+   111880,
+   -644468,
+   -1288680,
+   4741425
+  ],
+  "D0": [
+   1,
+   8,
+   28,
+   56,
+   70,
+   56,
+   28,
+   8,
+   1
+  ],
+  "C1": [
+   1,
+   -8,
+   -500,
+   -2008,
+   17846,
+   81800,
+   125548,
+   84184,
+   21073
+  ],
+  "D1": [
+   1,
+   8,
+   -4,
+   -136,
+   -154,
+   440,
+   1084,
+   840,
+   225
+  ]
+ },
+ "completion_trace_cube": {
+  "sigma0": 14976,
+  "sigma1": 15360
+ },
+ "completion_trace_square": 2240,
+ "trace_A_cube": 18336,
+ "trace_A_square": 1136,
+ "beta_on_section": 191,
+ "violated_in_section": 132,
+ "relaxed_completion_bounds": {
+  "sigma0": 347,
+  "sigma1": 315
+ },
+ "completion_witnesses": {
+  "sigma0": {
+   "negative_outside_labels": [
+    8,
+    12,
+    13,
+    14,
+    24,
+    26,
+    28,
+    30,
+    40,
+    41,
+    44,
+    45,
+    56,
+    59,
+    60,
+    63,
+    90,
+    93,
+    105,
+    110,
+    123,
+    125,
+    126,
+    153,
+    155,
+    157,
+    159,
+    170,
+    171,
+    174,
+    175,
+    189,
+    190,
+    217,
+    219,
+    234,
+    235,
+    255
+   ],
+   "violated_outside_contexts": 368,
+   "violated_in_section": 132,
+   "violated_in_all": 500
+  },
+  "sigma1": {
+   "negative_outside_labels": [
+    26,
+    41,
+    59,
+    63,
+    72,
+    88,
+    90,
+    104,
+    105,
+    120,
+    123,
+    153,
+    155,
+    159,
+    170,
+    171,
+    175,
+    204,
+    205,
+    206,
+    217,
+    219,
+    220,
+    222,
+    234,
+    235,
+    236,
+    237,
+    252,
+    255
+   ],
+   "violated_outside_contexts": 344,
+   "violated_in_section": 132,
+   "violated_in_all": 476
+  }
+ },
+ "completion_minimum_intervals": {
+  "sigma0": [
+   347,
+   368
+  ],
+  "sigma1": [
+   315,
+   344
+  ]
+ },
+ "top_root_interval": [
+  "221/8",
+  "111/4"
+ ],
+ "checks": [
+  {
+   "name": "135 real four-qubit observables; the section of d = ZIII has 71 points, 64 lie outside",
+   "pass": true
+  },
+  {
+   "name": "every real observable is a symmetric integer matrix with square I",
+   "pass": true
+  },
+  {
+   "name": "the product of two commuting real observables is real: 1575 contexts in all",
+   "pass": true
+  },
+  {
+   "name": "455 contexts lie in the section; each of the other 1120 has one point in the section and two outside",
+   "pass": true
+  },
+  {
+   "name": "context signs: the phase formula agrees with the product of the three matrices, for all 1575",
+   "pass": true
+  },
+  {
+   "name": "outside observables are block off-diagonal for d, and their blocks M_p are orthogonal: tr M_p^T M_q = 8 [p = q]",
+   "pass": true
+  },
+  {
+   "name": "sigma0: negative on IIZZ, IYYI, ZIZZ, ZYYI, which are section points with labels [48, 102, 176, 230]",
+   "pass": true
+  },
+  {
+   "name": "sigma1: negative on IYXY, ZIIZ, ZIZZ, ZYXY, which are section points with labels [87, 144, 176, 215]",
+   "pass": true
+  },
+  {
+   "name": "carrier operators: the same characteristic polynomial (t-3)^2 (t+1)^8 (t+5)^2 (t+13) (t^3-25t^2-133t+1621)",
+   "pass": true
+  },
+  {
+   "name": "the two carriers are different assignments, and neither is the other up to an overall sign",
+   "pass": true
+  },
+  {
+   "name": "completion matrices: symmetric, zero diagonal, 35 non-zero entries (all +1 or -1) in every row",
+   "pass": true
+  },
+  {
+   "name": "cubic traces of the completion matrices: 14976 and 15360, so their spectra differ",
+   "pass": true
+  },
+  {
+   "name": "the first two moments cannot tell them apart: tr Lambda = 0 and tr Lambda^2 = 2240 for both",
+   "pass": true
+  },
+  {
+   "name": "carrier operators are block diagonal for d: A = C + D on the two eigenspaces of d",
+   "pass": true
+  },
+  {
+   "name": "block polynomials: C0 (t-3)^2 (t+5)^2 h, D0 (t+1)^8, C1 (t+1)^4 h, D1 (t-3)^2 (t+1)^4 (t+5)^2, h = (t+13) q",
+   "pass": true
+  },
+  {
+   "name": "D0 = -I exactly",
+   "pass": true
+  },
+  {
+   "name": "Lambda is the matrix of M -> (C M + M D)/2 in the basis of the 64 outside blocks, for both carriers",
+   "pass": true
+  },
+  {
+   "name": "characteristic polynomial of 2 Lambda (degree 64, exact) = product over the block eigenvalues of chi_C(t - d_j)",
+   "pass": true
+  },
+  {
+   "name": "the two completion matrices have different characteristic polynomials",
+   "pass": true
+  },
+  {
+   "name": "tr Lambda^3 = tr A^3 + (3/8)(tr C^2 tr D + tr C tr D^2), with tr A^3 = 18336 for both",
+   "pass": true
+  },
+  {
+   "name": "q has exactly one root r above 25: q(25) = -1704 < 0 < q(30) = 2131, and q' > 0 from 25 on",
+   "pass": true
+  },
+  {
+   "name": "27.625 <= r < 27.75, by the signs of q at these two rationals",
+   "pass": true
+  },
+  {
+   "name": "largest completion eigenvalues (r-1)/2 and (r+3)/2 differ by exactly 2; every completion violates at least 347, resp. 315, outside contexts",
+   "pass": true
+  },
+  {
+   "name": "a completion of sigma0 violates 368 outside contexts and one of sigma1 violates 344 (explicit assignments, direct count)",
+   "pass": true
+  },
+  {
+   "name": "the completion optima differ: min over completions is at most 344 for sigma1 and at least 347 for sigma0",
+   "pass": true
+  },
+  {
+   "name": "tr A^3 = 6 D beta: both carriers have beta = 191 on the section, so each violates 132 of its 455 contexts",
+   "pass": true
+  },
+  {
+   "name": "the spectral floor on the 71-point section: beta <= 360, so at least 48 of the 455 contexts are violated by any carrier",
+   "pass": true
+  },
+  {
+   "name": "for a completion y: violated outside contexts = 560 - y^T Lambda y / 4, and beta_X = beta_S + y^T Lambda y / 2",
+   "pass": true
+  },
+  {
+   "name": "control: changing one sign of sigma0 changes the carrier polynomial (the pair is not cospectral by accident of the test)",
+   "pass": true
+  },
+  {
+   "name": "control: flipping the sign of one outside context changes the cubic trace",
+   "pass": true
+  }
+ ],
+ "passed": 30,
+ "total": 30
+}

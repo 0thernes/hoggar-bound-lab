@@ -4,6 +4,17 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
+## Unreleased - after 1.2.0
+
+- [Addendum](publication/ADDENDUM-completion-optima.md), proposed for the next revision of the combined
+  paper: the exact binary completion minima of the two C3 carriers differ. Every completion of the
+  first carrier violates at least 347 of the 1120 outside lines, and an explicit completion of the
+  second violates 344. This is exact rational arithmetic with explicit witnesses, not a Lean statement.
+  Release 1.2.0, its manuscript and its artifacts are unchanged.
+- `scripts/cospectral_pair.py`: a reconstruction of Section 8 from the definition of the Pauli matrices
+  that shares no code with the C3 programs (30 checks, two negative controls). It is a stage of
+  `scripts/run_all.sh` and a step of the workflow *Saturated configurations*.
+
 ## 1.2.0 - combined research manuscript
 
 The author requested one paper combining the spectral-floor/saturation study and the four-qubit C3

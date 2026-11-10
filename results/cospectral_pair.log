@@ -1,0 +1,32 @@
+PASS  135 real four-qubit observables; the section of d = ZIII has 71 points, 64 lie outside
+PASS  every real observable is a symmetric integer matrix with square I
+PASS  the product of two commuting real observables is real: 1575 contexts in all
+PASS  455 contexts lie in the section; each of the other 1120 has one point in the section and two outside
+PASS  context signs: the phase formula agrees with the product of the three matrices, for all 1575   [532 negative]
+PASS  outside observables are block off-diagonal for d, and their blocks M_p are orthogonal: tr M_p^T M_q = 8 [p = q]
+PASS  sigma0: negative on IIZZ, IYYI, ZIZZ, ZYYI, which are section points with labels [48, 102, 176, 230]
+PASS  sigma1: negative on IYXY, ZIIZ, ZIZZ, ZYXY, which are section points with labels [87, 144, 176, 215]
+PASS  carrier operators: the same characteristic polynomial (t-3)^2 (t+1)^8 (t+5)^2 (t+13) (t^3-25t^2-133t+1621)   [t^16-568t^14-6112t^13+4716t^12+302272t^11+1056216t^10-158428 ...]
+PASS  the two carriers are different assignments, and neither is the other up to an overall sign
+PASS  completion matrices: symmetric, zero diagonal, 35 non-zero entries (all +1 or -1) in every row
+PASS  cubic traces of the completion matrices: 14976 and 15360, so their spectra differ   [difference 384]
+PASS  the first two moments cannot tell them apart: tr Lambda = 0 and tr Lambda^2 = 2240 for both
+PASS  carrier operators are block diagonal for d: A = C + D on the two eigenspaces of d
+PASS  block polynomials: C0 (t-3)^2 (t+5)^2 h, D0 (t+1)^8, C1 (t+1)^4 h, D1 (t-3)^2 (t+1)^4 (t+5)^2, h = (t+13) q
+PASS  D0 = -I exactly
+PASS  Lambda is the matrix of M -> (C M + M D)/2 in the basis of the 64 outside blocks, for both carriers
+PASS  characteristic polynomial of 2 Lambda (degree 64, exact) = product over the block eigenvalues of chi_C(t - d_j)
+PASS  the two completion matrices have different characteristic polynomials
+PASS  tr Lambda^3 = tr A^3 + (3/8)(tr C^2 tr D + tr C tr D^2), with tr A^3 = 18336 for both   [tr C^2, tr D^2 = 1128, 8 and 1064, 72]
+PASS  q has exactly one root r above 25: q(25) = -1704 < 0 < q(30) = 2131, and q' > 0 from 25 on
+PASS  27.625 <= r < 27.75, by the signs of q at these two rationals   [q(221/8) = -25539/512, q(111/4) = 3067/64]
+PASS  largest completion eigenvalues (r-1)/2 and (r+3)/2 differ by exactly 2; every completion violates at least 347, resp. 315, outside contexts   [568 - 8r in (346, 347], 536 - 8r in (314, 315]]
+PASS  a completion of sigma0 violates 368 outside contexts and one of sigma1 violates 344 (explicit assignments, direct count)   [y^T Lambda y = 768 and 864]
+PASS  the completion optima differ: min over completions is at most 344 for sigma1 and at least 347 for sigma0   [347 <= min(sigma0) <= 368 and 315 <= min(sigma1) <= 344]
+PASS  tr A^3 = 6 D beta: both carriers have beta = 191 on the section, so each violates 132 of its 455 contexts
+PASS  the spectral floor on the 71-point section: beta <= 360, so at least 48 of the 455 contexts are violated by any carrier
+PASS  for a completion y: violated outside contexts = 560 - y^T Lambda y / 4, and beta_X = beta_S + y^T Lambda y / 2
+PASS  control: changing one sign of sigma0 changes the carrier polynomial (the pair is not cospectral by accident of the test)
+PASS  control: flipping the sign of one outside context changes the cubic trace   [14976 -> 14808]
+
+30 of 30 checks passed

@@ -16,6 +16,7 @@ on:
       - "lean/SaturatedVerification.lean"
       - "scripts/flat_states.py"
       - "scripts/phase_states.py"
+      - "scripts/cospectral_pair.py"
       - "src/third_level.c"
       - "src/qgt_flat.c"
       - "src/moonlab_saturated.mjs"
@@ -65,6 +66,10 @@ jobs:
         run: |
           python scripts/phase_states.py --lean | tee results/ci-phase-states.log
           tail -1 results/ci-phase-states.log | grep -q "81 of 81 checks passed"
+      - name: The cospectral pair and its completion minima in exact arithmetic (30 checks)
+        run: |
+          python scripts/cospectral_pair.py | tee results/ci-cospectral-pair.log
+          tail -1 results/ci-cospectral-pair.log | grep -q "30 of 30 checks passed"
       - name: The regenerated masks and Lean data are the committed ones
         run: |
           git diff --exit-code -- lean/HoggarBound/FlatData.lean lean/HoggarBound/SaturatedFive.lean \

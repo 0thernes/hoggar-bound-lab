@@ -35,6 +35,8 @@ stage "QGTL kernels on the eight flat states"          bash -c "./build/qgt_flat
 if [ -n "$ESHKOL" ]; then
   stage "Eshkol: the pivot configuration + autodiff"   bash -c "$ESHKOL -r src/eshkol/saturated.esk | tee results/eshkol_saturated.log | grep -q ESHKOL-SATURATED-PASS"
 fi
+# ---- the cospectral pair (combined paper, Section 8) and the completion minima (publication/ADDENDUM-completion-optima.md)
+stage "cospectral pair, exact arithmetic (30 checks)"  bash -c 'python scripts/cospectral_pair.py | tee results/cospectral_pair.log | tail -1 | grep -q "30 of 30"'
 rm -f results/.stage.log
 [ $fail -eq 0 ] && echo "ALL STAGES PASSED" || echo "SOME STAGES FAILED"
 exit $fail
