@@ -34,7 +34,7 @@ def normalized(data):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", default="results/publication-v1.1.1-audit.json")
+    parser.add_argument("--output", default="results/publication-v1.1.2-audit.json")
     args = parser.parse_args()
     reference_manifest = json.loads(git("show", RESEARCH_COMMIT + ":results/frontier-c3-lean-source-sha256.json"))
     proof_files = [item["path"] for item in reference_manifest["files"]]
@@ -75,7 +75,7 @@ def main():
     require(all(c["affiliation"] == "0thernes LLC" for c in metadata["creators_for_submission"]), "Creator affiliation mismatch")
     require(metadata["arxiv_profile_observed"]["affiliation"] == "0thernes LLC", "Observed arXiv affiliation mismatch")
     require(metadata["version"] == "0.2.0-c3-certificate", "Paper artifact version changed")
-    require((ROOT / "VERSION").read_text().strip() == "1.1.1", "Unexpected documentation version")
+    require((ROOT / "VERSION").read_text().strip() == "1.1.2", "Unexpected documentation version")
     for name in ["GLOSSARY.md", "VERIFICATION.md", "LEGAL.md", "CHANGELOG.md", "docs/RESEARCH-SUMMARY.md", "docs/CLAIMS.md", "docs/research-index.html", "publication/AFFILIATIONS.md"]:
         require((ROOT / name).is_file(), "Missing publication document: " + name)
     axiom_report = json.loads((ROOT / "results/frontier-c3-axioms.json").read_text())
@@ -89,7 +89,7 @@ def main():
     report = {
         "status": "pass",
         "verification_kind": "Documentation-release continuity, not a new Lean compilation",
-        "documentation_version": "1.1.1",
+        "documentation_version": "1.1.2",
         "research_version": "0.2.0-c3-certificate",
         "research_commit": RESEARCH_COMMIT,
         "paper_pdf_sha256": PDF_HASH,

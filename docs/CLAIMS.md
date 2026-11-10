@@ -1,6 +1,6 @@
 # Claim-to-theorem and evidence map
 
-This map describes the frozen research result in [`v0.2.0-c3-certificate`](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. It accompanies the `v1.1.1` update with unchanged proof sources. Build commands, measured costs, release provenance, and durable CI downloads are in [VERIFICATION.md](../VERIFICATION.md).
+This map describes the frozen research result in [`v0.2.0-c3-certificate`](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. It accompanies the `v1.1.2` update with unchanged proof sources. Build commands, measured costs, release provenance, and durable CI downloads are in [VERIFICATION.md](../VERIFICATION.md).
 
 The main claim is **equal carrier spectra and unequal completion spectra for one explicit four-qubit C3 pair**. This refutes the strict carrier-spectrum-to-completion-spectrum law in that instance and establishes the corresponding instance of Conjecture E, which predicts such failure. The result does not resolve Conjecture E in every dimension or case.
 

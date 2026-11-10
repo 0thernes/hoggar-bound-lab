@@ -1,6 +1,6 @@
 # arXiv submission sheet: the spectral-floor paper
 
-Prepared for version 1.1.1 on 9 November 2026. Nothing has been submitted. The steps marked **author** need the author's own
+Prepared for version 1.1.2 on 9 November 2026. Nothing has been submitted. The steps marked **author** need the author's own
 arXiv login and personal confirmation; they cannot be done for the author.
 
 ## Files
@@ -32,7 +32,7 @@ affiliation was also saved. These profile changes are not paper submissions or d
 [the affiliation record](../AFFILIATIONS.md). The same publication affiliation is used in the paper,
 citation metadata, indexing tags and venue templates.
 
-**Abstract** (1 868 characters; arXiv's limit is 1 920)
+**Abstract** (plain text, 1 845 characters; arXiv's limit is 1 920)
 
 A noncontextual hidden-variable model assigns a value +1 or -1 to every N-qubit Pauli observable. The
 contextuality degree of a set of observables is the least number of its contexts (commuting triples with

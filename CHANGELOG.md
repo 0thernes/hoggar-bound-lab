@@ -4,9 +4,9 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
-## 1.1.1 - documentation and metadata release
+## 1.1.2 - documentation and metadata release
 
-This release brings the repository documentation together after `v1.1.0`. It preserves the spectral-floor study's mathematical content and the fixed C3 paper and proof content; it does not announce a new theorem or repeat another study's verification as if it were the C3 audit.
+This release brings the repository documentation together after `v1.1.1`. It preserves the spectral-floor study's mathematical content and the fixed C3 paper and proof content; it does not announce a new theorem or repeat another study's verification as if it were the C3 audit.
 
 - Present both studies through shared navigation, glossary, license explanation and version history, with a separate [C3 research summary](docs/RESEARCH-SUMMARY.md).
 - Add a C3 claim-to-theorem register, Lean reproduction guide and release-continuity check.
@@ -18,7 +18,18 @@ This release brings the repository documentation together after `v1.1.0`. It pre
 - Replace the unsupported blanket competing-interest statement in the spectral-floor publication package with the author-confirmed self-funding and sole-operator disclosures; regenerate the affected document formats.
 - Prevent an older completed verification workflow from replacing a newer Pages deployment.
 
-The C3 reference PDF remains the nine-page artifact with SHA-256 `5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836`, first released at commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. Project `VERSION` is `1.1.1`; the [release record](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.1) identifies its fixed commit and publication timestamp.
+The C3 reference PDF remains the nine-page artifact with SHA-256 `5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836`, first released at commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. Project `VERSION` is `1.1.2`; the [release record](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.2) identifies its fixed commit and publication timestamp.
+
+## 1.1.1 — 9 November 2026
+
+No change to any result, proof or program.
+
+* The author's ORCID iD (0009-0006-8168-9648) is given in the paper, the web page's indexing metadata,
+  `CITATION.cff`, the LaTeX source and the submission sheets.
+* The random census of seven-qubit forms now covers the last type (B of rank 7); the full title and DOI
+  of one reference were added; every reference was checked against Crossref, arXiv, Zenodo or the
+  journal's site.
+* `publication/spectral-floor/` records the state of each venue and what each requires of the author.
 
 ## 1.1.0 — 9 November 2026
 

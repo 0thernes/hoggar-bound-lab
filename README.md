@@ -8,7 +8,7 @@ quantum_rng, Eshkol).
 [![Saturated configurations](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml)
 [![Independent verification](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml)
 [![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
-[![Version 1.1.1](https://img.shields.io/badge/version-1.1.1-informational)](CHANGELOG.md)
+[![Version 1.1.2](https://img.shields.io/badge/version-1.1.2-informational)](CHANGELOG.md)
 
 **Paper:** [paper/spectral-floor.md](paper/spectral-floor.md) ([PDF](paper/spectral-floor.pdf), [typeset PDF](publication/spectral-floor/spectral-floor.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.html))
 &nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
@@ -17,13 +17,13 @@ quantum_rng, Eshkol).
 **Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
 [GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, repository version 1.1.1, 9 November 2026. Not peer reviewed. AI-generated under human
-direction. Author: Alexander S. Donahue, 0thernes LLC.
+Status: research preprint, repository version 1.1.2, 9 November 2026. Not peer reviewed. AI-generated under human
+direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
 
 **Research website:** [Hoggar Bound Lab](https://0thernes.github.io/hoggar-bound-lab/).
 The [C3 research summary](docs/RESEARCH-SUMMARY.md), [verification guide](VERIFICATION.md),
 and [claim register](docs/CLAIMS.md) connect the four-qubit spectral result to exact data and Lean theorem names.
-The documentation edition `v1.1.1` preserves the C3 scientific paper and proof artifacts in
+The documentation edition `v1.1.2` preserves the C3 scientific paper and proof artifacts in
 [v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate).
 See [affiliation records](publication/AFFILIATIONS.md) for confirmed platform updates and remaining account steps.
 

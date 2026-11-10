@@ -29,6 +29,6 @@ jobs:
         with:
           name: publication-documentation-evidence
           path: |
-            results/publication-v1.1.1-audit.json
+            results/publication-v1.1.2-audit.json
             build/independent-site/artifact-sha256.json
           if-no-files-found: error

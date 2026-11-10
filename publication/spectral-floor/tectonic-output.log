@@ -1,40 +1,40 @@
 note: Running TeX ...
 note: Rerunning TeX because "spectral-floor.aux" changed ...
 note: Running xdvipdfmx ...
-note: Writing `spectral-floor.log` (24.2890625 KiB)
-note: Writing `spectral-floor.pdf` (372.9140625 KiB)
+note: Writing `spectral-floor.pdf` (374.7109375 KiB)
+note: Writing `spectral-floor.log` (24.2900390625 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
 Fontconfig error: Cannot load default config file: No such file: (null)
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-warning: spectral-floor.tex:233: Overfull \hbox (6.1329pt too wide) in paragraph at lines 230--233
-warning: spectral-floor.tex:443: Overfull \hbox (0.73146pt too wide) in paragraph at lines 443--443
-warning: spectral-floor.tex:443: Overfull \hbox (1.81253pt too wide) in paragraph at lines 443--443
-warning: spectral-floor.tex:655: Overfull \hbox (4.03928pt too wide) in paragraph at lines 654--655
-warning: spectral-floor.tex:663: Overfull \hbox (3.93723pt too wide) in paragraph at lines 663--663
-warning: spectral-floor.tex:685: Overfull \hbox (15.09172pt too wide) detected at line 685
-warning: spectral-floor.tex:692: Overfull \hbox (12.66608pt too wide) detected at line 692
-warning: spectral-floor.tex:807: Overfull \hbox (6.32605pt too wide) in paragraph at lines 807--807
-warning: spectral-floor.tex:807: Overfull \hbox (0.57942pt too wide) in paragraph at lines 807--807
-warning: spectral-floor.tex:826: Overfull \hbox (4.13441pt too wide) in paragraph at lines 826--826
-warning: spectral-floor.tex:826: Overfull \hbox (2.53174pt too wide) in paragraph at lines 826--826
-warning: spectral-floor.tex:827: Overfull \hbox (2.53174pt too wide) in paragraph at lines 827--827
-warning: spectral-floor.tex:828: Overfull \hbox (2.53174pt too wide) in paragraph at lines 828--828
-warning: spectral-floor.tex:973: Underfull \hbox (badness 4279) in paragraph at lines 969--973
-warning: spectral-floor.tex:1235: Underfull \hbox (badness 1189) in paragraph at lines 1233--1235
+warning: spectral-floor.tex:215: Overfull \hbox (6.1329pt too wide) in paragraph at lines 212--215
+warning: spectral-floor.tex:425: Overfull \hbox (0.73146pt too wide) in paragraph at lines 425--425
+warning: spectral-floor.tex:425: Overfull \hbox (1.81253pt too wide) in paragraph at lines 425--425
+warning: spectral-floor.tex:637: Overfull \hbox (4.03928pt too wide) in paragraph at lines 636--637
+warning: spectral-floor.tex:645: Overfull \hbox (3.93723pt too wide) in paragraph at lines 645--645
+warning: spectral-floor.tex:667: Overfull \hbox (15.09172pt too wide) detected at line 667
+warning: spectral-floor.tex:674: Overfull \hbox (12.66608pt too wide) detected at line 674
+warning: spectral-floor.tex:789: Overfull \hbox (6.32605pt too wide) in paragraph at lines 789--789
+warning: spectral-floor.tex:789: Overfull \hbox (0.57942pt too wide) in paragraph at lines 789--789
+warning: spectral-floor.tex:808: Overfull \hbox (4.13441pt too wide) in paragraph at lines 808--808
+warning: spectral-floor.tex:808: Overfull \hbox (2.53174pt too wide) in paragraph at lines 808--808
+warning: spectral-floor.tex:809: Overfull \hbox (2.53174pt too wide) in paragraph at lines 809--809
+warning: spectral-floor.tex:810: Overfull \hbox (2.53174pt too wide) in paragraph at lines 810--810
+warning: spectral-floor.tex:955: Underfull \hbox (badness 4279) in paragraph at lines 951--955
+warning: spectral-floor.tex:1236: Underfull \hbox (badness 1189) in paragraph at lines 1234--1236
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-warning: spectral-floor.tex:233: Overfull \hbox (6.1329pt too wide) in paragraph at lines 230--233
-warning: spectral-floor.tex:443: Overfull \hbox (0.73146pt too wide) in paragraph at lines 443--443
-warning: spectral-floor.tex:443: Overfull \hbox (1.81253pt too wide) in paragraph at lines 443--443
-warning: spectral-floor.tex:655: Overfull \hbox (4.03928pt too wide) in paragraph at lines 654--655
-warning: spectral-floor.tex:663: Overfull \hbox (3.93723pt too wide) in paragraph at lines 663--663
-warning: spectral-floor.tex:685: Overfull \hbox (15.09172pt too wide) detected at line 685
-warning: spectral-floor.tex:692: Overfull \hbox (12.66608pt too wide) detected at line 692
-warning: spectral-floor.tex:807: Overfull \hbox (6.32605pt too wide) in paragraph at lines 807--807
-warning: spectral-floor.tex:807: Overfull \hbox (0.57942pt too wide) in paragraph at lines 807--807
-warning: spectral-floor.tex:826: Overfull \hbox (4.13441pt too wide) in paragraph at lines 826--826
-warning: spectral-floor.tex:826: Overfull \hbox (2.53174pt too wide) in paragraph at lines 826--826
-warning: spectral-floor.tex:827: Overfull \hbox (2.53174pt too wide) in paragraph at lines 827--827
-warning: spectral-floor.tex:828: Overfull \hbox (2.53174pt too wide) in paragraph at lines 828--828
-warning: spectral-floor.tex:973: Underfull \hbox (badness 4279) in paragraph at lines 969--973
-warning: spectral-floor.tex:1235: Underfull \hbox (badness 1189) in paragraph at lines 1233--1235
+warning: spectral-floor.tex:215: Overfull \hbox (6.1329pt too wide) in paragraph at lines 212--215
+warning: spectral-floor.tex:425: Overfull \hbox (0.73146pt too wide) in paragraph at lines 425--425
+warning: spectral-floor.tex:425: Overfull \hbox (1.81253pt too wide) in paragraph at lines 425--425
+warning: spectral-floor.tex:637: Overfull \hbox (4.03928pt too wide) in paragraph at lines 636--637
+warning: spectral-floor.tex:645: Overfull \hbox (3.93723pt too wide) in paragraph at lines 645--645
+warning: spectral-floor.tex:667: Overfull \hbox (15.09172pt too wide) detected at line 667
+warning: spectral-floor.tex:674: Overfull \hbox (12.66608pt too wide) detected at line 674
+warning: spectral-floor.tex:789: Overfull \hbox (6.32605pt too wide) in paragraph at lines 789--789
+warning: spectral-floor.tex:789: Overfull \hbox (0.57942pt too wide) in paragraph at lines 789--789
+warning: spectral-floor.tex:808: Overfull \hbox (4.13441pt too wide) in paragraph at lines 808--808
+warning: spectral-floor.tex:808: Overfull \hbox (2.53174pt too wide) in paragraph at lines 808--808
+warning: spectral-floor.tex:809: Overfull \hbox (2.53174pt too wide) in paragraph at lines 809--809
+warning: spectral-floor.tex:810: Overfull \hbox (2.53174pt too wide) in paragraph at lines 810--810
+warning: spectral-floor.tex:955: Underfull \hbox (badness 4279) in paragraph at lines 951--955
+warning: spectral-floor.tex:1236: Underfull \hbox (badness 1189) in paragraph at lines 1234--1236
 warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

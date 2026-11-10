@@ -1,0 +1,28 @@
+{
+  "source": "paper/spectral-floor.md",
+  "source_sha256": "5f2447e37d14fcfd0b968019adabd56bba902d185a4698698765a5d1fd991389",
+  "words_main_with_abstract_and_references": 9009,
+  "words_main_text_only": 8099,
+  "words_abstract": 302,
+  "words_supplement": 1738,
+  "manuscript_pdf_sha256": "c869c7085cf2ede61fd2d18300274d2a5f7dac23652bcf5dc6556aebae2b4177",
+  "manuscript_overfull_pt": [
+    "6.1329",
+    "6.32605",
+    "12.66608",
+    "15.09172"
+  ],
+  "supplementary_pdf_sha256": "eb96fbb7f7bbf688d1b43b7b186f9abcb4be4f86591e2e58e88afb0f2e7f03b3",
+  "supplementary_overfull_pt": [],
+  "tectonic": "Tectonic 0.17.0",
+  "pandoc": "pandoc 3.13",
+  "publication_version": "1.1.2",
+  "manuscript_pages": 20,
+  "supplementary_pages": 5,
+  "source_lf_sha256": "5f2447e37d14fcfd0b968019adabd56bba902d185a4698698765a5d1fd991389",
+  "submission_status": "Prepared journal layout; no submission; author-controlled declarations remain incomplete.",
+  "manuscript_tex_raw_sha256": "f4fe33c69f35889a3de76e654d973fbfd772d99937f8379e0736d670e0593c7a",
+  "manuscript_tex_lf_sha256": "61f8a3988230facd8d77eec81fe0283321c5bd67478a4d36d857e26846ac3af0",
+  "supplementary_tex_raw_sha256": "9b2b18651bb0e66e41fc0c5b89435dd5ca22945e5714397f7ff13ba2530e300d",
+  "supplementary_tex_lf_sha256": "c46c5a87fa5c6cd575f4a5c4c230674c73a6df4256fb349e3491b392e1f0ed80"
+}

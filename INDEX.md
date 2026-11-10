@@ -1,6 +1,6 @@
 # Index: where each claim is proved, tested and recorded
 
-Repository version 1.1.1. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
+Repository version 1.1.2. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
 [SUMMARY.md](SUMMARY.md); for the full text see the [paper](paper/spectral-floor.md).
 
 ## Documents

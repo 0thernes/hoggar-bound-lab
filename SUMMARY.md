@@ -1,6 +1,6 @@
 # Summary in plain language
 
-Repository version 1.1.1, 9 November 2026. Research preprint, not peer reviewed. Produced with an AI research system
+Repository version 1.1.2, 9 November 2026. Research preprint, not peer reviewed. Produced with an AI research system
 (Claude, Anthropic) under the direction of Alexander S. Donahue, 0thernes LLC.
 
 ## The question
