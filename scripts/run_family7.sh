@@ -34,7 +34,7 @@ echo "# solutions file: $(wc -c < build/f7/solutions.bin) bytes" >> "$LOG"
 echo "# random census of the other types of B (3e8 forms each)" >> "$LOG"
 pids=()
 for m in 0 1 2; do ./build/sample7 0 "$m" 300000000 $(( 1000 + m )) > "build/f7/sample_cs_$m.log" & pids+=($!); done
-for k in 1 2 3 4 5 6; do ./build/sample7 "$k" 0 300000000 $(( 2000 + k )) > "build/f7/sample_t_$k.log" & pids+=($!); done
+for k in 1 2 3 4 5 6 7; do ./build/sample7 "$k" 0 300000000 $(( 2000 + k )) > "build/f7/sample_t_$k.log" & pids+=($!); done
 ./build/sample7 0 3 2000000 12345 > build/f7/sample_cs_3.log & pids+=($!)
 for p in "${pids[@]}"; do wait "$p"; done
 cat build/f7/sample_*.log >> "$LOG"

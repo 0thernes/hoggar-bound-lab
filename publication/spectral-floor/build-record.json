@@ -1,12 +1,12 @@
 {
  "source": "paper/spectral-floor.md",
- "source_sha256": "e7c04be7333c090c9754c613e1cdef04adbc0835ce95201d803ce23e8a775ecf",
- "tex_sha256": "594c232cd6b02c43f533241c4663d9afd654e81cd80f8bf9e9500998f4700588",
+ "source_sha256": "d09b41026e7b2cc69afd4cac55a81ddf8fc972d0abf507d7c17b865c2fdc0859",
+ "tex_sha256": "7e33155cd6001fe5dabb868c488b9f3d4583646daf498f3400d0e1a498638351",
  "engine": "XeLaTeX (compiled here with Tectonic)",
  "pandoc": "pandoc 3.13",
  "tectonic": "Tectonic 0.17.0",
- "pdf_sha256": "1fb925b506c6e4aedaa9e744d00349144581350f604afa31f1b1685a25e71e22",
- "pdf_bytes": 381740,
+ "pdf_sha256": "7958da1812ec8124ba19b6fc640606dc870ec924c90b5ceebfed30810601c2dd",
+ "pdf_bytes": 381732,
  "overfull_boxes_pt": [
   "0.57942",
   "0.73146",
@@ -29,7 +29,7 @@
    "figures/fig2_noise.png",
    "figures/fig3_spectra.png"
   ],
-  "bytes": 181464,
-  "sha256": "96020c5760629c9b3e247d99065e1c1f296146c91d04419566d7361584b15db6"
+  "bytes": 181463,
+  "sha256": "14a829aefdd270090ec0571c3c16ae9f1e28380692a2bd670a739dd98a65b4a1"
  }
 }
