@@ -64,8 +64,9 @@ was known only for small cases.
 
 * *Proved in Lean* means the Lean 4 proof checker accepted the statement, using only its three standard
   axioms. Anyone can re-run it; the continuous-integration runs on GitHub do so.
-* *Checked in exact arithmetic* means a program counted with whole numbers, no rounding, and a second
-  and third program written separately got the same counts.
+* *Checked in exact arithmetic* means a program counted with whole numbers, without rounding.
+  Independent second and third implementations corroborate the checks identified in the evidence records;
+  not every enumeration has three implementations.
 * *Proved on paper* means the argument is written in the paper and has not been formalized.
 * *Evidence, not proof* is said where it applies, for example for uniqueness beyond the families that
   were enumerated completely.

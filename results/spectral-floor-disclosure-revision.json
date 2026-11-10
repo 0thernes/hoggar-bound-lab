@@ -88,7 +88,7 @@
   "tex_warning_comparison": "Full-paper and journal/supplement overfull widths identical to c656f52; no missing characters.",
   "visual_review": "PASS: all five raster-changed pages inspected individually: browser pages 1 and 24; full typeset pages 1 and 22; journal manuscript page 19. Author/ORCID/version and corrected declaration are readable, with no observed clipping or missing glyph. All other pages, including all five supplement pages, are raster-identical to c656f52 at 0.8 scale.",
   "c3_pdf_sha256_unchanged": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
-  "metadata_note": "User-supplied ORCID retained. Profile actions and historical v1.1.0 archives distinguished from submissions and current release. Additional competing interests and human review remain unconfirmed.",
+  "metadata_note": "Source-study disclosure correction retained. Later documentation records both v1.1.0/v1.1.1 archives and the unsubmitted combined v1.2.0 preparation; additional interests and human review remain unconfirmed.",
   "files": {
     "publication/spectral-floor/abstract.md": {
       "sha256": "15e74440787fd9fef226f109340c81aca058b5550bad78cadd6d98a4e7b323a2",
@@ -120,9 +120,9 @@
       "lf_sha256": "a77b85eed766a399f383c390649f8eb726f09cb856fb93f5a08ce923ba10e1b6"
     },
     "publication/spectral-floor/README.md": {
-      "sha256": "fc7986859a3fda61a568dfa4587a7e93d88d51cf1273da2a84696055fb48d991",
-      "bytes": 6720,
-      "lf_sha256": "fc7986859a3fda61a568dfa4587a7e93d88d51cf1273da2a84696055fb48d991"
+      "sha256": "1a5f06e1bf59f0c1506c0b338afb043eb54a3ce31de2a52f3765c4b2aa31059d",
+      "bytes": 7273,
+      "lf_sha256": "1a5f06e1bf59f0c1506c0b338afb043eb54a3ce31de2a52f3765c4b2aa31059d"
     },
     "publication/spectral-floor/spectral-floor.log": {
       "sha256": "91f93b1c9c7cee7d8abe928240394230ba9b7a2de2fcd3ab0d98136659e79c28",

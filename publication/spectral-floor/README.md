@@ -21,10 +21,11 @@ holds the typeset paper and submission materials. See [venue guidance](../ROUTES
 
 ## Status by venue
 
-Release and deployment records are available at [release v1.1.2](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.2)
-and [the repository workflow runs](https://github.com/0thernes/hoggar-bound-lab/actions). Existing releases
-`v1.1.0` and `v1.1.1` remain historical snapshots. Local preparation of a submission package is not a
-submission, DOI deposit or peer-review decision.
+The source study has public releases [v1.1.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.0)
+and [v1.1.1](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.1). The local v1.1.2
+preparation was never released separately. Its disclosure corrections are retained here, and the
+current combined manuscript is [version 1.2.0](../UNIFIED-SUBMISSION.md). This page records the
+source study; use [the combined publication status](../STATUS.md) for current distribution.
 
 The archive timestamps below are 10 November 2026 UTC; the corresponding local work date is
 9 November in America/Los_Angeles.
@@ -32,17 +33,17 @@ The archive timestamps below are 10 November 2026 UTC; the corresponding local w
 | Venue | Recorded status | Next step |
 | --- | --- | --- |
 | GitHub / project web page | Public releases and paper page exist; the release and workflow records above identify this revision | Use the tagged artifact and successful deployment record when citing a version |
-| Software Heritage | Prior `v1.1.0` archive: visit 10 November 2026, 02:35 UTC; snapshot `swh:1:snp:e668d136e57bf7971a488db2706bd58ffbabede5` ([browse](https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/0thernes/hoggar-bound-lab)) | This identifies the earlier snapshot, not an archive of the current revision |
-| Internet Archive | Prior `v1.1.0` captures: [paper page](https://web.archive.org/web/20261110023747/https://0thernes.github.io/hoggar-bound-lab/?v=1.1.0), [PDF](https://web.archive.org/web/20261110023819/https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf?v=1.1.0). The reported github.com-page capture failed | Preserve the historical URLs without claiming they contain the new revision |
-| arXiv (`quant-ph`, proposed cross-list `math.CO`) | Account access and saved affiliation 0thernes LLC verified; submission deferred by the author; no paper submitted | Resume when ready, resolve any required endorsement, review the server-compiled paper and author attestations |
+| Software Heritage | archived. The visit of 10 November 2026, 02:56 UTC, includes the tags `v1.1.0` and `v1.1.1`: snapshot `swh:1:snp:978634bdad8256f62bd0c250029b9924820b073c`; the commit of release `v1.1.1` is `swh:1:rev:c656f52aef29b21f97e0daa241915aa7fbc0de2b` ([browse](https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/0thernes/hoggar-bound-lab)). The earlier visit, with `v1.1.0` only, is `swh:1:snp:e668d136e57bf7971a488db2706bd58ffbabede5` | — |
+| Internet Archive | snapshots of the paper page and PDF as of `v1.1.1`: [page](https://web.archive.org/web/20261110025627/https://0thernes.github.io/hoggar-bound-lab/?v=1.1.1), [PDF](https://web.archive.org/web/20261110025652/https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf?v=1.1.1); as of `v1.1.0`: [page](https://web.archive.org/web/20261110023747/https://0thernes.github.io/hoggar-bound-lab/?v=1.1.0), [PDF](https://web.archive.org/web/20261110023819/https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf?v=1.1.0). Its capture of the github.com pages failed twice (the repository itself is in Software Heritage) | — |
+| arXiv (`quant-ph`, proposed cross-list `math.CO`) | Account access and saved affiliation 0thernes LLC verified; no source-paper submission; later instructions request the combined manuscript | Resume when ready, resolve any required endorsement, review the server-compiled paper and author attestations |
 | Zenodo | Account affiliation saved as 0thernes LLC; metadata prepared; no deposit or DOI | Resolve human-research eligibility and the distribution license; see [ZENODO-NOTE.md](ZENODO-NOTE.md) |
 | Journal of Physics A: Mathematical and Theoretical | Main manuscript, supplement and drafts prepared; observed ScholarOne pages remain at login; no authenticated journal profile or submission verified | Author sign-in, critical review, final approval, declarations and account/ORCID linking; one journal at a time |
 | Google Scholar | Page metadata prepared; profile setup and indexing are not established as complete | Complete profile setup when the paper is available for selection; do not imply indexing from the presence of metadata |
 | OpenAIRE | Authenticated My ORCID links page observed with no ORCID links found | Claim a record only after an eligible source is indexed; no paper linkage is established |
 | Paperpal | Account access reported by the author | Optional pre-check of `jphysa/manuscript.pdf`; no upload or completed check is recorded |
 
-The author supplied the ORCID printed above and in the paper. Its live ownership and journal linkage
-have not been independently verified here. Saved account profiles are not paper submissions. No arXiv
+The author supplied the ORCID printed above and in the paper. A matching public record and
+authenticated editor were later observed; journal linkage has not been verified. Saved account profiles are not paper submissions. No arXiv
 identifier, DOI or journal submission identifier exists for this paper in this record.
 
 ## Revision and declarations
