@@ -1,121 +1,46 @@
 {
   "version": "1.1.1",
-  "baseline_commit": "14390f3",
-  "source_change_check": "PASS: reverting exactly the version-line and disclosure-paragraph substitutions reproduces the baseline canonical Markdown byte-for-byte after LF normalization.",
-  "mathematics_and_references_unchanged": true,
+  "baseline_commit": "1bb72d8",
+  "source_change_check": "PASS: undoing exactly the version line and disclosure paragraph reproduces the baseline canonical Markdown after LF normalization.",
+  "incoming_research_updates_preserved": true,
+  "mathematics_and_references_unchanged_from_baseline": true,
   "proof_sources_modified_by_this_revision": false,
   "builders": [
-    "scripts/build_latex.py --pandoc <Pandoc 3.13> --tectonic <Tectonic 0.17.0>",
-    "scripts/build_paper.py build(embed_images=False/True), followed by its headless Edge print flags on a temporary embedded document; docs/index.html preserved"
+    "scripts/build_latex.py with Pandoc 3.13 and Tectonic 0.17.0",
+    "scripts/build_paper.py build() plus its headless Edge document-rendering flags; docs/index.html uses embedded images"
   ],
   "pdfs": [
     {
       "path": "paper/spectral-floor.pdf",
       "pages": 27,
       "baseline_pages": 27,
-      "bytes": 1066679,
-      "sha256": "b7eb44c66fd079c602424de8e26c3bddfe802c5f0555454d0fa8cebdc6a16bda",
-      "confirmed_disclosure_text_present": true,
-      "unsupported_statement_absent": true,
-      "text_check_normalization": "Unicode NFKC for PDF ligatures and collapsed whitespace"
+      "bytes": 1067203,
+      "sha256": "6a790724759be3224580513992c50f8f041c74f6533f26618c36197b3eb6f7a3",
+      "disclosure_pages": [
+        24
+      ],
+      "corrected_declaration_verified": true,
+      "unsupported_blanket_declaration_absent": true,
+      "text_normalization": "NFKC plus collapsed whitespace"
     },
     {
       "path": "publication/spectral-floor/spectral-floor.pdf",
       "pages": 24,
       "baseline_pages": 24,
-      "bytes": 381641,
-      "sha256": "f81c554663f11fc960d30e856216e556fb1f7005f8d964cb22d754be826d3613",
-      "confirmed_disclosure_text_present": true,
-      "unsupported_statement_absent": true,
-      "text_check_normalization": "Unicode NFKC for PDF ligatures and collapsed whitespace"
+      "bytes": 381864,
+      "sha256": "a5618fbbae604dcb963add0a9c8ad04b90fdc6303a2d4949bd51019d10807df2",
+      "disclosure_pages": [
+        22
+      ],
+      "corrected_declaration_verified": true,
+      "unsupported_blanket_declaration_absent": true,
+      "text_normalization": "NFKC plus collapsed whitespace"
     }
   ],
-  "arxiv_archive_matches_generated_tex_raw_bytes": true,
-  "archive_sha256": "d4efa34e3982a54ab6682986916c6d672206699d3b93bd49872e70f8aad23432",
-  "visual_review": "PASS: first page and disclosure page 24 of the browser PDF, plus first page and disclosure page 22 of the typeset PDF, inspected individually. Version and confirmed declarations readable; no clipping or missing glyph observed on these changed pages. Browser mathematics pages 6 and 7 also visually checked. Page counts unchanged (27 browser, 24 typeset).",
-  "tex_warning_comparison": "Overfull widths and empty missing-character list exactly match 87f08a0 baseline. No new reported overfull width or missing glyph.",
-  "existing_tex_overfull_widths_pt": [
-    "0.57942",
-    "0.73146",
-    "1.81253",
-    "2.53174",
-    "3.93723",
-    "4.03928",
-    "4.13441",
-    "6.1329",
-    "6.32605",
-    "12.66608",
-    "15.09172"
-  ],
-  "tex_missing_characters": [],
-  "c3_pdf_sha256_unchanged": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
-  "files": {
-    "paper/spectral-floor.md": {
-      "sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
-      "bytes": 79857
-    },
-    "paper/spectral-floor.html": {
-      "sha256": "e917d64415aaf7742cd5d53b8225059539721d579e0e9e0dd7edc3ff80d59f94",
-      "bytes": 95015
-    },
-    "paper/spectral-floor.pdf": {
-      "sha256": "b7eb44c66fd079c602424de8e26c3bddfe802c5f0555454d0fa8cebdc6a16bda",
-      "bytes": 1066679
-    },
-    "docs/paper/spectral-floor.md": {
-      "sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
-      "bytes": 79857
-    },
-    "docs/paper/spectral-floor.html": {
-      "sha256": "e917d64415aaf7742cd5d53b8225059539721d579e0e9e0dd7edc3ff80d59f94",
-      "bytes": 95015
-    },
-    "docs/paper/spectral-floor.pdf": {
-      "sha256": "b7eb44c66fd079c602424de8e26c3bddfe802c5f0555454d0fa8cebdc6a16bda",
-      "bytes": 1066679
-    },
-    "docs/spectral-floor.pdf": {
-      "sha256": "b7eb44c66fd079c602424de8e26c3bddfe802c5f0555454d0fa8cebdc6a16bda",
-      "bytes": 1066679
-    },
-    "publication/spectral-floor/spectral-floor.tex": {
-      "sha256": "f39852a4d814f0465787ba36ad633c6b7af1497e7051d7f0767742317475d776",
-      "bytes": 93899
-    },
-    "publication/spectral-floor/spectral-floor.pdf": {
-      "sha256": "f81c554663f11fc960d30e856216e556fb1f7005f8d964cb22d754be826d3613",
-      "bytes": 381641
-    },
-    "publication/spectral-floor/arxiv-source.zip": {
-      "sha256": "d4efa34e3982a54ab6682986916c6d672206699d3b93bd49872e70f8aad23432",
-      "bytes": 181465
-    },
-    "publication/spectral-floor/build-record.json": {
-      "sha256": "711af6044edb755684dd5f9140fec9d3ce8e42f28993e51616ddf6e3b8f846b5",
-      "bytes": 1586
-    },
-    "publication/spectral-floor/README.md": {
-      "sha256": "ec9918f5e68e541cd326b2a26409010a85b7c4bca3f5136d9f39aaec7c5dc931",
-      "bytes": 4094
-    },
-    "publication/spectral-floor/ARXIV-SUBMISSION.md": {
-      "sha256": "6225b3d25783cea26dbe229566699fcc253939c090a74d3d8e71fd7b4b11d522",
-      "bytes": 7776
-    },
-    "publication/spectral-floor/ZENODO-METADATA.json": {
-      "sha256": "d98677ee98935bbf237e99cb85bcedf2e0cd7b7c630cbd95fb44154898347779",
-      "bytes": 3617
-    },
-    "publication/spectral-floor/JOURNAL-COVER-LETTER.md": {
-      "sha256": "4b782af4f2f8fb5535808eaf55d1c761829a915b7feaac893d199066220a8229",
-      "bytes": 2916
-    }
-  },
-  "submission_status": "No submission/deposit. Saved arXiv and Zenodo affiliation states are recorded separately in publication/AFFILIATIONS.md.",
-  "raster_comparison_0_8_scale": [
+  "raster_comparison": [
     {
-      "file": "paper/spectral-floor.pdf",
-      "raster_pages_changed_from_baseline": [
+      "path": "paper/spectral-floor.pdf",
+      "changed_pages_at_0_8_scale": [
         1,
         24,
         25,
@@ -124,16 +49,127 @@
       ]
     },
     {
-      "file": "publication/spectral-floor/spectral-floor.pdf",
-      "raster_pages_changed_from_baseline": [
+      "path": "publication/spectral-floor/spectral-floor.pdf",
+      "changed_pages_at_0_8_scale": [
         1,
         22,
-        23,
-        24
+        23
       ]
     }
   ],
-  "layout_comparison": "Raster comparison at 0.8 scale finds changes only on browser pages 1 and 24-27 and typeset pages 1 and 22-24: version line, disclosure and following references. All intervening mathematics pages are pixel-identical to baseline.",
-  "pdf_text_bounds_note": "Typeset PDF has no text spans outside page bounds. Browser PDF has six atypical stretched MathJax glyph bounding boxes on pages 6,7,9,12, identical to baseline; affected mathematics pages are raster-identical, and pages 6 and 7 visually show intact equations. These text-extraction metrics are not treated as a new clipping failure.",
-  "mirrors_match_canonical_files": true
+  "arxiv_zip_tex_byte_identical": true,
+  "arxiv_archive_sha256": "ca53a8a385038c507f5e12c79c816898e29b9832cf219822a87b6c31ad1f67e2",
+  "tex_warning_comparison": "Overfull widths identical to 1bb72d8; no missing characters.",
+  "visual_review": "PASS: first, disclosure and final pages of both regenerated PDFs inspected individually (browser pages 1,24,27; typeset pages 1,22,24). Version/declaration text and final data excerpt readable; no clipping or missing glyph observed. All intervening mathematics pages are raster-identical to 1bb72d8 at 0.8 scale.",
+  "c3_pdf_sha256_unchanged": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
+  "metadata_note": "Author-supplied ORCID retained; account/profile actions remain separate from paper submissions. Real historical archive identifiers retained as v1.1.0 snapshots.",
+  "policy_sources": [
+    "https://info.arxiv.org/help/moderation/index.html#AI-language-tools",
+    "https://support.zenodo.org/help/en-gb/13/227"
+  ],
+  "files": {
+    "paper/spectral-floor.md": {
+      "sha256": "dc11df674f3a6cb109918a1a34dfadb05b1d6dd72dc1af812bf78277d27b6267",
+      "bytes": 79924,
+      "lf_sha256": "dc11df674f3a6cb109918a1a34dfadb05b1d6dd72dc1af812bf78277d27b6267"
+    },
+    "paper/spectral-floor.html": {
+      "sha256": "3f41894c1e6ed69ae66865385a4e93b562f87ed44ddec037fb9e1e67937cdddd",
+      "bytes": 94210,
+      "lf_sha256": "3f41894c1e6ed69ae66865385a4e93b562f87ed44ddec037fb9e1e67937cdddd"
+    },
+    "paper/spectral-floor.pdf": {
+      "sha256": "6a790724759be3224580513992c50f8f041c74f6533f26618c36197b3eb6f7a3",
+      "bytes": 1067203
+    },
+    "docs/index.html": {
+      "sha256": "ef32581f3758a91c6ef35b643e59d815057e724edc738042511a877c8b436288",
+      "bytes": 303909,
+      "lf_sha256": "ef32581f3758a91c6ef35b643e59d815057e724edc738042511a877c8b436288"
+    },
+    "docs/paper/spectral-floor.md": {
+      "sha256": "dc11df674f3a6cb109918a1a34dfadb05b1d6dd72dc1af812bf78277d27b6267",
+      "bytes": 79924,
+      "lf_sha256": "dc11df674f3a6cb109918a1a34dfadb05b1d6dd72dc1af812bf78277d27b6267"
+    },
+    "docs/paper/spectral-floor.html": {
+      "sha256": "3f41894c1e6ed69ae66865385a4e93b562f87ed44ddec037fb9e1e67937cdddd",
+      "bytes": 94210,
+      "lf_sha256": "3f41894c1e6ed69ae66865385a4e93b562f87ed44ddec037fb9e1e67937cdddd"
+    },
+    "docs/paper/spectral-floor.pdf": {
+      "sha256": "6a790724759be3224580513992c50f8f041c74f6533f26618c36197b3eb6f7a3",
+      "bytes": 1067203
+    },
+    "docs/spectral-floor.pdf": {
+      "sha256": "6a790724759be3224580513992c50f8f041c74f6533f26618c36197b3eb6f7a3",
+      "bytes": 1067203
+    },
+    "publication/spectral-floor/arxiv-source.zip": {
+      "sha256": "ca53a8a385038c507f5e12c79c816898e29b9832cf219822a87b6c31ad1f67e2",
+      "bytes": 181494
+    },
+    "publication/spectral-floor/ARXIV-SUBMISSION.md": {
+      "sha256": "c19585bcc7b003932a53365bb5458f1df1a7015286892df8964a3027c4b55c54",
+      "bytes": 8570,
+      "lf_sha256": "c19585bcc7b003932a53365bb5458f1df1a7015286892df8964a3027c4b55c54"
+    },
+    "publication/spectral-floor/build-record.json": {
+      "sha256": "1b7a3d04a2780f53eaafffdc74a23c2306c1136150857e15df448238c83cf302",
+      "bytes": 1651,
+      "lf_sha256": "1b7a3d04a2780f53eaafffdc74a23c2306c1136150857e15df448238c83cf302"
+    },
+    "publication/spectral-floor/figures/fig1_fraction.png": {
+      "sha256": "1d1063fa0c297d62eeb8bb9370ec54a848917530e60201740fdb26d4b9485124",
+      "bytes": 65124
+    },
+    "publication/spectral-floor/figures/fig2_noise.png": {
+      "sha256": "fa6be8c20942281573e07a503d94583e873563fb9ed55ed352b470f0a541d2c4",
+      "bytes": 58508
+    },
+    "publication/spectral-floor/figures/fig3_spectra.png": {
+      "sha256": "231a42074a32bface2863036549fa1c9dcf95360164d3e7bace0eb837228aca4",
+      "bytes": 33643
+    },
+    "publication/spectral-floor/JOURNAL-COVER-LETTER.md": {
+      "sha256": "dd93840e45680d88b6e39d06844542b042e6666c941d15dfee34a1a2245308a8",
+      "bytes": 2979,
+      "lf_sha256": "dd93840e45680d88b6e39d06844542b042e6666c941d15dfee34a1a2245308a8"
+    },
+    "publication/spectral-floor/README.md": {
+      "sha256": "8f0e697402a1b20361db38d5f7a7ce85cb5289daab06629470b5a9748ed8047b",
+      "bytes": 6372,
+      "lf_sha256": "8f0e697402a1b20361db38d5f7a7ce85cb5289daab06629470b5a9748ed8047b"
+    },
+    "publication/spectral-floor/spectral-floor.log": {
+      "sha256": "c72044b905570165f20b78ae308e1d256ce1a23764f8dc784f82140c9012ffa4",
+      "bytes": 24872,
+      "lf_sha256": "c72044b905570165f20b78ae308e1d256ce1a23764f8dc784f82140c9012ffa4"
+    },
+    "publication/spectral-floor/spectral-floor.pdf": {
+      "sha256": "a5618fbbae604dcb963add0a9c8ad04b90fdc6303a2d4949bd51019d10807df2",
+      "bytes": 381864
+    },
+    "publication/spectral-floor/spectral-floor.tex": {
+      "sha256": "8b00ac1b7a29179ce534d1411066c97aa6d4e15c88acb98db6547039e347f8ea",
+      "bytes": 93971,
+      "lf_sha256": "01c65c7eede2cfe612722293ca2d73882beafd95780206f0f5cfd2d2993c6dce"
+    },
+    "publication/spectral-floor/tectonic-output.log": {
+      "sha256": "ce9cca3b2268b50a06455a5903619f7d049478a86c4f3cc3a129cd1e9017808a",
+      "bytes": 3588,
+      "lf_sha256": "ce9cca3b2268b50a06455a5903619f7d049478a86c4f3cc3a129cd1e9017808a"
+    },
+    "publication/spectral-floor/ZENODO-METADATA.json": {
+      "sha256": "2ed39afb81dcee29d03ec64b1ce9ee8dff25bdbec57c5b192e1a9ac163088e61",
+      "bytes": 3868,
+      "lf_sha256": "2ed39afb81dcee29d03ec64b1ce9ee8dff25bdbec57c5b192e1a9ac163088e61"
+    },
+    "publication/spectral-floor/ZENODO-NOTE.md": {
+      "sha256": "320f844fb4518041012a0eb44d5bee44c0a7893fdd2303cebaf66a65eb66c076",
+      "bytes": 3432,
+      "lf_sha256": "320f844fb4518041012a0eb44d5bee44c0a7893fdd2303cebaf66a65eb66c076"
+    }
+  },
+  "mirror_check": "Canonical HTML/Markdown match docs/paper mirrors after LF normalization; PDF mirrors match byte-for-byte. docs/index.html uses embedded images. Hosted text is normalized to LF for reproducible Windows/Linux builds."
 }

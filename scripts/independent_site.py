@@ -44,12 +44,16 @@ for name in FILES:
     if not src.is_file() or src.is_symlink():
         raise RuntimeError(f'Expected ordinary release file: {name}')
     dst.parent.mkdir(parents=True,exist_ok=True)
-    shutil.copyfile(src,dst)
+    # Match the repository's LF checkout convention on every build platform.
+    payload=src.read_bytes()
+    if src.suffix not in {'.png','.pdf'}:
+        payload=payload.replace(b'\r\n',b'\n')
+    dst.write_bytes(payload)
     manifest[name]=hashlib.sha256(dst.read_bytes()).hexdigest()
 main_page=(ROOT/'docs'/'research-index.html').read_text(encoding='utf-8')
 if '\ufffd' in main_page:
     raise RuntimeError('Research landing page contains a Unicode replacement character')
-(DEST/'index.html').write_text(main_page,encoding='utf-8')
+(DEST/'index.html').write_bytes(main_page.encode('utf-8'))
 manifest['index.html']=hashlib.sha256((DEST/'index.html').read_bytes()).hexdigest()
 (DEST/'.nojekyll').write_text('')
 (DEST/'artifact-sha256.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')

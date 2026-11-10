@@ -1,0 +1,8 @@
+Direct Lean source check through lake env.
+Command: lake env lean HoggarBound/C3Certificate.lean -o .lake/build/lib/lean/HoggarBound/C3Certificate.olean
+Working directory: lean/ (H:/lean on this host).
+Original tool session: 67439.
+Returned exit code: 0.
+Captured compiler output: empty (no errors or warnings).
+Process evidence: frontier-c3-lean-certificate-process.json.
+Output artifact exists: .lake/build/lib/lean/HoggarBound/C3Certificate.olean.

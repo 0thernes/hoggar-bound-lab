@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Same spectrum, different completions · Hoggar Bound Lab</title>
+<link rel="stylesheet" href="style.css"></head>
+<body><main>
+<nav><a href="../">HOGGAR BOUND LAB</a><a href="https://github.com/0thernes/hoggar-bound-lab">Code &amp; proofs ↗</a></nav>
+<header><p class="eyebrow">FOUR QUBITS · EXACT INTEGER CERTIFICATE</p>
+<h1>Same spectrum.<br><span>Different completions.</span></h1>
+<p class="intro">Two assignments to the same 71 Pauli observables produce identical carrier spectra. Their 64-dimensional completion operators have different spectra. Rebuild the matrices and check the evidence here.</p>
+<div class="facts"><span><b>71</b> carrier signs</span><span><b>16 × 16</b> carriers</span><span><b>1,120</b> outside contexts</span><span><b>64 × 64</b> completions</span></div>
+</header>
+<section class="experiment" aria-labelledby="experiment-title">
+<div class="section-heading"><h2 id="experiment-title">Inspect the witness</h2><span class="tag">All unlisted signs are +1</span></div>
+<div class="pair"><article class="card first"><p class="eyebrow">ASSIGNMENT A</p><h3>Four negative signs</h3><div id="signs-a" class="signs"></div><p>Completion cubic trace</p><strong id="trace-a">—</strong></article>
+<article class="card second"><p class="eyebrow">ASSIGNMENT B</p><h3 id="count-b">Four negative signs</h3><div id="signs-b" class="signs"></div><p>Completion cubic trace</p><strong id="trace-b">—</strong></article></div>
+<div class="controls"><button id="run" class="primary">Run exact verification</button><button id="perturb">Flip ZIII in B</button><button id="restore">Restore witness</button><button id="download">Download certificate</button></div>
+<div id="status" role="status" aria-live="polite">Ready. Verification runs locally in your browser.</div>
+<div class="checks"><div><span>Carrier characteristic polynomials</span><b id="carrier-check">Not checked</b></div><div><span>Completion cubic traces</span><b id="completion-check">Not checked</b></div></div>
+<details><summary>Show the exact characteristic polynomial</summary><p>The coefficients, in descending powers of x, are recomputed from the matrices using arbitrary-size integers.</p><pre id="polynomial">Run verification to compute.</pre><p id="factor">For the published pair: (x − 3)² (x + 1)⁸ (x + 5)² (x + 13) (x³ − 25x² − 133x + 1621).</p></details>
+<details><summary>Edit any sign in assignment B</summary><p>Click an observable to flip its sign, then run verification. Most changes destroy carrier cospectrality.</p><div id="all-signs" class="all-signs"></div></details>
+</section>
+<section class="explanation"><h2>What does this settle?</h2><p>A carrier is the signed sum of the observables in a hyperplane section. Its spectrum records its eigenvalues. The completion matrix records signed contexts connecting points outside that section. Equal carrier spectra do not always determine equal completion spectra.</p>
+<p>This explicit pair establishes the <b>four-qubit C3 instance of Conjecture E</b> in B. W. Jonah’s <i>The reach of the section-square law</i>, v0.5, which listed that instance as open. It supports that conjecture, which predicts failure of the strict spectral law. The result does not settle the conjecture in every dimension.</p>
+<p>The browser checks exact arithmetic. The linked research artifact provides independent Python constructions, a Lean formalization with its stated scope, and reproducibility instructions. This is a research preprint; historical priority and peer review are separate from mathematical verification.</p>
+<div class="links"><a href="../paper/c3-spectral-counterexample.pdf">Read the research paper (PDF) ↗</a><a href="../paper/c3-spectral-counterexample.html">Abstract &amp; citation ↗</a><a href="../results/frontier-c3-lean-audit.md">Checked Lean proof audit ↗</a><a href="../paper/c3-spectral-counterexample.md">Readable source ↗</a><a href="https://zenodo.org/records/23524332">Original conjecture ↗</a><a href="https://github.com/0thernes/hoggar-bound-lab/tree/main/lean">Lean source ↗</a></div>
+</section>
+<footer>Classical computation on Pauli matrices. No quantum hardware or physical measurement is claimed.<br>Hoggar Bound Lab · 2026-11-09 · <a href="../independent-review/">Earlier contextuality explorer</a></footer>
+</main><script src="model.js"></script><script src="app.js"></script></body></html>

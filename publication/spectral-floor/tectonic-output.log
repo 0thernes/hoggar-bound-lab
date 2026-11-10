@@ -1,55 +1,8 @@
 note: Running TeX ...
-note: downloading DejaVuSansMono.ttf
-note: downloading fvextra.sty
-note: downloading ifthen.sty
-note: downloading fancyvrb.sty
-note: downloading upquote.sty
-note: downloading textcomp.sty
-note: downloading lineno.sty
-note: downloading lmroman17-regular.otf
-note: downloading lmroman12-regular.otf
-note: downloading lmroman8-regular.otf
-note: downloading lmroman6-regular.otf
-note: downloading cmmi12.tfm
-note: downloading cmsy8.tfm
-note: downloading cmsy6.tfm
-note: downloading cmex8.tfm
-note: downloading cmex7.tfm
-note: downloading cmr12.tfm
-note: downloading cmr8.tfm
-note: downloading cmr6.tfm
-note: downloading lmroman10-italic.otf
-note: downloading lmroman7-regular.otf
-note: downloading lmroman5-regular.otf
-note: downloading lmroman12-bold.otf
-note: downloading lmroman9-regular.otf
-note: downloading cmmi9.tfm
-note: downloading cmsy9.tfm
-note: downloading cmex9.tfm
-note: downloading cmr9.tfm
-note: downloading lmroman9-bold.otf
 note: Rerunning TeX because "spectral-floor.aux" changed ...
 note: Running xdvipdfmx ...
-note: downloading cmmi10.pfb
-note: downloading cmsy10.pfb
-note: downloading cmr10.pfb
-note: downloading cmr7.pfb
-note: downloading cmmi7.pfb
-note: downloading cmmi8.pfb
-note: downloading cmr8.pfb
-note: downloading cmsy8.pfb
-note: downloading cmex10.pfb
-note: downloading cmmi6.pfb
-note: downloading cmr6.pfb
-note: downloading msam10.pfb
-note: downloading cmsy7.pfb
-note: downloading cmmi9.pfb
-note: downloading cmr9.pfb
-note: downloading cmsy9.pfb
-note: downloading cmsy6.pfb
-note: downloading cmmi12.pfb
 note: Writing `spectral-floor.log` (24.2890625 KiB)
-note: Writing `spectral-floor.pdf` (372.6962890625 KiB)
+note: Writing `spectral-floor.pdf` (372.9140625 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
 Fontconfig error: Cannot load default config file: No such file: (null)
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.

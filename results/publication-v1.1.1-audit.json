@@ -10,6 +10,7 @@
   "c3_audited_declarations_in_retained_report": 42,
   "author": "Alexander S. Donahue",
   "affiliation": "0thernes LLC",
+  "author_supplied_orcid": "https://orcid.org/0009-0006-8168-9648",
   "license_and_notice_unchanged": true,
   "successful_linux_proof_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42728421086",
   "saturation_ci_commit": "87f08a0fb5007c8529abc13eabeec093027c0eba",

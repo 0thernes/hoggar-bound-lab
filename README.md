@@ -154,7 +154,13 @@ build needs [elan](https://github.com/leanprover/elan); it downloads Lean 4.35.0
   `diffgeo_*` kernels of QGTL are used. Nothing here is a measurement on quantum hardware.
 * No priority is claimed for the bound, for its saturation by Hoggar states, or for the exact values.
 
+## Corrections
+
+If you find an error in a statement, a proof or a count, please open an issue on this repository or
+write to 0_0@0thernes.art. A pointer to earlier work that already contains one of the results of
+Section 5 is especially welcome.
+
 ## Licence
 
-Copyright © 2026 0thernes LLC. See [LICENSE](LICENSE). Third-party components keep their MIT licences
-([NOTICE](NOTICE)).
+Copyright © 2026 0thernes LLC. See [LICENSE](LICENSE) and [LEGAL.md](LEGAL.md). Third-party components
+keep their MIT licences ([NOTICE](NOTICE)).

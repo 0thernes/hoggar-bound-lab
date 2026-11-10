@@ -1,0 +1,89 @@
+{
+  "status": "pass",
+  "N": 4,
+  "type": "hyperbolic Q+(7,2)",
+  "case": "C3, isotropic d=Z_top",
+  "section_points": 71,
+  "outside_points": 64,
+  "runs": [
+    {
+      "negative_section_labels": [
+        48,
+        102,
+        176,
+        230
+      ],
+      "carrier_charpoly": [
+        1,
+        0,
+        -568,
+        -6112,
+        4716,
+        302272,
+        1056216,
+        -1584288,
+        -15112746,
+        -24586112,
+        22670136,
+        142620896,
+        242617100,
+        224392896,
+        121805992,
+        36642720,
+        4741425
+      ],
+      "carrier_factorization": "(x - 3)**2*(x + 1)**8*(x + 5)**2*(x + 13)*(x**3 - 25*x**2 - 133*x + 1621)",
+      "plus_factorization": "(x - 3)**2*(x + 5)**2*(x + 13)*(x**3 - 25*x**2 - 133*x + 1621)",
+      "minus_factorization": "(x + 1)**8",
+      "completion_dimension": 64,
+      "completion_trace_cube": 14976,
+      "completion_trace_square": 2240,
+      "completion_entries": [
+        -1,
+        0,
+        1
+      ]
+    },
+    {
+      "negative_section_labels": [
+        87,
+        144,
+        176,
+        215
+      ],
+      "carrier_charpoly": [
+        1,
+        0,
+        -568,
+        -6112,
+        4716,
+        302272,
+        1056216,
+        -1584288,
+        -15112746,
+        -24586112,
+        22670136,
+        142620896,
+        242617100,
+        224392896,
+        121805992,
+        36642720,
+        4741425
+      ],
+      "carrier_factorization": "(x - 3)**2*(x + 1)**8*(x + 5)**2*(x + 13)*(x**3 - 25*x**2 - 133*x + 1621)",
+      "plus_factorization": "(x + 1)**4*(x + 13)*(x**3 - 25*x**2 - 133*x + 1621)",
+      "minus_factorization": "(x - 3)**2*(x + 1)**4*(x + 5)**2",
+      "completion_dimension": 64,
+      "completion_trace_cube": 15360,
+      "completion_trace_square": 2240,
+      "completion_entries": [
+        -1,
+        0,
+        1
+      ]
+    }
+  ],
+  "conclusion": "Equal carrier characteristic polynomial, unequal completion spectra",
+  "method": "Exact integer Pauli matrices; SymPy polynomial; direct Jordan action",
+  "script_sha256": "b8cb1edf6847508426092df2994d97c5b2131db1ddab00d832ee6e8e935df564"
+}

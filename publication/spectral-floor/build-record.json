@@ -1,12 +1,12 @@
 {
   "source": "paper/spectral-floor.md",
-  "source_sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
-  "tex_sha256": "f39852a4d814f0465787ba36ad633c6b7af1497e7051d7f0767742317475d776",
+  "source_sha256": "dc11df674f3a6cb109918a1a34dfadb05b1d6dd72dc1af812bf78277d27b6267",
+  "tex_sha256": "8b00ac1b7a29179ce534d1411066c97aa6d4e15c88acb98db6547039e347f8ea",
   "engine": "XeLaTeX (compiled here with Tectonic)",
   "pandoc": "pandoc 3.13",
   "tectonic": "Tectonic 0.17.0",
-  "pdf_sha256": "f81c554663f11fc960d30e856216e556fb1f7005f8d964cb22d754be826d3613",
-  "pdf_bytes": 381641,
+  "pdf_sha256": "a5618fbbae604dcb963add0a9c8ad04b90fdc6303a2d4949bd51019d10807df2",
+  "pdf_bytes": 381864,
   "overfull_boxes_pt": [
     "0.57942",
     "0.73146",
@@ -29,15 +29,15 @@
       "figures/fig2_noise.png",
       "figures/fig3_spectra.png"
     ],
-    "bytes": 181465,
-    "sha256": "d4efa34e3982a54ab6682986916c6d672206699d3b93bd49872e70f8aad23432"
+    "bytes": 181494,
+    "sha256": "ca53a8a385038c507f5e12c79c816898e29b9832cf219822a87b6c31ad1f67e2"
   },
   "publication_version": "1.1.1",
   "pdf_pages": 24,
-  "source_sha256_note": "SHA-256 of UTF-8 text after Python newline normalization; equivalent to LF-normalized source.",
-  "source_raw_sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
-  "source_lf_sha256": "8726f818698ecb1cdf86d75f7fe9004f8ddf00666cb4ef8fa1e6d22862ad0031",
-  "tex_lf_sha256": "6f70d746d4cbe61642969a244d06ec209c4760a3383c69f20d32f1d8364d2325",
-  "revision_scope": "Byline version and disclosure only; mathematical source unchanged from 14390f3.",
-  "submission_status": "Prepared only; no arXiv, Zenodo or journal submission."
+  "source_raw_sha256": "dc11df674f3a6cb109918a1a34dfadb05b1d6dd72dc1af812bf78277d27b6267",
+  "source_lf_sha256": "dc11df674f3a6cb109918a1a34dfadb05b1d6dd72dc1af812bf78277d27b6267",
+  "source_sha256_note": "Builder source_sha256 is UTF-8 text after universal-newline normalization; source_lf_sha256 makes that interpretation explicit.",
+  "tex_lf_sha256": "01c65c7eede2cfe612722293ca2d73882beafd95780206f0f5cfd2d2993c6dce",
+  "revision_scope": "Only byline version and disclosure differ from 1bb72d8; incoming reference and seven-qubit experiment updates retained.",
+  "submission_status": "Prepared; no paper submission or DOI deposit."
 }

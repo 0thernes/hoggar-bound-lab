@@ -127,7 +127,16 @@ A request the author can adapt and send personally, to one person at a time:
 
 ## What arXiv expects about AI use
 
-arXiv does not allow AI tools as authors, requires substantial use of generative AI to be reported in
-the work, and holds the human authors fully responsible for the content. The paper reports the use on
-its first page and in Section 12. Whether to submit under those terms is the author's decision;
-moderators may also decline or reclassify a submission.
+arXiv does not allow AI tools as authors, requires significant use of generative AI to be reported in
+the work, and holds each author fully responsible for all contents, however they were produced
+(info.arxiv.org/help/moderation). The paper reports the use on its first page and in Section 12.
+
+The official moderation policy requires careful scholarly preparation and permits rejection of work
+containing serious errors, misrepresentations or inadequate research. The research-release record
+reports reference checking and executable calculations; those automated checks do not establish that
+the human author has critically reviewed the paper. Before submitting, check the references, the exact
+claims and the disclosed limits, and complete the author's actual responsibility statement.
+[Official moderation and AI policy](https://info.arxiv.org/help/moderation/index.html#AI-language-tools).
+
+Whether to submit under these terms is the author's decision; moderators may also decline or reclassify
+a submission.

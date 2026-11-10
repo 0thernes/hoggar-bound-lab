@@ -1,0 +1,12 @@
+{
+  "md_sha256": "7b394af67904619b5d77bb3bca7f911396d8c90879e4b561875da0053c678453",
+  "md_lf_sha256": "8f5f4827ce8c46a65cc3dd270a9386e094ca4f3379c14971ffe00985c0a8c018",
+  "tex_sha256": "56107c5941a92c12f04f508c09031859b9957025b8606f5524bbbe3dcbcb7142",
+  "tex_lf_sha256": "9e6ca0f4b51ce3ec5bf25b32bfe335e8bc42f105c752fbaf7b085a40c70159c8",
+  "pdf_sha256": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
+  "html_sha256": "e7c86a24ee7125c8e9bfa01b2cb1d1c9f030a3502516ef046f01e98806513e94",
+  "html_lf_sha256": "88790fa9b41715984b232821067c79f55594f4b0a798dffb8c5011180dc44a30",
+  "pandoc": "pandoc 3.13",
+  "tectonic": "Tectonic 0.17.0",
+  "purpose": "Research preprint; exact theorem and declared formal boundary, not a claim of peer review"
+}

@@ -71,6 +71,7 @@ def main():
     require(metadata["author_identity_confirmed_by_user"]["given_names"] == "Alexander S.", "Author name mismatch")
     require(metadata["author_identity_confirmed_by_user"]["family_name"] == "Donahue", "Author name mismatch")
     require(metadata["author_identity_confirmed_by_user"]["affiliation_recorded"] == "0thernes LLC", "Affiliation mismatch")
+    require(metadata["author_identity_confirmed_by_user"]["orcid"] == "https://orcid.org/0009-0006-8168-9648", "Author-supplied ORCID mismatch")
     require(all(c["affiliation"] == "0thernes LLC" for c in metadata["creators_for_submission"]), "Creator affiliation mismatch")
     require(metadata["arxiv_profile_observed"]["affiliation"] == "0thernes LLC", "Observed arXiv affiliation mismatch")
     require(metadata["version"] == "0.2.0-c3-certificate", "Paper artifact version changed")
@@ -97,6 +98,7 @@ def main():
         "c3_audited_declarations_in_retained_report": 42,
         "author": "Alexander S. Donahue",
         "affiliation": "0thernes LLC",
+        "author_supplied_orcid": "https://orcid.org/0009-0006-8168-9648",
         "license_and_notice_unchanged": True,
         "successful_linux_proof_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42728421086",
         "saturation_ci_commit": SATURATION_COMMIT,

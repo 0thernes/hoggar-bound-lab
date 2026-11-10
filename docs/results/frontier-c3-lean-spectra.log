@@ -1,0 +1,9 @@
+command: ["C:/Users/Alexa/.elan/bin/lake.exe", "env", "lean", "HoggarBound/C3Spectra.lean", "-o", ".lake/build/lib/lean/HoggarBound/C3Spectra.olean"]
+cwd: Z:\[Vibe Coded (AI)]\CLAUDECODE\Hoggar Bound Lab\lean
+returncode: 0
+elapsed_seconds: 15.938
+source_sha256: 42e302aa4b3eca2ca61d11ff73703e49ba5e0ae27d3136c1d19f07a8ec270b1c
+source_unchanged_during_check: True
+--- stdout ---
+
+--- stderr ---

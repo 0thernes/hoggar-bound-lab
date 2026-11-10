@@ -1,0 +1,77 @@
+{
+  "profile": "xelatex",
+  "recommended_arxiv_tex_live": "2025",
+  "policy_checked": "2026-11-09",
+  "official_policy_urls": {
+    "processors_fonts": "https://info.arxiv.org/help/faq/texlive.html",
+    "source_files": "https://info.arxiv.org/help/submit_tex.html",
+    "filenames": "https://info.arxiv.org/help/submit/index.html",
+    "ancillary": "https://info.arxiv.org/help/ancillary_files.html",
+    "tex_live_fonts": "https://info.arxiv.org/help/faq/font-info-tl2025.html"
+  },
+  "source_tex_raw_sha256": "56107c5941a92c12f04f508c09031859b9957025b8606f5524bbbe3dcbcb7142",
+  "source_tex_lf_sha256": "9e6ca0f4b51ce3ec5bf25b32bfe335e8bc42f105c752fbaf7b085a40c70159c8",
+  "source_markdown_lf_sha256": "8f5f4827ce8c46a65cc3dd270a9386e094ca4f3379c14971ffe00985c0a8c018",
+  "paper_build_record_matches_source": true,
+  "script_lf_sha256": "f81fee087abc856c8435b56d9c4523e8dabcf4513445fd59535665228c3dad36",
+  "document_body_changed": "Only figure path c3-figures/spectra.pdf -> spectra.pdf",
+  "input_formal_placeholder_present": false,
+  "submission_status": "Not submitted; source packaging and local checks only",
+  "author_final_approval_attested": false,
+  "archive": "build/c3-arxiv-xelatex/c3-source-xelatex.zip",
+  "archive_sha256": "c3627259a3ac7db5f5b565281df36bb09f124f69f1dd14fd6581b77eba6b151b",
+  "files": {
+    "main.tex": {
+      "sha256": "1c550d9f02d79b6c2aa4d7ad5eb24558684285f089023ff7c01293f470ba8585",
+      "bytes": 28063
+    },
+    "spectra.pdf": {
+      "sha256": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
+      "bytes": 21928
+    },
+    "anc/LICENSE.txt": {
+      "sha256": "073b8b260185aeffffd8f5a018d02f2634d7f28a009dd57365ec7828c1f88f4c",
+      "bytes": 868
+    },
+    "anc/README.txt": {
+      "sha256": "1c31aad9e68c6add16de5396c4baef870e3758e174c5777760d1e1a97f7dd518",
+      "bytes": 1784
+    }
+  },
+  "local_compile": {
+    "engine_kind": "tectonic",
+    "version": "Tectonic 0.17.0",
+    "binary_sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d",
+    "command": [
+      "tectonic.exe",
+      "--untrusted",
+      "--keep-logs",
+      "--print",
+      "main.tex"
+    ],
+    "returncode": 0,
+    "pdf_sha256": "993ca30c805fe64ee52358662b54f8b5ab274b5b07d842b7b83d1cd5f47a7bb5",
+    "pdf_bytes": 96260,
+    "warnings": [
+      "Fontconfig error: Cannot load default config file: No such file: (null)",
+      "warning: main.tex:118: Underfull \\hbox (badness 10000) in alignment at lines 114--118",
+      "warning: main.tex:120: Underfull \\hbox (badness 10000) in alignment at lines 118--120",
+      "warning: main.tex:123: Underfull \\hbox (badness 10000) in alignment at lines 120--123",
+      "warning: main.tex:203: Underfull \\hbox (badness 10000) in alignment at lines 199--203",
+      "warning: main.tex:205: Underfull \\hbox (badness 10000) in alignment at lines 203--205",
+      "warning: main.tex:210: Underfull \\hbox (badness 10000) in alignment at lines 205--210",
+      "warning: main.tex:352: Underfull \\hbox (badness 5756) in paragraph at lines 351--352",
+      "warning: main.tex:118: Underfull \\hbox (badness 10000) in alignment at lines 114--118",
+      "warning: main.tex:120: Underfull \\hbox (badness 10000) in alignment at lines 118--120",
+      "warning: main.tex:123: Underfull \\hbox (badness 10000) in alignment at lines 120--123",
+      "warning: main.tex:203: Underfull \\hbox (badness 10000) in alignment at lines 199--203",
+      "warning: main.tex:205: Underfull \\hbox (badness 10000) in alignment at lines 203--205",
+      "warning: main.tex:210: Underfull \\hbox (badness 10000) in alignment at lines 205--210",
+      "warning: main.tex:352: Underfull \\hbox (badness 5756) in paragraph at lines 351--352",
+      "warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details."
+    ],
+    "scope": "Local engine compilation only; not arXiv server acceptance or author approval."
+  },
+  "arxiv_server_compile_checked": false,
+  "pdflatex_compile_checked": false
+}

@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "eshkol_version": "Eshkol Compiler v1.3.6-evolve",
+  "checks": {
+    "intertwines": true,
+    "right_inverse": true,
+    "left_inverse": true,
+    "completion_cube_a": 14976,
+    "completion_cube_b": 15360,
+    "pass": true
+  },
+  "integer_bound": 408304,
+  "integer_bound_below_signed_64_bit": true,
+  "certificate_sha256": "066c770d61304a3d5b94703860d5570343125cdd893e843370f4322f9ecaa9be",
+  "eshkol_program_sha256": "3f3d4dfd52b52315c501bedd9f6902814bdae852c9afd26d2f873676d5f6f6f6",
+  "runner_sha256": "31d6a4968dc860b8ea1a2b1d2d81239f09b4cb333d58eda90ec024af1795e3ff",
+  "execution": {
+    "command": [
+      "Z:\\Tools\\eshkol\\current\\bin\\eshkol-run.EXE",
+      "-r",
+      "Z:\\[Vibe Coded (AI)]\\CLAUDECODE\\Hoggar Bound Lab\\build\\frontier_c3_demo.esk"
+    ],
+    "cwd": "Z:\\[Vibe Coded (AI)]\\CLAUDECODE\\Hoggar Bound Lab",
+    "returncode": 0,
+    "stdout": "{\"intertwines\":true,\"right_inverse\":true,\"left_inverse\":true,\"completion_cube_a\":14976,\"completion_cube_b\":15360,\"pass\":true}\n",
+    "stderr": "",
+    "stderr_empty": true,
+    "process_local_environment_overrides": {
+      "ESHKOL_CXX_COMPILER": "Z:\\Tools\\LLVM-21\\bin\\clang++.exe",
+      "LLVM_HOME": "Z:\\Tools\\LLVM-21",
+      "ESHKOL_CUDA_LIBRARY_PATH": "Z:\\Tools\\cuda-12.9-redist\\lib\\x64",
+      "CUDA_HOME": "Z:\\Tools\\cuda-12.9-redist"
+    },
+    "process_local_path_prepend": [
+      "Z:\\Tools\\cuda-12.9-redist\\bin"
+    ],
+    "scope": "Serial integer certificate through eshkol-run -r. This CLI may link and run a temporary native executable; no GPU or parallel-worker APIs are invoked. This does not qualify CUDA, parallel workers, or all compiler modes."
+  },
+  "meaning": "Exact integer identities certify rational carrier similarity and unequal completion cubic traces"
+}

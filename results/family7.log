@@ -33,3 +33,5 @@ T gates 4, CS pairs 0, samples 300000000:
 T gates 5, CS pairs 0, samples 300000000:
 T gates 6, CS pairs 0, samples 300000000:
 # finished 2026-11-10T01:47:26Z
+# run separately afterwards (2026-11-10): the type with seven T gates, B of rank 7
+T gates 7, CS pairs 0, samples 300000000:

@@ -11,6 +11,7 @@ This release brings the repository documentation together after `v1.1.0`. It pre
 - Present both studies through shared navigation, glossary, license explanation and version history, with a separate [C3 research summary](docs/RESEARCH-SUMMARY.md).
 - Add a C3 claim-to-theorem register, Lean reproduction guide and release-continuity check.
 - Use Alexander S. Donahue and 0thernes LLC consistently in active publication credits. Record account-affiliation changes and remaining submission steps in the publication status, separately from paper publication.
+- Add the author-supplied ORCID 0009-0006-8168-9648 to current citation and submission metadata. Incorporate the later v1.1.0 reference completion, seven-qubit experiment update and archive identifiers from the shared main branch.
 - Preserve the existing custom verification license and third-party notices. Explain the disclosed Claude/Anthropic and OpenAI Codex research workflows separately.
 - Distinguish the spectral-floor and saturation modules from the 42-declaration C3 audit. For C3, the printed factorization, block/Jordan argument, largest-eigenvalue gap 2 and continuous-relaxation gap 32 retain separate algebraic/executable evidence.
 - Distinguish public preprints, automated checks, human critical review and journal peer review.

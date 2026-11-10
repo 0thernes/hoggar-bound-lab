@@ -1,0 +1,221 @@
+{
+  "status": "pass",
+  "declarations": 42,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "actual": {
+    "HoggarBound.C3.bits_bijective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.carrierA_from_section": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.carrierB_from_section": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.carrier_cast_reindex": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.carrier_charpoly_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.carrier_intertwining": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.codePoint_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.codePoint_bijective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.completionA_from_contexts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.completionA_trace_cube": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.completionB_from_contexts": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.completionB_trace_cube": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.completion_cast": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.completion_cube_traces_ne": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.four_qubit_C3_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.four_qubit_C3_spectral_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.hermitian_charpoly_eq_of_roots_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.hermitian_trace_pow": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.hermitian_trace_pow_eq_of_charpoly_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.intertwiner_det_ne_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.intertwiner_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.outside_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.outside_correct": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.outside_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.outside_labels_complete": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.outside_labels_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauliCarrier_isHermitian": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauliCompletion_isHermitian": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauli_carrier_charpoly_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauli_carrier_eigenvalues_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauli_completionA_trace_cube": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauli_completionB_trace_cube": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauli_completion_charpoly_ne": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauli_completion_cube_traces_ne": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauli_completion_eigenvalue_multisets_ne": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.pauli_completion_eigenvalues_ne": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.polar_point_real": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.realPauliCode_cast": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.section_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.section_correct": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.section_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.C3.signed_context_adjacency_isHermitian": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}

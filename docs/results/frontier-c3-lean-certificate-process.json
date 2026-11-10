@@ -1,0 +1,13 @@
+{
+  "process_id": 55640,
+  "command": "lake env lean HoggarBound/C3Certificate.lean -o .lake/build/lib/lean/HoggarBound/C3Certificate.olean",
+  "started": "2026-11-09T15:42:27.9861331-08:00",
+  "finished": "2026-11-09T16:43:21.5785721-08:00",
+  "cpu_seconds": 3523.703125,
+  "exit_code": 0,
+  "observed_peak_working_set_bytes": 7741747200,
+  "observed_peak_private_bytes": 8879579136,
+  "windows_peak_paged_memory_bytes_observed": 12402831360,
+  "original_source_session_exit_code": 0,
+  "original_source_session_output": ""
+}

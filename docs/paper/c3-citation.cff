@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "Cite this research preprint for the explicit four-qubit C3 certificate, and cite Jonah for the original question and spectral framework."
+title: "Cospectral Pauli carriers with different completion spectra: an exact four-qubit C3 certificate"
+type: software
+authors:
+  - family-names: Donahue
+    given-names: "Alexander S."
+    affiliation: "0thernes LLC"
+    email: "0_0@0thernes.art"
+version: "0.2.0-c3-certificate"
+date-released: 2026-11-09
+repository-code: "https://github.com/0thernes/hoggar-bound-lab"
+url: "https://0thernes.github.io/hoggar-bound-lab/paper/c3-spectral-counterexample.pdf"
+abstract: >-
+  Two explicit sign assignments on a 71-point real four-qubit Pauli section
+  have identical carrier characteristic polynomials and distinct completion
+  cubic traces, 14976 and 15360. The certificate establishes the four-qubit C3
+  instance of the strict-law failure predicted by Jonah's Conjecture E.
+  Exact integer checks, Lean source, an Eshkol execution record and an
+  interactive BigInt verifier accompany the proof. This is an AI-assisted
+  research preprint, not peer reviewed; no all-dimension or historical-priority
+  claim is made.
+keywords:
+  - Pauli contextuality
+  - cospectral matrices
+  - hyperplane completion
+  - Lean 4
+  - exact certificate
+preferred-citation:
+  type: report
+  title: "Cospectral Pauli carriers with different completion spectra: an exact four-qubit C3 certificate"
+  authors:
+    - family-names: Donahue
+      given-names: "Alexander S."
+      affiliation: "0thernes LLC"
+  year: 2026
+  url: "https://0thernes.github.io/hoggar-bound-lab/paper/c3-spectral-counterexample.pdf"
+  notes: "AI-assisted research preprint, version 0.2.0-c3-certificate; not peer reviewed."
+references:
+  - type: report
+    title: "The reach of the section-square law: hyperplane completions of symplectic and quadric Pauli configurations"
+    authors:
+      - family-names: Jonah
+        given-names: "Brent W."
+    year: 2026
+    doi: 10.5281/zenodo.23524332

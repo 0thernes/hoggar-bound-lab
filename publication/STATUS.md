@@ -9,7 +9,7 @@ Recorded 9 November 2026, America/Los_Angeles. The GitHub release timestamp is 1
 | Interactive demonstration | Public; its served assets match the tested source | [Exact C3 verifier](https://0thernes.github.io/hoggar-bound-lab/c3-lab/) |
 | arXiv | Authenticated account affiliation saved as 0thernes LLC; source archive prepared; paper submission deferred at the author's request | No submission or arXiv identifier claimed |
 | Zenodo | Account affiliation saved as 0thernes LLC; deposit eligibility and license steps remain unresolved | No deposit or DOI claimed |
-| Journal of Physics A | Submission package prepared; actual author critical review, final approval and account access pending | No journal submission, review or acceptance claimed |
+| Journal of Physics A: Mathematical and Theoretical | Submission package prepared with 0thernes LLC and supplied ORCID; ScholarOne still shows its login screen; actual author critical review and final approval remain pending | No journal submission, review or acceptance claimed |
 | Google Scholar | Publication page metadata is correct; author setup retains 0thernes LLC, but profile setup is incomplete at article selection | No completed public profile or indexing claimed |
 
 ## Fixed research artifact

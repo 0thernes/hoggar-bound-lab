@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "declarations": 6,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "actual": {
+    "HoggarBound.cubic_deficit_controls_top": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.cubic_residual_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.exists_near_extremal_spectrum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.moment_entry_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.shifted_square_sum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "HoggarBound.spectrum_distance_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}
