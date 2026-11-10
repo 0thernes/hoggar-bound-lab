@@ -1,0 +1,114 @@
+{
+  "status": "published_and_preserved",
+  "recorded_at_utc": "2026-11-10T15:12:00Z",
+  "version": "1.4.0",
+  "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E",
+  "author": "Alexander S. Donahue, 0thernes LLC (ORCID 0009-0006-8168-9648)",
+  "change_from_1_3_0": "The proof of Theorem 19 writes out the arguments of Jonah's Theorem A and of his proof of Theorem B3 that it used to cite (Lemmas 20 and 21), repeats the proof of the cone lift (Corollary 18) and adds the transport from one hyperplane class to every class of a case; it uses the preprint only through its definitions and case list. No theorem statement and no Lean file changes. New program scripts/conjecture_e_lemmas.py (115 + 46 checks).",
+  "release": {
+    "url": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.4.0",
+    "tag": "v1.4.0",
+    "tag_object": "8217699c52fca9a9349873d53fe744436ebbd5db",
+    "commit": "7fddd50d230a8c377856bb0f17da8b035c3854bd",
+    "published_at_utc": "2026-11-10T15:02:15Z",
+    "marked_latest": true,
+    "assets": {
+      "unified-contextuality.pdf": {
+        "sha256": "89532166e85088b98b157d5521785955c501f1b75e33f53e4d199a4ce58ea203",
+        "bytes": 526150
+      },
+      "unified-jphysa-manuscript.pdf": {
+        "sha256": "f98532ca85d586f4b951705d252f4279cb026d35e5deaf60cd9ba3bceb4a077f",
+        "bytes": 437301
+      },
+      "unified-jphysa-supplementary.pdf": {
+        "sha256": "b87d76b80ec87bab05360534a8699ee6c9a6e84804595751f52b5ea4d2e4017b",
+        "bytes": 170183
+      },
+      "unified-contextuality.md": {
+        "sha256": "d0d4653fc4f93ccf348f25b05f0687b05dad60792617650ae8fea715aa9fd44c",
+        "bytes": 156328
+      },
+      "c3-all-qubits-ci-evidence.zip": {
+        "sha256": "40d6436a167c5824b760c331fd129053024609f74cbd69c157782ece1ffd738e",
+        "bytes": 11004
+      },
+      "seven-qubit-ci-evidence.zip": {
+        "sha256": "cfa087612d3242925616ceb38319631cb49d9d36adfc51d77e4a9a9b79eb5d87",
+        "bytes": 14915
+      },
+      "review-lemmas-20-21.zip": {
+        "sha256": "77c188bb0b9c2bbfd9105428a6700771ff20f422d9238c12e48c10559470bb6d",
+        "bytes": 39266
+      },
+      "unified-arxiv-source.zip": {
+        "sha256": "5ce9058b78640a2ecadeac8c1259b67f9dd3d0764594a15b77b05d5a94849a73",
+        "bytes": 228267
+      }
+    },
+    "asset_round_trip": "All nine assets downloaded again from the release and checked against SHA256SUMS: OK."
+  },
+  "verification_runs": {
+    "c3_all_qubits": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831157",
+      "commit": "7d746a3",
+      "conclusion": "success",
+      "scope": "Every exact check, with the lemma steps (115 checks at n = 3..5, 46 at n = 6), the carrier families, Conjecture E (81 and 36) and the four-qubit search, regenerated records equal to the committed ones; CarrierFamily.lean from source with the axiom allowlist (74 declarations). Logs in results/ci-run-42834831157/."
+    },
+    "publication_documentation": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834873547",
+      "commit": "7d746a3",
+      "conclusion": "success"
+    },
+    "independent_verification": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831332",
+      "commit": "7d746a3",
+      "conclusion_at_recording": "in progress (C engine, independent matrices and explorer job: success; Lean kernel job running)"
+    },
+    "run_all_local": "scripts/run_all.sh in a fresh clone of 7d746a3: all 24 stages passed in 21 min 26 s and reproduced every committed record apart from elapsed seconds (results/run_all.log).",
+    "note": "The release commit 7fddd50 differs from 7d746a3 only in the paper text of Section 9, its builds, the changelog, results/run_all.log and the archived CI logs; programs and Lean files are the same."
+  },
+  "review": {
+    "record": "results/review-lemmas-20-21/",
+    "passes": 7,
+    "verifiers_per_finding": "1 (minor) or 2 (major)",
+    "result": "No mathematical error; 13 findings confirmed or partly confirmed, all corrected before the content commit."
+  },
+  "github_pages": {
+    "deployment_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42840241499",
+    "commit": "7fddd50d230a8c377856bb0f17da8b035c3854bd",
+    "conclusion": "success",
+    "landing_page": "https://0thernes.github.io/hoggar-bound-lab/",
+    "paper_html": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+    "paper_pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+    "live_check": "Live PDF SHA-256 89532166e85088b98b157d5521785955c501f1b75e33f53e4d199a4ce58ea203 equals the release PDF; live HTML byte-identical to the release HTML; landing page shows edition v1.4.0."
+  },
+  "software_heritage": {
+    "save_request": "https://archive.softwareheritage.org/api/1/origin/save/2636689/",
+    "save_request_status": "accepted",
+    "save_task_status": "succeeded",
+    "visit_date": "2026-11-10T15:02:47.101000+00:00",
+    "visit_status": "full",
+    "snapshot": "swh:1:snp:eae8dd29885ec4075b4a30e2edac1fea28d9d998",
+    "tag_v1_4_0": "refs/tags/v1.4.0 -> release 8217699c52fca9a9349873d53fe744436ebbd5db (the annotated tag object)",
+    "main": "refs/heads/main -> revision 7fddd50d230a8c377856bb0f17da8b035c3854bd",
+    "browse": "https://archive.softwareheritage.org/browse/revision/7fddd50d230a8c377856bb0f17da8b035c3854bd/"
+  },
+  "internet_archive": {
+    "method": "Save Page Now through its public save URL in the built-in browser, without an account, for version-tagged URLs (?v=1.4.0), as for earlier releases.",
+    "captures": {
+      "paper_html": "https://web.archive.org/web/20261110150813/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html?v=1.4.0",
+      "paper_pdf": "https://web.archive.org/web/20261110150849/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf?v=1.4.0",
+      "landing_page": "https://web.archive.org/web/20261110150904/https://0thernes.github.io/hoggar-bound-lab/?v=1.4.0"
+    },
+    "content_check": "Archived PDF (id_ form) SHA-256 equals the release PDF; archived HTML identical to the release HTML; archived landing page shows edition v1.4.0."
+  },
+  "not_done": {
+    "arXiv": "Needs an endorser for quant-ph and the author's own submission; not attempted.",
+    "Journal of Physics A": "Needs the author's ScholarOne login, declarations and authorship assessment; not attempted.",
+    "Zenodo": "The AI-originated research workflow needs an eligibility decision under Zenodo's policy; no deposit, no DOI.",
+    "ORCID": "The public work entry still names version 1.2.0 and its title; updating it needs the author's login.",
+    "Google Scholar and OpenAIRE": "Indexing is automatic and not observed; nothing submitted.",
+    "peer review": "None. Internal automated reviews only."
+  }
+}

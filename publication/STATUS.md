@@ -1,4 +1,28 @@
-# Publication status: combined paper v1.3.0
+# Publication status: combined paper v1.4.0
+
+## Version 1.4.0 (10 November 2026)
+
+The current manuscript is **Spectral bounds and their limits in Pauli contextuality: exact
+configurations and a proof of Jonah's Conjecture E**, version 1.4.0, by **Alexander S. Donahue —
+0thernes LLC**. It differs from version 1.3.0 only in the proof of Theorem 19, which now writes out the
+arguments of Jonah's preprint that it used to cite (Lemmas 20 and 21) and depends on the preprint only
+through its definitions and case list. The [distribution record](../results/publication-v1.4.0-distribution.json)
+holds every receipt below.
+
+| Destination | Observed status for v1.4.0 |
+| --- | --- |
+| GitHub / project website | **Public.** [Release v1.4.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.4.0), published 2026-11-10 15:02:15 UTC, marked Latest, tag on commit `7fddd50`; nine assets checked again after download. [Pages deployment 42840241499](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42840241499) at `7fddd50`: the live PDF has the release SHA-256 `89532166…` and the live HTML is the release HTML. |
+| Software Heritage | **Preserved and verified.** Save request 2636689 succeeded; snapshot `swh:1:snp:eae8dd29885ec4075b4a30e2edac1fea28d9d998` holds `refs/tags/v1.4.0` (tag object `8217699c…`) and `main` at [revision 7fddd50](https://archive.softwareheritage.org/browse/revision/7fddd50d230a8c377856bb0f17da8b035c3854bd/). |
+| Internet Archive | **Preserved and verified.** [HTML](https://web.archive.org/web/20261110150813/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html?v=1.4.0), [PDF](https://web.archive.org/web/20261110150849/https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf?v=1.4.0) and [landing page](https://web.archive.org/web/20261110150904/https://0thernes.github.io/hoggar-bound-lab/?v=1.4.0); the archived PDF and HTML equal the release files. |
+| ORCID | The public work entry still shows version 1.2.0 and its title. Updating it needs the author's login. |
+| arXiv | Not submitted. The quant-ph endorsement is still needed; the submission is the author's. |
+| Journal of Physics A | Not submitted. The ScholarOne login, the declarations and the authorship assessment are the author's. |
+| Zenodo | No deposit, no DOI. The eligibility of AI-originated research under Zenodo's policy is still to be decided. |
+| Google Scholar, OpenAIRE | Indexing is automatic; not observed. |
+
+Verification of the release content: [C3 workflow run 42834831157](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831157), with both lemma steps, and [publication documentation run 42834873547](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834873547), both at `7d746a3` (the programs and Lean files of the release), passed; [Independent verification run 42834831332](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831332) at the same commit was still running its Lean kernel job when this was recorded (its C engine, matrices and explorer job passed). A complete `scripts/run_all.sh` in a fresh clone of `7d746a3` passed all 24 stages. Before release, seven separate automated review passes with adversarial verifiers found no mathematical error and 13 findings, all corrected (`results/review-lemmas-20-21/`). No author review or approval of the 1.4.0 text is recorded ([AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md)). Nothing here is peer review.
+
+The rest of this page records the v1.3.0 and v1.2.0 releases, which remain as published.
 
 ## Version 1.3.0 (10 November 2026)
 
@@ -26,7 +50,7 @@ at the same commit (Lean kernel proof with the axiom allowlist; C engine, indepe
 explorer); a complete `scripts/run_all.sh` passed all 22 stages. No author review or approval of the 1.3.0 text is recorded
 ([AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md)). Nothing here is peer review.
 
-The rest of this page records the v1.2.0 release, which remains as published.
+The v1.2.0 release below remains as published.
 
 ## Version 1.2.0
 
