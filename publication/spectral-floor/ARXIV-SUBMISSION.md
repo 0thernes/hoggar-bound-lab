@@ -122,7 +122,16 @@ A request the author can adapt and send personally, to one person at a time:
 
 ## What arXiv expects about AI use
 
-arXiv does not allow AI tools as authors, requires substantial use of generative AI to be reported in
-the work, and holds the human authors fully responsible for the content. The paper reports the use on
-its first page and in Section 12. Whether to submit under those terms is the author's decision;
-moderators may also decline or reclassify a submission.
+arXiv does not allow AI tools as authors, requires significant use of generative AI to be reported in
+the work, and holds each author fully responsible for all contents, however they were produced
+(info.arxiv.org/help/moderation). The paper reports the use on its first page and in Section 12.
+
+Since May 2026 arXiv also applies a penalty: a submission with clear evidence that its authors did not
+check AI output, such as an invented reference, brings a one-year submission ban and, afterwards, a
+requirement that papers be accepted by a peer-reviewed venue first. For that reason every reference of
+the paper was checked on 9 November 2026 against Crossref, arXiv, Zenodo or the journal's own site, and
+every number in the paper is produced by a test in the repository. That does not replace the author
+reading the paper before signing for it.
+
+Whether to submit under these terms is the author's decision; moderators may also decline or reclassify
+a submission.

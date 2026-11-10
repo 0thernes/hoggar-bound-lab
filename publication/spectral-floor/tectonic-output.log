@@ -1,8 +1,8 @@
 note: Running TeX ...
 note: Rerunning TeX because "spectral-floor.out" changed ...
 note: Running xdvipdfmx ...
+note: Writing `spectral-floor.pdf` (372.79296875 KiB)
 note: Writing `spectral-floor.log` (24.2890625 KiB)
-note: Writing `spectral-floor.pdf` (372.5546875 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
 Fontconfig error: Cannot load default config file: No such file: (null)
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.

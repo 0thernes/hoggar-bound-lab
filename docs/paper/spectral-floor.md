@@ -1049,7 +1049,7 @@ vendored with their licences and provenance records.
 * [JL] N. S. Jones, N. Linden, *Parts of quantum states*, Phys. Rev. A 71, 012324 (2005).
 * [K] S. Kang, *No Pauli-orbit mutually unbiased bases for four qubits or for an odd number of qubits greater than one*, Zenodo, 27 October 2026, doi:10.5281/zenodo.23692357.
 * [LGG] Z. Li, A. Gupta, V. Ganesh, *The four-qubit hyperbolic quadric has contextuality degree 315*, arXiv:2610.26465 (19 October 2026).
-* [LLY] Q. Liu, I. Low, Z. Yin, Quantum Sci. Technol. 11, 015035 (2026).
+* [LLY] Q. Liu, I. Low, Z. Yin, *Maximal magic for two-qubit states*, Quantum Sci. Technol. 11, 015035 (2026), doi:10.1088/2058-9565/ae3028.
 * [McF] R. L. McFarland, *A family of difference sets in non-cyclic groups*, J. Combin. Theory Ser. A 15, 1 (1973).
 * [M1] A. Muller, M. Saniga, A. Giorgetti, H. de Boutray, F. Holweck, *New and improved bounds on the contextuality degree of multi-qubit configurations*, Math. Struct. Comput. Sci. 34, 322 (2024), arXiv:2305.10225.
 * [M2] A. Muller, M. Saniga, A. Giorgetti, F. Holweck, C. Kelleher, *A new heuristic approach for contextuality degree estimates and its four- to six-qubit portrayals*, J. Phys. A 58, 215302 (2025), arXiv:2407.02928.
