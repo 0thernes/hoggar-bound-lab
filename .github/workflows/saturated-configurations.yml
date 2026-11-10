@@ -3,19 +3,22 @@ name: Saturated configurations
 # Checks of Section 5 of the paper: the configurations on which the spectral floor is attained.
 #   exact-checks   integer-arithmetic verification of eleven states, the census of flat third-level phase
 #                  states on up to five qubits, the Moonlab circuits and the QGTL kernels
-#   lean-degrees   the kernel-checked exact contextuality degrees (two, three, four and five qubits)
+#   lean-degrees   the kernel-checked exact contextuality degrees (two, three, four, five and seven qubits)
 # The seven-qubit enumeration (scripts/run_family7.sh, about eight core-hours) is not run here.
 
 on:
   push:
     paths:
       - "lean/HoggarBound/MaskConfig.lean"
+      - "lean/HoggarBound/MaskRows.lean"
       - "lean/HoggarBound/FlatData.lean"
       - "lean/HoggarBound/PhaseData.lean"
       - "lean/HoggarBound/Saturated*.lean"
       - "lean/SaturatedVerification.lean"
+      - "lean/SaturatedSevenVerification.lean"
       - "scripts/flat_states.py"
       - "scripts/phase_states.py"
+      - "scripts/phase_seven_lean.py"
       - "scripts/cospectral_pair.py"
       - "src/third_level.c"
       - "src/qgt_flat.c"
@@ -153,6 +156,42 @@ jobs:
                   code = re.sub(r"--.*", "", code)
                   assert "sorry" not in code and "native_decide" not in code and not re.search(r"^\s*axiom\b", code, flags=re.M), src.name
           print(f"Passed: all {len(expected)} audited declarations use only the standard axioms")
+          PY
+      - name: Seven qubits - the packed evaluation against the direct sums, and the generated Lean file (14 checks)
+        run: |
+          python3 scripts/phase_seven_lean.py | tee results/ci-lean-saturated-seven-check.log
+          tail -1 results/ci-lean-saturated-seven-check.log | grep -q "14 of 14 checks passed"
+      - name: Kernel-check the seven-qubit counts (general lemmas on packed sets, then 16 blocks of 1024 rows)
+        working-directory: lean
+        run: |
+          /usr/bin/time -v lake build HoggarBound.MaskRows 2>&1 | tee ../results/ci-lean-saturated-rows.log
+          /usr/bin/time -v lake build HoggarBound.SaturatedPhaseSeven 2>&1 | tee ../results/ci-lean-saturated-phase-seven.log
+      - name: Print axiom dependencies of the seven-qubit theorems
+        working-directory: lean
+        run: lake env lean SaturatedSevenVerification.lean 2>&1 | tee ../results/ci-lean-saturated-seven-axioms.log
+      - name: Enforce the standard axiom allowlist for the seven-qubit theorems
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+          allowed = {"propext", "Classical.choice", "Quot.sound"}
+          source = pathlib.Path("lean/SaturatedSevenVerification.lean").read_text(encoding="utf-8")
+          expected = set(re.findall(r"#print axioms\s+(\S+)", source))
+          assert len(expected) >= 13, "The audited declaration list was unexpectedly shortened"
+          assert {"HoggarBound.phase7_degree", "HoggarBound.phase7_contexts"} <= expected
+          log = pathlib.Path("results/ci-lean-saturated-seven-axioms.log").read_text(encoding="utf-8")
+          found = dict(re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", log))
+          found.update((name, "") for name in re.findall(r"'([^']+)' does not depend on any axioms", log))
+          assert expected <= found.keys(), f"Missing axiom reports: {expected - found.keys()}"
+          for name in sorted(expected):
+              actual = {a.strip() for a in found[name].split(",") if a.strip()}
+              assert actual <= allowed, f"Unexpected axioms in {name}: {actual - allowed}"
+          for name in ("MaskRows.lean", "SaturatedPhaseSeven.lean"):
+              text = pathlib.Path("lean/HoggarBound", name).read_text(encoding="utf-8")
+              code = re.sub(r"/-.*?-/", "", text, flags=re.S)
+              code = re.sub(r"--.*", "", code)
+              assert "sorry" not in code and "native_decide" not in code and not re.search(r"^\s*axiom\b", code, flags=re.M), name
+          print(f"Passed: all {len(expected)} audited seven-qubit declarations use only the standard axioms")
           PY
       - name: Preserve Lean evidence
         if: always()

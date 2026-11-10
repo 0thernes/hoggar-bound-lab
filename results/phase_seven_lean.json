@@ -1,0 +1,58 @@
+{
+ "configuration": "Pauli support of the seven-qubit phase state CS(0,1) CS(2,3) CS(4,5) CCZ(0,1,2) CCZ(0,3,5) CCZ(1,2,4) CCZ(0,4,6) CCZ(0,5,6) CCZ(1,3,6) CCZ(2,3,6) CCZ(2,5,6) |+++++++>",
+ "qubits": 7,
+ "observables": 8128,
+ "contexts": 2824192,
+ "degree": 729344,
+ "digit_width_bits": 16,
+ "rows_per_block": 1024,
+ "flag_blocks": [
+  1133440,
+  1033088,
+  1100928,
+  1067648,
+  1066368,
+  1034112,
+  1033856,
+  1067648,
+  1101184,
+  1067904,
+  1002112,
+  1033856,
+  1034112,
+  1067904,
+  1067136,
+  1033856
+ ],
+ "violated_flag_blocks": [
+  292544,
+  266560,
+  284352,
+  275776,
+  275136,
+  267072,
+  266944,
+  275776,
+  284480,
+  275904,
+  259136,
+  266944,
+  267072,
+  275904,
+  275520,
+  266944
+ ],
+ "flags": 16945152,
+ "violated_flags": 4376064,
+ "lean_theorems": [
+  "phase7_card",
+  "phase7_flags",
+  "phase7_witness",
+  "phase7_degree",
+  "phase7_contexts"
+ ],
+ "checks": {
+  "passed": 14,
+  "total": 14
+ }
+}

@@ -6,6 +6,20 @@ Project releases cover the spectral-floor study and the surrounding repository. 
 
 ## Unreleased - after 1.2.0
 
+- [Addendum](publication/ADDENDUM-seven-qubit-lean.md), proposed for the next revision of the combined
+  paper: **the seven-qubit contextuality degree 729344 is proved in Lean, with its counts.** The new
+  theorems `phase7_degree` and `phase7_contexts` (`lean/HoggarBound/SaturatedPhaseSeven.lean`) have the
+  form of the five-qubit ones: 8128 observables, 2824192 contexts, every assignment violates at least
+  729344 of them and one violates exactly 729344. The two counts are double sums with 2^28 terms each.
+  `lean/HoggarBound/MaskRows.lean` evaluates one row of such a sum on packed sets of codes and proves,
+  for every number of qubits, that the result is the row of `MaskConfig.lean`; the kernel then evaluates
+  the 16384 rows in 16 blocks (`decide +kernel`, no `native_decide`, the standard three axioms; audit in
+  `lean/SaturatedSevenVerification.lean`, log in `results/lean-saturated-seven-axioms.log`). That the
+  mask is the Pauli support of the state of Theorem 13 is checked by programs, as before. No existing
+  Lean file is changed, and release 1.2.0, its manuscript and its artifacts are unchanged.
+- `scripts/phase_seven_lean.py` (14 checks, two negative controls): the same evaluation in Python,
+  compared with the direct double sums; it generates `SaturatedPhaseSeven.lean`. The workflow *Saturated
+  configurations* runs it, builds the two new modules and enforces the axiom allowlist.
 - [Addendum](publication/ADDENDUM-completion-optima.md), proposed for the next revision of the combined
   paper: the exact binary completion minima of the two C3 carriers differ. Every completion of the
   first carrier violates at least 347 of the 1120 outside lines, and an explicit completion of the
