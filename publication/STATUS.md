@@ -20,8 +20,10 @@ configurations and a proof of Jonah's Conjecture E**, version 1.3.0, by **Alexan
 
 Verification of the release content: [C3 workflow run 42817286684](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684)
 and [publication documentation run 42817314224](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817314224),
-both at `6189b62` (the programs and Lean files of the release), passed; a complete `scripts/run_all.sh`
-passed all 22 stages. No author review or approval of the 1.3.0 text is recorded
+both at `6189b62` (the programs and Lean files of the release), passed, and so did
+[Independent verification run 42817286457](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286457)
+at the same commit (Lean kernel proof with the axiom allowlist; C engine, independent matrices and
+explorer); a complete `scripts/run_all.sh` passed all 22 stages. No author review or approval of the 1.3.0 text is recorded
 ([AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md)). Nothing here is peer review.
 
 The rest of this page records the v1.2.0 release, which remains as published.
