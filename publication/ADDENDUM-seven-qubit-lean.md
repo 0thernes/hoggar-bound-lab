@@ -216,3 +216,55 @@ or an `axiom` declaration. The run named above passed.
 The same earlier status is stated in `README.md`, `INDEX.md`, `docs/CLAIMS.md`, `lean/README.md`,
 `CITATION.cff` and `publication/unified-abstract.txt`. They belong to release 1.2.0 and are left as they
 are until the next revision.
+
+## Corrections after review (10 November 2026)
+
+An automated adversarial review of this work (six independent reviewers and a completeness critic, each
+finding checked by two or three further agents; 197 checks) found no error in the Lean statements or
+proofs. It found the errors below in this file and in the supporting check. The text above is kept as
+first stated; the corrections are listed here.
+
+* **Memory.** GNU time reports kilobytes of 1024 bytes. The CI run's maximum resident set of
+  `SaturatedPhaseSeven`, 6 271 352 KiB, is 6.4 GB (6.0 GiB), not 6.3 GB; the message of commit `cb1f16a`
+  repeats the wrong figure. The local peak working set, 4325 MiB, is 4.5 GB, not 4.3 GB. One block of
+  1024 rows needed a peak working set of 2346 MiB (2.5 GB) in a test file, not about 3 GB. The local
+  measurements are recorded in [results/lean-saturated-seven-local.log](../results/lean-saturated-seven-local.log).
+* **Term-by-term estimate.** Scaled from the five-qubit modules ($2^{21}$ terms in about seven minutes
+  in CI), the $2^{29}$ terms of the two seven-qubit sums would take about 30 hours, and more because each
+  term tests bits of a mask sixteen times longer. "An estimated 40 core-hours" was not derived; the
+  figure was not measured.
+* **Commuting codes.** The set of codes that commute with $z$ is the set of all codes, exclusive or at
+  most $2N$ stripes; the exclusive or of the stripes alone is the set of codes that anticommute with $z$.
+  The same wording is corrected in the module comment of `MaskRows.lean`.
+* **Trust base.** Besides the bitwise operations, the shifts and the remainder, the kernel evaluations
+  use the kernel's built-in addition, subtraction, multiplication, division, powers and comparisons of
+  natural-number literals. These extensions are part of the trusted kernel of Lean 4.35.0.
+* **Scope.** The Lean theorems give, for the set given by the mask, its 8128 elements (stated in item 1
+  of Theorem 13) and the first sentence of item 2: 2 824 192 contexts and degree exactly 729 344. That
+  the mask is the Pauli support of $\Phi_7$, and `phase7Neg` its sign pattern, is checked as follows:
+  `python scripts/phase_states.py --lean` recomputes both in exact arithmetic from the circuit and
+  rewrites `data/flat/n7_phase7.txt` and `lean/HoggarBound/PhaseData.lean`, and the workflow step *The
+  regenerated masks and Lean data are the committed ones* fails if they differ from the committed files,
+  which are the files that Lean reads.
+* **The Python check.** Of the sixteen sampled codes, twelve belong to the configuration and four do
+  not. Check 7 ("every row count is below 65535") read the counts after the remainder modulo 65535 and
+  could not fail. It now counts the elements of each packed row directly, checks that the row lies on
+  digit positions and has fewer than 65535 elements, and compares the count with the remainder. It fails
+  under the mutations that use $2^{16}$ as modulus or omit the remainder. The workflow now also fails if
+  the record `results/phase_seven_lean.json` or the generated Lean file differs from the committed one,
+  and if the axiom report differs from `results/lean-saturated-seven-axioms.log`.
+* **CI evidence.** The run 42791713861 was started by hand (`workflow_dispatch`): the commits of this
+  repository carry `[skip ci]`, so the push trigger does not fire. Its artifact expires on 10 December
+  2026 and its job logs about three months after the run, so the logs of the artifact are kept in
+  [results/ci-run-42791713861/](../results/ci-run-42791713861/).
+* **Text proposed for the next revision.** Version 1.3.0 of the combined paper, prepared at the same
+  time, incorporates this work. The instructions above contained four errors: the Section 1.1 instruction ("In the sentence before it ...
+  then covers the three configurations") misread the order of the sentences; the note under Table 1 in
+  Section 5.1 ("the first seven masks") was not listed; the Section 5.3 replacement dropped the programs'
+  computation of the counts and the identification of the mask with $S_7$; and "at most $2N$ exchanges"
+  is the bound for one translate, while a row of violated flags needs two. The Appendix A instruction
+  did not say that the shell is already inside `lean/` there, and the paragraph of Section 9.2 on the
+  recorded CI runs was not listed. The list of files that state the earlier
+  status was incomplete; it also omitted `SUMMARY.md`, `publication/unified-metadata.json`,
+  `publication/UNIFIED-ERRATA.md`, `publication/UNIFIED-SUBMISSION.md` and
+  `publication/AUTHOR-DECLARATIONS.md`.

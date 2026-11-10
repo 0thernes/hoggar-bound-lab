@@ -1,0 +1,43 @@
+# Local runs of the seven-qubit Lean files, 10 November 2026 (times PST)
+#
+# Machine: Windows 11 Pro 10.0.29704, Intel Core Ultra 9 275HX (24 cores), 47.4 GiB of memory, shared with
+# other jobs: during the runs at 00:59 and 01:15 every core was busy and another Lean process held more than
+# 30 GB. Lean 4.35.0 with Mathlib v4.35.0. Every command was run from lean/ as
+#   lake env python runlean.py <arguments of lean>
+# where runlean.py started lean and sampled it with psutil every 0.1 s. It printed the wall time, the peak
+# working set (peak_ws) and the peak commit charge (peak_commit), both in MiB (2^20 bytes). The lines
+# "exit ... MiB" below are its output, copied verbatim. These are measurements on one machine, not guarantees.
+
+## 00:53, SaturatedPhaseSeven.lean as first generated (as committed in 77a529f, except that the header named
+## the circuit on one line and had no "set_option Elab.async false"), one thread
+lake env lean -M 9000 -j1 HoggarBound/SaturatedPhaseSeven.lean -o <olean> -i <ilean>
+exit 0 wall 300.6s peak_ws 4325 MiB peak_commit 6748 MiB
+
+## 00:58, MaskRows.lean as committed in 77a529f except one comment line ("No `native_decide`; the axioms are
+## the standard three." in place of "No `native_decide`, and no axiom beyond the standard three.")
+lake env lean -M 9000 -j1 HoggarBound/MaskRows.lean -o <olean> -i <ilean>
+exit 0 wall 25.4s peak_ws 1986 MiB peak_commit 4387 MiB
+
+## 00:59, SaturatedPhaseSeven.lean, the same as at 00:53 with the circuit on two lines, one thread
+lake env lean -M 9000 -j1 HoggarBound/SaturatedPhaseSeven.lean -o <olean> -i <ilean>
+exit 0 wall 835.4s peak_ws 4324 MiB peak_commit 6748 MiB
+
+## 01:15, SaturatedPhaseSeven.lean as committed in 77a529f (with "set_option Elab.async false"), default threads
+lake env lean -M 9000 HoggarBound/SaturatedPhaseSeven.lean -o <olean> -i <ilean>
+exit 0 wall 807.5s peak_ws 4287 MiB peak_commit 6721 MiB
+
+## 01:28, the axiom audit
+lake env lean SaturatedSevenVerification.lean
+axioms exit 0   (wall about 26 s, by the timestamps 01:28:49 and 01:29:15)
+
+## 01:30, MaskRows.lean as committed in 77a529f; timed with bash "time", memory not sampled
+lake env lean -M 9000 HoggarBound/MaskRows.lean -o <olean> -i <ilean>
+real 0m30.472s
+## then the axiom audit again; its output is results/lean-saturated-seven-axioms.log
+
+## Earlier that night, before MaskRows.lean was written: a test file (not in the repository) with a first
+## version of the definitions of MaskRows.lean, importing only HoggarBound.PhaseData, and one theorem:
+## block 9 (1024 rows) of the seven-qubit flag sum and of the sum of violated flags, by decide +kernel.
+## Output of the Lean profiler and of runlean.py:
+type checking took 18.8s
+exit 0 wall 20.6s peak_ws 2346 MiB peak_commit 2578 MiB

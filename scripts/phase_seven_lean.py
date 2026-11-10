@@ -298,7 +298,20 @@ def main():
     vb = [sum(vrow[1024 * k: 1024 * k + 1024]) for k in range(16)]
     check("flags: %d = 6 x %d contexts" % (sum(fb), contexts), sum(fb) == 6 * contexts == 16945152)
     check("flags violated by the sign pattern: %d = 6 x %d" % (sum(vb), degree), sum(vb) == 6 * degree == 4376064)
-    check("every row count is below 2^16 - 1 = 65535 (largest: %d flags)" % max(frow), max(frow) < 65535)
+    # Packed.card in MaskRows.lean: the remainder modulo 2^b - 1 is the number of elements when the set has
+    # its bits on digit positions only.  Count the elements directly (set bits), without the remainder.
+    largest, rows_ok = 0, True
+    for z in range(4 ** 7):
+        if not tb(mask7, z):
+            rows_ok &= frow[z] == 0 and vrow[z] == 0
+            continue
+        F = flagSet(T7, z)
+        V = F & signSet(T7, z)
+        nF, nV = bin(F).count("1"), bin(V).count("1")
+        largest = max(largest, nF)
+        rows_ok &= (F | T7.all) == T7.all and nF < T7.modulus and nF == frow[z] and nV == vrow[z]
+    check("every packed row has its bits on digit positions and fewer than 2^16 - 1 = 65535 elements, and its "
+          "remainder modulo 65535 is its number of elements (largest row: %d flags)" % largest, rows_ok)
     check("the floor is attained: 127 x 8128 = 1016^2 and 127 (F - 12 d) = 126 x 8128 x 1016",
           127 * points == 1016 ** 2 and 127 * (sum(fb) - 12 * degree) == 126 * points * 1016)
     sample = rng.sample([z for z in range(4 ** 7) if tb(mask7, z)], 12) + rng.sample(

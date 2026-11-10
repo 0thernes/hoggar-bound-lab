@@ -1,0 +1,21 @@
+== the packed evaluation against the direct double loop, small configurations ==
+  [PASS] random masks and sign patterns on 1, 2 and 3 qubits, two digit widths: 1344 rows agree
+== five qubits: the block totals that the kernel has checked by the direct double sum ==
+  [PASS] the 16 flag blocks of SaturatedPhaseFive.lean are reproduced (total 65280)
+  [PASS] the 16 blocks of violated flags of SaturatedPhaseFive.lean are reproduced (total 2880)
+== seven qubits ==
+  [PASS] data/flat/n7_phase7.txt and PhaseData.lean hold the same mask and the same sign pattern
+  [PASS] the mask has 8128 codes, all below 4^7, and not the identity; the sign pattern lies in the mask
+  [PASS] packed mask: remainder modulo 2^16 - 1 is the number of observables
+  [PASS] flags: 16945152 = 6 x 2824192 contexts
+  [PASS] flags violated by the sign pattern: 4376064 = 6 x 729344
+  [PASS] every row count is below 2^16 - 1 = 65535 (largest: 2208 flags)
+  [PASS] the floor is attained: 127 x 8128 = 1016^2 and 127 (F - 12 d) = 126 x 8128 x 1016
+  [PASS] 16 sampled rows recounted by the direct double loop (12 in the configuration, 4 outside)
+== negative controls ==
+  [PASS] changing the sign of one observable changes the number of violated flags (4379088, more than 4376064)
+  [PASS] removing one observable changes the number of flags (16939008, fewer than 16945152)
+== the Lean file ==
+  [PASS] lean/HoggarBound/SaturatedPhaseSeven.lean is the generated file
+
+14 of 14 checks passed

@@ -16,7 +16,8 @@ digit being `0` or `1` (`Packed`).  On packed sets
 * intersection and symmetric difference are the bitwise `&&&` and `^^^`;
 * the translate `{w | w ^^^ z ∈ S}` is obtained by at most `2N` exchanges of blocks of digits
   (`translate`), one for each bit of `z`;
-* the set of codes commuting with `z` is an exclusive or of at most `2N` fixed stripes (`commSet`);
+* the set of codes commuting with `z` is the set of all codes, exclusive or at most `2N` fixed stripes,
+  the sets of codes with a given bit (`commSet`);
 * the number of elements is the remainder modulo `2^b − 1`, because `2^b ≡ 1`; this is the number
   itself as soon as `4^N < 2^b − 1` (`Packed.card`).
 

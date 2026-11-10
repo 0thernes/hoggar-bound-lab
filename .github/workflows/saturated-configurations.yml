@@ -161,6 +161,7 @@ jobs:
         run: |
           python3 scripts/phase_seven_lean.py | tee results/ci-lean-saturated-seven-check.log
           tail -1 results/ci-lean-saturated-seven-check.log | grep -q "14 of 14 checks passed"
+          git diff --exit-code -- results/phase_seven_lean.json lean/HoggarBound/SaturatedPhaseSeven.lean
       - name: Kernel-check the seven-qubit counts (general lemmas on packed sets, then 16 blocks of 1024 rows)
         working-directory: lean
         run: |
@@ -180,6 +181,8 @@ jobs:
           assert len(expected) >= 13, "The audited declaration list was unexpectedly shortened"
           assert {"HoggarBound.phase7_degree", "HoggarBound.phase7_contexts"} <= expected
           log = pathlib.Path("results/ci-lean-saturated-seven-axioms.log").read_text(encoding="utf-8")
+          committed = pathlib.Path("results/lean-saturated-seven-axioms.log").read_text(encoding="utf-8")
+          assert log.split() == committed.split(), "The axiom report differs from results/lean-saturated-seven-axioms.log"
           found = dict(re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", log))
           found.update((name, "") for name in re.findall(r"'([^']+)' does not depend on any axioms", log))
           assert expected <= found.keys(), f"Missing axiom reports: {expected - found.keys()}"
