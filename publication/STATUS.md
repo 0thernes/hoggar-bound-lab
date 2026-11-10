@@ -28,7 +28,7 @@ The exact claim is the explicit four-qubit C3 case: equal carrier spectra and un
 
 ## Author-controlled submission steps
 
-The confirmed author is Alexander S. Donahue, 0thernes LLC, with correspondence at `0_0@0thernes.art`. The author reports that the research was self-funded and that he is the sole operator of 0thernes LLC. No ORCID was supplied. Additional competing interests have not yet been explicitly declared.
+The confirmed author is Alexander S. Donahue, 0thernes LLC, with correspondence at `0_0@0thernes.art`. The author reports that the research was self-funded and that he is the sole operator of 0thernes LLC. No ORCID was supplied; IOP requires the submitting author's ORCID, so obtaining or recovering the author's own identifier is a remaining journal account step. Additional competing interests have not yet been explicitly declared. The [IOP submission guide](https://publishingsupport.iopscience.iop.org/publishing-support/authors/authoring-for-journals/submit-journal-article/) documents the requirement.
 
 Actual human critical review, final approval and accountability remain to be recorded; automated verification is not evidence that the human personally performed those activities. The manuscript discloses substantive AI involvement. The arXiv login handoff is pending, and the account's existence has not been confirmed. Preserve the current custom verification license unless a separate license grant is explicitly chosen.
 

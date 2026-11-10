@@ -13,6 +13,7 @@ Prepared 2026-11-09. Local draft only: not submitted, not signed, and not a decl
 | Affiliation | 0thernes LLC |
 | Corresponding author | Alexander S. Donahue |
 | Publication correspondence | 0_0@0thernes.art |
+| Submitting-author ORCID | Required by IOP; none supplied. Obtain or recover the author's own identifier before submission. |
 | Suggested subject | Quantum mechanics and quantum information theory; foundations of quantum mechanics |
 | Additional subject, if available | Mathematical physics; physical combinatorics; operator theory |
 | Keywords | Quantum contextuality; Pauli operators; spectral invariants; finite geometry; formal verification; reproducible computation |

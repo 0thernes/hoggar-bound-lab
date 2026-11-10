@@ -68,6 +68,8 @@
   ],
   "first_journal_recommendation": "Journal of Physics A: Mathematical and Theoretical",
   "first_journal_article_type": "Paper",
+  "journal_submitting_author_orcid_required": true,
+  "journal_submitting_author_orcid_status": "Not supplied; obtain or recover the author's own ORCID before IOP submission.",
   "simultaneous_journal_submissions_allowed": false,
   "release_commit": "d3811e3b53048fa8f3206f08494f0a9834eed287",
   "pdf_sha256": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
