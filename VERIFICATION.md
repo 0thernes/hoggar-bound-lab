@@ -6,7 +6,7 @@ The numbers **42** and **6** count audited declarations: 42 for C3 and six for t
 
 ## Frozen research and documentation versions
 
-The mathematical record is [research release `v0.2.0-c3-certificate`](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), at commit [`d3811e3b53048fa8f3206f08494f0a9834eed287`](https://github.com/0thernes/hoggar-bound-lab/tree/d3811e3b53048fa8f3206f08494f0a9834eed287). It was published on 10 November 2026 at 01:33:37 UTC. This guide accompanies documentation release `v1.1.2`, with the same proof sources. The research release, PDF, and historical verification records retain their original version identifiers.
+The mathematical record is [research release `v0.2.0-c3-certificate`](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), at commit [`d3811e3b53048fa8f3206f08494f0a9834eed287`](https://github.com/0thernes/hoggar-bound-lab/tree/d3811e3b53048fa8f3206f08494f0a9834eed287). It was published on 10 November 2026 at 01:33:37 UTC. This guide accompanies documentation release `v1.2.0`, with the same proof sources. The research release, PDF, and historical verification records retain their original version identifiers.
 
 The [source manifest](results/frontier-c3-lean-source-sha256.json) records 21 proof/configuration files, exact local hashes, and hashes after normalizing CRLF to LF. All 21 LF hashes match this documentation checkout and the frozen research sources. The [published Linux source-equivalence record](https://github.com/0thernes/hoggar-bound-lab/releases/download/v0.2.0-c3-certificate/linux-proof-source-equivalence.json) connects the successful Linux proof to the publication commit.
 
@@ -159,3 +159,9 @@ The checks independently reconstruct literal Pauli tensors and 1120 signed outsi
 The scalar cubic inequality and Pauli spectral floor are documented prior work; the earlier modules are formalization and reproduction results. The full three-qubit minimum 63 is also a prior result. See the [literature audit](results/literature-audit.md) for the comparisons and qualifications.
 
 The C3 audit proves this explicit four-qubit spectral failure. The paper's displayed polynomial factorization, block/Jordan formulas, largest-eigenvalue gap of **2**, and continuous-relaxation gap of **32** have separate algebraic or executable evidence. They are outside the 42-declaration Lean boundary. The auxiliary stability theorem is about scalar spectra; its matrix and Pauli-coordinate interpretations remain ordinary mathematical derivations. The [claim map](docs/CLAIMS.md) states those distinctions individually.
+
+## Combined-paper verification update
+
+The combined v1.2.0 manuscript reuses the same proof sources. [Full Linux run 42741638647](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638647) passed both jobs at `87f08a0fb5007c8529abc13eabeec093027c0eba`. The [downloaded audit](results/full-ci-87-audit.json) records separate counts of 42 C3, six scalar-stability and 22 baseline declarations, all with only the standard three axioms. The separately successful saturation run covers 14 declarations. These counts describe their respective audits; they are not a claim that every prose statement has been formalized.
+
+See the [combined manuscript](paper/unified-contextuality.md), [source map](results/unified-source-map.json), and [prose corrections](publication/UNIFIED-ERRATA.md). The new [section-score program](scripts/unified_section_score.py) counts 132 violations among 455 section contexts for both C3 assignments; it derives the corresponding trace value through the established trace-score identity and does not independently multiply the carrier cube.

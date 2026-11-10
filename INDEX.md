@@ -1,14 +1,18 @@
 # Index: where each claim is proved, tested and recorded
 
-Repository version 1.1.2. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
-[SUMMARY.md](SUMMARY.md); for the full text see the [paper](paper/spectral-floor.md).
+Repository version 1.2.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
+[SUMMARY.md](SUMMARY.md); for the full text see the [unified paper](paper/unified-contextuality.md).
 
 ## Documents
 
 | document | what it is |
 |---|---|
 | [README.md](README.md) | the front page: statement, attribution, layout, how to reproduce |
-| [paper/spectral-floor.md](paper/spectral-floor.md) | the paper (canonical source), with [PDF](paper/spectral-floor.pdf) and [web page](https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.html) |
+| [paper/unified-contextuality.md](paper/unified-contextuality.md) | the combined canonical paper, with [PDF](paper/unified-contextuality.pdf) and [HTML](paper/unified-contextuality.html) |
+| [publication/unified-contextuality/](publication/unified-contextuality/) | combined LaTeX, arXiv source archive and Journal of Physics A manuscript/supplement |
+| [publication/PAPER-MAP.md](publication/PAPER-MAP.md) | relation between the combined paper and preserved source studies |
+| [publication/DISTRIBUTION-PLAN.md](publication/DISTRIBUTION-PLAN.md) | eight requested publication, indexing and preservation destinations |
+| [paper/spectral-floor.md](paper/spectral-floor.md) | preserved spectral-floor source study, with [PDF](paper/spectral-floor.pdf) and [web page](https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.html) |
 | [publication/spectral-floor/](publication/spectral-floor/) | LaTeX source, typeset PDF, arXiv archive and submission sheets |
 | [SUMMARY.md](SUMMARY.md) | plain-language summary |
 | [GLOSSARY.md](GLOSSARY.md) | terms |
@@ -37,7 +41,7 @@ Repository version 1.1.2. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 | claim | Lean theorem | other checks | record |
 |---|---|---|---|
 | For every N ≥ 1, every set S of non-identity Pauli observables and every assignment: 6·(D−1)·β ≤ (D−2)·\|S\|·√((D−1)\|S\|) | `hoggar_bound` (`Bound.lean`) | trace identities on random data (`scripts/analysis.py`); 20-run falsification suite with a negative control (`scripts/run_falsify.sh`) | `lean-axioms.log`, `lean-audit.md`, `falsify.log`, `analysis.json` |
-| Full N-qubit space: violated fraction ≥ 1/2 − √(D+1)/(D+2), every N | `full_space_fraction` (`Corollaries.lean`) | integer bound table (`build/hoggar table 6`) | `table.txt` |
+| Full N-qubit space: violated fraction ≥ 1/2 − √(D+1)/(D+2), every N >= 2 | `full_space_fraction` (`Corollaries.lean`) | integer bound table (`build/hoggar table 6`) | `table.txt` |
 | Three qubits: at least 63 of 315; four: at least 1451 of 5355; five: at least 28786 of 86955 | `three_qubit_contexts`, `four_qubit_contexts`, `five_qubit_contexts` | best assignments recounted from `data/witness/` | `falsify.log` |
 | Four-qubit hyperbolic quadric: at least 315 of 1575; five-qubit: at least 6426 of 23715 | `four_qubit_hyperbolic_contexts`, `five_qubit_hyperbolic_contexts` (`Quadric.lean`) | the same | `falsify.log` |
 
@@ -57,15 +61,15 @@ Repository version 1.1.2. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 
 | claim | how it is established | record |
 |---|---|---|
-| The floor is attained exactly when a flat state exists; combinatorial criterion (Theorems 3, 4) | proof in the paper; condition (d) checked at every point of eleven states | `flat_states.json`, `phase_states.json` |
+| For a nonempty support, the floor is attained exactly when a flat state exists; combinatorial criterion (Theorems 3, 4) | proof in the paper; condition (d) checked at every point of eleven states | `flat_states.json`, `phase_states.json` |
 | The support of a flat state is a two-character set (Proposition 10) | proof in the paper; checked for eleven states | `phase_states.json` |
 | Phase states of the third level are flat exactly when a trilinear form has constant rank (Proposition 11) | proof in the paper; support structure checked for five states | `phase_states.json` |
-| All such states on up to five qubits (Theorem 12): none on four, one class on five | exhaustive enumeration, 33 554 431 forms for five qubits (`src/third_level.c`); second implementation for N ≤ 4 (`scripts/phase_states.py`) | `run_all.log` |
+| All such states with nonzero associated trilinear form on up to five qubits (Theorem 12): none on four, one class on five | exhaustive enumeration, 33 554 431 forms for five qubits (`src/third_level.c`); second implementation for N ≤ 4 (`scripts/phase_states.py`) | `run_all.log` |
 | The support of Φ5 is Clifford-equivalent to the support of Cieśliński's state | explicit symplectic map, verified on all 1023 points | `phase_states.json` |
 | Seven qubits: one class in the family with B alternating of rank 6, stabilizer of order 7 (Theorem 13) | exhaustive enumeration of 1.46 × 10^10 forms (`src/family7.c`), orbit computation (`src/orbits7.c`); count agrees with orbit size | `family7.log` |
 | Seven qubits, other types of B: none found | random census, 3 × 10^8 forms per type (`src/sample7.c`). Evidence, not proof | `family7.log` |
 
-### The demonstration on the Tsotchke stack (paper, Section 9)
+### The demonstration on the Tsotchke stack (combined paper, Section 10)
 
 | what | program | record |
 |---|---|---|
@@ -84,7 +88,7 @@ Repository version 1.1.2. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 
 ## What is not proved
 
-Listed in the paper, Sections 8 ("What is not formalized") and 11, and in the README under "What is and
+Listed in the combined paper, Sections 9 ("Formal verification and its boundary") and 12, and in the README under "What is and
 is not claimed". In short: nothing is peer reviewed; the quaternionic refinement, the equivalences of
 Theorems 3 and 4 and the propositions about states are proved on paper only; the enumerations are
 computations; the seven-qubit counts are not kernel-checked; novelty rests on a bounded search.

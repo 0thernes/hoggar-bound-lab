@@ -1,0 +1,77 @@
+{
+  "status": "pass",
+  "reviewed_at_utc": "2026-11-10T03:28:39.793813+00:00",
+  "source_sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+  "html_sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+  "pdf_checks": {
+    "paper/unified-contextuality.pdf": {
+      "pages": 31,
+      "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "edge_text_spans": [],
+      "replacement_characters": 0,
+      "references_present": true
+    },
+    "publication/unified-contextuality/jphysa/manuscript.pdf": {
+      "pages": 25,
+      "sha256": "b4ed8536eae1429b20686afdba6436394abf5b09edb91846ad7b2049d083488c",
+      "edge_text_spans": [],
+      "replacement_characters": 0,
+      "references_present": true
+    },
+    "publication/unified-contextuality/jphysa/supplementary.pdf": {
+      "pages": 8,
+      "sha256": "ee08624f86b31821ee642df7fae5530f96bb30b9e6e9747291cda00f3bedcff2",
+      "edge_text_spans": [],
+      "replacement_characters": 0,
+      "references_present": true
+    }
+  },
+  "fresh_archive_pdf_text_matches_public_pdf": true,
+  "public_pdf_matches_typeset_pdf": true,
+  "visual_review": {
+    "method": "Direct inspection of rasterized PDF pages by the assistant",
+    "full_paper_pages": [
+      1,
+      17,
+      18,
+      19,
+      28,
+      31
+    ],
+    "journal_manuscript_pages": [
+      1
+    ],
+    "journal_supplement_pages": [
+      1
+    ],
+    "observations": "Title, byline, abstract, C3 polynomial and cubic-trace equations, spectrum figure, disclosures and final witness material readable; no clipped text observed on inspected pages. Automated text bounding-box scan covers all pages."
+  },
+  "browser_review": {
+    "environment": "Local HTTP server, Chrome via CUA browser tools",
+    "math_ready": "ready",
+    "rendered_math_expressions": 1047,
+    "expected_ast_math_expressions": 1047,
+    "math_errors": 0,
+    "console_warning_or_error_entries": 0,
+    "loaded_figures": 4,
+    "desktop": {
+      "viewport_width": 1707,
+      "document_width": 1692
+    },
+    "mobile": {
+      "viewport_width": 390,
+      "document_width": 375
+    },
+    "contents_links": 16,
+    "contents_C3_navigation": "passed",
+    "citation_pdf_url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+    "viewport_reset": true,
+    "local_server_stopped": true
+  },
+  "compiler_qualification": {
+    "full_main_max_overfull_points": 15.09172,
+    "supplement_overfull_points": [],
+    "note": "Remaining full/main overfull warnings originate in inherited floor material. No text spans lie within20pt of a page edge, no PDF replacement characters were extracted, and inspected pages showed no clipping. Existing TeX-package UTF-8 and fontconfig diagnostics remain visible in the build logs."
+  },
+  "boundary": "Presentation and packaging review, not independent human peer review, journal approval, or arXiv service-side compilation."
+}

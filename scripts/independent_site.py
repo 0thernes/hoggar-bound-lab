@@ -36,6 +36,11 @@ FILES=[
     'results/literature-audit.md','results/independent-ci-audit.md',
     'results/independent-paper-build.json','results/independent-paper-review.json','INDEPENDENT-REVIEW.md',
     'paper/spectral-floor.md','paper/spectral-floor.html','paper/spectral-floor.pdf',
+    'paper/unified-contextuality.md','paper/unified-contextuality.html','paper/unified-contextuality.pdf',
+    'results/unified-paper-build.json','results/unified-source-map.json',
+    'results/unified-section-score.json','results/unified-publication-audit.json',
+    'results/full-ci-87-audit.json','results/saturation-ci-audit.json',
+    'results/publication-v1.2.0-audit.json',
 ]
 FILES += [str(p.relative_to(ROOT)).replace('\\','/') for p in sorted((ROOT/'paper'/'figures').glob('*.png'))]
 manifest={}

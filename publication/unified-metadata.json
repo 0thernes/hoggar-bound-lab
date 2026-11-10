@@ -1,0 +1,47 @@
+{
+  "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate",
+  "version": "1.2.0",
+  "type": "research preprint",
+  "author": {
+    "name": "Alexander S. Donahue",
+    "given_names": "Alexander S.",
+    "family_name": "Donahue",
+    "affiliation": "0thernes LLC",
+    "email": "0_0@0thernes.art",
+    "orcid": "https://orcid.org/0009-0006-8168-9648",
+    "orcid_provenance": "Supplied by the author; matching public record and authenticated ORCID editor observed, displaying Alexander Donahue and identifier 0009-0006-8168-9648. No independent legal-identity certification."
+  },
+  "canonical_source": "paper/unified-contextuality.md",
+  "public_landing_page": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+  "public_pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+  "source_release": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0",
+  "destinations": [
+    "Google Scholar",
+    "arXiv",
+    "Journal of Physics A: Mathematical and Theoretical",
+    "Zenodo",
+    "ORCID",
+    "OpenAIRE",
+    "Software Heritage",
+    "Internet Archive"
+  ],
+  "abstract": "Spectral methods give rigorous bounds on Pauli contextuality, but a spectrum need not retain the\ninformation required by a related completion problem. We study both aspects in a common setting.\nFor $N$ qubits, $D=2^N$, and an arbitrary set $S$ of nonidentity Pauli observables, a Lean 4 development\nproves Jonah's spectral floor: satisfied minus violated commuting triples is at most\n$(D-2)|S|^{3/2}/(6\\sqrt{D-1})$. Saturating configurations outside the classical families have exact\ncontextuality degrees 75 on 135 four-qubit observables, 480 on 496 five-qubit observables, and 729344\non 8128 seven-qubit observables. The first two degrees have kernel-checked counts; the seven-qubit\ncounts are executable exact computations. We relate saturation to pure states with a single nonzero\nPauli modulus, two-character sets and flat phase states, including an exhaustive classification of\nthe specified third-level phase-state family through five qubits.\n\nWe then exhibit two sign assignments on a 71-point section of the real four-qubit configuration.\nTheir $16\\times16$ Pauli carriers are cospectral, but their $64\\times64$ completion operators have\ncubic traces 14976 and 15360. This establishes the four-qubit C3 instance of Jonah's Conjecture E:\nthe carrier spectrum alone does not determine the completion spectrum. A block certificate explains\nthe information loss. The largest completion eigenvalues differ by two, and the associated spherical\nrelaxations differ by 32; these are not statements about exact binary completion optima. Lean checks\ncarrier cospectrality and completion noncospectrality in the actual Pauli model, while the printed\nfactorizations and relaxation gaps remain algebraic results outside that formal scope. Independent\nexact verifiers, falsification controls and Tsotchke software demonstrations accompany the paper.\nThe work is AI-assisted and is neither externally peer reviewed nor a quantum-hardware experiment.",
+  "doi": null,
+  "arxiv_identifier": null,
+  "journal_submission_identifier": null,
+  "peer_reviewed": false,
+  "funding": "This research was self-funded by the author.",
+  "competing_interests_disclosed": "The author is the sole operator of 0thernes LLC, with which the project is affiliated.",
+  "additional_competing_interests_declared": null,
+  "human_critical_review_and_final_approval_observed": false,
+  "distribution_license_choice": null,
+  "license_note": "Existing repository verification license and third-party notices preserved. No CC BY or other additional license grant inferred.",
+  "ai_provenance": "Claude/Anthropic spectral-floor and saturation study; OpenAI Codex independent validation, C3 study and manuscript integration. Full substantive roles must remain disclosed.",
+  "suggested_arxiv_primary": "quant-ph",
+  "suggested_arxiv_cross_list": [
+    "math.CO"
+  ],
+  "status": "In preparation; no external submission, DOI deposit, indexing or acceptance claimed for the combined manuscript.",
+  "abstract_format": "Markdown with TeX math",
+  "abstract_plain_text": "Spectral methods give rigorous bounds on Pauli contextuality, but a spectrum need not retain the information required by a related completion problem. We study both aspects together. For N qubits, D=2^N, and an arbitrary set S of nonidentity Pauli observables, a Lean 4 development proves Jonah's spectral floor: satisfied minus violated commuting triples is at most (D-2)|S|^(3/2)/(6 sqrt(D-1)). Saturating configurations outside the classical families have exact contextuality degrees 75 on 135 four-qubit observables, 480 on 496 five-qubit observables, and 729344 on 8128 seven-qubit observables. The first two degrees have kernel-checked counts; the seven-qubit counts are executable exact computations. We relate saturation to pure states with a single nonzero Pauli modulus, two-character sets and flat phase states, including an exhaustive classification of the specified third-level phase-state family through five qubits.\n\nWe then exhibit two sign assignments on a 71-point section of the real four-qubit configuration. Their 16-by-16 Pauli carriers are cospectral, but their 64-by-64 completion operators have cubic traces 14976 and 15360. This establishes the four-qubit C3 instance of Jonah's Conjecture E: the carrier spectrum alone does not determine the completion spectrum. A block certificate explains the information loss. The largest completion eigenvalues differ by two, and the associated spherical relaxations differ by 32; these are not statements about exact binary completion optima. Lean checks carrier cospectrality and completion noncospectrality in the actual Pauli model, while the printed factorizations and relaxation gaps remain algebraic results outside that formal scope. Independent exact verifiers, falsification controls and Tsotchke software demonstrations accompany the paper. The work is AI-assisted and is neither externally peer reviewed nor a quantum-hardware experiment."
+}

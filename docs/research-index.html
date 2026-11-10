@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hoggar Bound Lab: an exact four-qubit C3 certificate, a working verifier, and Lean-checked Pauli spectral results by Alexander S. Donahue, 0thernes LLC.">
+  <meta name="description" content="Spectral bounds and their limits in Pauli contextuality: a combined paper, exact configurations, a four-qubit C3 certificate and reproducible Lean evidence by Alexander S. Donahue, 0thernes LLC.">
   <meta name="theme-color" content="#102d32">
   <title>Hoggar Bound Lab — Research, proofs, and experiments</title>
   <style>
@@ -29,12 +29,12 @@
     <main id="main">
       <section class="hero" id="result" aria-labelledby="research-title">
         <div>
-          <p class="eyebrow">Pauli contextuality · Four-qubit C3</p>
-          <h1 id="research-title">Same carrier spectrum.<br><span>Different completions.</span></h1>
-          <p class="intro">Two explicit sign assignments produce identical carrier spectra and different completion spectra. An exact finite certificate, a working verifier, and a Lean proof make the distinction inspectable.</p>
+          <p class="eyebrow">Unified study · Pauli contextuality</p>
+          <h1 id="research-title">Spectral bounds.<br><span>Exact limits.</span></h1>
+          <p class="intro">One paper connects a general contextuality bound, configurations that attain it, and a four-qubit example where equal carrier spectra lead to different completion spectra. Lean proofs and executable certificates make the claims inspectable.</p>
           <div class="actions">
-            <a class="button primary" href="c3-lab/">Explore the exact certificate</a>
-            <a class="button" href="paper/c3-spectral-counterexample.html">Read the C3 paper</a>
+            <a class="button primary" href="paper/unified-contextuality.html">Read the unified paper</a>
+            <a class="button" href="c3-lab/">Run the C3 verifier</a>
           </div>
           <p class="byline"><strong>Alexander S. Donahue</strong> / 0thernes LLC<br><a href="https://orcid.org/0009-0006-8168-9648">ORCID 0009-0006-8168-9648</a><br>AI-assisted research · 9 November 2026 · Not peer reviewed</p>
         </div>
@@ -61,11 +61,11 @@
         <div class="fact"><strong>4</strong>qubits in the finite example</div>
         <div class="fact"><strong>71</strong>points in the fixed section</div>
         <div class="fact"><strong>64</strong>outside points to complete</div>
-        <div class="fact"><strong>42</strong>Lean declarations in the audit</div>
+        <div class="fact"><strong>42</strong>C3 declarations in its Lean audit</div>
       </div>
 
       <section class="section" id="verification" aria-labelledby="verification-title">
-        <div class="section-head"><h2 id="verification-title">What is proved, and how</h2><a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/docs/CLAIMS.md">Full claim boundaries →</a></div>
+        <div class="section-head"><h2 id="verification-title">The C3 certificate and its proof</h2><a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/docs/CLAIMS.md">Full claim boundaries →</a></div>
         <p class="lede">The carrier records the fixed signs as a sum of Pauli operators. The completion operator describes constraints on the remaining points. This example shows that the first spectrum does not determine the second in the specified four-qubit C3 geometry.</p>
         <div class="cards">
           <article class="card">
@@ -94,19 +94,19 @@
       </section>
 
       <section class="section" id="papers" aria-labelledby="papers-title">
-        <div class="section-head"><h2 id="papers-title">Papers and working experiments</h2><a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate">Scientific release v0.2.0 →</a></div>
+        <div class="section-head"><h2 id="papers-title">One paper, reproducible components</h2><a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0">Combined release v1.2.0 →</a></div>
         <div class="papers">
           <article class="paper-card featured">
-            <span class="pill">Four-qubit C3 certificate</span>
-            <h3>Cospectral Pauli carriers with different completion spectra</h3>
-            <p>The complete witness table, block certificate, proof, independent verification, and comparison with the original C3 question.</p>
-            <div class="inline-links"><a href="paper/c3-spectral-counterexample.html">Read HTML</a><a href="paper/c3-spectral-counterexample.pdf">Download PDF</a><a href="c3-lab/">Run the interactive verifier</a><a href="paper/c3-citation.cff">Citation</a></div>
+            <span class="pill">Combined research manuscript · v1.2.0</span>
+            <h3>Spectral bounds and their limits in Pauli contextuality</h3>
+            <p>The spectral floor, exact attaining configurations, and the four-qubit C3 certificate in one manuscript, with common notation, references, and explicit proof boundaries.</p>
+            <div class="inline-links"><a href="paper/unified-contextuality.html">Read HTML</a><a href="paper/unified-contextuality.pdf">Download PDF</a><a href="c3-lab/">Run the C3 verifier</a><a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/CITATION.cff">Citation</a></div>
           </article>
           <article class="paper-card">
-            <span class="pill">Earlier formalization and reproduction</span>
-            <h3>The spectral floor for Pauli contextuality</h3>
-            <p>A Lean formalization of the known lower bound, reproduced witnesses, and simulator experiments using Moonlab, QGTL, quantum_rng, and Eshkol.</p>
-            <div class="inline-links"><a href="paper/spectral-floor.html">Read HTML</a><a href="paper/spectral-floor.pdf">Download PDF</a><a href="independent-review/">Open the independent explorer</a><a href="paper/independent-research-note.pdf">Verification note</a></div>
+            <span class="pill">Preserved source studies and validation</span>
+            <h3>Trace the result to its evidence</h3>
+            <p>The earlier papers remain available. Their roles and independent computational checks are recorded separately from the combined journal package.</p>
+            <div class="inline-links"><a href="paper/spectral-floor.html">Spectral-floor source</a><a href="paper/c3-spectral-counterexample.html">C3 source</a><a href="independent-review/">Independent explorer</a><a href="paper/independent-research-note.pdf">Validation note</a></div>
           </article>
         </div>
       </section>
@@ -120,6 +120,8 @@
           <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/docs/CLAIMS.md"><strong>Claim register</strong><span>What each statement establishes and what remains unproved.</span></a>
           <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/LEGAL.md"><strong>Legal and attribution</strong><span>Authorship, licensing, third-party notices, and research status.</span></a>
           <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/CHANGELOG.md"><strong>Release history</strong><span>Scientific artifacts, documentation editions, and preserved releases.</span></a>
+          <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/publication/PAPER-MAP.md"><strong>How the papers combine</strong><span>Two source studies, one unified research manuscript.</span></a>
+          <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/publication/DISTRIBUTION-PLAN.md"><strong>Eight publication channels</strong><span>Journal, preprints, indexing, research identity, and preservation.</span></a>
         </div>
       </section>
 
@@ -138,7 +140,7 @@
     </main>
 
     <footer class="footer">
-      <div><p>Alexander S. Donahue / 0thernes LLC · Hoggar Bound Lab<br>AI-assisted research preprints. Mathematical verification does not substitute for external review.</p><p class="edition">Repository and spectral-floor presentation edition <a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.2">v1.1.2</a>. The separate C3 paper and proof artifacts remain at <a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate">v0.2.0-c3-certificate</a>.</p></div>
+      <div><p>Alexander S. Donahue / 0thernes LLC · Hoggar Bound Lab<br>AI-assisted research preprint. Mathematical verification does not substitute for external review.</p><p class="edition">Combined manuscript and repository edition <a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0">v1.2.0</a>. The original C3 artifact is preserved at <a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate">v0.2.0-c3-certificate</a>.</p></div>
       <div><a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/LICENSE">License</a> · <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/NOTICE">Third-party notices</a> · <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/LEGAL.md">Legal</a></div>
     </footer>
   </div>

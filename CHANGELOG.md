@@ -4,7 +4,22 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
-## 1.1.2 - documentation and metadata release
+## 1.2.0 - combined research manuscript
+
+The author requested one paper combining the spectral-floor/saturation study and the four-qubit C3
+certificate. The unified manuscript has a shared abstract, notation, bibliography, formal-proof map,
+and Journal of Physics A package. It preserves the original source papers and their historical
+releases. Integration is not a claim of a new theorem or a new priority for the spectral floor. Review also corrects missing nonempty/nonzero hypotheses and several overgeneralized prose statements, recorded in [UNIFIED-ERRATA.md](publication/UNIFIED-ERRATA.md).
+
+Both C3 section assignments are independently recounted as violating 132 of 455 section contexts,
+although their completion spectra differ. A single-sign mutation changes the violation count to 147.
+This is derived/executable evidence, not a new Lean specialization or a binary completion optimum.
+
+The repository documentation, citation, front page and submission metadata identify the combined
+work. Eight requested channels are tracked separately by their actual publication, indexing,
+identity and preservation roles. The LICENSE and NOTICE remain unchanged.
+
+## Unreleased 1.1.2 integration preparation
 
 This release brings the repository documentation together after `v1.1.1`. It preserves the spectral-floor study's mathematical content and the fixed C3 paper and proof content; it does not announce a new theorem or repeat another study's verification as if it were the C3 audit.
 
@@ -18,11 +33,11 @@ This release brings the repository documentation together after `v1.1.1`. It pre
 - Replace the unsupported blanket competing-interest statement in the spectral-floor publication package with the author-confirmed self-funding and sole-operator disclosures; regenerate the affected document formats.
 - Prevent an older completed verification workflow from replacing a newer Pages deployment.
 
-The C3 reference PDF remains the nine-page artifact with SHA-256 `5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836`, first released at commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. Project `VERSION` is `1.1.2`; the [release record](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.1.2) identifies its fixed commit and publication timestamp.
+The C3 reference PDF remains the nine-page artifact with SHA-256 `5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836`, first released at commit `d3811e3b53048fa8f3206f08494f0a9834eed287`. This integration preparation was not published as a release. Its documentation and disclosure corrections are incorporated in version 1.2.0.
 
 ## 1.1.1 — 9 November 2026
 
-No change to any result, proof or program.
+No change to the formal theorem statements or proof sources.
 
 * The author's ORCID iD (0009-0006-8168-9648) is given in the paper, the web page's indexing metadata,
   `CITATION.cff`, the LaTeX source and the submission sheets.

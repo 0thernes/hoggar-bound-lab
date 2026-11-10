@@ -1,33 +1,34 @@
 # Hoggar Bound Lab
 
-A machine-checked lower bound on how badly any noncontextual hidden-variable model must fail for
-$N$-qubit Pauli observables; new four-, five- and seven-qubit configurations on which that bound is
-exact; and a running demonstration on the Tsotchke stack (Moonlab, quantum_geometric_tensor,
-quantum_rng, Eshkol).
+One combined study of spectral bounds and their limits in Pauli contextuality: a Lean-checked
+general bound, configurations that attain it, and an exact four-qubit counterexample showing
+that equal carrier spectra need not determine equal completion spectra. Reproducible experiments
+use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 
 [![Saturated configurations](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml)
 [![Independent verification](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml)
 [![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
-[![Version 1.1.2](https://img.shields.io/badge/version-1.1.2-informational)](CHANGELOG.md)
+[![Version 1.2.0](https://img.shields.io/badge/version-1.2.0-informational)](CHANGELOG.md)
 
-**Paper:** [paper/spectral-floor.md](paper/spectral-floor.md) ([PDF](paper/spectral-floor.pdf), [typeset PDF](publication/spectral-floor/spectral-floor.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.html))
+**Unified paper:** [Spectral bounds and their limits in Pauli contextuality](paper/unified-contextuality.md) ([PDF](paper/unified-contextuality.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html)).
 &nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
 &nbsp;·&nbsp; **Independent review:** [INDEPENDENT-REVIEW.md](INDEPENDENT-REVIEW.md)
 
 **Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
 [GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, repository version 1.1.2, 9 November 2026. Not peer reviewed. AI-generated under human
+Status: research preprint, repository version 1.2.0, 9 November 2026. Not peer reviewed. AI-generated under human
 direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
 
 **Research website:** [Hoggar Bound Lab](https://0thernes.github.io/hoggar-bound-lab/).
 The [C3 research summary](docs/RESEARCH-SUMMARY.md), [verification guide](VERIFICATION.md),
 and [claim register](docs/CLAIMS.md) connect the four-qubit spectral result to exact data and Lean theorem names.
-The documentation edition `v1.1.2` preserves the C3 scientific paper and proof artifacts in
+The combined manuscript edition `v1.2.0` preserves the C3 scientific paper and proof artifacts in
 [v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate).
+See the [source-paper map](publication/PAPER-MAP.md) and [eight-destination distribution plan](publication/DISTRIBUTION-PLAN.md).
 See [affiliation records](publication/AFFILIATIONS.md) for confirmed platform updates and remaining account steps.
 
-**New finite result:** [Cospectral Pauli carriers with different completion spectra](paper/c3-spectral-counterexample.md)
+**C3 component and preserved source paper:** [Cospectral Pauli carriers with different completion spectra](paper/c3-spectral-counterexample.md)
 ([PDF](paper/c3-spectral-counterexample.pdf), [working exact-certificate demo](https://0thernes.github.io/hoggar-bound-lab/c3-lab/)).
 Two explicit four-qubit sign carriers have the same characteristic polynomial, while their completion
 cubic traces are 14976 and 15360. This establishes the four-qubit C3 instance left open in
@@ -37,9 +38,9 @@ verify the Pauli-model connection, carrier cospectrality and completion noncospe
 checks and an Eshkol execution record accompany the paper. This finite result is separate from the previously known spectral floor below;
 it does not settle the conjecture in every dimension or establish historical priority.
 
-**New configurations that attain the floor** ([paper](paper/spectral-floor.md), Section 5). The bound
-below holds for arbitrary sets of observables, and it is attained exactly when a pure state has Pauli
-expectation values of one modulus on the set and zero elsewhere. Three such configurations outside the
+**Configurations that attain the floor** ([unified paper](paper/unified-contextuality.md), Section 5). The bound
+below holds for arbitrary sets of observables. For a nonempty set, saturation is equivalent to a pure
+state having Pauli expectation values of one nonzero modulus on the set and zero elsewhere. Three such configurations outside the
 classical families, with their exact contextuality degrees:
 
 | qubits | state | observables | contexts | contextuality degree | how the degree is proved |
@@ -50,7 +51,7 @@ classical families, with their exact contextuality degrees:
 
 The five-qubit configuration is, up to a Clifford operation, the Pauli support of a state found
 numerically by Cieśliński (arXiv:2610.07172). Its circuit description, the classification of all such
-circuit states on up to five qubits (none on four, one class on five) and the seven-qubit state are new
+circuit states with nonzero associated trilinear form on up to five qubits (none on four, one class on five) and the seven-qubit state are new
 to our knowledge, which rests on a bounded literature search. Nothing here has been peer reviewed.
 
 ## The statement
@@ -63,7 +64,7 @@ sign of the product of their values. Then, for every $S$ and every assignment,
 \#\text{satisfied} - \#\text{violated} \;\le\; \frac{(D-2)\,|S|^{3/2}}{6\sqrt{D-1}} .
 ```
 
-For all $4^N - 1$ observables this means at least the fraction $\tfrac12 - \sqrt{D+1}/(D+2)$ of the
+For $N \ge 2$, using all $4^N - 1$ observables means at least the fraction $\tfrac12 - \sqrt{D+1}/(D+2)$ of the
 contexts is violated: 63 of 315 for three qubits (exact), at least 1451 of 5355 for four, at least
 28786 of 86955 for five, and the fraction tends to one half.
 

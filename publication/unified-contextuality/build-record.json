@@ -1,0 +1,274 @@
+{
+  "status": "built",
+  "publication_version": "1.2.0",
+  "source": "paper/unified-contextuality.md",
+  "source_sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+  "source_lf_sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+  "builder_sha256": "b1670b4f6392b2e7d07607a3107b9943a2974700d3306adb3e74847da741386f",
+  "table_helper_sha256": "1550c6434b71cca2b535ef4eac1ddd6405ccc3dffb1ad2d991ec0a33ad005ae6",
+  "tools": {
+    "pandoc": {
+      "version": "pandoc 3.13",
+      "sha256": "7ab6244548ba15494fab956230050516fe8f57c36ec2dfb50133719ad3b5a791"
+    },
+    "tectonic": {
+      "version": "Tectonic 0.17.0",
+      "sha256": "99ffcfdbf1ebf8bdda9e791942e3d06aedb12463fddc33f07de6f5211c8bf08d"
+    }
+  },
+  "reader": "gfm+tex_math_gfm+tex_math_dollars",
+  "normalized_standalone_displays": 0,
+  "math_expression_counts": {
+    "inline": 1011,
+    "display": 36
+  },
+  "journal_section_map": [
+    {
+      "heading": "1. Scope and common question",
+      "journal": "main"
+    },
+    {
+      "heading": "2. Setting",
+      "journal": "main"
+    },
+    {
+      "heading": "3. The spectral floor",
+      "journal": "main"
+    },
+    {
+      "heading": "4. Saturation in the classical families",
+      "journal": "main"
+    },
+    {
+      "heading": "5. Saturation outside the classical families",
+      "journal": "main"
+    },
+    {
+      "heading": "6. Consequences for all N",
+      "journal": "main"
+    },
+    {
+      "heading": "7. The data against the floor",
+      "journal": "main"
+    },
+    {
+      "heading": "8. What a carrier spectrum does not determine",
+      "journal": "main"
+    },
+    {
+      "heading": "9. Formal verification and its boundary",
+      "journal": "main"
+    },
+    {
+      "heading": "10. A running example on the Tsotchke stack",
+      "journal": "supplement"
+    },
+    {
+      "heading": "11. Falsifiability and replication",
+      "journal": "supplement"
+    },
+    {
+      "heading": "12. Limitations and open problems",
+      "journal": "main"
+    },
+    {
+      "heading": "13. Research provenance, disclosure and availability",
+      "journal": "main"
+    },
+    {
+      "heading": "References",
+      "journal": "both"
+    },
+    {
+      "heading": "Appendix A. Reproduction",
+      "journal": "supplement"
+    },
+    {
+      "heading": "Appendix B. Witness assignments",
+      "journal": "supplement"
+    }
+  ],
+  "compilation": {
+    "unified-contextuality.tex": {
+      "returncode": 0,
+      "missing_characters": [],
+      "overfull_boxes_pt": [
+        0.57942,
+        0.73146,
+        1.81253,
+        2.53174,
+        3.93723,
+        4.03928,
+        4.13441,
+        6.1329,
+        6.32605,
+        12.66608,
+        15.09172
+      ]
+    },
+    "jphysa/manuscript.tex": {
+      "returncode": 0,
+      "missing_characters": [],
+      "overfull_boxes_pt": [
+        0.57942,
+        0.73146,
+        1.81253,
+        2.53174,
+        3.93723,
+        4.03928,
+        4.13441,
+        6.1329,
+        6.32605,
+        12.66608,
+        15.09172
+      ]
+    },
+    "jphysa/supplementary.tex": {
+      "returncode": 0,
+      "missing_characters": [],
+      "overfull_boxes_pt": []
+    }
+  },
+  "mathjax": {
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml-full.min.js",
+    "integrity": "sha384-dCtf/9Xgzj8edI30iIEsxNfjUQ0zj2AXa3eUdgjsx8odUmpURZx5Z7aDZmV781et"
+  },
+  "arxiv_members": [
+    "00README.json",
+    "c3-figures/spectra.pdf",
+    "figures/fig1_fraction.png",
+    "figures/fig2_noise.png",
+    "figures/fig3_spectra.png",
+    "unified-contextuality.tex"
+  ],
+  "arxiv_archive_rebuild": {
+    "returncode": 0,
+    "pdf_bytes": 437176,
+    "pdf_sha256": "599e66bea303d83479e5f60660ca732eca24a8a627410b83197082946dc25b28",
+    "engine": "Tectonic / XeTeX",
+    "scope": "Fresh extraction compiled using the installed TeX package cache; no arXiv submission or service-side compilation."
+  },
+  "figures": {
+    "c3-figures/spectra.pdf": {
+      "sha256": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
+      "bytes": 21928
+    },
+    "c3-figures/spectra.png": {
+      "sha256": "ef35a8bf4d916a1c27c0e53db70009d8afb344ac9874eb7e66cc4f3ad5448137",
+      "bytes": 93869
+    },
+    "figures/fig1_fraction.png": {
+      "sha256": "1d1063fa0c297d62eeb8bb9370ec54a848917530e60201740fdb26d4b9485124",
+      "bytes": 65124
+    },
+    "figures/fig2_noise.png": {
+      "sha256": "fa6be8c20942281573e07a503d94583e873563fb9ed55ed352b470f0a541d2c4",
+      "bytes": 58508
+    },
+    "figures/fig3_spectra.png": {
+      "sha256": "231a42074a32bface2863036549fa1c9dcf95360164d3e7bace0eb837228aca4",
+      "bytes": 33643
+    }
+  },
+  "artifacts": {
+    "paper/unified-contextuality.html": {
+      "sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "bytes": 156616
+    },
+    "paper/unified-contextuality.pdf": {
+      "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "bytes": 437176
+    },
+    "publication/unified-contextuality/arxiv-source-tectonic.log": {
+      "sha256": "dee8f1d120d16dd244b781ef25b897475512e4c54619a50d366eff0c2435fbda",
+      "bytes": 3405
+    },
+    "publication/unified-contextuality/arxiv-source.zip": {
+      "sha256": "b4da6282b9adbaee8ad1d80b56c48f7bf8d8971402162950289afa7f670b9c78",
+      "bytes": 209519
+    },
+    "publication/unified-contextuality/c3-figures/spectra.pdf": {
+      "sha256": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
+      "bytes": 21928
+    },
+    "publication/unified-contextuality/c3-figures/spectra.png": {
+      "sha256": "ef35a8bf4d916a1c27c0e53db70009d8afb344ac9874eb7e66cc4f3ad5448137",
+      "bytes": 93869
+    },
+    "publication/unified-contextuality/figures/fig1_fraction.png": {
+      "sha256": "1d1063fa0c297d62eeb8bb9370ec54a848917530e60201740fdb26d4b9485124",
+      "bytes": 65124
+    },
+    "publication/unified-contextuality/figures/fig2_noise.png": {
+      "sha256": "fa6be8c20942281573e07a503d94583e873563fb9ed55ed352b470f0a541d2c4",
+      "bytes": 58508
+    },
+    "publication/unified-contextuality/figures/fig3_spectra.png": {
+      "sha256": "231a42074a32bface2863036549fa1c9dcf95360164d3e7bace0eb837228aca4",
+      "bytes": 33643
+    },
+    "publication/unified-contextuality/journal-section-map.json": {
+      "sha256": "7c623583559fc5d201741d7b15c1d457b2ed2d237437f6d3a77202c16c359c18",
+      "bytes": 1334
+    },
+    "publication/unified-contextuality/jphysa/c3-figures/spectra.pdf": {
+      "sha256": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
+      "bytes": 21928
+    },
+    "publication/unified-contextuality/jphysa/figures/fig1_fraction.png": {
+      "sha256": "1d1063fa0c297d62eeb8bb9370ec54a848917530e60201740fdb26d4b9485124",
+      "bytes": 65124
+    },
+    "publication/unified-contextuality/jphysa/figures/fig2_noise.png": {
+      "sha256": "fa6be8c20942281573e07a503d94583e873563fb9ed55ed352b470f0a541d2c4",
+      "bytes": 58508
+    },
+    "publication/unified-contextuality/jphysa/figures/fig3_spectra.png": {
+      "sha256": "231a42074a32bface2863036549fa1c9dcf95360164d3e7bace0eb837228aca4",
+      "bytes": 33643
+    },
+    "publication/unified-contextuality/jphysa/manuscript-tectonic.log": {
+      "sha256": "694ba8f05dec21a21fb8d704f09e8c63d80f8038e0851c52e25529ac95310f9f",
+      "bytes": 3092
+    },
+    "publication/unified-contextuality/jphysa/manuscript.pdf": {
+      "sha256": "b4ed8536eae1429b20686afdba6436394abf5b09edb91846ad7b2049d083488c",
+      "bytes": 355907
+    },
+    "publication/unified-contextuality/jphysa/manuscript.tex": {
+      "sha256": "23e39e974b742064a0154163ef4c8dc5224af0eccf01533ce09f8f4bebda5ffa",
+      "bytes": 96499
+    },
+    "publication/unified-contextuality/jphysa/supplementary-tectonic.log": {
+      "sha256": "6a4880bf6ee6b7050af519463c22d09db82bd70e1ea7bf76d3a93440bdd7e5af",
+      "bytes": 642
+    },
+    "publication/unified-contextuality/jphysa/supplementary.pdf": {
+      "sha256": "ee08624f86b31821ee642df7fae5530f96bb30b9e6e9747291cda00f3bedcff2",
+      "bytes": 158202
+    },
+    "publication/unified-contextuality/jphysa/supplementary.tex": {
+      "sha256": "8dba3ac75e0e04e7128b6365dfe5349e26e8aa352d544b6a76c559e3f9d2d00a",
+      "bytes": 27483
+    },
+    "publication/unified-contextuality/unified-contextuality-tectonic.log": {
+      "sha256": "2bb7d0860deb09f386db68dc3d92afacf1f0f55be59fef9e9fee7f4ee7fd0f25",
+      "bytes": 3405
+    },
+    "publication/unified-contextuality/unified-contextuality.html": {
+      "sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "bytes": 156616
+    },
+    "publication/unified-contextuality/unified-contextuality.pdf": {
+      "sha256": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "bytes": 437176
+    },
+    "publication/unified-contextuality/unified-contextuality.tex": {
+      "sha256": "fc4bd42a62bd4fa25b4813893fdf3f64acc565c0b5ad41846901007337d154b9",
+      "bytes": 116671
+    }
+  },
+  "public_pdf_matches_typeset_pdf": true,
+  "submission_status": "Prepared locally; no arXiv, Zenodo or journal submission.",
+  "validation_boundary": "Compilation, source/archive consistency and input stability checked; rendered layout requires separate visual review."
+}

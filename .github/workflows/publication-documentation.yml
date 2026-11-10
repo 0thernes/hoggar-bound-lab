@@ -21,14 +21,20 @@ jobs:
           package-manager-cache: false
       - name: Verify unchanged research sources and affiliation metadata
         run: python3 scripts/publication_release_audit.py
+      - name: Verify the unified paper artifacts and scholarly metadata
+        run: python3 scripts/unified_publication_audit.py
       - name: Verify the exact interactive demonstration and negative controls
         run: node tests/frontier_c3_browser_test.cjs
+      - name: Recount the combined paper's section-score connection
+        run: python3 scripts/unified_section_score.py
       - name: Assemble and check the publication site
         run: python3 scripts/independent_site.py
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: publication-documentation-evidence
           path: |
-            results/publication-v1.1.2-audit.json
+            results/publication-v1.2.0-audit.json
+            results/unified-publication-audit.json
+            results/unified-section-score.json
             build/independent-site/artifact-sha256.json
           if-no-files-found: error

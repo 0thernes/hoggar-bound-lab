@@ -1,0 +1,1889 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate</title>
+<meta name="citation_title" content="Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate">
+<meta name="citation_author" content="Donahue, Alexander S.">
+<meta name="citation_author_institution" content="0thernes LLC">
+<meta name="citation_author_orcid" content="https://orcid.org/0009-0006-8168-9648">
+<meta name="citation_publication_date" content="2026/11/09">
+<meta name="citation_online_date" content="2026/11/09">
+<meta name="citation_technical_report_institution" content="0thernes LLC">
+<meta name="citation_technical_report_number" content="Hoggar Bound Lab, version 1.2.0">
+<meta name="citation_pdf_url" content="https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf">
+<meta name="citation_abstract_html_url" content="https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html">
+<meta name="citation_language" content="en">
+<link rel="canonical" href="https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html"><style>
+:root{color-scheme:light;--ink:#183239;--muted:#50666c;--rule:#cbd7d6;--accent:#126c61}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:#fafbf8;color:var(--ink);font:17px/1.65 Georgia,serif}
+main{max-width:55rem;margin:auto;padding:2.5rem 1.25rem 4rem;overflow-wrap:break-word}
+h1{font-size:2.1rem;line-height:1.2;letter-spacing:-.025em;margin:1rem 0}
+h2{font-size:1.45rem;line-height:1.3;margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--rule)}
+h3{font-size:1.15rem;line-height:1.4;margin-top:1.8rem}p{margin:.8rem 0}
+a{color:var(--accent);text-underline-offset:3px}a:focus-visible{outline:3px solid #b66b00;outline-offset:4px}
+nav,.edition{font:14px/1.5 system-ui,sans-serif;color:var(--muted)}nav{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}
+.contents{margin:1.5rem 0;padding:.8rem 1rem;border:1px solid var(--rule);font:15px/1.65 system-ui,sans-serif}.contents summary{cursor:pointer;font-weight:600}.contents ul{padding-left:1.3rem}
+blockquote{border-left:3px solid var(--accent);padding:.6rem 1rem;margin:1.2rem 0;background:#eff4ef}
+code{font: .85em/1.5 ui-monospace,Consolas,monospace;background:#edf1ed;padding:.1em .2em}
+pre{overflow:auto;background:#edf1ed;padding:1rem;white-space:pre}pre code{padding:0}
+img{display:block;max-width:100%;height:auto;margin:1.2rem auto;background:white}
+table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;font-size:.88rem;line-height:1.45}
+th,td{padding:.45rem .6rem;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{border-bottom:2px solid var(--ink)}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;padding:.2rem 0}
+.math.display{display:block;max-width:100%;overflow-x:auto;overflow-y:hidden}
+main .math mjx-assistive-mml{width:1px!important;height:1px!important;min-width:0!important}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--rule);font:14px/1.5 system-ui,sans-serif}
+@media(max-width:600px){.math.inline{display:inline-block;max-width:100%;overflow-x:auto;overflow-y:hidden;vertical-align:middle}}
+@media(max-width:500px){main{padding:1.4rem 1rem 3rem}h1{font-size:1.65rem}body{font-size:16px}}
+@media print{body{background:white;color:black;font-size:10.5pt}main{max-width:none;padding:0}nav{display:none}h2,h3{break-after:avoid}img,blockquote,pre{break-inside:avoid}}
+</style><script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},startup:{pageReady:()=>MathJax.startup.defaultPageReady().then(()=>{document.documentElement.setAttribute('data-math','ready')})}};</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml-full.min.js" integrity="sha384-dCtf/9Xgzj8edI30iIEsxNfjUQ0zj2AXa3eUdgjsx8odUmpURZx5Z7aDZmV781et" crossorigin="anonymous"></script></head><body><main><nav aria-label="Research links"><a href="../">Research index</a><a href="unified-contextuality.pdf">Full paper PDF</a><a href="../c3-lab/">C3 demonstration</a><a href="https://github.com/0thernes/hoggar-bound-lab/tree/v1.2.0/lean">Lean proofs</a></nav><h1 id="spectral-bounds-and-their-limits-in-pauli-contextuality-exact-configurations-and-a-four-qubit-c3-certificate">Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate</h1>
+<p><strong>A general Lean 4 bound, configurations that attain it, and an exact limit on spectral information in a completion problem</strong></p>
+<p>Alexander S. Donahue, 0thernes LLC, Washington, USA. ORCID: <a href="https://orcid.org/0009-0006-8168-9648">0009-0006-8168-9648</a>. Correspondence: <a href="mailto:0_0@0thernes.art">0_0@0thernes.art</a><br>
+Hoggar Bound Lab, version 1.2.0, 9 November 2026. Research preprint. Not peer reviewed.<br>
+Research and manuscript preparation used Claude (Anthropic) and OpenAI Codex agents under the author's direction; see Section 13.</p>
+<blockquote>
+<p><strong>Prior work and scope.</strong> The spectral floor and its saturation in the three classical families are
+due to Jonah [J2] and the works identified in Section 1.2. The C3 completion question, its Jordan
+representation and Conjecture E are due to Jonah [J3]. This paper combines a formalization and
+exact configurations attaining the floor with a four-qubit certificate establishing one instance
+of the failure predicted by Conjecture E. The certificate does not invalidate the spectral floor.</p>
+</blockquote>
+<h2 id="abstract">Abstract</h2>
+<p>Spectral methods give rigorous bounds on Pauli contextuality, but a spectrum need not retain the
+information required by a related completion problem. We study both aspects in a common setting.
+For <span class="math inline">\(N\)</span> qubits, <span class="math inline">\(D=2^N\)</span>, and an arbitrary set <span class="math inline">\(S\)</span> of nonidentity Pauli observables, a Lean 4 development
+proves Jonah's spectral floor: satisfied minus violated commuting triples is at most
+<span class="math inline">\((D-2)|S|^{3/2}/(6\sqrt{D-1})\)</span>. Saturating configurations outside the classical families have exact
+contextuality degrees 75 on 135 four-qubit observables, 480 on 496 five-qubit observables, and 729344
+on 8128 seven-qubit observables. The first two degrees have kernel-checked counts; the seven-qubit
+counts are executable exact computations. We relate saturation to pure states with a single nonzero
+Pauli modulus, two-character sets and flat phase states, including an exhaustive classification of
+the specified third-level phase-state family through five qubits.</p>
+<p>We then exhibit two sign assignments on a 71-point section of the real four-qubit configuration.
+Their <span class="math inline">\(16\times16\)</span> Pauli carriers are cospectral, but their <span class="math inline">\(64\times64\)</span> completion operators have
+cubic traces 14976 and 15360. This establishes the four-qubit C3 instance of Jonah's Conjecture E:
+the carrier spectrum alone does not determine the completion spectrum. A block certificate explains
+the information loss. The largest completion eigenvalues differ by two, and the associated spherical
+relaxations differ by 32; these are not statements about exact binary completion optima. Lean checks
+carrier cospectrality and completion noncospectrality in the actual Pauli model, while the printed
+factorizations and relaxation gaps remain algebraic results outside that formal scope. Independent
+exact verifiers, falsification controls and Tsotchke software demonstrations accompany the paper.
+The work is AI-assisted and is neither externally peer reviewed nor a quantum-hardware experiment.</p>
+<details class="contents"><summary>Contents</summary><ul><li><a href="#1-scope-and-common-question">1. Scope and common question</a></li><li><a href="#2-setting">2. Setting</a></li><li><a href="#3-the-spectral-floor">3. The spectral floor</a></li><li><a href="#4-saturation-in-the-classical-families">4. Saturation in the classical families</a></li><li><a href="#5-saturation-outside-the-classical-families">5. Saturation outside the classical families</a></li><li><a href="#6-consequences-for-all-n">6. Consequences for all N</a></li><li><a href="#7-the-data-against-the-floor">7. The data against the floor</a></li><li><a href="#8-what-a-carrier-spectrum-does-not-determine">8. What a carrier spectrum does not determine</a></li><li><a href="#9-formal-verification-and-its-boundary">9. Formal verification and its boundary</a></li><li><a href="#10-a-running-example-on-the-tsotchke-stack">10. A running example on the Tsotchke stack</a></li><li><a href="#11-falsifiability-and-replication">11. Falsifiability and replication</a></li><li><a href="#12-limitations-and-open-problems">12. Limitations and open problems</a></li><li><a href="#13-research-provenance-disclosure-and-availability">13. Research provenance, disclosure and availability</a></li><li><a href="#references">References</a></li><li><a href="#appendix-a-reproduction">Appendix A. Reproduction</a></li><li><a href="#appendix-b-witness-assignments">Appendix B. Witness assignments</a></li></ul></details><h2 id="1-scope-and-common-question">1. Scope and common question</h2>
+<p>A noncontextual assignment gives each Pauli observable a fixed value <span class="math inline">\(\pm1\)</span>. Compatible triples
+impose product constraints, and the contextuality degree counts the fewest constraints any assignment
+must violate [dB]. A signed sum of Pauli matrices converts this discrete problem into a problem about
+spectral moments. Its third trace records the satisfied-minus-violated count exactly. Optimizing that
+moment gives a lower bound on contextuality; special states turn the bound into an exact answer.</p>
+<p>A different use of spectral information arises when the assignment is fixed only on a hyperplane
+section. Completing it on the remaining observables gives a quadratic optimization governed by a
+second operator. Does the spectrum of the fixed section determine the spectrum of this completion
+operator? The four-qubit example below shows that it need not: the section spectrum can forget which
+eigenvalues belong to the two eigenspaces of a distinguished Pauli. The completion depends on that
+partition. Thus a sharp global bound and a failure of spectral reconstruction coexist without
+contradiction.</p>
+<h3 id="11-contributions-and-verification-levels">1.1 Contributions and verification levels</h3>
+<p>The first part formalizes the spectral floor for arbitrary induced Pauli configurations and studies
+its equality cases. The Lean theorem <code>hoggar_bound</code> is stated for the actual complex Pauli matrices,
+with their multiplication phases and context signs. Finite corollaries include the known exact degrees
+63 for three qubits and 315 for the real four-qubit quadric, and stronger lower bounds than <span class="math inline">\(L/5\)</span> for
+several larger classical configurations. The bound itself is prior work [J2]; the formalization and
+the extension of its application to arbitrary supports are the contributions considered here.</p>
+<p>Section 5 gives exact configurations outside the classical families. The four-qubit pivot support
+<span class="math inline">\(S_B\)</span> has 135 points, 1095 contexts and degree 75; the five-qubit support <span class="math inline">\(S_5\)</span> has 496 points, 10880
+contexts and degree 480. These degree statements, including their finite counts and witnesses, are
+proved in Lean. Their interpretation as Pauli supports of particular states is checked separately by
+exact programs. The seven-qubit circuit support has 8128 points, 2824192 contexts and degree 729344;
+its finite counts are not kernel-checked. The saturation criterion, quantum-metric interpretation,
+two-character-set result and classification of specified flat phase states are mathematical and
+executable results with the boundaries stated in Section 9.</p>
+<p>Section 8 supplies a fully specified four-qubit C3 certificate. Two assignments on the 71-point
+section of the real quadric have equal carrier spectra and different completion spectra. It proves
+the <span class="math inline">\(N=4\)</span> C3 instance of the failure predicted by Conjecture E [J3], rather than refuting that
+conjecture. Lean checks the actual Pauli and signed-context interpretation, not merely an isolated
+pair of matrices. The polynomial factorizations and the gaps of two and 32 are independently checked
+algebraic consequences, outside the 42-declaration C3 audit.</p>
+<p>The two 135-point configurations must be distinguished. The pivot support <span class="math inline">\(S_B\)</span> is not a quadric and
+has 1095 contexts and degree 75. The C3 ambient configuration is the real quadric <span class="math inline">\(Q^+(7,2)\)</span>, with
+1575 contexts and known degree 315 [LGG]; its section leaves 1120 outside contexts. The C3 result
+concerns completion spectra and does not calculate a new contextuality degree for either set.</p>
+<p>Section 9 records the formal boundary for both parts. Sections 10 and 11 give the software
+demonstrations and falsification checks; Appendices A and B give reproduction commands and witness
+formats. In the journal layout those four sections form the supplement, retaining their numbers.
+The full paper and journal forms share the same mathematical statements and named references.</p>
+<h3 id="12-relation-to-prior-work">1.2 Relation to prior work</h3>
+<ul>
+<li>The contextuality degree and its first values: de Boutray, Holweck, Giorgetti, Masson and Saniga
+[dB]; Muller, Saniga, Giorgetti, de Boutray and Holweck [M1] (three-qubit degree 63, the split Cayley
+hexagon of violated contexts); Muller, Saniga, Giorgetti, Holweck and Kelleher [M2] (upper bounds
+for four to seven qubits, lower bound <span class="math inline">\(L/5\)</span>); Saniga et al. [S] (hexagons).</li>
+<li>The exact value <span class="math inline">\(315\)</span> for the four-qubit hyperbolic quadric, its 240 optimal sets and a Lean proof of
+that value: Li, Gupta and Ganesh [LGG].</li>
+<li>The exact values <span class="math inline">\(d(Q^-(7,2)) = 315\)</span>, <span class="math inline">\(d(W(7,2)) = 1575\)</span>, <span class="math inline">\(d(Q^+(9,2)) = 6975\)</span> (computer-assisted),
+the operator <span class="math inline">\(A = \sum_v f(v) P_v\)</span> and its Hoggar spectrum <span class="math inline">\(\{21, -3^7\}\)</span>: Jonah [J1].</li>
+<li>The spectral floor itself, its Kramers (quaternionic) form for elliptic quadrics, the description of
+quadrics by the antiunitaries <span class="math inline">\(P_c K\)</span>, the operator identity for <span class="math inline">\(A^2\)</span> on sets closed under products,
+and the theorem that among the three families the floor is attained exactly for
+<span class="math inline">\(W(5,2)\)</span>, <span class="math inline">\(Q^+(7,2)\)</span>, <span class="math inline">\(Q^-(5,2)\)</span> (and trivially <span class="math inline">\(Q^-(3,2)\)</span>): Jonah [J2], with the trace formula also
+in [J3]. Stronger five-qubit lower bounds (<span class="math inline">\(d(W(9,2)) \ge 28830\)</span>, <span class="math inline">\(d(Q^-(9,2)) \ge 6510\)</span>) are
+announced, with proofs held privately, in [J4]. Sets that are not closed under products are named in
+[J2] as not covered.</li>
+<li>Pure states whose Pauli expectation values are zero or of one modulus: the two-qubit state of Liu, Low
+and Yin [LLY]; the four-qubit state <span class="math inline">\((-3,1,\dots,1)/\sqrt{24}\)</span> and the five-qubit state <span class="math inline">\(|s_5\rangle\)</span>
+with 135 and 496 non-zero values, found numerically by Cieśliński [Ci], who calls a (possibly mixed)
+state <em>Pauli flat</em> when all of its Pauli expectation values have one modulus and lists these pure
+states under the relaxed condition; real four-qubit states of this kind as the optima of <span class="math inline">\(Q^+(7,2)\)</span>
+[J4]. Kang [K] proves that no four-qubit state, and no state of an odd number <span class="math inline">\(N \gt 1\)</span> of qubits, has
+all squared Pauli expectation values in <span class="math inline">\(\{0, 2^{-N}\}\)</span>. None of [LLY, Ci, K] discusses contextuality,
+phase states, or more than five qubits.</li>
+<li>Diagonal gates of the Clifford hierarchy and their phase polynomials: Cui, Gottesman and Krishna
+[CGK]. <span class="math inline">\(\mathbb{Z}_4\)</span>-valued quadratic forms and their character sums: [CCKS]. Two-character sets,
+two-weight codes and strongly regular graphs: Calderbank and Kantor [CK]. The bent functions of
+Maiorana and McFarland: [McF].</li>
+<li>The scalar inequality behind the floor is classical: it is Okumura's lemma [O] (equivalently the
+maximal sample skewness, Wilkins [W]).</li>
+<li>The Hoggar lines and the cubic purity condition for quantum states: Hoggar [H], Stacey [St],
+Jones and Linden [JL]. Bent functions and their difference sets: Rothaus [R]. Point sets with the
+hyperplane intersection numbers of a quadric (quasi-quadrics): De Clerck, Hamilton, O'Keefe and
+Penttila [DHOP].</li>
+</ul>
+<p>The spectral-floor derivation in Sections 3, 4 and 6 was developed before the project identified
+[J1]–[J4]; the overlap is attributed here. The exhaustive computations behind the exact values of [J1]
+were not rerun. The assignments found in this project are consistent with those values, which remain
+external computer-assisted claims.</p>
+<p>For completion spectra, [J3] gives the strict-law question, its Jordan representation, the case table
+and Conjecture E. Its inspected v0.5 reports the three-qubit C3 phenomenon but leaves C3 for
+<span class="math inline">\(N\ge4\)</span> open. Section 8 addresses <span class="math inline">\(N=4\)</span>. The C3 literature check examined that primary PDF and
+related deposits, and searched for the named conjecture and higher-dimensional C3 examples. No
+additional primary <span class="math inline">\(N\ge4\)</span> example was identified in that bounded search. This is a qualitative
+comparison of evidence, not a statistical meta-analysis or a guarantee of historical priority.
+The source manuscript is dated 20 October 2026, its deposit is dated 21 October, and its latest-version
+endpoint returned v0.5 when inspected on 9 November.</p>
+<h2 id="2-setting">2. Setting</h2>
+<p><strong>Pauli operators.</strong> Let <span class="math inline">\(D = 2^N\)</span>. A <em>point</em> is a nonzero vector <span class="math inline">\(v = (a \mid c) \in \mathbb{F}_2^{2N}\)</span>.
+It labels the Hermitian operator</p>
+<p><span class="math display">\[P_v \;=\; i^{\,|a \wedge c|}\, X^{a} Z^{c},\]</span></p>
+<p>a tensor product of <span class="math inline">\(I, X, Y, Z\)</span> (the exponent <span class="math inline">\(|a \wedge c|\)</span> counts the factors equal to <span class="math inline">\(Y = iXZ\)</span>).
+For numeric labels use <span class="math inline">\(a+2^Nc\)</span>, interpreting each binary vector as an integer with bit zero at the
+rightmost tensor factor. Words are printed in tensor-factor order from left to right. Thus four-qubit
+label 128 is <span class="math inline">\(ZIII\)</span>. This convention is also used for the C3 witnesses in Section 8.
+<span class="math inline">\(P_0 = I\)</span>, <span class="math inline">\(P_v^2 = I\)</span>, and <span class="math inline">\(\operatorname{tr} P_v = 0\)</span> for <span class="math inline">\(v \ne 0\)</span>. Products close up to a phase,</p>
+<p><span class="math display">\[P_u P_v = \tau(u,v)\, P_{u+v}, \qquad
+\tau(u,v) = i^{\,k_u + k_v + 3 k_{u+v}}\,(-1)^{c_u \cdot a_v}, \quad k_v = |a_v \wedge c_v| ,\]</span></p>
+<p>and with the symplectic form <span class="math inline">\(\langle u, v\rangle = c_u\cdot a_v + c_v \cdot a_u\)</span> one has
+<span class="math inline">\(\tau(v,u) = (-1)^{\langle u,v\rangle}\tau(u,v)\)</span> and <span class="math inline">\(\tau(u,v)^2 = (-1)^{\langle u,v\rangle}\)</span>.
+So <span class="math inline">\(P_u\)</span> and <span class="math inline">\(P_v\)</span> commute exactly when <span class="math inline">\(\langle u,v\rangle = 0\)</span>, and then <span class="math inline">\(\tau(u,v) = s(u,v) \in \{+1,-1\}\)</span>.</p>
+<p><strong>Contexts.</strong> A <em>context</em> (a line of the symplectic polar space <span class="math inline">\(W(2N-1,2)\)</span>) is a set
+<span class="math inline">\(\ell = \{u, v, u+v\}\)</span> of three distinct points with <span class="math inline">\(\langle u, v\rangle = 0\)</span>. Its three operators commute and
+<span class="math inline">\(P_u P_v P_{u+v} = s_\ell\, I\)</span> with <span class="math inline">\(s_\ell = s(u,v)\)</span>, which does not depend on the order.</p>
+<p><strong>Configurations and assignments.</strong> Fix a set <span class="math inline">\(S\)</span> of points and let <span class="math inline">\(\mathcal{L}(S)\)</span> be the set of all
+contexts contained in <span class="math inline">\(S\)</span>, <span class="math inline">\(L_S = |\mathcal{L}(S)|\)</span>. <span class="math inline">\(S\)</span> is <em>closed</em> if, for distinct labels
+<span class="math inline">\(u,v\in S\)</span> with <span class="math inline">\(\langle u,v\rangle=0\)</span>, the label <span class="math inline">\(u+v\)</span> also belongs to <span class="math inline">\(S\)</span>: closure of commuting
+Pauli products up to sign, excluding the identity product of a label with itself.
+An assignment <span class="math inline">\(f : S \to \{+1,-1\}\)</span> <em>violates</em>
+<span class="math inline">\(\ell\)</span> when <span class="math inline">\(f(u) f(v) f(u+v) \neq s_\ell\)</span>. Put</p>
+<p><span class="math display">\[\beta_S(f) = \sum_{\ell \in \mathcal{L}(S)} s_\ell\, f(u) f(v) f(u+v) = L_S - 2\,\mathrm{viol}(f),
+\qquad d(S) = \min_f \mathrm{viol}(f).\]</span></p>
+<p><span class="math inline">\(d(S)\)</span> is the contextuality degree [dB]. For the noncontextuality inequality
+<span class="math inline">\(\chi = \sum_\ell s_\ell \langle P_u P_v P_{u+v}\rangle \le L_S - 2 d(S)\)</span> quantum mechanics gives
+<span class="math inline">\(\chi = L_S\)</span> in every state [C, LGG].</p>
+<p><strong>Three families.</strong> The <em>full space</em> is <span class="math inline">\(S = \mathbb{F}_2^{2N}\setminus\{0\}\)</span>, with <span class="math inline">\(D^2-1\)</span> points
+and <span class="math inline">\(L = (D^2-1)(D^2-4)/12\)</span> contexts. Let <span class="math inline">\(q_0(v)=|a\wedge c|\bmod2\)</span> for <span class="math inline">\(v=(a\mid c)\)</span>.
+For <span class="math inline">\(w\in\mathbb{F}_2^{2N}\)</span> set <span class="math inline">\(Q_w=\{v\ne0:q_0(v)+\langle w,v\rangle=0\}\)</span>.
+<span class="math inline">\(Q_w\)</span> is a <em>hyperbolic</em> quadric <span class="math inline">\(Q^+(2N-1,2)\)</span> if <span class="math inline">\(q_0(w)=0\)</span> and an <em>elliptic</em> quadric
+<span class="math inline">\(Q^-(2N-1,2)\)</span> if <span class="math inline">\(q_0(w)=1\)</span>. With <span class="math inline">\(K\)</span> complex conjugation in the computational basis,
+<span class="math inline">\(\theta_w=P_wK\)</span> is antiunitary, <span class="math inline">\(\theta_wP_v\theta_w^{-1}=(-1)^{q_0(v)+\langle w,v\rangle}P_v\)</span>
+and <span class="math inline">\(\theta_w^2=(-1)^{q_0(w)}\)</span>. So the quadrics are the sets of Pauli observables fixed by a Pauli
+antiunitary: a real structure (<span class="math inline">\(\theta^2 = 1\)</span>) for hyperbolic quadrics and a quaternionic structure
+(<span class="math inline">\(\theta^2 = -1\)</span>) for elliptic ones [J2]. <span class="math inline">\(Q_0\)</span> is the set of real symmetric Pauli matrices (an even
+number of <span class="math inline">\(Y\)</span> factors). All three families are closed.</p>
+<h2 id="3-the-spectral-floor">3. The spectral floor</h2>
+<p><strong>Theorem 1 (spectral floor; Jonah [J2] for the three families; formalized here for arbitrary <span class="math inline">\(S\)</span>).</strong>
+Let <span class="math inline">\(N \ge 1\)</span>, let <span class="math inline">\(S\)</span> be any set of points and <span class="math inline">\(f : S \to \{\pm 1\}\)</span>. Then</p>
+<p><span class="math display">\[\beta_S(f) \;\le\; \frac{(D-2)\,|S|^{3/2}}{6\sqrt{D-1}},
+\qquad\text{hence}\qquad
+d(S) \;\ge\; \frac{L_S}{2} - \frac{(D-2)\,|S|^{3/2}}{12\sqrt{D-1}} .\]</span></p>
+<p><em>Proof.</em> Let <span class="math inline">\(A = \sum_{v \in S} f(v) P_v\)</span>, a Hermitian <span class="math inline">\(D \times D\)</span> matrix.</p>
+<p><em>(i) Three traces.</em> <span class="math inline">\(\operatorname{tr} A = 0\)</span> because <span class="math inline">\(0 \notin S\)</span>. Since
+<span class="math inline">\(\operatorname{tr}(P_u P_v) = D\,\delta_{uv}\)</span> and <span class="math inline">\(f(v)^2 = 1\)</span>, <span class="math inline">\(\operatorname{tr} A^2 = D\,|S|\)</span>. Since
+<span class="math inline">\(\operatorname{tr}(P_u P_v P_w) = D\,\tau(u,v)\,[w = u+v]\)</span>,</p>
+<p><span class="math display">\[\operatorname{tr} A^3 = D \sum_{\substack{u, v \in S \\ u+v \in S}} f(u) f(v) f(u+v)\, \tau(u,v).\]</span></p>
+<p>The pairs with <span class="math inline">\(\langle u,v\rangle = 1\)</span> cancel against their transposes, because <span class="math inline">\(\tau(v,u) = -\tau(u,v)\)</span>.
+The pairs with <span class="math inline">\(\langle u,v \rangle = 0\)</span> are the ordered pairs of distinct points of a context
+(<span class="math inline">\(u = v\)</span> would give <span class="math inline">\(u + v = 0 \notin S\)</span>), six for each context, each contributing <span class="math inline">\(s_\ell f(u)f(v)f(u+v)\)</span>.
+Therefore <span class="math inline">\(\operatorname{tr} A^3 = 6 D\, \beta_S(f)\)</span>.</p>
+<p><em>(ii) A scalar inequality</em> (Okumura [O]). Let <span class="math inline">\(x_1, \dots, x_n\)</span> be real with <span class="math inline">\(\sum x_i = 0\)</span> and
+<span class="math inline">\(\sum x_i^2 = n m\)</span>, <span class="math inline">\(n \ge 2\)</span>, and let <span class="math inline">\(a = \sqrt{(n-1)m}\)</span>. By the Cauchy–Schwarz inequality applied to
+the other <span class="math inline">\(n-1\)</span> numbers, <span class="math inline">\(x_i^2 \le (n-1)(nm - x_i^2)\)</span>, so <span class="math inline">\(x_i \le a\)</span> for every <span class="math inline">\(i\)</span>. Hence
+<span class="math inline">\((x_i - a)\big((n-1)x_i + a\big)^2 \le 0\)</span>. Summing over <span class="math inline">\(i\)</span> and using the two constraints,</p>
+<p><span class="math display">\[(n-1) \sum_i x_i^3 \;\le\; n\, m\, (n-2)\, a .\]</span></p>
+<p><em>(iii) Conclusion.</em> Apply (ii) to the eigenvalues of <span class="math inline">\(A\)</span> with <span class="math inline">\(n = D\)</span>, <span class="math inline">\(m = |S|\)</span>:
+<span class="math inline">\((D-1) \cdot 6 D \beta \le D\,|S|\,(D-2)\sqrt{(D-1)|S|}\)</span>. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>Three remarks. First, no closure property of <span class="math inline">\(S\)</span> is used: products that leave <span class="math inline">\(S\)</span> do not contribute to
+the trace. Second, the hypothesis <span class="math inline">\(f = \pm 1\)</span> enters only through <span class="math inline">\(\operatorname{tr} A^2 = D|S|\)</span>, so the
+argument bounds the cubic form <span class="math inline">\(T(x) = \sum_\ell s_\ell x_u x_v x_w\)</span> on the sphere <span class="math inline">\(\sum x_v^2 = |S|\)</span>.
+Third, the bound applies to the induced configuration only, that is, with <em>all</em> contexts contained
+in <span class="math inline">\(S\)</span>.</p>
+<p><strong>Theorem 2 (quaternionic form; Jonah [J2]).</strong> Let <span class="math inline">\(N\ge2\)</span>. If every <span class="math inline">\(P_v\)</span>, <span class="math inline">\(v \in S\)</span>, commutes with an
+antiunitary <span class="math inline">\(\theta\)</span> with <span class="math inline">\(\theta^2 = -1\)</span> (for instance, <span class="math inline">\(S\)</span> lies in an elliptic quadric), then</p>
+<p><span class="math display">\[\beta_S(f) \;\le\; \frac{(D-4)\,|S|^{3/2}}{6\sqrt{2(D-2)}} .\]</span></p>
+<p><em>Proof.</em> <span class="math inline">\(A\)</span> is a real combination of operators commuting with <span class="math inline">\(\theta\)</span>, so <span class="math inline">\(\theta A = A \theta\)</span>. If
+<span class="math inline">\(A x = \lambda x\)</span> then <span class="math inline">\(A\theta x = \lambda \theta x\)</span>, and <span class="math inline">\(\langle x, \theta x\rangle = 0\)</span> because
+<span class="math inline">\(\langle \theta x, \theta y\rangle = \overline{\langle x, y \rangle}\)</span> gives
+<span class="math inline">\(\langle x, \theta x\rangle = \overline{\langle \theta x, \theta^2 x\rangle} = -\langle x, \theta x\rangle\)</span>.
+Every eigenspace is therefore an orthogonal sum of planes <span class="math inline">\(\{x, \theta x\}\)</span> and every eigenvalue has even
+multiplicity (Kramers). Apply (ii) to one value from each of the <span class="math inline">\(D/2\)</span> pairs, counted with pair
+multiplicity, with the same <span class="math inline">\(m\)</span>.
+<span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>Theorem 2 is not part of the Lean development; it is checked numerically (Section 11).</p>
+<p><strong>Closed forms.</strong> With the standard counts, Theorems 1 and 2 give for the three families the same
+expression in different arguments. Writing <span class="math inline">\(\varphi(D) = \tfrac12 - \sqrt{D+1}/(D+2)\)</span>,</p>
+<p>the fraction column below is understood only when <span class="math inline">\(L\gt 0\)</span>; configurations without contexts have
+degree zero, and no violated fraction is defined for them.</p>
+<table>
+<thead>
+<tr>
+<th>family</th>
+<th>points</th>
+<th>contexts <span class="math inline">\(L\)</span></th>
+<th>violated fraction at least</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>full space <span class="math inline">\(W(2N-1,2)\)</span></td>
+<td><span class="math inline">\(D^2-1\)</span></td>
+<td><span class="math inline">\((D^2-1)(D^2-4)/12\)</span></td>
+<td><span class="math inline">\(\varphi(D)\)</span></td>
+</tr>
+<tr>
+<td>elliptic quadric <span class="math inline">\(Q^-(2N-1,2)\)</span></td>
+<td><span class="math inline">\((D+1)(D-2)/2\)</span></td>
+<td><span class="math inline">\((D+1)(D-2)(D+2)(D-4)/48\)</span></td>
+<td><span class="math inline">\(\varphi(D)\)</span></td>
+</tr>
+<tr>
+<td>hyperbolic quadric <span class="math inline">\(Q^+(2N-1,2)\)</span></td>
+<td><span class="math inline">\((D-1)(D+2)/2\)</span></td>
+<td><span class="math inline">\((D-1)(D+2)(D-2)(D+4)/48\)</span></td>
+<td><span class="math inline">\(\varphi(D/2)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The three cases are the complex, quaternionic and real members of Dyson's threefold way; the real
+family at <span class="math inline">\(N\)</span> qubits has the same floor as the complex family at <span class="math inline">\(N-1\)</span> qubits.</p>
+<h2 id="4-saturation-in-the-classical-families">4. Saturation in the classical families</h2>
+<p><strong>Theorem 3 (equality; Jonah [J2, Theorem 6] for the three families).</strong> Suppose <span class="math inline">\(S\ne\varnothing\)</span>.
+Equality holds in Theorem 1 if
+and only if there is a unit vector <span class="math inline">\(\psi\)</span> with</p>
+<p><span class="math display">\[\langle \psi | P_v | \psi \rangle = f(v)\,\sqrt{\frac{D-1}{|S|}} \quad (v \in S), \qquad
+\langle \psi | P_v | \psi \rangle = 0 \quad (v \notin S,\ v \ne 0).\]</span></p>
+<p><em>Proof.</em> Equality in (ii) forces <span class="math inline">\(x_i \in \{a, -a/(n-1)\}\)</span> for every <span class="math inline">\(i\)</span>, and the zero sum forces exactly
+one value <span class="math inline">\(a\)</span>. So <span class="math inline">\(A = (a-b)\,|\psi\rangle\langle\psi| + b\,I\)</span> with <span class="math inline">\(b = -a/(D-1)\)</span>; reading off Pauli
+coefficients gives the claim, and the converse is the same computation backwards. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>We call such a <span class="math inline">\(\psi\)</span> <em>flat on</em> <span class="math inline">\(S\)</span>, after [Ci]. For the full space the condition says that <span class="math inline">\(\psi\)</span> is a
+fiducial vector of a SIC covariant under the <span class="math inline">\(N\)</span>-qubit Pauli group. Such vectors exist only for <span class="math inline">\(N = 1\)</span>
+and <span class="math inline">\(N = 3\)</span> (Godsil and Roy [GR]; an elementary proof through the integrality of the floor is in [J2]):
+for <span class="math inline">\(N = 3\)</span> they are the Hoggar lines.</p>
+<p><strong>The three saturated cases.</strong> The Hoggar fiducial <span class="math inline">\(\psi_H \propto (-1+2i, 1, 1, 1, 1, 1, 1, 1)\)</span> has
+<span class="math inline">\(\langle P_v \rangle = \pm 1/3\)</span> for all 63 three-qubit Pauli observables. We verified the following by
+exact counting in four independent implementations (Section 11); the values themselves are known
+[M1, dB, LGG, J2].</p>
+<table>
+<thead>
+<tr>
+<th>configuration</th>
+<th>assignment</th>
+<th>violated</th>
+<th>floor</th>
+<th>spectrum of <span class="math inline">\(A\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(W(5,2)\)</span>: 63 points, 315 contexts</td>
+<td>signs of <span class="math inline">\(\langle\psi_H\vert P_v\vert \psi_H\rangle\)</span></td>
+<td>63</td>
+<td>63</td>
+<td><span class="math inline">\(\{21, (-3)^7\}\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^-(5,2)\)</span>: 27 points, 45 contexts</td>
+<td>the same signs, restricted</td>
+<td>9</td>
+<td>9</td>
+<td><span class="math inline">\(\{9^2, (-3)^6\}\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^+(7,2)\)</span>: 135 points, 1575 contexts</td>
+<td>signs of the realified <span class="math inline">\(\psi_H \in \mathbb{R}^{16}\)</span></td>
+<td>315</td>
+<td>315</td>
+<td><span class="math inline">\(\{45, (-3)^{15}\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In the third row, <span class="math inline">\(\mathbb{C}^8\)</span> is read as <span class="math inline">\(\mathbb{R}^{16}\)</span>; the resulting real four-qubit state has
+expectation <span class="math inline">\(\pm 1/3\)</span> on all 135 real Pauli observables and <span class="math inline">\(0\)</span> on the 120 imaginary ones (this
+description of the optimal assignments of <span class="math inline">\(Q^+(7,2)\)</span> as sign patterns of real flat states is
+announced in [J4]; the state <span class="math inline">\((-3,1,\dots,1)/\sqrt{24}\)</span> of [Ci] is of this kind). The violated contexts
+form, respectively, a classically embedded split Cayley
+hexagon (63 lines, three per point, incidence graph of diameter 6 and girth 12, the three lines through
+each point in one totally isotropic plane), nine pairwise disjoint lines, and a copy of the dual polar
+space <span class="math inline">\(DW(5,2)\)</span> (315 lines, seven per point, collinearity graph distance-regular with intersection
+array <span class="math inline">\(\{14,12,8;1,3,7\}\)</span>), in agreement with [M1, S, M2, LGG].</p>
+<p>By Theorem 3, the optimal assignments of <span class="math inline">\(W(5,2)\)</span> are exactly the sign patterns of Pauli-covariant SIC
+fiducials in dimension 8. Our enumeration finds 120 optimal violated sets in the orbit of the Hoggar
+pattern under <span class="math inline">\(Sp(6,2)\)</span>, and the context–point incidence matrix has rank 56 over <span class="math inline">\(\mathbb{F}_2\)</span>, so each
+set comes from <span class="math inline">\(2^7 = 128\)</span> assignments: <span class="math inline">\(120 \cdot 128 = 15360 = 240 \cdot 64\)</span> assignments, matching the
+240 Hoggar-type SICs of 64 vectors each [St]. For <span class="math inline">\(Q^+(7,2)\)</span> the orbit of our violated set under the
+reflections of <span class="math inline">\(O^+(8,2)\)</span> has 240 elements, the number proved in [LGG].</p>
+<p><strong>Proposition 3 (violated contexts in the quantum metric).</strong> Let <span class="math inline">\(\psi\)</span> be a state, <span class="math inline">\(p_v = \langle P_v\rangle\)</span>,
+and let <span class="math inline">\(Q_{uv} = \tfrac14\big(\langle P_u P_v\rangle - p_u p_v\big)\)</span> be its quantum geometric tensor along
+the flows <span class="math inline">\(e^{-itP_v/2}\)</span>. Consider a context <span class="math inline">\(\{u, v, w\}\)</span> with sign <span class="math inline">\(s\)</span> and assume
+<span class="math inline">\(p_u p_v p_w\ne0\)</span>, so the sign assignment on this context is defined. The Fubini-Study metric is
+<span class="math inline">\(g_{uv} = \tfrac14 (s\,p_w - p_u p_v)\)</span>. If <span class="math inline">\(f = \operatorname{sign}(p)\)</span>, the context is violated exactly when
+<span class="math inline">\(4|g_{uv}| = |p_w| + |p_u p_v|\)</span> and satisfied exactly when <span class="math inline">\(4|g_{uv}| = \big||p_w| - |p_u p_v|\big|\)</span>.</p>
+<p><em>Proof.</em> <span class="math inline">\(\langle P_uP_v\rangle = s\,p_w\)</span>; the context is violated when <span class="math inline">\(s\,p_w\)</span> and <span class="math inline">\(p_u p_v\)</span> have opposite
+signs. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>For <span class="math inline">\(\psi_H\)</span>: <span class="math inline">\(g_{vv} = 2/9\)</span>; <span class="math inline">\(|g_{uv}| = 1/9\)</span> on the 189 commuting pairs lying on the 63 violated contexts,
+<span class="math inline">\(1/18\)</span> on the 756 pairs lying on satisfied contexts, <span class="math inline">\(1/36\)</span> on the 1008 anticommuting pairs; the Berry
+curvature has modulus <span class="math inline">\(1/6\)</span> on anticommuting pairs and vanishes on commuting ones. The hexagon is the
+set of pairs of largest off-diagonal metric (computed with the QGTL kernels, Section 10).</p>
+<h2 id="5-saturation-outside-the-classical-families">5. Saturation outside the classical families</h2>
+<h3 id="51-the-criterion">5.1 The criterion</h3>
+<p>The statements of this section concern arbitrary sets <span class="math inline">\(S\)</span>, which need not be closed. For an assignment
+<span class="math inline">\(f\)</span> and a point <span class="math inline">\(w \in S\)</span> let the <em>excess</em> <span class="math inline">\(e_w(f)\)</span> be the number of satisfied minus the number of violated
+contexts of <span class="math inline">\(S\)</span> through <span class="math inline">\(w\)</span>. For a point <span class="math inline">\(w \notin S\)</span>, <span class="math inline">\(w \ne 0\)</span>, let the <em>outside sum</em> be
+<span class="math inline">\(b_w(f) = \sum s(u,v) f(u) f(v)\)</span> over the unordered pairs of commuting points <span class="math inline">\(u, v\)</span> of <span class="math inline">\(S\)</span> with
+<span class="math inline">\(u + v = w\)</span>.</p>
+<p><strong>Theorem 4 (saturation criterion).</strong> Let <span class="math inline">\(S\)</span> be a nonempty set of points, <span class="math inline">\(f : S \to \{\pm1\}\)</span> and
+<span class="math inline">\(A = \sum_{v\in S} f(v) P_v\)</span>. Then</p>
+<p><span class="math display">\[A^2 \;=\; |S|\, I \;+\; 2 \sum_{w \in S} e_w(f)\, f(w)\, P_w \;+\; 2 \sum_{w \notin S,\ w \neq 0} b_w(f)\, P_w ,\]</span></p>
+<p>and the following are equivalent:</p>
+<ul>
+<li>(a) <span class="math inline">\(f\)</span> attains the floor: <span class="math inline">\(\beta_S(f) = (D-2)|S|^{3/2}/(6\sqrt{D-1})\)</span>;</li>
+<li>(b) <span class="math inline">\(A\)</span> has the simple eigenvalue <span class="math inline">\(\sqrt{(D-1)|S|}\)</span> and the eigenvalue <span class="math inline">\(-\sqrt{|S|/(D-1)}\)</span> with multiplicity <span class="math inline">\(D-1\)</span>;</li>
+<li>(c) some pure state is flat on <span class="math inline">\(S\)</span> with signs <span class="math inline">\(f\)</span> (Theorem 3);</li>
+<li>(d) <span class="math inline">\(e_w(f) = (D-2)\sqrt{|S|}\,/\,(2\sqrt{D-1})\)</span> for every <span class="math inline">\(w \in S\)</span>, and <span class="math inline">\(b_w(f) = 0\)</span> for every <span class="math inline">\(w \notin S\)</span> with <span class="math inline">\(w\ne0\)</span>.</li>
+</ul>
+<p>When they hold, <span class="math inline">\(d(S) = \tfrac12 L_S - (D-2)|S|^{3/2}/(12\sqrt{D-1})\)</span> exactly, <span class="math inline">\(f\)</span> is optimal, and,
+for <span class="math inline">\(N \ge 2\)</span>, <span class="math inline">\((D-1)|S|\)</span> is a perfect square.</p>
+<p><em>Proof.</em> In <span class="math inline">\(A^2 = \sum_{u,v} f(u)f(v)P_uP_v\)</span> the diagonal terms give <span class="math inline">\(|S|\,I\)</span> and the two orders of an
+anticommuting pair cancel. A commuting pair <span class="math inline">\(u \ne v\)</span> contributes <span class="math inline">\(2 s(u,v) f(u) f(v) P_{u+v}\)</span>. If
+<span class="math inline">\(w = u+v \in S\)</span>, the pair is a context through <span class="math inline">\(w\)</span> and <span class="math inline">\(s(u,v)f(u)f(v) = \pm f(w)\)</span> according to whether it
+is satisfied; summing over the contexts through <span class="math inline">\(w\)</span> gives <span class="math inline">\(2 e_w(f) f(w) P_w\)</span>. If <span class="math inline">\(w \notin S\)</span> the pairs
+give <span class="math inline">\(2 b_w(f) P_w\)</span>. This is the identity; for closed <span class="math inline">\(S\)</span> the last sum is empty and it is Theorem 1 of
+[J2]. (a) <span class="math inline">\(\Leftrightarrow\)</span> (b) is the equality case of the scalar inequality, and (b) <span class="math inline">\(\Leftrightarrow\)</span> (c)
+is Theorem 3. Condition (b) says <span class="math inline">\((A - a)(A + a/(D-1)) = 0\)</span> with <span class="math inline">\(a = \sqrt{(D-1)|S|}\)</span>, that is
+<span class="math inline">\(A^2 = |S|\,I + \tfrac{a(D-2)}{D-1} A\)</span> (a traceless matrix with these two eigenvalues has the larger one
+exactly once); comparing Pauli coefficients with the identity gives (d). The floor is an integer when
+attained, which for <span class="math inline">\(D \gt 2\)</span> forces <span class="math inline">\(\sqrt{(D-1)|S|}\)</span> to be rational. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>Condition (d) replaces the <em>violation-regularity</em> of [J2, Theorem 6], to which it reduces when every
+point lies on the same number of contexts. For <span class="math inline">\(N \le 5\)</span> the number <span class="math inline">\(D - 1\)</span> is squarefree, so a set that
+attains the floor has <span class="math inline">\(|S| = (D-1)k^2\)</span> and excess <span class="math inline">\((D-2)k/2\)</span>: <span class="math inline">\(|S| \in \{3, 12\}\)</span> for two qubits,
+<span class="math inline">\(\{7, 28, 63\}\)</span> for three, <span class="math inline">\(\{15, 60, 135, 240\}\)</span> for four, <span class="math inline">\(\{31, 124, 279, 496, 775\}\)</span> for five.</p>
+<p><strong>Table 1. The configurations we know to attain the floor</strong> (besides the stabilizer case
+<span class="math inline">\(|S| = D-1\)</span>, <span class="math inline">\(d = 0\)</span>, a maximal commuting set with the signs of a stabilizer state).</p>
+<table>
+<thead>
+<tr>
+<th>state</th>
+<th><span class="math inline">\(N\)</span></th>
+<th>observables</th>
+<th>contexts</th>
+<th>degree</th>
+<th>modulus</th>
+<th>excess</th>
+<th>closed</th>
+<th>state from</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\((i,i,i,1)/2\)</span></td>
+<td>2</td>
+<td>12</td>
+<td>8</td>
+<td>0</td>
+<td><span class="math inline">\(1/2\)</span></td>
+<td>2</td>
+<td>no</td>
+<td>[LLY]</td>
+</tr>
+<tr>
+<td><span class="math inline">\(CCZ\)</span> applied to <span class="math inline">\((1,\dots,1)/\sqrt8\)</span></td>
+<td>3</td>
+<td>28</td>
+<td>56</td>
+<td>0</td>
+<td><span class="math inline">\(1/2\)</span></td>
+<td>6</td>
+<td>no</td>
+<td>folklore</td>
+</tr>
+<tr>
+<td>Hoggar fiducial</td>
+<td>3</td>
+<td>63</td>
+<td>315</td>
+<td>63</td>
+<td><span class="math inline">\(1/3\)</span></td>
+<td>9</td>
+<td>yes</td>
+<td>[H]</td>
+</tr>
+<tr>
+<td><span class="math inline">\((-3,1,\dots,1)/\sqrt{24}\)</span></td>
+<td>4</td>
+<td>135</td>
+<td>1575</td>
+<td>315</td>
+<td><span class="math inline">\(1/3\)</span></td>
+<td>21</td>
+<td>yes</td>
+<td>[J4, Ci]</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\psi_B\)</span> (pivot state)</td>
+<td>4</td>
+<td>135</td>
+<td>1095</td>
+<td><strong>75</strong></td>
+<td><span class="math inline">\(1/3\)</span></td>
+<td>21</td>
+<td>no</td>
+<td>this work</td>
+</tr>
+<tr>
+<td><span class="math inline">\(s_5\)</span></td>
+<td>5</td>
+<td>496</td>
+<td>10880</td>
+<td><strong>480</strong></td>
+<td><span class="math inline">\(1/4\)</span></td>
+<td>60</td>
+<td>no</td>
+<td>[Ci]</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\Phi_5\)</span> (3 <span class="math inline">\(CS\)</span>, 2 <span class="math inline">\(CCZ\)</span>)</td>
+<td>5</td>
+<td>496</td>
+<td>10880</td>
+<td><strong>480</strong></td>
+<td><span class="math inline">\(1/4\)</span></td>
+<td>60</td>
+<td>no</td>
+<td>this work</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\Phi_7\)</span> (3 <span class="math inline">\(CS\)</span>, 8 <span class="math inline">\(CCZ\)</span>)</td>
+<td>7</td>
+<td>8128</td>
+<td>2824192</td>
+<td><strong>729344</strong></td>
+<td><span class="math inline">\(1/8\)</span></td>
+<td>504</td>
+<td>no</td>
+<td>this work</td>
+</tr>
+</tbody>
+</table>
+<p>The degrees in bold are new, as is the reading of the first two rows: the 12 two-qubit observables
+outside a maximal commuting set, and the 28 real three-qubit observables that are not diagonal, are
+noncontextual configurations on which the floor is nevertheless exact. The configurations of <span class="math inline">\(s_5\)</span> and
+<span class="math inline">\(\Phi_5\)</span> are equivalent under the Clifford group (Theorem 12). The exact-degree statements for the
+first seven masks, with their finite counts, are proved in Lean (Section 9); their state identifications
+are checked separately. All eight states are reproduced on Moonlab (Section 10).</p>
+<h3 id="52-a-four-qubit-and-a-five-qubit-configuration">5.2 A four-qubit and a five-qubit configuration</h3>
+<p><strong>Theorem 5 (the pivot configuration).</strong> Let</p>
+<p><span class="math display">\[\psi_B \;=\; \tfrac{1}{\sqrt6}\big(\,|0011\rangle + |0111\rangle + |1011\rangle + |1100\rangle + |1101\rangle + i\,|1110\rangle\,\big),\]</span></p>
+<p>with qubit 0 written on the right, and let <span class="math inline">\(S_B\)</span> be the set of observables with non-zero expectation
+value in <span class="math inline">\(\psi_B\)</span>.</p>
+<ol type="1">
+<li>The expectation values are <span class="math inline">\(\pm 1/3\)</span> on <span class="math inline">\(S_B\)</span>, and <span class="math inline">\(|S_B| = 135\)</span>: the 15 diagonal observables
+<span class="math inline">\((0 \mid c)\)</span>, and for each <span class="math inline">\(a \ne 0\)</span> the eight observables <span class="math inline">\((a \mid c)\)</span> with <span class="math inline">\(a \cdot c = \epsilon(a)\)</span>, where
+<span class="math inline">\(\epsilon(a) = 1\)</span> for the five values <span class="math inline">\(a \in E = \{0010, 0011, 0101, 1001, 1101\}\)</span> and <span class="math inline">\(\epsilon(a) = 0\)</span>
+otherwise.</li>
+<li><span class="math inline">\(S_B\)</span> contains 1095 contexts: 35 through each diagonal observable and 23 through each of the other
+120. It is not closed and it is not a quadric, but every hyperplane <span class="math inline">\(w^\perp\)</span> meets it in 71 points if
+<span class="math inline">\(w \in S_B\)</span> and in 63 points otherwise, as for <span class="math inline">\(Q^+(7,2)\)</span>: it is a quasi-quadric in the sense of
+[DHOP]. It differs from the quadric <span class="math inline">\(a \cdot c = 0\)</span> in 80 points, those with <span class="math inline">\(a \in E\)</span>, and <span class="math inline">\(E\)</span>
+consists of five pairwise non-orthogonal vectors (an ovoid) of the doily <span class="math inline">\(W(3,2)\)</span> defined by the form
+<span class="math inline">\(x_0y_1 + x_1y_0 + x_2y_3 + x_3y_2\)</span>.</li>
+<li><span class="math inline">\(d(S_B) = 75\)</span>. The assignment given by the signs of the expectation values violates the 15 lines of
+that doily, read among the diagonal observables, and 60 further contexts, each with exactly one
+diagonal observable. Every non-diagonal observable of <span class="math inline">\(S_B\)</span> lies on exactly one violated context and
+every diagonal one on seven.</li>
+</ol>
+<p><em>Proof.</em> Items 1 and 2 and the count of 75 violated contexts are finite computations in <span class="math inline">\(\mathbb{Z}[i]\)</span>
+(Section 11); item 1 also follows from Proposition 6. The bound <span class="math inline">\(d(S_B) \ge 75\)</span> is Theorem 1 with
+<span class="math inline">\(|S| = 135\)</span>, <span class="math inline">\(D = 16\)</span>, <span class="math inline">\(L = 1095\)</span>: <span class="math inline">\(\beta \le 14 \cdot 135 \cdot 45 / (6 \cdot 15) = 945\)</span>. In Lean this
+is <code>pivot_degree</code>. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>The noncontextuality inequality of this configuration has classical bound <span class="math inline">\(945\)</span> and quantum value
+<span class="math inline">\(1095\)</span> in every state. The quadric <span class="math inline">\(Q^+(7,2)\)</span> has the same number of observables and the same classical
+bound, with quantum value <span class="math inline">\(1575\)</span>.</p>
+<p><strong>Proposition 6 (flat states on a bent support).</strong> Let <span class="math inline">\(T\)</span> be the set of the six <span class="math inline">\(x \in \mathbb{F}_2^4\)</span> with
+<span class="math inline">\(x_0x_1 + x_2x_3 = 1\)</span>, the support of a bent function, and let <span class="math inline">\(\phi : T \to \mathbb{C}\)</span> with <span class="math inline">\(|\phi| = 1\)</span>.
+The state <span class="math inline">\(\psi_\phi = 6^{-1/2}\sum_{x \in T}\phi(x)|x\rangle\)</span> is flat on its Pauli support if and only if, up
+to a global phase, all <span class="math inline">\(\phi(x)\)</span> are fourth roots of unity. In that case the support has 135 points and the
+modulus is <span class="math inline">\(1/3\)</span>; it is a hyperbolic quadric (1575 contexts, degree 315) when the number of imaginary
+amplitudes is even, and it has 1095 contexts and degree 75 when that number is odd. The two classes are
+not related by any Clifford operation.</p>
+<p><em>Proof.</em> <span class="math inline">\(T\)</span> is a difference set with parameters <span class="math inline">\((16,6,2)\)</span> [R]: every non-trivial character sum over <span class="math inline">\(T\)</span>
+is <span class="math inline">\(\pm 2\)</span>, and for every <span class="math inline">\(a \ne 0\)</span> exactly one unordered pair <span class="math inline">\(x_a, x_a + a\)</span> lies in <span class="math inline">\(T\)</span>. Hence
+<span class="math inline">\(\langle Z^c\rangle = \pm 1/3\)</span> for <span class="math inline">\(c \ne 0\)</span>, and for <span class="math inline">\(a \ne 0\)</span>, with <span class="math inline">\(z_a = \overline{\phi(x_a + a)}\,\phi(x_a)\)</span>,</p>
+<p><span class="math display">\[\langle X^a Z^c \rangle = \tfrac16 (-1)^{c \cdot x_a}\big( z_a + (-1)^{c \cdot a}\, \overline{z_a} \big),\]</span></p>
+<p>so the expectation value of <span class="math inline">\(P_{(a|c)}\)</span> is <span class="math inline">\(\pm\tfrac13 \operatorname{Re} z_a\)</span> when <span class="math inline">\(a \cdot c = 0\)</span> and
+<span class="math inline">\(\pm\tfrac13 \operatorname{Im} z_a\)</span> when <span class="math inline">\(a \cdot c = 1\)</span>. A common modulus must be <span class="math inline">\(1/3\)</span>, which holds exactly
+when every <span class="math inline">\(z_a\)</span> is <span class="math inline">\(\pm 1\)</span> or <span class="math inline">\(\pm i\)</span>, that is, when all ratios of amplitudes are fourth roots of unity.
+Then for each <span class="math inline">\(a \ne 0\)</span> exactly the eight observables with <span class="math inline">\(a \cdot c = \epsilon(a)\)</span> are in the support,
+where <span class="math inline">\(\epsilon(a) = 0\)</span> if <span class="math inline">\(z_a\)</span> is real and <span class="math inline">\(1\)</span> if it is imaginary. Write <span class="math inline">\(\phi = i^{k}\)</span> and
+<span class="math inline">\(\kappa = k \bmod 2\)</span>; then <span class="math inline">\(\epsilon(x + x&#39;) = \kappa_x + \kappa_{x&#39;}\)</span>. A diagonal Clifford operation
+multiplies <span class="math inline">\(\phi\)</span> by <span class="math inline">\(i^{q(x)}\)</span> for a <span class="math inline">\(\mathbb{Z}_4\)</span>-valued quadratic form <span class="math inline">\(q\)</span> and changes <span class="math inline">\(\kappa\)</span> by the
+restriction to <span class="math inline">\(T\)</span> of a linear functional; these sixteen restrictions have weights 0, 2 and 4, and
+together with the all-ones vector (a global factor <span class="math inline">\(i\)</span>) they span the even-weight vectors of
+<span class="math inline">\(\mathbb{F}_2^{T}\)</span>. So <span class="math inline">\(\kappa\)</span> of even weight is equivalent to <span class="math inline">\(\kappa = 0\)</span>, a real state, whose support is
+the quadric <span class="math inline">\(a \cdot c = 0\)</span>; and <span class="math inline">\(\kappa\)</span> of odd weight is equivalent to a single imaginary amplitude, as
+in <span class="math inline">\(\psi_B\)</span>. Symplectic maps preserve the number of contexts, and <span class="math inline">\(1575 \ne 1095\)</span>. The two counts were
+computed for all 32 supports that occur, over all 4096 phase patterns (Section 11). <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p><strong>Theorem 7 (five qubits).</strong> Let <span class="math inline">\(S_5\)</span> be the set of the 496 five-qubit observables with non-zero
+expectation value in the state <span class="math inline">\(s_5\)</span> of Cieśliński [Ci, eq. (18)], all equal to <span class="math inline">\(\pm 1/4\)</span>. Then
+<span class="math inline">\(S_5\)</span> contains 10880 contexts and <span class="math inline">\(d(S_5) = 480\)</span>. The optimal assignment, the signs of the expectation
+values, leaves 16 observables on no violated context (60 contexts through
+each), 240 on two (of 64) and 240 on four (of 68). Every hyperplane <span class="math inline">\(w^\perp\)</span> meets <span class="math inline">\(S_5\)</span> in 256 points
+if <span class="math inline">\(w \in S_5\)</span> and in 240 otherwise, as for the complement of <span class="math inline">\(Q^+(9,2)\)</span>; <span class="math inline">\(S_5\)</span> is not such a complement.</p>
+<p><em>Proof.</em> The counts are finite computations in <span class="math inline">\(\mathbb{Z}[i]\)</span>. The lower bound is Theorem 1 with
+<span class="math inline">\(|S| = 496\)</span>, <span class="math inline">\(D = 32\)</span>: <span class="math inline">\(\beta \le 30 \cdot 496 \cdot 124/(6 \cdot 31) = 9920 = 10880 - 2\cdot 480\)</span>. In Lean
+this is <code>cieslinski5_degree</code>. No state vanishes on every observable of a hyperbolic quadric: these are the
+observables commuting with an antiunitary <span class="math inline">\(\theta\)</span> with <span class="math inline">\(\theta^2 = 1\)</span>, and the condition would give
+<span class="math inline">\(\rho + \theta\rho\,\theta^{-1} = 2I/D\)</span>, of rank <span class="math inline">\(D\)</span>, for a projector <span class="math inline">\(\rho\)</span> of rank one. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p><strong>Proposition 8 (the optimum in the quantum metric).</strong> Let <span class="math inline">\(\psi\)</span> be flat on <span class="math inline">\(S\)</span> with modulus <span class="math inline">\(\mu\)</span>, and
+let <span class="math inline">\(f\)</span> be the signs of its expectation values. For <span class="math inline">\(u \ne v\)</span> in <span class="math inline">\(S\)</span> the Fubini–Study metric of
+Proposition 3 has <span class="math inline">\(|g_{uv}| = (\mu + \mu^2)/4\)</span> if <span class="math inline">\(u, v, u+v\)</span> form a context of <span class="math inline">\(S\)</span> violated by <span class="math inline">\(f\)</span>,
+<span class="math inline">\(|g_{uv}| = (\mu - \mu^2)/4\)</span> if they form a satisfied context of <span class="math inline">\(S\)</span>, and <span class="math inline">\(|g_{uv}| = \mu^2/4\)</span> otherwise
+(<span class="math inline">\(u\)</span>, <span class="math inline">\(v\)</span> anticommute, or their product is outside <span class="math inline">\(S\)</span>). So the violated contexts of the optimal
+assignment are exactly the pairs with <span class="math inline">\(4|g_{uv}|\)</span> larger than <span class="math inline">\(\mu\)</span>. The Berry curvature has modulus
+<span class="math inline">\(\mu/2\)</span> on anticommuting pairs whose product is in <span class="math inline">\(S\)</span> and vanishes on all other pairs.</p>
+<p><em>Proof.</em> Proposition 3 with <span class="math inline">\(|p| = \mu\)</span> on <span class="math inline">\(S\)</span> and <span class="math inline">\(p = 0\)</span> outside; for anticommuting <span class="math inline">\(u, v\)</span> the product
+<span class="math inline">\(P_uP_v\)</span> is <span class="math inline">\(\pm i P_{u+v}\)</span>, so <span class="math inline">\(\langle P_uP_v\rangle\)</span> is imaginary, of modulus <span class="math inline">\(|p_{u+v}|\)</span>.
+<span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p><strong>Proposition 9 (two mutually unbiased stabilizer states).</strong> Let <span class="math inline">\(s_1, s_2\)</span> be stabilizer state vectors
+whose underlying Pauli label spaces are complementary: they intersect only in the zero label.
+Then <span class="math inline">\(|\langle s_1|s_2\rangle| = D^{-1/2}\)</span>,
+and let <span class="math inline">\(\varphi = \theta + \arg\langle s_1|s_2\rangle\)</span>. The normalized state proportional to
+<span class="math inline">\(s_1 + e^{i\theta}s_2\)</span> is flat on a set that is not a stabilizer group exactly in the following cases:
+<span class="math inline">\(N = 1\)</span> with <span class="math inline">\(\cos\varphi = (\sqrt6 - \sqrt2)/4\)</span> or <span class="math inline">\(-(\sqrt6 + \sqrt2)/4\)</span> (all 3 observables, modulus
+<span class="math inline">\(1/\sqrt3\)</span>); <span class="math inline">\(N = 2\)</span> with <span class="math inline">\(\varphi = \pm\pi/2\)</span> (12 observables, modulus <span class="math inline">\(1/2\)</span>); <span class="math inline">\(N = 3\)</span> with
+<span class="math inline">\(\varphi = \pm 3\pi/4\)</span> (all 63, modulus <span class="math inline">\(1/3\)</span>: the Hoggar fiducial is <span class="math inline">\(\sqrt8\)</span> times the uniform vector
+plus <span class="math inline">\((-2+2i)\)</span> times the first basis vector); <span class="math inline">\(N = 4\)</span> with <span class="math inline">\(\varphi = \pi\)</span> (the 135 observables of a
+hyperbolic quadric, modulus <span class="math inline">\(1/3\)</span>: <span class="math inline">\((-3,1,\dots,1)\)</span> is 4 times the uniform unit vector minus 4 times the
+first basis vector). There is none for <span class="math inline">\(N \ge 5\)</span>.</p>
+<p><em>Proof.</em> Let <span class="math inline">\(t = D^{-1/2}\)</span> and <span class="math inline">\(n = 2 + 2t\cos\varphi\)</span> the squared norm. An observable of the first
+stabilizer group has expectation <span class="math inline">\(\pm(1 + 2t\cos\varphi)/n\)</span>, and so has one of the second. Every other
+observable is, up to a phase, a product <span class="math inline">\(P_1P_2\)</span> of non-identity elements of the two groups, and its
+expectation is <span class="math inline">\(\pm 2t\cos\varphi/n\)</span> if <span class="math inline">\(P_1, P_2\)</span> commute and <span class="math inline">\(\pm 2t\sin\varphi/n\)</span> if they anticommute.
+Equating the non-zero moduli: all three are equal only if <span class="math inline">\(|\cos\varphi| = |\sin\varphi|\)</span> and
+<span class="math inline">\(1 - \sqrt2\,t = \sqrt2\,t\)</span>, so <span class="math inline">\(D = 8\)</span>; with <span class="math inline">\(\sin\varphi = 0\)</span> one needs <span class="math inline">\(1 - 2t = 2t\)</span>, so <span class="math inline">\(D = 16\)</span> and
+<span class="math inline">\(\cos\varphi = -1\)</span>; with <span class="math inline">\(\cos\varphi = 0\)</span> one needs <span class="math inline">\(1 = 2t\)</span>, so <span class="math inline">\(D = 4\)</span>; for <span class="math inline">\(D = 2\)</span> there are no
+commuting products and <span class="math inline">\(|1 + \sqrt2\cos\varphi| = \sqrt2|\sin\varphi|\)</span> has the two stated solutions.
+The remaining case <span class="math inline">\(1 + 2t\cos\varphi = 0\)</span> gives a stabilizer state. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>So the SIC fiducials of one and three qubits, a state with the Pauli spectrum of [LLY], and the
+quadric state are four members of one family, and that family stops at four qubits. The pivot state is
+not in it: it is a combination of three pairwise unbiased stabilizer states.</p>
+<h3 id="53-flat-phase-states-and-a-seven-qubit-configuration">5.3 Flat phase states, and a seven-qubit configuration</h3>
+<p><strong>Proposition 10 (the support is a two-character set).</strong> Let <span class="math inline">\(\psi\)</span> be flat on <span class="math inline">\(S\)</span> and let
+<span class="math inline">\(k^2 = |S|/(D-1)\)</span>, the inverse square of the modulus. For every point <span class="math inline">\(w\)</span>,</p>
+<p><span class="math display">\[\sum_{v \in S} (-1)^{\langle v, w\rangle} \;=\; D\,[w \in S] \;-\; k^2 .\]</span></p>
+<p>Equivalently, exactly <span class="math inline">\((D-2)|S|/(2(D-1)) + \tfrac{D}{2}[w \in S]\)</span> observables of <span class="math inline">\(S\)</span> commute with <span class="math inline">\(P_w\)</span>.
+Hence the graph on <span class="math inline">\(\mathbb{F}_2^{2N}\)</span> in which <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> are adjacent when <span class="math inline">\(u + v \in S\)</span> is strongly
+regular (possibly imprimitive, or complete), with degree <span class="math inline">\(|S|\)</span> and nonprincipal character eigenvalues
+among <span class="math inline">\(D-k^2\)</span> and <span class="math inline">\(-k^2\)</span> [CK]; an empty character class contributes no eigenvalue. If <span class="math inline">\(k^2 = D/2\)</span> the sum takes
+the values <span class="math inline">\(\pm D/2\)</span>: then <span class="math inline">\(S\)</span> is a Hadamard difference set, the support of a bent function on the
+<span class="math inline">\(2N\)</span>-dimensional space.</p>
+<p><em>Proof.</em> For a pure state <span class="math inline">\(\rho\)</span> and any <span class="math inline">\(w\)</span>, <span class="math inline">\(\operatorname{tr}(\rho P_w \rho P_w) = \langle P_w\rangle^2\)</span>.
+Writing <span class="math inline">\(\rho = D^{-1}\sum_v p_v P_v\)</span> with <span class="math inline">\(p_0 = 1\)</span> and using <span class="math inline">\(P_wP_vP_w = (-1)^{\langle v,w\rangle}P_v\)</span>
+gives <span class="math inline">\(p_w^2 = D^{-1}\sum_v (-1)^{\langle v,w\rangle}p_v^2\)</span>. Insert <span class="math inline">\(p_v^2 = k^{-2}\)</span> on <span class="math inline">\(S\)</span>, <span class="math inline">\(1\)</span> at <span class="math inline">\(v = 0\)</span>
+and <span class="math inline">\(0\)</span> elsewhere. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>The identity for <span class="math inline">\(p_w^2\)</span> holds for every pure state and is standard; we did not find its consequence for
+flat states stated. It accounts for the hyperplane numbers in Theorems 5 and 7. For the two four-qubit
+rows of Table 1 it gives a strongly regular graph with the parameters <span class="math inline">\((256, 135, 70, 72)\)</span> of the affine
+polar graph of <span class="math inline">\(Q^+(7,2)\)</span>; for the three-, five- and seven-qubit rows with modulus <span class="math inline">\(2^{-(N-1)/2}\)</span> it gives
+bent functions in 6, 10 and 14 variables.</p>
+<p><strong>Phase states.</strong> Let <span class="math inline">\(a_j \in \mathbb{Z}_8\)</span>, <span class="math inline">\(b_{jk} \in \mathbb{Z}_4\)</span>, <span class="math inline">\(c_{jkl} \in \mathbb{Z}_2\)</span> and</p>
+<p><span class="math display">\[p(x) = \sum_j a_j x_j + 2\sum_{j \lt k} b_{jk}\, x_j x_k + 4\sum_{j \lt k \lt l} c_{jkl}\, x_j x_k x_l \pmod 8,
+\qquad |\Phi_p\rangle = D^{-1/2}\sum_{x} e^{i\pi p(x)/4}\,|x\rangle .\]</span></p>
+<p><span class="math inline">\(\Phi_p\)</span> is obtained from <span class="math inline">\(|{+}\cdots{+}\rangle\)</span> by <span class="math inline">\(T\)</span> gates (<span class="math inline">\(a_j\)</span>), controlled-S gates <span class="math inline">\(CS\)</span> (<span class="math inline">\(b_{jk}\)</span>) and
+<span class="math inline">\(CCZ\)</span> gates (<span class="math inline">\(c_{jkl}\)</span>); these are the diagonal gates of the third level of the Clifford hierarchy [CGK].
+Let <span class="math inline">\(T\)</span> be the symmetric trilinear form on <span class="math inline">\(\mathbb{F}_2^N\)</span> with <span class="math inline">\(T(e_j,e_j,e_j) = a_j\)</span>,
+<span class="math inline">\(T(e_j,e_j,e_k) = T(e_j,e_k,e_k) = b_{jk}\)</span> and <span class="math inline">\(T(e_j,e_k,e_l) = c_{jkl}\)</span> modulo 2. Then
+<span class="math inline">\(B(x,z) = T(x,x,z)\)</span> is a symmetric bilinear form, alternating exactly when there is no <span class="math inline">\(T\)</span> gate. A linear
+change of variables in <span class="math inline">\(T\)</span> is a CNOT circuit on the state, and two polynomials with the same form differ
+by a diagonal Clifford gate.</p>
+<p><strong>Proposition 11 (phase states of the third level).</strong> For <span class="math inline">\(a \ne 0\)</span> let <span class="math inline">\(R_a\)</span> be the radical and <span class="math inline">\(r_a\)</span>
+the rank of the symmetric bilinear form <span class="math inline">\(T(a,\cdot,\cdot)\)</span>. The expectation value of <span class="math inline">\(X^aZ^c\)</span> in <span class="math inline">\(\Phi_p\)</span>
+has modulus <span class="math inline">\(2^{-r_a/2}\)</span> for the <span class="math inline">\(2^{r_a}\)</span> vectors <span class="math inline">\(c\)</span> of one coset of <span class="math inline">\(R_a^{\perp}\)</span> and vanishes for every
+other <span class="math inline">\(c\)</span>; diagonal observables have expectation value zero. So <span class="math inline">\(\Phi_p\)</span> has a single non-zero modulus
+exactly when <span class="math inline">\(r_a = r\)</span> is the same for every <span class="math inline">\(a \ne 0\)</span>. Then the modulus is <span class="math inline">\(2^{-r/2}\)</span>, the support has
+<span class="math inline">\((D-1)2^r\)</span> points, <span class="math inline">\(r\)</span> is even if <span class="math inline">\(N \ge 2\)</span>, and <span class="math inline">\(\Phi_p\)</span> attains the floor on its support. If moreover
+<span class="math inline">\(r = N-1\)</span>, each <span class="math inline">\(R_a\)</span> has one non-zero element <span class="math inline">\(\rho(a)\)</span>, the map <span class="math inline">\(\rho\)</span> is an involution of the non-zero
+vectors, and</p>
+<p><span class="math display">\[S = \{\,(a \mid c) \;:\; a \ne 0,\ \ c\cdot\rho(a) = \epsilon(a)\,\}\]</span></p>
+<p>for a function <span class="math inline">\(\epsilon\)</span>: the support of a bent function of Maiorana–McFarland type [McF].</p>
+<p><em>Proof.</em> Modulo 8 the third difference of <span class="math inline">\(p\)</span> is <span class="math inline">\(4T\)</span>, independent of the base point, and the second
+difference is even. So <span class="math inline">\(p(x) - p(x+a) = h_a + 2q_a(x)\)</span> with <span class="math inline">\(q_a(0) = 0\)</span> and
+<span class="math inline">\(q_a(x+y) = q_a(x) + q_a(y) + 2T(a,x,y)\)</span> modulo 4, a <span class="math inline">\(\mathbb{Z}_4\)</span>-valued quadratic form [CCKS], and
+<span class="math inline">\(\langle X^aZ^c\rangle = D^{-1}e^{i\pi h_a/4}\sum_x i^{q_a(x)}(-1)^{c\cdot x}\)</span>. Now</p>
+<p><span class="math display">\[\Big|\sum_x i^{q_a(x)}(-1)^{c\cdot x}\Big|^2 = \sum_z i^{q_a(z)}(-1)^{c\cdot z}\sum_y (-1)^{T(a,y,z)}
+ = D \sum_{z \in R_a} i^{q_a(z)}(-1)^{c\cdot z} .\]</span></p>
+<p>On <span class="math inline">\(R_a\)</span> the map <span class="math inline">\(z \mapsto i^{q_a(z)}\)</span> is a character with values <span class="math inline">\(\pm1\)</span>, so the last sum is
+<span class="math inline">\(2^{N-r_a}\)</span> when <span class="math inline">\((-1)^{c\cdot z}\)</span> agrees with it on <span class="math inline">\(R_a\)</span> and <span class="math inline">\(0\)</span> otherwise. That <span class="math inline">\(r\)</span> is even follows
+from Theorem 4. If <span class="math inline">\(r = N-1\)</span> then <span class="math inline">\(T(a,\rho(a),\cdot) = 0\)</span>, which is symmetric in <span class="math inline">\(a\)</span> and <span class="math inline">\(\rho(a)\)</span>, so
+<span class="math inline">\(\rho(\rho(a)) = a\)</span>. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p><strong>Theorem 12 (all flat phase states of the third level on at most five qubits).</strong> Among the non-zero
+forms <span class="math inline">\(T\)</span> in <span class="math inline">\(N \le 5\)</span> variables, those of constant rank are the following.</p>
+<table>
+<thead>
+<tr>
+<th><span class="math inline">\(N\)</span></th>
+<th>forms</th>
+<th>of constant rank</th>
+<th>classes under CNOT circuits</th>
+<th>gates of a representative</th>
+<th><span class="math inline">\(r\)</span></th>
+<th>observables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><span class="math inline">\(T\)</span></td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td><span class="math inline">\(CS(0,1)\)</span></td>
+<td>2</td>
+<td>12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>127</td>
+<td>8</td>
+<td>2</td>
+<td><span class="math inline">\(CCZ(0,1,2)\)</span>; <span class="math inline">\(CS(0,1)\)</span> <span class="math inline">\(CS(0,2)\)</span></td>
+<td>2</td>
+<td>28</td>
+</tr>
+<tr>
+<td>4</td>
+<td>16383</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>33554431</td>
+<td>166656</td>
+<td>1</td>
+<td><span class="math inline">\(CS(0,1)\)</span> <span class="math inline">\(CS(1,3)\)</span> <span class="math inline">\(CS(2,4)\)</span> <span class="math inline">\(CCZ(0,1,4)\)</span> <span class="math inline">\(CCZ(0,2,3)\)</span></td>
+<td>4</td>
+<td>496</td>
+</tr>
+</tbody>
+</table>
+<p>For five qubits the stabilizer of the form in <span class="math inline">\(GL(5,2)\)</span> has order 60. Write <span class="math inline">\(\Phi_5\)</span> for the state of the
+last row. The supports of the two three-qubit classes are equivalent under <span class="math inline">\(Sp(6,2)\)</span>, and the support
+of <span class="math inline">\(\Phi_5\)</span> is mapped onto the set <span class="math inline">\(S_5\)</span> of Theorem 7 by a symplectic map of <span class="math inline">\(\mathbb{F}_2^{10}\)</span>. Thus no
+state with nonzero associated form <span class="math inline">\(T\)</span> in this family is flat on four qubits; on five qubits every flat
+state with nonzero <span class="math inline">\(T\)</span> is obtained from <span class="math inline">\(\Phi_5\)</span> by
+a CNOT circuit and a diagonal Clifford gate; and the configuration found numerically in [Ci] is, up to a
+Clifford operation, the Pauli support of a circuit of five gates. The excluded zero form gives
+diagonal-Clifford stabilizer states, which are flat in every number of qubits.</p>
+<p><em>Proof.</em> Exhaustive enumeration, with the orbits computed from the transvections that generate
+<span class="math inline">\(GL(N,2)\)</span> (<code>src/third_level.c</code>; for <span class="math inline">\(N \le 4\)</span> also <code>scripts/phase_states.py</code>). The two symplectic maps
+are found by search and verified on every point; the second is recorded in <code>results/phase_states.json</code>.
+<span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>For <span class="math inline">\(N = 2\)</span> the state is that of [LLY] up to a phase and complex conjugation. In coordinates
+<span class="math inline">\(X = (x_1, x_2, \alpha) \in \mathbb{F}_q \times \mathbb{F}_q \times \mathbb{F}_2\)</span> with <span class="math inline">\(q = 4\)</span>, the
+five-qubit form is</p>
+<p><span class="math display">\[T(X,Y,Z) = \operatorname{Tr}\big[x_1y_1z_2^2 + x_1y_2^2z_1 + x_2^2y_1z_1 + x_2y_2z_1^2 + x_2y_1^2z_2 + x_1^2y_2z_2\big]
+ + \alpha\,\sigma(y,z) + \beta\,\sigma(x,z) + \gamma\,\sigma(x,y),\]</span></p>
+<p>where <span class="math inline">\(\sigma(y,z) = \operatorname{Tr}[a\,(y_1z_2 + y_2z_1)]\)</span>, <span class="math inline">\(\operatorname{Tr}\)</span> is the trace to
+<span class="math inline">\(\mathbb{F}_2\)</span> and <span class="math inline">\(a\)</span> generates <span class="math inline">\(\mathbb{F}_4\)</span>. It is invariant under <span class="math inline">\((x_1, x_2) \mapsto (\lambda x_1, \lambda^{-1}x_2)\)</span>.</p>
+<p><strong>Theorem 13 (seven qubits).</strong> Let</p>
+<p><span class="math display">\[|\Phi_7\rangle = CS_{01}\,CS_{23}\,CS_{45}\;\, CCZ_{012}\,CCZ_{035}\,CCZ_{124}\;\, CCZ_{046}\,CCZ_{056}\,CCZ_{136}\,CCZ_{236}\,CCZ_{256}\; |{+}\rangle^{\otimes 7}\]</span></p>
+<p>and let <span class="math inline">\(S_7\)</span> be its Pauli support.</p>
+<ol type="1">
+<li><span class="math inline">\(\Phi_7\)</span> has expectation values <span class="math inline">\(\pm 1/8\)</span> on <span class="math inline">\(S_7\)</span> and <span class="math inline">\(0\)</span> elsewhere, and <span class="math inline">\(|S_7| = 8128 = 2^6(2^7-1)\)</span>.</li>
+<li><span class="math inline">\(S_7\)</span> contains 2 824 192 contexts and <span class="math inline">\(d(S_7) = 729\,344\)</span>. In the optimal assignment every observable
+of <span class="math inline">\(S_7\)</span> lies on 504 more satisfied than violated contexts; the number of contexts through an
+observable is 1008, 1024, 1040, 1056, 1072 or 1104 (for 64, 3584, 1792, 1344, 896 and 448 observables).</li>
+<li>Let <span class="math inline">\(\mathcal{F}\)</span> be the family of forms on <span class="math inline">\(\mathbb{F}_2^7\)</span> for which <span class="math inline">\(B\)</span> is alternating of rank 6.
+The forms of constant rank in <span class="math inline">\(\mathcal{F}\)</span> are a single class under CNOT circuits, and the stabilizer
+of such a form in <span class="math inline">\(GL(7,2)\)</span> has order 7. In coordinates
+<span class="math inline">\(\mathbb{F}_8 \times \mathbb{F}_8 \times \mathbb{F}_2\)</span> the form is the one displayed above, with the
+trace of <span class="math inline">\(\mathbb{F}_8\)</span>, with <span class="math inline">\(a^3 + a^2 + 1 = 0\)</span>, and with the additional term <span class="math inline">\(\operatorname{Det}(x_1,y_1,z_1)\)</span>,
+the alternating trilinear form of <span class="math inline">\(\mathbb{F}_8\)</span> over <span class="math inline">\(\mathbb{F}_2\)</span>.</li>
+<li>For each of the ten other types of <span class="math inline">\(B\)</span> (alternating of rank 0, 2 or 4; not alternating, of rank 1
+to 7) we tested <span class="math inline">\(3 \times 10^8\)</span> random forms; none has constant rank.</li>
+</ol>
+<p><em>Proof.</em> Item 1 and the counts of item 2 are finite computations in <span class="math inline">\(\mathbb{Z}[i]\)</span>, made by three
+programs that share no code (Section 11). The lower bound is Theorem 1 with <span class="math inline">\(|S| = 8128\)</span>, <span class="math inline">\(D = 128\)</span>:
+<span class="math inline">\(\beta \le 126 \cdot 8128 \cdot 1016/(6\cdot 127) = 1\,365\,504 = 2\,824\,192 - 2 \cdot 729\,344\)</span>. For item 3,
+choose a basis in which <span class="math inline">\(e_6\)</span> spans the radical of <span class="math inline">\(B\)</span> and <span class="math inline">\(e_0,\dots,e_5\)</span> is a symplectic basis of a
+complement. Every form of <span class="math inline">\(\mathcal{F}\)</span> is then the third difference of
+<span class="math inline">\(2(x_0x_1 + x_2x_3 + x_4x_5) + 4w(x_0,\dots,x_5) + 4x_6\,s(x_0,\dots,x_5)\)</span> for a set <span class="math inline">\(w\)</span> of <span class="math inline">\(CCZ\)</span> gates
+on the first six qubits (<span class="math inline">\(2^{20}\)</span> choices) and a graph <span class="math inline">\(s\)</span> on them, which must be nondegenerate (13888
+choices). All <span class="math inline">\(1.46 \times 10^{10}\)</span> such forms were tested (<code>src/family7.c</code>): 13 271 040 have constant
+rank. The group that preserves the normal form has order <span class="math inline">\(64\,|Sp(6,2)| = 92\,897\,280\)</span>, and the
+solutions are one orbit of it, of size <span class="math inline">\(92\,897\,280/7\)</span> (<code>src/orbits7.c</code>). <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>The noncontextuality inequality of <span class="math inline">\(S_7\)</span> has classical bound <span class="math inline">\(1\,365\,504\)</span> and quantum value <span class="math inline">\(2\,824\,192\)</span>:
+no noncontextual model reproduces more than <span class="math inline">\(74.2\)</span> per cent of its contexts. Item 4 is evidence, not
+proof, that <span class="math inline">\(\Phi_7\)</span> represents the only class of flat phase states with nonzero associated form on
+seven qubits, up to CNOT circuits and diagonal Clifford gates. The numbers of
+observables for three, five and seven qubits, 28, 496 and 8128, are <span class="math inline">\(2^{N-1}(2^N-1)\)</span>; that they are the
+second, third and fourth perfect numbers reflects only that 7, 31 and 127 are prime. We do not know
+whether this family extends to a nine-qubit flat phase state of constant rank eight, which would have
+130816 observables of modulus <span class="math inline">\(1/16\)</span>. Proposition 11 does not rule out other constant even ranks.
+The tested forms with the symmetry <span class="math inline">\((x_1,x_2) \mapsto (\lambda x_1,\lambda^{-1}x_2)\)</span> of the five- and seven-qubit
+ones do not have constant rank for nine or eleven qubits.</p>
+<h3 id="54-what-does-not-attain-the-floor">5.4 What does not attain the floor</h3>
+<p>For the <span class="math inline">\(D^2 - D\)</span> observables outside a maximal commuting set (the
+non-diagonal ones, say) there are <span class="math inline">\((D-1)(D-2)D^2/12\)</span> contexts and Theorem 1 gives a violated fraction of
+at least <span class="math inline">\(\tfrac12 - 2^{-N/2}\)</span>. By Theorem 4, equality would need a state with all non-diagonal
+expectation values of modulus <span class="math inline">\(2^{-N/2}\)</span>, that is, a state whose orbit under the Pauli group forms,
+with the computational basis, a complete set of mutually unbiased bases. For two qubits this is the
+first row of Table 1. For four qubits and for every odd <span class="math inline">\(N \ge 3\)</span> no such state exists [K], so the
+degree is strictly above the floor there. A numerical search from random starts found flat four-qubit
+states only with <span class="math inline">\(|S| = 135\)</span> (both classes of Proposition 6) and flat five-qubit states only with
+<span class="math inline">\(|S| = 496\)</span>; it found none with <span class="math inline">\(|S| = 60\)</span>, or with <span class="math inline">\(|S|\)</span> equal to 124, 279 or 775. This is evidence, not
+proof, that Table 1 is complete up to five qubits.</p>
+<h2 id="6-consequences-for-all-n">6. Consequences for all <span class="math inline">\(N\)</span></h2>
+<p><strong>Corollary A (full space).</strong> For every <span class="math inline">\(N \ge 1\)</span> every assignment of the <span class="math inline">\(D^2 - 1\)</span> Pauli observables
+violates at least <span class="math inline">\(\varphi(D)\,L\)</span> contexts (Lean: <code>full_space_fraction</code>). Since a uniformly random
+assignment violates <span class="math inline">\(L/2\)</span> contexts on average, <span class="math inline">\(d/L \to 1/2\)</span>.</p>
+<p>The count inequality also covers <span class="math inline">\(N=1\)</span>, when there are no contexts. The ratios and noise thresholds
+below are stated for <span class="math inline">\(N\ge2\)</span>, so <span class="math inline">\(L\gt 0\)</span>.</p>
+<p><strong>Exponential violation.</strong> The ratio of the quantum value to the noncontextual bound of the full
+inequality satisfies <span class="math inline">\(L/(L-2d) \ge (D+2)/(2\sqrt{D+1}) \sim 2^{N/2-1}\)</span>. Cabello [C] proposed this
+inequality in 2010 and argued for exponential growth; his Lemma 3 identifies the bound with the number
+of positive contexts, which is correct for two qubits but not for three, where 252 of the 315
+predictions can be satisfied rather than 225 [M1]. Corollary A proves the growth.</p>
+<p><strong>Noise.</strong> If imperfections scale every correlator by a visibility <span class="math inline">\(\eta\)</span>, the inequality is violated
+when <span class="math inline">\(\eta \gt 1 - 2d/L\)</span>, hence whenever <span class="math inline">\(\eta \gt 2\sqrt{D+1}/(D+2)\)</span>: above <span class="math inline">\(0.6\)</span> for three qubits, <span class="math inline">\(0.458\)</span>
+for four, <span class="math inline">\(0.338\)</span> for five, <span class="math inline">\(0.062\)</span> for ten. In the notation of [C, MS] the tolerated error per context
+<span class="math inline">\(\varepsilon = 2d/L\)</span> is at least <span class="math inline">\(1 - 2\sqrt{D+1}/(D+2)\)</span>, which exceeds <span class="math inline">\(0.707\)</span> (the largest value
+confirmed in the search of [MS], for configurations of a different kind) from six qubits on and tends
+to <span class="math inline">\(1\)</span>.</p>
+<p><strong>Proposition 4 (the floor is sharp up to a logarithmic factor).</strong> Let <span class="math inline">\(N\ge2\)</span>. For every pure <span class="math inline">\(N\)</span>-qubit state with
+<span class="math inline">\(M = \max_{v \ne 0} |\langle P_v \rangle|\)</span> there is an assignment of the full space with</p>
+<p><span class="math display">\[\beta \;\ge\; \frac{(D-1)(D-2)}{6\,M^3}, \qquad\text{so}\qquad
+\frac{1}{(D+1)(D+2)\,M_N^3} \;\le\; \frac12 - \frac{d}{L} \;\le\; \frac{\sqrt{D+1}}{D+2},\]</span></p>
+<p>where <span class="math inline">\(M_N\)</span> is the least value of <span class="math inline">\(M\)</span> over all states. <span class="math inline">\(M_N \ge 1/\sqrt{D+1}\)</span>, with equality exactly when a
+Pauli-covariant SIC exists, and <span class="math inline">\(M_N \le C\sqrt{\log D / D}\)</span> for an absolute constant <span class="math inline">\(C\)</span>.</p>
+<p><em>Proof.</em> A pure state has <span class="math inline">\(\operatorname{tr}\rho^3 = 1\)</span>; with <span class="math inline">\(\rho = D^{-1}(I + \sum_v p_v P_v)\)</span> and
+<span class="math inline">\(\sum_{v\ne 0} p_v^2 = D-1\)</span>, the trace computation of Theorem 1 gives
+<span class="math inline">\(T(p) = \sum_\ell s_\ell\, p_u p_v p_w = (D-1)(D-2)/6\)</span> (the cubic purity condition [JL, St]). Choose the
+signs <span class="math inline">\(f(v)\)</span> independently with mean <span class="math inline">\(p_v/M\)</span>. Then <span class="math inline">\(\mathbb{E}\,\beta(f) = T(p)/M^3\)</span>, and some <span class="math inline">\(f\)</span> does at
+least as well. The upper bound on <span class="math inline">\(M_N\)</span> follows from Lévy's lemma for Haar-random states and a union
+bound over the <span class="math inline">\(D^2-1\)</span> observables [HLW]. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<p>So <span class="math inline">\(\tfrac12 - d/L = \Theta(2^{-N/2})\)</span> up to a factor <span class="math inline">\(\log^{3/2} D\)</span>. In four sample runs the sign patterns
+of Haar-random states reached between 50 and 64 per cent of the floor value of <span class="math inline">\(\beta\)</span> for four and five qubits.
+We did not find Proposition 4 in the notes we could read; we do not claim it is new.</p>
+<p><strong>Averaging between families.</strong> Every context of <span class="math inline">\(W(7,2)\)</span> lies on exactly 24 of its 120 elliptic
+quadrics, and every context of <span class="math inline">\(Q^+(9,2)\)</span> lies in exactly 112 of its 496 sections by an imaginary Pauli
+observable, each a signed copy of <span class="math inline">\(W(7,2)\)</span> [LGG, J1]; we re-verified these incidences by enumeration.
+With Theorem 2 and integer rounding this gives <span class="math inline">\(d(Q^-(7,2)) \ge 291\)</span>, <span class="math inline">\(d(W(7,2)) \ge 1455\)</span>,
+<span class="math inline">\(d(Q^+(9,2)) \ge 6444\)</span>, <span class="math inline">\(d(W(9,2)) \ge 28791\)</span>, each below the values of [J1, J4] and stated here only to
+show what the floor alone yields.</p>
+<h2 id="7-the-data-against-the-floor">7. The data against the floor</h2>
+<p>Table 2 confronts every published or pre-printed value we know for the classical families with the
+floor. "Floor" is the integer bound of Theorem 1 (Theorem 2 for elliptic quadrics), computed in exact
+integer arithmetic. "Best assignment" is the smallest number of violated contexts known; all entries up
+to five qubits were reproduced by our own search (Section 11).</p>
+<p><strong>Table 2. Classical configurations compared with the spectral floor.</strong></p>
+<table>
+<thead>
+<tr>
+<th>configuration</th>
+<th><span class="math inline">\(N\)</span></th>
+<th>points</th>
+<th>contexts</th>
+<th>averaging bound <span class="math inline">\(\lceil L/5\rceil\)</span> [M2, LGG]</th>
+<th>floor</th>
+<th>best assignment</th>
+<th>exact value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(W(3,2)\)</span></td>
+<td>2</td>
+<td>15</td>
+<td>15</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3 [dB]</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^+(3,2)\)</span></td>
+<td>2</td>
+<td>9</td>
+<td>6</td>
+<td>–</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="math inline">\(W(5,2)\)</span></td>
+<td>3</td>
+<td>63</td>
+<td>315</td>
+<td>63</td>
+<td><strong>63</strong></td>
+<td>63</td>
+<td>63 [M1]</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^+(5,2)\)</span></td>
+<td>3</td>
+<td>35</td>
+<td>105</td>
+<td>21</td>
+<td>14</td>
+<td>21</td>
+<td>21 [dB]</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^-(5,2)\)</span></td>
+<td>3</td>
+<td>27</td>
+<td>45</td>
+<td>9</td>
+<td><strong>9</strong></td>
+<td>9</td>
+<td>9 [dB]</td>
+</tr>
+<tr>
+<td><span class="math inline">\(W(7,2)\)</span></td>
+<td>4</td>
+<td>255</td>
+<td>5355</td>
+<td>1071</td>
+<td>1451</td>
+<td>1575 [M2]</td>
+<td>1575 [J1]*</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^+(7,2)\)</span></td>
+<td>4</td>
+<td>135</td>
+<td>1575</td>
+<td>315</td>
+<td><strong>315</strong></td>
+<td>315 [M2]</td>
+<td>315 [LGG]</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^-(7,2)\)</span></td>
+<td>4</td>
+<td>119</td>
+<td>1071</td>
+<td>215</td>
+<td>291</td>
+<td>315 [M2]</td>
+<td>315 [J1]*</td>
+</tr>
+<tr>
+<td><span class="math inline">\(W(9,2)\)</span></td>
+<td>5</td>
+<td>1023</td>
+<td>86955</td>
+<td>17391</td>
+<td>28786</td>
+<td>31479 [M2]</td>
+<td>open (<span class="math inline">\(\ge 28830\)</span> [J4]*)</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^+(9,2)\)</span></td>
+<td>5</td>
+<td>527</td>
+<td>23715</td>
+<td>4743</td>
+<td>6426</td>
+<td>6975 [M2]</td>
+<td>6975 [J1]*</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^-(9,2)\)</span></td>
+<td>5</td>
+<td>495</td>
+<td>19635</td>
+<td>3927</td>
+<td>6501</td>
+<td>7087 [M2]</td>
+<td>open (<span class="math inline">\(\ge 6510\)</span> [J4]*)</td>
+</tr>
+<tr>
+<td><span class="math inline">\(W(11,2)\)</span></td>
+<td>6</td>
+<td>4095</td>
+<td>1396395</td>
+<td>279279</td>
+<td>527621</td>
+<td>553140 [M2]</td>
+<td>open</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^+(11,2)\)</span></td>
+<td>6</td>
+<td>2079</td>
+<td>365211</td>
+<td>73043</td>
+<td>120901</td>
+<td>132391 [M2]</td>
+<td>open</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^-(11,2)\)</span></td>
+<td>6</td>
+<td>2015</td>
+<td>332475</td>
+<td>66495</td>
+<td>125624</td>
+<td>131700 [M2]</td>
+<td>open</td>
+</tr>
+<tr>
+<td><span class="math inline">\(W(13,2)\)</span></td>
+<td>7</td>
+<td>16383</td>
+<td>22362795</td>
+<td>4472559</td>
+<td>9227609</td>
+<td>9406024 [M2]</td>
+<td>open</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^+(13,2)\)</span></td>
+<td>7</td>
+<td>8255</td>
+<td>5720715</td>
+<td>1144143</td>
+<td>2161542</td>
+<td>2331191 [M2]</td>
+<td>open</td>
+</tr>
+<tr>
+<td><span class="math inline">\(Q^-(13,2)\)</span></td>
+<td>7</td>
+<td>8127</td>
+<td>5458635</td>
+<td>1091727</td>
+<td>2252409</td>
+<td>2294580 [M2]</td>
+<td>open</td>
+</tr>
+</tbody>
+</table>
+<p>* computer-assisted, not formally verified, not peer reviewed; we did not re-run these computations.</p>
+<p>Reading of the table. (1) All 17 rows are consistent with the floor; it is attained in the three rows
+in bold and, after rounding, in <span class="math inline">\(Q^+(3,2)\)</span>, the Mermin–Peres square. (2) From four qubits on (five for
+hyperbolic quadrics) the floor exceeds the averaging bound <span class="math inline">\(L/5\)</span>, and the gap to the best assignment
+shrinks: the floor closes 75, 81, 91 and 96 per cent of the interval between <span class="math inline">\(L/5\)</span> and the best
+assignment for the full space at <span class="math inline">\(N = 4, 5, 6, 7\)</span>. (3) For seven qubits the best known assignments of
+the full space and of the elliptic quadric are within two per cent of the floor. (4) Outside these
+families the floor is exact for the configurations of Table 1.</p>
+<p>An empirical regularity, also recorded for four qubits in [J1]: in every best assignment we computed,
+<span class="math inline">\(A + 3I\)</span> has low rank. The spectra of <span class="math inline">\(A\)</span> are <span class="math inline">\(\{21 \pm 16\sqrt6, (-3)^{14}\}\)</span> for <span class="math inline">\(W(7,2)\)</span>,
+<span class="math inline">\(\{(9 \pm 4\sqrt{23})^2, (-3)^{12}\}\)</span> for <span class="math inline">\(Q^-(7,2)\)</span>, <span class="math inline">\(\{45 \pm 56\sqrt2, (-3)^{30}\}\)</span> for <span class="math inline">\(Q^+(9,2)\)</span>, and three
+(respectively three pairs of) eigenvalues different from <span class="math inline">\(-3\)</span> for <span class="math inline">\(W(9,2)\)</span> (respectively <span class="math inline">\(Q^-(9,2)\)</span>).</p>
+<p><img src="figures/fig1_fraction.png" alt="Figure 1" /></p>
+<p><em>Figure 1. Lower bound on the fraction of violated contexts for the full N-qubit Pauli configuration, the earlier bound 1/5, and the best assignments known.</em></p>
+<p><img src="figures/fig3_spectra.png" alt="Figure 2" /></p>
+<p><em>Figure 2. Spectra of <span class="math inline">\(A = \sum f(v)P_v\)</span> for the best assignments at three and four qubits.</em></p>
+<h2 id="8-what-a-carrier-spectrum-does-not-determine">8. What a carrier spectrum does not determine</h2>
+<h3 id="81-the-completion-question">8.1 The completion question</h3>
+<p>For a fixed assignment on a hyperplane section, the remaining contextuality constraints define a
+quadratic problem. Jonah's <em>strict law</em> says that equal spectra of the section carriers imply equal
+spectra of the corresponding completion operators within a specified class [J3]. Sign carriers,
+whose coefficients all belong to <span class="math inline">\(\{-1,+1\}\)</span>, impose a stronger admissibility requirement than general
+real carriers: a construction using zero coefficients need not answer the sign-carrier question.</p>
+<p>Case C3 in [J3] is a hyperbolic quadric cut by a hyperplane whose polar point lies on the quadric.
+Conjecture E predicts failure of the strict law on sign carriers in every vertex case for <span class="math inline">\(N\ge4\)</span>.
+The inspected source leaves this C3 range open. We give two admissible carriers at <span class="math inline">\(N=4\)</span> and prove
+the predicted failure. This concerns the information in the entire carrier spectrum, even when its
+eigenvalues are known exactly; it leaves the spectral floor of Section 3 valid.</p>
+<h3 id="82-geometry-and-two-complete-witnesses">8.2 Geometry and two complete witnesses</h3>
+<p>Set <span class="math inline">\(N=4\)</span>, <span class="math inline">\(D=16\)</span>, and let <span class="math inline">\(\mathcal Q=Q^+(7,2)\)</span> be the 135 nonidentity real Pauli observables,
+equivalently the labels with <span class="math inline">\(q_0(a,c)=a\cdot c=0\)</span> modulo two. Use the polar point <span class="math inline">\(p_\star=ZIII\)</span> and
+write</p>
+<p><span class="math display">\[H=\{v\in\mathcal Q:\langle v,p_\star\rangle=0\},\qquad
+O=\mathcal Q\setminus H.\]</span></p>
+<p>Here <span class="math inline">\(H\)</span> is the section and <span class="math inline">\(O\)</span> its complement; the letter <span class="math inline">\(S\)</span> retains its general meaning from
+Section 2. If <span class="math inline">\(R\)</span> is the set of 35 real nonidentity three-qubit Paulis, then</p>
+<p><span class="math display">\[H=\{Z\otimes I_8\}\cup\{I\otimes P,Z\otimes P:P\in R\}.\]</span></p>
+<p>Thus <span class="math inline">\(|H|=71\)</span> and <span class="math inline">\(|O|=64\)</span>. The outside points have first factor <span class="math inline">\(X\)</span> with a real three-qubit factor,
+or first factor <span class="math inline">\(Y\)</span> with an imaginary three-qubit factor: 36 and 28 points respectively. Each line
+not contained in <span class="math inline">\(H\)</span> contains exactly one section point and two outside points. The quadric has
+1575 contexts, of which 1120 are outside lines; these numbers refer to <span class="math inline">\(\mathcal Q\)</span>, not <span class="math inline">\(S_B\)</span>.</p>
+<p>Define <span class="math inline">\(\sigma_0,\sigma_1:H\to\{-1,+1\}\)</span> to be positive except at these labels:</p>
+<p><strong>Table 3. Complete C3 sign witnesses.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Carrier</th>
+<th>Negative Pauli words</th>
+<th>Negative numeric labels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(\sigma_0\)</span></td>
+<td>IIZZ, IYYI, ZIZZ, ZYYI</td>
+<td>48, 102, 176, 230</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\sigma_1\)</span></td>
+<td>IYXY, ZIIZ, ZIZZ, ZYXY</td>
+<td>87, 144, 176, 215</td>
+</tr>
+</tbody>
+</table>
+<p>Both give <span class="math inline">\(+1\)</span> to <span class="math inline">\(p_\star\)</span>. No search seed or external assignment file is needed to specify them.
+Their carrier operators are <span class="math inline">\(A_\sigma=\sum_{s\in H}\sigma(s)P_s\)</span>. Define the real symmetric
+completion matrix <span class="math inline">\(\Lambda_\sigma\)</span>, indexed by <span class="math inline">\(O\)</span>, by</p>
+<p><span class="math display">\[(\Lambda_\sigma)_{uv}=(\Lambda_\sigma)_{vu}=s_\ell\sigma(s)
+\quad\text{when }\ell=\{s,u,v\},\ s\in H,\ u,v\in O,\]</span></p>
+<p>and zero for all other entries, including the diagonal. For <span class="math inline">\(y\in\{-1,+1\}^O\)</span> the number of
+violated outside lines is</p>
+<p><span class="math display">\[F(\sigma,y)=560-\frac14y^{\mathsf T}\Lambda_\sigma y.
+\tag{C1}\]</span></p>
+<p>Each line contributes <span class="math inline">\((1-s_\ell\sigma(s)y_uy_v)/2\)</span>; the symmetric quadratic form counts it twice.
+This proves the normalization and agrees with [J3, Section 2].</p>
+<h3 id="83-exact-statement">8.3 Exact statement</h3>
+<p><strong>Theorem 14 (four-qubit C3 certificate).</strong> The witnesses in Table 3 have equal characteristic
+polynomials,</p>
+<p><span class="math display">\[\begin{aligned}
+\chi_{A_{\sigma_0}}(t)=\chi_{A_{\sigma_1}}(t)
+={}&amp;(t-3)^2(t+1)^8(t+5)^2(t+13)\\ &amp;{}\cdot(t^3-25t^2-133t+1621),
+\end{aligned}
+\tag{C2}\]</span></p>
+<p>but their completion operators satisfy</p>
+<p><span class="math display">\[\operatorname{tr}\Lambda_{\sigma_0}^3=14976,\qquad
+\operatorname{tr}\Lambda_{\sigma_1}^3=15360.
+\tag{C3}\]</span></p>
+<p>Consequently the carrier spectra, including multiplicities, are equal and the completion spectra
+are different. This proves failure of the strict law for four-qubit C3 sign carriers, establishing
+the corresponding instance of Conjecture E.</p>
+<h3 id="84-block-proof-and-the-information-that-is-lost">8.4 Block proof and the information that is lost</h3>
+<p>Every section operator commutes with <span class="math inline">\(p_\star\)</span>, so in its <span class="math inline">\(\pm1\)</span> eigenspaces</p>
+<p><span class="math display">\[A_\sigma=\operatorname{diag}(B_{\sigma,+},B_{\sigma,-}).\]</span></p>
+<p>Put <span class="math inline">\(\alpha=\sigma(Z\otimes I)\)</span>, <span class="math inline">\(a_P=\sigma(I\otimes P)\)</span> and <span class="math inline">\(b_P=\sigma(Z\otimes P)\)</span>. The
+two real symmetric <span class="math inline">\(8\times8\)</span> blocks are</p>
+<p><span class="math display">\[B_{\sigma,+}=\alpha I+\sum_{P\in R}(a_P+b_P)P,\qquad
+B_{\sigma,-}=-\alpha I+\sum_{P\in R}(a_P-b_P)P.
+\tag{C4}\]</span></p>
+<p>Since <span class="math inline">\(a_P,b_P\in\{-1,+1\}\)</span>, each <span class="math inline">\(P\)</span> occurs in exactly one block with coefficient <span class="math inline">\(+2\)</span> or <span class="math inline">\(-2\)</span>.
+For three-qubit codes use <span class="math inline">\(a+8c\)</span> and let <span class="math inline">\(T_R=\sum_{P\in R}P\)</span>. Table 3 gives</p>
+<p><span class="math display">\[\begin{array}{ll}
+B_{0,+}=I+2(T_R-2P_{24}-2P_{54}),&amp; B_{0,-}=-I,\\ B_{1,+}=I+2(T_R-P_8-P_{24}-2P_{47}),&amp; B_{1,-}=-I+2P_8+2P_{24}.
+\end{array}
+\tag{C5}\]</span></p>
+<p>Here <span class="math inline">\(P_8=IIZ\)</span>, <span class="math inline">\(P_{24}=IZZ\)</span>, <span class="math inline">\(P_{47}=YXY\)</span> and <span class="math inline">\(P_{54}=YYI\)</span>. Define</p>
+<p><span class="math display">\[g(t)=t^3-25t^2-133t+1621,\qquad h(t)=(t+13)g(t).\]</span></p>
+<p>Exact determinant evaluation in (C5) yields the following finite integer identities.</p>
+<p><strong>Table 4. The block characteristic polynomials.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Characteristic polynomial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(B_{0,+}\)</span></td>
+<td><span class="math inline">\((t-3)^2(t+5)^2h(t)\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(B_{0,-}\)</span></td>
+<td><span class="math inline">\((t+1)^8\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(B_{1,+}\)</span></td>
+<td><span class="math inline">\((t+1)^4h(t)\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(B_{1,-}\)</span></td>
+<td><span class="math inline">\((t-3)^2(t+1)^4(t+5)^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>They can be reproduced directly from the explicitly specified eight-dimensional matrices; no
+approximate root comparison or classification theorem is involved. The last row also follows from
+the joint eigenvalues of its two commuting Z-type Paulis. Multiplying the plus and minus polynomials
+in each pair proves (C2).</p>
+<p>The unlabelled union of block spectra stays fixed while their allocation changes. Two copies each of
+<span class="math inline">\(3\)</span> and <span class="math inline">\(-5\)</span> move from the plus block to the minus block, and four copies of <span class="math inline">\(-1\)</span> move in the reverse
+direction. The common carrier spectrum alone does not record this allocation.</p>
+<p>The outside Pauli span is the space of real symmetric off-diagonal block matrices</p>
+<p><span class="math display">\[\begin{pmatrix}0&amp;M\\M^{\mathsf T}&amp;0\end{pmatrix},\qquad M\in\mathbb R^{8\times8}.\]</span></p>
+<p>One half of the anticommutator with <span class="math inline">\(A_\sigma\)</span> acts there as</p>
+<p><span class="math display">\[M\longmapsto\frac12(B_{\sigma,+}M+MB_{\sigma,-}).
+\tag{C6}\]</span></p>
+<p>Its matrix in the outside Pauli basis is exactly <span class="math inline">\(\Lambda_\sigma\)</span>: commuting Pauli pairs supply the
+context sign and anticommuting pairs vanish. The polar term contributes zero on this outside span.
+This is the C3 Jordan representation of [J3, Theorem A and Table 1]. In orthonormal block eigenbases,</p>
+<p><span class="math display">\[\operatorname{spec}\Lambda_\sigma=
+\left\{\frac{b_{+,i}+b_{-,j}}2:1\le i,j\le8\right\},
+\tag{C7}\]</span></p>
+<p>where each ordered pair contributes once. These sums depend on the block allocation that the carrier
+spectrum has discarded. Expanding their cubes gives</p>
+<p><span class="math display">\[\begin{aligned}
+\operatorname{tr}\Lambda_\sigma^3={}&amp;\operatorname{tr}A_\sigma^3\\ &amp;+\frac38\bigl[
+(\operatorname{tr}B_{\sigma,+}^2)(\operatorname{tr}B_{\sigma,-})
++(\operatorname{tr}B_{\sigma,+})(\operatorname{tr}B_{\sigma,-}^2)
+\bigr].
+\end{aligned}
+\tag{C8}\]</span></p>
+<p>For both witnesses <span class="math inline">\(\operatorname{tr}B_+=8\)</span>, <span class="math inline">\(\operatorname{tr}B_-=-8\)</span> and
+<span class="math inline">\(\operatorname{tr}A^3=18336\)</span>. If <span class="math inline">\(r\)</span> real nonidentity three-qubit Paulis occur in the plus block,
+Pauli orthogonality gives</p>
+<p><span class="math display">\[\operatorname{tr}B_+^2=8(1+4r),\qquad
+\operatorname{tr}B_-^2=8(1+4(35-r)).
+\tag{C9}\]</span></p>
+<p>For <span class="math inline">\(\sigma_0\)</span>, <span class="math inline">\(r=35\)</span>, so these traces are 1128 and 8; for <span class="math inline">\(\sigma_1\)</span>, <span class="math inline">\(r=33\)</span>, so they are 1064 and
+72. Equation (C8) therefore gives</p>
+<p><span class="math display">\[18336+3(8-1128)=14976,\qquad
+18336+3(72-1064)=15360.\]</span></p>
+<p>Equal spectra would have equal cubic traces. Their difference of 384 proves (C3) and the spectral
+conclusion without numerical diagonalization. <span class="math inline">\(\qquad\blacksquare\)</span></p>
+<h3 id="85-consequence-for-the-continuous-completion-bound">8.5 Consequence for the continuous completion bound</h3>
+<p><strong>Corollary 15.</strong> The largest completion eigenvalues differ by exactly two:</p>
+<p><span class="math display">\[\lambda_{\max}(\Lambda_{\sigma_1})-
+\lambda_{\max}(\Lambda_{\sigma_0})=2.
+\tag{C10}\]</span></p>
+<p>Let <span class="math inline">\(\rho\)</span> be the largest root of <span class="math inline">\(g\)</span>. The values <span class="math inline">\(g(25)=-1704\)</span>, <span class="math inline">\(g(30)=2131\)</span> and
+<span class="math inline">\(g&#39;(t)=3t^2-50t-133\gt 0\)</span> for <span class="math inline">\(t\ge25\)</span> show that exactly one root lies above 25, and it belongs to
+<span class="math inline">\((25,30)\)</span>. All roots are real because they occur in a real symmetric block polynomial. Both plus
+blocks have largest eigenvalue <span class="math inline">\(\rho\)</span>; their other explicit eigenvalues are at most 3. The minus-block
+maxima are <span class="math inline">\(-1\)</span> and <span class="math inline">\(3\)</span> respectively. Equation (C7) gives <span class="math inline">\((\rho-1)/2\)</span> and <span class="math inline">\((\rho+3)/2\)</span>, proving
+(C10).</p>
+<p>On the continuous sphere <span class="math inline">\(y^{\mathsf T}y=64\)</span>, equation (C1) has minimum</p>
+<p><span class="math display">\[\min_{\|y\|^2=64}F(\sigma,y)=560-16\lambda_{\max}(\Lambda_\sigma).
+\tag{C11}\]</span></p>
+<p>This relaxed minimum is 32 lower for <span class="math inline">\(\sigma_1\)</span> than for <span class="math inline">\(\sigma_0\)</span>. The binary minimum is bounded
+below by the spherical one; a binary vector need not be a top eigenvector. The corollary therefore
+does not prove a difference of 32, or any difference, between exact binary completion minima.</p>
+<p><img src="c3-figures/spectra.png" alt="Figure 3" /></p>
+<p><em>Figure 3. C3 carrier and completion spectra. Assignment A is <span class="math inline">\(\sigma_0\)</span> and B is <span class="math inline">\(\sigma_1\)</span>. Numerical eigenvalue locations illustrate the certificate; exact integer identities establish carrier cospectrality, unequal completion cubic traces and the largest-eigenvalue gap. Multiplicities are retained.</em></p>
+<p><strong>The fixed-section score is also identical.</strong> The section has <span class="math inline">\(1575-1120=455\)</span> contexts. The trace
+identity of Section 3 gives <span class="math inline">\(\beta_H=18336/(6\cdot16)=191\)</span> for each carrier, hence
+<span class="math inline">\((455-191)/2=132\)</span> violated section contexts and 323 satisfied ones. Independent integer
+Pauli-label phase arithmetic in <code>scripts/unified_section_score.py</code> recounts these values; the record
+is <code>results/unified-section-score.json</code>. Flipping label 1 of the first assignment changes its count
+to 147 and its score to 161, furnishing a negative control. This section-score observation is a
+derived and executable check, not an additional specialized Lean theorem.</p>
+<p>The floor uses spectral moments of an assignment on a whole chosen configuration to certify a
+universal inequality. The strict law asks whether a section carrier's eigenvalues encode a different
+operator. The block partition explains why the first method remains valid when the second inference
+fails. Neither the known degree 315 of <span class="math inline">\(\mathcal Q\)</span> nor the degree 75 of <span class="math inline">\(S_B\)</span> is altered by this
+completion example.</p>
+<h2 id="9-formal-verification-and-its-boundary">9. Formal verification and its boundary</h2>
+<p>The sources are in <code>lean/HoggarBound/</code> (Lean 4.35.0, Mathlib v4.35.0).</p>
+<h3 id="91-floor-and-saturation-statements">9.1 Floor and saturation statements</h3>
+<table>
+<thead>
+<tr>
+<th>module</th>
+<th>content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Moment.lean</code></td>
+<td><code>sum_cube_le</code> (the scalar inequality); <code>trace_pow_eq_sum_eigenvalues_pow</code> (<span class="math inline">\(\operatorname{tr}A^k = \sum \lambda_i^k\)</span> for Hermitian <span class="math inline">\(A\)</span>); <code>trace_cube_le</code></td>
+</tr>
+<tr>
+<td><code>Pauli.lean</code></td>
+<td>bit vectors <code>Fin N → ZMod 2</code>; Weyl operators and <code>pauli u</code> as explicit complex matrices; <code>pauli_mul</code>, <code>context_product</code> (<span class="math inline">\(P_uP_vP_{u+v} = \tau(u,v) I\)</span>), <code>pauli_comm</code>; traces of one, two and three Pauli operators; <span class="math inline">\(\tau = \pm 1\)</span> on commuting pairs</td>
+</tr>
+<tr>
+<td><code>Bound.lean</code></td>
+<td><code>flags</code> (ordered commuting pairs with product in <span class="math inline">\(S\)</span>: six per context), <code>beta6</code>, the operator <code>opA</code>; <code>trace_opA_cube</code> (<span class="math inline">\(\operatorname{tr}A^3 = D\,\beta_6\)</span>); <strong><code>hoggar_bound</code></strong></td>
+</tr>
+<tr>
+<td><code>Counting.lean</code></td>
+<td><code>violated</code>, <code>beta6_eq_card</code>; the flag count of the full space for every <span class="math inline">\(N\)</span> (<code>card_flags_all</code>); <code>violatedLines</code> and <code>card_violated_le</code>; <code>four_qubit_contexts</code></td>
+</tr>
+<tr>
+<td><code>Corollaries.lean</code></td>
+<td><code>full_space_bound</code>, <code>full_space_fraction</code> (all <span class="math inline">\(N\)</span>); <code>three_qubit_contexts</code>, <code>five_qubit_contexts</code></td>
+</tr>
+<tr>
+<td><code>Quadric.lean</code></td>
+<td>the real quadric; its point and flag counts for every <span class="math inline">\(N\)</span> by character sums; <code>four_qubit_hyperbolic_contexts</code>, <code>five_qubit_hyperbolic_contexts</code></td>
+</tr>
+<tr>
+<td><code>MaskConfig.lean</code></td>
+<td>configurations and assignments given by bit masks; <code>card_flags_cfg</code>, <code>card_violated_cfg</code> (their flag counts as sums the kernel can evaluate); <code>degree_of_certificate</code></td>
+</tr>
+<tr>
+<td><code>FlatData.lean</code>, <code>SaturatedFive.lean</code></td>
+<td>generated: the masks of the first six rows of Table 1, and the five-qubit counts in 32 blocks</td>
+</tr>
+<tr>
+<td><code>Saturated.lean</code></td>
+<td><strong><code>pivot_degree</code></strong>, <strong><code>cieslinski5_degree</code></strong>, <code>quadric_degree</code>, <code>hoggar_degree</code>, <code>ccz_degree</code>, <code>lly_degree</code></td>
+</tr>
+<tr>
+<td><code>PhaseData.lean</code>, <code>SaturatedPhaseFive.lean</code></td>
+<td>generated: the masks of <span class="math inline">\(\Phi_5\)</span> and <span class="math inline">\(\Phi_7\)</span>; <strong><code>phase5_degree</code></strong></td>
+</tr>
+</tbody>
+</table>
+<p>The main theorem, as checked:</p>
+<pre class="lean"><code>theorem hoggar_bound (hN : 1 ≤ N) (S : Finset (Pt N)) (h0 : (0 : Pt N) ∉ S) (f : Pt N → ℝ)
+    (hf : ∀ u ∈ S, f u = 1 ∨ f u = -1) :
+    ((2 : ℝ) ^ N - 1) * beta6 S f
+      ≤ ((2 : ℝ) ^ N - 2) * S.card * Real.sqrt (((2 : ℝ) ^ N - 1) * S.card)</code></pre>
+<p>Here <code>beta6 S f</code> is six times <span class="math inline">\(\beta_S(f)\)</span>, a sum over ordered pairs, and the sign of a context is by
+definition the real part of the scalar <span class="math inline">\(\tau(u,v)\)</span> with <code>pauli u * pauli v * pauli (u + v) = tau u v • 1</code>.
+Table 5 lists the corollaries.</p>
+<p><strong>Table 5. Formal floor and exact-degree statements.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Lean theorem</th>
+<th>statement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>full_space_fraction</code></td>
+<td>for all <span class="math inline">\(N \ge 1\)</span>: <span class="math inline">\(\#\text{violated flags} \ge \big(\tfrac12 - \sqrt{2^N+1}/(2^N+2)\big)\,\#\text{flags}\)</span></td>
+</tr>
+<tr>
+<td><code>three_qubit_contexts</code></td>
+<td>every assignment of the 63 observables violates at least 63 contexts</td>
+</tr>
+<tr>
+<td><code>four_qubit_contexts</code></td>
+<td>every assignment of the 255 observables violates at least 1451 contexts</td>
+</tr>
+<tr>
+<td><code>five_qubit_contexts</code></td>
+<td>every assignment of the 1023 observables violates at least 28786 contexts</td>
+</tr>
+<tr>
+<td><code>four_qubit_hyperbolic_contexts</code></td>
+<td>every assignment of the 135 real observables violates at least 315 contexts</td>
+</tr>
+<tr>
+<td><code>five_qubit_hyperbolic_contexts</code></td>
+<td>every assignment of the 527 real observables violates at least 6426 contexts</td>
+</tr>
+<tr>
+<td><code>pivot_degree</code></td>
+<td>for the 135 observables of <span class="math inline">\(S_B\)</span>: every assignment violates at least 75 contexts, and some assignment violates exactly 75</td>
+</tr>
+<tr>
+<td><code>cieslinski5_degree</code></td>
+<td>for the 496 observables of <span class="math inline">\(S_5\)</span>: at least 480, and exactly 480 for some assignment</td>
+</tr>
+<tr>
+<td><code>phase5_degree</code></td>
+<td>the same statement for the 496 observables in the support of the circuit state <span class="math inline">\(\Phi_5\)</span></td>
+</tr>
+<tr>
+<td><code>quadric_degree</code>, <code>hoggar_degree</code></td>
+<td>the same two-sided statements with 315 (four-qubit hyperbolic quadric) and 63 (three qubits)</td>
+</tr>
+<tr>
+<td><code>ccz_degree</code>, <code>lly_degree</code></td>
+<td>some assignment of the 28 (respectively 12) observables violates no context</td>
+</tr>
+</tbody>
+</table>
+<p><code>#print axioms</code> reports <code>[propext, Classical.choice, Quot.sound]</code> for each of them: no <code>sorry</code>, no
+<code>native_decide</code>, no additional axiom.</p>
+<p><strong>How the exact degrees are checked.</strong> The statement of <code>pivot_degree</code> is about a set of 135 explicit
+complex <span class="math inline">\(16 \times 16\)</span> matrices, given by a 256-bit mask: bit <span class="math inline">\(a + 16c\)</span> says whether <span class="math inline">\(P_{(a|c)}\)</span> belongs to
+it. <code>MaskConfig.lean</code> proves, for every <span class="math inline">\(N\)</span> and every mask, that the number of flags of the configuration
+and the number of flags violated by an assignment that is itself given by a mask are double sums over
+codes of Boolean expressions built from bit tests, exclusive or and addition of natural numbers. The
+kernel evaluates these sums (<code>decide +kernel</code>); for five qubits each sum has <span class="math inline">\(2^{20}\)</span> terms and is
+evaluated in 16 blocks. <code>degree_of_certificate</code> then combines three evaluated numbers (observables,
+flags, flags violated by the witness) with <code>hoggar_bound</code>. That the masks are the supports and sign
+patterns of the states of Table 1 is checked by the programs of Section 11 in exact arithmetic; it is
+not needed for, and not part of, the Lean statements. For seven qubits the two sums have <span class="math inline">\(2^{28}\)</span> terms
+each and were not evaluated in the kernel: the degree <span class="math inline">\(729\,344\)</span> of <span class="math inline">\(S_7\)</span> rests on <code>hoggar_bound</code>, which
+needs only the number 8128, and on a count of contexts and violated contexts made by programs.</p>
+<p><strong>Floor and saturation results outside the formalization.</strong> Theorem 2 (the quaternionic form) and all elliptic-quadric numbers;
+Theorems 3 and 4 as equivalences, and the state, spectral-equality and geometric interpretations in Sections 4–6 (the Lean
+results for that part are the inequality and the two-sided degree statements); Propositions 4, 6 and 8 to 11; the
+enumerations of Theorems 12 and 13 and the seven-qubit counts; the limit
+statement as a theorem about limits (the inequality for each <span class="math inline">\(N\)</span> is formal); the exact values of [J1].
+For the classical families beyond three qubits and <span class="math inline">\(Q^+(7,2)\)</span>, upper bounds are witnesses checked by
+the programs of Section 11.</p>
+<p><strong>Independent audit.</strong> A separate set of agent sessions, working concurrently in the same repository
+and without editing our files, re-checked the first six modules from source, confirmed the axiom
+report, and added two modules of its own (<code>IndependentContexts.lean</code>, <code>IndependentWitness.lean</code>). They
+prove that a violated context carries exactly six violated flags (used in <code>MaskConfig.lean</code>) and, by
+kernel evaluation of an integer certificate, that the explicit assignment
+"<span class="math inline">\(f(a,c) = +1\)</span> if <span class="math inline">\(a = 0\)</span> or <span class="math inline">\(c = 0\)</span> or the number of <span class="math inline">\(Y\)</span> factors is at least 2, and <span class="math inline">\(-1\)</span> otherwise"
+violates exactly 63 contexts. Their reports are in <code>results/lean-audit.md</code>,
+<code>results/literature-audit.md</code> and <code>results/stack-independent-audit.md</code>, and their companion note is
+<code>paper/independent-research-note.md</code>. The literature audit is what first pointed us to [J1]. The
+modules from <code>MaskConfig.lean</code> on, and everything in Section 5, were written after that audit and are
+not covered by it.</p>
+<h3 id="92-the-checked-c3-statement">9.2 The checked C3 statement</h3>
+<p>The C3 development uses the same pinned Lean 4.35.0 and Mathlib 4.35.0 setting. It identifies the
+complete 71-point section and 64-point complement, proves the assignments are sign-valued, and
+connects the integer certificate matrices to the original complex Pauli sums and real <code>lineSign</code>
+completion operators. Thus its conclusion applies to the configuration of Section 8.</p>
+<p>The main declarations in <code>HoggarBound.C3</code> are <code>four_qubit_C3_counterexample</code>,
+<code>pauli_carrier_eigenvalues_eq</code>, <code>pauli_completion_eigenvalue_multisets_ne</code> and
+<code>four_qubit_C3_spectral_counterexample</code>. They prove equal carrier characteristic polynomials and
+canonical Hermitian eigenvalue lists, different completion characteristic polynomials and real root
+multisets with multiplicities, and the exact completion cube traces 14976 and 15360.</p>
+<p>The certificate kernel-checks <span class="math inline">\(A_0M=MA_1\)</span> and <span class="math inline">\(MR=46656I\)</span> for explicit integer matrices. This
+certifies an invertible similarity over the rationals. For each completion, an intermediate square
+is checked entry by entry and substituted into a checked cubic trace. No external eigensolver supplies
+a proof premise. All 42 declarations in <code>lean/C3Verification.lean</code> passed the axiom audit with only
+<code>propext</code>, <code>Classical.choice</code> and <code>Quot.sound</code>; the finite checks use kernel reduction, not
+<code>native_decide</code>. Commands, source hashes and results are in <code>results/frontier-c3-lean-audit.md</code> and
+its evidence files.</p>
+<p><strong>Table 6. Boundaries that matter for interpreting the combined result.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Evidence boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arbitrary-support spectral floor and stated finite corollaries</td>
+<td>Lean statements about the defined Pauli/context model</td>
+</tr>
+<tr>
+<td>Degrees 75 and 480 for the explicit masks</td>
+<td>Lean lower bounds, witnesses and kernel-evaluated counts; state-to-mask interpretation checked separately by programs</td>
+</tr>
+<tr>
+<td>Saturation equivalences, phase-state classification and seven-qubit counts</td>
+<td>Mathematical arguments and executable computations; not general Lean equality/classification theorems</td>
+</tr>
+<tr>
+<td>Four-qubit C3 carrier cospectrality, unequal completion spectra and cube traces</td>
+<td>Complete 42-declaration Lean audit, including original Pauli and context-sign bridges</td>
+</tr>
+<tr>
+<td>Printed C3 block/carrier factorizations, largest-eigenvalue gap 2 and spherical gap 32</td>
+<td>Exact algebraic and executable checks; not included in those 42 Lean declarations</td>
+</tr>
+<tr>
+<td>Physical hardware, compiler correctness, historical priority or external peer review</td>
+<td>Not established by these theorem checks</td>
+</tr>
+</tbody>
+</table>
+<p>The floor, saturation and C3 audits have different scopes. The independent audit of the original
+six floor modules does not retroactively cover the later saturation development, and the C3 audit
+does not certify the phase-state enumeration. Combining the manuscripts introduces no new Lean
+theorem and does not broaden any existing theorem's hypotheses or conclusion.</p>
+<p>Successful CI provides a second recorded execution at commit <code>87f08a0</code>. The
+<a href="https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638647">full verification run</a>
+passed the executable checks and audits of 42 C3, 22 baseline and six auxiliary stability
+declarations. The separate
+<a href="https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638912">saturation run</a>
+passed its exact-computation jobs and 14-declaration audit. The archived records
+<code>results/full-ci-87-audit.json</code> and <code>results/saturation-ci-audit.json</code> identify the checkout,
+artifact digests and source hashes. These are checks of those source snapshots, not evidence of a
+new proof produced by combining the texts; the auxiliary stability results are not used here.</p>
+<h2 id="10-a-running-example-on-the-tsotchke-stack">10. A running example on the Tsotchke stack</h2>
+<h3 id="101-state-preparation-simulated-contexts-and-quantum-geometry">10.1 State preparation, simulated contexts and quantum geometry</h3>
+<p>All four components are used for what they are.</p>
+<ul>
+<li><strong>Moonlab</strong> (v1.2.1, prebuilt WebAssembly engine) is a classical state-vector simulator. It plays
+the quantum device.</li>
+<li><strong>quantum_rng</strong> is a classical, "quantum-inspired" integer and trigonometric mixer, not a hardware
+quantum source. It supplies seeded pseudo-random numbers. Its stream depends on the C library it is
+built against, so no result depends on its exact values: every count is recomputed independently.</li>
+<li><strong>QGTL</strong> (quantum_geometric_tensor): only the <code>diffgeo_*</code> kernels (Fubini–Study metric, Berry
+curvature), which we had verified earlier against closed forms, are used.</li>
+<li><strong>Eshkol</strong> (v1.3.6) is a Scheme dialect with automatic differentiation. It carries an independent
+implementation of the geometry and the differentiation checks.</li>
+</ul>
+<p><strong>Experiment on Moonlab, classical families</strong> (<code>src/moonlab_experiment.mjs</code>, seed 20261109). A Pauli
+observable is measured projectively by rotating its eigenbasis onto <span class="math inline">\(Z\)</span> of one qubit (gates <span class="math inline">\(H\)</span>,
+<span class="math inline">\(S^\dagger\)</span>, CNOT), calling Moonlab's single-qubit measurement with a number from quantum_rng, and
+undoing the rotation.</p>
+<table>
+<thead>
+<tr>
+<th>step</th>
+<th>what is done</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E0</td>
+<td>Moonlab's <span class="math inline">\(\langle P\rangle\)</span> against a direct evaluation; repeated measurement</td>
+<td>agree to <span class="math inline">\(8.6\times10^{-16}\)</span>; repeats agree</td>
+</tr>
+<tr>
+<td>E1</td>
+<td><span class="math inline">\(\psi_H\)</span> on 3 simulated qubits; 63 expectation values; signs as an assignment</td>
+<td>all <span class="math inline">\(\pm 1/3\)</span> (to <span class="math inline">\(6\times10^{-16}\)</span>); 63 of 315 contexts violated, three through each point</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>realified <span class="math inline">\(\psi_H\)</span> on 4 simulated qubits</td>
+<td><span class="math inline">\(\pm 1/3\)</span> on 135 real observables, <span class="math inline">\(0\)</span> on 120 imaginary ones; 315 of 1575 violated, seven through each point</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>every context measured sequentially on random states, <span class="math inline">\(N = 2,3,4\)</span>, three runs each</td>
+<td><span class="math inline">\(15/15\)</span>, <span class="math inline">\(315/315\)</span>, <span class="math inline">\(5355/5355\)</span> products equal to the quantum sign (16065 projective measurements and 161406 gates per four-qubit run)</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>the same with a random Pauli error of probability <span class="math inline">\(p\)</span> on each qubit before each measurement; 3000 to 4000 sampled contexts</td>
+<td>Figure 4 and the table below</td>
+</tr>
+</tbody>
+</table>
+<p>The table reports the fraction of sampled contexts whose outcomes multiply to the quantum sign,
+against proved noncontextual ceilings. For three and four qubits the ceiling is
+<span class="math inline">\(1-d_{\text{floor}}/L\)</span>. The two-qubit column uses the independently known exact degree <span class="math inline">\(d=3\)</span>,
+giving <span class="math inline">\(1-3/15=0.800\)</span>; the spectral floor alone rounds to 2 there.</p>
+<table>
+<thead>
+<tr>
+<th>error <span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(N=2\)</span></th>
+<th><span class="math inline">\(N=3\)</span></th>
+<th><span class="math inline">\(N=4\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>0.01</td>
+<td>0.979</td>
+<td>0.969</td>
+<td>0.957</td>
+</tr>
+<tr>
+<td>0.02</td>
+<td>0.958</td>
+<td>0.939</td>
+<td>0.930</td>
+</tr>
+<tr>
+<td>0.05</td>
+<td>0.897</td>
+<td>0.867</td>
+<td>0.830</td>
+</tr>
+<tr>
+<td>0.10</td>
+<td>0.805</td>
+<td>0.747</td>
+<td>0.717</td>
+</tr>
+<tr>
+<td>0.20</td>
+<td>0.669</td>
+<td>0.616</td>
+<td>0.591</td>
+</tr>
+<tr>
+<td>ceiling, proved</td>
+<td>0.800</td>
+<td>0.800</td>
+<td>0.729</td>
+</tr>
+<tr>
+<td>best classical model known</td>
+<td>0.800</td>
+<td>0.800</td>
+<td>0.706</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Experiment on Moonlab, the configurations of Table 1</strong> (<code>src/moonlab_saturated.mjs</code>, seed 20261110).</p>
+<table>
+<thead>
+<tr>
+<th>step</th>
+<th>what is done</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>the first six states of Table 1 loaded as amplitudes; <span class="math inline">\(\Phi_5\)</span> and <span class="math inline">\(\Phi_7\)</span> prepared by running their circuits (Hadamard, controlled-phase and Toffoli gates of Moonlab: 14 and 34 gates); every Pauli expectation value read through Moonlab's gates</td>
+<td>the circuits give the phase states to <span class="math inline">\(10^{-16}\)</span>; non-zero expectation values of one modulus to <span class="math inline">\(10^{-15}\)</span>; supports and signs equal the masks in <code>data/flat/</code>; contexts and violated contexts as in Table 1, including 2 824 192 and 729 344 for seven qubits</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>every context of <span class="math inline">\(S_B\)</span> (three runs), of <span class="math inline">\(S_5\)</span> and of the support of <span class="math inline">\(\Phi_5\)</span> measured sequentially on random states; for <span class="math inline">\(S_7\)</span> a sample of 30000 contexts, and once all of them</td>
+<td><span class="math inline">\(1095/1095\)</span>, <span class="math inline">\(10880/10880\)</span>, <span class="math inline">\(10880/10880\)</span>, <span class="math inline">\(30000/30000\)</span> products equal to the quantum sign; in the full seven-qubit run <span class="math inline">\(2\,824\,192/2\,824\,192\)</span> (8 472 576 projective measurements, 161 550 336 gates)</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>the same with Pauli noise; 4000 sampled contexts</td>
+<td>the table below</td>
+</tr>
+</tbody>
+</table>
+<p>Because the degrees are exact, the ceilings in this table are exact as well: <span class="math inline">\(1 - d/L\)</span>. For the four-
+and five-qubit configurations they are much higher than for the full space, so the test tolerates much
+less noise; for <span class="math inline">\(S_7\)</span> the ceiling is <span class="math inline">\(0.742\)</span> and the simulated test stays above it up to an error
+probability of two per cent per qubit and measurement.</p>
+<table>
+<thead>
+<tr>
+<th>error <span class="math inline">\(p\)</span></th>
+<th><span class="math inline">\(S_B\)</span> (four qubits)</th>
+<th><span class="math inline">\(S_5\)</span> (five qubits)</th>
+<th>support of <span class="math inline">\(\Phi_5\)</span></th>
+<th><span class="math inline">\(S_7\)</span> (seven qubits)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>0.002</td>
+<td>0.992</td>
+<td>0.989</td>
+<td>0.990</td>
+<td>0.986</td>
+</tr>
+<tr>
+<td>0.005</td>
+<td>0.982</td>
+<td>0.981</td>
+<td>0.978</td>
+<td>0.963</td>
+</tr>
+<tr>
+<td>0.01</td>
+<td>0.962</td>
+<td>0.955</td>
+<td>0.949</td>
+<td>0.938</td>
+</tr>
+<tr>
+<td>0.02</td>
+<td>0.929</td>
+<td>0.913</td>
+<td>0.916</td>
+<td>0.877</td>
+</tr>
+<tr>
+<td>0.05</td>
+<td>0.835</td>
+<td>0.807</td>
+<td>0.797</td>
+<td>0.733</td>
+</tr>
+<tr>
+<td>0.10</td>
+<td>0.719</td>
+<td>0.679</td>
+<td>0.670</td>
+<td>0.597</td>
+</tr>
+<tr>
+<td>ceiling, exact</td>
+<td>0.932</td>
+<td>0.956</td>
+<td>0.956</td>
+<td>0.742</td>
+</tr>
+</tbody>
+</table>
+<p>These are frequencies in a seeded software simulation. They illustrate the inequalities and are not
+measurements on hardware or a loophole analysis.</p>
+<p><img src="figures/fig2_noise.png" alt="Figure 4" /></p>
+<p><em>Figure 4. Simulated success fraction on Moonlab against the classical ceilings, for the full space.</em></p>
+<p><strong>QGTL</strong> (<code>src/qgt_hoggar.c</code>, <code>src/qgt_flat.c</code>). The kernels <code>diffgeo_compute_fubini_study</code> and
+<code>diffgeo_compute_berry_curvature</code>, applied to <span class="math inline">\(\psi_H\)</span> and the 63 tangent vectors <span class="math inline">\(-\tfrac{i}{2}P_v\psi_H\)</span>,
+return the values of Proposition 3 to <span class="math inline">\(10^{-16}\)</span>, and the 189 pairs with <span class="math inline">\(|g_{uv}| \gt 1/12\)</span> are exactly
+the pairs on the 63 violated contexts. For the eight states of Table 1 and the tangent vectors of their
+supports they return the three values of Proposition 8 to <span class="math inline">\(10^{-16}\)</span>; the pairs above the threshold
+recover the 75 violated contexts of <span class="math inline">\(S_B\)</span> (225 pairs of 9045), the 480 of <span class="math inline">\(S_5\)</span> and of the support of
+<span class="math inline">\(\Phi_5\)</span> (1440 pairs of 122760), and the 729 344 of <span class="math inline">\(S_7\)</span> (2 188 032 pairs of 33 028 128), and no others.</p>
+<p><strong>Eshkol</strong> (<code>src/eshkol/hoggar.esk</code>, <code>src/eshkol/saturated.esk</code>). An exhaustive pass over all <span class="math inline">\(2^{15}\)</span>
+two-qubit assignments gives minimum 3, attained 640 times. The Hoggar signs violate 63 contexts.
+Reverse-mode automatic differentiation of the cubic form at the Hoggar Pauli vector <span class="math inline">\(x^\ast\)</span> gives
+<span class="math inline">\(T(x^\ast) = 7 = (D-1)(D-2)/6\)</span> and <span class="math inline">\(\nabla T(x^\ast) = 3x^\ast\)</span> to <span class="math inline">\(7\times10^{-16}\)</span> (the Lagrange condition
+for a maximizer on the sphere); nested forward-mode second derivatives along four tangent directions are
+negative (<span class="math inline">\(-0.59\)</span> to <span class="math inline">\(-0.74\)</span>). For the pivot state the second script finds 135 non-zero expectation
+values, 1095 contexts and 75 violated ones, <span class="math inline">\(T = 35 = (D-1)(D-2)/6\)</span>, and <span class="math inline">\(\nabla T = 7x\)</span> to
+<span class="math inline">\(1.3\times10^{-15}\)</span>, which is condition (d) of Theorem 4.</p>
+<h3 id="102-exact-c3-arithmetic-in-eshkol">10.2 Exact C3 arithmetic in Eshkol</h3>
+<p>The separate serial compiled run uses Eshkol 1.3.6-evolve through
+<code>eshkol-run -r</code>. It checks <span class="math inline">\(A_0M=MA_1\)</span> and both <span class="math inline">\(MR=RM=46656I\)</span>, then evaluates the block-moment
+formula to obtain 14976 and 15360. An arbitrary-precision Python replay bounds every input, product
+and ordered accumulation of this program by 408304 in absolute value, below <span class="math inline">\(2^{63}-1\)</span>. The recorded
+run returned zero with empty standard error; <code>results/frontier-c3-eshkol.json</code> records its command,
+hashes and process-local paths to the existing LLVM 21 and CUDA 12.9 installations. This qualifies
+the tested serial arithmetic execution, not compiler correctness or GPU/parallel behavior.</p>
+<h2 id="11-falsifiability-and-replication">11. Falsifiability and replication</h2>
+<h3 id="111-floor-saturation-and-simulated-measurement-checks">11.1 Floor, saturation and simulated measurement checks</h3>
+<p><strong>Predictions that could fail.</strong> (P1) No assignment violates fewer contexts than the floor. (P2) The
+saturated cases are reached exactly. (P3) For every <span class="math inline">\(S\)</span> and <span class="math inline">\(f\)</span>, <span class="math inline">\(\operatorname{tr}A = 0\)</span>,
+<span class="math inline">\(\operatorname{tr}A^2 = D|S|\)</span>, <span class="math inline">\(\operatorname{tr}A^3 = 6D\beta\)</span>. (P4) On an elliptic quadric the spectrum of
+<span class="math inline">\(A\)</span> is doubly degenerate. (P5) For every pure state <span class="math inline">\(T(p) = (D-1)(D-2)/6\)</span>. (P6) Ideal sequential
+measurements reproduce every context sign in every state. (P7) For a flat state, condition (d) of
+Theorem 4 holds. A counterexample to P1 would provide a finite assignment whose violation count can
+be recomputed independently from the context definitions.</p>
+<p><strong>Tests</strong> (<code>scripts/run_all.sh</code>).</p>
+<ul>
+<li><code>hoggar exhaust2</code>: all 32768 two-qubit assignments; minimum 3 (640 assignments); for the square,
+minimum 1.</li>
+<li><code>scripts/run_falsify.sh</code>: 20 runs over <span class="math inline">\(N = 2, \dots, 5\)</span> and the three families; 20000, 5000 and 500
+uniformly random assignments and 1500, 200 and 12 annealed ones per configuration for
+<span class="math inline">\(N = 3, 4, 5\)</span>. No assignment below the floor. Minima reached by annealing: 63, 21, 9 (<span class="math inline">\(N=3\)</span>);
+1575, 315, 315 (<span class="math inline">\(N=4\)</span>); 31479, 6975, 7087 (<span class="math inline">\(N=5\)</span>). These equal the best known values in every case.</li>
+<li>A negative control: the false claim <span class="math inline">\(d(W(5,2)) \ge 64\)</span> is refuted by the Hoggar witness with exit
+code 3, showing that the harness can fail.</li>
+<li><code>scripts/flat_states.py</code> (68 checks, integer arithmetic in <span class="math inline">\(\mathbb{Z}[i]\)</span> except one labelled check):
+for the six states of Table 1, the single modulus, the support, the number of contexts, the number
+violated, the floor, condition (d) at every point and the vanishing of every outside sum; the statements
+of Theorem 5 about <span class="math inline">\(S_B\)</span>; Proposition 6 on all 4096 phase patterns; Proposition 9 for one to four
+qubits; and an annealing search from random starts on <span class="math inline">\(S_B\)</span> and <span class="math inline">\(S_5\)</span>, which reaches 75 and 480 and
+never goes below.</li>
+<li><code>build/third_level</code> (seven seconds): the enumeration of Theorem 12, all 33 554 431 forms for five
+qubits included, with the orbit computation; it fails if any count differs from the table.</li>
+<li><code>scripts/phase_states.py</code> (81 checks, integer arithmetic): for <span class="math inline">\(CS|{+}{+}\rangle\)</span>, <span class="math inline">\(CCZ|{+}{+}{+}\rangle\)</span>,
+<span class="math inline">\(CS\,CS|{+}{+}{+}\rangle\)</span>, <span class="math inline">\(\Phi_5\)</span> and <span class="math inline">\(\Phi_7\)</span>, the constant rank, the single modulus, the support, the
+numbers of contexts and violated contexts, condition (d) and the outside sums, and the description of
+the support in Proposition 11; Proposition 10 for all eleven states of this paper; the enumeration of
+Theorem 12 for <span class="math inline">\(N \le 4\)</span> by a second implementation; the two symplectic maps of Theorem 12; and the
+finite-field descriptions of the five- and seven-qubit forms.</li>
+<li><code>scripts/run_family7.sh</code> (about eight core-hours, not part of the everyday run): the enumeration of
+Theorem 13, the orbit computation, and the random census of the other types; its output is
+<code>results/family7.log</code>. The two counts agree: 13 271 040 solutions found, and
+<span class="math inline">\(92\,897\,280/7 = 13\,271\,040\)</span> for one orbit with a stabilizer of order 7.</li>
+<li>The seven-qubit numbers 8128, 2 824 192 and 729 344 are computed three times without shared code: in
+Python with exact integers, in C from the masks (inside the QGTL program) and in JavaScript from the
+expectation values returned by Moonlab.</li>
+<li><code>scripts/analysis.py</code> (62 checks) and <code>scripts/ladder.py</code> (14 checks): P3 on random data to machine
+precision; P4 on all 120 four-qubit elliptic quadrics; P5; the geometry of the violated sets; closed-form
+counts against enumeration; agreement of the C and Python integer bounds.</li>
+<li>Witness files (<code>data/witness/</code>, <code>data/flat/</code>) are recounted by independent routines that use no tables.</li>
+</ul>
+<p><strong>Independent implementations.</strong> The geometry, the context signs and the counts are implemented five
+times: C (<code>src/hoggar.c</code>), Python with explicit matrices or exact integers (<code>scripts/analysis.py</code>,
+<code>scripts/flat_states.py</code>), JavaScript (<code>src/moonlab_experiment.mjs</code>, <code>src/moonlab_saturated.mjs</code>),
+Eshkol, and the Lean model, in which the signs are theorems about matrix products. Their overlapping
+checks agree on the counts recorded for those tests. This does not mean that each implementation
+checks every result: in particular, the seven-qubit context counts are outside the kernel evaluation,
+and the C3 checks use the separate programs described next.</p>
+<h3 id="112-independent-c3-reconstruction-and-negative-controls">11.2 Independent C3 reconstruction and negative controls</h3>
+<p>The literal-matrix verifier builds each four-qubit Pauli from the <span class="math inline">\(2\times2\)</span> matrices, selects the
+real quadric and section, and computes exact carrier characteristic polynomials. A change-of-basis
+matrix <span class="math inline">\(T\)</span> with <span class="math inline">\(T^{\mathsf T}T=TT^{\mathsf T}=8I\)</span> intertwines the completion matrix and the block
+Jordan representation, checking that the coordinate transformation loses no component.</p>
+<p>A separate verifier constructs the completion matrix from all 1120 outside signed contexts. It
+checks commutation and multiplies each triple to determine its sign, then recomputes both carrier
+polynomials and completion cube traces. This route does not use (C7). Its last three tensor factors
+are reversed relative to the printed convention; that fixed orthogonal basis permutation is recorded
+explicitly and preserves the represented assignments and spectra. Pauli entries <span class="math inline">\(0,\pm1,\pm i\)</span> are
+exact in their initial representation, real matrices are converted to integers, and product bounds
+fit signed 64-bit arithmetic. Characteristic polynomials use exact SymPy arithmetic, not eigenvalue
+tolerances.</p>
+<p>Flipping one off-diagonal context entry and its symmetric partner changes the two cubic traces to
+14808 and 15144 respectively, so the expected certificate fails. The verifier rejects Python <code>-O</code>,
+which would disable its assertions. These are specified negative controls, not a proof that every
+possible implementation error is detected.</p>
+<p>The interactive C3 model independently constructs context signs, computes characteristic polynomials
+with a BigInt Faddeev–LeVerrier recurrence and evaluates cube traces with BigInt arithmetic. Editing a
+sign triggers a fresh computation. A modified assignment is not required to retain cospectrality;
+the original four-negative-word witnesses are the exact claim being tested. The experiments concern
+finite mathematical operators and are separate from the Moonlab measurement simulations.</p>
+<h2 id="12-limitations-and-open-problems">12. Limitations and open problems</h2>
+<ul>
+<li>Novelty is claimed to the extent of a bounded search (arXiv and Zenodo queries on 9 November 2026,
+and the sources of Section 1.2). The field moved quickly in October 2026, and several of the relevant
+preprints are less than a month old. Statements of the form "to our knowledge" mean exactly that.</li>
+<li>The configurations <span class="math inline">\(S_B\)</span>, <span class="math inline">\(S_5\)</span> and <span class="math inline">\(S_7\)</span> are defined by states, not by a classical geometric
+construction. We do not know an infinite family of non-closed configurations that attain the floor:
+Proposition 9 shows that the simplest family of states stops at four qubits. In the nonzero-form
+odd-qubit phase-state family of constant rank <span class="math inline">\(N-1\)</span>, the examples here have three, five and seven
+qubits; the rank-eight nine-qubit case is open. Theorem 12 is complete for its class
+of states; whether Table 1 is complete for all states on <span class="math inline">\(N \le 5\)</span> qubits is supported by numerical
+search only. Whether the states of the odd class of Proposition 6 form a single Clifford orbit was not
+determined.</li>
+<li>For seven qubits the uniqueness statement is proved only inside the family <span class="math inline">\(\mathcal{F}\)</span> of
+Theorem 13; outside it there is a random census. The enumeration behind it (and the one of
+Theorem 12) is a computation, repeated here by one program only, apart from the agreement of the
+count with the orbit size and the second implementation for <span class="math inline">\(N \le 4\)</span>. The seven-qubit counts of
+contexts are checked by three programs but not by the Lean kernel.</li>
+<li>Within the classical families the floor is not attained beyond the three listed cases [J2]. Exact
+values for five or more qubits are open except <span class="math inline">\(Q^+(9,2)\)</span> [J1]; the floor alone leaves the intervals
+of Table 2.</li>
+<li>The external exact values <span class="math inline">\(d(W(7,2))=1575\)</span>, <span class="math inline">\(d(Q^-(7,2))=315\)</span> and <span class="math inline">\(d(Q^+(9,2))=6975\)</span> rest on
+computer-assisted work not formally verified or peer reviewed in [J1]. This does not include
+<span class="math inline">\(d(Q^+(7,2))=315\)</span>, which has the Lean proofs described above. A formal proof of <span class="math inline">\(d(W(7,2))=1575\)</span> would be a
+natural next target; our Lean development gives the lower bound 1451 only.</li>
+<li>The quaternionic form (Theorem 2) and the equivalences of Theorems 3 and 4 are proved on paper and
+tested numerically, not formalized.</li>
+<li>The C3 certificate settles only the four-qubit instance of the strict-law failure. It neither
+proves Conjecture E for all dimensions nor classifies all carriers. The exact binary completion
+minima of the two witnesses are not calculated here; the gap 32 belongs to a continuous relaxation.
+The completion result does not invalidate the spectral floor or revise the contextuality degrees.</li>
+<li>The literature comparison is bounded and qualitative. An exact finite certificate proves its
+stated mathematical conclusion, not that no earlier author knew it or that a venue will accept it.</li>
+<li>Nothing here is an experiment on quantum hardware, and nothing shows a computational advantage.
+The simulation demonstrates what quantum mechanics predicts and what no noncontextual model can do.</li>
+</ul>
+<h2 id="13-research-provenance-disclosure-and-availability">13. Research provenance, disclosure and availability</h2>
+<p><strong>How the work was produced.</strong> Alexander S. Donahue initiated and directed the project and specified
+the Tsotchke stack. The floor, saturation, phase-state and associated simulation work was developed
+by Claude Fable 5 (Anthropic) through Claude Code. Within the author's brief that system selected
+problems, searched sources, derived results, wrote and ran programs and Lean proofs, and drafted the
+spectral-floor manuscript. Its development and verification records remain with that component.</p>
+<p>OpenAI Codex research and coding agents performed the independent prior-art and original-floor
+audits, selected the finite C3 question, discovered its witnesses, developed the algebraic arguments
+and Lean formalization, implemented the independent checks and demonstration, and drafted the C3
+manuscript and figures. Codex agents prepared this combined text, shared notation, section map and
+publication layouts. The combined presentation reuses the two established mathematical components;
+it does not create a new experimental dataset or claim a new unified Lean proof.</p>
+<p><strong>AI disclosure statement.</strong> Claude and Codex were used for substantive research, software,
+formalization and writing, not merely language correction. The recorded checks comprise Lean kernel
+verification, exact and numerical programs with their stated scopes, and source comparisons by AI
+agents. They do not constitute independent human peer review. No completed human critical review or
+venue-specific final approval is asserted here; the author must accurately describe that work before
+making a submission that requires it. AI systems are disclosed as tools, not listed as authors.</p>
+<p><strong>Funding and competing interests.</strong> This research was self-funded by the author. The author is the
+sole operator of 0thernes LLC, with which this project is affiliated. Any additional competing
+interests have not yet been declared.</p>
+<p><strong>Data availability statement.</strong> Source, data, formal proofs, test results and the earlier manuscripts
+are available in <a href="https://github.com/0thernes/hoggar-bound-lab">Hoggar Bound Lab</a>. Release and workflow
+records identify the checked snapshots; earlier Software Heritage and Internet Archive captures
+remain historical records, not evidence that this combined revision has been archived or reviewed.
+Appendix A gives reproduction commands. No new arXiv identifier, DOI or journal decision is implied
+by this manuscript or its local submission packages.</p>
+<p><strong>Licence.</strong> The repository's <code>LICENSE</code> is authoritative. Its verification licence is preserved;
+this combined manuscript does not relicense the project. Vendored Moonlab, quantum_rng and
+quantum_geometric_tensor retain their authors' MIT licences and provenance records.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>[C] A. Cabello, <em>Proposed test of macroscopic quantum contextuality</em>, Phys. Rev. A 82, 032110 (2010), arXiv:1002.3135.</li>
+<li>[CCKS] A. R. Calderbank, P. J. Cameron, W. M. Kantor, J. J. Seidel, <em>Z4-Kerdock codes, orthogonal spreads, and extremal Euclidean line-sets</em>, Proc. London Math. Soc. 75, 436 (1997).</li>
+<li>[CGK] S. X. Cui, D. Gottesman, A. Krishna, <em>Diagonal gates in the Clifford hierarchy</em>, Phys. Rev. A 95, 012329 (2017), arXiv:1608.06596.</li>
+<li>[CK] R. Calderbank, W. M. Kantor, <em>The geometry of two-weight codes</em>, Bull. London Math. Soc. 18, 97 (1986).</li>
+<li>[Ci] P. Cieśliński, <em>Pauli flat quantum states mimicking maximal magic</em>, arXiv:2610.07172 (5 October 2026).</li>
+<li>[dB] H. de Boutray, F. Holweck, A. Giorgetti, P.-A. Masson, M. Saniga, <em>Contextuality degree of quadrics in multi-qubit symplectic polar spaces</em>, J. Phys. A 55, 475301 (2022), arXiv:2105.13798, <a href="https://doi.org/10.1088/1751-8121/aca36f">doi:10.1088/1751-8121/aca36f</a>.</li>
+<li>[DHOP] F. De Clerck, N. Hamilton, C. M. O'Keefe, T. Penttila, <em>Quasi-quadrics and related structures</em>, Australas. J. Combin. 22, 151 (2000).</li>
+<li>[GR] C. Godsil, A. Roy, <em>Equiangular lines, mutually unbiased bases, and spin models</em>, European J. Combin. 30, 246 (2009), arXiv:quant-ph/0511004.</li>
+<li>[H] S. G. Hoggar, <em>64 lines from a quaternionic polytope</em>, Geom. Dedicata 69, 287 (1998).</li>
+<li>[HLW] P. Hayden, D. W. Leung, A. Winter, <em>Aspects of generic entanglement</em>, Commun. Math. Phys. 265, 95 (2006).</li>
+<li>[J1] B. W. Jonah, <em>A section–square law for Pauli quadrics, and an independently regenerated proof that the four-qubit elliptic quadric has contextuality degree 315</em>, preprint, Zenodo, 20 October 2026, doi:10.5281/zenodo.23510634.</li>
+<li>[J2] B. W. Jonah, <em>Structure theorems for hyperplane completions in Pauli contextuality</em>, preprint v0.3, Zenodo, 21 October 2026, doi:10.5281/zenodo.23538829.</li>
+<li>[J3] B. W. Jonah, <em>The reach of the section-square law: hyperplane completions of symplectic and quadric Pauli configurations</em>, preprint v0.5, manuscript dated 20 October 2026, deposited 21 October 2026. Section 2, Theorem A, Table 1 and Section 6, Conjecture E. <a href="https://zenodo.org/records/23524332">Primary deposit</a>, <a href="https://doi.org/10.5281/zenodo.23524332">doi:10.5281/zenodo.23524332</a>.</li>
+<li>[J4] B. W. Jonah, <em>Results digest, 20 October 2026: multi-qubit contextuality degrees, Pauli-flat states and certification</em>, Zenodo, doi:10.5281/zenodo.23518569.</li>
+<li>[JL] N. S. Jones, N. Linden, <em>Parts of quantum states</em>, Phys. Rev. A 71, 012324 (2005).</li>
+<li>[K] S. Kang, <em>No Pauli-orbit mutually unbiased bases for four qubits or for an odd number of qubits greater than one</em>, Zenodo, 27 October 2026, doi:10.5281/zenodo.23692357.</li>
+<li>[LGG] Z. Li, A. Gupta, V. Ganesh, <em>The four-qubit hyperbolic quadric has contextuality degree 315</em>, arXiv:2610.26465 (19 October 2026).</li>
+<li>[LLY] Q. Liu, I. Low, Z. Yin, <em>Maximal magic for two-qubit states</em>, Quantum Sci. Technol. 11, 015035 (2026), doi:10.1088/2058-9565/ae3028.</li>
+<li>[McF] R. L. McFarland, <em>A family of difference sets in non-cyclic groups</em>, J. Combin. Theory Ser. A 15, 1 (1973).</li>
+<li>[M1] A. Muller, M. Saniga, A. Giorgetti, H. de Boutray, F. Holweck, <em>New and improved bounds on the contextuality degree of multi-qubit configurations</em>, Math. Struct. Comput. Sci. 34, 322 (2024), arXiv:2305.10225.</li>
+<li>[M2] A. Muller, M. Saniga, A. Giorgetti, F. Holweck, C. Kelleher, <em>A new heuristic approach for contextuality degree estimates and its four- to six-qubit portrayals</em>, J. Phys. A 58, 215302 (2025), arXiv:2407.02928.</li>
+<li>[MS] A. Muller, M. Saniga, <em>Automated search for highly contextual Kochen–Specker proofs</em>, arXiv:2609.19862 (2026).</li>
+<li>[O] M. Okumura, <em>Hypersurfaces and a pinching problem on the second fundamental tensor</em>, Amer. J. Math. 96, 207 (1974).</li>
+<li>[R] O. S. Rothaus, <em>On "bent" functions</em>, J. Combin. Theory Ser. A 20, 300 (1976).</li>
+<li>[S] M. Saniga, F. Holweck, C. Kelleher, A. Muller, A. Giorgetti, H. de Boutray, <em>Hexagons govern three-qubit contextuality</em>, Quantum 9, 1601 (2025), arXiv:2312.07738.</li>
+<li>[St] B. C. Stacey, <em>Geometric and information-theoretic properties of the Hoggar lines</em>, arXiv:1609.03075 (2016).</li>
+<li>[W] J. E. Wilkins, <em>A note on skewness and kurtosis</em>, Ann. Math. Statist. 15, 333 (1944).</li>
+</ul>
+<h2 id="appendix-a-reproduction">Appendix A. Reproduction</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># engine, random source, QGT programs (gcc; no other dependency)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/build.sh</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># every test: exhaustive N=2, falsification suite, flat states, analysis, ladder, Moonlab, QGTL, Eshkol</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/run_all.sh</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Lean (needs elan; fetches Lean 4.35.0 and the Mathlib cache)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> lean <span class="kw">&amp;&amp;</span> <span class="ex">lake</span> exe cache get <span class="kw">&amp;&amp;</span> <span class="ex">lake</span> build</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># the exact degrees of Section 5 (kernel evaluations; see the CI evidence for time and memory)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">lake</span> build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">lake</span> env lean SaturatedVerification.lean</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># the seven-qubit enumeration of Theorem 13 (about eight core-hours)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .. <span class="kw">&amp;&amp;</span> <span class="fu">bash</span> scripts/run_family7.sh</span></code></pre></div>
+<p>The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:</p>
+<pre class="text"><code>python scripts/frontier_c3_verify.py
+python scripts/frontier_c3_context_verify.py
+node tests/frontier_c3_browser_test.cjs
+python scripts/frontier_c3_integer_bounds.py
+python scripts/unified_section_score.py
+python scripts/frontier_c3_demo.py</code></pre>
+<p>The last command requires Eshkol; set <code>ESHKOL_RUN</code> when it is not on the system path. The wrapper
+generates <code>build/frontier_c3_demo.esk</code> and invokes <code>eshkol-run -r</code>, retaining its process-local
+settings in the result record. The published similarity certificate, not a random search, is the
+input to these arithmetic checks.</p>
+<p>From <code>lean/</code>, build the C3 targets sequentially and then audit the declarations:</p>
+<pre class="text"><code>lake build HoggarBound.C3Data
+lake build HoggarBound.C3Certificate
+lake build HoggarBound.C3Geometry
+lake build HoggarBound.C3Theorem
+lake build HoggarBound.C3Spectra
+lake env lean C3Verification.lean</code></pre>
+<p>The recorded Windows finite-certificate check took approximately 61 minutes. This is proof-checking
+cost, not the running time of the interactive demonstration or a physical quantum process. The direct
+context check used Python 3.9.13, NumPy 2.0.2 and SymPy 1.14.0. Raw-byte and LF-normalized input hashes
+distinguish local Windows line endings from Git-normalized text.</p>
+<h2 id="appendix-b-witness-assignments">Appendix B. Witness assignments</h2>
+<p><code>data/witness/nN_t.txt</code> holds, for <span class="math inline">\(N\)</span> qubits and family <span class="math inline">\(t\)</span> (<code>f</code> full, <code>h</code> hyperbolic, <code>e</code> elliptic), one
+header line and a hexadecimal mask whose bit <span class="math inline">\(v\)</span> is set when <span class="math inline">\(f(v) = -1\)</span>, with <span class="math inline">\(v = a + 2^N c\)</span>. The
+three-qubit Hoggar witness produced by the Moonlab run is</p>
+<pre class="text"><code>3 f 63
+163e5efe76fefe00</code></pre>
+<p><code>build/hoggar verify N t file</code> recounts any witness from the definitions.</p>
+<p><code>data/flat/nN_name.txt</code> holds the configurations of Table 1: a header line with <span class="math inline">\(N\)</span>, the numbers of
+observables and contexts and the degree; the mask of the configuration; and the mask of the optimal
+assignment. For the pivot configuration:</p>
+<pre class="text"><code>4 135 1095 75
+b4451eef7889d22344b5ee1f887922d34b45e1ef87892d23bbb5111f7779ddd2
+20011cc01888c2204424221f001100c34244212f01010c038880111177790000</code></pre>
+<p>The same two numbers are <code>pivotMask</code> and <code>pivotNeg</code> in <code>lean/HoggarBound/FlatData.lean</code>. The files
+<code>n5_phase5.txt</code> and <code>n7_phase7.txt</code> hold the supports of <span class="math inline">\(\Phi_5\)</span> and <span class="math inline">\(\Phi_7\)</span> in the same format; the
+seven-qubit masks have 4096 hexadecimal digits.</p>
+<p>For C3, the four negative labels of each carrier are given in Table 3. The principal machine-readable
+records are <code>results/frontier-c3-n4-pair.json</code>, <code>results/frontier-c3-n4-verification.json</code>,
+<code>results/frontier-c3-n4-completions.json</code> and <code>results/frontier-c3-context-verification.json</code>.
+They record the matrices, counts, exact polynomials and moments, mutation controls and dependency
+versions. The theorem's assignments are fully defined in Section 8.2 independently of those files.</p>
+<footer>Version 1.2.0. Research preprint; not peer reviewed. The journal manuscript and supplement are formats of this paper. <a href="https://github.com/0thernes/hoggar-bound-lab/blob/v1.2.0/publication/PAPER-MAP.md">Publication map</a></footer></main></body></html>

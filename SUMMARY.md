@@ -1,7 +1,13 @@
 # Summary in plain language
 
-Repository version 1.1.2, 9 November 2026. Research preprint, not peer reviewed. Produced with an AI research system
-(Claude, Anthropic) under the direction of Alexander S. Donahue, 0thernes LLC.
+Repository version 1.2.0, 9 November 2026. Research preprint, not peer reviewed. The combined study brings
+together the Claude/Anthropic spectral-floor work and the OpenAI Codex C3/independent-verification work
+under the direction of Alexander S. Donahue, 0thernes LLC.
+
+The [unified paper](paper/unified-contextuality.md) asks two connected questions: what lower bounds can
+spectral information certify, and which completion information can a section's spectrum fail to retain?
+The exact C3 example answers the second question without invalidating the bound. The
+[source-paper map](publication/PAPER-MAP.md) records the earlier artifacts and how they relate.
 
 ## The question
 
@@ -25,10 +31,11 @@ was known only for small cases.
    found it independently and then learned of his notes. What is new here is the formal proof in Lean 4:
    the proof checker verifies every step, and the statement is about the actual matrices.
 
-2. **New cases where the bound is exactly right.** The bound is attained precisely when a quantum state
+2. **New cases where the bound is exactly right.** For a nonempty support, the bound is attained precisely when a quantum state
    exists whose measurement averages are "flat": the same size on a set of observables and zero on all
-   others. We found such states and sets that nobody had described (to our knowledge, after a limited
-   search), and for them the contextuality degree is now known exactly:
+   others. We establish exact degrees for configurations and give circuit descriptions, including a
+   five-qubit configuration Clifford-equivalent to the support of Cieśliński's previously reported state:
+
 
    | qubits | observables | contexts | fewest contexts any hidden-variable model gets wrong |
    |---|---|---|---|
@@ -36,12 +43,14 @@ was known only for small cases.
    | 5 | 496 | 10 880 | 480 |
    | 7 | 8 128 | 2 824 192 | 729 344 |
 
-   For four and five qubits the whole statement is proved in Lean, including the counting. For seven
+   For four and five qubits the degrees of the specified supports are proved in Lean, including the
+   counting; the state and circuit identifications have separate evidence. For seven
    qubits the inequality is the Lean theorem and the counts are made by three separate programs.
 
 3. **A classification.** For one natural family of states (those made from a standard set of gates
    called T, controlled-S and CCZ) we checked every possibility on up to five qubits, more than 33 million
-   of them: there is no flat state of this kind on four qubits and essentially one on five. The five-qubit
+   of them. Within the subfamily with nonzero associated trilinear form, there is no flat state on four
+   qubits and essentially one on five. The five-qubit
    one turns out to explain a state that another author had found numerically a month earlier. On seven
    qubits we checked about fifteen billion possibilities in the family we could cover, and found
    essentially one.

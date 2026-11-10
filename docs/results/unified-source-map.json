@@ -1,0 +1,154 @@
+{
+  "canonical": "paper/unified-contextuality.md",
+  "version": "1.2.0",
+  "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate",
+  "sources": [
+    {
+      "path": "paper/spectral-floor.md",
+      "sha256": "5f2447e37d14fcfd0b968019adabd56bba902d185a4698698765a5d1fd991389",
+      "lf_sha256": "5f2447e37d14fcfd0b968019adabd56bba902d185a4698698765a5d1fd991389"
+    },
+    {
+      "path": "paper/c3-spectral-counterexample.md",
+      "sha256": "8f5f4827ce8c46a65cc3dd270a9386e094ca4f3379c14971ffe00985c0a8c018",
+      "lf_sha256": "8f5f4827ce8c46a65cc3dd270a9386e094ca4f3379c14971ffe00985c0a8c018"
+    }
+  ],
+  "integration": {
+    "floor_sections_2_to_7": "Results and derivations retained, with the explicit domain and verification-scope clarifications recorded below. Section/table/figure references updated; numeric encoding unified; quadric-offset variable renamed w to avoid shadowing coordinate c.",
+    "c3": "Integrated as Section 8 using H for section, O for outside points, B+ and B- for blocks, g for the cubic, Theorem14/Corollary15 and C-prefixed equation labels.",
+    "formal": "Existing floor evidence plus the independently scoped 42-declaration C3 audit; no new theorem claim.",
+    "provenance": "Claude floor component; Codex independent audits, C3 and combined presentation; no completed human review assertion.",
+    "section_score_bridge": {
+      "section_contexts": 455,
+      "satisfied": 323,
+      "violated": 132,
+      "beta": 191,
+      "trace_cube": 18336,
+      "evidence": "results/unified-section-score.json",
+      "scope": "Ordinary derivation and independent exact count; no additional Lean theorem."
+    }
+  },
+  "journal_sections": {
+    "main": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "12",
+      "13"
+    ],
+    "supplement": [
+      "10",
+      "11",
+      "Appendix A",
+      "Appendix B"
+    ],
+    "references": "Included in both; section numbering retained."
+  },
+  "reference_mapping": {
+    "C3 [1]": "[J3]",
+    "C3 [2]": "[LGG]",
+    "C3 [3]": "[J2]",
+    "C3 [4]": "[dB]"
+  },
+  "canonical_sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+  "sha256_normalization": "raw-local-bytes; lf_sha256 normalizes CRLF to LF before UTF-8 hashing",
+  "baseline_integration_commit": "8add759",
+  "canonical_lf_sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+  "preservation_check": {
+    "floor_display_math_blocks": 18,
+    "all_preserved_verbatim": true,
+    "statement": "All18 original fenced display-math blocks are retained verbatim, with the explicitly recorded domain qualifications added to the surrounding theorem statements. Section/table/figure references, notation and scope explanations are integrated; no proof source is modified."
+  },
+  "review_clarifications": [
+    {
+      "location": "Theorems3 and4",
+      "change": "Require a nonempty support.",
+      "reason": "The state modulus divides by |S| and the simple-eigenvalue/equality characterization is not valid for the zero matrix on an empty support."
+    },
+    {
+      "location": "Proposition3",
+      "change": "Require nonzero Pauli expectations on the tested context.",
+      "reason": "The sign assignment and the iff metric distinction otherwise fail at zero expectations."
+    },
+    {
+      "location": "Theorem4(d)",
+      "change": "Exclude the identity label from the outside sum.",
+      "reason": "b_w is defined only for nonzero outside points."
+    },
+    {
+      "location": "Theorem2 and fractional statements",
+      "change": "N>=2 for the quaternionic formula and full-space ratios/noise; fractional table entries require L>0. Pair values need not be distinct.",
+      "reason": "Avoid denominators equal to zero and make pair multiplicities explicit. The general Lean count bound remains valid for N>=1 and arbitrary supports."
+    },
+    {
+      "location": "AppendixA",
+      "change": "Replace inherited under5GB resource claim with a pointer to measured CI evidence.",
+      "reason": "Verified saturation CI used more than5GiB; performance depends on the execution environment."
+    },
+    {
+      "location": "Section9",
+      "change": "Add verified CI run links and bounded audit counts.",
+      "reason": "Run records at87f08a0 verify existing proof sources; combining documents creates no new theorem."
+    },
+    {
+      "location": "Section2 closure definition",
+      "change": "Restrict to distinct commuting labels and require their sum in S; Pauli products are considered up to sign.",
+      "reason": "A repeated label multiplies to the excluded identity, and context products may carry a minus sign."
+    },
+    {
+      "location": "AfterTable1",
+      "change": "Specify Lean proves exact-degree mask/count statements, while state identifications are separately checked.",
+      "reason": "A blanket statement that table rows are proved would overstate formal coverage of state, modulus and geometry columns."
+    },
+    {
+      "location": "Proposition9",
+      "change": "Use complementary underlying Pauli label spaces, not signed stabilizer-group intersection.",
+      "reason": "Signed stabilizer groups of orthogonal states can intersect only at the identity, so the original wording did not imply mutual unbiasedness."
+    },
+    {
+      "location": "Proposition10",
+      "change": "Nonprincipal character eigenvalues lie among the two candidates; absent classes omitted.",
+      "reason": "The complete graph case does not have every candidate eigenvalue."
+    },
+    {
+      "location": "Theorem12 and seven-qubit uniqueness discussion",
+      "change": "Keep nonzero-form restriction and distinguish uniqueness of an equivalence class from literal uniqueness.",
+      "reason": "The zero form gives flat stabilizer states in every dimension, and the seven-qubit evidence is restricted."
+    },
+    {
+      "location": "Nine-qubit discussion",
+      "change": "130816 points and modulus1/16 describe the rank8 candidate family.",
+      "reason": "The cited rank formula alone does not force rank8 for every flat phase state on nine qubits."
+    },
+    {
+      "location": "Section10 Moonlab noise table",
+      "change": "The two-qubit0.800ceiling uses exactdegree3, not spectralfloor2.",
+      "reason": "Distinguishes the stronger independently known bound from the generic floor; numeric table remains unchanged."
+    },
+    {
+      "location": "Section12 limitations",
+      "change": "Name the odd-qubit constant-rank(N-1) family and the three still-external classical exact values explicitly.",
+      "reason": "Avoid excluding the known two-qubit/stabilizer examples or falsely labeling the formal four-qubit hyperbolic degree315 as unformalized."
+    }
+  ],
+  "errata": "publication/UNIFIED-ERRATA.md",
+  "github_math_check": {
+    "status": "PASS",
+    "command": "python scripts/check_github_math.py paper/unified-contextuality.md",
+    "source_sha256_lf": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
+    "source_formulas": 1047,
+    "rendered_formulas": 1047,
+    "altered_or_missing": 0,
+    "stray_dollar_signs": 0,
+    "double_escaped_relations": 0,
+    "formatting_changes": "18 C3 display delimiters changed to math fences; vulnerable inline formulas use GitHub code-form math, gt relations and same-line TeX row breaks. All18 original floor display blocks remain verbatim.",
+    "mathematical_token_comparison": "PASS against pre-formatting source, normalizing whitespace and equivalent gt notation."
+  }
+}

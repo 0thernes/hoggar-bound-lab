@@ -4,6 +4,8 @@ The author's confirmed publication credit is **Alexander S. Donahue — 0thernes
 
 The author's selection applies to publication credit; it does not certify a legal nonprofit or tax status, academic appointment, degree, external endorsement or completed journal review. The manuscript separately discloses self-funding and the author's role as sole operator of 0thernes LLC.
 
+ORCID [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648) was supplied by the author. The matching public record and authenticated editor were subsequently observed with the name Alexander Donahue and zero works. This verifies account access and the displayed identifier/name, not independent legal-identity certification. The combined paper retains the confirmed publication name Alexander S. Donahue.
+
 ## Observed platform state — 9 November 2026
 
 | Location | Affiliation | What was actually verified |
@@ -14,7 +16,7 @@ The author's selection applies to publication credit; it does not certify a lega
 | Zenodo account and creator metadata | **0thernes LLC** | The authenticated profile was saved and the service displayed “Profile was updated” with 0thernes LLC in Affiliations. The prepared creator record also uses 0thernes LLC. No deposit or DOI exists for this paper. |
 | Journal of Physics A: Mathematical and Theoretical | **0thernes LLC** | The prepared journal package includes the confirmed credit and author-supplied ORCID. The latest inspection of the journal's ScholarOne portal showed its login screen. No authenticated profile edit or submission has been completed. Paperpal account access does not establish ScholarOne account access or a journal submission. |
 
-The correct prepared values do not imply that an inaccessible external record has been changed. Account-dependent updates remain pending until the service confirms the saved result. arXiv paper submission remains deferred at the author's request.
+The correct prepared values do not imply that an inaccessible external record has been changed. Account-dependent updates remain pending until the service confirms the saved result. The author's latest request is to distribute one combined manuscript to the eight destinations in [the distribution plan](DISTRIBUTION-PLAN.md); the earlier arXiv deferral remains part of the source-paper history, not a completed submission of the combined work.
 
 The account profile's default `math.QA` category is separate from the prepared C3 manuscript's recommended `quant-ph` classification. No endorsement or moderation decision is inferred from a profile default.
 

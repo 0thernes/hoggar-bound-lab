@@ -1,0 +1,473 @@
+{
+  "status": "pass",
+  "observed_at_utc": "2026-11-10T03:12:06.338306+00:00",
+  "run_id": 42741638647,
+  "run_url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638647",
+  "checked_commit": "87f08a0fb5007c8529abc13eabeec093027c0eba",
+  "workflow_conclusion": "success",
+  "jobs": [
+    {
+      "id": 129583852902,
+      "name": "C engine, independent matrices, and explorer",
+      "conclusion": "success",
+      "checkout_commit_verified": "87f08a0fb5007c8529abc13eabeec093027c0eba",
+      "checkout_git_log_lines": [
+        123
+      ],
+      "log_sha256": "fbe8cecca33a1463deb0f44ac55d0b059a613669ce53f2b72bbc484a4b49b96d"
+    },
+    {
+      "id": 129583853277,
+      "name": "Lean kernel proof and axiom allowlist",
+      "conclusion": "success",
+      "checkout_commit_verified": "87f08a0fb5007c8529abc13eabeec093027c0eba",
+      "checkout_git_log_lines": [
+        123
+      ],
+      "log_sha256": "8e0a6efca451321600827443b32e0a6542ca7a6435c48db2f5c07e6c5ebbd1dc"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13731379283,
+      "name": "independent-lean-evidence",
+      "sha256": "db39d4b0974f53cd1088b2bd7abeccebef8567b0d11431c41bc78fb72296c747",
+      "github_digest_matches": true,
+      "head_sha": "87f08a0fb5007c8529abc13eabeec093027c0eba"
+    },
+    {
+      "id": 13729826536,
+      "name": "independent-executable-evidence",
+      "sha256": "cf64560c3b520b8df17443eaea7097d81879a40828fc37be441fed6ea63eebb9",
+      "github_digest_matches": true,
+      "head_sha": "87f08a0fb5007c8529abc13eabeec093027c0eba"
+    }
+  ],
+  "axiom_audits": {
+    "c3": {
+      "declarations": 42,
+      "source": "lean/C3Verification.lean",
+      "source_sha256_lf": "c5be078b258fcf577fb78cc3334bfc299813ce5d6cad811dddb8c8a9d7ef2cba",
+      "log": "independent-ci-lean-c3-axioms.log",
+      "log_sha256": "deedeaf7a734c02475f787ee0e288cb6cc9795bd17c90215f7a50d54cca1d004",
+      "actual": {
+        "HoggarBound.C3.bits_bijective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.codePoint_bijective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.codePoint_add": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.section_correct": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.outside_correct": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.section_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.outside_card": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.polar_point_real": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.outside_labels_complete": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.outside_labels_injective": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.realPauliCode_cast": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.carrierA_from_section": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.carrierB_from_section": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.completionA_from_contexts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.completionB_from_contexts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.carrier_intertwining": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.intertwiner_inverse": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.intertwiner_det_ne_zero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.carrier_charpoly_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.completionA_trace_cube": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.completionB_trace_cube": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.completion_cube_traces_ne": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.section_image": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.outside_image": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauliCarrier_isHermitian": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.carrier_cast_reindex": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauli_carrier_charpoly_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.completion_cast": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauli_completionA_trace_cube": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauli_completionB_trace_cube": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauli_completion_cube_traces_ne": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.four_qubit_C3_counterexample": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.hermitian_trace_pow": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.hermitian_trace_pow_eq_of_charpoly_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.hermitian_charpoly_eq_of_roots_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.signed_context_adjacency_isHermitian": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauliCompletion_isHermitian": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauli_completion_charpoly_ne": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauli_completion_eigenvalues_ne": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauli_completion_eigenvalue_multisets_ne": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.four_qubit_C3_spectral_counterexample": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.C3.pauli_carrier_eigenvalues_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "scalar_stability": {
+      "declarations": 6,
+      "source": "lean/StabilityVerification.lean",
+      "source_sha256_lf": "42596cd8c494aabb14e459d3c15f63fcc3b0ddd2808c0962c26061b1c13b1099",
+      "log": "independent-ci-lean-stability-axioms.log",
+      "log_sha256": "76bad637d44737c42bd58d7255737cb8f2be8d9d18ec1e0eab34a0dda8929c75",
+      "actual": {
+        "HoggarBound.moment_entry_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.shifted_square_sum": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.cubic_residual_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.cubic_deficit_controls_top": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.spectrum_distance_identity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.exists_near_extremal_spectrum": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "baseline": {
+      "declarations": 22,
+      "source": "lean/IndependentVerification.lean",
+      "source_sha256_lf": "1afcbf1551d1a9a3017f434d0d6af7950b4a1b244857634680502d4d92a21721",
+      "log": "independent-ci-lean-verification.log",
+      "log_sha256": "3564f4d20b36bc71535fd644c708703482e97aaf2cc2a9f1a0dfac1cedafba7a",
+      "actual": {
+        "HoggarBound.sum_cube_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.trace_cube_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.context_product": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.pauli_comm": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.trace_opA_cube": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.hoggar_bound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.card_flags_all": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.full_space_bound": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.full_space_fraction": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.three_qubit_contexts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.four_qubit_contexts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.five_qubit_contexts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.card_flags_real": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.four_qubit_hyperbolic_contexts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.five_qubit_hyperbolic_contexts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.five_qubit_hyperbolic_not_one_fifth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.five_qubit_hyperbolic_no_assignment_below_6426": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.hoggar_flags_certificate": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.card_violated_eq_six": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.hoggar_contexts_exact": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.three_qubit_total_contexts": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HoggarBound.three_qubit_exact_minimum": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "source_files_lf_sha256": {
+    "lean/HoggarBound.lean": "c31d579a4554d94a5f27614e4639f37d541c2584563683dd2ca10205a1fb9741",
+    "lean/HoggarBound/Moment.lean": "a18cb0f230b492a23440b0a1aec6f09ec7faf74c72b0c2d2ca9afa22eb496f8f",
+    "lean/HoggarBound/Pauli.lean": "a6da704ff5b73ce5786746067f15cd2387ec94936921cebac6717956f9069e82",
+    "lean/HoggarBound/Bound.lean": "8937ca5e9b112ba855d39e5334b3ef1e68dbd728f0d2b7347743691f9dc7d07a",
+    "lean/HoggarBound/Counting.lean": "7e1b127e0a09557dd16c80e3d70966477665439dcc13fecd6e9d573a0915d2a0",
+    "lean/HoggarBound/Corollaries.lean": "1a18fc4b16b6eb20c524dbcd89904955141434920246f9f35fabfbf81446402f",
+    "lean/HoggarBound/Quadric.lean": "395b9302a6de20d3c5c055fa1e5600e6cc27c116e729bf14f0493c9cf2377d31",
+    "lean/HoggarBound/IndependentWitness.lean": "6430f423cf3f64a88a571c9bd4a9f00206a01c15af8eb552fb7be04ad981eb3d",
+    "lean/HoggarBound/IndependentContexts.lean": "46d58e06b36d761847574cfb538639b3dd6249ebb63543d68c4865bba6054546",
+    "lean/IndependentVerification.lean": "1afcbf1551d1a9a3017f434d0d6af7950b4a1b244857634680502d4d92a21721",
+    "lean/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+    "lean/lake-manifest.json": "ca3bad5830d78d2c42add82578677369c1b494863c37dc19448ca0ee8067a480",
+    "lean/lakefile.toml": "78d3303ad998ec1a2d573a6516f189d01341b42c58a1df079da73eaee3b92407",
+    "lean/HoggarBound/C3Data.lean": "cd7fd590e1b5e7ba747fbdc966c77e3879db3251a204ff9eb4b2b946601d4476",
+    "lean/HoggarBound/C3Geometry.lean": "692df9385ee625a2edee35d6cb7d4dc6a57b4547c4b30e7bdf9d32494d19f7ea",
+    "lean/HoggarBound/C3Certificate.lean": "5c52678a7450bf8acfbff90abef85ee62727a15f9a3a758efd476ef34f685842",
+    "lean/HoggarBound/C3Theorem.lean": "77201cec43172d4cb46ad8507a33738afb24625cb65b67ed9a2cead47919138b",
+    "lean/HoggarBound/C3Spectra.lean": "42e302aa4b3eca2ca61d11ff73703e49ba5e0ae27d3136c1d19f07a8ec270b1c",
+    "lean/C3Verification.lean": "c5be078b258fcf577fb78cc3334bfc299813ce5d6cad811dddb8c8a9d7ef2cba",
+    "lean/HoggarBound/Stability.lean": "ad6c73dbefd20e1e51b2c8eea2eeae46db06c90c087213b8646548c6c9feff7a",
+    "lean/StabilityVerification.lean": "42596cd8c494aabb14e459d3c15f63fcc3b0ddd2808c0962c26061b1c13b1099"
+  },
+  "source_files_checked": 21,
+  "source_equivalence": "All listed proof/configuration files match both the frozen C3 manifest and the current combined-paper checkout after CRLF-to-LF normalization.",
+  "resource_records": {
+    "independent-ci-lean-c3-certificate.log": [
+      "Elapsed (wall clock) time (h:mm:ss or m:ss): 44:28.01",
+      "Maximum resident set size (kbytes): 11518176",
+      "Exit status: 0"
+    ],
+    "independent-ci-lean-c3-geometry.log": [
+      "Elapsed (wall clock) time (h:mm:ss or m:ss): 2:19.68",
+      "Maximum resident set size (kbytes): 4961448",
+      "Exit status: 0"
+    ],
+    "independent-ci-lean-witness.log": [
+      "Elapsed (wall clock) time (h:mm:ss or m:ss): 0:45.73",
+      "Maximum resident set size (kbytes): 11335032",
+      "Exit status: 0"
+    ]
+  },
+  "scope": "Downloaded successful Ubuntu CI evidence independently checked for actual checkout commit, artifact digests, exact 42 C3 + 6 scalar stability + 22 baseline axiom reports and source equivalence. This audit does not claim a new local Lean build, verification of every prose statement, or the separate saturation 14-declaration run."
+}

@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "arithmetic": "Integer Pauli-label phases; no numerical eigensolver",
+  "quadric_points": 135,
+  "quadric_contexts": 1575,
+  "section_points": 71,
+  "section_contexts": 455,
+  "outside_points": 64,
+  "outside_contexts": 1120,
+  "witnesses": {
+    "A": {
+      "contexts": 455,
+      "violated": 132,
+      "satisfied": 323,
+      "signed_score": 191,
+      "trace_cube_from_score": 18336
+    },
+    "B": {
+      "contexts": 455,
+      "violated": 132,
+      "satisfied": 323,
+      "signed_score": 191,
+      "trace_cube_from_score": 18336
+    }
+  },
+  "negative_control": {
+    "flipped_label": 1,
+    "contexts": 455,
+    "violated": 147,
+    "satisfied": 308,
+    "signed_score": 161,
+    "trace_cube_from_score": 15456
+  },
+  "scope": "Exact executable check of section violations and the trace-score identity; not a Lean specialization or a binary completion optimum."
+}

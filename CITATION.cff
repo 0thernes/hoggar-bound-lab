@@ -1,79 +1,82 @@
 cff-version: 1.2.0
-message: >-
-  If you use this repository, please cite the paper below together with the prior work it
-  credits (see the priority note at the top of the paper). For the four-qubit C3 companion,
-  use paper/c3-citation.cff.
-title: "A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it"
+message: Cite the combined paper below and the prior work it credits. Preserved source-paper identities
+  and versions are recorded in publication/PAPER-MAP.md.
+title: 'Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit
+  C3 certificate'
 type: software
 authors:
-  - family-names: Donahue
-    given-names: "Alexander S."
-    orcid: "https://orcid.org/0009-0006-8168-9648"
-    alias: 0thernes
-    affiliation: "0thernes LLC"
-    email: "0_0@0thernes.art"
-version: "1.1.2"
+- family-names: Donahue
+  given-names: Alexander S.
+  orcid: https://orcid.org/0009-0006-8168-9648
+  alias: 0thernes
+  affiliation: 0thernes LLC
+  email: 0_0@0thernes.art
+version: 1.2.0
 date-released: 2026-11-09
-repository-code: "https://github.com/0thernes/hoggar-bound-lab"
-url: "https://0thernes.github.io/hoggar-bound-lab/"
-abstract: >-
-  Lean 4 formalization, for every number of qubits and arbitrary sets of Pauli observables,
-  of the spectral lower bound on the contextuality degree (first posted by B. W. Jonah,
-  doi:10.5281/zenodo.23538829), with formally verified numerical corollaries. The bound is
-  attained exactly when a pure state has Pauli expectation values of one modulus on the set and
-  zero elsewhere. New configurations of this kind outside the classical families, with their
-  exact contextuality degrees: 135 four-qubit observables with 1095 contexts (degree 75) and
-  496 five-qubit observables with 10880 contexts (degree 480), both proved in Lean; and 8128
-  seven-qubit observables with 2824192 contexts (degree 729344). A classification of the
-  flat states obtained from T, controlled-S and CCZ gates on up to five qubits, an
-  independent reproduction of the known values for two to five qubits, and a demonstration
-  on the Tsotchke stack (Moonlab, quantum_geometric_tensor, quantum_rng, Eshkol).
+repository-code: https://github.com/0thernes/hoggar-bound-lab
+url: https://0thernes.github.io/hoggar-bound-lab/
+abstract: A combined study of spectral bounds and their information limits in Pauli contextuality. It
+  integrates a Lean 4 formalization of the previously known spectral floor, configurations attaining exact
+  degrees 75 and 480 with finite Lean certificates, seven-qubit results using external exact counts, and
+  an explicit four-qubit C3 pair with identical carrier spectra and unequal completion spectra. The C3
+  completion cubic traces are 14976 and 15360. The manuscript distinguishes kernel-checked statements,
+  separate algebraic results, executable counts, prior work, and unresolved questions.
 keywords:
-  - quantum contextuality
-  - Pauli group
-  - symplectic polar space
-  - Kochen-Specker theorem
-  - Clifford hierarchy
-  - bent functions
-  - Lean 4
-  - formal verification
+- quantum contextuality
+- Pauli group
+- symplectic polar space
+- Kochen-Specker theorem
+- Clifford hierarchy
+- bent functions
+- Lean 4
+- formal verification
+- spectral invariants
+- cospectrality
+- Pauli completion
 preferred-citation:
   type: report
-  title: "A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it"
+  title: 'Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit
+    C3 certificate'
   authors:
-    - family-names: Donahue
-      given-names: "Alexander S."
-      affiliation: "0thernes LLC"
-      orcid: "https://orcid.org/0009-0006-8168-9648"
+  - family-names: Donahue
+    given-names: Alexander S.
+    affiliation: 0thernes LLC
+    orcid: https://orcid.org/0009-0006-8168-9648
   year: 2026
   month: 11
   institution:
-    name: "0thernes LLC"
-  url: "https://github.com/0thernes/hoggar-bound-lab/releases/download/v1.1.2/spectral-floor.pdf"
-  notes: >-
-    Research preprint, version 1.1.2, not peer reviewed. Produced with Claude (Anthropic) as AI
-    research system under the author's direction.
+    name: 0thernes LLC
+  url: https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf
+  notes: Combined research preprint, version 1.2.0, not peer reviewed. Spectral-floor and saturation work
+    used Claude/Anthropic; C3, independent validation and integration used OpenAI Codex. See the manuscript
+    for the actual roles and verification boundaries.
 references:
-  - type: generic
-    title: "Structure theorems for hyperplane completions in Pauli contextuality"
-    authors:
-      - family-names: Jonah
-        given-names: "B. W."
-    year: 2026
-    doi: 10.5281/zenodo.23538829
-  - type: generic
-    title: >-
-      A section-square law for Pauli quadrics, and an independently regenerated proof that the
-      four-qubit elliptic quadric has contextuality degree 315
-    authors:
-      - family-names: Jonah
-        given-names: "B. W."
-    year: 2026
-    doi: 10.5281/zenodo.23510634
-  - type: generic
-    title: "Pauli flat quantum states mimicking maximal magic"
-    authors:
-      - family-names: Cieśliński
-        given-names: "Paweł"
-    year: 2026
-    notes: "arXiv:2610.07172"
+- type: generic
+  title: Structure theorems for hyperplane completions in Pauli contextuality
+  authors:
+  - family-names: Jonah
+    given-names: B. W.
+  year: 2026
+  doi: 10.5281/zenodo.23538829
+- type: generic
+  title: A section-square law for Pauli quadrics, and an independently regenerated proof that the four-qubit
+    elliptic quadric has contextuality degree 315
+  authors:
+  - family-names: Jonah
+    given-names: B. W.
+  year: 2026
+  doi: 10.5281/zenodo.23510634
+- type: generic
+  title: Pauli flat quantum states mimicking maximal magic
+  authors:
+  - family-names: Cieśliński
+    given-names: Paweł
+  year: 2026
+  notes: arXiv:2610.07172
+- type: generic
+  title: The reach of the section-square law
+  authors:
+  - family-names: Jonah
+    given-names: B. W.
+  year: 2026
+  doi: 10.5281/zenodo.23524332
