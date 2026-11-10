@@ -50,7 +50,8 @@ assignment violates exactly `d`.
 
 The seven-qubit counts are double sums with 2^28 terms. `MaskRows.lean` evaluates one row of either
 sum on packed sets of codes and proves, for every N, that the result is the row; the kernel evaluates
-the 2^14 rows in 16 blocks (`SaturatedPhaseSeven.lean`, about 6 GB of memory for one block).
+the 2^14 rows in 16 blocks (`SaturatedPhaseSeven.lean`; in CI the whole build took about 1.5 minutes
+and at most 6.4 GB of memory, one block of 1024 rows about 2.5 GB in a local test).
 
 ### Case C3 for every number of qubits
 

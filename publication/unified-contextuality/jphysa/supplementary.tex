@@ -316,7 +316,8 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   \nolinkurl{scripts/cospectral_family_cone_lift.py} (21 checks) builds the C11 configurations with 4, 5 and 6
   qubits from the definitions, without the lifting lemma, and checks the lifted pairs of Table 7.
 \item
-  \texttt{scripts/conjecture\_e.py} (81 checks) builds every vertex case at four and five qubits, and at three
+  \texttt{scripts/conjecture\_e.py} (81 checks; with the argument \texttt{6} a further 36 checks at six qubits, record
+  \nolinkurl{results/conjecture_e_n6.json}) builds every vertex case at four and five qubits, and at three
   qubits for C1, C3, C6 and C11, from the definitions of {[}J3{]}: the type of the quadric and of \(e\) and \(d\)
   as in {[}J3, Table 1{]}, the vertex set of the section, the outside lines and their signs (checked against
   products of three matrices at three and four qubits). It compares power sums \(\operatorname{tr}A^k\), \(k\le2^N\), with
@@ -403,7 +404,7 @@ cd lean && lake exe cache get && lake build
 # the exact degrees of Section 5 (kernel evaluations; see the CI evidence for time and memory)
 lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive
 lake env lean SaturatedVerification.lean
-# the seven-qubit degree (about 6 GB of memory for one block of rows)
+# the seven-qubit degree (in CI about 1.5 minutes and 6.4 GB of memory)
 lake build HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven
 lake env lean SaturatedSevenVerification.lean
 # case C3 for every number of qubits (Theorem 17)

@@ -45,9 +45,9 @@ was known only for small cases.
    | 5 | 496 | 10 880 | 480 |
    | 7 | 8 128 | 2 824 192 | 729 344 |
 
-   For four and five qubits the degrees of the specified supports are proved in Lean, including the
-   counting; the state and circuit identifications have separate evidence. For seven
-   qubits the inequality is the Lean theorem and the counts are made by three separate programs.
+   For four, five and seven qubits the degrees of the specified supports are proved in Lean, including
+   the counting (for seven qubits since version 1.3.0, with sums of 2^28 terms evaluated by the Lean
+   kernel); the state and circuit identifications have separate evidence.
 
 3. **A classification.** For one natural family of states (those made from a standard set of gates
    called T, controlled-S and CCZ) we checked every possibility on up to five qubits, more than 33 million

@@ -107,7 +107,11 @@ questions, corrections and sources as the work is performed.
 
 The author directed the assistant to continue, to fold the new results recorded in the addenda into
 the combined paper, and to publish it. The declarations above were recorded for v1.2.0; the funding and
-competing-interest text prepared above is used in Section 13 of v1.3.0. No separate author review or
-approval of the v1.3.0 text, and no new arXiv, journal or Zenodo declaration, is recorded. The
+competing-interest text prepared above is used in Section 13 of v1.3.0. Two statements of the
+assessment above describe v1.2.0 and are superseded: the seven-qubit finite counts are now Lean
+theorems (`phase7_contexts`, `phase7_degree`), and besides the binary-completion addendum, v1.3.0
+contains three further results (case C3 for every number of qubits, case C11, Conjecture E). No
+separate author review or approval of the v1.3.0 text, and no new arXiv, journal or Zenodo
+declaration, is recorded. The
 assessment limits stated above apply unchanged: the new results are AI-originated, Theorem 19 relies
 on two structure theorems of an unreviewed preprint, and only case C3 of it is proved in Lean.

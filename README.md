@@ -30,7 +30,8 @@ direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-964
   carriers with the same carrier spectrum and different completion spectra. The carriers come from graphs
   with one edge for each nonzero difference, over the real, complex and quaternionic numbers, and from a
   pair swap for cones. Outside case C3 the proof is on paper, uses Theorems A and B3 of the note, and is
-  checked by exact computation for three to five qubits (`python scripts/conjecture_e.py`, 81 checks).
+  checked by exact computation for three to six qubits (`python scripts/conjecture_e.py`, 81 checks, and
+  `python scripts/conjecture_e.py 6`, 36 checks).
 * **Case C3 for every number of qubits, in Lean** (Theorem 17): `c3_strict_law_fails_general` in
   [lean/HoggarBound/CarrierFamily.lean](lean/HoggarBound/CarrierFamily.lean), about the library's own
   Pauli matrices, real quadric and context signs; 74 audited declarations, standard axioms only. Case

@@ -21,6 +21,14 @@ configurations and a proof of Jonah's Conjecture E*. It folds in the four addend
   counts.
 - Funding and competing-interest statement from the author's recorded declarations.
 
+Further checks: `scripts/conjecture_e.py 6` checks all nine vertex cases at six qubits (36 checks,
+`results/conjecture_e_n6.json`); the program now writes runs at other than the default sizes to their own
+record, so they no longer overwrite `results/conjecture_e.json`. The six-qubit run is a step of the
+workflow *Case C3 for every number of qubits* and a stage of `scripts/run_all.sh`, which also gains the
+seven-qubit check `scripts/phase_seven_lean.py`. Corrections from an independent review of Theorem 19
+(no error found; wording and notation in Sections 8.6 and 8.7) and from the review of the seven-qubit
+work (Sections 5.1, 5.3, 9.1, 9.3 and Appendix A) are included.
+
 Publication machinery: `scripts/build_unified_paper.py` takes the version from one constant and the
 archive date from the byline; both publication audits move to 1.3.0 and gain checks (sources of the
 seven-qubit and C3 Lean files unchanged since their CI runs, their axiom reports, the arXiv abstract
@@ -46,7 +54,7 @@ the C3 paper, its proof artifacts and release `v0.2.0-c3-certificate` are untouc
   729344 of them and one violates exactly 729344. The two counts are double sums with 2^28 terms each.
   `lean/HoggarBound/MaskRows.lean` evaluates one row of such a sum on packed sets of codes and proves,
   for every number of qubits, that the result is the row of `MaskConfig.lean`; the kernel then evaluates
-  the 16384 rows in 16 blocks (`decide +kernel`, no `native_decide`, the standard three axioms; audit in
+  the 16384 rows in 16 blocks (`decide +kernel`, no `native_decide`, no axiom beyond the standard three; audit in
   `lean/SaturatedSevenVerification.lean`, log in `results/lean-saturated-seven-axioms.log`). That the
   mask is the Pauli support of the state of Theorem 13 is checked by programs, as before. No existing
   Lean file is changed, and release 1.2.0, its manuscript and its artifacts are unchanged.
@@ -61,7 +69,7 @@ the C3 paper, its proof artifacts and release `v0.2.0-c3-certificate` are untouc
   two carriers differ at the n/2 points Z (x) W (x) X. The proof is written out in the addendum.
   - Lean: `lean/HoggarBound/CarrierFamily.lean`, theorem `c3_strict_law_fails_general`, for every
     N >= 4, with the definitions of the existing library (real quadric, polar point, section, contexts
-    and their signs). No `sorry`, no `native_decide`, the standard three axioms. A new file; no existing
+    and their signs). No `sorry`, no `native_decide`, no axiom beyond the standard three. A new file; no existing
     Lean file is changed. The addendum lists what the statement leaves to the reader.
   - Exact integer arithmetic on the complete configurations: `scripts/cospectral_family.py` (N = 3 to 6,
     random graphs, two negative controls; 43 checks), `scripts/cospectral_family_tensor_check.py` (a

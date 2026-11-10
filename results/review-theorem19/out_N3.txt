@@ -1,0 +1,169 @@
+======================================================================
+C1 N = 3
+    Y type : W
+    d : ZII
+    d in X : True
+    vertices : ['ZII']
+    dim span S : 5
+    rad(span S) : ['ZII']
+    |X| = 63  |S| = 31  |O| = 32  outside lines = 240  section lines = 75
+    r (points where sigma != tau) = 12
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [-192, 960]  difference = -1152
+    tr Lambda^2 sigma, tau = [480, 480]
+    predicted from block traces (E6/E8/E9): ['-192', '960']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {1: [4, 244, 532], -1: [-4, 4, -4]}
+    block power sums (p1,p2,p3) tau  : {1: [4, 52, 340], -1: [-4, 196, 188]}
+    charpoly coefficients (sigma): [1, 0, -124, -176, 2958, 11168, 15828, 10128, 2457]
+======================================================================
+C3 N = 3
+    Y type : Q+
+    d : ZII
+    q(d) : 0
+    d in X : True
+    vertices : ['ZII']
+    dim span S : 5
+    rad(span S) : ['ZII']
+    |X| = 35  |S| = 19  |O| = 16  outside lines = 72  section lines = 33
+    r (points where sigma != tau) = 6
+    differ at: ['ZIX', 'ZXI', 'ZXX', 'ZXZ', 'ZYY', 'ZZX']
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [0, 288]  difference = -288
+    tr Lambda^2 sigma, tau = [144, 144]
+    predicted from block traces (E6/E8/E9): ['0', '288']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {1: [4, 148, 436], -1: [-4, 4, -4]}
+    block power sums (p1,p2,p3) tau  : {1: [4, 52, 340], -1: [-4, 100, 92]}
+    charpoly coefficients (sigma): [1, 0, -76, -144, 1374, 5472, 7844, 5040, 1225]
+======================================================================
+C5 N = 3
+    Y type : Q-
+    d : ZII
+    q(d) : 0
+    d in X : True
+    vertices : ['ZII']
+    dim span S : 5
+    rad(span S) : ['ZII']
+    |X| = None  |S| = 11  |O| = 16  outside lines = 40  section lines = None
+    construction not available at this N
+======================================================================
+C6 N = 3
+    Y type : W
+    e : ZII
+    B(d,e) : 0
+    d in <e> : False
+    d : IZI
+    d in X : True
+    vertices : ['IZI', 'ZII', 'ZZI']
+    dim span S : 4
+    rad(span S) : ['IZI', 'ZII', 'ZZI']
+    |X| = 31  |S| = 15  |O| = 16  outside lines = 56  section lines = 19
+    r (points where sigma != tau) = 6
+    differ at: ['ZIX', 'ZIY', 'ZIZ', 'ZZX', 'ZZY', 'ZZZ']
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [-288, 288]  difference = -576
+    tr Lambda^2 sigma, tau = [112, 112]
+    predicted from block traces (E6/E8/E9): ['-288', '288']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {(1, 1): [6, 18, 54], (1, -1): [-2, 2, -2], (-1, 1): [-2, 2, -2], (-1, -1): [-2, 98, -290]}
+    block power sums (p1,p2,p3) tau  : {(1, 1): [6, 18, 54], (1, -1): [-2, 98, -290], (-1, 1): [-2, 2, -2], (-1, -1): [-2, 2, -2]}
+    charpoly coefficients (sigma): [1, 0, -60, 80, 462, -96, -1388, -1392, -423]
+======================================================================
+C8 N = 3
+    Y type : Q+
+    e : YII
+    q(e) : 1
+    B(d,e) : 0
+    d in <e> : False
+    d : IZI
+    q(d) : 0
+    q(d+e) : 1
+    d in X : True
+    vertices : ['IZI']
+    dim span S : 4
+    rad(span S) : ['IZI', 'YII', 'YZI']
+    |X| = None  |S| = 7  |O| = 8  outside lines = 12  section lines = None
+    construction not available at this N
+======================================================================
+C11 N = 3
+    Y type : Q+
+    e : ZII
+    q(e) : 0
+    B(d,e) : 0
+    d in <e> : False
+    d : IZI
+    q(d) : 0
+    q(d+e) : 0
+    d in X : True
+    vertices : ['IZI', 'ZII', 'ZZI']
+    dim span S : 4
+    rad(span S) : ['IZI', 'ZII', 'ZZI']
+    |X| = 19  |S| = 11  |O| = 8  outside lines = 20  section lines = 13
+    r (points where sigma != tau) = 4
+    differ at: ['ZIX', 'ZIZ', 'ZZX', 'ZZZ']
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [-96, 96]  difference = -192
+    tr Lambda^2 sigma, tau = [40, 40]
+    predicted from block traces (E6/E8/E9): ['-96', '96']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {(1, 1): [6, 18, 54], (1, -1): [-2, 2, -2], (-1, 1): [-2, 2, -2], (-1, -1): [-2, 66, -194]}
+    block power sums (p1,p2,p3) tau  : {(1, 1): [6, 18, 54], (1, -1): [-2, 66, -194], (-1, 1): [-2, 2, -2], (-1, -1): [-2, 2, -2]}
+    charpoly coefficients (sigma): [1, 0, -44, 48, 318, -32, -892, -912, -279]
+======================================================================
+C12 N = 3
+    Y type : Q+
+    e : ZII
+    q(e) : 0
+    B(d,e) : 0
+    d in <e> : False
+    d : IYI
+    q(d) : 1
+    q(d+e) : 1
+    d in X : False
+    vertices : ['ZII']
+    dim span S : 4
+    rad(span S) : ['IYI', 'ZII', 'ZYI']
+    |X| = None  |S| = 7  |O| = 12  outside lines = 30  section lines = None
+    construction not available at this N
+======================================================================
+C14 N = 3
+    Y type : Q-
+    e : ZII
+    q(e) : 0
+    B(d,e) : 0
+    d in <e> : False
+    d : IZI
+    q(d) : 0
+    q(d+e) : 0
+    d in X : True
+    vertices : ['IZI', 'ZII', 'ZZI']
+    dim span S : 2
+    rad(span S) : ['IZI', 'ZII', 'ZZI']
+    |X| = 11  |S| = 3  |O| = 8  outside lines = 4  section lines = 1
+    r (points where sigma != tau) = 0
+    differ at: []
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [0, 0]  difference = 0
+    tr Lambda^2 sigma, tau = [8, 8]
+    predicted from block traces (E6/E8/E9): ['0', '0']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {(1, 1): [6, 18, 54], (1, -1): [-2, 2, -2], (-1, 1): [-2, 2, -2], (-1, -1): [-2, 2, -2]}
+    block power sums (p1,p2,p3) tau  : {(1, 1): [6, 18, 54], (1, -1): [-2, 2, -2], (-1, 1): [-2, 2, -2], (-1, -1): [-2, 2, -2]}
+    charpoly coefficients (sigma): [1, 0, -12, -16, 30, 96, 100, 48, 9]
+======================================================================
+C15 N = 3
+    Y type : Q-
+    e : ZII
+    q(e) : 0
+    B(d,e) : 0
+    d in <e> : False
+    d : IYI
+    q(d) : 1
+    q(d+e) : 1
+    d in X : False
+    vertices : ['ZII']
+    dim span S : 4
+    rad(span S) : ['IYI', 'ZII', 'ZYI']
+    |X| = None  |S| = 7  |O| = 4  outside lines = 2  section lines = None
+    construction not available at this N

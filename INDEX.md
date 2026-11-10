@@ -65,7 +65,7 @@ Repository version 1.3.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 | The binary completion minima of that pair differ: at least 347 against at most 344 (Corollary 16) | none (paper proof) | `scripts/cospectral_pair.py` (30 checks, exact) | `cospectral_pair.json` |
 | Case C3 for every N >= 4: cospectral carriers, cubic traces differ by 3/2 8^(N-1) (Theorem 17) | `c3_strict_law_fails_general` (`CarrierFamily.lean`, 74 audited declarations) | `scripts/cospectral_family.py --six` (43), `scripts/cospectral_family_tensor_check.py` (18), `scripts/c3_sparse_search.py` | `lean-c3-all-qubits-axioms.log`, `cospectral_family.json`, `c3_sparse_search.json` |
 | Case C11 for every N >= 4 (Corollary 18) | none (Jonah's cone lift) | `scripts/cospectral_family_cone_lift.py` (21) | `cospectral_family_cone_lift.json` |
-| Conjecture E: all nine vertex cases, every N >= 4 (Theorem 19) | case C3 only | `scripts/conjecture_e.py` (81, N = 3 to 5) | `conjecture_e.json` |
+| Conjecture E: all nine vertex cases, every N >= 4 (Theorem 19) | case C3 only | `scripts/conjecture_e.py` (81, N = 3 to 5; argument `6`: 36 more, N = 6) | `conjecture_e.json`, `conjecture_e_n6.json` |
 
 ### Structure and classification (paper, Section 5.3)
 

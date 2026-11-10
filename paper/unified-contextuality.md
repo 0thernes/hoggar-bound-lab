@@ -35,7 +35,7 @@ completion minima differ. A graph construction extends this to every $N\ge4$, wi
 differ by $`\tfrac32\,8^{N-1}`$; Lean proves this case, C3, for every $N\ge4$ in the actual Pauli model.
 Variants over the real, complex and quaternionic numbers and a pair swap for cones give such carriers
 in all nine vertex cases for every $N\ge4$, proving Jonah's Conjecture E. Outside case C3 the proof uses two structure theorems of Jonah and is
-checked by exact computation up to five qubits. Independent exact verifiers, falsification controls
+checked by exact computation up to six qubits. Independent exact verifiers, falsification controls
 and Tsotchke software demonstrations accompany the paper. The work is AI-assisted and is neither
 externally peer reviewed nor a quantum-hardware experiment.
 
@@ -84,7 +84,7 @@ graphs with one edge for each nonzero difference (Theorem 17); its Lean statemen
 floor. By a lifting lemma of [J3] this also settles case C11 (Corollary 18). Finally, variants of the
 construction prove Conjecture E in all nine vertex cases (Theorem 19). That proof is on paper outside
 case C3, uses Theorems A and B3 of [J3], and is checked by exact computation on the complete
-configurations for three, four and five qubits.
+configurations for three to six qubits.
 
 The two 135-point configurations must be distinguished. The pivot support $S_B$ is not a quadric and
 has 1095 contexts and degree 75. The C3 ambient configuration is the real quadric $Q^+(7,2)$, with
@@ -408,7 +408,7 @@ The degrees in bold are new, as is the reading of the first two rows: the 12 two
 outside a maximal commuting set, and the 28 real three-qubit observables that are not diagonal, are
 noncontextual configurations on which the floor is nevertheless exact. The configurations of $s_5$ and
 $\Phi_5$ are equivalent under the Clifford group (Theorem 12). The exact-degree statements for the
-first seven masks, with their finite counts, are proved in Lean (Section 9); their state identifications
+eight masks, with their finite counts, are proved in Lean (Section 9); their state identifications
 are checked separately. All eight states are reproduced on Moonlab (Section 10).
 
 ### 5.2 A four-qubit and a five-qubit configuration
@@ -657,11 +657,11 @@ and let $S_7$ be its Pauli support.
 4. For each of the ten other types of $B$ (alternating of rank 0, 2 or 4; not alternating, of rank 1
    to 7) we tested $3 \times 10^8$ random forms; none has constant rank.
 
-*Proof.* Item 1 is a finite computation in $\mathbb{Z}[i]$, made by three programs that share no code
-(Section 11). The number of contexts and the degree of item 2 are the Lean theorems `phase7_contexts`
-and `phase7_degree` (Section 9.1); the other numbers of item 2 are computed by the same three
-programs. The lower bound is Theorem 1 with $|S| = 8128$, $D = 128$:
-$`\beta \le 126 \cdot 8128 \cdot 1016/(6\cdot 127) = 1\,365\,504 = 2\,824\,192 - 2 \cdot 729\,344`$. For item 3,
+*Proof.* Item 1 and the counts of item 2 are finite computations in $\mathbb{Z}[i]$, made by three
+programs that share no code (Section 11). The lower bound is Theorem 1 with $|S| = 8128$, $D = 128$:
+$`\beta \le 126 \cdot 8128 \cdot 1016/(6\cdot 127) = 1\,365\,504 = 2\,824\,192 - 2 \cdot 729\,344`$. In Lean, for
+the set of observables given by the mask of $S_7$, these are `phase7_contexts` and `phase7_degree`
+(Section 9.1). For item 3,
 choose a basis in which $e_6$ spans the radical of $B$ and $e_0,\dots,e_5$ is a symplectic basis of a
 complement. Every form of $\mathcal{F}$ is then the third difference of
 $`2(x_0x_1 + x_2x_3 + x_4x_5) + 4w(x_0,\dots,x_5) + 4x_6\,s(x_0,\dots,x_5)`$ for a set $w$ of $CCZ$ gates
@@ -1090,8 +1090,8 @@ H=\{p_\star\}\cup\{I\otimes P,\;Z\otimes P:P\in R\},\qquad |H|=1+(k-1)(k+2),\qqu
 ```
 
 Carrier operators and completion matrices are defined as in Section 8.2. On $m$ qubits write vectors of
-$`\mathbb F_2^m`$ as integers, $a\cdot c$ for the number of common bits, $`P_{a,c}=i^{\,a\cdot c}X^aZ^c`$ for
-$a\cdot c$ even, and $`X^aZ^c|b\rangle=(-1)^{c\cdot b}|b+a\rangle`$.
+$`\mathbb F_2^m`$ as integers, $a\cdot c$ for the number of common bits, $`P_{a,c}=i^{\,a\cdot c}X^aZ^c`$, which
+is real exactly when $a\cdot c$ is even, and $`X^aZ^c|b\rangle=(-1)^{c\cdot b}|b+a\rangle`$.
 
 **Carriers from graphs.** Choose a vertex $`t\in\mathbb F_2^m`$ and, for every nonzero $`a\in\mathbb F_2^m`$, a
 vertex $u_a$. The graph $G$ on $`\mathbb F_2^m`$ has the $k-1$ edges $`\{u_a,u_a+a\}`$, one for each nonzero
@@ -1201,8 +1201,10 @@ $2\operatorname{spec}\Lambda+1$ together with $|O|$ copies of $-1$. Apply this t
 qubits to the three-qubit pair of Remark (a) below. $\qquad\blacksquare$
 
 For the lifted pair
-$`\operatorname{tr}\Lambda'^3=8\operatorname{tr}\Lambda^3+12\operatorname{tr}\Lambda^2+6\operatorname{tr}\Lambda`$, so
-the cubic traces differ by $-12k^3$ with $k=2^{N-1}$ for the base on $N$ qubits.
+$`\operatorname{tr}\Lambda'^3=8\operatorname{tr}\Lambda^3+12\operatorname{tr}\Lambda^2+6\operatorname{tr}\Lambda`$, and
+$\operatorname{tr}\Lambda^2$ and $\operatorname{tr}\Lambda$ agree for the two base carriers, so the lifted difference is
+eight times the base difference: $-12k^3$, $k=2^{N-1}$, for the carriers of Theorem 17 on $N\ge4$ qubits,
+and $8\cdot(-288)=-2304$ for the three-qubit pair of Remark (a).
 
 **Remarks.** (a) For $N=3$ a single edge cannot be a component away from $t$, but the triangle
 $`\{0,1,3\}`$ with $t=2$ ($u_1=0$, $u_2=1$, $u_3=0$) is, and the same proof gives a pair with difference
@@ -1265,9 +1267,10 @@ Two facts from [J3, Theorem B3] are used. Let $\chi$ run over the joint eigenspa
 central Paulis of the case and let $A_\chi$ be the block of $A_\sigma$ on $E_\chi$; a coupled pair is two
 eigenspaces that differ only in the eigenvalue of $P_d$.
 
-1. *Preserved pairs* (C1, C3, C5, C6, C11, C14). On a coupled pair, $\Lambda_\sigma$ is the operator
-   $M\mapsto\frac12(A_\chi M+MA_{\chi'})$ on a real space that is $\kappa$ copies of a real form of the complex
-   matrices between the two eigenspaces. With $k$ their common dimension,
+1. *Preserved pairs* (C1, C3, C5, C6, C11, C14). On a coupled pair, $\Lambda_\sigma$ acts on a real space
+   of dimension $\kappa k^2$, $k$ the common dimension of the two eigenspaces, and its eigenvalues there
+   are those of $M\mapsto\frac12(A_\chi M+MA_{\chi'})$, that is $\frac12(a_i+b_j)$ for $1\le i,j\le k$ with $a_i$
+   and $b_j$ the eigenvalues of $A_\chi$ and $A_{\chi'}$, each taken $\kappa$ times. Hence
 
    ```math
    \operatorname{tr}\Lambda^3\big|_{\text{pair}}=\tfrac\kappa8\bigl(k\operatorname{tr}A_\chi^3+3\operatorname{tr}A_\chi^2\operatorname{tr}A_{\chi'}
@@ -1284,12 +1287,11 @@ eigenspaces that differ only in the eigenvalue of $P_d$.
    \tag{E9}
    ```
 
-For a sign carrier each block observable sits in one block of a coupled pair with coefficient $\pm2$
-(in a cone, in one block with $\pm4$), and Pauli orthogonality gives
-$`\operatorname{tr}A_\chi^2=k(\gamma^2+4r_\chi)`$, with $\gamma$ the constant term and $r_\chi$ the number of block
-observables carried by $A_\chi$.
+In cases C1, C3 and C5 every sign carrier places each block observable in exactly one of the two
+blocks, with coefficient $\pm2$, and Pauli orthogonality gives $`\operatorname{tr}A_\chi^2=k(\gamma^2+4r_\chi)`$,
+with $\gamma$ the constant term and $r_\chi$ the number of block observables carried by $A_\chi$.
 
-**C1, C3, C5: graphs over $\mathbb R$, $\mathbb C$ and $\mathbb H$.** Put $d=Z$ on qubit $N-1$ and let the other
+**C1, C3, C5: graphs over $\mathbb C$, $\mathbb R$ and $\mathbb H$.** Put $d=Z$ on qubit $N-1$ and let the other
 $N-1$ qubits form the block, so that $`H=\{d\}\cup\{I\otimes P,\,Z\otimes P:P\in R\}`$ with $R$ the block
 observables in $X$ and $A_\sigma=C\oplus D$ as in Section 8.6. Case C3 ($X=Q^+$) is Theorem 17. In case C1
 ($X=W$), $R$ contains all observables. For $a\neq0$ and $a\cdot c$ odd put
@@ -1306,15 +1308,17 @@ an antisymmetric edge $J_a$. With every observable in $C$, therefore,
 $`C=-I+2k|t\rangle\langle t|+k\sum_{a\neq0}(E_a+iJ_a)`$ and $D=-I$: a Hermitian weighted graph with a real edge
 $E_a$ and an imaginary edge $iJ_a$ on each pair $`\{u_a,u_a+a\}`$. In case C5 ($X=Q_c$ with $c=Y$ on
 qubit 0, which is elliptic with $q_c(d)=0$) qubit 0 of the block carries a quaternionic structure and
-the other $N-2$ qubits carry the graph. Then $R$ consists of the $I\otimes P''$ with $P''$ real and the
-$\sigma_j\otimes P''$ with $`j\in\{X,Y,Z\}`$ and $P''$ imaginary, and the same signs give a quaternion-Hermitian
-graph with edges in the four quaternion units for each direction. In each case the observables of one
+the other $N-2$ qubits carry the graph. Then $R$ consists of the $P''\otimes I$ with $P''$ real and the
+$P''\otimes\sigma_j$ with $`j\in\{X,Y,Z\}`$ and $P''$ imaginary (qubit 0 is the rightmost factor). With the
+signs of case C1, $\varepsilon(P''\otimes I)=\varepsilon(P'')$ and $\varepsilon(P''\otimes\sigma_j)=\varepsilon(P'')$ for
+every $j$, the block is a quaternion-Hermitian graph with edges in the four quaternion units for each
+direction. In each case the observables of one
 direction and one edge type form a unit. Moving the units of a union of components away from $t$ to
 $D$ (that is, $\tau(Z\otimes P)=-\sigma(Z\otimes P)$ on them) leaves the carrier spectrum unchanged as in step
 (iv), and (E8) with $\operatorname{tr}C=k$, $\operatorname{tr}D=-k$ gives the difference
-$`-3\kappa k^2r_D(\tau)\lt0`$. For $N-1\ge3$ graph qubits take the graph of Theorem 17 for every edge type and
-move the units of direction 1; with two graph qubits take the triangle of Remark (a) and move
-everything. This gives C1 and C3 for $N\ge3$ and C5 for $N\ge4$, since C5 has one graph qubit fewer.
+$`-3\kappa k^2r_D(\tau)\lt0`$. With at least three graph qubits take the graph of Theorem 17 for every edge
+type and move the units of direction 1; with two graph qubits take the triangle of Remark (a) and move
+all units. This gives C1 and C3 for $N\ge3$ and C5 for $N\ge4$, since C5 has one graph qubit fewer.
 With a single graph qubit every edge contains $t$, in agreement with the strict law holding in C5 at
 $N=3$ [J3].
 
@@ -1329,13 +1333,17 @@ H=\{e\}\cup\{Z_e^{\,\alpha}Y_d^{\,q_c(w)}\otimes w:\alpha\in\{0,1\},\;w\neq0\tex
 On the eigenspace $Z_e=s$, $Y_d=+1$ the carrier acts as the Jordan block
 $`A'_s=s\,\sigma(e)+\sum_w\bigl(\sigma(I\otimes w)+s\,\sigma(Z_e\otimes w)\bigr)P_w`$, and on $Y_d=-1$ as its conjugate by
 the antiunitary of [J3, equation (1)], with the same spectrum. These are the complex blocks of C1 on
-$N-2$ qubits. Take the complex graph signs on the base, $\sigma(e)=1$, and every observable in the block
-$s=+1$. With $k_b=2^{N-2}$ and $\Gamma$ the Hermitian graph matrix $\sum_a(E_a+iJ_a)$ of the edges of $G$,
-$`A'_+=-I+2k_b|t\rangle\langle t|+k_b\Gamma_G`$ and $`A'_-=-I`$, because the observables with $a=0$ contribute
-$-2I$. Moving the units of a component $F$ away from $t$ to the block $s=-1$ gives
+$N-1$ qubits, with the graph on the $N-2$ base qubits. Take the complex graph signs of C1 on the base,
+$\sigma(e)=1$, and every observable in the block $s=+1$; the graph is the triangle of Remark (a) when the
+base has two qubits and the graph of Theorem 17 when it has more. With $k_b=2^{N-2}$ and $\Gamma$ the
+Hermitian graph matrix $\sum_a(E_a+iJ_a)$ of the edges of $G$,
+$`A'_+=-I+2k_b|t\rangle\langle t|+k_b\Gamma_G`$ and $`A'_-=-I`$, because $e$ contributes $I$ and the observables
+with $a=0$ contribute $`2k_b|t\rangle\langle t|-2I`$. Moving the units of a component $F$ away from $t$ (all
+units for the triangle, those of direction 1 otherwise) to the block $s=-1$ gives
 $`A'_+=-I+2k_b|t\rangle\langle t|+k_b\Gamma_{G-F}`$ and $`A'_-=-I+k_b\Gamma_F`$, and the union of the two Jordan
 spectra is unchanged. In (E9), $`p_1(A'_\pm)=\pm k_b`$ for both carriers, and $`p_2(A'_+)+p_2(A'_-)`$ and
-$`p_3(A'_+)+p_3(A'_-)`$ are fixed by the carrier spectrum. Only $`p_2(A'_-)`$ changes, by $4k_br$, so the
+$`p_3(A'_+)+p_3(A'_-)`$ are fixed by the carrier spectrum. Summed over the two blocks, (E9) is therefore a
+constant minus $`\tfrac32k_b\,p_2(A'_-)`$, and $`p_2(A'_-)`$ increases by $4k_br$ from $\sigma$ to $\tau$, so the
 difference is $6k_b^2r\gt0$ in both cases. The graph needs two base qubits, hence $N\ge4$; with one
 base qubit every edge contains $t$, in agreement with the strict law holding in C12 and C15 at $N=3$.
 
@@ -1375,7 +1383,7 @@ strict law holding there. The construction does not use Theorem 17; the cone lif
 C3 and C5 on $N-1$ qubits give a second family, which is also checked.
 
 **C8: through C1.** Let $X=Q^+\cap e^\perp$ with the nucleus $e=Y$ on qubit $N-1$, and $d=Z$ on qubit
-$N-2$. Every point of $X$ is $P'\otimes I$ with $P'$ real or $P'\otimes Y$ with $P'$ imaginary, for a unique
+$N-2$. Every point of $X$ is $I\otimes P'$ with $P'$ real or $Y\otimes P'$ with $P'$ imaginary, for a unique
 nonidentity Pauli $P'$ on the other $N-1$ qubits. Two points commute exactly when their $P'$ do, and on
 every line the factors $Y$ occur an even number of times, so the line signs are those of
 $W(2N-3,2)$. On the eigenspace $Y=+1$ the carrier operator is the C1 carrier operator on $N-1$ qubits for
@@ -1388,35 +1396,45 @@ $\qquad\blacksquare$
 which [J3] finds the strict law true for all sign carriers at $N=3$ by exhaustive computation.
 (f) For C1 and C6 the theorem gives an explicit proof, without computer search, of [J3, Corollary 3],
 whose base pairs are in a data set that is not public. (g) In the cone cases the two carrier operators
-are conjugate by a controlled-NOT, but that gate maps $d^\perp$ to a different hyperplane and does not
-preserve the completion problem.
+are conjugate by a controlled-NOT. That gate fixes $d$ and maps the section onto itself, but it maps
+$e^\perp$ to $(e+d)^\perp$; an outside point $p$ has $\langle p,e+d\rangle=1$, so its image lies outside $e^\perp$
+and hence outside $X$. The gate therefore does not carry one completion problem to the other.
 
-**Table 9. Exact values for the pairs of Table 8** (`scripts/conjecture_e.py`).
+**Table 9. Exact values for the pairs of Table 8**, three to six qubits (`scripts/conjecture_e.py`).
 
 | Case | Qubits | Section, outside points, outside lines | $\operatorname{tr}\Lambda_\sigma^3$, $\operatorname{tr}\Lambda_\tau^3$ | Difference |
 | --- | --- | --- | --- | --- |
 | C1 | 3 | 31, 32, 240 | $-192$, 960 | $-1152$ |
 | C1 | 4 | 127, 128, 4032 | 57600, 60672 | $-3072$ |
 | C1 | 5 | 511, 512, 65280 | 2491392, 2515968 | $-24576$ |
+| C1 | 6 | 2047, 2048, 1047552 | 90181632, 90378240 | $-196608$ |
 | C3 | 3 | 19, 16, 72 | 0, 288 | $-288$ |
 | C3 | 4 | 71, 64, 1120 | 15744, 16512 | $-768$ |
 | C3 | 5 | 271, 256, 17280 | 649728, 655872 | $-6144$ |
+| C3 | 6 | 1055, 1024, 269824 | 23021568, 23070720 | $-49152$ |
 | C5 | 4 | 55, 64, 864 | $-1152$, 3456 | $-4608$ |
 | C5 | 5 | 239, 256, 15232 | 219648, 231936 | $-12288$ |
+| C5 | 6 | 991, 1024, 253440 | 9750528, 9848832 | $-98304$ |
 | C6 | 3 | 15, 16, 56 | $-288$, 288 | $-576$ |
 | C6 | 4 | 63, 64, 992 | 8064, 19584 | $-11520$ |
 | C6 | 5 | 255, 256, 16256 | 732672, 926208 | $-193536$ |
+| C6 | 6 | 1023, 1024, 261632 | 36255744, 39389184 | $-3133440$ |
 | C8 | 4 | 31, 32, 240 | $-192$, 960 | $-1152$ |
 | C8 | 5 | 127, 128, 4032 | 57600, 60672 | $-3072$ |
+| C8 | 6 | 511, 512, 65280 | 2491392, 2515968 | $-24576$ |
 | C11 | 3 | 11, 8, 20 | $-96$, 96 | $-192$ |
 | C11 | 4 | 39, 32, 304 | 1344, 4800 | $-3456$ |
 | C11 | 5 | 143, 128, 4544 | 129792, 183552 | $-53760$ |
+| C11 | 6 | 543, 512, 69376 | 5864448, 6693888 | $-829440$ |
 | C12 | 4 | 31, 40, 380 | 1776, 624 | 1152 |
 | C12 | 5 | 127, 144, 5112 | 116640, 113568 | 3072 |
+| C12 | 6 | 511, 544, 73712 | 3554880, 3530304 | 24576 |
 | C14 | 4 | 23, 32, 176 | $-960$, 960 | $-1920$ |
 | C14 | 5 | 111, 128, 3520 | 37632, 79104 | $-41472$ |
+| C14 | 6 | 479, 512, 61184 | 3357696, 4088832 | $-731136$ |
 | C15 | 4 | 31, 24, 132 | 720, $-432$ | 1152 |
 | C15 | 5 | 127, 112, 3080 | 46944, 43872 | 3072 |
+| C15 | 6 | 511, 480, 57360 | 2211264, 2186688 | 24576 |
 
 Every difference equals the formula of its row in Table 8. The C11 rows use the pair swap and
 therefore differ from the cone lifts of Table 7.
@@ -1495,8 +1513,8 @@ flags, flags violated by the witness) with `hoggar_bound`. That the masks are th
 patterns of the states of Table 1 is checked by the programs of Section 11 in exact arithmetic; it is
 not needed for, and not part of, the Lean statements. For seven qubits the two sums have $2^{28}$ terms
 each. `MaskRows.lean` evaluates a row of either sum on packed sets of codes, with at most $2N$ exchanges
-of blocks of digits, bitwise operations and one remainder, and proves for every $N$ that the result is
-the row; the kernel then evaluates the $2^{14}$ rows in 16 blocks of 1024. The degree $`729\,344`$ of
+of blocks of digits for each of the one or two translates that a row needs, bitwise operations and one
+remainder, and proves for every $N$ that the result is the row; the kernel then evaluates the $2^{14}$ rows in 16 blocks of 1024. The degree $`729\,344`$ of
 $S_7$ is the theorem `phase7_degree`, and `phase7_contexts` gives its 2 824 192 contexts.
 
 **Floor and saturation results outside the formalization.** Theorem 2 (the quaternionic form) and all elliptic-quadric numbers;
@@ -1599,7 +1617,7 @@ Corollary 16 and Theorem 19 outside case C3 are not formalized.
 | Four-qubit C3 carrier cospectrality, unequal completion spectra and cube traces | Complete 42-declaration Lean audit, including original Pauli and context-sign bridges |
 | Printed C3 block/carrier factorizations, largest-eigenvalue gap 2, spherical gap 32 and the binary minima of Corollary 16 | Exact algebraic and executable checks; not included in those 42 Lean declarations |
 | Case C3 for every $N\ge4$ (Theorem 17) | Lean theorem `c3_strict_law_fails_general` about the library's Pauli matrices, real quadric and context signs; 74 audited declarations |
-| Case C11 (Corollary 18) and the other cases of Theorem 19 | Paper proofs that use [J3, Theorems A and B3, Lemma D and Remark 2]; exact computation on the complete configurations for three to six qubits (C3, C11) and three to five qubits (all cases); not in Lean |
+| Case C11 (Corollary 18) and the other cases of Theorem 19 | Paper proofs that use [J3, Theorems A and B3, Lemma D and Remark 2]; exact computation on the complete configurations for three to six qubits; not in Lean |
 | Physical hardware, compiler correctness, historical priority or external peer review | Not established by these theorem checks |
 
 The floor, saturation and C3 audits have different scopes. The independent audit of the original
@@ -1623,7 +1641,7 @@ new proof produced by combining the texts; the auxiliary stability results are n
 The two additions have their own recorded runs on clean Ubuntu machines. The
 [seven-qubit run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861) of the
 saturation workflow, at commit `77a529f`, built `SaturatedPhaseSeven` in 1 minute 29 seconds with a
-maximum resident set of 6.3 GB and passed its 13-declaration axiom audit
+maximum resident set of 6 271 352 KiB (6.4 GB) and passed its 13-declaration axiom audit
 (`results/saturation-seven-ci-audit.json`). The workflow *Case C3 for every number of qubits* checked
 `CarrierFamily.lean`, enforced the allowlist on its 74 declarations and repeated the exact checks of
 Section 11.3 at commits `5dcea35`
@@ -1842,7 +1860,8 @@ completion polynomials, the enclosure of $\rho$ and the two witnesses of Corolla
   $\operatorname{tr}A^k$ for all $k\le2^N$ and the completion traces.
 * `scripts/cospectral_family_cone_lift.py` (21 checks) builds the C11 configurations with 4, 5 and 6
   qubits from the definitions, without the lifting lemma, and checks the lifted pairs of Table 7.
-* `scripts/conjecture_e.py` (81 checks) builds every vertex case at four and five qubits, and at three
+* `scripts/conjecture_e.py` (81 checks; with the argument `6` a further 36 checks at six qubits, record
+  `results/conjecture_e_n6.json`) builds every vertex case at four and five qubits, and at three
   qubits for C1, C3, C6 and C11, from the definitions of [J3]: the type of the quadric and of $e$ and $d$
   as in [J3, Table 1], the vertex set of the section, the outside lines and their signs (checked against
   products of three matrices at three and four qubits). It compares power sums $\operatorname{tr}A^k$, $k\le2^N$, with
@@ -1885,8 +1904,7 @@ point enters a comparison of characteristic polynomials.
 * Conjecture E is settled for sign carriers in all nine vertex cases, but only case C3 is formalized
   in Lean. The proofs of the other eight cases use Theorems A and B3 of [J3] (with Lemma D and Remark 2
   for C11 and C8), which are results of a preprint that is not peer reviewed and that we did not
-  formalize; their instances are checked by exact computation for at most five qubits (six for C3
-  and C11). The carriers are particular constructions: carriers in general are not classified, and
+  formalize; their instances are checked by exact computation for at most six qubits. The carriers are particular constructions: carriers in general are not classified, and
   for the families the completion optima are not studied.
 * For the four-qubit pair the exact binary completion minima are only enclosed, in $[347,368]$ and
   $[315,344]$; the upper ends come from a heuristic search. The completion results do not invalidate
@@ -1991,7 +2009,7 @@ cd lean && lake exe cache get && lake build
 # the exact degrees of Section 5 (kernel evaluations; see the CI evidence for time and memory)
 lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive
 lake env lean SaturatedVerification.lean
-# the seven-qubit degree (about 6 GB of memory for one block of rows)
+# the seven-qubit degree (in CI about 1.5 minutes and 6.4 GB of memory)
 lake build HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven
 lake env lean SaturatedSevenVerification.lean
 # case C3 for every number of qubits (Theorem 17)

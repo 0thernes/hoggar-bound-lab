@@ -1,0 +1,11 @@
+U Z_e U^dag = (1, 'ZZII')
+U Z_d U^dag = (1, 'IZII')
+U X_e U^dag = (1, 'XIII')
+U X_d U^dag = (1, 'XXII')
+C6 N=4: U A_sigma U^dag == A_tau: True | g(S)==S: True | g(O)==O: False | g(X)==X: False | |g(O) & X| = 0
+C11 N=4: U A_sigma U^dag == A_tau: True | g(S)==S: True | g(O)==O: False | g(X)==X: False | |g(O) & X| = 0
+C14 N=4: U A_sigma U^dag == A_tau: True | g(S)==S: True | g(O)==O: False | g(X)==X: False | |g(O) & X| = 0
+block (Z_e,Z_d)=(+1,+1): coefficient of IIIX = 2
+block (Z_e,Z_d)=(+1,-1): coefficient of IIIX = 2
+block (Z_e,Z_d)=(-1,+1): coefficient of IIIX = 2
+block (Z_e,Z_d)=(-1,-1): coefficient of IIIX = -2

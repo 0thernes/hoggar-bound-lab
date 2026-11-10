@@ -1,0 +1,199 @@
+======================================================================
+C1 N = 4
+    Y type : W
+    d : ZIII
+    d in X : True
+    vertices : ['ZIII']
+    dim span S : 7
+    rad(span S) : ['ZIII']
+    |X| = 255  |S| = 127  |O| = 128  outside lines = 4032  section lines = 1323
+    r (points where sigma != tau) = 8
+    differ at: ['ZIIX', 'ZIIY', 'ZIZX', 'ZIZY', 'ZZIX', 'ZZIY', 'ZZZX', 'ZZZY']
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [57600, 60672]  difference = -3072
+    tr Lambda^2 sigma, tau = [8064, 8064]
+    predicted from block traces (E6/E8/E9): ['57600', '60672']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {1: [8, 2024, 34856], -1: [-8, 8, -8]}
+    block power sums (p1,p2,p3) tau  : {1: [8, 1768, 35624], -1: [-8, 264, -776]}
+    charpoly coefficients (sigma): [1, 0, -1016, -11616, 70700, 1388992, 4105240, -13505312, -124008042, -399159680, -758941704, -952357280, -815375796, -474227776, -180016280, -40356320, -4062095]
+======================================================================
+C3 N = 4
+    Y type : Q+
+    d : ZIII
+    q(d) : 0
+    d in X : True
+    vertices : ['ZIII']
+    dim span S : 7
+    rad(span S) : ['ZIII']
+    |X| = 135  |S| = 71  |O| = 64  outside lines = 1120  section lines = 455
+    r (points where sigma != tau) = 4
+    differ at: ['ZIIX', 'ZIZX', 'ZZIX', 'ZZZX']
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [15744, 16512]  difference = -768
+    tr Lambda^2 sigma, tau = [2240, 2240]
+    predicted from block traces (E6/E8/E9): ['15744', '16512']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {1: [8, 1128, 19112], -1: [-8, 8, -8]}
+    block power sums (p1,p2,p3) tau  : {1: [8, 1000, 19496], -1: [-8, 136, -392]}
+    charpoly coefficients (sigma): [1, 0, -568, -6368, -148, 292544, 1442776, 1732704, -7490346, -36834176, -79483080, -105791008, -93616628, -55582528, -21392728, -4842848, -490959]
+======================================================================
+C5 N = 4
+    Y type : Q-
+    d : ZIII
+    q(d) : 0
+    d in X : True
+    vertices : ['ZIII']
+    dim span S : 7
+    rad(span S) : ['ZIII']
+    |X| = 119  |S| = 55  |O| = 64  outside lines = 864  section lines = 207
+    r (points where sigma != tau) = 24
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [-1152, 3456]  difference = -4608
+    tr Lambda^2 sigma, tau = [1728, 1728]
+    predicted from block traces (E6/E8/E9): ['-1152', '3456']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {1: [8, 872, 1448], -1: [-8, 8, -8]}
+    block power sums (p1,p2,p3) tau  : {1: [8, 104, 680], -1: [-8, 776, 760]}
+    charpoly coefficients (sigma): [1, 0, -440, -480, 60652, 150720, -2574248, -12826272, 12718678, 252209280, 886607032, 1681038048, 1987394188, 1513207488, 725188648, 199831968, 24216241]
+======================================================================
+C6 N = 4
+    Y type : W
+    e : ZIII
+    B(d,e) : 0
+    d in <e> : False
+    d : IZII
+    d in X : True
+    vertices : ['IZII', 'ZIII', 'ZZII']
+    dim span S : 6
+    rad(span S) : ['IZII', 'ZIII', 'ZZII']
+    |X| = 127  |S| = 63  |O| = 64  outside lines = 992  section lines = 331
+    r (points where sigma != tau) = 30
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [8064, 19584]  difference = -11520
+    tr Lambda^2 sigma, tau = [1984, 1984]
+    predicted from block traces (E6/E8/E9): ['8064', '19584']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {(1, 1): [12, 36, 108], (1, -1): [-4, 4, -4], (-1, 1): [-4, 4, -4], (-1, -1): [-4, 964, 10940]}
+    block power sums (p1,p2,p3) tau  : {(1, 1): [12, 36, 108], (1, -1): [-4, 964, 10940], (-1, 1): [-4, 4, -4], (-1, -1): [-4, 4, -4]}
+    charpoly coefficients (sigma): [1, 0, -504, -3680, 17196, 105408, -138216, -1173024, -462186, 5376640, 9069048, -2754720, -23905460, -31550016, -20537496, -6930144, -971919]
+======================================================================
+C8 N = 4
+    Y type : Q+
+    e : YIII
+    q(e) : 1
+    B(d,e) : 0
+    d in <e> : False
+    d : IZII
+    q(d) : 0
+    q(d+e) : 1
+    d in X : True
+    vertices : ['IZII']
+    dim span S : 6
+    rad(span S) : ['IZII', 'YIII', 'YZII']
+    |X| = 63  |S| = 31  |O| = 32  outside lines = 240  section lines = 75
+    r (points where sigma != tau) = 12
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [-192, 960]  difference = -1152
+    tr Lambda^2 sigma, tau = [480, 480]
+    predicted from block traces (E6/E8/E9): ['-192', '960']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {1: [8, 488, 1064], -1: [-8, 8, -8]}
+    block power sums (p1,p2,p3) tau  : {1: [8, 104, 680], -1: [-8, 392, 376]}
+    charpoly coefficients (sigma): [1, 0, -248, -352, 21292, 65984, -670952, -3790624, 898198, 57986688, 214188280, 412586592, 491280204, 375491520, 180355176, 49768992, 6036849]
+======================================================================
+C11 N = 4
+    Y type : Q+
+    e : ZIII
+    q(e) : 0
+    B(d,e) : 0
+    d in <e> : False
+    d : IZII
+    q(d) : 0
+    q(d+e) : 0
+    d in X : True
+    vertices : ['IZII', 'ZIII', 'ZZII']
+    dim span S : 6
+    rad(span S) : ['IZII', 'ZIII', 'ZZII']
+    |X| = 71  |S| = 39  |O| = 32  outside lines = 304  section lines = 151
+    r (points where sigma != tau) = 18
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [1344, 4800]  difference = -3456
+    tr Lambda^2 sigma, tau = [608, 608]
+    predicted from block traces (E6/E8/E9): ['1344', '4800']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {(1, 1): [12, 36, 108], (1, -1): [-4, 4, -4], (-1, 1): [-4, 4, -4], (-1, -1): [-4, 580, 4412]}
+    block power sums (p1,p2,p3) tau  : {(1, 1): [12, 36, 108], (1, -1): [-4, 580, 4412], (-1, 1): [-4, 4, -4], (-1, -1): [-4, 4, -4]}
+    charpoly coefficients (sigma): [1, 0, -312, -1504, 8556, 49344, -65832, -568992, -246570, 2625664, 4552248, -1235232, -11886580, -15902016, -10440792, -3546720, -500175]
+======================================================================
+C12 N = 4
+    Y type : Q+
+    e : ZIII
+    q(e) : 0
+    B(d,e) : 0
+    d in <e> : False
+    d : IYII
+    q(d) : 1
+    q(d+e) : 1
+    d in X : False
+    vertices : ['ZIII']
+    dim span S : 6
+    rad(span S) : ['IYII', 'ZIII', 'ZYII']
+    |X| = 71  |S| = 31  |O| = 40  outside lines = 380  section lines = 75
+    r (points where sigma != tau) = 12
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [1776, 624]  difference = 1152
+    tr Lambda^2 sigma, tau = [760, 760]
+    predicted from block traces (E6/E8/E9): ['1776', '624']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {1: [4, 244, 532], -1: [-4, 4, -4]}
+    block power sums (p1,p2,p3) tau  : {1: [4, 52, 340], -1: [-4, 196, 188]}
+    charpoly coefficients (sigma): [1, 0, -248, -352, 21292, 65984, -670952, -3790624, 898198, 57986688, 214188280, 412586592, 491280204, 375491520, 180355176, 49768992, 6036849]
+======================================================================
+C14 N = 4
+    Y type : Q-
+    e : ZIII
+    q(e) : 0
+    B(d,e) : 0
+    d in <e> : False
+    d : IZII
+    q(d) : 0
+    q(d+e) : 0
+    d in X : True
+    vertices : ['IZII', 'ZIII', 'ZZII']
+    dim span S : 6
+    rad(span S) : ['IZII', 'ZIII', 'ZZII']
+    |X| = 55  |S| = 23  |O| = 32  outside lines = 176  section lines = 31
+    r (points where sigma != tau) = 10
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [-960, 960]  difference = -1920
+    tr Lambda^2 sigma, tau = [352, 352]
+    predicted from block traces (E6/E8/E9): ['-960', '960']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {(1, 1): [12, 36, 108], (1, -1): [-4, 4, -4], (-1, 1): [-4, 4, -4], (-1, -1): [-4, 324, -964]}
+    block power sums (p1,p2,p3) tau  : {(1, 1): [12, 36, 108], (1, -1): [-4, 324, -964], (-1, 1): [-4, 4, -4], (-1, -1): [-4, 4, -4]}
+    charpoly coefficients (sigma): [1, 0, -184, 288, 9964, -26944, -122024, 252512, 934486, -588672, -4066376, -2666528, 5651596, 11514048, 8916264, 3344544, 505521]
+======================================================================
+C15 N = 4
+    Y type : Q-
+    e : ZIII
+    q(e) : 0
+    B(d,e) : 0
+    d in <e> : False
+    d : IYII
+    q(d) : 1
+    q(d+e) : 1
+    d in X : False
+    vertices : ['ZIII']
+    dim span S : 6
+    rad(span S) : ['IYII', 'ZIII', 'ZYII']
+    |X| = 55  |S| = 31  |O| = 24  outside lines = 132  section lines = 75
+    r (points where sigma != tau) = 12
+    cospectral (p_1..p_D equal): True
+    tr Lambda^3 sigma, tau = [720, -432]  difference = 1152
+    tr Lambda^2 sigma, tau = [264, 264]
+    predicted from block traces (E6/E8/E9): ['720', '-432']  match: True
+    Theorem A check: True
+    block power sums (p1,p2,p3) sigma: {1: [4, 244, 532], -1: [-4, 4, -4]}
+    block power sums (p1,p2,p3) tau  : {1: [4, 52, 340], -1: [-4, 196, 188]}
+    charpoly coefficients (sigma): [1, 0, -248, -352, 21292, 65984, -670952, -3790624, 898198, 57986688, 214188280, 412586592, 491280204, 375491520, 180355176, 49768992, 6036849]

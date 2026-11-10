@@ -299,8 +299,9 @@ $`n \in \{4, 5\}`$, and for C1, C3, C6 and C11 also $n = 3$, the program checks 
 3. The completion. The completion matrices are built from all outside lines, with the signs
    $s_L$ checked against products of three matrices for $n = 4$. Their cubic traces must differ.
 
-It does the cone cases twice, by the pair swap and by the cone lift. Arguments `4 5 6` add $n = 6$,
-which is slower. NumPy is needed; no floating point enters a comparison of characteristic
+It does the cone cases twice, by the pair swap and by the cone lift. The argument `6` checks $n = 6$
+(36 checks, about thirty seconds) and writes `results/conjecture_e_n6.json`, leaving the default record
+unchanged. NumPy is needed; no floating point enters a comparison of characteristic
 polynomials, and the integer entries of the completion matrices are far below $2^{53}$.
 
 ## Scope
@@ -318,3 +319,37 @@ polynomials, and the integer entries of the completion matrices are far below $2
 * Novelty is claimed only to the extent of the bounded search recorded in the C3 addendum. On
   10 November 2026 the source had the single version 0.5, and no other treatment of the conjecture
   was found. Unpublished work by the author of [J3] cannot be excluded.
+
+## Review record
+
+On 10 November 2026, before publication in version 1.3.0, Theorem 19 was examined by one separate
+automated pass: an instance of the same AI system that wrote it (Claude), started without the
+programs of the repository and asked to refute the theorem. This is an internal check, not peer
+review.
+
+* **Verdict: no error found.** All nine cases are the cases of [J3]: the pass computed the type data
+  of [J3, Table 1] and the vertex set of each section from the definitions.
+* **Independent computation.** Its own program builds every Pauli matrix as a Kronecker product of the
+  literal $2 \times 2$ matrices with Gaussian-integer entries, the line signs from products of three
+  matrices, and both carriers from the verbal description of the paper. It reproduces every value of
+  the table above for $n = 3, 4, 5$, the C3 values for $n = 6$, Theorem A in all nine cases at
+  $n = 3, 4$, the block-trace predictions of the trace formulas, and the controlled-NOT conjugation of
+  the pair swap. The program and its outputs are kept in
+  [results/review-theorem19/](../results/review-theorem19/) (`python verify19.py 4` from that folder
+  reproduces `out_N4.txt`).
+* **Minor findings, all corrected in Section 8.7 of the combined paper (version 1.3.0):** the C12/C15
+  step said that only $`p_2(A'_-)`$ changes, while both $p_2$ and $p_3$ of both blocks change and only
+  the combination that enters the cubic trace is controlled (the result is unchanged); a sentence on
+  the cones claimed for every sign carrier what holds only for the constructed ones; the reason given
+  for the controlled-NOT not preserving the completion problem was wrong (it fixes $d$ and moves the
+  cone: $`e^\perp \to (e+d)^\perp`$); the blocks of C12/C15 are those of C1 on $n - 1$ qubits, not
+  $n - 2$; the lifted difference $-12n^3$ holds for the bases of Theorem 17, while the lift of the
+  three-qubit triangle gives $-2304$; the signs of C5 on the quaternionic units and the graph used for
+  C12/C15 at each $n$ were not stated; and four points of notation (tensor order in C5 and C8, the
+  order of the fields in a heading, the definition of $`P_{a,c}`$ for odd $`a \cdot c`$, the description of
+  the space on which (T1) holds).
+* **Coverage of every $n \ge 4$** was confirmed case by case; the dependence on [J3, Theorems A and
+  B3] outside case C3 is stated in the Scope above.
+
+After the review, `scripts/conjecture_e.py 6` checked all nine cases at $n = 6$ as well (36 checks,
+`results/conjecture_e_n6.json`); every difference equals its formula.

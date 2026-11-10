@@ -41,14 +41,17 @@ Prepared descriptive cover text:
 
 > This manuscript studies what spectral information establishes about Pauli contextuality and what
 > it fails to retain in a related completion problem. It integrates a Lean 4 formalization of the
-> previously known spectral floor with configurations attaining that floor and an explicit four-qubit
-> C3 certificate. The two C3 carriers have equal spectra, while their completion cubic traces are
-> 14976 and 15360. The result establishes the four-qubit instance of the failure predicted by Jonah's
-> Conjecture E; it does not claim the conjecture in all dimensions or priority for the spectral floor.
+> previously known spectral floor with configurations attaining that floor and explicit sign carriers
+> whose spectra agree while their completion spectra differ. A four-qubit C3 pair has completion cubic
+> traces 14976 and 15360 and different exact binary completion minima; a graph family settles case C3
+> for every number of qubits from four on, with a Lean proof; variants settle all nine vertex cases,
+> which proves Jonah's Conjecture E. Outside case C3 that proof is on paper, uses two structure
+> theorems of Jonah's preprint and is checked by exact computation for three to six qubits. The
+> manuscript claims no priority for the spectral floor.
 >
 > The paper connects these components through shared notation and exact reconstruction. It separates
-> kernel-checked theorems and finite counts from additional algebraic arguments and executable
-> computations, including the seven-qubit counts. The public source release supplies proof sources,
+> kernel-checked theorems and finite counts, among them the seven-qubit counts, from additional
+> algebraic arguments and executable computations. The public source release supplies proof sources,
 > audit records, reproducible programs and deliberate error controls. Substantive Claude/Anthropic
 > and OpenAI Codex involvement is disclosed with its actual scope.
 >

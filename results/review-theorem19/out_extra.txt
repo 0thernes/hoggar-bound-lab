@@ -1,0 +1,4 @@
+C11 cone lift N=4: |S|=39 |O|=32 Lout=304 cospectral=True trL3=[1728, 4032]
+C11 cone lift N=5: |S|=143 |O|=128 Lout=4544 cospectral=True trL3=[152832, 158976]
+C3 N=4: lambda_max sigma=13.466786 tau=17.466786 gap=4.000000 (k/2=4)
+C3 N=5: lambda_max sigma=37.155551 tau=45.155551 gap=8.000000 (k/2=8)

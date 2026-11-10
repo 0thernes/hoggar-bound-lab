@@ -21,7 +21,10 @@ L = {s, p, q}, P_s P_p P_q = s_L I.  The completion matrix has the entry s_L sig
 each outside line {s, p, q} with s in the section.
 
   python scripts/conjecture_e.py            (n = 3, 4 and 5; about ten seconds)
-Writes results/conjecture_e.json.
+  python scripts/conjecture_e.py 6          (n = 6; about thirty seconds)
+Writes results/conjecture_e.json for the default sizes and results/conjecture_e_n<sizes>.json
+(for example conjecture_e_n6.json) for any other list, so that a run at other sizes never
+overwrites the default record.
 """
 import itertools, json, os, sys
 import numpy as np
@@ -324,6 +327,7 @@ def units(m, u, moved_dirs, kinds):
 def main():
     out = {}
     sizes = [int(a) for a in sys.argv[1:]] or [3, 4, 5]
+    record = "conjecture_e.json" if sizes == [3, 4, 5] else "conjecture_e_n%s.json" % "-".join(map(str, sizes))
     for n in sizes:
         vp = n <= 4
         # --- C1: X = W, d = Z on qubit n-1
@@ -436,7 +440,7 @@ def main():
                      [e_c, db, add(e_c, db)], out, vp)
     npass = sum(1 for _, ok in CHECKS if ok)
     out["checks"] = {"passed": npass, "total": len(CHECKS)}
-    with open(os.path.join(ROOT, "results", "conjecture_e.json"), "w", encoding="utf-8", newline="\n") as fh:
+    with open(os.path.join(ROOT, "results", record), "w", encoding="utf-8", newline="\n") as fh:
         json.dump(out, fh, indent=1)
     print("\n%d of %d checks passed" % (npass, len(CHECKS)))
     sys.exit(0 if npass == len(CHECKS) else 1)

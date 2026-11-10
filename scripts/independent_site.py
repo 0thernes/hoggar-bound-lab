@@ -44,7 +44,7 @@ FILES=[
     'publication/ADDENDUM-completion-optima.md','publication/ADDENDUM-seven-qubit-lean.md',
     'publication/ADDENDUM-c3-all-qubits.md','publication/ADDENDUM-conjecture-e.md',
     'results/cospectral_pair.json','results/cospectral_family.json','results/cospectral_family_cone_lift.json',
-    'results/conjecture_e.json','results/c3_sparse_search.json','results/lean-c3-all-qubits-axioms.log',
+    'results/conjecture_e.json','results/conjecture_e_n6.json','results/c3_sparse_search.json','results/lean-c3-all-qubits-axioms.log',
     'results/phase_seven_lean.json','results/saturation-seven-ci-audit.json','results/lean-saturated-seven-axioms.log',
 ]
 FILES += [str(p.relative_to(ROOT)).replace('\\','/') for p in sorted((ROOT/'paper'/'figures').glob('*.png'))]
