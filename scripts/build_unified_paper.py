@@ -1,6 +1,8 @@
 """Build the unified manuscript without changing either historical paper.
 
 python scripts/build_unified_paper.py --pandoc PATH --tectonic PATH
+Add --journal-main-only to update the journal manuscript while preserving the
+existing complete paper, supplement and source archive byte-for-byte.
 
 The canonical source is paper/unified-contextuality.md. A standalone comment
 `<!-- journal:supplement -->` immediately before an H2 selects only that section
@@ -35,6 +37,14 @@ SITE = 'https://0thernes.github.io/hoggar-bound-lab/'
 REPOSITORY = 'https://github.com/0thernes/hoggar-bound-lab'
 READER = 'gfm+tex_math_gfm+tex_math_dollars'
 MARKER = '<!-- journal:supplement -->'
+JOURNAL_ACKNOWLEDGMENTS = '''## Acknowledgments
+
+**AI disclosure statement.** Claude (Anthropic) and OpenAI Codex were used for
+substantive research, software development, formalization and manuscript preparation
+under the author's direction. Section 13 describes their roles and the verification
+performed in detail. AI systems are disclosed as tools, not authors; no independent
+human peer review or venue-specific final approval is claimed.
+'''
 MATHJAX_URL = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml-full.min.js'
 MATHJAX_INTEGRITY = 'sha384-dCtf/9Xgzj8edI30iIEsxNfjUQ0zj2AXa3eUdgjsx8odUmpURZx5Z7aDZmV781et'
 CSS = '''
@@ -152,10 +162,24 @@ def walk(node, transform):
     return node
 
 
+def publish_artifacts(artifacts):
+    for name, payload in artifacts.items():
+        destination = ROOT / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.resolve().relative_to(ROOT.resolve())
+        require(not destination.is_symlink(), 'Refusing symlink output: ' + name)
+        temporary = destination.with_name(destination.name + '.tmp')
+        require(not temporary.exists(), 'Temporary output already exists: ' + str(temporary))
+        temporary.write_bytes(payload)
+        os.replace(temporary, destination)
+        require(destination.read_bytes() == payload, 'Published file differs from staged bytes: ' + name)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--pandoc', default=shutil.which('pandoc'))
     parser.add_argument('--tectonic', default=shutil.which('tectonic'))
+    parser.add_argument('--journal-main-only', action='store_true')
     args = parser.parse_args()
     require(args.pandoc and args.tectonic, 'Supply both --pandoc and --tectonic')
     args.pandoc = shutil.which(args.pandoc) or args.pandoc
@@ -239,6 +263,10 @@ def main():
 
     all_blocks = [block for section in sections for block in section['blocks']]
     main_blocks = [block for section in sections if not section['supplement'] for block in section['blocks']]
+    references_index = next(i for i, block in enumerate(main_blocks)
+                            if block.get('t') == 'Header' and block['c'][0] == 2
+                            and plain(block['c'][2]) == 'References')
+    main_blocks[references_index:references_index] = parse(JOURNAL_ACKNOWLEDGMENTS)
     supp_blocks = [block for section in sections if section['supplement'] or section['references'] for block in section['blocks']]
     supp_labels = ', '.join(s['heading'] for s in sections if s['supplement'])
     journal_note = ('This journal-format document is derived from the complete paper, version 1.2.0. '
@@ -342,6 +370,51 @@ def main():
             staged_outputs[(path.parent.relative_to(stage) / name).as_posix()] = images[name]
         print('Built ' + relative + ' (' + str(pdf.stat().st_size) + ' PDF bytes)', flush=True)
 
+    if args.journal_main_only:
+        record = json.loads((PUBLICATION / 'build-record.json').read_text(encoding='utf-8'))
+        require(record['source_sha256'] == digest(source_bytes), 'Partial build requires the same canonical source')
+        require((PUBLICATION / (STEM + '.tex')).read_bytes() == full_tex.encode('utf-8'),
+                'Complete TeX changed; run a full build instead')
+        require((ROOT / 'paper' / (STEM + '.html')).read_bytes() == page.encode('utf-8'),
+                'Public HTML changed; run a full build instead')
+        require((PUBLICATION / 'jphysa/supplementary.tex').read_bytes() == supp_tex.encode('utf-8'),
+                'Supplement TeX changed; run a full build instead')
+        preserved = {}
+        for name, meta in record['artifacts'].items():
+            payload = (ROOT / name).read_bytes()
+            require(digest(payload) == meta['sha256'], 'Existing artifact differs from build record: ' + name)
+            if name not in {'publication/' + STEM + '/jphysa/manuscript' + suffix
+                            for suffix in ('.tex', '.pdf', '-tectonic.log')}:
+                preserved[name] = payload
+        for name, executable in [('pandoc', args.pandoc), ('tectonic', args.tectonic)]:
+            require(digest(Path(executable).read_bytes()) == record['tools'][name]['sha256'],
+                    'Partial build requires the recorded ' + name + ' binary')
+        compile_one('jphysa/manuscript.tex', main_tex)
+        for path, payload in snapshot.items():
+            require(path.read_bytes() == payload, 'Input changed during build: ' + str(path))
+        artifacts = {'publication/' + STEM + '/' + name: payload
+                     for name, payload in staged_outputs.items() if name.startswith('jphysa/manuscript')}
+        record.setdefault('preserved_full_build_builder_sha256', record['builder_sha256'])
+        record['builder_sha256'] = digest(Path(__file__).read_bytes())
+        record['latest_build_mode'] = 'journal-main-only'
+        record['journal_generated_sections'] = [{'heading': 'Acknowledgments', 'journal': 'main',
+                                                'origin': 'journal template; inserted before References',
+                                                'markdown': JOURNAL_ACKNOWLEDGMENTS}]
+        record['journal_main_revision'] = {'scope': 'Separate AI disclosure in Acknowledgments; detailed Section13 retained.',
+                                           'preserved_artifacts_sha256': {name: digest(payload) for name, payload in preserved.items()}}
+        record['compilation'].update(compile_records)
+        for name, payload in artifacts.items():
+            record['artifacts'][name] = {'sha256': digest(payload), 'bytes': len(payload)}
+        record_bytes = (json.dumps(record, indent=2) + '\n').encode('utf-8')
+        artifacts['publication/' + STEM + '/build-record.json'] = record_bytes
+        artifacts['results/unified-paper-build.json'] = record_bytes
+        publish_artifacts(artifacts)
+        for name, payload in preserved.items():
+            require((ROOT / name).read_bytes() == payload, 'Preserved artifact changed: ' + name)
+        print(json.dumps({'status': 'built', 'mode': 'journal-main-only', 'artifacts': list(artifacts),
+                          'preserved_artifact_count': len(preserved), 'compilation': compile_records}, indent=2))
+        return
+
     compile_one(STEM + '.tex', full_tex)
     compile_one('jphysa/manuscript.tex', main_tex)
     compile_one('jphysa/supplementary.tex', supp_tex)
@@ -398,6 +471,10 @@ def main():
               'tools': tools, 'reader': READER, 'normalized_standalone_displays': displays,
               'math_expression_counts': math_counts,
               'journal_section_map': mapping, 'compilation': compile_records,
+              'latest_build_mode': 'full',
+              'journal_generated_sections': [{'heading': 'Acknowledgments', 'journal': 'main',
+                                               'origin': 'journal template; inserted before References',
+                                               'markdown': JOURNAL_ACKNOWLEDGMENTS}],
               'mathjax': {'url': MATHJAX_URL, 'integrity': MATHJAX_INTEGRITY},
               'arxiv_members': sorted(archive_members),
               'arxiv_archive_rebuild': {'returncode': archive_run.returncode, 'pdf_bytes': len(archive_pdf),
@@ -412,16 +489,7 @@ def main():
     artifacts['publication/' + STEM + '/build-record.json'] = record_bytes
     artifacts['results/unified-paper-build.json'] = record_bytes
     # Each destination is replaced atomically only after all three builds pass.
-    for name, payload in artifacts.items():
-        destination = ROOT / name
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        destination.resolve().relative_to(ROOT.resolve())
-        require(not destination.is_symlink(), 'Refusing symlink output: ' + name)
-        temporary = destination.with_name(destination.name + '.tmp')
-        require(not temporary.exists(), 'Temporary output already exists: ' + str(temporary))
-        temporary.write_bytes(payload)
-        os.replace(temporary, destination)
-        require(destination.read_bytes() == payload, 'Published file differs from staged bytes: ' + name)
+    publish_artifacts(artifacts)
     print(json.dumps({'status': 'built', 'artifacts': len(artifacts), 'source_sha256': record['source_sha256'],
                       'journal_section_map': mapping, 'compilation': compile_records}, indent=2))
 

@@ -75,6 +75,11 @@ license must be selected deliberately if required by the destination.
 
 IOP requires disclosed AI research use and the author's validation and critical engagement.
 [Official IOP AI policy](https://publishingsupport.iopscience.iop.org/questions/generative-ai-tools/).
+Its authorship criteria also require substantial intellectual contribution, drafting or critical
+intellectual revision, final approval, and accountability. Funding or general supervision alone is
+insufficient. The author's factual account of these activities, including reference validation,
+remains required; a permission to submit does not establish that the activities occurred.
+[Official authorship criteria](https://publishingsupport.iopscience.iop.org/questions/ethics-of-authorship/).
 Zenodo requires a verifiable basis in research conducted by human authors; the disclosed AI-originated
 workflow remains an eligibility question that a proof check alone does not resolve.
 [Official Zenodo depositor policy](https://support.zenodo.org/help/en-gb/13/227).

@@ -16,7 +16,7 @@ the spectral-floor source study. The general Lean bound and existing proof sourc
 | --- | --- |
 | GitHub / project website | Combined release, public PDF and HTML are being prepared; older source-study releases remain public. |
 | Google Scholar | Correct combined HTML/PDF metadata is being prepared. Profile setup was incomplete at article selection; no combined-paper indexing observed. |
-| arXiv | Account access and saved affiliation 0thernes LLC verified. Combined source archive prepared; no combined-paper submission or identifier. The latest eight-destination instruction supersedes the earlier source-paper deferral. |
+| arXiv | Account access, saved affiliation 0thernes LLC and linked ORCID verified. A combined-paper draft was opened at the agreement/license step; no files uploaded, agreement accepted, or paper submitted. Combined source archive prepared; no public identifier. The latest eight-destination instruction supersedes the earlier source-paper deferral. |
 | Journal of Physics A: Mathematical and Theoretical | Combined main manuscript and supplement prepared. ScholarOne still showed its login screen. No journal submission, review or acceptance. |
 | Zenodo | Saved profile affiliation 0thernes LLC verified. No combined-paper deposit or DOI. AI-origin/human-research eligibility and distribution-license decisions remain unresolved. |
 | ORCID | Matching public record and authenticated editor verified. Works (0) was observed; no combined-work entry saved yet. |

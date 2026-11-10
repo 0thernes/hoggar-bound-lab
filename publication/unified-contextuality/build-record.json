@@ -4,7 +4,7 @@
   "source": "paper/unified-contextuality.md",
   "source_sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
   "source_lf_sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
-  "builder_sha256": "b1670b4f6392b2e7d07607a3107b9943a2974700d3306adb3e74847da741386f",
+  "builder_sha256": "31c64ea14c6bfec1d70cfc0820b19caf252f1716ca47248851841a9e49486350",
   "table_helper_sha256": "1550c6434b71cca2b535ef4eac1ddd6405ccc3dffb1ad2d991ec0a33ad005ae6",
   "tools": {
     "pandoc": {
@@ -228,16 +228,16 @@
       "bytes": 33643
     },
     "publication/unified-contextuality/jphysa/manuscript-tectonic.log": {
-      "sha256": "694ba8f05dec21a21fb8d704f09e8c63d80f8038e0851c52e25529ac95310f9f",
+      "sha256": "b1f42ef4f1d317959f7f5560c757b0e4586595f25fff91cad51c2fe4ba6c39f6",
       "bytes": 3092
     },
     "publication/unified-contextuality/jphysa/manuscript.pdf": {
-      "sha256": "b4ed8536eae1429b20686afdba6436394abf5b09edb91846ad7b2049d083488c",
-      "bytes": 355907
+      "sha256": "6072d31b887df90318993632c17386e3f6f99d16ca5f63148dd8a303efde1b77",
+      "bytes": 356663
     },
     "publication/unified-contextuality/jphysa/manuscript.tex": {
-      "sha256": "23e39e974b742064a0154163ef4c8dc5224af0eccf01533ce09f8f4bebda5ffa",
-      "bytes": 96499
+      "sha256": "07f1c1f1f3fde73e4a7c41b0d742850fcbfc89b5be56f7df0f42f2032f826d1b",
+      "bytes": 96969
     },
     "publication/unified-contextuality/jphysa/supplementary-tectonic.log": {
       "sha256": "6a4880bf6ee6b7050af519463c22d09db82bd70e1ea7bf76d3a93440bdd7e5af",
@@ -270,5 +270,41 @@
   },
   "public_pdf_matches_typeset_pdf": true,
   "submission_status": "Prepared locally; no arXiv, Zenodo or journal submission.",
-  "validation_boundary": "Compilation, source/archive consistency and input stability checked; rendered layout requires separate visual review."
+  "validation_boundary": "Compilation, source/archive consistency and input stability checked; rendered layout requires separate visual review.",
+  "preserved_full_build_builder_sha256": "b1670b4f6392b2e7d07607a3107b9943a2974700d3306adb3e74847da741386f",
+  "latest_build_mode": "journal-main-only",
+  "journal_generated_sections": [
+    {
+      "heading": "Acknowledgments",
+      "journal": "main",
+      "origin": "journal template; inserted before References",
+      "markdown": "## Acknowledgments\n\n**AI disclosure statement.** Claude (Anthropic) and OpenAI Codex were used for\nsubstantive research, software development, formalization and manuscript preparation\nunder the author's direction. Section 13 describes their roles and the verification\nperformed in detail. AI systems are disclosed as tools, not authors; no independent\nhuman peer review or venue-specific final approval is claimed.\n"
+    }
+  ],
+  "journal_main_revision": {
+    "scope": "Separate AI disclosure in Acknowledgments; detailed Section13 retained.",
+    "preserved_artifacts_sha256": {
+      "paper/unified-contextuality.html": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "paper/unified-contextuality.pdf": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "publication/unified-contextuality/arxiv-source-tectonic.log": "dee8f1d120d16dd244b781ef25b897475512e4c54619a50d366eff0c2435fbda",
+      "publication/unified-contextuality/arxiv-source.zip": "b4da6282b9adbaee8ad1d80b56c48f7bf8d8971402162950289afa7f670b9c78",
+      "publication/unified-contextuality/c3-figures/spectra.pdf": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
+      "publication/unified-contextuality/c3-figures/spectra.png": "ef35a8bf4d916a1c27c0e53db70009d8afb344ac9874eb7e66cc4f3ad5448137",
+      "publication/unified-contextuality/figures/fig1_fraction.png": "1d1063fa0c297d62eeb8bb9370ec54a848917530e60201740fdb26d4b9485124",
+      "publication/unified-contextuality/figures/fig2_noise.png": "fa6be8c20942281573e07a503d94583e873563fb9ed55ed352b470f0a541d2c4",
+      "publication/unified-contextuality/figures/fig3_spectra.png": "231a42074a32bface2863036549fa1c9dcf95360164d3e7bace0eb837228aca4",
+      "publication/unified-contextuality/journal-section-map.json": "7c623583559fc5d201741d7b15c1d457b2ed2d237437f6d3a77202c16c359c18",
+      "publication/unified-contextuality/jphysa/c3-figures/spectra.pdf": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
+      "publication/unified-contextuality/jphysa/figures/fig1_fraction.png": "1d1063fa0c297d62eeb8bb9370ec54a848917530e60201740fdb26d4b9485124",
+      "publication/unified-contextuality/jphysa/figures/fig2_noise.png": "fa6be8c20942281573e07a503d94583e873563fb9ed55ed352b470f0a541d2c4",
+      "publication/unified-contextuality/jphysa/figures/fig3_spectra.png": "231a42074a32bface2863036549fa1c9dcf95360164d3e7bace0eb837228aca4",
+      "publication/unified-contextuality/jphysa/supplementary-tectonic.log": "6a4880bf6ee6b7050af519463c22d09db82bd70e1ea7bf76d3a93440bdd7e5af",
+      "publication/unified-contextuality/jphysa/supplementary.pdf": "ee08624f86b31821ee642df7fae5530f96bb30b9e6e9747291cda00f3bedcff2",
+      "publication/unified-contextuality/jphysa/supplementary.tex": "8dba3ac75e0e04e7128b6365dfe5349e26e8aa352d544b6a76c559e3f9d2d00a",
+      "publication/unified-contextuality/unified-contextuality-tectonic.log": "2bb7d0860deb09f386db68dc3d92afacf1f0f55be59fef9e9fee7f4ee7fd0f25",
+      "publication/unified-contextuality/unified-contextuality.html": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
+      "publication/unified-contextuality/unified-contextuality.pdf": "24f3885f387d33d97b39e46f608b313861c9cd0bf772b8a4beaa9894dbb137bf",
+      "publication/unified-contextuality/unified-contextuality.tex": "fc4bd42a62bd4fa25b4813893fdf3f64acc565c0b5ad41846901007337d154b9"
+    }
+  }
 }

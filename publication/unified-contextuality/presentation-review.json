@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "reviewed_at_utc": "2026-11-10T03:28:39.793813+00:00",
+  "reviewed_at_utc": "2026-11-10T03:38:34.125027+00:00",
   "source_sha256": "dcb9fd8b289dcf1461509679de592c91a1fee33e935d45013f9ba1586448aa0e",
   "html_sha256": "b18ac61ecb0923a8380b6703dc95d7946a73de6180501497fc892ef5c8196b95",
   "pdf_checks": {
@@ -13,10 +13,14 @@
     },
     "publication/unified-contextuality/jphysa/manuscript.pdf": {
       "pages": 25,
-      "sha256": "b4ed8536eae1429b20686afdba6436394abf5b09edb91846ad7b2049d083488c",
+      "sha256": "6072d31b887df90318993632c17386e3f6f99d16ca5f63148dd8a303efde1b77",
       "edge_text_spans": [],
       "replacement_characters": 0,
-      "references_present": true
+      "references_present": true,
+      "acknowledgments_pages": [
+        24
+      ],
+      "detailed_section13_retained": true
     },
     "publication/unified-contextuality/jphysa/supplementary.pdf": {
       "pages": 8,
@@ -39,7 +43,8 @@
       31
     ],
     "journal_manuscript_pages": [
-      1
+      1,
+      24
     ],
     "journal_supplement_pages": [
       1
@@ -73,5 +78,13 @@
     "supplement_overfull_points": [],
     "note": "Remaining full/main overfull warnings originate in inherited floor material. No text spans lie within20pt of a page edge, no PDF replacement characters were extracted, and inspected pages showed no clipping. Existing TeX-package UTF-8 and fontconfig diagnostics remain visible in the build logs."
   },
-  "boundary": "Presentation and packaging review, not independent human peer review, journal approval, or arXiv service-side compilation."
+  "boundary": "Presentation and packaging review, not independent human peer review, journal approval, or arXiv service-side compilation.",
+  "journal_ai_disclosure_revision": {
+    "scope": "Journal-main template adds a separate AI disclosure under Acknowledgments, referencing detailed body Section13. No claim of completed independent human review or venue approval.",
+    "public_paper_html_source_zip_and_supplement_preserved": true,
+    "acknowledgment_pages": [
+      24
+    ],
+    "visual_review": "Page24 inspected: separate Acknowledgments heading and AI disclosure clearly readable before References; detailed Section13 disclosure retained above."
+  }
 }
