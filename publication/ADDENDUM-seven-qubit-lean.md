@@ -268,3 +268,11 @@ first stated; the corrections are listed here.
   status was incomplete; it also omitted `SUMMARY.md`, `publication/unified-metadata.json`,
   `publication/UNIFIED-ERRATA.md`, `publication/UNIFIED-SUBMISSION.md` and
   `publication/AUTHOR-DECLARATIONS.md`.
+* **The run after these corrections.** Run
+  [42808984960](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42808984960) of *Saturated
+  configurations*, at commit `b7b0273`, which contains them, passed: the Python check with the new
+  check 7 (14 of 14), the comparisons with the committed record, Lean file and axiom report, and the
+  build of `MaskRows` and `SaturatedPhaseSeven` from source. `SaturatedPhaseSeven` took 1 minute 26
+  seconds, with a maximum resident set of 6 271 660 KiB (6.4 GB). It was again started by hand.
+  [results/saturation-seven-ci-audit.json](../results/saturation-seven-ci-audit.json) now records this
+  run, and its logs are kept in [results/ci-run-42808984960/](../results/ci-run-42808984960/).
