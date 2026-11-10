@@ -1,0 +1,4 @@
+A pivot state: observables with non-zero expectation=135 max distance of |<P>| from {0, 1/3}=1.1102230246251565e-16
+B pivot configuration: contexts=1095 violated by the signs of the state=75 satisfied-minus-violated=945 (floor 945)
+C cubic form at the Pauli vector of the pivot state: T=35.000000000000405 (prediction 35); max|grad T - 7 x|=1.3322676295501878e-15
+ESHKOL-SATURATED-PASS

@@ -6,4 +6,10 @@ PASS  QGTL kernels on the Hoggar state
 PASS  Eshkol replication + autodiff
 PASS  NumPy analysis (structure, spectra)
 PASS  averaging between families
+PASS  flat states, exact arithmetic (68 checks)
+PASS  census of third-level phase states (N <= 5)
+PASS  phase states, exact arithmetic (81 checks)
+PASS  Moonlab: eight flat states, two circuits (S1-S3)
+PASS  QGTL kernels on the eight flat states
+PASS  Eshkol: the pivot configuration + autodiff
 ALL STAGES PASSED

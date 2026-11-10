@@ -1,0 +1,16 @@
+N=1: 1 forms, 1 of constant rank (rank 1: modulus 2^-1/2 on 2 observables)
+   orbit of 1 forms, stabiliser of order 1 in GL(1,2); fewest gates: T on { 0 } CS on { } CCZ on { }
+PASS  N=1 census as expected
+N=2: 7 forms, 1 of constant rank (rank 2: modulus 2^-2/2 on 12 observables)
+   orbit of 1 forms, stabiliser of order 6 in GL(2,2); fewest gates: T on { } CS on { (0,1) } CCZ on { }
+PASS  N=2 census as expected
+N=3: 127 forms, 8 of constant rank (rank 2: modulus 2^-2/2 on 28 observables)
+   orbit of 1 forms, stabiliser of order 168 in GL(3,2); fewest gates: T on { } CS on { } CCZ on { (0,1,2) }
+   orbit of 7 forms, stabiliser of order 24 in GL(3,2); fewest gates: T on { } CS on { (0,1) (0,2) } CCZ on { }
+PASS  N=3 census as expected
+N=4: 16383 forms, 0 of constant rank
+PASS  N=4 census as expected
+N=5: 33554431 forms, 166656 of constant rank (rank 4: modulus 2^-4/2 on 496 observables)
+   orbit of 166656 forms, stabiliser of order 60 in GL(5,2); fewest gates: T on { } CS on { (0,1) (1,3) (2,4) } CCZ on { (0,1,4) (0,2,3) }
+PASS  N=5 census as expected
+THIRD-LEVEL-PASS

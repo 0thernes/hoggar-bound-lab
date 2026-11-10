@@ -18,6 +18,9 @@ SRC = os.path.join(ROOT, "paper", "spectral-floor.md")
 OUT_HTML = os.path.join(ROOT, "paper", "spectral-floor.html")
 OUT_PDF = os.path.join(ROOT, "paper", "spectral-floor.pdf")
 DOCS = os.path.join(ROOT, "docs")
+AUTHOR = "Donahue, Alexander S."
+INSTITUTION = "0thernes LLC"
+SITE = "https://0thernes.github.io/hoggar-bound-lab/"
 
 CSS = """
 :root{--bg:#fbfaf7;--ink:#1b1f27;--muted:#5b6370;--rule:#d9d6cc;--accent:#0f7a62;--code:#f1efe8;--note:#f3f1e9}
@@ -145,11 +148,25 @@ def build(embed_images=False):
             data = base64.b64encode(open(path, "rb").read()).decode()
             return 'src="data:image/png;base64,%s"' % data
         body = re.sub(r'src="(figures/[^"]+)"', emb, body)
+    # bibliographic metadata for indexing services (Highwire Press and Dublin Core tags, as read by Google Scholar)
+    m = re.search(r"version ([0-9.]+), (\d+) (\w+) (\d{4})", src)
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+              "November", "December"]
+    date = "%s/%02d/%02d" % (m.group(4), months.index(m.group(3)) + 1, int(m.group(2)))
+    tags = [("citation_title", title), ("citation_author", AUTHOR), ("citation_author_institution", INSTITUTION),
+            ("citation_publication_date", date), ("citation_online_date", date),
+            ("citation_technical_report_institution", INSTITUTION),
+            ("citation_technical_report_number", "Hoggar Bound Lab, version " + m.group(1)),
+            ("citation_pdf_url", SITE + "paper/spectral-floor.pdf"), ("citation_abstract_html_url", SITE),
+            ("citation_language", "en"),
+            ("DC.title", title), ("DC.creator", AUTHOR), ("DC.publisher", INSTITUTION), ("DC.date", date.replace("/", "-")),
+            ("DC.type", "Text"), ("DC.language", "en"), ("author", "Alexander S. Donahue (%s)" % INSTITUTION)]
+    meta = "\n".join('<meta name="%s" content="%s">' % (k, html.escape(v, quote=True)) for k, v in tags)
     page = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
             "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
             "<title>Spectral Floor, Machine-Checked</title>\n"
-            "<meta name=\"description\" content=\"%s\">\n<style>%s</style>\n%s\n</head>\n<body>\n<main>\n%s\n</main>\n</body>\n</html>\n"
-            % (html.escape(title), CSS, MATHJAX, body))
+            "<meta name=\"description\" content=\"%s\">\n%s\n<style>%s</style>\n%s\n</head>\n<body>\n<main>\n%s\n</main>\n</body>\n</html>\n"
+            % (html.escape(title), meta, CSS, MATHJAX, body))
     return page
 
 

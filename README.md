@@ -1,22 +1,31 @@
 # Hoggar Bound Lab
 
 A machine-checked lower bound on how badly any noncontextual hidden-variable model must fail for
-$N$-qubit Pauli observables, with an independent reproduction of the known values and a running
-demonstration on the Tsotchke stack (Moonlab, quantum_geometric_tensor, quantum_rng, Eshkol).
+$N$-qubit Pauli observables; new four-, five- and seven-qubit configurations on which that bound is
+exact; and a running demonstration on the Tsotchke stack (Moonlab, quantum_geometric_tensor,
+quantum_rng, Eshkol).
 
-**Paper:** [paper/spectral-floor.md](paper/spectral-floor.md) ([PDF](paper/spectral-floor.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.html))
-&nbsp;·&nbsp; **Proofs:** [lean/HoggarBound](lean/HoggarBound)
+[![Saturated configurations](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml)
+[![Independent verification](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml)
+[![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
+[![Version 1.1.1](https://img.shields.io/badge/version-1.1.1-informational)](CHANGELOG.md)
+
+**Paper:** [paper/spectral-floor.md](paper/spectral-floor.md) ([PDF](paper/spectral-floor.pdf), [typeset PDF](publication/spectral-floor/spectral-floor.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.html))
+&nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
 &nbsp;·&nbsp; **Independent review:** [INDEPENDENT-REVIEW.md](INDEPENDENT-REVIEW.md)
 
-Status: research preprint, 9 November 2026. Not peer reviewed. AI-generated under human direction.
+**Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
+[GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-**Research website:** [Hoggar Bound Lab](https://0thernes.github.io/hoggar-bound-lab/) —
-Alexander S. Donahue / 0thernes LLC.
-Start with the [research summary](docs/RESEARCH-SUMMARY.md), [glossary](GLOSSARY.md),
-[verification guide](VERIFICATION.md), [claim register](docs/CLAIMS.md),
-[legal and attribution notes](LEGAL.md), or [release history](CHANGELOG.md).
-The documentation edition `v1.1.1` leaves the scientific paper and proof artifacts in
-[v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate) unchanged.
+Status: research preprint, repository version 1.1.1, 9 November 2026. Not peer reviewed. AI-generated under human
+direction. Author: Alexander S. Donahue, 0thernes LLC.
+
+**Research website:** [Hoggar Bound Lab](https://0thernes.github.io/hoggar-bound-lab/).
+The [C3 research summary](docs/RESEARCH-SUMMARY.md), [verification guide](VERIFICATION.md),
+and [claim register](docs/CLAIMS.md) connect the four-qubit spectral result to exact data and Lean theorem names.
+The documentation edition `v1.1.1` preserves the C3 scientific paper and proof artifacts in
+[v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate).
+See [affiliation records](publication/AFFILIATIONS.md) for confirmed platform updates and remaining account steps.
 
 **New finite result:** [Cospectral Pauli carriers with different completion spectra](paper/c3-spectral-counterexample.md)
 ([PDF](paper/c3-spectral-counterexample.pdf), [working exact-certificate demo](https://0thernes.github.io/hoggar-bound-lab/c3-lab/)).
@@ -27,6 +36,22 @@ The [Lean spectral theorem](lean/HoggarBound/C3Spectra.lean) and [42-declaration
 verify the Pauli-model connection, carrier cospectrality and completion noncospectrality. Independent integer
 checks and an Eshkol execution record accompany the paper. This finite result is separate from the previously known spectral floor below;
 it does not settle the conjecture in every dimension or establish historical priority.
+
+**New configurations that attain the floor** ([paper](paper/spectral-floor.md), Section 5). The bound
+below holds for arbitrary sets of observables, and it is attained exactly when a pure state has Pauli
+expectation values of one modulus on the set and zero elsewhere. Three such configurations outside the
+classical families, with their exact contextuality degrees:
+
+| qubits | state | observables | contexts | contextuality degree | how the degree is proved |
+|---|---|---|---|---|---|
+| 4 | equal superposition of the basis states 0011, 0111, 1011, 1100, 1101 and $i$ times 1110 | 135 | 1095 | **75** | Lean (`pivot_degree`) |
+| 5 | CS(0,1) CS(1,3) CS(2,4) CCZ(0,1,4) CCZ(0,2,3) applied to the all-plus state | 496 | 10880 | **480** | Lean (`phase5_degree`, `cieslinski5_degree`) |
+| 7 | three CS and eight CCZ gates applied to the all-plus state (Theorem 13) | 8128 | 2824192 | **729344** | Lean inequality, with counts by three programs |
+
+The five-qubit configuration is, up to a Clifford operation, the Pauli support of a state found
+numerically by Cieśliński (arXiv:2610.07172). Its circuit description, the classification of all such
+circuit states on up to five qubits (none on four, one class on five) and the seven-qubit state are new
+to our knowledge, which rests on a bounded literature search. Nothing here has been peer reviewed.
 
 ## The statement
 
@@ -60,19 +85,30 @@ What this repository adds:
   five-qubit hyperbolic quadric has degree greater than 4743 (at least 6426);
 * an **independent reproduction** of the best known assignments for two to five qubits, of the
   geometry of their violated contexts, and of the three cases where the bound is attained;
-* the **state-independent contextuality experiment** run end to end on a simulator.
+* the **state-independent contextuality experiment** run end to end on a simulator;
+* **exact contextuality degrees outside the classical families**: 75 (four qubits, 1095 contexts) and 480
+  (five qubits, 10880 contexts) proved in Lean, lower bound and witness, and 729344 (seven qubits,
+  2824192 contexts) from the Lean inequality and exact counts;
+* a **criterion and a classification**: which states built from T, controlled-S and CCZ gates on the
+  all-plus state have a single non-zero Pauli modulus, exhaustively for up to five qubits; and the fact
+  that the Pauli support of any such state is a two-character set (the support of a bent function in the
+  three-, five- and seven-qubit cases).
 
 ## Layout
 
 | path | what |
 |---|---|
-| `lean/HoggarBound/` | the Lean 4 development (`Moment`, `Pauli`, `Bound`, `Counting`, `Corollaries`, `Quadric`; plus the independently written `IndependentContexts`, `IndependentWitness`) |
+| `lean/HoggarBound/` | the Lean 4 development (`Moment`, `Pauli`, `Bound`, `Counting`, `Corollaries`, `Quadric`; the exact degrees `MaskConfig`, `Saturated`, `SaturatedFive`, `SaturatedPhaseFive` with generated data `FlatData`, `PhaseData`; plus the independently written `IndependentContexts`, `IndependentWitness`) |
 | `src/hoggar.c` | engine: geometry, exact integer bounds, verification, annealing search, falsification harness |
 | `src/moonlab_experiment.mjs` | the experiment on Moonlab (WebAssembly) |
 | `src/qgt_hoggar.c` | quantum geometric tensor of the Hoggar state with the QGTL kernels |
-| `src/eshkol/hoggar.esk` | independent re-implementation and automatic-differentiation checks in Eshkol |
-| `scripts/` | `build.sh`, `run_all.sh`, `analysis.py`, `ladder.py`, `run_falsify.sh`, `build_paper.py` |
-| `data/witness/` | assignments (hex masks) for every configuration up to five qubits |
+| `src/eshkol/hoggar.esk`, `src/eshkol/saturated.esk` | independent re-implementations and automatic-differentiation checks in Eshkol |
+| `scripts/flat_states.py`, `scripts/phase_states.py` | exact integer verification of the eleven flat states of the paper (68 + 81 checks); they generate the Lean data |
+| `src/third_level.c` | exhaustive census of flat third-level phase states on up to five qubits (seven seconds) |
+| `src/moonlab_saturated.mjs`, `src/qgt_flat.c` | the flat states on Moonlab (two of them as circuits) and under the QGTL kernels |
+| `src/family7.c`, `src/orbits7.c`, `src/sample7.c`, `scripts/run_family7.sh` | the seven-qubit enumeration (about eight core-hours) and its orbit analysis |
+| `scripts/` | `build.sh`, `run_all.sh`, `analysis.py`, `ladder.py`, `run_falsify.sh`, `build_paper.py`, `check_github_math.py`, `fix_github_math.py` |
+| `data/witness/`, `data/flat/` | assignments (hex masks) for every classical configuration up to five qubits; supports and optimal signs of the flat states |
 | `results/` | logs and JSON written by the runs |
 | `third_party/` | vendored Moonlab engine, quantum_rng and one QGTL source file, with licences and provenance |
 | `independent-review/`, `tests/`, `results/*audit*` | the independent companion review |
@@ -91,6 +127,13 @@ bash scripts/run_all.sh
 cd lean && lake exe cache get && lake build
 ```
 
+The exact degrees of Section 5 are separate Lean targets (kernel evaluations; about a quarter of an hour
+for each of the two five-qubit configurations):
+
+```bash
+cd lean && lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive && lake env lean SaturatedVerification.lean
+```
+
 `run_all.sh` needs gcc, Python 3 with NumPy and Matplotlib, and Node; Eshkol is optional. It prints one
 line per stage and ends with `ALL STAGES PASSED`; the last complete run is kept in
 [results/run_all.log](results/run_all.log) and [results/falsify.log](results/falsify.log). The Lean
@@ -100,7 +143,12 @@ build needs [elan](https://github.com/leanprover/elan); it downloads Lean 4.35.0
 
 * The Lean theorems are exactly what their statements say; comments are not theorems.
 * Lower bounds are proved. Upper bounds are explicit assignments that anyone can recount.
-  Optimality of the four- and five-qubit assignments is not proved here.
+  Optimality of the four- and five-qubit assignments of the classical families is not proved here,
+  except for the four-qubit hyperbolic quadric.
+* For the configurations of Section 5 both bounds are proved in Lean up to five qubits. The seven-qubit
+  degree uses the Lean inequality with counts made by three independent programs, not by the kernel. The
+  uniqueness statement for seven qubits is proved by enumeration inside one family of forms only.
+* Novelty of the Section 5 results is claimed to the extent of a bounded literature search.
 * The quaternionic refinement for elliptic quadrics is proved on paper and tested numerically only.
 * Moonlab is a classical simulator; quantum_rng is a classical "quantum-inspired" generator; only the
   `diffgeo_*` kernels of QGTL are used. Nothing here is a measurement on quantum hardware.

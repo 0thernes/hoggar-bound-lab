@@ -2,33 +2,42 @@ cff-version: 1.2.0
 message: >-
   If you use this repository, please cite the paper below together with the prior work it
   credits (see the priority note at the top of the paper).
-title: "A machine-checked spectral floor for Pauli contextuality"
+title: "A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it"
 type: software
 authors:
   - family-names: Donahue
     given-names: "Alexander S."
     alias: 0thernes
     affiliation: "0thernes LLC"
-version: "1.0"
+    email: "0_0@0thernes.art"
+version: "1.1"
 date-released: 2026-11-09
 repository-code: "https://github.com/0thernes/hoggar-bound-lab"
 url: "https://0thernes.github.io/hoggar-bound-lab/"
 abstract: >-
   Lean 4 formalization, for every number of qubits and arbitrary sets of Pauli observables,
   of the spectral lower bound on the contextuality degree (first posted by B. W. Jonah,
-  doi:10.5281/zenodo.23538829), with formally verified numerical corollaries, an independent
-  reproduction of the known values for two to five qubits, and a demonstration on the
-  Tsotchke stack (Moonlab, quantum_geometric_tensor, quantum_rng, Eshkol).
+  doi:10.5281/zenodo.23538829), with formally verified numerical corollaries. The bound is
+  attained exactly when a pure state has Pauli expectation values of one modulus on the set and
+  zero elsewhere. New configurations of this kind outside the classical families, with their
+  exact contextuality degrees: 135 four-qubit observables with 1095 contexts (degree 75) and
+  496 five-qubit observables with 10880 contexts (degree 480), both proved in Lean; and 8128
+  seven-qubit observables with 2824192 contexts (degree 729344). A classification of the
+  flat states obtained from T, controlled-S and CCZ gates on up to five qubits, an
+  independent reproduction of the known values for two to five qubits, and a demonstration
+  on the Tsotchke stack (Moonlab, quantum_geometric_tensor, quantum_rng, Eshkol).
 keywords:
   - quantum contextuality
   - Pauli group
   - symplectic polar space
   - Kochen-Specker theorem
+  - Clifford hierarchy
+  - bent functions
   - Lean 4
   - formal verification
 preferred-citation:
   type: report
-  title: "A machine-checked spectral floor for Pauli contextuality"
+  title: "A machine-checked spectral floor for Pauli contextuality, and new configurations that attain it"
   authors:
     - family-names: Donahue
       given-names: "Alexander S."
@@ -38,8 +47,8 @@ preferred-citation:
     name: "0thernes LLC"
   url: "https://github.com/0thernes/hoggar-bound-lab/blob/main/paper/spectral-floor.pdf"
   notes: >-
-    Research preprint, version 1.0, not peer reviewed. Produced with Claude (Anthropic) as AI
-    research system.
+    Research preprint, version 1.1, not peer reviewed. Produced with Claude (Anthropic) as AI
+    research system under the author's direction.
 references:
   - type: generic
     title: "Structure theorems for hyperplane completions in Pauli contextuality"
@@ -57,3 +66,10 @@ references:
         given-names: "B. W."
     year: 2026
     doi: 10.5281/zenodo.23510634
+  - type: generic
+    title: "Pauli flat quantum states mimicking maximal magic"
+    authors:
+      - family-names: Cieśliński
+        given-names: "Paweł"
+    year: 2026
+    notes: "arXiv:2610.07172"

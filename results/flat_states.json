@@ -1,0 +1,151 @@
+{
+ "lly": {
+  "name": "lly",
+  "N": 2,
+  "n": 4,
+  "mu": "1/2",
+  "points": 12,
+  "contexts": 8,
+  "degree": 0,
+  "beta": 8,
+  "line_closed": false,
+  "degree_histogram": [
+   [
+    [
+     2,
+     0
+    ],
+    12
+   ]
+  ]
+ },
+ "ccz": {
+  "name": "ccz",
+  "N": 3,
+  "n": 8,
+  "mu": "1/2",
+  "points": 28,
+  "contexts": 56,
+  "degree": 0,
+  "beta": 56,
+  "line_closed": false,
+  "degree_histogram": [
+   [
+    [
+     6,
+     0
+    ],
+    28
+   ]
+  ]
+ },
+ "hoggar": {
+  "name": "hoggar",
+  "N": 3,
+  "n": 12,
+  "mu": "1/3",
+  "points": 63,
+  "contexts": 315,
+  "degree": 63,
+  "beta": 189,
+  "line_closed": true,
+  "degree_histogram": [
+   [
+    [
+     15,
+     3
+    ],
+    63
+   ]
+  ]
+ },
+ "quadric": {
+  "name": "quadric",
+  "N": 4,
+  "n": 24,
+  "mu": "1/3",
+  "points": 135,
+  "contexts": 1575,
+  "degree": 315,
+  "beta": 945,
+  "line_closed": true,
+  "degree_histogram": [
+   [
+    [
+     35,
+     7
+    ],
+    135
+   ]
+  ]
+ },
+ "pivot": {
+  "name": "pivot",
+  "N": 4,
+  "n": 6,
+  "mu": "1/3",
+  "points": 135,
+  "contexts": 1095,
+  "degree": 75,
+  "beta": 945,
+  "line_closed": false,
+  "degree_histogram": [
+   [
+    [
+     23,
+     1
+    ],
+    120
+   ],
+   [
+    [
+     35,
+     7
+    ],
+    15
+   ]
+  ]
+ },
+ "cieslinski5": {
+  "name": "cieslinski5",
+  "N": 5,
+  "n": 320,
+  "mu": "1/4",
+  "points": 496,
+  "contexts": 10880,
+  "degree": 480,
+  "beta": 9920,
+  "line_closed": false,
+  "degree_histogram": [
+   [
+    [
+     60,
+     0
+    ],
+    16
+   ],
+   [
+    [
+     64,
+     2
+    ],
+    240
+   ],
+   [
+    [
+     68,
+     4
+    ],
+    240
+   ]
+  ]
+ },
+ "_checks": {
+  "passed": 68,
+  "total": 68
+ },
+ "_annealing_best": {
+  "pivot": 75,
+  "cieslinski5": 480
+ }
+}
