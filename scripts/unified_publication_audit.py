@@ -10,6 +10,7 @@ import json
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+VERSION = '1.3.0'
 
 
 def require(condition, message):
@@ -40,8 +41,9 @@ def main():
     build = read('results/unified-paper-build.json')
     metadata = read('publication/unified-metadata.json')
     source = (ROOT / 'paper/unified-contextuality.md').read_bytes()
-    require(build['publication_version'] == metadata['version'] == '1.2.0', 'Version mismatch')
-    require((ROOT / 'VERSION').read_text().strip() == '1.2.0', 'Repository version mismatch')
+    require(build['publication_version'] == metadata['version'] == VERSION, 'Version mismatch')
+    require((ROOT / 'VERSION').read_text().strip() == VERSION, 'Repository version mismatch')
+    require(0 < len(metadata['abstract_plain_text']) <= 1920, 'Plain abstract exceeds the arXiv limit of 1920 characters')
     require(digest(source.replace(b'\r\n', b'\n')) == build['source_lf_sha256'], 'Canonical manuscript changed since build')
     require(source.decode('utf-8').splitlines()[0] == '# ' + metadata['title'], 'Manuscript title mismatch')
     for name, record in build['artifacts'].items():
@@ -70,10 +72,10 @@ def main():
         audit = ci['axiom_audits'][group]
         require(audit['declarations'] == count and len(audit['actual']) == count, 'Axiom report size mismatch: ' + group)
         require(all(set(axioms) <= allowed for axioms in audit['actual'].values()), 'Nonstandard axiom: ' + group)
-    result = {'status': 'pass', 'version': '1.2.0', 'manuscript_lf_sha256': build['source_lf_sha256'],
+    result = {'status': 'pass', 'version': VERSION, 'manuscript_lf_sha256': build['source_lf_sha256'],
               'public_pdf_sha256': digest(public_pdf), 'compiled_artifacts_checked': len(build['artifacts']),
               'scholarly_metadata_consistent': True, 'public_pdf_equals_typeset_pdf': True,
-              'recorded_full_ci': ci['run_url'], 'proof_sources_unchanged': 'See publication-v1.2.0-audit.json',
+              'recorded_full_ci': ci['run_url'], 'proof_sources_unchanged': 'See publication-v' + VERSION + '-audit.json',
               'scope': 'Artifact consistency and recorded CI provenance; not a new Lean build or peer review.'}
     (ROOT / 'results/unified-publication-audit.json').write_bytes((json.dumps(result, indent=2) + '\n').encode('utf-8'))
     print(json.dumps(result, indent=2))

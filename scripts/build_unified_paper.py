@@ -31,8 +31,9 @@ ROOT = Path(__file__).resolve().parents[1]
 STEM = 'unified-contextuality'
 SOURCE = ROOT / 'paper' / (STEM + '.md')
 PUBLICATION = ROOT / 'publication' / STEM
-RELEASE = 'v1.2.0'
-TITLE = 'Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate'
+VERSION = '1.3.0'
+RELEASE = 'v' + VERSION
+TITLE = "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E"
 SITE = 'https://0thernes.github.io/hoggar-bound-lab/'
 REPOSITORY = 'https://github.com/0thernes/hoggar-bound-lab'
 READER = 'gfm+tex_math_gfm+tex_math_dollars'
@@ -200,9 +201,10 @@ def main():
     subtitle, byline = front_parts[1], front_parts[2].replace('<br>', '')
     note = front_parts[3] if len(front_parts) > 3 else ''
     date = re.search(r'version (\d+\.\d+\.\d+), (\d+) (\w+) (\d{4})', byline)
-    require(date is not None and 'v' + date[1] == RELEASE, 'Expected the unified v1.2.0 byline')
+    require(date is not None and 'v' + date[1] == RELEASE, 'Expected the unified ' + RELEASE + ' byline')
     months = 'January February March April May June July August September October November December'.split()
     citation_date = f'{date[4]}/{months.index(date[3])+1:02d}/{int(date[2]):02d}'
+    archive_date = (int(date[4]), months.index(date[3]) + 1, int(date[2]), 0, 0, 0)
     ast = json.loads(run_pandoc(args.pandoc, body_md, 'json'))
     sections = section_groups(ast['blocks'])
     mapping = [{'heading': s['heading'], 'journal': 'both' if s['references'] else
@@ -269,7 +271,7 @@ def main():
     main_blocks[references_index:references_index] = parse(JOURNAL_ACKNOWLEDGMENTS)
     supp_blocks = [block for section in sections if section['supplement'] or section['references'] for block in section['blocks']]
     supp_labels = ', '.join(s['heading'] for s in sections if s['supplement'])
-    journal_note = ('This journal-format document is derived from the complete paper, version 1.2.0. '
+    journal_note = ('This journal-format document is derived from the complete paper, version ' + VERSION + '. '
                     'Original section numbers and cross-references are retained; gaps are intentional. '
                     'The supplement contains: ' + supp_labels + '. References are reproduced in both journal documents.')
     bylines = byline.splitlines()
@@ -319,7 +321,7 @@ def main():
             'citation_author_institution': '0thernes LLC', 'citation_author_orcid': 'https://orcid.org/0009-0006-8168-9648',
             'citation_publication_date': citation_date, 'citation_online_date': citation_date,
             'citation_technical_report_institution': '0thernes LLC',
-            'citation_technical_report_number': 'Hoggar Bound Lab, version 1.2.0',
+            'citation_technical_report_number': 'Hoggar Bound Lab, version ' + VERSION,
             'citation_pdf_url': SITE + 'paper/' + STEM + '.pdf',
             'citation_abstract_html_url': SITE + 'paper/' + STEM + '.html', 'citation_language': 'en'}
     metadata = '\n'.join('<meta name="' + key + '" content="' + html.escape(value, quote=True) + '">' for key, value in tags.items())
@@ -332,7 +334,7 @@ def main():
             '</head><body><main><nav aria-label="Research links"><a href="../">Research index</a>'
             '<a href="' + STEM + '.pdf">Full paper PDF</a><a href="../c3-lab/">C3 demonstration</a>'
             '<a href="' + REPOSITORY + '/tree/' + RELEASE + '/lean">Lean proofs</a></nav>' + html_body +
-            '<footer>Version 1.2.0. Research preprint; not peer reviewed. The journal manuscript and supplement are formats of this paper. '
+            '<footer>Version ' + VERSION + '. Research preprint; not peer reviewed. The journal manuscript and supplement are formats of this paper. '
             '<a href="' + REPOSITORY + '/blob/' + RELEASE + '/publication/PAPER-MAP.md">Publication map</a></footer></main></body></html>\n')
     require(MARKER not in page and '\ufffd' not in page, 'Unprocessed marker or invalid character in HTML')
     temp_root = ROOT / 'build' / STEM
@@ -427,7 +429,7 @@ def main():
     zip_path = stage / 'arxiv-source.zip'
     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as archive:
         for name, payload in sorted(archive_members.items()):
-            info = zipfile.ZipInfo(name, date_time=(2026, 11, 9, 0, 0, 0))
+            info = zipfile.ZipInfo(name, date_time=archive_date)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.create_system = 3
             info.external_attr = 0o100644 << 16
@@ -464,7 +466,7 @@ def main():
     for name, executable in [('pandoc', args.pandoc), ('tectonic', args.tectonic)]:
         version = subprocess.check_output([executable, '--version'], text=True, encoding='utf-8').splitlines()[0]
         tools[name] = {'version': version, 'sha256': digest(Path(executable).read_bytes())}
-    record = {'status': 'built', 'publication_version': '1.2.0', 'source': 'paper/' + STEM + '.md',
+    record = {'status': 'built', 'publication_version': VERSION, 'source': 'paper/' + STEM + '.md',
               'source_sha256': digest(source_bytes), 'source_lf_sha256': digest(source.encode()),
               'builder_sha256': digest(Path(__file__).read_bytes()),
               'table_helper_sha256': digest((ROOT / 'scripts/build_latex.py').read_bytes()),

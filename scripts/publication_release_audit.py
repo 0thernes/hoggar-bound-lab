@@ -12,6 +12,8 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 RESEARCH_COMMIT = "d3811e3b53048fa8f3206f08494f0a9834eed287"
 SATURATION_COMMIT = "87f08a0fb5007c8529abc13eabeec093027c0eba"
+C3_ALL_QUBITS_COMMIT = "5dcea35"  # CarrierFamily.lean as checked by its workflow
+VERSION = "1.3.0"
 PDF_HASH = "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836"
 
 
@@ -34,7 +36,7 @@ def normalized(data):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", default="results/publication-v1.2.0-audit.json")
+    parser.add_argument("--output", default="results/publication-v" + VERSION + "-audit.json")
     args = parser.parse_args()
     reference_manifest = json.loads(git("show", RESEARCH_COMMIT + ":results/frontier-c3-lean-source-sha256.json"))
     proof_files = [item["path"] for item in reference_manifest["files"]]
@@ -75,7 +77,7 @@ def main():
     require(all(c["affiliation"] == "0thernes LLC" for c in metadata["creators_for_submission"]), "Creator affiliation mismatch")
     require(metadata["arxiv_profile_observed"]["affiliation"] == "0thernes LLC", "Observed arXiv affiliation mismatch")
     require(metadata["version"] == "0.2.0-c3-certificate", "Paper artifact version changed")
-    require((ROOT / "VERSION").read_text().strip() == "1.2.0", "Unexpected documentation version")
+    require((ROOT / "VERSION").read_text().strip() == VERSION, "Unexpected documentation version")
     for name in ["GLOSSARY.md", "VERIFICATION.md", "LEGAL.md", "CHANGELOG.md", "docs/RESEARCH-SUMMARY.md", "docs/CLAIMS.md", "docs/research-index.html", "publication/AFFILIATIONS.md"]:
         require((ROOT / name).is_file(), "Missing publication document: " + name)
     axiom_report = json.loads((ROOT / "results/frontier-c3-axioms.json").read_text())
@@ -86,10 +88,34 @@ def main():
     require(saturation_audit["checked_commit"] == SATURATION_COMMIT and saturation_audit["workflow_conclusion"] == "success", "Unexpected saturation CI provenance")
     require(saturation_audit["axiom_declarations"] == 14 and len(saturation_audit["actual_axioms"]) == 14, "Unexpected saturation audit size")
     require(all(set(a) <= allowed for a in saturation_audit["actual_axioms"].values()), "Nonstandard saturation axiom")
+    # Additions of version 1.3.0: the seven-qubit kernel evaluation and case C3 for every number of qubits.
+    seven = json.loads((ROOT / "results/saturation-seven-ci-audit.json").read_text(encoding="utf-8"))
+    require(seven["status"] == "pass" and seven["workflow_conclusion"] == "success", "Seven-qubit CI did not pass")
+    require(seven["axiom_declarations"] == 13 and len(seven["actual_axioms"]) == 13, "Unexpected seven-qubit audit size")
+    require(all(set(a) <= allowed for a in seven["actual_axioms"].values()), "Nonstandard seven-qubit axiom")
+    require({"HoggarBound.phase7_degree", "HoggarBound.phase7_contexts"} <= set(seven["actual_axioms"]), "Seven-qubit theorems not audited")
+    for name, digest_lf in seven["source_sha256_lf"].items():
+        require(sha(normalized((ROOT / name).read_bytes())) == digest_lf, "Source changed since seven-qubit CI: " + name)
+    carrier = "lean/HoggarBound/CarrierFamily.lean"
+    require(normalized((ROOT / carrier).read_bytes()) == normalized(git("show", C3_ALL_QUBITS_COMMIT + ":" + carrier)),
+            "CarrierFamily.lean changed since its checked commit")
+    log = (ROOT / "results/lean-c3-all-qubits-axioms.log").read_text(encoding="utf-8")
+    reports = {}
+    for line in log.splitlines():
+        if " depends on axioms: [" in line:
+            name, _, axioms = line.partition(" depends on axioms: [")
+            reports[name.strip("'")] = {a.strip() for a in axioms.rstrip("]").split(",") if a.strip()}
+        elif line.endswith(" does not depend on any axioms"):
+            reports[line.split("'")[1]] = set()
+    source = (ROOT / carrier).read_text(encoding="utf-8")
+    audited = {line.split()[2] for line in source.splitlines() if line.startswith("#print axioms ")}
+    require(len(audited) == 74 and audited == set(reports), "C3 all-qubits axiom report does not match the file")
+    require(all(a <= allowed for a in reports.values()), "Nonstandard axiom in CarrierFamily.lean")
+    require("HoggarBound.C3AllQubits.c3_strict_law_fails_general" in reports, "Main C3 theorem not audited")
     report = {
         "status": "pass",
         "verification_kind": "Documentation-release continuity, not a new Lean compilation",
-        "documentation_version": "1.2.0",
+        "documentation_version": VERSION,
         "research_version": "0.2.0-c3-certificate",
         "research_commit": RESEARCH_COMMIT,
         "paper_pdf_sha256": PDF_HASH,
@@ -106,6 +132,10 @@ def main():
         "saturation_and_shared_lean_files_unchanged": len(saturation_files),
         "saturation_audited_declarations": 14,
         "saturation_source_lf_sha256": saturation_hashes,
+        "seven_qubit_ci_run": seven["run_url"],
+        "seven_qubit_audited_declarations": 13,
+        "c3_all_qubits_commit": C3_ALL_QUBITS_COMMIT,
+        "c3_all_qubits_audited_declarations": len(audited),
         "checks": checked,
     }
     output = ROOT / args.output

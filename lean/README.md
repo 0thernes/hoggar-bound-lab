@@ -43,12 +43,32 @@ assignment violates exactly `d`.
 | `pivot_degree`, `pivot_contexts` | four qubits, the pivot configuration | 135 | 1095 | 75 |
 | `cieslinski5_degree`, `cieslinski5_contexts` | five qubits, support of the state of arXiv:2610.07172 | 496 | 10880 | 480 |
 | `phase5_degree`, `phase5_contexts` | five qubits, support of `CCZ(0,1,4) CCZ(0,2,3) CS(0,1) CS(1,3) CS(2,4) \|+++++⟩` | 496 | 10880 | 480 |
+| `phase7_degree`, `phase7_contexts` | seven qubits, support of the circuit state Φ7 (three CS and eight CCZ gates on `\|+⟩^⊗7`) | 8128 | 2824192 | 729344 |
 | `quadric_degree` | four qubits, the hyperbolic quadric | 135 | 1575 | 315 |
 | `hoggar_degree` | three qubits, all observables | 63 | 315 | 63 |
 | `ccz_degree`, `lly_degree` | three and two qubits | 28, 12 | 56, 8 | 0 |
 
-The seven-qubit degree 729 344 of the paper is **not** one of these theorems: its lower bound is
-`hoggar_bound` with `S.card = 8128`, and its counts are made by programs.
+The seven-qubit counts are double sums with 2^28 terms. `MaskRows.lean` evaluates one row of either
+sum on packed sets of codes and proves, for every N, that the result is the row; the kernel evaluates
+the 2^14 rows in 16 blocks (`SaturatedPhaseSeven.lean`, about 6 GB of memory for one block).
+
+### Case C3 for every number of qubits
+
+`HoggarBound/CarrierFamily.lean` (a separate build target, not imported by `HoggarBound.lean`) proves
+that the strict law fails for sign carriers in case C3 of Jonah's classification for every N ≥ 4:
+
+```lean
+theorem c3_strict_law_fails_general (hm : 3 ≤ m) :
+    ∃ σ τ : Pt (m + 1) → ℝ,
+      (∀ s, σ s = 1 ∨ σ s = -1) ∧ (∀ s, τ s = 1 ∨ τ s = -1) ∧
+      (opA (sectionPts m) σ).charpoly = (opA (sectionPts m) τ).charpoly ∧
+      (completionMatrix m σ).charpoly ≠ (completionMatrix m τ).charpoly
+```
+
+`sectionPts` and `outsidePts` are the real points that commute and anticommute with Z on qubit 0, and
+`completionMatrix` has the entry `lineSign (p + q) q * σ (p + q)` for commuting distinct outside points
+`p`, `q`. The 74 audited declarations use only the standard axioms (`results/lean-c3-all-qubits-axioms.log`).
+See Section 9.3 of the combined paper for what the statement leaves to the reader.
 
 ## Modules
 
@@ -64,6 +84,8 @@ The seven-qubit degree 729 344 of the paper is **not** one of these theorems: it
 | `HoggarBound/FlatData.lean`, `PhaseData.lean` | generated: the masks |
 | `HoggarBound/SaturatedFive.lean`, `SaturatedPhaseFive.lean` | generated: the five-qubit counts, 16 kernel-evaluated blocks per sum |
 | `HoggarBound/Saturated.lean` | the two-, three- and four-qubit counts and the exact-degree theorems |
+| `HoggarBound/MaskRows.lean`, `SaturatedPhaseSeven.lean` | rows of the counts on packed sets of codes; the seven-qubit counts and **`phase7_degree`** |
+| `HoggarBound/CarrierFamily.lean` | case C3 for every number of qubits: **`c3_strict_law_fails_general`** |
 | `HoggarBound/IndependentContexts.lean`, `IndependentWitness.lean` | written by the independent companion review |
 | `HoggarBound/C3*.lean`, `Stability.lean` | the companion C3 note (separate work) |
 

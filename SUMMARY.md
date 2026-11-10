@@ -1,8 +1,10 @@
 # Summary in plain language
 
-Repository version 1.2.0, 9 November 2026. Research preprint, not peer reviewed. The combined study brings
+Repository version 1.3.0, 10 November 2026. Research preprint, not peer reviewed. The combined study brings
 together the Claude/Anthropic spectral-floor work and the OpenAI Codex C3/independent-verification work
-under the direction of Alexander S. Donahue, 0thernes LLC.
+under the direction of Alexander S. Donahue, 0thernes LLC. Version 1.3.0 adds Claude/Anthropic results that
+answer Jonah's Conjecture E: in all nine vertex cases of his classification, a section's spectrum does
+not determine the completion spectrum, for every number of qubits from four on.
 
 The [unified paper](paper/unified-contextuality.md) asks two connected questions: what lower bounds can
 spectral information certify, and which completion information can a section's spectrum fail to retain?

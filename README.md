@@ -1,14 +1,16 @@
 # Hoggar Bound Lab
 
 One combined study of spectral bounds and their limits in Pauli contextuality: a Lean-checked
-general bound, configurations that attain it, and an exact four-qubit counterexample showing
-that equal carrier spectra need not determine equal completion spectra. Reproducible experiments
-use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
+general bound, configurations that attain it, and explicit sign carriers showing that equal carrier
+spectra need not determine equal completion spectra, in every vertex case of Jonah's classification
+and for every number of qubits from four on, which proves Jonah's Conjecture E. Reproducible
+experiments use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 
 [![Saturated configurations](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml)
 [![Independent verification](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml)
 [![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
-[![Version 1.2.0](https://img.shields.io/badge/version-1.2.0-informational)](CHANGELOG.md)
+[![Case C3 for every number of qubits](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml)
+[![Version 1.3.0](https://img.shields.io/badge/version-1.3.0-informational)](CHANGELOG.md)
 
 **Unified paper:** [Spectral bounds and their limits in Pauli contextuality](paper/unified-contextuality.md) ([PDF](paper/unified-contextuality.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html)).
 &nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
@@ -17,13 +19,30 @@ use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 **Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
 [GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, repository version 1.2.0, 9 November 2026. Not peer reviewed. AI-generated under human
+Status: research preprint, repository version 1.3.0, 10 November 2026. Not peer reviewed. AI-generated under human
 direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
+
+**New in 1.3.0** (paper Sections 8.5 to 8.8 and 9.3; first recorded in the addenda under
+[publication/](publication/)):
+
+* **Conjecture E is true** (Theorem 19). In all nine vertex cases of
+  [Jonah's note](https://doi.org/10.5281/zenodo.23524332) and for every $N \ge 4$ there are two sign
+  carriers with the same carrier spectrum and different completion spectra. The carriers come from graphs
+  with one edge for each nonzero difference, over the real, complex and quaternionic numbers, and from a
+  pair swap for cones. Outside case C3 the proof is on paper, uses Theorems A and B3 of the note, and is
+  checked by exact computation for three to five qubits (`python scripts/conjecture_e.py`, 81 checks).
+* **Case C3 for every number of qubits, in Lean** (Theorem 17): `c3_strict_law_fails_general` in
+  [lean/HoggarBound/CarrierFamily.lean](lean/HoggarBound/CarrierFamily.lean), about the library's own
+  Pauli matrices, real quadric and context signs; 74 audited declarations, standard axioms only. Case
+  C11 follows by the note's cone lift (Corollary 18).
+* **The binary completion minima of the four-qubit pair differ** (Corollary 16): at least 347 against at
+  most 344 violated outside contexts.
+* **The seven-qubit degree 729344 is a Lean theorem** (`phase7_degree`), with kernel-evaluated counts.
 
 **Research website:** [Hoggar Bound Lab](https://0thernes.github.io/hoggar-bound-lab/).
 The [C3 research summary](docs/RESEARCH-SUMMARY.md), [verification guide](VERIFICATION.md),
 and [claim register](docs/CLAIMS.md) connect the four-qubit spectral result to exact data and Lean theorem names.
-The combined manuscript edition `v1.2.0` preserves the C3 scientific paper and proof artifacts in
+The combined manuscript editions `v1.2.0` and `v1.3.0` preserve the C3 scientific paper and proof artifacts in
 [v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate).
 See the [source-paper map](publication/PAPER-MAP.md) and [eight-destination distribution plan](publication/DISTRIBUTION-PLAN.md).
 See [affiliation records](publication/AFFILIATIONS.md) for confirmed platform updates and remaining account steps.
@@ -35,8 +54,8 @@ cubic traces are 14976 and 15360. This establishes the four-qubit C3 instance le
 [Jonah's Conjecture E, v0.5](https://zenodo.org/records/23524332).
 The [Lean spectral theorem](lean/HoggarBound/C3Spectra.lean) and [42-declaration axiom audit](results/frontier-c3-lean-audit.md)
 verify the Pauli-model connection, carrier cospectrality and completion noncospectrality. Independent integer
-checks and an Eshkol execution record accompany the paper. This finite result is separate from the previously known spectral floor below;
-it does not settle the conjecture in every dimension or establish historical priority.
+checks and an Eshkol execution record accompany the paper. This finite result is separate from the previously known spectral floor below,
+and does not establish historical priority; the combined paper extends it to every dimension and every vertex case (see above).
 
 **Configurations that attain the floor** ([unified paper](paper/unified-contextuality.md), Section 5). The bound
 below holds for arbitrary sets of observables. For a nonempty set, saturation is equivalent to a pure
@@ -47,7 +66,7 @@ classical families, with their exact contextuality degrees:
 |---|---|---|---|---|---|
 | 4 | equal superposition of the basis states 0011, 0111, 1011, 1100, 1101 and $i$ times 1110 | 135 | 1095 | **75** | Lean (`pivot_degree`) |
 | 5 | CS(0,1) CS(1,3) CS(2,4) CCZ(0,1,4) CCZ(0,2,3) applied to the all-plus state | 496 | 10880 | **480** | Lean (`phase5_degree`, `cieslinski5_degree`) |
-| 7 | three CS and eight CCZ gates applied to the all-plus state (Theorem 13) | 8128 | 2824192 | **729344** | Lean inequality, with counts by three programs |
+| 7 | three CS and eight CCZ gates applied to the all-plus state (Theorem 13) | 8128 | 2824192 | **729344** | Lean (`phase7_degree`) |
 
 The five-qubit configuration is, up to a Clifford operation, the Pauli support of a state found
 numerically by Cieśliński (arXiv:2610.07172). Its circuit description, the classification of all such

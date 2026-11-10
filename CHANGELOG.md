@@ -4,7 +4,31 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
-## Unreleased - after 1.2.0
+## 1.3.0 - 10 November 2026: combined paper with Conjecture E
+
+The combined paper ([paper/unified-contextuality.md](paper/unified-contextuality.md)) is revised to
+version 1.3.0 and retitled *Spectral bounds and their limits in Pauli contextuality: exact
+configurations and a proof of Jonah's Conjecture E*. It folds in the four addenda listed below:
+
+- Section 8.5: Corollary 16, the binary completion minima of the four-qubit pair differ.
+- Section 8.6: Theorem 17, case C3 for every N >= 4 by graph carriers, with the Lean theorem
+  `c3_strict_law_fails_general`; Corollary 18, case C11; Remarks (a) to (d); Table 7.
+- Section 8.7: Theorem 19, Conjecture E in all nine vertex cases; Tables 8 and 9. Outside case C3 the
+  proof is on paper and uses [J3, Theorems A and B3]; it is checked by exact computation.
+- Section 8.8; Section 9.3 (the Lean statement and what it leaves to the reader); Table 6 and the
+  module tables; Section 11.3 (the programs); Sections 12 and 13; Appendices A and B.
+- Section 5.3, 9.1 and abstract: the seven-qubit degree 729344 is a Lean theorem with kernel-evaluated
+  counts.
+- Funding and competing-interest statement from the author's recorded declarations.
+
+Publication machinery: `scripts/build_unified_paper.py` takes the version from one constant and the
+archive date from the byline; both publication audits move to 1.3.0 and gain checks (sources of the
+seven-qubit and C3 Lean files unchanged since their CI runs, their axiom reports, the arXiv abstract
+length); `publication/unified-metadata.json`, `CITATION.cff`, `VERSION`, the BibTeX entry, the plain
+abstract, the README and the site list are updated. Every Lean file of the earlier audits is unchanged;
+the C3 paper, its proof artifacts and release `v0.2.0-c3-certificate` are untouched.
+
+### Results first recorded as addenda (now in 1.3.0)
 
 - [Addendum](publication/ADDENDUM-conjecture-e.md), proposed for the next revision of the combined
   paper: **Jonah's Conjecture E holds** (Theorem 19). On sign carriers the strict law fails in all nine

@@ -1,8 +1,8 @@
 # One combined manuscript: submission package
 
-**Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate**
+**Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E**
 
-Version **1.2.0**. Author: **Alexander S. Donahue — 0thernes LLC**. Correspondence:
+Version **1.3.0** (10 November 2026; version 1.2.0 was titled *Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate*). Author: **Alexander S. Donahue — 0thernes LLC**. Correspondence:
 **0_0@0thernes.art**. ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648).
 
 This is the single current manuscript requested by the author. The earlier spectral-floor and C3
@@ -24,7 +24,7 @@ saved account details are not submission receipts or evidence of acceptance.
 | [Submission metadata](unified-metadata.json) | Title, author, abstract, public URLs and actual declaration status |
 | [Plain-text abstract](unified-abstract.txt), [BibTeX](unified-citation.bib) | Form-ready abstract and preprint citation without invented journal or DOI fields |
 | [Build record](../results/unified-paper-build.json) | Compiler versions, file hashes, counts and artifact consistency |
-| [Proof and source continuity](../results/publication-v1.2.0-audit.json) | Retained C3 artifacts and unchanged Lean sources |
+| [Proof and source continuity](../results/publication-v1.3.0-audit.json) | Retained C3 artifacts and unchanged Lean sources |
 
 The [eight-destination distribution plan](DISTRIBUTION-PLAN.md) distinguishes journal review, preprint
 hosting, discovery, author identity and preservation. Google Scholar and OpenAIRE require observed

@@ -1,6 +1,9 @@
 # Addendum: the binary completion minima of the two C3 carriers differ
 
-**Status.** Proposed addition for the next revision of the combined paper
+**Folded into the combined paper, version 1.3.0 (10 November 2026), Section 8.5 (Corollary 16).** This file keeps
+the result as first stated.
+
+**Status.** Originally proposed addition for the next revision of the combined paper
 ([paper/unified-contextuality.md](../paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
 artifacts are not changed by this file. The result was obtained on 9 November 2026 by the Claude
 (Anthropic) line of work, under the direction of Alexander S. Donahue, 0thernes LLC, while Section 8 of

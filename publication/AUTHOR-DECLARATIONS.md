@@ -102,3 +102,12 @@ questions, corrections and sources as the work is performed.
 6. Record substantive revisions or a reasoned critical assessment, then assess the journal's
    authorship requirements truthfully. Obtaining a qualified human review can help; it must not be
    represented as work the named author performed or automatically confer authorship on anyone.
+
+## Version 1.3.0 (10 November 2026)
+
+The author directed the assistant to continue, to fold the new results recorded in the addenda into
+the combined paper, and to publish it. The declarations above were recorded for v1.2.0; the funding and
+competing-interest text prepared above is used in Section 13 of v1.3.0. No separate author review or
+approval of the v1.3.0 text, and no new arXiv, journal or Zenodo declaration, is recorded. The
+assessment limits stated above apply unchanged: the new results are AI-originated, Theorem 19 relies
+on two structure theorems of an unreviewed preprint, and only case C3 of it is proved in Lean.

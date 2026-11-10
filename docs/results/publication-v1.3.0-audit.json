@@ -1,0 +1,388 @@
+{
+  "status": "pass",
+  "verification_kind": "Documentation-release continuity, not a new Lean compilation",
+  "documentation_version": "1.3.0",
+  "research_version": "0.2.0-c3-certificate",
+  "research_commit": "d3811e3b53048fa8f3206f08494f0a9834eed287",
+  "paper_pdf_sha256": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
+  "proof_configuration_files_unchanged": 21,
+  "retained_artifacts_checked": 83,
+  "c3_audited_declarations_in_retained_report": 42,
+  "author": "Alexander S. Donahue",
+  "affiliation": "0thernes LLC",
+  "author_supplied_orcid": "https://orcid.org/0009-0006-8168-9648",
+  "license_and_notice_unchanged": true,
+  "successful_linux_proof_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42728421086",
+  "saturation_ci_commit": "87f08a0fb5007c8529abc13eabeec093027c0eba",
+  "saturation_ci_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638912",
+  "saturation_and_shared_lean_files_unchanged": 28,
+  "saturation_audited_declarations": 14,
+  "saturation_source_lf_sha256": {
+    "lean/C3Verification.lean": "c5be078b258fcf577fb78cc3334bfc299813ce5d6cad811dddb8c8a9d7ef2cba",
+    "lean/HoggarBound.lean": "c31d579a4554d94a5f27614e4639f37d541c2584563683dd2ca10205a1fb9741",
+    "lean/HoggarBound/Bound.lean": "8937ca5e9b112ba855d39e5334b3ef1e68dbd728f0d2b7347743691f9dc7d07a",
+    "lean/HoggarBound/C3Certificate.lean": "5c52678a7450bf8acfbff90abef85ee62727a15f9a3a758efd476ef34f685842",
+    "lean/HoggarBound/C3Data.lean": "cd7fd590e1b5e7ba747fbdc966c77e3879db3251a204ff9eb4b2b946601d4476",
+    "lean/HoggarBound/C3Geometry.lean": "692df9385ee625a2edee35d6cb7d4dc6a57b4547c4b30e7bdf9d32494d19f7ea",
+    "lean/HoggarBound/C3Spectra.lean": "42e302aa4b3eca2ca61d11ff73703e49ba5e0ae27d3136c1d19f07a8ec270b1c",
+    "lean/HoggarBound/C3Theorem.lean": "77201cec43172d4cb46ad8507a33738afb24625cb65b67ed9a2cead47919138b",
+    "lean/HoggarBound/Corollaries.lean": "1a18fc4b16b6eb20c524dbcd89904955141434920246f9f35fabfbf81446402f",
+    "lean/HoggarBound/Counting.lean": "7e1b127e0a09557dd16c80e3d70966477665439dcc13fecd6e9d573a0915d2a0",
+    "lean/HoggarBound/FlatData.lean": "c548a8a68bcdd5d7e42d4eda5c6695dcafe84b9887651e4c21f40af8fcd83cb4",
+    "lean/HoggarBound/IndependentContexts.lean": "46d58e06b36d761847574cfb538639b3dd6249ebb63543d68c4865bba6054546",
+    "lean/HoggarBound/IndependentWitness.lean": "6430f423cf3f64a88a571c9bd4a9f00206a01c15af8eb552fb7be04ad981eb3d",
+    "lean/HoggarBound/MaskConfig.lean": "50fc3332d62e522d15bec2dc1ab667a9321ccefd266d4b52f49cfbba13e86682",
+    "lean/HoggarBound/Moment.lean": "a18cb0f230b492a23440b0a1aec6f09ec7faf74c72b0c2d2ca9afa22eb496f8f",
+    "lean/HoggarBound/Pauli.lean": "a6da704ff5b73ce5786746067f15cd2387ec94936921cebac6717956f9069e82",
+    "lean/HoggarBound/PhaseData.lean": "2c55163ba87c4890eadddc09b03a03f7672e56c7c9645439f1a001ecfca6874a",
+    "lean/HoggarBound/Quadric.lean": "395b9302a6de20d3c5c055fa1e5600e6cc27c116e729bf14f0493c9cf2377d31",
+    "lean/HoggarBound/Saturated.lean": "4395b5caaebdccd7a413141b28a914ed7d6521f7a301f5e2242ef0974147af5c",
+    "lean/HoggarBound/SaturatedFive.lean": "a0c318f3c213d904118e7db021408c10085dbbf6fb6cd01773f8531bb07292c0",
+    "lean/HoggarBound/SaturatedPhaseFive.lean": "f27b106201d6d13331d3b36e41c4ac320367dc0a3d74054b5bac2f3fc2e8ea54",
+    "lean/HoggarBound/Stability.lean": "ad6c73dbefd20e1e51b2c8eea2eeae46db06c90c087213b8646548c6c9feff7a",
+    "lean/IndependentVerification.lean": "1afcbf1551d1a9a3017f434d0d6af7950b4a1b244857634680502d4d92a21721",
+    "lean/SaturatedVerification.lean": "6ebe69584c5cbeea20905a5cff1274cf9c94914734f9a37df5ea62f242bbd461",
+    "lean/StabilityVerification.lean": "42596cd8c494aabb14e459d3c15f63fcc3b0ddd2808c0962c26061b1c13b1099",
+    "lean/lake-manifest.json": "ca3bad5830d78d2c42add82578677369c1b494863c37dc19448ca0ee8067a480",
+    "lean/lakefile.toml": "78d3303ad998ec1a2d573a6516f189d01341b42c58a1df079da73eaee3b92407",
+    "lean/lean-toolchain": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c"
+  },
+  "seven_qubit_ci_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861",
+  "seven_qubit_audited_declarations": 13,
+  "c3_all_qubits_commit": "5dcea35",
+  "c3_all_qubits_audited_declarations": 74,
+  "checks": {
+    "LICENSE": {
+      "sha256": "073b8b260185aeffffd8f5a018d02f2634d7f28a009dd57365ec7828c1f88f4c",
+      "normalization": "LF"
+    },
+    "NOTICE": {
+      "sha256": "2209411a0522b09eabea1409cc36c93cd69b65da6981c6287cd1b66601b678ce",
+      "normalization": "LF"
+    },
+    "c3-lab/README.md": {
+      "sha256": "4d3ad119c4463eb6d70c92944ff93d168974f74d3fca756df234fae434fa31c9",
+      "normalization": "LF"
+    },
+    "c3-lab/app.js": {
+      "sha256": "3a5ad8600c7718557559e1d3fa7c2fcc87c2d8142546279b6f173fa098544cd8",
+      "normalization": "LF"
+    },
+    "c3-lab/index.html": {
+      "sha256": "940e77fcf3894224ba1fc8d62349eb2345055c6edc8c7e74c50d920df70fa11b",
+      "normalization": "LF"
+    },
+    "c3-lab/model.js": {
+      "sha256": "729f68597b8cff5253dbb462b49667ddc29656628010248a78e060494763c140",
+      "normalization": "LF"
+    },
+    "c3-lab/style.css": {
+      "sha256": "c7244ae30db256e18fdcbe3e701cc3f4eb2c81b71af70c876c8779b0464f3d8f",
+      "normalization": "LF"
+    },
+    "lean/C3Verification.lean": {
+      "sha256": "c5be078b258fcf577fb78cc3334bfc299813ce5d6cad811dddb8c8a9d7ef2cba",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound.lean": {
+      "sha256": "c31d579a4554d94a5f27614e4639f37d541c2584563683dd2ca10205a1fb9741",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/Bound.lean": {
+      "sha256": "8937ca5e9b112ba855d39e5334b3ef1e68dbd728f0d2b7347743691f9dc7d07a",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/C3Certificate.lean": {
+      "sha256": "5c52678a7450bf8acfbff90abef85ee62727a15f9a3a758efd476ef34f685842",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/C3Data.lean": {
+      "sha256": "cd7fd590e1b5e7ba747fbdc966c77e3879db3251a204ff9eb4b2b946601d4476",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/C3Geometry.lean": {
+      "sha256": "692df9385ee625a2edee35d6cb7d4dc6a57b4547c4b30e7bdf9d32494d19f7ea",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/C3Spectra.lean": {
+      "sha256": "42e302aa4b3eca2ca61d11ff73703e49ba5e0ae27d3136c1d19f07a8ec270b1c",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/C3Theorem.lean": {
+      "sha256": "77201cec43172d4cb46ad8507a33738afb24625cb65b67ed9a2cead47919138b",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/Corollaries.lean": {
+      "sha256": "1a18fc4b16b6eb20c524dbcd89904955141434920246f9f35fabfbf81446402f",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/Counting.lean": {
+      "sha256": "7e1b127e0a09557dd16c80e3d70966477665439dcc13fecd6e9d573a0915d2a0",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/IndependentContexts.lean": {
+      "sha256": "46d58e06b36d761847574cfb538639b3dd6249ebb63543d68c4865bba6054546",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/IndependentWitness.lean": {
+      "sha256": "6430f423cf3f64a88a571c9bd4a9f00206a01c15af8eb552fb7be04ad981eb3d",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/Moment.lean": {
+      "sha256": "a18cb0f230b492a23440b0a1aec6f09ec7faf74c72b0c2d2ca9afa22eb496f8f",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/Pauli.lean": {
+      "sha256": "a6da704ff5b73ce5786746067f15cd2387ec94936921cebac6717956f9069e82",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/Quadric.lean": {
+      "sha256": "395b9302a6de20d3c5c055fa1e5600e6cc27c116e729bf14f0493c9cf2377d31",
+      "normalization": "LF"
+    },
+    "lean/HoggarBound/Stability.lean": {
+      "sha256": "ad6c73dbefd20e1e51b2c8eea2eeae46db06c90c087213b8646548c6c9feff7a",
+      "normalization": "LF"
+    },
+    "lean/IndependentVerification.lean": {
+      "sha256": "1afcbf1551d1a9a3017f434d0d6af7950b4a1b244857634680502d4d92a21721",
+      "normalization": "LF"
+    },
+    "lean/StabilityVerification.lean": {
+      "sha256": "42596cd8c494aabb14e459d3c15f63fcc3b0ddd2808c0962c26061b1c13b1099",
+      "normalization": "LF"
+    },
+    "lean/lake-manifest.json": {
+      "sha256": "ca3bad5830d78d2c42add82578677369c1b494863c37dc19448ca0ee8067a480",
+      "normalization": "LF"
+    },
+    "lean/lakefile.toml": {
+      "sha256": "78d3303ad998ec1a2d573a6516f189d01341b42c58a1df079da73eaee3b92407",
+      "normalization": "LF"
+    },
+    "lean/lean-toolchain": {
+      "sha256": "ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c",
+      "normalization": "LF"
+    },
+    "paper/c3-citation.cff": {
+      "sha256": "f97effadcbb5859cf892e7cb67863699d2d55f3cb19f566a283c9728fa0aa234",
+      "normalization": "LF"
+    },
+    "paper/c3-figures/spectra.pdf": {
+      "sha256": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
+      "normalization": "raw"
+    },
+    "paper/c3-figures/spectra.png": {
+      "sha256": "ef35a8bf4d916a1c27c0e53db70009d8afb344ac9874eb7e66cc4f3ad5448137",
+      "normalization": "raw"
+    },
+    "paper/c3-figures/spectra.svg": {
+      "sha256": "8808a9a1ba66a52561a91954041727759ca23083af20543f30e13fdfd7f20c91",
+      "normalization": "LF"
+    },
+    "paper/c3-spectral-counterexample.html": {
+      "sha256": "88790fa9b41715984b232821067c79f55594f4b0a798dffb8c5011180dc44a30",
+      "normalization": "LF"
+    },
+    "paper/c3-spectral-counterexample.md": {
+      "sha256": "8f5f4827ce8c46a65cc3dd270a9386e094ca4f3379c14971ffe00985c0a8c018",
+      "normalization": "LF"
+    },
+    "paper/c3-spectral-counterexample.pdf": {
+      "sha256": "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836",
+      "normalization": "raw"
+    },
+    "paper/c3-spectral-counterexample.tex": {
+      "sha256": "9e6ca0f4b51ce3ec5bf25b32bfe335e8bc42f105c752fbaf7b085a40c70159c8",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-axioms.json": {
+      "sha256": "c858b98ffe8651e21273c42c627790a2545c2476d45cac3414d0abab01e133b9",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-browser.png": {
+      "sha256": "86cd6d60676e09aef402242575978e5d409f127636eb9ee8f76d4255529f236b",
+      "normalization": "raw"
+    },
+    "results/frontier-c3-certificate-audit.json": {
+      "sha256": "364d4d738673f5d22da0708348e64ed9efb57fa0f2c637eaeb56dc0108106e72",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-context-verification.json": {
+      "sha256": "dde1f39da608d94510d596a739c80b9b0e244d338a1a755754e6ac79b74c654d",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-eshkol-toolchain-probe.json": {
+      "sha256": "bf7f61bf9dfb6b84a6da525a50c749271eb8a58c8fcad33a65974dafd5270c6c",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-eshkol.json": {
+      "sha256": "1bda78b513b0dcf50a0b3d5cc8044b49d022de404f8f7ec2fdc1ea558871d61c",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-eshkol.log": {
+      "sha256": "9fc5cfa22dbbdcfa1a394b111daeb8bbac808e0bebec3c2240dd74136e56dd8e",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-integer-bounds.json": {
+      "sha256": "6bff2a09a381c223b61bc24e46cd17ef7cefe7023c99e37a4abd42611f4ae1e1",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-lean-audit.md": {
+      "sha256": "3c8555607edbce464650802c4341d495bb5c39bb2d5f7a60c4b7580d9efa9298",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-lean-axioms.log": {
+      "sha256": "e600bad36ecd5a45c17b65eec625d17b7c3556be255790478143b93137ae7921",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-lean-certificate-process.json": {
+      "sha256": "2674ad00305264d598193b36ce86a920c28b7232cbcecc2336fbf0e4c44009ac",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-lean-certificate.log": {
+      "sha256": "41c39d428a76f7e4c9cd40558ed3e6bec3026c650ae0423b9be52c77f83d215a",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-lean-geometry.log": {
+      "sha256": "473686a0a30440214d56856ac41f93435038f20b3bb8da6896eee1c3f3142a57",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-lean-source-sha256.json": {
+      "sha256": "18cb32be20e63ceb0c52226c7985e191948db3c459fb802b34bce0e4d9989c16",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-lean-spectra.log": {
+      "sha256": "7ee9e6b21a0d32c75a2e52d90f11f51fbbf00b281971de6518fdb508a58fdf52",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-lean-theorem.log": {
+      "sha256": "77a73dde195d955fc7b0ea6d2e77fceb86cabe33e2234246b303bec912e3fb18",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-n4-completions.json": {
+      "sha256": "90e5f0e98436e0fade2f614d63c787b1398dbdf13d584134189bebcf4b32ae64",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-n4-discovery.md": {
+      "sha256": "acd8c26874f454e6864ff600da8ef67d583a5f91077474f46df3ff00df517ba1",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-n4-pair.json": {
+      "sha256": "7dc917fe532e36698f2937be3f4e4b5ad29d2e540ae11cdcced4d148a843bb05",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-n4-similarity.json": {
+      "sha256": "b9cc5a51e94718573d71759cd20e2d901ad26f9d40b4e3a12c02274f529a5062",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-n4-verification.json": {
+      "sha256": "073144116290f32eaa113740eb7ae69f4e56803fde6c919cc1b2bb9aeca80837",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-n5-sparse-search.json": {
+      "sha256": "c0b4c9f85fa4f0ec3e5883d7f0b18f190cc51d7453a63617ca330144393a0813",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-optimized-rejection.json": {
+      "sha256": "8a7035ceb459565b19983b76979a2ba763bd4548a39a3f4b52a14b2423f96ecf",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-pair.json": {
+      "sha256": "a2947d93cefc95d9f6c3d5f912ce8d038a7b4afa17f3ea3c14d94dcd3e5344da",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-paper-build.json": {
+      "sha256": "2f8032acb489a12f04cc9cc8f0ab7a3dd15cf264a431234f67859846044fe748",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-paper-build.log": {
+      "sha256": "9c359964189d84d2e83d2b4ab80de36292ac0b911843226adca11f271762ee08",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-paper-review.md": {
+      "sha256": "c1707eb3099ea1d562af28dc0485f0a3a6d02f8c5aef90eac1041fcd5dca40da",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-paper-tex.log": {
+      "sha256": "391a21c01e369e5754c73948cf47e8b3bd2a638e9564f91665f4481f60f0355d",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-publication-readiness.md": {
+      "sha256": "4ae635b41b1a704777a4aa349b37c38c8d6bdf63c7645474290b065b3b57d14a",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-review.md": {
+      "sha256": "9ba5c1a7dd9fd5c04bb74fc77aeca6325612bffcee50536b4c55a41d12470528",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-search.log": {
+      "sha256": "861b75685eb19fbf9df88dd3c9276ff96ea8938b1d0aac4481b2e88b2c199d66",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-source-bundle-xelatex.json": {
+      "sha256": "a77b3ea7ebc61b777c0e56027e6807bcbf2c179d1e84c5fbb333e4b16656f4ef",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-spectra-check.json": {
+      "sha256": "8877fd9757331f31144f56b17c7abf43f12e8029209d00285acd5ebfc31c8437",
+      "normalization": "LF"
+    },
+    "results/frontier-c3-verify.log": {
+      "sha256": "073144116290f32eaa113740eb7ae69f4e56803fde6c919cc1b2bb9aeca80837",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_axioms.py": {
+      "sha256": "0ebfa8f98a182a3963a5363bf6264be66556a6cddf25354563235c7151047f5d",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_certificate_audit.py": {
+      "sha256": "c07e1cc5803cd9bfc7fb3fee567c67885f918c3cd17374803dbd1f4d7ca6f750",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_context_verify.py": {
+      "sha256": "709a44d5d7c31030bade33b230745c007dcb7b8b712a78ffc78aaf3a5339385e",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_demo.py": {
+      "sha256": "31d6a4968dc860b8ea1a2b1d2d81239f09b4cb333d58eda90ec024af1795e3ff",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_extend.py": {
+      "sha256": "247cd81b38716f81032c1f13a716601fc94608a98a648dcd0349ae3881f83734",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_figure.py": {
+      "sha256": "6eb83b23451dd4cfcc826fa52fcf350291aeb4464f89b235dfdd9d62b31175df",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_integer_bounds.py": {
+      "sha256": "3f1b79a2bcf7ac066ae142bda9dc2b8b0d6906859a1bb22f18f2502db17f8202",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_paper_build.py": {
+      "sha256": "ed9f667f88561f1a9cf630f0c189a0c9fe9fb63f1e82be8818ca04fcad6f7d59",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_search.py": {
+      "sha256": "9289384ded7459f71fc6b4221b0741ae9967de57bff5342cf51bb985b71f7597",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_similarity.py": {
+      "sha256": "2879ec00551065c49eacb786cc015a00d6e6103da74462abbce4fbf8540ad59c",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_sparse_family.py": {
+      "sha256": "361f5b683d31b8dc61d9c4468db145fca708f24f80aa4c6b82d6be25013ee622",
+      "normalization": "LF"
+    },
+    "scripts/frontier_c3_verify.py": {
+      "sha256": "b8cb1edf6847508426092df2994d97c5b2131db1ddab00d832ee6e8e935df564",
+      "normalization": "LF"
+    },
+    "tests/frontier_c3_browser_test.cjs": {
+      "sha256": "8eed3cae40f04d5417d6b1e68fb70758c09dfd75b3f8062ba0ef188d528679b4",
+      "normalization": "LF"
+    }
+  }
+}

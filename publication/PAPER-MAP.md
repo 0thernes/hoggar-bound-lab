@@ -4,7 +4,7 @@ The author requested **one combined paper**, published as research-preprint vers
 
 The combined manuscript connects the spectral floor and configurations attaining it with the information that a carrier spectrum fails to retain about a completion. Its source and document package are published in [release v1.2.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0), commit `3073955de6e261ecdbcc3fc739615d9df48caf0b`, with the [public combined paper](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html). ORCID linkage and both preservation services have been verified. This page does not claim a DOI, arXiv submission, journal submission or external peer review. [Publication status](STATUS.md) records actual milestones.
 
-The new canonical work is **Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate**:
+The current canonical work is version **1.3.0** (10 November 2026), **Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E**, which folds the four addenda in this folder into the paper published as version 1.2.0 under the title *Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate*. Release v1.2.0 and its files remain unchanged:
 
 - [Combined source](../paper/unified-contextuality.md), [HTML](../paper/unified-contextuality.html) and [PDF](../paper/unified-contextuality.pdf).
 - [Combined submission guide](UNIFIED-SUBMISSION.md), [BibTeX citation](unified-citation.bib) and [plain-text abstract](unified-abstract.txt).

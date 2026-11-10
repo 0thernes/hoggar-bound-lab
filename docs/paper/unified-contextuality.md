@@ -1,40 +1,43 @@
-# Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate
+# Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E
 
-**A general Lean 4 bound, configurations that attain it, and an exact limit on spectral information in a completion problem**
+**A general Lean 4 bound, configurations that attain it, and cospectral sign carriers with different completion spectra in every vertex case**
 
 Alexander S. Donahue, 0thernes LLC, Washington, USA. ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648). Correspondence: 0_0@0thernes.art<br>
-Hoggar Bound Lab, version 1.2.0, 9 November 2026. Research preprint. Not peer reviewed.<br>
+Hoggar Bound Lab, version 1.3.0, 10 November 2026. Research preprint. Not peer reviewed.<br>
 Research and manuscript preparation used Claude (Anthropic) and OpenAI Codex agents under the author's direction; see Section 13.
 
 > **Prior work and scope.** The spectral floor and its saturation in the three classical families are
-> due to Jonah [J2] and the works identified in Section 1.2. The C3 completion question, its Jordan
-> representation and Conjecture E are due to Jonah [J3]. This paper combines a formalization and
-> exact configurations attaining the floor with a four-qubit certificate establishing one instance
-> of the failure predicted by Conjecture E. The certificate does not invalidate the spectral floor.
+> due to Jonah [J2] and the works identified in Section 1.2. The completion question, the strict law,
+> the classification into sixteen hyperplane cases, the block structure of the carrier, the Jordan
+> representation of the completion, the cone lift and Conjecture E are due to Jonah [J3]. This paper
+> combines a formalization and exact configurations attaining the floor with explicit sign carriers
+> that prove Conjecture E in all nine vertex cases. Case C3 is proved in Lean for every number of
+> qubits; the other eight cases are proved on paper, using two structure theorems of [J3], and checked
+> by exact computation. None of this invalidates the spectral floor.
 
 ## Abstract
 
 Spectral methods give rigorous bounds on Pauli contextuality, but a spectrum need not retain the
-information required by a related completion problem. We study both aspects in a common setting.
+information required by a related completion problem.
 For $N$ qubits, $D=2^N$, and an arbitrary set $S$ of nonidentity Pauli observables, a Lean 4 development
 proves Jonah's spectral floor: satisfied minus violated commuting triples is at most
 $(D-2)|S|^{3/2}/(6\sqrt{D-1})$. Saturating configurations outside the classical families have exact
 contextuality degrees 75 on 135 four-qubit observables, 480 on 496 five-qubit observables, and 729344
-on 8128 seven-qubit observables. The first two degrees have kernel-checked counts; the seven-qubit
-counts are executable exact computations. We relate saturation to pure states with a single nonzero
-Pauli modulus, two-character sets and flat phase states, including an exhaustive classification of
-the specified third-level phase-state family through five qubits.
+on 8128 seven-qubit observables; all three degrees are proved in Lean with kernel-checked counts. We
+relate saturation to pure states with a single nonzero Pauli modulus, two-character sets and flat
+phase states, and classify a specified third-level phase-state family through five qubits.
 
-We then exhibit two sign assignments on a 71-point section of the real four-qubit configuration.
-Their $16\times16$ Pauli carriers are cospectral, but their $64\times64$ completion operators have
-cubic traces 14976 and 15360. This establishes the four-qubit C3 instance of Jonah's Conjecture E:
-the carrier spectrum alone does not determine the completion spectrum. A block certificate explains
-the information loss. The largest completion eigenvalues differ by two, and the associated spherical
-relaxations differ by 32; these are not statements about exact binary completion optima. Lean checks
-carrier cospectrality and completion noncospectrality in the actual Pauli model, while the printed
-factorizations and relaxation gaps remain algebraic results outside that formal scope. Independent
-exact verifiers, falsification controls and Tsotchke software demonstrations accompany the paper.
-The work is AI-assisted and is neither externally peer reviewed nor a quantum-hardware experiment.
+We then turn to Jonah's strict law: does the spectrum of a sign carrier on a hyperplane section
+determine the spectrum of the completion operator on the remaining observables? Two sign assignments
+on a 71-point section of the real four-qubit configuration have cospectral $16\times16$ carriers, but
+their $64\times64$ completion operators have cubic traces 14976 and 15360, and their exact binary
+completion minima differ. A graph construction extends this to every $N\ge4$, with cubic traces that
+differ by $`\tfrac32\,8^{N-1}`$; Lean proves this case, C3, for every $N\ge4$ in the actual Pauli model.
+Variants over the real, complex and quaternionic numbers and a pair swap for cones give such carriers
+in all nine vertex cases for every $N\ge4$, proving Jonah's Conjecture E. Outside case C3 the proof uses two structure theorems of Jonah and is
+checked by exact computation up to five qubits. Independent exact verifiers, falsification controls
+and Tsotchke software demonstrations accompany the paper. The work is AI-assisted and is neither
+externally peer reviewed nor a quantum-hardware experiment.
 
 ## 1. Scope and common question
 
@@ -47,10 +50,10 @@ moment gives a lower bound on contextuality; special states turn the bound into 
 A different use of spectral information arises when the assignment is fixed only on a hyperplane
 section. Completing it on the remaining observables gives a quadratic optimization governed by a
 second operator. Does the spectrum of the fixed section determine the spectrum of this completion
-operator? The four-qubit example below shows that it need not: the section spectrum can forget which
-eigenvalues belong to the two eigenspaces of a distinguished Pauli. The completion depends on that
-partition. Thus a sharp global bound and a failure of spectral reconstruction coexist without
-contradiction.
+operator? The examples below show that it need not, in every vertex case of Jonah's classification
+and for every number of qubits from four on: the section spectrum can forget which eigenvalues belong
+to the eigenspaces of a distinguished Pauli. The completion depends on that partition. Thus a sharp
+global bound and a failure of spectral reconstruction coexist without contradiction.
 
 ### 1.1 Contributions and verification levels
 
@@ -63,19 +66,25 @@ the extension of its application to arbitrary supports are the contributions con
 
 Section 5 gives exact configurations outside the classical families. The four-qubit pivot support
 $S_B$ has 135 points, 1095 contexts and degree 75; the five-qubit support $S_5$ has 496 points, 10880
-contexts and degree 480. These degree statements, including their finite counts and witnesses, are
-proved in Lean. Their interpretation as Pauli supports of particular states is checked separately by
-exact programs. The seven-qubit circuit support has 8128 points, 2824192 contexts and degree 729344;
-its finite counts are not kernel-checked. The saturation criterion, quantum-metric interpretation,
-two-character-set result and classification of specified flat phase states are mathematical and
-executable results with the boundaries stated in Section 9.
+contexts and degree 480. The seven-qubit circuit support has 8128 points, 2824192 contexts and degree
+729344. These three degree statements, including their finite counts and witnesses, are proved in
+Lean; the seven-qubit counts are double sums with $2^{28}$ terms, evaluated by the kernel on packed
+sets of codes. Their interpretation as Pauli supports of particular states is checked separately by
+exact programs. The saturation criterion, quantum-metric interpretation, two-character-set result
+and classification of specified flat phase states are mathematical and executable results with the
+boundaries stated in Section 9.
 
-Section 8 supplies a fully specified four-qubit C3 certificate. Two assignments on the 71-point
-section of the real quadric have equal carrier spectra and different completion spectra. It proves
-the $N=4$ C3 instance of the failure predicted by Conjecture E [J3], rather than refuting that
-conjecture. Lean checks the actual Pauli and signed-context interpretation, not merely an isolated
-pair of matrices. The polynomial factorizations and the gaps of two and 32 are independently checked
-algebraic consequences, outside the 42-declaration C3 audit.
+Section 8 concerns Jonah's strict law and Conjecture E [J3]. It first supplies a fully specified
+four-qubit C3 certificate: two assignments on the 71-point section of the real quadric have equal
+carrier spectra, different completion spectra (Theorem 14) and different exact binary completion
+minima (Corollary 16). Lean checks the actual Pauli and signed-context interpretation, not merely an
+isolated pair of matrices. It then gives an explicit family of such pairs for every $N\ge4$, built from
+graphs with one edge for each nonzero difference (Theorem 17); its Lean statement
+`c3_strict_law_fails_general` is about the same Pauli matrices, real quadric and context signs as the
+floor. By a lifting lemma of [J3] this also settles case C11 (Corollary 18). Finally, variants of the
+construction prove Conjecture E in all nine vertex cases (Theorem 19). That proof is on paper outside
+case C3, uses Theorems A and B3 of [J3], and is checked by exact computation on the complete
+configurations for three, four and five qubits.
 
 The two 135-point configurations must be distinguished. The pivot support $S_B$ is not a quadric and
 has 1095 contexts and degree 75. The C3 ambient configuration is the real quadric $Q^+(7,2)$, with
@@ -129,13 +138,19 @@ were not rerun. The assignments found in this project are consistent with those 
 external computer-assisted claims.
 
 For completion spectra, [J3] gives the strict-law question, its Jordan representation, the case table
-and Conjecture E. Its inspected v0.5 reports the three-qubit C3 phenomenon but leaves C3 for
-$N\ge4$ open. Section 8 addresses $N=4$. The C3 literature check examined that primary PDF and
-related deposits, and searched for the named conjecture and higher-dimensional C3 examples. No
-additional primary $N\ge4$ example was identified in that bounded search. This is a qualitative
-comparison of evidence, not a statistical meta-analysis or a guarantee of historical priority.
-The source manuscript is dated 20 October 2026, its deposit is dated 21 October, and its latest-version
-endpoint returned v0.5 when inspected on 9 November.
+and Conjecture E. Its inspected v0.5 proves the conjecture for C1 and C6 by a computer-assisted base
+case and a lifting lemma, reports exact pairs for several other cases at four and five qubits, finds
+the strict law true for all sign carriers in C5, C8, C12, C14 and C15 at three qubits, reports the
+three-qubit C3 phenomenon, and leaves C3 for $N\ge4$ open after random searches at four and five
+qubits found no pair. Section 8 addresses $N=4$ and then every vertex case. The literature check
+read that primary PDF in full, examined related deposits, and on 10 November 2026 ran 54 queries on
+Zenodo, arXiv, OpenAlex, DataCite, GitHub and the open web for the conjecture, case C3, the graph
+construction of Section 8.6 and the numbers of its tables. No other treatment of case C3 for $N\ge4$,
+or of Conjecture E, was identified in that bounded search. This is a qualitative comparison of evidence,
+not a statistical meta-analysis or a guarantee of historical priority; unpublished work, in
+particular by the author of [J3], cannot be excluded. The source manuscript is dated 20 October 2026,
+its deposit is dated 21 October, and its latest-version endpoint returned v0.5 when inspected on 9
+and 10 November.
 
 ## 2. Setting
 
@@ -642,8 +657,10 @@ and let $S_7$ be its Pauli support.
 4. For each of the ten other types of $B$ (alternating of rank 0, 2 or 4; not alternating, of rank 1
    to 7) we tested $3 \times 10^8$ random forms; none has constant rank.
 
-*Proof.* Item 1 and the counts of item 2 are finite computations in $\mathbb{Z}[i]$, made by three
-programs that share no code (Section 11). The lower bound is Theorem 1 with $|S| = 8128$, $D = 128$:
+*Proof.* Item 1 is a finite computation in $\mathbb{Z}[i]$, made by three programs that share no code
+(Section 11). The number of contexts and the degree of item 2 are the Lean theorems `phase7_contexts`
+and `phase7_degree` (Section 9.1); the other numbers of item 2 are computed by the same three
+programs. The lower bound is Theorem 1 with $|S| = 8128$, $D = 128$:
 $`\beta \le 126 \cdot 8128 \cdot 1016/(6\cdot 127) = 1\,365\,504 = 2\,824\,192 - 2 \cdot 729\,344`$. For item 3,
 choose a basis in which $e_6$ spans the radical of $B$ and $e_0,\dots,e_5$ is a symplectic basis of a
 complement. Every form of $\mathcal{F}$ is then the third difference of
@@ -790,11 +807,19 @@ spectra of the corresponding completion operators within a specified class [J3].
 whose coefficients all belong to $`\{-1,+1\}`$, impose a stronger admissibility requirement than general
 real carriers: a construction using zero coefficients need not answer the sign-carrier question.
 
-Case C3 in [J3] is a hyperbolic quadric cut by a hyperplane whose polar point lies on the quadric.
-Conjecture E predicts failure of the strict law on sign carriers in every vertex case for $N\ge4$.
-The inspected source leaves this C3 range open. We give two admissible carriers at $N=4$ and prove
-the predicted failure. This concerns the information in the entire carrier spectrum, even when its
-eigenvalues are known exactly; it leaves the spectral floor of Section 3 valid.
+[J3, Theorem B4] lists sixteen hyperplane cases. Nine of them have a section with a vertex: C1, C3,
+C5, C6, C8, C11, C12, C14 and C15. For real carriers the strict law fails in all nine
+[J3, Theorem B2]; for sign carriers [J3] proves failure in C1 and C6 and states:
+
+> **Conjecture E** [J3, Section 6]. On sign carriers the strict law fails in every vertex case for every $N\ge4$.
+
+Case C3 is a hyperbolic quadric cut by a hyperplane whose polar point lies on the quadric; the
+inspected source leaves it open for $N\ge4$. We first give two admissible carriers at $N=4$ and prove
+the predicted failure there (Sections 8.2 to 8.5). Section 8.6 gives a family for every $N\ge4$, and
+Section 8.7 constructions for all nine vertex cases, which prove the conjecture. This concerns the
+information in the entire carrier spectrum, even when its eigenvalues are known exactly; it leaves
+the spectral floor of Section 3 valid. Case names C1 to C15 are those of [J3]; the equation tags
+(C1) to (C12) refer to the four-qubit certificate, and (E1) to (E12) to Sections 8.6 and 8.7.
 
 ### 8.2 Geometry and two complete witnesses
 
@@ -983,7 +1008,7 @@ For $`\sigma_0`$, $r=35$, so these traces are 1128 and 8; for $`\sigma_1`$, $r=3
 Equal spectra would have equal cubic traces. Their difference of 384 proves (C3) and the spectral
 conclusion without numerical diagonalization. $\qquad\blacksquare$
 
-### 8.5 Consequence for the continuous completion bound
+### 8.5 Consequences for the completion optima
 
 **Corollary 15.** The largest completion eigenvalues differ by exactly two:
 
@@ -1008,8 +1033,37 @@ On the continuous sphere $y^{\mathsf T}y=64$, equation (C1) has minimum
 ```
 
 This relaxed minimum is 32 lower for $`\sigma_1`$ than for $`\sigma_0`$. The binary minimum is bounded
-below by the spherical one; a binary vector need not be a top eigenvector. The corollary therefore
-does not prove a difference of 32, or any difference, between exact binary completion minima.
+below by the spherical one; a binary vector need not be a top eigenvector. Corollary 15 alone
+therefore does not prove a difference of 32, or any difference, between exact binary completion
+minima. A finer enclosure of $\rho$ and one explicit completion do.
+
+**Corollary 16 (the binary completion minima differ).** Every completion of $`\sigma_0`$ violates at
+least 347 of the 1120 outside lines, every completion of $`\sigma_1`$ violates at least 315 of them, and
+some completion of $`\sigma_1`$ violates exactly 344. Hence
+
+```math
+\min_y F(\sigma_1,y)\;\le\;344\;<\;347\;\le\;\min_y F(\sigma_0,y).
+\tag{C12}
+```
+
+*Proof.* By (C11) and Corollary 15 the two lower bounds are $560-8(\rho-1)=568-8\rho$ and
+$560-8(\rho+3)=536-8\rho$. The polynomial $g$ is increasing from 25 on, and
+
+```math
+g\!\left(\tfrac{221}{8}\right)=-\tfrac{25539}{512}\;<\;0\;<\;\tfrac{3067}{64}=g\!\left(\tfrac{111}{4}\right),
+```
+
+so $221/8\lt\rho\lt111/4$, hence $346\lt568-8\rho\lt347$ and $314\lt536-8\rho\lt315$. The number of
+violated lines is an integer, which gives the two lower bounds. For the upper bound let $y$ be $-1$ at
+the 30 outside labels listed in Appendix B and $+1$ at the other 34; counting the 1120 outside lines
+one by one gives 344 violated lines, equivalently $`y^{\mathsf T}\Lambda_{\sigma_1}y=864`$.
+$\qquad\blacksquare$
+
+Simulated annealing with 6000 restarts found a completion of $`\sigma_0`$ violating 368 outside lines
+(also listed in Appendix B). The two exact minima therefore lie in $[347,368]$ and $[315,344]$; the
+upper ends are search results, not proved optima. `scripts/cospectral_pair.py` (30 checks) rebuilds
+the configuration, both carriers, both degree-64 completion polynomials, the enclosure of $\rho$ and
+both witnesses in exact arithmetic, without code shared with the C3 programs of Section 11.2.
 
 ![Figure 3](c3-figures/spectra.png)
 
@@ -1023,11 +1077,358 @@ is `results/unified-section-score.json`. Flipping label 1 of the first assignmen
 to 147 and its score to 161, furnishing a negative control. This section-score observation is a
 derived and executable check, not an additional specialized Lean theorem.
 
+### 8.6 Case C3 for every number of qubits
+
+Let $N\ge3$, $m=N-1$ and $k=2^m$. Let $\mathcal Q=Q^+(2N-1,2)$ be the set of real nonidentity $N$-qubit
+Pauli observables, $`p_\star=Z\otimes I_k`$, $H$ the section (the points of $\mathcal Q$ that commute with
+$`p_\star`$) and $O=\mathcal Q\setminus H$. With $R$ the set of real nonidentity $m$-qubit Pauli observables,
+$|R|=(k-1)(k+2)/2$,
+
+```math
+H=\{p_\star\}\cup\{I\otimes P,\;Z\otimes P:P\in R\},\qquad |H|=1+(k-1)(k+2),\qquad |O|=k^2.
+\tag{E1}
+```
+
+Carrier operators and completion matrices are defined as in Section 8.2. On $m$ qubits write vectors of
+$`\mathbb F_2^m`$ as integers, $a\cdot c$ for the number of common bits, $`P_{a,c}=i^{\,a\cdot c}X^aZ^c`$ for
+$a\cdot c$ even, and $`X^aZ^c|b\rangle=(-1)^{c\cdot b}|b+a\rangle`$.
+
+**Carriers from graphs.** Choose a vertex $`t\in\mathbb F_2^m`$ and, for every nonzero $`a\in\mathbb F_2^m`$, a
+vertex $u_a$. The graph $G$ on $`\mathbb F_2^m`$ has the $k-1$ edges $`\{u_a,u_a+a\}`$, one for each nonzero
+difference. Define signs on $R$ by
+
+```math
+\varepsilon(P_{a,c})=(-1)^{c\cdot u_a}(-1)^{(a\cdot c)/2}\quad(a\neq0),\qquad
+\varepsilon(P_{0,c})=(-1)^{c\cdot t}.
+\tag{E2}
+```
+
+They depend only on the edges, because $c\cdot a$ is even. Let $F$ be a union of connected components
+of $G$ not containing $t$. The carrier $\sigma$ has $`\sigma(p_\star)=1`$ and
+$\sigma(I\otimes P)=\sigma(Z\otimes P)=\varepsilon(P)$ for $P\in R$; the carrier $\tau$ agrees with $\sigma$
+except that $`\tau(Z\otimes P_{a,c})=-\varepsilon(P_{a,c})`$ whenever $a$ is the difference of an edge of $F$.
+
+**Theorem 17 (case C3, every number of qubits).** For $N\ge4$ take $u_1=0$, $u_2=u_3=4$, $u_a=2$ for
+$a\ge4$, $t=2$ and $`F=\{\{0,1\}\}`$. Then $A_\sigma$ and $A_\tau$ have the same characteristic polynomial and
+
+```math
+\operatorname{tr}\Lambda_\sigma^3-\operatorname{tr}\Lambda_\tau^3=-\tfrac32\,k^3=-\tfrac32\,8^{N-1}.
+\tag{E3}
+```
+
+So the completion spectra differ, and the strict law fails for sign carriers in case C3 for every
+$N\ge4$. The two carriers differ exactly at the $k/2$ points $Z\otimes W\otimes X$ with
+$`W\in\{I,Z\}^{\otimes(N-2)}`$.
+
+The edge $`\{0,1\}`$ is a component, because the other edges $`\{4,6\}`$, $`\{4,7\}`$ and $`\{2,2+a\}`$ with
+$a\ge4$ avoid the vertices 0 and 1. On the direction $a=1$ the condition $a\cdot c$ even means that bit
+zero of $c$ vanishes, so $`P_{1,c}=W\otimes X`$ and $\varepsilon=+1$ there.
+
+*Proof.* (i) *Blocks.* Every $P_s$ with $s\in H$ commutes with $`P_{p_\star}`$, so $A_\sigma=C_\sigma\oplus D_\sigma$ on
+the two eigenspaces of $`P_{p_\star}`$, with
+
+```math
+C_\sigma=\sigma(p_\star)I+\sum_{P\in R}\bigl(\sigma(I\otimes P)+\sigma(Z\otimes P)\bigr)P,\qquad
+D_\sigma=-\sigma(p_\star)I+\sum_{P\in R}\bigl(\sigma(I\otimes P)-\sigma(Z\otimes P)\bigr)P,
+```
+
+as in (C4) and [J3, Theorem B3]. Each $P\in R$ lies in exactly one block, with coefficient $\pm2$.
+
+(ii) *Character sums.* Since $`\varepsilon(P_{a,c})P_{a,c}=(-1)^{c\cdot u_a}X^aZ^c`$, and the vectors $c$ with
+$a\cdot c$ even form the hyperplane orthogonal to $a$,
+
+```math
+\sum_{c\,:\,a\cdot c\text{ even}}(-1)^{c\cdot u_a}X^aZ^c=\tfrac k2\bigl(|u_a+a\rangle\langle u_a|+|u_a\rangle\langle u_a+a|\bigr)\quad(a\neq0),
+\qquad\sum_{c\neq0}(-1)^{c\cdot t}Z^c=k\,|t\rangle\langle t|-I.
+\tag{E4}
+```
+
+The first sum sends $|b\rangle$ to $`\sum_c(-1)^{c\cdot(u_a+b)}|b+a\rangle`$, and a character summed over a
+hyperplane gives $k/2$ if it is trivial there, that is if $`b+u_a\in\{0,a\}`$, and $0$ otherwise.
+
+(iii) *The blocks are graphs.* With $\operatorname{Adj}$ the adjacency matrix, (i) and (ii) give
+
+```math
+\begin{aligned}
+C_\sigma&=-I+2k\,|t\rangle\langle t|+k\operatorname{Adj}(G),&D_\sigma&=-I,\\ C_\tau&=-I+2k\,|t\rangle\langle t|+k\operatorname{Adj}(G-F),&D_\tau&=-I+k\operatorname{Adj}(F).
+\end{aligned}
+\tag{E5}
+```
+
+(iv) *Equal carrier spectra.* Let $V_2$ be the vertex set of the components in $F$ and $V_1$ its
+complement, which contains $t$. Then $2|t\rangle\langle t|+\operatorname{Adj}(G)=M_1\oplus M_2$ with $M_1$
+supported on $V_1$ and $M_2=\operatorname{Adj}(F)$ on $V_2$. In units of $k$ and after adding $I$, the pair of
+blocks is $`(M_1\oplus M_2,\,0)`$ for $\sigma$ and $`(M_1\oplus0,\,0\oplus M_2)`$ for $\tau$. Both have the union of
+spectra $`\operatorname{spec}M_1\uplus\operatorname{spec}M_2\uplus\{0^{\,k}\}`$.
+
+(v) *The completion.* An outside observable anticommutes with $`P_{p_\star}`$, so it is off-diagonal with a
+real $k\times k$ block $M_p$, and the $k^2$ blocks $M_p$ are a basis of the real $k\times k$ matrices. A
+section point $s$ commuting with $p\in O$ gives exactly one outside context $`\{s,p,q\}`$ with
+$`P_sP_p=s_\ell P_q`$, every such context arises once, and $`p_\star`$ commutes with no outside point. As in
+(C6) and [J3, Theorem A], $\Lambda_\sigma$ is therefore the matrix of $M\mapsto\frac12(C_\sigma M+MD_\sigma)$ in the
+basis of the $M_p$. Its eigenvalues are $\frac12(c_i+d_j)$, so
+
+```math
+\operatorname{tr}\Lambda_\sigma^3=\tfrac18\bigl(k\operatorname{tr}C_\sigma^3+3\operatorname{tr}C_\sigma^2\operatorname{tr}D_\sigma
++3\operatorname{tr}C_\sigma\operatorname{tr}D_\sigma^2+k\operatorname{tr}D_\sigma^3\bigr).
+\tag{E6}
+```
+
+(vi) *The difference.* For both carriers $\operatorname{tr}C=k$ and $\operatorname{tr}D=-k$, and
+$`\operatorname{tr}C^3+\operatorname{tr}D^3=\operatorname{tr}A^3`$ is common by (iv). Pauli orthogonality gives
+$`\operatorname{tr}C^2=k+4k\,r_C`$ and $`\operatorname{tr}D^2=k+4k\,r_D`$, where $r_C$ and $r_D$ count the
+observables of $R$ carried by each block and $r_C+r_D=|R|$. Hence, for every sign carrier with
+$`\sigma(p_\star)=1`$,
+
+```math
+\operatorname{tr}\Lambda_\sigma^3=\tfrac k8\operatorname{tr}A_\sigma^3-\tfrac32\,k^2|R|+3k^2\,r_D(\sigma),
+\tag{E7}
+```
+
+and two cospectral such carriers have completion cubic traces that differ by
+$3k^2\bigl(r_D(\sigma)-r_D(\tau)\bigr)$. Here $r_D(\sigma)=0$ and $r_D(\tau)=k/2$. $\qquad\blacksquare$
+
+Equation (E7) is the form of (C8) and (C9) for every $N$. The use of a cubic trace to separate
+completion spectra is that of [J3, Lemma D (D1)], which treats cases C1 and C6.
+
+**Corollary 18 (case C11).** The strict law fails for sign carriers in case C11 for every $N\ge4$.
+
+*Proof.* The cone lift [J3, Lemma D (D2)] turns a pair refuting the strict law in case C3 on $N$
+qubits into such a pair in case C11 on $N+1$ qubits: add a qubit, let $e$ be $Z$ on it, keep the polar
+point, give $e$ the value $+1$, and give $s$ and $e+s$ the value $\sigma(s)$. The carrier spectrum becomes
+$2\operatorname{spec}A+1$ together with $D$ copies of $-1$, and the completion spectrum
+$2\operatorname{spec}\Lambda+1$ together with $|O|$ copies of $-1$. Apply this to Theorem 17, and for four
+qubits to the three-qubit pair of Remark (a) below. $\qquad\blacksquare$
+
+For the lifted pair
+$`\operatorname{tr}\Lambda'^3=8\operatorname{tr}\Lambda^3+12\operatorname{tr}\Lambda^2+6\operatorname{tr}\Lambda`$, so
+the cubic traces differ by $-12k^3$ with $k=2^{N-1}$ for the base on $N$ qubits.
+
+**Remarks.** (a) For $N=3$ a single edge cannot be a component away from $t$, but the triangle
+$`\{0,1,3\}`$ with $t=2$ ($u_1=0$, $u_2=1$, $u_3=0$) is, and the same proof gives a pair with difference
+$-288$. Three-qubit C3 pairs are reported in [J3] without data; this is the instance produced by the
+construction. (b) For two cospectral sign carriers with the value $+1$ at $`p_\star`$, (E7) shows that the
+completion cubic traces differ exactly when the numbers of observables $P$ with
+$\sigma(I\otimes P)\neq\sigma(Z\otimes P)$ differ; for value $-1$ the same holds with the opposite sign. For the
+pair of Section 8.2 these numbers are 0 and 2, which gives $3\cdot64\cdot(0-2)=14976-15360$. (c) The
+largest completion eigenvalues of the two carriers of Theorem 17 differ by exactly $k/2$. (d) Small
+changes of the all-plus carrier do not suffice at five qubits. Among the 10 908 676 sign carriers with
+$+1$ at $`p_\star`$ that differ from it in at most three block observables (each by a sign flip in $C$ or a
+move to $D$ with either sign), no two are cospectral with different block spectra. At four qubits,
+among 182 176 such carriers, exactly four cospectral classes contain different block spectra, three of
+them with different $r_D$, and the pair of Section 8.2 lies in one of the three. The search
+(`scripts/c3_sparse_search.py`) is exhaustive and exact; it says nothing about pairs with only one
+member in this set.
+
+**Table 7. Explicit instances of Theorem 17 (the triangle for $N=3$) and of Corollary 18.**
+
+| Case | Qubits | Section, outside points, outside contexts | $\operatorname{tr}\Lambda^3$ of the two carriers |
+| --- | --- | --- | --- |
+| C3 | 3 | 19, 16, 72 | 0 and 288 |
+| C3 | 4 | 71, 64, 1120 | 15744 and 16512 |
+| C3 | 5 | 271, 256, 17280 | 649728 and 655872 |
+| C3 | 6 | 1055, 1024, 269824 | 23021568 and 23070720 |
+| C11 (cone lift) | 4 | 39, 32, 304 | 1728 and 4032 |
+| C11 (cone lift) | 5 | 143, 128, 4544 | 152832 and 158976 |
+| C11 (cone lift) | 6 | 543, 512, 69376 | 5612544 and 5661696 |
+
+At four qubits the C3 carriers differ at $ZIIX$, $ZIZX$, $ZZIX$ and $ZZZX$. Every row is checked on the
+complete configuration built from the definitions (Section 11.3).
+
+### 8.7 All nine vertex cases
+
+We use the notation of [J3]: $X$ is the configuration of the case, $q_c=q_0+\langle c,\cdot\rangle$ with
+$q_0(a\mid c)=|a\wedge c|$ modulo two, $`Q_c=\{v\neq0:q_c(v)=0\}`$ (hyperbolic for $q_0(c)=0$, elliptic for
+$q_0(c)=1$), $d$ the point that defines the hyperplane, $H=X\cap d^\perp$ the section and $O=X\setminus H$.
+For a line $`L=\{s,p,q\}`$, $`P_sP_pP_q=s_LI`$. Carrier operators and completion matrices are defined as
+in Section 8.2.
+
+**Theorem 19 (Conjecture E).** In each of the nine vertex cases and for every $N\ge4$ there are sign
+carriers $\sigma$ and $\tau$ on the section whose carrier operators have the same characteristic polynomial
+and whose completion matrices have different cubic traces, hence different spectra. In C1, C3, C6 and
+C11 this also holds for $N=3$. Conjecture E is therefore true.
+
+**Table 8. The constructions of Theorem 19.**
+
+| Cases | Construction | $\operatorname{tr}\Lambda_\sigma^3-\operatorname{tr}\Lambda_\tau^3$ |
+| --- | --- | --- |
+| C1, C3, C5 | graphs over $\mathbb C$, $\mathbb R$, $\mathbb H$; a component moves from the block $P_d=+1$ to the block $P_d=-1$ | $-3\kappa k^2r$, $k=2^{N-1}$ |
+| C12, C15 | the complex graph on $N-2$ qubits; a component moves from the block $P_e=+1$ to the block $P_e=-1$ | $6k_b^2r$, $k_b=2^{N-2}$ |
+| C6, C11, C14 | the pair swap: the whole base moves from one coupled pair to the other | $-24\kappa k_b^2\lvert Y_0\rvert$ |
+| C8 | C1 on $N-1$ qubits, through [J3, Remark 2] | that of C1 on $N-1$ qubits |
+
+Here $\kappa=2$ for the complex cases C1 and C6 and $\kappa=1$ otherwise, $r\gt0$ is the number of
+section points at which $\sigma$ and $\tau$ differ, and $\lvert Y_0\rvert$ is the number of points of the base
+of the cone, which is positive for $N\ge4$.
+
+Two facts from [J3, Theorem B3] are used. Let $\chi$ run over the joint eigenspaces $E_\chi$ of the
+central Paulis of the case and let $A_\chi$ be the block of $A_\sigma$ on $E_\chi$; a coupled pair is two
+eigenspaces that differ only in the eigenvalue of $P_d$.
+
+1. *Preserved pairs* (C1, C3, C5, C6, C11, C14). On a coupled pair, $\Lambda_\sigma$ is the operator
+   $M\mapsto\frac12(A_\chi M+MA_{\chi'})$ on a real space that is $\kappa$ copies of a real form of the complex
+   matrices between the two eigenspaces. With $k$ their common dimension,
+
+   ```math
+   \operatorname{tr}\Lambda^3\big|_{\text{pair}}=\tfrac\kappa8\bigl(k\operatorname{tr}A_\chi^3+3\operatorname{tr}A_\chi^2\operatorname{tr}A_{\chi'}
+   +3\operatorname{tr}A_\chi\operatorname{tr}A_{\chi'}^2+k\operatorname{tr}A_{\chi'}^3\bigr).
+   \tag{E8}
+   ```
+
+2. *Swapped pairs* (C12, C15). The block on one $P_e$-eigenspace is $A'\oplus\bar A'$ for a Hermitian
+   $A'$ of size $k$ with spectrum $\mu$, and the completion restricted to it has the eigenvalues
+   $\frac12(\mu_i+\mu_j)$ for $i\le j$ (C12) or $i\lt j$ (C15), each twice. With $p_j=\operatorname{tr}A'^j$,
+
+   ```math
+   \operatorname{tr}\Lambda^3\big|_{\text{block}}=\tfrac14\bigl((k\pm4)\,p_3+3\,p_1p_2\bigr),\qquad+\text{ for C12},\;-\text{ for C15}.
+   \tag{E9}
+   ```
+
+For a sign carrier each block observable sits in one block of a coupled pair with coefficient $\pm2$
+(in a cone, in one block with $\pm4$), and Pauli orthogonality gives
+$`\operatorname{tr}A_\chi^2=k(\gamma^2+4r_\chi)`$, with $\gamma$ the constant term and $r_\chi$ the number of block
+observables carried by $A_\chi$.
+
+**C1, C3, C5: graphs over $\mathbb R$, $\mathbb C$ and $\mathbb H$.** Put $d=Z$ on qubit $N-1$ and let the other
+$N-1$ qubits form the block, so that $`H=\{d\}\cup\{I\otimes P,\,Z\otimes P:P\in R\}`$ with $R$ the block
+observables in $X$ and $A_\sigma=C\oplus D$ as in Section 8.6. Case C3 ($X=Q^+$) is Theorem 17. In case C1
+($X=W$), $R$ contains all observables. For $a\neq0$ and $a\cdot c$ odd put
+$`\varepsilon(P_{a,c})=(-1)^{c\cdot u_a}(-1)^{(|a\wedge c|-1)/2}`$, so that
+$`\varepsilon(P_{a,c})P_{a,c}=(-1)^{c\cdot u_a}\,iX^aZ^c`$, and keep (E2) where $a\cdot c$ is even. Summing over the
+affine hyperplane $`\{c:a\cdot c=1\}`$,
+
+```math
+\sum_{c\,:\,a\cdot c\text{ odd}}(-1)^{c\cdot u}X^aZ^c=\tfrac k2\bigl(|u+a\rangle\langle u|-|u\rangle\langle u+a|\bigr),
+\tag{E10}
+```
+
+an antisymmetric edge $J_a$. With every observable in $C$, therefore,
+$`C=-I+2k|t\rangle\langle t|+k\sum_{a\neq0}(E_a+iJ_a)`$ and $D=-I$: a Hermitian weighted graph with a real edge
+$E_a$ and an imaginary edge $iJ_a$ on each pair $`\{u_a,u_a+a\}`$. In case C5 ($X=Q_c$ with $c=Y$ on
+qubit 0, which is elliptic with $q_c(d)=0$) qubit 0 of the block carries a quaternionic structure and
+the other $N-2$ qubits carry the graph. Then $R$ consists of the $I\otimes P''$ with $P''$ real and the
+$\sigma_j\otimes P''$ with $`j\in\{X,Y,Z\}`$ and $P''$ imaginary, and the same signs give a quaternion-Hermitian
+graph with edges in the four quaternion units for each direction. In each case the observables of one
+direction and one edge type form a unit. Moving the units of a union of components away from $t$ to
+$D$ (that is, $\tau(Z\otimes P)=-\sigma(Z\otimes P)$ on them) leaves the carrier spectrum unchanged as in step
+(iv), and (E8) with $\operatorname{tr}C=k$, $\operatorname{tr}D=-k$ gives the difference
+$`-3\kappa k^2r_D(\tau)\lt0`$. For $N-1\ge3$ graph qubits take the graph of Theorem 17 for every edge type and
+move the units of direction 1; with two graph qubits take the triangle of Remark (a) and move
+everything. This gives C1 and C3 for $N\ge3$ and C5 for $N\ge4$, since C5 has one graph qubit fewer.
+With a single graph qubit every edge contains $t$, in agreement with the strict law holding in C5 at
+$N=3$ [J3].
+
+**C12 and C15: the complex graph between the two $P_e$-blocks.** Put $e=Z$ on qubit $N-1$, $d=Y$ on
+qubit $N-2$, and let the other $N-2$ qubits form the base. For C12, $X=Q^+\cap e^\perp$; for C15,
+$X=Q_c\cap e^\perp$ with $c=Y$ on base qubit 0. The section is
+
+```math
+H=\{e\}\cup\{Z_e^{\,\alpha}Y_d^{\,q_c(w)}\otimes w:\alpha\in\{0,1\},\;w\neq0\text{ a base observable}\}.
+```
+
+On the eigenspace $Z_e=s$, $Y_d=+1$ the carrier acts as the Jordan block
+$`A'_s=s\,\sigma(e)+\sum_w\bigl(\sigma(I\otimes w)+s\,\sigma(Z_e\otimes w)\bigr)P_w`$, and on $Y_d=-1$ as its conjugate by
+the antiunitary of [J3, equation (1)], with the same spectrum. These are the complex blocks of C1 on
+$N-2$ qubits. Take the complex graph signs on the base, $\sigma(e)=1$, and every observable in the block
+$s=+1$. With $k_b=2^{N-2}$ and $\Gamma$ the Hermitian graph matrix $\sum_a(E_a+iJ_a)$ of the edges of $G$,
+$`A'_+=-I+2k_b|t\rangle\langle t|+k_b\Gamma_G`$ and $`A'_-=-I`$, because the observables with $a=0$ contribute
+$-2I$. Moving the units of a component $F$ away from $t$ to the block $s=-1$ gives
+$`A'_+=-I+2k_b|t\rangle\langle t|+k_b\Gamma_{G-F}`$ and $`A'_-=-I+k_b\Gamma_F`$, and the union of the two Jordan
+spectra is unchanged. In (E9), $`p_1(A'_\pm)=\pm k_b`$ for both carriers, and $`p_2(A'_+)+p_2(A'_-)`$ and
+$`p_3(A'_+)+p_3(A'_-)`$ are fixed by the carrier spectrum. Only $`p_2(A'_-)`$ changes, by $4k_br$, so the
+difference is $6k_b^2r\gt0$ in both cases. The graph needs two base qubits, hence $N\ge4$; with one
+base qubit every edge contains $t$, in agreement with the strict law holding in C12 and C15 at $N=3$.
+
+**C6, C11, C14: the pair swap.** Let $X$ be the cone over $`Y\in\{W,Q^+,Q^-\}`$ on $N-1$ qubits with vertex
+$e=Z$ on qubit $N-1$, and $d=Z$ on qubit $N-2$ (C6, C11, C14 respectively; for C14, $c=Y$ on qubit 0).
+Then
+
+```math
+H=\{e,d,e+d\}\cup\{Z_e^{\,\alpha}Z_d^{\,\beta}\otimes w:\alpha,\beta\in\{0,1\},\;w\in Y_0\},
+```
+
+where the base $Y_0$ is a nondegenerate $W$, $Q^+$ or $Q^-$ on the remaining $N-2$ qubits. Put
+$\sigma=\tau=1$ on $e$, $d$ and $e+d$, and at $`Z_e^{\,\alpha}Z_d^{\,\beta}\otimes w`$
+
+```math
+\sigma=(-1)^{\alpha+\beta},\qquad\tau=(-1)^{\beta}.
+\tag{E11}
+```
+
+The blocks on $(Z_e,Z_d)=(\pm,\pm)$ have constant terms $3,-1,-1,-1$ for $(+,+)$, $(+,-)$, $(-,+)$, $(-,-)$.
+Under $\sigma$ every base observable sits in the block $(-,-)$ with coefficient 4, under $\tau$ in the block
+$(+,-)$, and both blocks have the constant $-1$. So $A_\tau=UA_\sigma U^\dagger$ for the controlled-NOT $U$
+that flips $Z_e$ when $Z_d=-1$, and the carrier spectra agree. The coupled pairs are
+$`\{(+,+),(+,-)\}`$ and $`\{(-,+),(-,-)\}`$, so the base moves from one pair to the other. With
+$`T_0=\sum_{w\in Y_0}P_w`$ and $k_b=2^{N-2}$, (E8) gives
+
+```math
+\operatorname{tr}\Lambda_\sigma^3-\operatorname{tr}\Lambda_\tau^3
+=\kappa k_b\sum_{g\in\operatorname{spec}T_0}\bigl((2g-1)^3-(2g+1)^3\bigr)+2\kappa k_b^2
+=-24\kappa k_b\operatorname{tr}T_0^2=-24\kappa k_b^2\lvert Y_0\rvert.
+\tag{E12}
+```
+
+This is negative as soon as the base is not empty: for every $N\ge3$ in C6 and C11, and for every
+$N\ge4$ in C14. At $N=3$ the base of C14 is the empty elliptic quadric $Q^-(1,2)$, in agreement with the
+strict law holding there. The construction does not use Theorem 17; the cone lifts of the pairs of C1,
+C3 and C5 on $N-1$ qubits give a second family, which is also checked.
+
+**C8: through C1.** Let $X=Q^+\cap e^\perp$ with the nucleus $e=Y$ on qubit $N-1$, and $d=Z$ on qubit
+$N-2$. Every point of $X$ is $P'\otimes I$ with $P'$ real or $P'\otimes Y$ with $P'$ imaginary, for a unique
+nonidentity Pauli $P'$ on the other $N-1$ qubits. Two points commute exactly when their $P'$ do, and on
+every line the factors $Y$ occur an even number of times, so the line signs are those of
+$W(2N-3,2)$. On the eigenspace $Y=+1$ the carrier operator is the C1 carrier operator on $N-1$ qubits for
+the transported carrier, and on $Y=-1$ its complex conjugate. So $\operatorname{spec}A_\sigma$ is twice the C1
+spectrum on $N-1$ qubits and $\Lambda_\sigma$ is the C1 completion matrix on $N-1$ qubits; this is
+[J3, Remark 2] made explicit. The C1 pairs on $N-1\ge3$ qubits give C8 for every $N\ge4$.
+$\qquad\blacksquare$
+
+**Remarks.** (e) The constructions need $N\ge4$ exactly in the five cases C5, C8, C12, C14 and C15, in
+which [J3] finds the strict law true for all sign carriers at $N=3$ by exhaustive computation.
+(f) For C1 and C6 the theorem gives an explicit proof, without computer search, of [J3, Corollary 3],
+whose base pairs are in a data set that is not public. (g) In the cone cases the two carrier operators
+are conjugate by a controlled-NOT, but that gate maps $d^\perp$ to a different hyperplane and does not
+preserve the completion problem.
+
+**Table 9. Exact values for the pairs of Table 8** (`scripts/conjecture_e.py`).
+
+| Case | Qubits | Section, outside points, outside lines | $\operatorname{tr}\Lambda_\sigma^3$, $\operatorname{tr}\Lambda_\tau^3$ | Difference |
+| --- | --- | --- | --- | --- |
+| C1 | 3 | 31, 32, 240 | $-192$, 960 | $-1152$ |
+| C1 | 4 | 127, 128, 4032 | 57600, 60672 | $-3072$ |
+| C1 | 5 | 511, 512, 65280 | 2491392, 2515968 | $-24576$ |
+| C3 | 3 | 19, 16, 72 | 0, 288 | $-288$ |
+| C3 | 4 | 71, 64, 1120 | 15744, 16512 | $-768$ |
+| C3 | 5 | 271, 256, 17280 | 649728, 655872 | $-6144$ |
+| C5 | 4 | 55, 64, 864 | $-1152$, 3456 | $-4608$ |
+| C5 | 5 | 239, 256, 15232 | 219648, 231936 | $-12288$ |
+| C6 | 3 | 15, 16, 56 | $-288$, 288 | $-576$ |
+| C6 | 4 | 63, 64, 992 | 8064, 19584 | $-11520$ |
+| C6 | 5 | 255, 256, 16256 | 732672, 926208 | $-193536$ |
+| C8 | 4 | 31, 32, 240 | $-192$, 960 | $-1152$ |
+| C8 | 5 | 127, 128, 4032 | 57600, 60672 | $-3072$ |
+| C11 | 3 | 11, 8, 20 | $-96$, 96 | $-192$ |
+| C11 | 4 | 39, 32, 304 | 1344, 4800 | $-3456$ |
+| C11 | 5 | 143, 128, 4544 | 129792, 183552 | $-53760$ |
+| C12 | 4 | 31, 40, 380 | 1776, 624 | 1152 |
+| C12 | 5 | 127, 144, 5112 | 116640, 113568 | 3072 |
+| C14 | 4 | 23, 32, 176 | $-960$, 960 | $-1920$ |
+| C14 | 5 | 111, 128, 3520 | 37632, 79104 | $-41472$ |
+| C15 | 4 | 31, 24, 132 | 720, $-432$ | 1152 |
+| C15 | 5 | 127, 112, 3080 | 46944, 43872 | 3072 |
+
+Every difference equals the formula of its row in Table 8. The C11 rows use the pair swap and
+therefore differ from the cone lifts of Table 7.
+
+### 8.8 Why the spectral floor survives
+
 The floor uses spectral moments of an assignment on a whole chosen configuration to certify a
 universal inequality. The strict law asks whether a section carrier's eigenvalues encode a different
 operator. The block partition explains why the first method remains valid when the second inference
-fails. Neither the known degree 315 of $\mathcal Q$ nor the degree 75 of $S_B$ is altered by this
-completion example.
+fails: in every construction above the carriers have the same spectrum, and only the allocation of
+that spectrum between eigenspaces of a central Pauli changes. Neither the known degree 315 of
+$Q^+(7,2)$ nor the degree 75 of $S_B$ is altered by these completion examples.
 
 ## 9. Formal verification and its boundary
 
@@ -1046,7 +1447,9 @@ The sources are in `lean/HoggarBound/` (Lean 4.35.0, Mathlib v4.35.0).
 | `MaskConfig.lean` | configurations and assignments given by bit masks; `card_flags_cfg`, `card_violated_cfg` (their flag counts as sums the kernel can evaluate); `degree_of_certificate` |
 | `FlatData.lean`, `SaturatedFive.lean` | generated: the masks of the first six rows of Table 1, and the five-qubit counts in 32 blocks |
 | `Saturated.lean` | **`pivot_degree`**, **`cieslinski5_degree`**, `quadric_degree`, `hoggar_degree`, `ccz_degree`, `lly_degree` |
-| `PhaseData.lean`, `SaturatedPhaseFive.lean` | generated: the masks of $\Phi_5$ and $\Phi_7$; **`phase5_degree`** |
+| `MaskRows.lean` | packed sets of codes; `flagRow_eq_fast`, `violRow_eq_fast` (a row of either count, evaluated with a bounded number of operations on large numbers, for every $N$) |
+| `PhaseData.lean`, `SaturatedPhaseFive.lean`, `SaturatedPhaseSeven.lean` | generated: the masks of $\Phi_5$ and $\Phi_7$; **`phase5_degree`**, **`phase7_degree`** |
+| `CarrierFamily.lean` | case C3 for every number of qubits (Section 9.3): **`c3_strict_law_fails_general`**, `c3_all_qubits_completion` |
 
 The main theorem, as checked:
 
@@ -1074,6 +1477,7 @@ Table 5 lists the corollaries.
 | `pivot_degree` | for the 135 observables of $S_B$: every assignment violates at least 75 contexts, and some assignment violates exactly 75 |
 | `cieslinski5_degree` | for the 496 observables of $S_5$: at least 480, and exactly 480 for some assignment |
 | `phase5_degree` | the same statement for the 496 observables in the support of the circuit state $\Phi_5$ |
+| `phase7_degree` | for the 8128 observables in the support of the circuit state $\Phi_7$: at least 729344, and exactly 729344 for some assignment |
 | `quadric_degree`, `hoggar_degree` | the same two-sided statements with 315 (four-qubit hyperbolic quadric) and 63 (three qubits) |
 | `ccz_degree`, `lly_degree` | some assignment of the 28 (respectively 12) observables violates no context |
 
@@ -1090,13 +1494,15 @@ evaluated in 16 blocks. `degree_of_certificate` then combines three evaluated nu
 flags, flags violated by the witness) with `hoggar_bound`. That the masks are the supports and sign
 patterns of the states of Table 1 is checked by the programs of Section 11 in exact arithmetic; it is
 not needed for, and not part of, the Lean statements. For seven qubits the two sums have $2^{28}$ terms
-each and were not evaluated in the kernel: the degree $`729\,344`$ of $S_7$ rests on `hoggar_bound`, which
-needs only the number 8128, and on a count of contexts and violated contexts made by programs.
+each. `MaskRows.lean` evaluates a row of either sum on packed sets of codes, with at most $2N$ exchanges
+of blocks of digits, bitwise operations and one remainder, and proves for every $N$ that the result is
+the row; the kernel then evaluates the $2^{14}$ rows in 16 blocks of 1024. The degree $`729\,344`$ of
+$S_7$ is the theorem `phase7_degree`, and `phase7_contexts` gives its 2 824 192 contexts.
 
 **Floor and saturation results outside the formalization.** Theorem 2 (the quaternionic form) and all elliptic-quadric numbers;
 Theorems 3 and 4 as equivalences, and the state, spectral-equality and geometric interpretations in Sections 4–6 (the Lean
 results for that part are the inequality and the two-sided degree statements); Propositions 4, 6 and 8 to 11; the
-enumerations of Theorems 12 and 13 and the seven-qubit counts; the limit
+enumerations of Theorems 12 and 13, and item 1 and the local numbers of item 2 of Theorem 13; the limit
 statement as a theorem about limits (the inequality for each $N$ is formal); the exact values of [J1].
 For the classical families beyond three qubits and $Q^+(7,2)$, upper bounds are witnesses checked by
 the programs of Section 11.
@@ -1113,7 +1519,7 @@ violates exactly 63 contexts. Their reports are in `results/lean-audit.md`,
 modules from `MaskConfig.lean` on, and everything in Section 5, were written after that audit and are
 not covered by it.
 
-### 9.2 The checked C3 statement
+### 9.2 The checked four-qubit C3 statement
 
 The C3 development uses the same pinned Lean 4.35.0 and Mathlib 4.35.0 setting. It identifies the
 complete 71-point section and 64-point complement, proves the assignments are sign-valued, and
@@ -1134,21 +1540,75 @@ a proof premise. All 42 declarations in `lean/C3Verification.lean` passed the ax
 `native_decide`. Commands, source hashes and results are in `results/frontier-c3-lean-audit.md` and
 its evidence files.
 
+### 9.3 Case C3 for every number of qubits
+
+`lean/HoggarBound/CarrierFamily.lean` is a separate file for the same pinned Lean and Mathlib. It
+imports the library modules `Pauli.lean`, `Bound.lean` and `Quadric.lean` and changes no existing
+file. Its main theorem, for $N=m+1$ qubits, is
+
+```lean
+theorem c3_strict_law_fails_general (hm : 3 ≤ m) :
+    ∃ σ τ : Pt (m + 1) → ℝ,
+      (∀ s, σ s = 1 ∨ σ s = -1) ∧ (∀ s, τ s = 1 ∨ τ s = -1) ∧
+      (opA (sectionPts m) σ).charpoly = (opA (sectionPts m) τ).charpoly ∧
+      (completionMatrix m σ).charpoly ≠ (completionMatrix m τ).charpoly
+```
+
+with the definitions
+
+```lean
+def polar (m : ℕ) : Pt (m + 1) := (0, Pi.single 0 1)                -- Z on qubit 0
+def sectionPts (m : ℕ) : Finset (Pt (m + 1)) :=
+  (realPoints (m + 1)).filter fun s => symp s (polar m) = 0
+def outsidePts (m : ℕ) : Finset (Pt (m + 1)) :=
+  (realPoints (m + 1)).filter fun s => symp s (polar m) = 1
+noncomputable def completionMatrix (m : ℕ) (σ : Pt (m + 1) → ℝ) :
+    Matrix {p // p ∈ outsidePts m} {p // p ∈ outsidePts m} ℝ :=
+  fun p q => if p.1 ≠ q.1 ∧ symp p.1 q.1 = 0
+    then lineSign (p.1 + q.1) q.1 * σ (p.1 + q.1) else 0
+```
+
+`realPoints`, `symp`, `lineSign` and `opA` are those of the floor theorem: the real quadric, the
+symplectic form, the sign of the context `{u, v, u + v}` defined by the product of the three Pauli
+matrices, and the signed sum of Pauli matrices. Lean places the polar point on qubit 0, which is a
+relabelling of the qubits of Section 8.6. The file also proves that the definitions have the intended
+meaning: the polar point lies on the quadric and in the section (`polar_mem_sectionPts`); two distinct
+commuting outside points span a context whose third point lies in the section, and only then
+(`add_mem_sectionPts`, `add_mem_sectionPts_iff`); a commuting section point and outside point span a
+context with a second outside point (`add_mem_outsidePts`); the polar point commutes with no outside
+point (`symp_polar_outside`); $|O|=k^2$ and $|H|=k^2+k-1$ (`card_outsidePts`, `card_sectionPts`); the
+completion matrix is symmetric (`completionMatrix_transpose`). The companion statement
+`c3_all_qubits_completion` gives the difference (E3) in coordinates, and
+`completionMatrix_liftCarrier` identifies those coordinates with `completionMatrix`.
+
+The 74 audited declarations of the file depend only on `propext`, `Classical.choice` and
+`Quot.sound`; the file has no `sorry`, `native_decide`, `axiom` declaration or `set_option`
+(`results/lean-c3-all-qubits-axioms.log`). Left to the reader are the identification of these
+definitions with the objects of [J3], the fact that equal characteristic polynomials of Hermitian or
+real symmetric matrices mean equal spectra with multiplicities, and the trust base: the Lean kernel,
+Mathlib at the pinned revision and the three standard axioms. Corollary 18, Remarks (a) to (g),
+Corollary 16 and Theorem 19 outside case C3 are not formalized.
+
 **Table 6. Boundaries that matter for interpreting the combined result.**
 
 | Claim | Evidence boundary |
 | --- | --- |
 | Arbitrary-support spectral floor and stated finite corollaries | Lean statements about the defined Pauli/context model |
-| Degrees 75 and 480 for the explicit masks | Lean lower bounds, witnesses and kernel-evaluated counts; state-to-mask interpretation checked separately by programs |
-| Saturation equivalences, phase-state classification and seven-qubit counts | Mathematical arguments and executable computations; not general Lean equality/classification theorems |
+| Degrees 75, 480 and 729344 for the explicit masks | Lean lower bounds, witnesses and kernel-evaluated counts; state-to-mask interpretation checked separately by programs |
+| Saturation equivalences and phase-state classification | Mathematical arguments and executable computations; not general Lean equality/classification theorems |
 | Four-qubit C3 carrier cospectrality, unequal completion spectra and cube traces | Complete 42-declaration Lean audit, including original Pauli and context-sign bridges |
-| Printed C3 block/carrier factorizations, largest-eigenvalue gap 2 and spherical gap 32 | Exact algebraic and executable checks; not included in those 42 Lean declarations |
+| Printed C3 block/carrier factorizations, largest-eigenvalue gap 2, spherical gap 32 and the binary minima of Corollary 16 | Exact algebraic and executable checks; not included in those 42 Lean declarations |
+| Case C3 for every $N\ge4$ (Theorem 17) | Lean theorem `c3_strict_law_fails_general` about the library's Pauli matrices, real quadric and context signs; 74 audited declarations |
+| Case C11 (Corollary 18) and the other cases of Theorem 19 | Paper proofs that use [J3, Theorems A and B3, Lemma D and Remark 2]; exact computation on the complete configurations for three to six qubits (C3, C11) and three to five qubits (all cases); not in Lean |
 | Physical hardware, compiler correctness, historical priority or external peer review | Not established by these theorem checks |
 
 The floor, saturation and C3 audits have different scopes. The independent audit of the original
 six floor modules does not retroactively cover the later saturation development, and the C3 audit
-does not certify the phase-state enumeration. Combining the manuscripts introduces no new Lean
-theorem and does not broaden any existing theorem's hypotheses or conclusion.
+does not certify the phase-state enumeration. Version 1.3.0 adds two Lean developments, each audited
+separately: the seven-qubit evaluation (`MaskRows.lean`, `SaturatedPhaseSeven.lean`) and case C3 for
+every number of qubits (`CarrierFamily.lean`). They are new files; every Lean file of the earlier
+audits is byte-identical to its audited version, and no earlier theorem's hypotheses or conclusion
+change.
 
 Successful CI provides a second recorded execution at commit `87f08a0`. The
 [full verification run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638647)
@@ -1159,6 +1619,16 @@ passed its exact-computation jobs and 14-declaration audit. The archived records
 `results/full-ci-87-audit.json` and `results/saturation-ci-audit.json` identify the checkout,
 artifact digests and source hashes. These are checks of those source snapshots, not evidence of a
 new proof produced by combining the texts; the auxiliary stability results are not used here.
+
+The two additions have their own recorded runs on clean Ubuntu machines. The
+[seven-qubit run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861) of the
+saturation workflow, at commit `77a529f`, built `SaturatedPhaseSeven` in 1 minute 29 seconds with a
+maximum resident set of 6.3 GB and passed its 13-declaration axiom audit
+(`results/saturation-seven-ci-audit.json`). The workflow *Case C3 for every number of qubits* checked
+`CarrierFamily.lean`, enforced the allowlist on its 74 declarations and repeated the exact checks of
+Section 11.3 at commits `5dcea35`
+([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42797323071)) and `f294d9d`
+([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42801908151)).
 
 <!-- journal:supplement -->
 ## 10. A running example on the Tsotchke stack
@@ -1309,7 +1779,9 @@ be recomputed independently from the context definitions.
   $`92\,897\,280/7 = 13\,271\,040`$ for one orbit with a stabilizer of order 7.
 * The seven-qubit numbers 8128, 2 824 192 and 729 344 are computed three times without shared code: in
   Python with exact integers, in C from the masks (inside the QGTL program) and in JavaScript from the
-  expectation values returned by Moonlab.
+  expectation values returned by Moonlab; and a fourth time by `scripts/phase_seven_lean.py` (14
+  checks), with the evaluation that the kernel carries out, compared with the direct double loop and
+  with two negative controls.
 * `scripts/analysis.py` (62 checks) and `scripts/ladder.py` (14 checks): P3 on random data to machine
   precision; P4 on all 120 four-qubit elliptic quadrics; P5; the geometry of the violated sets; closed-form
   counts against enumeration; agreement of the C and Python integer bounds.
@@ -1320,8 +1792,7 @@ times: C (`src/hoggar.c`), Python with explicit matrices or exact integers (`scr
 `scripts/flat_states.py`), JavaScript (`src/moonlab_experiment.mjs`, `src/moonlab_saturated.mjs`),
 Eshkol, and the Lean model, in which the signs are theorems about matrix products. Their overlapping
 checks agree on the counts recorded for those tests. This does not mean that each implementation
-checks every result: in particular, the seven-qubit context counts are outside the kernel evaluation,
-and the C3 checks use the separate programs described next.
+checks every result: in particular, the C3 checks use the separate programs described next.
 
 ### 11.2 Independent C3 reconstruction and negative controls
 
@@ -1350,11 +1821,46 @@ sign triggers a fresh computation. A modified assignment is not required to reta
 the original four-negative-word witnesses are the exact claim being tested. The experiments concern
 finite mathematical operators and are separate from the Moonlab measurement simulations.
 
+A further reconstruction, `scripts/cospectral_pair.py` (30 checks), shares no code with these
+programs. It rebuilds the 135 points, the 1575 contexts and their signs by two routes, the carrier and
+block polynomials, the identity between each completion matrix and $M\mapsto\frac12(CM+MD)$, both degree-64
+completion polynomials, the enclosure of $\rho$ and the two witnesses of Corollary 16.
+
+### 11.3 Checks of the carrier families
+
+* `scripts/cospectral_family.py --six` (43 checks): for $N=3,4,5,6$ it builds every real Pauli matrix,
+  the section, all outside contexts and their signs (from a phase formula and, up to five qubits, from
+  products of three matrices), both carriers of Theorem 17 and both completion matrices, and checks in
+  integers the block and graph forms (E5), equal characteristic polynomials, the identity of step (v)
+  on all $k^2$ blocks, (E6) against the direct cubic trace, the difference (E3) and the points where the
+  carriers differ. It repeats this for 12 random graphs with random sets of components at three and
+  four qubits, and has two negative controls: moving an edge that is not a whole component, or the
+  component that contains $t$, must destroy cospectrality.
+* `scripts/cospectral_family_tensor_check.py` (18 checks) takes only the two sign tables from the first
+  program, builds every observable as a Kronecker product of literal $2\times2$ matrices, decides
+  reality, commutation and context signs from matrix products, and compares power sums
+  $\operatorname{tr}A^k$ for all $k\le2^N$ and the completion traces.
+* `scripts/cospectral_family_cone_lift.py` (21 checks) builds the C11 configurations with 4, 5 and 6
+  qubits from the definitions, without the lifting lemma, and checks the lifted pairs of Table 7.
+* `scripts/conjecture_e.py` (81 checks) builds every vertex case at four and five qubits, and at three
+  qubits for C1, C3, C6 and C11, from the definitions of [J3]: the type of the quadric and of $e$ and $d$
+  as in [J3, Table 1], the vertex set of the section, the outside lines and their signs (checked against
+  products of three matrices at three and four qubits). It compares power sums $\operatorname{tr}A^k$, $k\le2^N$, with
+  Python integers on Gaussian-integer matrices, and requires different completion cubic traces. The cone
+  cases are done twice, by the pair swap and by the cone lift. The record is `results/conjecture_e.json`.
+* `scripts/c3_sparse_search.py 3 3` is the exhaustive four-qubit search of Remark (d); `3 4` is the
+  five-qubit search, about fifteen minutes.
+
+All five are stages of `scripts/run_all.sh` and steps of the workflow *Case C3 for every number of
+qubits*, which also requires the regenerated JSON records to equal the committed ones. No floating
+point enters a comparison of characteristic polynomials.
+
 ## 12. Limitations and open problems
 
 * Novelty is claimed to the extent of a bounded search (arXiv and Zenodo queries on 9 November 2026,
-  and the sources of Section 1.2). The field moved quickly in October 2026, and several of the relevant
-  preprints are less than a month old. Statements of the form "to our knowledge" mean exactly that.
+  the 54 queries of 10 November 2026 described in Section 1.2, and the sources listed there). The field
+  moved quickly in October 2026, and several of the relevant preprints are less than a month old.
+  Statements of the form "to our knowledge" mean exactly that.
 * The configurations $S_B$, $S_5$ and $S_7$ are defined by states, not by a classical geometric
   construction. We do not know an infinite family of non-closed configurations that attain the floor:
   Proposition 9 shows that the simplest family of states stops at four qubits. In the nonzero-form
@@ -1366,8 +1872,7 @@ finite mathematical operators and are separate from the Moonlab measurement simu
 * For seven qubits the uniqueness statement is proved only inside the family $\mathcal{F}$ of
   Theorem 13; outside it there is a random census. The enumeration behind it (and the one of
   Theorem 12) is a computation, repeated here by one program only, apart from the agreement of the
-  count with the orbit size and the second implementation for $N \le 4$. The seven-qubit counts of
-  contexts are checked by three programs but not by the Lean kernel.
+  count with the orbit size and the second implementation for $N \le 4$.
 * Within the classical families the floor is not attained beyond the three listed cases [J2]. Exact
   values for five or more qubits are open except $Q^+(9,2)$ [J1]; the floor alone leaves the intervals
   of Table 2.
@@ -1377,10 +1882,15 @@ finite mathematical operators and are separate from the Moonlab measurement simu
   natural next target; our Lean development gives the lower bound 1451 only.
 * The quaternionic form (Theorem 2) and the equivalences of Theorems 3 and 4 are proved on paper and
   tested numerically, not formalized.
-* The C3 certificate settles only the four-qubit instance of the strict-law failure. It neither
-  proves Conjecture E for all dimensions nor classifies all carriers. The exact binary completion
-  minima of the two witnesses are not calculated here; the gap 32 belongs to a continuous relaxation.
-  The completion result does not invalidate the spectral floor or revise the contextuality degrees.
+* Conjecture E is settled for sign carriers in all nine vertex cases, but only case C3 is formalized
+  in Lean. The proofs of the other eight cases use Theorems A and B3 of [J3] (with Lemma D and Remark 2
+  for C11 and C8), which are results of a preprint that is not peer reviewed and that we did not
+  formalize; their instances are checked by exact computation for at most five qubits (six for C3
+  and C11). The carriers are particular constructions: carriers in general are not classified, and
+  for the families the completion optima are not studied.
+* For the four-qubit pair the exact binary completion minima are only enclosed, in $[347,368]$ and
+  $[315,344]$; the upper ends come from a heuristic search. The completion results do not invalidate
+  the spectral floor or revise the contextuality degrees.
 * The literature comparison is bounded and qualitative. An exact finite certificate proves its
   stated mathematical conclusion, not that no earlier author knew it or that a venue will accept it.
 * Nothing here is an experiment on quantum hardware, and nothing shows a computational advantage.
@@ -1397,9 +1907,24 @@ spectral-floor manuscript. Its development and verification records remain with 
 OpenAI Codex research and coding agents performed the independent prior-art and original-floor
 audits, selected the finite C3 question, discovered its witnesses, developed the algebraic arguments
 and Lean formalization, implemented the independent checks and demonstration, and drafted the C3
-manuscript and figures. Codex agents prepared this combined text, shared notation, section map and
-publication layouts. The combined presentation reuses the two established mathematical components;
-it does not create a new experimental dataset or claim a new unified Lean proof.
+manuscript and figures. Codex agents prepared the combined text of version 1.2.0, its shared notation,
+section map and publication layouts. That version reused the two established mathematical components
+without a new experimental dataset or a new unified Lean proof.
+
+Version 1.3.0 adds results obtained on 9 and 10 November 2026 by Claude (Anthropic) agents working
+through Claude Code under the author's direction: Corollary 16, the kernel evaluation of the
+seven-qubit counts (in a separate session), Theorem 17 with its Lean formalization, Corollary 18 and
+Theorem 19, with the programs of Section 11.3 and `scripts/cospectral_pair.py`. They were first
+recorded as addenda in `publication/` and are folded into this text by the same line of work. Before
+publication the C3 results were examined by separate automated passes, instances of the same AI system
+each started without the others' work and with one task: a re-derivation of the proof and of the
+tables from the text alone, a full reading of [J3] against the definitions and credits, line-by-line
+readings and mutation tests of the programs, the prior-art queries of Section 1.2, and audits of the
+Lean statements, their fidelity to the mathematics and their axioms. Findings rated critical or major
+were tested again before they were accepted; among the changes they caused are Corollary 18 and the
+Lean part that ties the completion matrix to the library's contexts. This is internal checking, not
+peer review; the record is in `publication/ADDENDUM-c3-all-qubits.md`. Theorem 19 was checked by its
+program and by one separate pass of the same kind, recorded in `publication/ADDENDUM-conjecture-e.md`.
 
 **AI disclosure statement.** Claude and Codex were used for substantive research, software,
 formalization and writing, not merely language correction. The recorded checks comprise Lean kernel
@@ -1408,14 +1933,14 @@ agents. They do not constitute independent human peer review. No completed human
 venue-specific final approval is asserted here; the author must accurately describe that work before
 making a submission that requires it. AI systems are disclosed as tools, not listed as authors.
 
-**Funding and competing interests.** This research was self-funded by the author. The author is the
-sole operator of 0thernes LLC, with which this project is affiliated. Any additional competing
-interests have not yet been declared.
+**Funding and competing interests.** This research was self-funded by Alexander S. Donahue, the sole
+operator of the affiliated 0thernes LLC. The author declares no competing interests.
 
 **Data availability statement.** Source, data, formal proofs, test results and the earlier manuscripts
 are available in [Hoggar Bound Lab](https://github.com/0thernes/hoggar-bound-lab). Release and workflow
-records identify the checked snapshots; earlier Software Heritage and Internet Archive captures
-remain historical records, not evidence that this combined revision has been archived or reviewed.
+records identify the checked snapshots; Software Heritage and Internet Archive captures are archival
+records of particular snapshots, not evidence of review. The addenda in `publication/` record each
+result of version 1.3.0 as first stated.
 Appendix A gives reproduction commands. No new arXiv identifier, DOI or journal decision is implied
 by this manuscript or its local submission packages.
 
@@ -1437,7 +1962,7 @@ quantum_geometric_tensor retain their authors' MIT licences and provenance recor
 * [HLW] P. Hayden, D. W. Leung, A. Winter, *Aspects of generic entanglement*, Commun. Math. Phys. 265, 95 (2006).
 * [J1] B. W. Jonah, *A section–square law for Pauli quadrics, and an independently regenerated proof that the four-qubit elliptic quadric has contextuality degree 315*, preprint, Zenodo, 20 October 2026, doi:10.5281/zenodo.23510634.
 * [J2] B. W. Jonah, *Structure theorems for hyperplane completions in Pauli contextuality*, preprint v0.3, Zenodo, 21 October 2026, doi:10.5281/zenodo.23538829.
-* [J3] B. W. Jonah, *The reach of the section-square law: hyperplane completions of symplectic and quadric Pauli configurations*, preprint v0.5, manuscript dated 20 October 2026, deposited 21 October 2026. Section 2, Theorem A, Table 1 and Section 6, Conjecture E. [Primary deposit](https://zenodo.org/records/23524332), [doi:10.5281/zenodo.23524332](https://doi.org/10.5281/zenodo.23524332).
+* [J3] B. W. Jonah, *The reach of the section-square law: hyperplane completions of symplectic and quadric Pauli configurations*, preprint v0.5, manuscript dated 20 October 2026, deposited 21 October 2026. Section 2, Theorems A and B2–B4, Lemma D, Remark 2, Corollary 3, Table 1 and Section 6, Conjecture E. [Primary deposit](https://zenodo.org/records/23524332), [doi:10.5281/zenodo.23524332](https://doi.org/10.5281/zenodo.23524332).
 * [J4] B. W. Jonah, *Results digest, 20 October 2026: multi-qubit contextuality degrees, Pauli-flat states and certification*, Zenodo, doi:10.5281/zenodo.23518569.
 * [JL] N. S. Jones, N. Linden, *Parts of quantum states*, Phys. Rev. A 71, 012324 (2005).
 * [K] S. Kang, *No Pauli-orbit mutually unbiased bases for four qubits or for an odd number of qubits greater than one*, Zenodo, 27 October 2026, doi:10.5281/zenodo.23692357.
@@ -1466,9 +1991,30 @@ cd lean && lake exe cache get && lake build
 # the exact degrees of Section 5 (kernel evaluations; see the CI evidence for time and memory)
 lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive
 lake env lean SaturatedVerification.lean
+# the seven-qubit degree (about 6 GB of memory for one block of rows)
+lake build HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven
+lake env lean SaturatedSevenVerification.lean
+# case C3 for every number of qubits (Theorem 17)
+lake build HoggarBound.Bound HoggarBound.Quadric
+lake env lean HoggarBound/CarrierFamily.lean
 # the seven-qubit enumeration of Theorem 13 (about eight core-hours)
 cd .. && bash scripts/run_family7.sh
 ```
+
+The completion minima, the carrier families and the nine vertex cases, from the repository root:
+
+```text
+python scripts/cospectral_pair.py
+python scripts/phase_seven_lean.py
+python scripts/cospectral_family.py --six
+python scripts/cospectral_family_tensor_check.py
+python scripts/cospectral_family_cone_lift.py
+python scripts/conjecture_e.py
+python scripts/c3_sparse_search.py 3 3
+```
+
+Their last lines read `30 of 30`, `14 of 14`, `43 of 43`, `18 of 18`, `21 of 21` and `81 of 81 checks
+passed`; the search prints its class counts. NumPy is required.
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 
@@ -1535,3 +2081,21 @@ records are `results/frontier-c3-n4-pair.json`, `results/frontier-c3-n4-verifica
 `results/frontier-c3-n4-completions.json` and `results/frontier-c3-context-verification.json`.
 They record the matrices, counts, exact polynomials and moments, mutation controls and dependency
 versions. The theorem's assignments are fully defined in Section 8.2 independently of those files.
+
+The completions of Corollary 16, as numeric outside labels $a+16c$ where the value is $-1$. For
+$`\sigma_1`$, 344 violated outside lines (476 violated contexts of $Q^+(7,2)$ in all), 30 labels:
+
+```text
+26 41 59 63 72 88 90 104 105 120 123 153 155 159 170 171 175 204 205 206 217 219 220 222 234 235 236 237 252 255
+```
+
+The best completion found for $`\sigma_0`$, 368 violated outside lines (500 in all), 38 labels:
+
+```text
+8 12 13 14 24 26 28 30 40 41 44 45 56 59 60 63 90 93 105 110 123 125 126 153 155 157 159 170 171 174 175 189 190 217 219 234 235 255
+```
+
+The record is `results/cospectral_pair.json` (`completion_witnesses`). The carriers of Sections 8.6 and
+8.7 are defined by formulas; their complete sign tables, graphs and characteristic polynomials are in
+`results/cospectral_family.json`, `results/cospectral_family_cone_lift.json` and
+`results/conjecture_e.json`.

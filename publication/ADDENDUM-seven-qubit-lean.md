@@ -1,6 +1,9 @@
 # Addendum: the seven-qubit contextuality degree, with its counts, is proved in Lean
 
-**Status.** Proposed change for the next revision of the combined paper
+**Folded into the combined paper, version 1.3.0 (10 November 2026), Sections 5.3 and 9.1.** This file keeps
+the result as first stated.
+
+**Status.** Originally proposed change for the next revision of the combined paper
 ([paper/unified-contextuality.md](../paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
 artifacts are not changed by this file. The result was obtained on 10 November 2026 by the Claude
 (Anthropic) line of work, under the direction of Alexander S. Donahue, 0thernes LLC. It is a Lean 4

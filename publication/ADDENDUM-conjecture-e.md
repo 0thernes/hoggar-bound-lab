@@ -1,6 +1,9 @@
 # Addendum: Conjecture E holds in all nine vertex cases
 
-**Status.** Proposed addition for the next revision of the combined paper
+**Folded into the combined paper, version 1.3.0 (10 November 2026), Section 8.7 (Theorem 19).** This file keeps
+the result as first stated.
+
+**Status.** Originally proposed addition for the next revision of the combined paper
 ([paper/unified-contextuality.md](../paper/unified-contextuality.md)), after
 [ADDENDUM-c3-all-qubits.md](ADDENDUM-c3-all-qubits.md) (Theorem 17, case C3). Release `v1.2.0` is not
 changed by this file. Obtained on 10 November 2026 by the Claude (Anthropic) line of work, under the

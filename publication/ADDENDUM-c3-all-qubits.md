@@ -1,6 +1,9 @@
 # Addendum: the strict law fails in case C3 for every number of qubits
 
-**Status.** Proposed addition for the next revision of the combined paper
+**Folded into the combined paper, version 1.3.0 (10 November 2026), Sections 8.6 and 9.3 (Theorem 17, Corollary 18).** This file keeps
+the result as first stated.
+
+**Status.** Originally proposed addition for the next revision of the combined paper
 ([paper/unified-contextuality.md](../paper/unified-contextuality.md)). Release `v1.2.0` and its frozen
 artifacts are not changed by this file. The result was obtained on 10 November 2026 by the Claude
 (Anthropic) line of work, under the direction of Alexander S. Donahue, 0thernes LLC.

@@ -1,0 +1,13 @@
+'HoggarBound.Packed.card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.sign_table' does not depend on any axioms
+'HoggarBound.viol_bit' depends on axioms: [propext, Quot.sound]
+'HoggarBound.flagRow_eq_fast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.violRow_eq_fast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.card_cfg_fast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.card_flags_cfg_fast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.card_violated_cfg_fast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.phase7_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.phase7_flags' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.phase7_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.phase7_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.phase7_contexts' depends on axioms: [propext, Classical.choice, Quot.sound]
