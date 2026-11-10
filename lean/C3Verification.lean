@@ -1,0 +1,45 @@
+/- Axiom audit for the complete finite four-qubit C3 certificate and model bridge. -/
+import HoggarBound.C3Spectra
+
+#print axioms HoggarBound.C3.bits_bijective
+#print axioms HoggarBound.C3.codePoint_bijective
+#print axioms HoggarBound.C3.codePoint_add
+#print axioms HoggarBound.C3.section_correct
+#print axioms HoggarBound.C3.outside_correct
+#print axioms HoggarBound.C3.section_card
+#print axioms HoggarBound.C3.outside_card
+#print axioms HoggarBound.C3.polar_point_real
+#print axioms HoggarBound.C3.outside_labels_complete
+#print axioms HoggarBound.C3.outside_labels_injective
+#print axioms HoggarBound.C3.realPauliCode_cast
+#print axioms HoggarBound.C3.carrierA_from_section
+#print axioms HoggarBound.C3.carrierB_from_section
+#print axioms HoggarBound.C3.completionA_from_contexts
+#print axioms HoggarBound.C3.completionB_from_contexts
+#print axioms HoggarBound.C3.carrier_intertwining
+#print axioms HoggarBound.C3.intertwiner_inverse
+#print axioms HoggarBound.C3.intertwiner_det_ne_zero
+#print axioms HoggarBound.C3.carrier_charpoly_eq
+#print axioms HoggarBound.C3.completionA_trace_cube
+#print axioms HoggarBound.C3.completionB_trace_cube
+#print axioms HoggarBound.C3.completion_cube_traces_ne
+#print axioms HoggarBound.C3.section_image
+#print axioms HoggarBound.C3.outside_image
+#print axioms HoggarBound.C3.pauliCarrier_isHermitian
+#print axioms HoggarBound.C3.carrier_cast_reindex
+#print axioms HoggarBound.C3.pauli_carrier_charpoly_eq
+#print axioms HoggarBound.C3.completion_cast
+#print axioms HoggarBound.C3.pauli_completionA_trace_cube
+#print axioms HoggarBound.C3.pauli_completionB_trace_cube
+#print axioms HoggarBound.C3.pauli_completion_cube_traces_ne
+#print axioms HoggarBound.C3.four_qubit_C3_counterexample
+#print axioms HoggarBound.C3.hermitian_trace_pow
+#print axioms HoggarBound.C3.hermitian_trace_pow_eq_of_charpoly_eq
+#print axioms HoggarBound.C3.hermitian_charpoly_eq_of_roots_eq
+#print axioms HoggarBound.C3.signed_context_adjacency_isHermitian
+#print axioms HoggarBound.C3.pauliCompletion_isHermitian
+#print axioms HoggarBound.C3.pauli_completion_charpoly_ne
+#print axioms HoggarBound.C3.pauli_completion_eigenvalues_ne
+#print axioms HoggarBound.C3.pauli_completion_eigenvalue_multisets_ne
+#print axioms HoggarBound.C3.four_qubit_C3_spectral_counterexample
+#print axioms HoggarBound.C3.pauli_carrier_eigenvalues_eq

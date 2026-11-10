@@ -36,7 +36,7 @@ jobs:
           node-version: "24"
           package-manager-cache: false
       - name: Install the numerical checker dependency
-        run: python -m pip install --disable-pip-version-check numpy==2.0.2
+        run: python -m pip install --disable-pip-version-check numpy==2.0.2 sympy==1.14.0
       - name: Build the C engine and record its environment
         run: |
           mkdir -p build results
@@ -61,6 +61,14 @@ jobs:
           git diff --exit-code -- independent-review/data.js
       - name: Test explorer updates, search steps, and witness export
         run: node tests/independent_demo_test.cjs | tee results/independent-ci-demo.log
+      - name: Rebuild the exact four-qubit C3 certificate and falsification controls
+        run: |
+          python scripts/frontier_c3_verify.py | tee results/independent-ci-c3-jordan.log
+          python scripts/frontier_c3_context_verify.py | tee results/independent-ci-c3-contexts.log
+          python scripts/frontier_c3_similarity.py | tee results/independent-ci-c3-similarity.log
+          python scripts/frontier_c3_integer_bounds.py | tee results/independent-ci-c3-bounds.log
+          python scripts/frontier_c3_certificate_audit.py | tee results/independent-ci-c3-data-audit.log
+          node tests/frontier_c3_browser_test.cjs | tee results/independent-ci-c3-browser.log
       - name: Preserve executable-check evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
@@ -70,13 +78,17 @@ jobs:
             results/independent-ci-*.log
             results/independent_validation.json
             results/independent-input-validation.json
+            results/frontier-c3-*-verification.json
+            results/frontier-c3-n4-verification.json
+            results/frontier-c3-integer-bounds.json
+            results/frontier-c3-certificate-audit.json
           if-no-files-found: error
           retention-days: 30
 
   lean-proof:
     name: Lean kernel proof and axiom allowlist
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 180
     env:
       # The finite kernel certificate reached about 10 GB on Windows.
       # Build its prerequisites first and avoid parallel Lean workers.
@@ -121,7 +133,8 @@ jobs:
         working-directory: lean
         run: |
           lake exe cache get Mathlib.Analysis.Matrix.Spectrum \
-            Mathlib.Algebra.Order.Chebyshev Mathlib.Data.ZMod.Basic Mathlib.Tactic
+            Mathlib.Algebra.Order.Chebyshev Mathlib.Data.ZMod.Basic Mathlib.Tactic \
+            Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
           git diff --exit-code -- lean-toolchain lake-manifest.json
       - name: Build the original general proof
         working-directory: lean
@@ -152,11 +165,32 @@ jobs:
               assert actual <= allowed, f"Unexpected axioms in {name}: {actual - allowed}"
           print(f"Passed: all {len(expected)} audited declarations use only standard axioms")
           PY
+      - name: Build the four-qubit C3 data and finite certificate sequentially
+        working-directory: lean
+        run: |
+          lake build HoggarBound.C3Data 2>&1 | tee ../results/independent-ci-lean-c3-data.log
+          /usr/bin/time -v lake build HoggarBound.C3Certificate 2>&1 | tee ../results/independent-ci-lean-c3-certificate.log
+          /usr/bin/time -v lake build HoggarBound.C3Geometry 2>&1 | tee ../results/independent-ci-lean-c3-geometry.log
+          lake build HoggarBound.C3Theorem 2>&1 | tee ../results/independent-ci-lean-c3-theorem.log
+          lake build HoggarBound.C3Spectra 2>&1 | tee ../results/independent-ci-lean-c3-spectra.log
+      - name: Audit the connected C3 spectral theorem
+        run: |
+          (cd lean && lake env lean C3Verification.lean) 2>&1 | tee results/independent-ci-lean-c3-axioms.log
+          python scripts/frontier_c3_axioms.py results/independent-ci-lean-c3-axioms.log --minimum 42
+      - name: Check the auxiliary scalar stability theorem
+        run: |
+          (cd lean && lake build HoggarBound.Stability) 2>&1 | tee results/independent-ci-lean-stability.log
+          (cd lean && lake env lean StabilityVerification.lean) 2>&1 | tee results/independent-ci-lean-stability-axioms.log
+          python scripts/frontier_c3_axioms.py results/independent-ci-lean-stability-axioms.log \
+            --source lean/StabilityVerification.lean --minimum 6 --output results/stability-axioms.json
       - name: Preserve Lean proof evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: independent-lean-evidence
-          path: results/independent-ci-lean-*.log
+          path: |
+            results/independent-ci-lean-*.log
+            results/frontier-c3-axioms.json
+            results/stability-axioms.json
           if-no-files-found: error
           retention-days: 30
