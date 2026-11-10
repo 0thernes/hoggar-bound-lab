@@ -1669,7 +1669,10 @@ able to fail and corrected a comment, the first run
 repeated the C3 checks of Section 11.3 (`scripts/cospectral_family.py --six`, the tensor check, the
 cone lifts and the four-qubit search); the second added `scripts/conjecture_e.py` for three to five
 qubits (81 checks). The six-qubit step (`scripts/conjecture_e.py 6`, 36 checks) was added to the
-workflow in this version.
+workflow in this version. At commit `6189b62`, whose programs and Lean files are those of this
+release, the workflow ran every step, the six-qubit one included, and passed
+([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684); logs in
+`results/ci-run-42817286684/`).
 
 <!-- journal:supplement -->
 ## 10. A running example on the Tsotchke stack

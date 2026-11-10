@@ -167,8 +167,10 @@ cd lean && lake build HoggarBound.Bound HoggarBound.Quadric && lake env lean Hog
 ```
 
 `run_all.sh` needs gcc, Python 3 with NumPy and Matplotlib, and Node; Eshkol is optional. It prints one
-line per stage and ends with `ALL STAGES PASSED`; the last complete run is kept in
-[results/run_all.log](results/run_all.log) and [results/falsify.log](results/falsify.log). The Lean
+line per stage and ends with `ALL STAGES PASSED`; the last complete run (all 22 stages, on 10 November
+2026, in a fresh clone of commit `28dc811`, about 15 minutes on a Windows 11 desktop computer) is kept in
+[results/run_all.log](results/run_all.log) and [results/falsify.log](results/falsify.log); apart from
+elapsed seconds in one log, it reproduced every committed record. The Lean
 build needs [elan](https://github.com/leanprover/elan); it downloads Lean 4.35.0 and the Mathlib cache.
 
 ## What is and is not claimed

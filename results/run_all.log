@@ -12,4 +12,12 @@ PASS  phase states, exact arithmetic (81 checks)
 PASS  Moonlab: eight flat states, two circuits (S1-S3)
 PASS  QGTL kernels on the eight flat states
 PASS  Eshkol: the pivot configuration + autodiff
+PASS  cospectral pair, exact arithmetic (30 checks)
+PASS  seven qubits, the kernel's evaluation against direct sums (14 checks)
+PASS  C3 family, full configurations N = 3..6 (43 checks)
+PASS  C3 family, second route by tensor products (18 checks)
+PASS  C11: cone lifts of the C3 family, 4 to 6 qubits (21 checks)
+PASS  Conjecture E: all nine vertex cases, n = 3..5 (81 checks)
+PASS  Conjecture E: all nine vertex cases, n = 6 (36 checks)
+PASS  C3: exhaustive search near the all-plus carrier, four qubits
 ALL STAGES PASSED

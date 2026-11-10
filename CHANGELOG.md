@@ -41,6 +41,14 @@ abstracts, which the unified audit now compares with the paper; addenda links on
 `scripts/cospectral_family.py` without `--six` now writes its own record instead of overwriting the
 committed one.
 
+Verification of the release: at commit `6189b62`, whose programs and Lean files are those of the
+release, the workflow *Case C3 for every number of qubits* passed every step, the six-qubit Conjecture E
+step included ([run 42817286684](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684);
+logs kept in `results/ci-run-42817286684/`), and the publication documentation checks passed
+([run 42817314224](https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817314224)). A complete
+`scripts/run_all.sh` in a fresh clone passed all 22 stages and reproduced every committed record apart from
+elapsed seconds (`results/run_all.log`).
+
 Publication machinery: `scripts/build_unified_paper.py` takes the version from one constant and the
 archive date from the byline; both publication audits move to 1.3.0 and gain checks (sources of the
 seven-qubit and C3 Lean files unchanged since their CI runs, their axiom reports, the arXiv abstract

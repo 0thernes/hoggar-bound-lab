@@ -2,8 +2,8 @@
   "status": "built",
   "publication_version": "1.3.0",
   "source": "paper/unified-contextuality.md",
-  "source_sha256": "f73e1c40b049424495fa9e0527ed3f55f106c6334801440f3ac35f00ad8d1793",
-  "source_lf_sha256": "f73e1c40b049424495fa9e0527ed3f55f106c6334801440f3ac35f00ad8d1793",
+  "source_sha256": "e0765ca74fa4c66c15c7e95abd9ac895ff0857cd0988f86a35d92567a89a07bc",
+  "source_lf_sha256": "e0765ca74fa4c66c15c7e95abd9ac895ff0857cd0988f86a35d92567a89a07bc",
   "builder_sha256": "92a59bbb6d0b49bc64547fdbbaef3dd2881ab1263ff5e6e50ea0798cdd96f672",
   "table_helper_sha256": "1550c6434b71cca2b535ef4eac1ddd6405ccc3dffb1ad2d991ec0a33ad005ae6",
   "tools": {
@@ -154,8 +154,8 @@
   ],
   "arxiv_archive_rebuild": {
     "returncode": 0,
-    "pdf_bytes": 503781,
-    "pdf_sha256": "de8f6db5613859013a628a2540a7c342c878bfa048e536f6e1e6aa0ddc238170",
+    "pdf_bytes": 504073,
+    "pdf_sha256": "c17bc95d8c878bc65a3eed891b9fad0a272e4cd7173e419a8ca2f7cf4fdd253a",
     "engine": "Tectonic / XeTeX",
     "scope": "Fresh extraction compiled using the installed TeX package cache; no arXiv submission or service-side compilation."
   },
@@ -183,20 +183,20 @@
   },
   "artifacts": {
     "paper/unified-contextuality.html": {
-      "sha256": "ec6b71fc04e781fd30a0dbbd9a5594794500caadd9c4b50562285441e7d88f81",
-      "bytes": 221745
+      "sha256": "fdb57b5c997b08ff8f52565420fd1ab0a77a06074745e303faaac6e321e93ea8",
+      "bytes": 222043
     },
     "paper/unified-contextuality.pdf": {
-      "sha256": "b297a9c369fe4dcb1fbc503145ec4f97735da2e6f75dc175f6a3ba741fbe65e0",
-      "bytes": 503781
+      "sha256": "e1ae8380f4e77759f6604e505855e9bcf0080687d7643e7ea0244c1f2fa0b35a",
+      "bytes": 504073
     },
     "publication/unified-contextuality/arxiv-source-tectonic.log": {
-      "sha256": "9f79925f2aa6f65eb08a16e094215ff046ae1fc0c662933fdfc319c689438313",
+      "sha256": "be2a5d239ee6f7ce82c6ae004b74e496d9aab15a27f2c635b84e8dd29943fee1",
       "bytes": 3843
     },
     "publication/unified-contextuality/arxiv-source.zip": {
-      "sha256": "b0ef89e2b104b6c75ca48a31b0feee83d2d3c39a01590ad5d617a7715399f937",
-      "bytes": 223859
+      "sha256": "003d96c1c1ab0dffc5740e17dd0f8e1f33cb471f04c95332f4bd06813ecdf491",
+      "bytes": 223945
     },
     "publication/unified-contextuality/c3-figures/spectra.pdf": {
       "sha256": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
@@ -239,44 +239,44 @@
       "bytes": 33643
     },
     "publication/unified-contextuality/jphysa/manuscript-tectonic.log": {
-      "sha256": "c05b86dd64774e1ee32e7296db73cef6fb4725192147954d8dbc4bfad4eb21a7",
+      "sha256": "806a5ad6b44ad1d87de97f6c8ecba0b025b63946b1a8b30e405bbf6963651118",
       "bytes": 3479
     },
     "publication/unified-contextuality/jphysa/manuscript.pdf": {
-      "sha256": "e16fc1986f686b944e3e4bf05bc66a5a4e71a855945e3683cd437d6683436de2",
-      "bytes": 417863
+      "sha256": "95355477843592c366847d4e1f7082b9d31df5a4169dad3126a7a4d302d30f23",
+      "bytes": 418105
     },
     "publication/unified-contextuality/jphysa/manuscript.tex": {
-      "sha256": "4b3e09d35b7f5329b1cd73409c1b5ece8c5c1967ba6df7dce0d2d92db5445a44",
-      "bytes": 136669
+      "sha256": "2d88a6193fba455ae113dd697c8c11f9a7961e4fc726a2cfc916898a3ef525be",
+      "bytes": 136956
     },
     "publication/unified-contextuality/jphysa/supplementary-tectonic.log": {
-      "sha256": "513da5a95f8f7d77f363c3f8bbfc45a7b6098e8819aa26ffe47661fe1d9bb130",
-      "bytes": 643
+      "sha256": "10797548c7c4e31554a249fc4b478f556a2432d2db672b248d330a0a9c7d3dfc",
+      "bytes": 642
     },
     "publication/unified-contextuality/jphysa/supplementary.pdf": {
-      "sha256": "ffd6b4a43251d1d719b85debeb09bdff2e27a98b1c86702fe4e19b86e91b579d",
-      "bytes": 165249
+      "sha256": "c501fb6e907c4e659caaa7c072d467612a5478fc7293cec18d17bc6a28a2e9da",
+      "bytes": 165250
     },
     "publication/unified-contextuality/jphysa/supplementary.tex": {
       "sha256": "a86b0de4cabb43a76f00e1e4a1fafd9f3631afa2e1b986b89d67497a427a5e9f",
       "bytes": 33059
     },
     "publication/unified-contextuality/unified-contextuality-tectonic.log": {
-      "sha256": "9f79925f2aa6f65eb08a16e094215ff046ae1fc0c662933fdfc319c689438313",
+      "sha256": "92436a8e89dfc92e287e57f598058e2d4327208c27d3347df37dbd7b06e3c790",
       "bytes": 3843
     },
     "publication/unified-contextuality/unified-contextuality.html": {
-      "sha256": "ec6b71fc04e781fd30a0dbbd9a5594794500caadd9c4b50562285441e7d88f81",
-      "bytes": 221745
+      "sha256": "fdb57b5c997b08ff8f52565420fd1ab0a77a06074745e303faaac6e321e93ea8",
+      "bytes": 222043
     },
     "publication/unified-contextuality/unified-contextuality.pdf": {
-      "sha256": "b297a9c369fe4dcb1fbc503145ec4f97735da2e6f75dc175f6a3ba741fbe65e0",
-      "bytes": 503781
+      "sha256": "e1ae8380f4e77759f6604e505855e9bcf0080687d7643e7ea0244c1f2fa0b35a",
+      "bytes": 504073
     },
     "publication/unified-contextuality/unified-contextuality.tex": {
-      "sha256": "05c0cbc1b50fcc42e6c21e4a50c77fa55905ffb2ff39a15dac8eca0e701945d3",
-      "bytes": 161862
+      "sha256": "1c863e0b733e696fbabc815ee4d8c404fafcab58ff5a7280a66fb83b162a7a1c",
+      "bytes": 162149
     }
   },
   "public_pdf_matches_typeset_pdf": true,

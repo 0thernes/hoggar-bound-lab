@@ -1,0 +1,15 @@
+matrices D: 54811, pairs (tr D^3, tr D^4): 10, each pair has one characteristic polynomial and one r_D: True
+at most 0 changes: 1 carriers, 1 s
+at most 1 changes: 106 carriers, 1 s
+at most 2 changes: 5461 carriers, 1 s
+at most 3 changes: 182176 carriers, 1 s
+carriers 182176, distinct keys 3289, groups holding two different (r_D, tr D^3, tr D^4): 6
+members settled by exact characteristic polynomials: 1056
+classes of cospectral carriers with different block spectra: 4; of these with different r_D (different completion cubic traces): 3
+   r_D 0: IXX:1 ZZZ:1 | r_D 2: XYY:2 YZY:2
+   r_D 0: IIX:1 ZZZ:1 | r_D 2: IIZ:2 XYY:1 ZIZ:2
+   r_D 3: IXX:2 XXX:2 IYY:2 | r_D 3: XXX:2 XXZ:2 YYX:2
+   r_D 1: XXX:1 XXZ:1 YYZ:2 | r_D 3: IXX:2 XYY:2 YZY:2
+the pair of Section 8: IZZ:1 YYI:1 | IIZ:2 IZZ:2 YXY:1; in the visited set: True; cospectral: True; class number 2 of the list above
+time: 2 s
+SPARSE-SEARCH-DONE

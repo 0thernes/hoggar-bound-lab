@@ -1,0 +1,20 @@
+PASS  N = 3: 35 real words, 19 = 1 + (n-1)(n+2) commute with ZII, 16 = n^2 do not; as recorded
+PASS  N = 3: 72 contexts with one section point, found by matrix products
+PASS  N = 3: every recorded negative label is a section observable, for both tables, and both have +1 at ZII
+PASS  N = 3: the two tables differ at 6 points, all of the form Z (x) P   [ZIX ZXI ZXX ZXZ ZYY ZZX]
+PASS  N = 3: tr A^k agrees for the two carriers for every k = 1 .. 8 (so the characteristic polynomials agree)   [tr A^3 = 432]
+PASS  N = 3: tr Lambda^2 = 144 for both; tr Lambda^3 = 0 and 288, as recorded; the difference is -(3/2) n^3 |F| = -288
+PASS  N = 4: 135 real words, 71 = 1 + (n-1)(n+2) commute with ZIII, 64 = n^2 do not; as recorded
+PASS  N = 4: 1120 contexts with one section point, found by matrix products
+PASS  N = 4: every recorded negative label is a section observable, for both tables, and both have +1 at ZIII
+PASS  N = 4: the two tables differ exactly at the 4 words Z (x) W (x) X, W a word in I and Z   [ZIIX ZIZX ZZIX ZZZX]
+PASS  N = 4: tr A^k agrees for the two carriers for every k = 1 .. 16 (so the characteristic polynomials agree)   [tr A^3 = 19104]
+PASS  N = 4: tr Lambda^2 = 2240 for both; tr Lambda^3 = 15744 and 16512, as recorded; the difference is -(3/2) n^3 |F| = -768
+PASS  N = 5: 527 real words, 271 = 1 + (n-1)(n+2) commute with ZIIII, 256 = n^2 do not; as recorded
+PASS  N = 5: 17280 contexts with one section point, found by matrix products
+PASS  N = 5: every recorded negative label is a section observable, for both tables, and both have +1 at ZIIII
+PASS  N = 5: the two tables differ exactly at the 8 words Z (x) W (x) X, W a word in I and Z   [ZIIIX ZIIZX ZIZIX ZIZZX ...]
+PASS  N = 5: tr A^k agrees for the two carriers for every k = 1 .. 32 (so the characteristic polynomials agree)   [tr A^3 = 350784]
+PASS  N = 5: tr Lambda^2 = 34560 for both; tr Lambda^3 = 649728 and 655872, as recorded; the difference is -(3/2) n^3 |F| = -6144
+
+18 of 18 checks passed

@@ -1,8 +1,8 @@
 note: Running TeX ...
 note: Rerunning TeX because "manuscript.aux" changed ...
 note: Running xdvipdfmx ...
+note: Writing `manuscript.pdf` (408.3056640625 KiB)
 note: Writing `manuscript.log` (24.427734375 KiB)
-note: Writing `manuscript.pdf` (408.0693359375 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
 Fontconfig error: Cannot load default config file: No such file: (null)
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.

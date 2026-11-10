@@ -1,0 +1,12 @@
+⚠ [3324/3328] Built HoggarBound.Pauli (3.5s)
+warning: HoggarBound/Pauli.lean: imports `Mathlib.Analysis.Matrix.Spectrum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound/Pauli.lean: imports `Mathlib.Data.ZMod.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound/Pauli.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [3325/3328] Built HoggarBound.Moment (4.6s)
+warning: HoggarBound/Moment.lean: imports `Mathlib.Analysis.Matrix.Spectrum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound/Moment.lean: imports `Mathlib.Algebra.Order.Chebyshev` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: HoggarBound/Moment.lean: imports `Mathlib.Tactic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+✔ [3326/3328] Built HoggarBound.Bound (2.6s)
+✔ [3327/3328] Built HoggarBound.Counting (2.9s)
+✔ [3328/3328] Built HoggarBound.Quadric (2.0s)
+Build completed successfully (3328 jobs).
