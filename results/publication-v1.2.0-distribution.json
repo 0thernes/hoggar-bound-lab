@@ -15,13 +15,20 @@
       "result": "No matching articles. Profile setup remains at article selection; no unrelated work selected."
     },
     "arxiv": {
-      "status": "draft_opened_agreement_pending",
+      "status": "agreement_accepted_endorsement_deferred_by_author",
       "account_affiliation": "0thernes LLC",
       "orcid_linked": true,
       "files_uploaded": false,
-      "agreement_accepted": false,
+      "agreement_accepted": true,
+      "submission_rights_authorized": true,
+      "selected_license": "arXiv.org perpetual, non-exclusive license",
+      "selected_category": "quant-ph",
+      "endorsement_status": "required",
+      "endorsement_ui_message": "You are not endorsed for this archive.",
+      "endorsement_request_observation": "Author completed sign-in; authenticated page confirms endorsement-code email sent to the author's business address. Code omitted from public record.",
+      "endorsement_deferred_by_author": true,
       "public_identifier": null,
-      "required_next": "Author agreement and rights confirmation; irrevocable distribution license choice. User question pending; endorsement/moderation not yet assessed."
+      "required_next": "After the author resumes, obtain eligible quant-ph endorsement. Then upload, compile, review and submit the prepared source package. No new agreement/license approval needed unless the terms/action change."
     },
     "journal_of_physics_a": {
       "status": "package_prepared_not_submitted",
@@ -30,7 +37,11 @@
       "acknowledgments_ai_disclosure": true,
       "account_observation": "ScholarOne login screen",
       "submission_identifier": null,
-      "required_next": "Sign-in and truthful human intellectual contribution, critical review, final approval, accountability, rights/exclusivity and competing-interest declarations."
+      "author_approval_accountability": "Approved conditional on assistant readiness assessment; that assessment supports a disclosed research preprint",
+      "competing_interests": "Author declares none; sole-operator LLC relationship remains disclosed",
+      "human_critical_review_observed": false,
+      "other_journal_named_by_author": false,
+      "required_next": "Sign-in and actual human intellectual contribution/critical revision sufficient for IOP authorship and AI-use requirements; truthful live venue-specific declarations. See publication/AUTHOR-DECLARATIONS.md."
     },
     "zenodo": {
       "status": "eligibility_unresolved_not_deposited",
@@ -80,5 +91,12 @@
     "c3_flip_ZIII_in_B": "rejected",
     "c3_restored_pair": "pass"
   },
-  "scope": "A public preprint release, author record and verified preservation; no DOI, arXiv announcement, journal submission/acceptance or search indexing is claimed."
+  "scope": "A public preprint release, author record and verified preservation; no DOI, arXiv announcement, journal submission/acceptance or search indexing is claimed.",
+  "later_author_and_submission_update": {
+    "local_date": "2026-11-09",
+    "timezone": "America/Los_Angeles",
+    "author_record": "publication/AUTHOR-DECLARATIONS.md",
+    "arxiv_checkpoint": "publication/ARXIV-ENDORSEMENT.md",
+    "frozen_release_artifacts_changed": false
+  }
 }

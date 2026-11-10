@@ -57,21 +57,28 @@ Prepared descriptive cover text:
 > spectral invariant. Earlier source preprints and their archived versions are disclosed in the
 > publication map; the submitted work is the combined manuscript.
 
-This text deliberately makes no certification of final author approval, journal exclusivity,
-absence of additional competing interests, acceptance, or completed human critical review. Add only
-declarations the author has actually made for this final version. An AI tool must not write responses
+The descriptive cover text above makes no certification of journal exclusivity, acceptance, or
+completed human critical review. The later [author declarations](AUTHOR-DECLARATIONS.md) record
+conditional approval/accountability, the no-competing-interest statement and accepted arXiv rights
+and license. Use their precise scope for this final version. An AI tool must not write responses
 to future referee reports where the publisher requires the author's own evaluation.
 
 ## Author-controlled declarations
 
-Confirmed: the research was self-funded; the author is the sole operator of affiliated 0thernes LLC.
-Additional competing interests, the extent of the author's own critical review, final manuscript
-approval, and any venue-specific rights or exclusivity certification remain to be stated truthfully.
+Confirmed: the research was self-funded; the author is the sole operator of affiliated 0thernes LLC
+and declares no competing interests. The author approved this version and accepted accountability
+conditional on the assistant's readiness assessment, which supports offering it as a disclosed research
+preprint. His recorded direction, goals, resources and funding are described in
+[AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md); no personal mathematical/reference review or
+critical intellectual revision was identified. Those activities cannot be inferred from permission.
+The listed distribution destinations are repositories/indexes/archives, with no other journal named.
 No nonprofit/tax status, academic appointment or external endorsement is inferred.
 
 The existing verification license and third-party notices remain authoritative. A repository release
 does not silently grant an additional Creative Commons license. An arXiv or repository distribution
-license must be selected deliberately if required by the destination.
+license must be selected deliberately if required by the destination. The author has now explicitly
+authorized the perpetual non-exclusive arXiv license and accepted the arXiv agreement and rights
+declarations. This does not grant an additional license to Zenodo or change the repository license.
 
 IOP requires disclosed AI research use and the author's validation and critical engagement.
 [Official IOP AI policy](https://publishingsupport.iopscience.iop.org/questions/generative-ai-tools/).
@@ -88,8 +95,12 @@ workflow remains an eligibility question that a proof check alone does not resol
 
 The suggested primary category is `quant-ph`, with `math.CO` as a possible cross-list. The account's
 default `math.QA` does not determine the paper's classification; arXiv moderation controls the final
-categories. The archive specifies XeLaTeX. Review the compiled full paper and any required endorsement,
-author agreement and distribution-license choices before final submission.
+categories. The archive specifies XeLaTeX. The accepted agreement and non-exclusive license were
+selected in the live form; continuing in `quant-ph` returned an endorsement requirement. The
+author completed sign-in to the endorsement flow, which confirmed an endorsement email was sent.
+The author deferred obtaining an endorser. No files have been uploaded or finally submitted.
+See [the endorsement checkpoint](ARXIV-ENDORSEMENT.md); after the author resumes and resolves it, review arXiv's actual
+compiled output before final submission.
 
 Use the combined title, version and canonical public URL for ORCID and preservation records. Do not
 enter Journal of Physics A as the publication venue before an actual journal publication. A public

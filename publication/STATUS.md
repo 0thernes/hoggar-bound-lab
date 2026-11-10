@@ -16,7 +16,7 @@ the spectral-floor source study. The general Lean bound and existing proof sourc
 | --- | --- |
 | GitHub / project website | **Public.** [Release v1.2.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0), published 10 November 2026 at 03:46:37 UTC (9 November locally), fixes commit `3073955de6e261ecdbcc3fc739615d9df48caf0b`. All 19 uploaded assets were downloaded and hash-checked. [Combined HTML](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html) and [PDF](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf) are live. |
 | Google Scholar | **Hosting ready; indexing not observed.** The live paper has matching citation metadata and a searchable 437176-byte PDF. Exact-title search returned no matching articles. Profile setup remains at article selection; no unrelated work was selected. |
-| arXiv | Account access, saved affiliation 0thernes LLC and linked ORCID verified. A combined-paper draft was opened at the agreement/license step; no files uploaded, agreement accepted, or paper submitted. Combined source archive prepared; no public identifier. The latest eight-destination instruction supersedes the earlier source-paper deferral. |
+| arXiv | **Agreement/license accepted; endorsement deferred by the author.** The accepted agreement, submission rights and perpetual non-exclusive license were selected in the live form. Continuing in `quant-ph` requires endorsement. After the author signed in, the page confirmed that an endorsement-code email was sent. The author chose to obtain an endorser later. No files uploaded, final submission or public identifier. [Endorsement checkpoint](ARXIV-ENDORSEMENT.md). |
 | Journal of Physics A: Mathematical and Theoretical | Combined main manuscript and supplement prepared. ScholarOne still showed its login screen. No journal submission, review or acceptance. |
 | Zenodo | Saved profile affiliation 0thernes LLC verified. No combined-paper deposit or DOI. AI-origin/human-research eligibility and distribution-license decisions remain unresolved. |
 | ORCID | **Public preprint entry verified.** [Author record](https://orcid.org/0009-0006-8168-9648) now shows the combined title, preprint date 9 November 2026, correct public URL, BibTeX and abstract. The public biography identifies Alexander S. Donahue - 0thernes LLC. This is a self-asserted author record. |
@@ -88,10 +88,17 @@ not a full proof pass. The newer successful full run above is an independent com
 ## Remaining author-controlled declarations
 
 Confirmed funding: self-funded by the author, who is the sole operator of affiliated 0thernes LLC.
-Additional competing interests have not been declared. Actual human critical review and final approval
-of the combined manuscript remain to be recorded. Automated checks do not establish that the human
-performed those activities. Journal rights/exclusivity declarations and required distribution licenses
-must be truthful and selected by the author. The manuscript discloses substantive Claude and Codex use.
+The author now declares no competing interests, with the LLC relationship disclosed, and approves
+v1.2.0 and accepts accountability conditional on the documented readiness assessment. That assessment
+supports offering the work as a transparently disclosed research preprint. arXiv agreement, rights and
+perpetual non-exclusive license authorization are recorded. Human critical review and the intellectual
+contribution/revision required by IOP remain unestablished; automated checks cannot establish that the
+human performed those activities. The stated dissemination plan identifies no other journal under
+review. See [supported contributions and declarations](AUTHOR-DECLARATIONS.md) for precise scope.
+
+These are later administrative declarations, not a retroactive change to the frozen v1.2.0 PDF.
+The manuscript discloses substantive Claude and Codex use. Its earlier "not yet declared" interest
+wording should be updated in the next manuscript revision using this author-supplied record.
 
 The current custom verification license and third-party notices are preserved. No additional Creative
 Commons grant, nonprofit/tax status, academic appointment or endorsement is inferred. See the
