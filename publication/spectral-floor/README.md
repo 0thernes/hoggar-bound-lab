@@ -22,8 +22,8 @@ for further venues (fees, licences) are in [../ROUTES.md](../ROUTES.md), written
 |---|---|---|
 | GitHub repository, release `v1.1.0` | published | — |
 | Project web page (GitHub Pages), with indexing metadata for Google Scholar | published. Google Scholar indexes such pages by itself; that takes days to weeks and is not guaranteed | — |
-| Software Heritage | archival of the public repository requested and accepted (save request 2635043) | — |
-| Internet Archive | snapshots of the paper page and of the PDF taken (20261110022023, 20261110022123) | — |
+| Software Heritage | archived. The visit of 10 November 2026, 02:35 UTC, includes the tag `v1.1.0`: snapshot `swh:1:snp:e668d136e57bf7971a488db2706bd58ffbabede5` ([browse](https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://github.com/0thernes/hoggar-bound-lab)) | — |
+| Internet Archive | snapshots of the final paper page and PDF: [page](https://web.archive.org/web/20261110023747/https://0thernes.github.io/hoggar-bound-lab/?v=1.1.0), [PDF](https://web.archive.org/web/20261110023819/https://0thernes.github.io/hoggar-bound-lab/paper/spectral-floor.pdf?v=1.1.0). Its capture of the github.com pages failed (the repository itself is in Software Heritage) | — |
 | arXiv (quant-ph, cross-list math.CO) | package ready; **not submitted** | the author: set the account affiliation to 0thernes LLC, obtain an endorsement, accept the submission terms, submit |
 | Zenodo (DOI) | metadata ready; **not deposited**, see `ZENODO-NOTE.md` | the author, after asking Zenodo whether the work is in scope |
 | Journal (first choice: Journal of Physics A) | cover letter drafted; **not submitted** | the author, after the arXiv posting; one journal at a time |
