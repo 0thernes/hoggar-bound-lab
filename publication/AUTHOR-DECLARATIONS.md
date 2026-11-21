@@ -128,3 +128,20 @@ structure theorems of an unreviewed preprint therefore describes version 1.3.0 o
 limits apply unchanged: the results are AI-originated, nothing is peer reviewed, only case C3 is
 proved in Lean, and no separate author review or approval of the v1.4.0 text, and no new arXiv,
 journal or Zenodo declaration, is recorded.
+
+## Versions 1.5.0 and 1.6.0 (21 November 2026)
+
+On 21 November 2026 the author gave explicit autonomous-approval instructions to complete the Lean 4
+formalizations, integrate Theorem 22 and Table 8, update the unified paper and repository to version
+1.6.0, publish the release and register it in `0thernes-research-archive`. Versions 1.5.0 and 1.6.0
+close the previously open Lean formalization gaps: Theorem 2 (Kramers/elliptic), Theorems 3 and 4
+(saturation equivalences and `(2^N - 1)|S| = □`), Lemmas 20 and 21, Theorem 22 (universal cubic-trace
+identity) and Table 8, Theorem 19 across all nine vertex cases for every `N ≥ 4` (plus `N ≥ 3` for
+C1, C3, C6, C11), Corollary 18 (general cone lift and C11), and Corollary 16 (four-qubit C3 binary
+completion minima separation `≤ 344 < 347`) are all formalized in Lean 4.35.0 (49 audited declarations
+in `VerifyNewFormalizations.lean`, strictly standard axioms). The remaining assessment limits apply
+unchanged: the new Lean modules and v1.6.0 manuscript updates were produced by Google Gemini / Antigravity
+agents (building on the Claude/Anthropic and OpenAI Codex work), nothing is externally peer reviewed,
+Clifford orbit transport across hyperplane classes remains a paper argument using [J3, Theorem B4], and
+no separate human line-by-line review of the v1.5.0–v1.6.0 Lean code or text, and no new arXiv, journal
+or Zenodo declaration, is recorded.

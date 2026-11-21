@@ -1,15 +1,15 @@
 {
   "status": "built",
-  "publication_version": "1.4.0",
+  "publication_version": "1.6.0",
   "source": "paper/unified-contextuality.md",
-  "source_sha256": "d0d4653fc4f93ccf348f25b05f0687b05dad60792617650ae8fea715aa9fd44c",
-  "source_lf_sha256": "d0d4653fc4f93ccf348f25b05f0687b05dad60792617650ae8fea715aa9fd44c",
-  "builder_sha256": "31e9a47a654f2b723cc1e918736513693d94ebcfce5d78ad87d64059716909fb",
+  "source_sha256": "d7bd7481f330a7e8e746eea545a58a43580fc5cf71edba062994d262cfdf6ca9",
+  "source_lf_sha256": "d7bd7481f330a7e8e746eea545a58a43580fc5cf71edba062994d262cfdf6ca9",
+  "builder_sha256": "c1e2319cde02b25e1c49bb3cb8c5788f67b0ec8f625cfbe10a66060cebf81511",
   "table_helper_sha256": "1550c6434b71cca2b535ef4eac1ddd6405ccc3dffb1ad2d991ec0a33ad005ae6",
   "tools": {
     "pandoc": {
-      "version": "pandoc 3.13",
-      "sha256": "7ab6244548ba15494fab956230050516fe8f57c36ec2dfb50133719ad3b5a791"
+      "version": "pandoc 3.12.1",
+      "sha256": "eb392d2661d35abc597a6288a548cc82f6291b179da28b24bc5a5d06c742d35d"
     },
     "tectonic": {
       "version": "Tectonic 0.17.0",
@@ -19,8 +19,8 @@
   "reader": "gfm+tex_math_gfm+tex_math_dollars",
   "normalized_standalone_displays": 0,
   "math_expression_counts": {
-    "inline": 1814,
-    "display": 54
+    "inline": 1924,
+    "display": 55
   },
   "journal_section_map": [
     {
@@ -137,7 +137,7 @@
       "heading": "Acknowledgments",
       "journal": "main",
       "origin": "journal template; inserted before References",
-      "markdown": "## Acknowledgments\n\n**AI disclosure statement.** Claude (Anthropic) and OpenAI Codex were used for\nsubstantive research, software development, formalization and manuscript preparation\nunder the author's direction. Section 13 describes their roles and the verification\nperformed in detail. AI systems are disclosed as tools, not authors; no independent\nhuman peer review or venue-specific final approval is claimed.\n"
+      "markdown": "## Acknowledgments\n\n**AI disclosure statement.** Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity were\nused for substantive research, software development, formalization and manuscript preparation under\nthe author's direction. Section 13 describes their roles and the verification performed in detail. AI\nsystems are disclosed as tools, not authors; no independent human peer review or venue-specific final\napproval is claimed.\n"
     }
   ],
   "mathjax": {
@@ -154,8 +154,8 @@
   ],
   "arxiv_archive_rebuild": {
     "returncode": 0,
-    "pdf_bytes": 526150,
-    "pdf_sha256": "ce367d97823e673e87a6bf55f620824a78700a9d23131018b7deff155fb02cff",
+    "pdf_bytes": 552277,
+    "pdf_sha256": "8feac66a8f328fc90cfb4857d7a3dba6dea0192de1bd4a475bc09e7f5a52f76a",
     "engine": "Tectonic / XeTeX",
     "scope": "Fresh extraction compiled using the installed TeX package cache; no arXiv submission or service-side compilation."
   },
@@ -183,20 +183,20 @@
   },
   "artifacts": {
     "paper/unified-contextuality.html": {
-      "sha256": "660a17f1c5b2a3681c39f761d8c18bf566d5b6929ca1702eac77abb22be8e684",
-      "bytes": 245322
+      "sha256": "9399da3c3ba6354c621044ab88e8b68e8c8ea174f2b6e85a871594470354db73",
+      "bytes": 269074
     },
     "paper/unified-contextuality.pdf": {
-      "sha256": "89532166e85088b98b157d5521785955c501f1b75e33f53e4d199a4ce58ea203",
-      "bytes": 526150
+      "sha256": "0530863d7e6feaa55fdf1a3314855d7cd557261081a6ecf77193548c5e8089d2",
+      "bytes": 552277
     },
     "publication/unified-contextuality/arxiv-source-tectonic.log": {
-      "sha256": "b78572dd08347bc3cd693516aadac7cd27a9372ed443ac2a4263c65ab3580dda",
-      "bytes": 3842
+      "sha256": "867121818b53549c0c0817d110227179f161cf3ded6fdfb4e8cc6f4b9bd64520",
+      "bytes": 4263
     },
     "publication/unified-contextuality/arxiv-source.zip": {
-      "sha256": "5ce9058b78640a2ecadeac8c1259b67f9dd3d0764594a15b77b05d5a94849a73",
-      "bytes": 228267
+      "sha256": "3f2d448a05156591c2f2d60ebe00d61cdd27ea2bb4a6bad70df12cc8aa58b17b",
+      "bytes": 233201
     },
     "publication/unified-contextuality/c3-figures/spectra.pdf": {
       "sha256": "98b3c6bad63d5bc56e4564833fbe8c786fd7c2c7affddb749d3ef2233f99aaa2",
@@ -239,44 +239,44 @@
       "bytes": 33643
     },
     "publication/unified-contextuality/jphysa/manuscript-tectonic.log": {
-      "sha256": "fd73ccc75cb531320f539f66c592180132157c975ed1c1bbc324e6724bbb3d05",
-      "bytes": 3480
+      "sha256": "a779b476c9b3e90a3728e0bdfeb99a0d4ffde06a693e3a267766cae7bab82ad9",
+      "bytes": 3850
     },
     "publication/unified-contextuality/jphysa/manuscript.pdf": {
-      "sha256": "f98532ca85d586f4b951705d252f4279cb026d35e5deaf60cd9ba3bceb4a077f",
-      "bytes": 437301
+      "sha256": "db99e3807964431cdb1f9bb43ab4fba8fcb3ee03e0c387fedc4e6df309ac7ec1",
+      "bytes": 462012
     },
     "publication/unified-contextuality/jphysa/manuscript.tex": {
-      "sha256": "719ea9b47772e1fa81b97cb4466dc8f63443a88c782ecceb0ab682826d930977",
-      "bytes": 149308
+      "sha256": "6b0a5f2353c71365f205a75ffab20a1cd44e4a198614a727a1f330c37bbf3c68",
+      "bytes": 167202
     },
     "publication/unified-contextuality/jphysa/supplementary-tectonic.log": {
-      "sha256": "2f6d2cb7516dc590f7784df9e0cead1b6b3f5af406996576bc4ca7203397c6c3",
-      "bytes": 643
+      "sha256": "1aa3f4956ded7b826b4d5f4c3e411a45327d5b022ccc4100f0688087cfcae5a7",
+      "bytes": 642
     },
     "publication/unified-contextuality/jphysa/supplementary.pdf": {
-      "sha256": "b87d76b80ec87bab05360534a8699ee6c9a6e84804595751f52b5ea4d2e4017b",
-      "bytes": 170183
+      "sha256": "1a073359a515ef1d68d37908d38c1bb94029420a444d77dec462c85c00aad317",
+      "bytes": 173158
     },
     "publication/unified-contextuality/jphysa/supplementary.tex": {
-      "sha256": "f6ec6e59cb578b0a6c24b00c7e9526176f9a8f57f8547e8a080a1999f620c064",
-      "bytes": 34641
+      "sha256": "aa425d45916677b8d805137ec4dc8777a49ad536173e2eafa704521bc0b809b1",
+      "bytes": 35864
     },
     "publication/unified-contextuality/unified-contextuality-tectonic.log": {
-      "sha256": "131286fb9f24e9cfbbfb8a8d772709c0503c68c4f1b0cdbd8af7cfc05f4eb487",
-      "bytes": 3842
+      "sha256": "62e864b2d6676bf238572ac35ef25b7bd8ee716d376de1d583eb70d927097092",
+      "bytes": 4923
     },
     "publication/unified-contextuality/unified-contextuality.html": {
-      "sha256": "660a17f1c5b2a3681c39f761d8c18bf566d5b6929ca1702eac77abb22be8e684",
-      "bytes": 245322
+      "sha256": "9399da3c3ba6354c621044ab88e8b68e8c8ea174f2b6e85a871594470354db73",
+      "bytes": 269074
     },
     "publication/unified-contextuality/unified-contextuality.pdf": {
-      "sha256": "89532166e85088b98b157d5521785955c501f1b75e33f53e4d199a4ce58ea203",
-      "bytes": 526150
+      "sha256": "0530863d7e6feaa55fdf1a3314855d7cd557261081a6ecf77193548c5e8089d2",
+      "bytes": 552277
     },
     "publication/unified-contextuality/unified-contextuality.tex": {
-      "sha256": "8ce753430ab8b2c1e416818afeac1bff92f2087cd361a0cecd58741fa0ca5543",
-      "bytes": 176083
+      "sha256": "b31817baf47af037b88828297be215b0e07438bbc469b659ef27ba07c502288a",
+      "bytes": 195140
     }
   },
   "public_pdf_matches_typeset_pdf": true,

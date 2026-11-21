@@ -37,10 +37,10 @@
 
 \maketitle
 
-Hoggar Bound Lab, version 1.4.0, 10 November 2026. Research preprint. Not peer reviewed.
-Research and manuscript preparation used Claude (Anthropic) and OpenAI Codex agents under the author\textquotesingle s direction; see Section 13.
+Hoggar Bound Lab, version 1.6.0, 21 November 2026. Research preprint. Not peer reviewed.
+Research and manuscript preparation used Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity agents under the author\textquotesingle s direction; see Section 13.
 
-This journal-format document is derived from the complete paper, version 1.4.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
+This journal-format document is derived from the complete paper, version 1.6.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
 
 \subsection{10. A running example on the Tsotchke stack}\label{10-a-running-example-on-the-tsotchke-stack}
 
@@ -341,13 +341,22 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   equal to the first, must fail. The record is
   \nolinkurl{results/conjecture_e_lemmas.json}.
 \item
+  \nolinkurl{scripts/conjecture_e_trace_formula.py} (97 checks, record \nolinkurl{results/conjecture_e_trace_formula.json})
+  checks Theorem 22 (equation E13) in exact integer arithmetic across all nine vertex cases for three to
+  five qubits on every pair of Table 6 and on three random sign carriers per case, checks every closed
+  form of Table 8 on the complete section, checks the six central pair-swap moments
+  \(\operatorname{tr}(A^2P_v)\) (\(v\in\{e,d,e+d\}\)) and the resulting difference \(-3K(|H|-3)\) for C6,
+  C11 and C14, and enforces three negative controls (wrong coefficient, perturbed \(S_O(e)\) and dropped
+  outside point).
+\item
   \texttt{scripts/c3\_sparse\_search.py\ 3\ 3} is the exhaustive four-qubit search of Remark (d); \texttt{3\ 4} is the
   five-qubit search, about fifteen minutes.
 \end{itemize}
 
-All six are stages of \texttt{scripts/run\_all.sh} and steps of the workflow \emph{Case C3 for every number of
-qubits}, which also requires the regenerated JSON records to equal the committed ones. No floating
-point enters a comparison of characteristic polynomials.
+All seven are stages of \texttt{scripts/run\_all.sh}; the first six and the sparse search are steps of \emph{Case C3
+for every number of qubits}, and \nolinkurl{scripts/conjecture_e_trace_formula.py} is a step of \emph{Conjecture E (all
+9 cases), Kramers floor \& saturation Lean 4 audit}, each requiring regenerated JSON records to equal the
+committed ones. No floating point enters a comparison of characteristic polynomials.
 
 \subsection{References}\label{references}
 
@@ -427,12 +436,15 @@ lake env lean SaturatedSevenVerification.lean
 # case C3 for every number of qubits from four on (Theorem 17)
 lake build HoggarBound.Bound HoggarBound.Quadric
 lake env lean HoggarBound/CarrierFamily.lean
+# Theorem 2 (Kramers), Theorems 3-4 (Saturation), Lemmas 20-21, Theorem 22, Theorem 19 (all 9 cases), Corollaries 16 & 18
+lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras
+lake env lean VerifyNewFormalizations.lean
 # the seven-qubit enumeration of Theorem 13 (about eight core-hours)
 cd .. && bash scripts/run_family7.sh
 \end{verbatim}
 
-The completion minima, the seven-qubit evaluation, the carrier families and the nine vertex cases, from
-the repository root:
+The completion minima, the seven-qubit evaluation, the carrier families, the nine vertex cases and the
+universal cubic-trace identity, from the repository root:
 
 \begin{verbatim}
 python scripts/cospectral_pair.py
@@ -444,11 +456,12 @@ python scripts/conjecture_e.py
 python scripts/conjecture_e.py 6
 python scripts/conjecture_e_lemmas.py
 python scripts/conjecture_e_lemmas.py 6
+python scripts/conjecture_e_trace_formula.py
 python scripts/c3_sparse_search.py 3 3
 \end{verbatim}
 
 Their last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21}, \texttt{81\ of\ 81},
-\texttt{36\ of\ 36}, \texttt{115\ of\ 115} and \texttt{46\ of\ 46\ checks\ passed}; the search prints its class counts. NumPy is required.
+\texttt{36\ of\ 36}, \texttt{115\ of\ 115}, \texttt{46\ of\ 46} and \texttt{97\ of\ 97\ checks\ passed}; the search prints its class counts. NumPy is required.
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 

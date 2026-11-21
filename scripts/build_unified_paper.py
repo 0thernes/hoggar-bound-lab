@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STEM = 'unified-contextuality'
 SOURCE = ROOT / 'paper' / (STEM + '.md')
 PUBLICATION = ROOT / 'publication' / STEM
-VERSION = '1.4.0'
+VERSION = '1.6.0'
 RELEASE = 'v' + VERSION
 TITLE = "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E"
 SITE = 'https://0thernes.github.io/hoggar-bound-lab/'
@@ -40,11 +40,11 @@ READER = 'gfm+tex_math_gfm+tex_math_dollars'
 MARKER = '<!-- journal:supplement -->'
 JOURNAL_ACKNOWLEDGMENTS = '''## Acknowledgments
 
-**AI disclosure statement.** Claude (Anthropic) and OpenAI Codex were used for
-substantive research, software development, formalization and manuscript preparation
-under the author's direction. Section 13 describes their roles and the verification
-performed in detail. AI systems are disclosed as tools, not authors; no independent
-human peer review or venue-specific final approval is claimed.
+**AI disclosure statement.** Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity were
+used for substantive research, software development, formalization and manuscript preparation under
+the author's direction. Section 13 describes their roles and the verification performed in detail. AI
+systems are disclosed as tools, not authors; no independent human peer review or venue-specific final
+approval is claimed.
 '''
 MATHJAX_URL = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml-full.min.js'
 MATHJAX_INTEGRITY = 'sha384-dCtf/9Xgzj8edI30iIEsxNfjUQ0zj2AXa3eUdgjsx8odUmpURZx5Z7aDZmV781et'

@@ -4,6 +4,39 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
+## 1.6.0 - 21 November 2026: complete unified manuscript, Corollaries 16 & 18 in Lean 4, and Theorem 22 (universal cubic-trace identity)
+
+Completes the Lean 4.35.0 formalization of Conjecture E and its corollaries and updates the unified
+manuscript (`paper/unified-contextuality.md`), compiled publication artifacts, audits, and repository
+documentation to version 1.6.0 (built cleanly on top of the frozen `v1.5.0` release commit `5d4f489`):
+
+- `lean/HoggarBound/ConjectureEExtras.lean` (1,677 lines; zero `sorry`, `admit`, `native_decide`,
+  `set_option`, or custom `axiom`):
+  - **Corollary 18 / General Cone Lift ([J3, Lemma D (D2)]):** formalizes `cone_lift_opA_reindex`,
+    `cone_lift_carrier_charpoly`, `cone_lift_completion_reindex`, `cone_lift_completion_charpoly`,
+    `cone_lift_completion_trace_cube`, `cone_lift_strict_law_fails`, and `corollary18_c11_from_c3`
+    (case C11 for every `N >= 4` from case C3).
+  - **Corollary 16 (Four-qubit C3 binary completion minima differ):** formalizes `c3_quadForm_eq`,
+    `corollary16_sigmaA_lower` (`>= 347`), `corollary16_sigmaB_lower` (`>= 315`),
+    `corollary16_sigmaB_witness` (`= 344`), and `corollary16_binary_minima_differ` (`<= 344 < 347`),
+    via `lemma20_jordan_action`, pure-integer fraction-free `L D L^T` positivity certificates for
+    `111 I - 4 C_0` and `111 I - 4 C_1`, and kernel evaluation of the 30-label witness.
+- `lean/VerifyNewFormalizations.lean` expanded from 37 to **49** audited declarations across all six
+  new Lean modules (7,686 lines total; `results/new-formalizations-lean-axioms.log`), every single
+  declaration strictly within `[propext, Classical.choice, Quot.sound]`.
+- **Theorem 22 (Universal cubic-trace identity)** and **Table 8** (closed-form outside character sums
+  `S_O(u)` across all nine vertex cases) added to Section 8.7 of `paper/unified-contextuality.md`
+  (renumbering Section 9's tables to Table 9 and Table 10), accompanied by
+  `scripts/conjecture_e_trace_formula.py` (97 of 97 exact integer checks passed, including pair-swap
+  moments and three negative controls; `results/conjecture_e_trace_formula.json`), integrated into
+  `scripts/run_all.sh`, `.github/workflows/conjecture-e-all-cases.yml`, and
+  `scripts/publication_release_audit.py`.
+- Rebuilt all unified manuscript outputs (`paper/unified-contextuality.pdf`, `.html`, Journal of
+  Physics A manuscript/supplement PDFs, `arxiv-source.zip`), updated all metadata, audits, site
+  mirrors (`docs/`), and AI provenance disclosures (Claude/Anthropic, OpenAI Codex, and Google Gemini /
+  Antigravity under Alexander S. Donahue's direction). Every previously audited Lean file (`v0.2.0-c3-certificate`,
+  `v1.1.1`, `v1.2.0`, `v1.3.0`, `v1.4.0`, `v1.5.0`) remains byte-identical.
+
 ## 1.5.0 - 21 November 2026: complete Lean 4 formalization of Conjecture E (all 9 vertex cases), Kramers floor, and saturation theory
 
 Closes the formalization gaps documented in Sections 1.1, 2.2, 3, 8.6-8.7, 9.3, and 12 of the

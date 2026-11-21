@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RESEARCH_COMMIT = "d3811e3b53048fa8f3206f08494f0a9834eed287"
 SATURATION_COMMIT = "87f08a0fb5007c8529abc13eabeec093027c0eba"
 C3_ALL_QUBITS_COMMIT = "5dcea35"  # CarrierFamily.lean as checked by its workflow
-VERSION = "1.4.0"
+VERSION = "1.6.0"
 PDF_HASH = "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836"
 
 
@@ -120,6 +120,35 @@ def main():
         lemma_checks[record] = counts
     require("conjecture_e_lemmas.py" in (ROOT / ".github/workflows/c3-all-qubits.yml").read_text(encoding="utf-8"),
             "The lemma checks are not a CI step")
+    # Additions of versions 1.5.0 and 1.6.0: Kramers floor, saturation equivalences, Lemmas 20-21,
+    # Theorem 22, Theorem 19 (all 9 vertex cases), and Corollaries 16 & 18 in Lean 4, plus the
+    # exact cubic-trace identity check (97 checks).
+    new_verify_src = (ROOT / "lean/VerifyNewFormalizations.lean").read_text(encoding="utf-8")
+    new_audited = {line.split()[2] for line in new_verify_src.splitlines() if line.startswith("#print axioms ")}
+    new_log = (ROOT / "results/new-formalizations-lean-axioms.log").read_text(encoding="utf-8")
+    new_reports = {}
+    for line in new_log.splitlines():
+        if " depends on axioms: [" in line:
+            name, _, axioms = line.partition(" depends on axioms: [")
+            new_reports[name.strip("'")] = {a.strip() for a in axioms.rstrip("]").split(",") if a.strip()}
+        elif line.endswith(" does not depend on any axioms"):
+            new_reports[line.split("'")[1]] = set()
+    require(len(new_audited) == 49 and new_audited == set(new_reports),
+            "VerifyNewFormalizations.lean axiom report does not match the 49 declarations")
+    require(all(a <= allowed for a in new_reports.values()), "Nonstandard axiom in VerifyNewFormalizations.lean")
+    require({
+        "HoggarBound.hoggar_bound_quaternionic",
+        "HoggarBound.saturation_tfae",
+        "HoggarBound.saturation_mul_isSquare",
+        "HoggarBound.ConjectureE.trace_completion_cube_universal",
+        "HoggarBound.ConjectureE.jonah_conjecture_e_all_nine_cases",
+        "HoggarBound.ConjectureE.corollary18_c11_from_c3",
+        "HoggarBound.ConjectureE.corollary16_binary_minima_differ",
+    } <= set(new_reports), "Required v1.6.0 Lean theorems missing from axiom report")
+    trace_counts = json.loads((ROOT / "results/conjecture_e_trace_formula.json").read_text(encoding="utf-8"))["checks"]
+    require(trace_counts == {"passed": 97, "total": 97}, "Universal cubic-trace formula checks incomplete")
+    require("conjecture_e_trace_formula.py" in (ROOT / ".github/workflows/conjecture-e-all-cases.yml").read_text(encoding="utf-8"),
+            "The universal cubic-trace check is not a CI step")
     report = {
         "status": "pass",
         "verification_kind": "Documentation-release continuity, not a new Lean compilation",
@@ -145,6 +174,8 @@ def main():
         "c3_all_qubits_commit": C3_ALL_QUBITS_COMMIT,
         "c3_all_qubits_audited_declarations": len(audited),
         "theorem_19_lemma_checks": lemma_checks,
+        "v160_new_formalizations_audited_declarations": len(new_audited),
+        "theorem_22_trace_formula_checks": trace_counts,
         "checks": checked,
     }
     output = ROOT / args.output

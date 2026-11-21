@@ -1,12 +1,14 @@
 # Summary in plain language
 
-Repository version 1.4.0, 10 November 2026. Research preprint, not peer reviewed. The combined study brings
-together the Claude/Anthropic spectral-floor work and the OpenAI Codex C3/independent-verification work
-under the direction of Alexander S. Donahue, 0thernes LLC. Version 1.3.0 adds Claude/Anthropic results that
-answer Jonah's Conjecture E: in all nine vertex cases of his classification, a section's spectrum does
-not determine the completion spectrum, for every number of qubits from four on. Version 1.4.0 makes
-that proof self-contained: two lemmas write out, with credit, the arguments of Jonah's preprint that
-it had only cited, and a new program checks them exactly.
+Repository version 1.6.0, 21 November 2026. Research preprint, not peer reviewed. The combined study brings
+together the Claude/Anthropic spectral-floor work, the OpenAI Codex C3/independent-verification work, and
+the Google Gemini / Antigravity Lean 4 formalizations under the direction of Alexander S. Donahue, 0thernes LLC.
+Version 1.3.0 added Claude/Anthropic results that answer Jonah's Conjecture E in all nine vertex cases for
+every number of qubits from four on, and version 1.4.0 made that proof self-contained. Versions 1.5.0 and
+1.6.0 formalize all nine vertex cases of Conjecture E, the quaternionic (Kramers) spectral floor, the
+five-way saturation equivalence, Lemmas 20 and 21, the universal cubic-trace identity (Theorem 22), and
+Corollaries 16 and 18 in Lean 4.35.0 (49 audited declarations, strictly standard axioms), accompanied by
+97 exact integer checks of Theorem 22.
 
 The [unified paper](paper/unified-contextuality.md) asks two connected questions: what lower bounds can
 spectral information certify, and which completion information can a section's spectrum fail to retain?
@@ -94,7 +96,7 @@ bash scripts/run_all.sh
 ```
 
 ```bash
-cd lean && lake exe cache get && lake build && lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven && lake env lean HoggarBound/CarrierFamily.lean
+cd lean && lake exe cache get && lake build && lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras && lake env lean HoggarBound/CarrierFamily.lean && lake env lean VerifyNewFormalizations.lean
 ```
 
 See [INDEX.md](INDEX.md) for where each claim is proved and tested, and [GLOSSARY.md](GLOSSARY.md) for

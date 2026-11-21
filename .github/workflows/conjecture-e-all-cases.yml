@@ -8,7 +8,10 @@ on:
       - "lean/HoggarBound/ConjectureECore.lean"
       - "lean/HoggarBound/ConjectureECones.lean"
       - "lean/HoggarBound/ConjectureE.lean"
+      - "lean/HoggarBound/ConjectureEExtras.lean"
       - "lean/VerifyNewFormalizations.lean"
+      - "scripts/conjecture_e_trace_formula.py"
+      - "results/conjecture_e_trace_formula.json"
       - ".github/workflows/conjecture-e-all-cases.yml"
   workflow_dispatch:
 
@@ -24,8 +27,27 @@ defaults:
     shell: bash
 
 jobs:
+  exact-trace-formula:
+    name: Exact cubic-trace identity (Theorem 22) & Table 8 checks (97 checks)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: "3.12"
+      - name: Install NumPy
+        run: python -m pip install --quiet numpy==2.0.2
+      - name: Run universal cubic-trace identity & Table 8 checks (97 checks)
+        run: |
+          python scripts/conjecture_e_trace_formula.py | tee results/ci-conjecture-e-trace-formula.log
+          tail -1 results/ci-conjecture-e-trace-formula.log | grep -q "97 of 97 checks passed"
+          git diff --exit-code -- results/conjecture_e_trace_formula.json
+
   lean-formalization-audit:
-    name: Lean 4.35.0 kernel - Kramers, Saturation, Lemmas 20-21, Conjecture E (all 9 cases)
+    name: Lean 4.35.0 kernel - Kramers, Saturation, Lemmas 20-21, Thm 19/22, Cor 16/18 (49 axioms)
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
@@ -47,11 +69,11 @@ jobs:
             Mathlib.LinearAlgebra.Matrix.Charpoly.Basic Mathlib.LinearAlgebra.Matrix.Kronecker \
             Mathlib.LinearAlgebra.Matrix.Trace Mathlib.LinearAlgebra.Matrix.Block
           git diff --exit-code -- lean-toolchain lake-manifest.json
-      - name: Build Kramers, SaturationTheory, ConjectureECore, ConjectureECones, ConjectureE
+      - name: Build Kramers, SaturationTheory, ConjectureE, ConjectureEExtras
         working-directory: lean
         run: |
           mkdir -p ../results
-          lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE 2>&1 | tee ../results/ci-lean-new-formalizations-build.log
+          lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras 2>&1 | tee ../results/ci-lean-new-formalizations-build.log
       - name: Run VerifyNewFormalizations.lean axiom audit
         working-directory: lean
         run: |
@@ -64,8 +86,17 @@ jobs:
           allowed = {"propext", "Classical.choice", "Quot.sound"}
           source = pathlib.Path("lean/VerifyNewFormalizations.lean").read_text(encoding="utf-8")
           expected = set(re.findall(r"#print axioms\s+(\S+)", source))
-          assert len(expected) == 37, f"Expected 37 audited declarations, found {len(expected)}"
-          assert "HoggarBound.ConjectureE.jonah_conjecture_e_all_nine_cases" in expected
+          assert len(expected) == 49, f"Expected 49 audited declarations, found {len(expected)}"
+          required = {
+              "HoggarBound.hoggar_bound_quaternionic",
+              "HoggarBound.saturation_tfae",
+              "HoggarBound.saturation_mul_isSquare",
+              "HoggarBound.ConjectureE.trace_completion_cube_universal",
+              "HoggarBound.ConjectureE.jonah_conjecture_e_all_nine_cases",
+              "HoggarBound.ConjectureE.corollary18_c11_from_c3",
+              "HoggarBound.ConjectureE.corollary16_binary_minima_differ",
+          }
+          assert required <= expected, f"Missing required declarations: {required - expected}"
           log = pathlib.Path("results/ci-lean-new-formalizations-axioms.log").read_text(encoding="utf-8")
           assert "error:" not in log and "sorry" not in log
           flat = re.sub(r"\s+", " ", log)
@@ -81,6 +112,7 @@ jobs:
               "lean/HoggarBound/ConjectureECore.lean",
               "lean/HoggarBound/ConjectureECones.lean",
               "lean/HoggarBound/ConjectureE.lean",
+              "lean/HoggarBound/ConjectureEExtras.lean",
               "lean/VerifyNewFormalizations.lean",
           ]:
               code = re.sub(r"/-.*?-/", "", pathlib.Path(rel).read_text(encoding="utf-8"), flags=re.S)

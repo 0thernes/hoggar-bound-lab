@@ -1,7 +1,8 @@
 # Addendum: the binary completion minima of the two C3 carriers differ
 
 **Folded into the combined paper, version 1.3.0 (10 November 2026), Section 8.5 (Corollary 16).** This file keeps
-the result as first stated.
+the result as first stated. Since version 1.6.0, Corollary 16 (`≤ 344 < 347`) is formalized in Lean 4
+(`lean/HoggarBound/ConjectureEExtras.lean`: `corollary16_binary_minima_differ`).
 
 **Status.** Originally proposed addition for the next revision of the combined paper
 ([paper/unified-contextuality.md](../paper/unified-contextuality.md)). Release `v1.2.0` and its frozen

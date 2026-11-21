@@ -68,8 +68,22 @@ manuscript also folds in the other addenda of this folder; see [PAPER-MAP.md](PA
 
 ## Version 1.4.0 (10 November 2026)
 
-No erratum. The canonical manuscript is now version 1.4.0. Its proof of Theorem 19 writes out the
+No erratum. The canonical manuscript was version 1.4.0. Its proof of Theorem 19 writes out the
 arguments of [J3, Theorem A and the proof of Theorem B3] that it used to cite (Lemmas 20 and 21 of
 Section 8.7), repeats the proof of the cone lift in Corollary 18 and adds the transport from one
 hyperplane class to every class of a case; the statements of version 1.3.0 are unchanged. Descriptions in version 1.3.0 that Theorem 19
 uses two structure theorems of Jonah's preprint were true of that version and are superseded.
+
+## Versions 1.5.0 and 1.6.0 (21 November 2026)
+
+No erratum. The canonical manuscript is now version **1.6.0**. Versions 1.5.0 and 1.6.0 add six
+self-contained Lean 4.35.0 modules (7,686 lines total; 49 audited declarations in
+`lean/VerifyNewFormalizations.lean`, strictly within `[propext, Classical.choice, Quot.sound]`) that
+formalize Theorem 2 (Kramers/elliptic quadrics), Theorems 3 and 4 (five-way saturation equivalence and
+`(2^N - 1)|S| = □`), Lemmas 20 and 21, Theorem 22 (universal cubic-trace identity) and Table 8, Theorem
+19 across all nine vertex cases for every `N ≥ 4` (and `N ≥ 3` for C1, C3, C6, C11), Corollary 18
+(general cone lift and case C11), and Corollary 16 (four-qubit C3 binary completion minima separation
+`≤ 344 < 347`). Section 8.7 adds Theorem 22 and Table 8 (renumbering Section 9's tables to Table 9 and
+Table 10), checked in exact integer arithmetic by `scripts/conjecture_e_trace_formula.py` (97 of 97
+checks). Earlier notes stating that these theorems were not yet in Lean describe versions 1.2.0–1.4.0
+only and are superseded. No previously audited Lean file is changed.

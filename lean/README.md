@@ -71,6 +71,16 @@ theorem c3_strict_law_fails_general (hm : 3 ≤ m) :
 `p`, `q`. The 74 audited declarations use only the standard axioms (`results/lean-c3-all-qubits-axioms.log`).
 See Section 9.3 of the combined paper for what the statement leaves to the reader.
 
+### Kramers floor, saturation theory, Corollaries 16 & 18, and Conjecture E across all nine vertex cases (`v1.5.0` / `v1.6.0`)
+
+Six additional sorry-free modules (7,686 lines total) audited by `VerifyNewFormalizations.lean` (49 declarations strictly within `[propext, Classical.choice, Quot.sound]`, log in `../results/new-formalizations-lean-axioms.log`) prove:
+
+- **Theorem 2 (`HoggarBound/Kramers.lean`):** `kramers_even_mult`, `hoggar_bound_quaternionic`, `card_ellipticPoints`, `card_flags_elliptic`, `elliptic_fraction`, and finite elliptic-quadric bounds `three_qubit_elliptic_contexts` (9), `four_qubit_elliptic_contexts` (291), `five_qubit_elliptic_contexts` (6501).
+- **Theorems 3 and 4 (`HoggarBound/SaturationTheory.lean`):** `opA_sq_eq`, `saturation_tfae` (full five-way saturation equivalence for nonempty supports), and `saturation_mul_isSquare` (`(2^N - 1)|S| = □` for `N ≥ 2`).
+- **Lemmas 20 and 21 and Theorem 22 (`HoggarBound/ConjectureECore.lean`):** `lemma20_jordan_action`, `trace_completion_pow_eq`, `trace_completion_cube_universal` (universal cubic-trace identity), `lemma21_trace_cube_sylvester`, `lemma21_trace_cube_symm`.
+- **Theorem 19 across all nine vertex cases (`HoggarBound/ConjectureECones.lean`, `HoggarBound/ConjectureE.lean`):** Table 8 closed-form outside character sums (`charSumOut_C1`..`charSumOut_C12_C15`) and `jonah_conjecture_e_all_nine_cases` for every `N ≥ 4` (plus `N ≥ 3` for C1, C3, C6, C11).
+- **Corollaries 16 and 18 (`HoggarBound/ConjectureEExtras.lean`):** Jonah's general cone lift (`cone_lift_carrier_charpoly`, `cone_lift_completion_charpoly`, `cone_lift_completion_trace_cube`, `cone_lift_strict_law_fails`, `corollary18_c11_from_c3`) and the four-qubit C3 binary completion minima separation (`c3_quadForm_eq`, `corollary16_sigmaA_lower`, `corollary16_sigmaB_lower`, `corollary16_sigmaB_witness`, `corollary16_binary_minima_differ`: `≤ 344 < 347`).
+
 ## Modules
 
 | module | content |
@@ -87,6 +97,11 @@ See Section 9.3 of the combined paper for what the statement leaves to the reade
 | `HoggarBound/Saturated.lean` | the two-, three- and four-qubit counts and the exact-degree theorems |
 | `HoggarBound/MaskRows.lean`, `SaturatedPhaseSeven.lean` | rows of the counts on packed sets of codes; the seven-qubit counts and **`phase7_degree`** |
 | `HoggarBound/CarrierFamily.lean` | case C3 for every number of qubits from four on: **`c3_strict_law_fails_general`** |
+| `HoggarBound/Kramers.lean` | Theorem 2: quaternionic/Kramers spectral floor and elliptic quadrics `Q⁻(2N-1,2)` |
+| `HoggarBound/SaturationTheory.lean` | Theorems 3 & 4: Pauli expansion of `A²`, five-way saturation equivalence, `(2^N - 1)|S| = □` |
+| `HoggarBound/ConjectureECore.lean` | Lemmas 20 & 21 and Theorem 22 (universal cubic-trace identity) |
+| `HoggarBound/ConjectureECones.lean`, `ConjectureE.lean` | Table 8 outside character sums and Theorem 19 across all nine vertex cases (`jonah_conjecture_e_all_nine_cases`) |
+| `HoggarBound/ConjectureEExtras.lean` | Corollary 18 (general cone lift, C11 from C3) and Corollary 16 (four-qubit C3 binary completion minima separation `≤ 344 < 347`) |
 | `HoggarBound/IndependentContexts.lean`, `IndependentWitness.lean` | written by the independent companion review |
 | `HoggarBound/C3*.lean`, `Stability.lean` | the companion C3 note (separate work) |
 
@@ -127,11 +142,22 @@ lake build HoggarBound.Bound HoggarBound.Quadric
 lake env lean HoggarBound/CarrierFamily.lean
 ```
 
+```bash
+lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras
+```
+
+```bash
+lake env lean VerifyNewFormalizations.lean
+```
+
 `SaturatedVerification.lean` prints the axioms of the fourteen declarations of the two- to five-qubit
 exact-degree modules (expected output `../results/lean-saturated-axioms.log`),
 `SaturatedSevenVerification.lean` those of the thirteen seven-qubit declarations
-(`../results/lean-saturated-seven-axioms.log`), and `CarrierFamily.lean` those of its 74 declarations
-(`../results/lean-c3-all-qubits-axioms.log`). `IndependentVerification.lean` does the
+(`../results/lean-saturated-seven-axioms.log`), `CarrierFamily.lean` those of its 74 declarations
+(`../results/lean-c3-all-qubits-axioms.log`), and `VerifyNewFormalizations.lean` those of the 49
+declarations across `Kramers.lean`, `SaturationTheory.lean`, `ConjectureECore.lean`,
+`ConjectureECones.lean`, `ConjectureE.lean`, and `ConjectureEExtras.lean`
+(`../results/new-formalizations-lean-axioms.log`). `IndependentVerification.lean` does the
 same for the core modules (expected output: `../results/lean-axioms.log`).
 
 Resources: the default build takes a few minutes after the Mathlib cache is fetched. In the successful
@@ -164,6 +190,9 @@ fails if any declaration uses an axiom outside the allowlist or if a source file
 for the core proof and the companion modules. `.github/workflows/c3-all-qubits.yml` checks
 `CarrierFamily.lean`, enforces the allowlist on its 74 declarations and fails if the file contains
 `sorry`, `admit`, `native_decide`, `unsafe`, `set_option` or an `axiom` declaration.
+`.github/workflows/conjecture-e-all-cases.yml` builds `Kramers`, `SaturationTheory`, `ConjectureE`, and
+`ConjectureEExtras`, enforces the same allowlist and zero-forbidden-token check across all 49 declarations
+of `VerifyNewFormalizations.lean`, and runs `scripts/conjecture_e_trace_formula.py` (97 checks).
 
 ## Exact four-qubit C3 certificate
 

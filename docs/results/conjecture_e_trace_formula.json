@@ -1,0 +1,281 @@
+{
+ "3": {
+  "C1": {
+   "section": 31,
+   "outside": 32,
+   "sigma": {
+    "tr_Lambda3": -192,
+    "tr_A3": 528
+   },
+   "tau": {
+    "tr_Lambda3": 960,
+    "tr_A3": 528
+   }
+  },
+  "C3": {
+   "section": 19,
+   "outside": 16,
+   "sigma": {
+    "tr_Lambda3": 0,
+    "tr_A3": 432
+   },
+   "tau": {
+    "tr_Lambda3": 288,
+    "tr_A3": 432
+   }
+  },
+  "C6": {
+   "section": 15,
+   "outside": 16,
+   "sigma": {
+    "tr_Lambda3": -288,
+    "tr_A3": -240
+   },
+   "tau": {
+    "tr_Lambda3": 288,
+    "tr_A3": -240
+   }
+  },
+  "C11": {
+   "section": 11,
+   "outside": 8,
+   "sigma": {
+    "tr_Lambda3": -96,
+    "tr_A3": -144
+   },
+   "tau": {
+    "tr_Lambda3": 96,
+    "tr_A3": -144
+   }
+  }
+ },
+ "4": {
+  "C1": {
+   "section": 127,
+   "outside": 128,
+   "sigma": {
+    "tr_Lambda3": 57600,
+    "tr_A3": 34848
+   },
+   "tau": {
+    "tr_Lambda3": 60672,
+    "tr_A3": 34848
+   }
+  },
+  "C3": {
+   "section": 71,
+   "outside": 64,
+   "sigma": {
+    "tr_Lambda3": 15744,
+    "tr_A3": 19104
+   },
+   "tau": {
+    "tr_Lambda3": 16512,
+    "tr_A3": 19104
+   }
+  },
+  "C5": {
+   "section": 55,
+   "outside": 64,
+   "sigma": {
+    "tr_Lambda3": -1152,
+    "tr_A3": 1440
+   },
+   "tau": {
+    "tr_Lambda3": 3456,
+    "tr_A3": 1440
+   }
+  },
+  "C12": {
+   "section": 31,
+   "outside": 40,
+   "sigma": {
+    "tr_Lambda3": 1776,
+    "tr_A3": 1056
+   },
+   "tau": {
+    "tr_Lambda3": 624,
+    "tr_A3": 1056
+   }
+  },
+  "C15": {
+   "section": 31,
+   "outside": 24,
+   "sigma": {
+    "tr_Lambda3": 720,
+    "tr_A3": 1056
+   },
+   "tau": {
+    "tr_Lambda3": -432,
+    "tr_A3": 1056
+   }
+  },
+  "C8": {
+   "section": 31,
+   "outside": 32,
+   "sigma": {
+    "tr_Lambda3": -192,
+    "tr_A3": 1056
+   },
+   "tau": {
+    "tr_Lambda3": 960,
+    "tr_A3": 1056
+   }
+  },
+  "C6": {
+   "section": 63,
+   "outside": 64,
+   "sigma": {
+    "tr_Lambda3": 8064,
+    "tr_A3": 11040
+   },
+   "tau": {
+    "tr_Lambda3": 19584,
+    "tr_A3": 11040
+   }
+  },
+  "C11": {
+   "section": 39,
+   "outside": 32,
+   "sigma": {
+    "tr_Lambda3": 1344,
+    "tr_A3": 4512
+   },
+   "tau": {
+    "tr_Lambda3": 4800,
+    "tr_A3": 4512
+   }
+  },
+  "C14": {
+   "section": 23,
+   "outside": 32,
+   "sigma": {
+    "tr_Lambda3": -960,
+    "tr_A3": -864
+   },
+   "tau": {
+    "tr_Lambda3": 960,
+    "tr_A3": -864
+   }
+  }
+ },
+ "5": {
+  "C1": {
+   "section": 511,
+   "outside": 512,
+   "sigma": {
+    "tr_Lambda3": 2491392,
+    "tr_A3": 671808
+   },
+   "tau": {
+    "tr_Lambda3": 2515968,
+    "tr_A3": 671808
+   }
+  },
+  "C3": {
+   "section": 271,
+   "outside": 256,
+   "sigma": {
+    "tr_Lambda3": 649728,
+    "tr_A3": 350784
+   },
+   "tau": {
+    "tr_Lambda3": 655872,
+    "tr_A3": 350784
+   }
+  },
+  "C5": {
+   "section": 239,
+   "outside": 256,
+   "sigma": {
+    "tr_Lambda3": 219648,
+    "tr_A3": 132672
+   },
+   "tau": {
+    "tr_Lambda3": 231936,
+    "tr_A3": 132672
+   }
+  },
+  "C12": {
+   "section": 127,
+   "outside": 144,
+   "sigma": {
+    "tr_Lambda3": 116640,
+    "tr_A3": 69696
+   },
+   "tau": {
+    "tr_Lambda3": 113568,
+    "tr_A3": 69696
+   }
+  },
+  "C15": {
+   "section": 127,
+   "outside": 112,
+   "sigma": {
+    "tr_Lambda3": 46944,
+    "tr_A3": 69696
+   },
+   "tau": {
+    "tr_Lambda3": 43872,
+    "tr_A3": 69696
+   }
+  },
+  "C8": {
+   "section": 127,
+   "outside": 128,
+   "sigma": {
+    "tr_Lambda3": 57600,
+    "tr_A3": 69696
+   },
+   "tau": {
+    "tr_Lambda3": 60672,
+    "tr_A3": 69696
+   }
+  },
+  "C6": {
+   "section": 255,
+   "outside": 256,
+   "sigma": {
+    "tr_Lambda3": 732672,
+    "tr_A3": 390720
+   },
+   "tau": {
+    "tr_Lambda3": 926208,
+    "tr_A3": 390720
+   }
+  },
+  "C11": {
+   "section": 143,
+   "outside": 128,
+   "sigma": {
+    "tr_Lambda3": 129792,
+    "tr_A3": 143424
+   },
+   "tau": {
+    "tr_Lambda3": 183552,
+    "tr_A3": 143424
+   }
+  },
+  "C14": {
+   "section": 111,
+   "outside": 128,
+   "sigma": {
+    "tr_Lambda3": 37632,
+    "tr_A3": 48192
+   },
+   "tau": {
+    "tr_Lambda3": 79104,
+    "tr_A3": 48192
+   }
+  }
+ },
+ "negative_controls": {
+  "coefficient_1_fails": true,
+  "wrong_S_O_fails": true,
+  "dropped_outside_point_fails": true
+ },
+ "checks": {
+  "passed": 97,
+  "total": 97
+ }
+}

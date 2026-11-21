@@ -46,6 +46,7 @@ stage "Conjecture E: all nine vertex cases, n = 3..5 (81 checks)" bash -c 'pytho
 stage "Conjecture E: all nine vertex cases, n = 6 (36 checks)" bash -c 'python scripts/conjecture_e.py 6 | tee results/conjecture_e_n6.log | tail -1 | grep -q "36 of 36"'
 stage "Conjecture E: Lemmas 20 and 21 in every vertex case, n = 3..5 (115 checks)" bash -c 'python scripts/conjecture_e_lemmas.py | tee results/conjecture_e_lemmas.log | tail -1 | grep -q "115 of 115"'
 stage "Conjecture E: Lemmas 20 and 21 in every vertex case, n = 6 (46 checks)" bash -c 'python scripts/conjecture_e_lemmas.py 6 | tee results/conjecture_e_lemmas_n6.log | tail -1 | grep -q "46 of 46"'
+stage "Conjecture E: universal cubic-trace identity (Theorem 22) and Table 8, n = 3..5 (97 checks)" bash -c 'python scripts/conjecture_e_trace_formula.py | tee results/conjecture_e_trace_formula.log | tail -1 | grep -q "97 of 97"'
 stage "C3: exhaustive search near the all-plus carrier, four qubits" bash -c 'python scripts/c3_sparse_search.py 3 3 | grep -v "^time:" | tee results/c3_sparse_search_four.log | grep -q "different block spectra: 4; of these with different r_D (different completion cubic traces): 3"'
 rm -f results/.stage.log
 [ $fail -eq 0 ] && echo "ALL STAGES PASSED" || echo "SOME STAGES FAILED"

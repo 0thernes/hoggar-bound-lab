@@ -10,7 +10,8 @@ experiments use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 [![Independent verification](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml)
 [![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
 [![Case C3 for every number of qubits](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml)
-[![Version 1.4.0](https://img.shields.io/badge/version-1.4.0-informational)](CHANGELOG.md)
+[![Conjecture E all 9 cases Lean 4 audit](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/conjecture-e-all-cases.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/conjecture-e-all-cases.yml)
+[![Version 1.6.0](https://img.shields.io/badge/version-1.6.0-informational)](CHANGELOG.md)
 
 **Unified paper:** [Spectral bounds and their limits in Pauli contextuality](paper/unified-contextuality.md) ([PDF](paper/unified-contextuality.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html)).
 &nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
@@ -19,8 +20,18 @@ experiments use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 **Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
 [GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, repository version 1.4.0, 10 November 2026. Not peer reviewed. AI-generated under human
+Status: research preprint, repository version 1.6.0, 21 November 2026. Not peer reviewed. AI-generated under human
 direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
+
+**New in 1.5.0 and 1.6.0** (paper Sections 3, 4, 5.1, 8.5–8.7, and 9.4):
+
+* **Complete Lean 4.35.0 formalization of Conjecture E (all 9 vertex cases), Kramers floor, saturation equivalences, and Corollaries 16 & 18.** Six new sorry-free Lean modules (7,686 lines total; 49 audited declarations in [lean/VerifyNewFormalizations.lean](lean/VerifyNewFormalizations.lean), strictly within `[propext, Classical.choice, Quot.sound]`, zero `native_decide` or custom axioms) prove:
+  - **Theorem 2** (`Kramers.lean`): quaternionic / Kramers spectral floor (`hoggar_bound_quaternionic`) and elliptic quadrics $Q^-(2N-1,2)$ (`elliptic_fraction`, plus finite bounds 9, 291, 6501).
+  - **Theorems 3 & 4** (`SaturationTheory.lean`): exact Pauli expansion of $A^2$, five-way saturation equivalence (`saturation_tfae`), and $(2^N-1)|S|=\square$ (`saturation_mul_isSquare`).
+  - **Lemmas 20 & 21 and Theorem 22** (`ConjectureECore.lean`): Jordan restriction (`lemma20_jordan_action`), Sylvester/symmetric cubic-trace identities, and the eigenvalue-free universal cubic-trace identity (`trace_completion_cube_universal`).
+  - **Theorem 19 (all nine vertex cases)** (`ConjectureECones.lean`, `ConjectureE.lean`): closed-form outside character sums (Table 8) and `jonah_conjecture_e_all_nine_cases` across C1, C3, C5, C6, C8, C11, C12, C14, C15 for every $N\ge4$ (and $N\ge3$ for C1, C3, C6, C11).
+  - **Corollaries 16 & 18** (`ConjectureEExtras.lean`): Jonah's general cone lift (`cone_lift_strict_law_fails`, `corollary18_c11_from_c3`) and the four-qubit C3 binary completion minima separation (`corollary16_binary_minima_differ`: $\le344\lt347$) via pure-integer fraction-free $LDL^{\mathsf T}$ certificates.
+* **Theorem 22 & exact trace-formula verifier.** `python scripts/conjecture_e_trace_formula.py` (97 of 97 exact integer checks passed; [results/conjecture_e_trace_formula.json](results/conjecture_e_trace_formula.json)) verifies Theorem 22, all closed forms of Table 8, the pair-swap moments, and three negative controls, and runs in CI alongside the 49-declaration Lean audit (`.github/workflows/conjecture-e-all-cases.yml`).
 
 **New in 1.4.0** (paper Sections 8.6 and 8.7):
 
@@ -54,7 +65,7 @@ direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-964
 **Research website:** [Hoggar Bound Lab](https://0thernes.github.io/hoggar-bound-lab/).
 The [C3 research summary](docs/RESEARCH-SUMMARY.md), [verification guide](VERIFICATION.md),
 and [claim register](docs/CLAIMS.md) connect the four-qubit spectral result to exact data and Lean theorem names.
-The combined manuscript editions `v1.2.0`, `v1.3.0` and `v1.4.0` preserve the C3 scientific paper and proof artifacts in
+The combined manuscript editions `v1.2.0`, `v1.3.0`, `v1.4.0` and `v1.6.0` (and Lean formalization release `v1.5.0`) preserve the C3 scientific paper and proof artifacts in
 [v0.2.0-c3-certificate](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate).
 See the [source-paper map](publication/PAPER-MAP.md) and [eight-destination distribution plan](publication/DISTRIBUTION-PLAN.md).
 See [affiliation records](publication/AFFILIATIONS.md) for confirmed platform updates and remaining account steps.
@@ -130,7 +141,7 @@ What this repository adds:
 
 | path | what |
 |---|---|
-| `lean/HoggarBound/` | the Lean 4 development (`Moment`, `Pauli`, `Bound`, `Counting`, `Corollaries`, `Quadric`; the exact degrees `MaskConfig`, `Saturated`, `SaturatedFive`, `SaturatedPhaseFive`, `MaskRows`, `SaturatedPhaseSeven` with generated data `FlatData`, `PhaseData`; case C3 for every N >= 4, `CarrierFamily`; plus the independently written `IndependentContexts`, `IndependentWitness`) |
+| `lean/HoggarBound/` | the Lean 4 development (`Moment`, `Pauli`, `Bound`, `Counting`, `Corollaries`, `Quadric`; the exact degrees `MaskConfig`, `Saturated`, `SaturatedFive`, `SaturatedPhaseFive`, `MaskRows`, `SaturatedPhaseSeven` with generated data `FlatData`, `PhaseData`; case C3 for every N >= 4, `CarrierFamily`; v1.5.0/v1.6.0 formalizations `Kramers`, `SaturationTheory`, `ConjectureECore`, `ConjectureECones`, `ConjectureE`, `ConjectureEExtras`; plus the independently written `IndependentContexts`, `IndependentWitness` and C3 certificate modules `C3*`, `Stability`) |
 | `src/hoggar.c` | engine: geometry, exact integer bounds, verification, annealing search, falsification harness |
 | `src/moonlab_experiment.mjs` | the experiment on Moonlab (WebAssembly) |
 | `src/qgt_hoggar.c` | quantum geometric tensor of the Hoggar state with the QGTL kernels |
@@ -177,6 +188,12 @@ cd lean && lake build HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven && la
 cd lean && lake build HoggarBound.Bound HoggarBound.Quadric && lake env lean HoggarBound/CarrierFamily.lean
 ```
 
+Theorem 2 (Kramers/elliptic), Theorems 3–4 (saturation), Lemmas 20–21, Theorem 22, Theorem 19 (all nine vertex cases), and Corollaries 16 & 18 (49 audited declarations):
+
+```bash
+cd lean && lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras && lake env lean VerifyNewFormalizations.lean
+```
+
 `run_all.sh` needs gcc, Python 3 with NumPy and Matplotlib, and Node; Eshkol is optional. It prints one
 line per stage and ends with `ALL STAGES PASSED`; the last complete run (all 22 stages, on 10 November
 2026, in a fresh clone of commit `28dc811`, about 15 minutes on a Windows 11 desktop computer) is kept in
@@ -194,12 +211,13 @@ build needs [elan](https://github.com/leanprover/elan); it downloads Lean 4.35.0
   (`phase7_degree`, `phase7_contexts`, counts evaluated by the kernel); that the masks are the supports
   of the named states is checked by programs, outside Lean. The uniqueness statement for seven qubits
   is proved by enumeration inside one family of forms only.
-* Conjecture E (Theorem 19) is proved on paper; only case C3 is a Lean theorem, for every N >= 4. The
-  other eight cases rest on Lemmas 20 and 21, which write out Jonah's Theorem A and the linear algebra
-  of his proof of Theorem B3 (version 1.3.0 cited them instead), and are checked by exact computation
-  for three to six qubits. No referee has read these proofs.
+* Conjecture E (Theorem 19 across all nine vertex cases for every $N \ge 4$), Corollaries 16 and 18,
+  Lemmas 20 and 21, Theorem 22, the quaternionic refinement (Theorem 2), and the saturation equivalences
+  (Theorems 3 and 4) are all proved in Lean 4 (49 audited declarations in `VerifyNewFormalizations.lean`,
+  strictly standard axioms) and checked by exact computation. Transport from each case's canonical
+  hyperplane representative to every hyperplane class of that case remains a paper argument using Jonah
+  [J3, Theorem B4]. No external referee has reviewed the proofs.
 * Novelty of the Section 5 results is claimed to the extent of a bounded literature search.
-* The quaternionic refinement for elliptic quadrics is proved on paper and tested numerically only.
 * Moonlab is a classical simulator; quantum_rng is a classical "quantum-inspired" generator; only the
   `diffgeo_*` kernels of QGTL are used. Nothing here is a measurement on quantum hardware.
 * No priority is claimed for the bound, for its saturation by Hoggar states, or for the exact values.
