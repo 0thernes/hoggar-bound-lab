@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RESEARCH_COMMIT = "d3811e3b53048fa8f3206f08494f0a9834eed287"
 SATURATION_COMMIT = "87f08a0fb5007c8529abc13eabeec093027c0eba"
 C3_ALL_QUBITS_COMMIT = "5dcea35"  # CarrierFamily.lean as checked by its workflow
-VERSION = "1.7.0"
+VERSION = "1.8.0"
 PDF_HASH = "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836"
 
 
@@ -120,10 +120,12 @@ def main():
         lemma_checks[record] = counts
     require("conjecture_e_lemmas.py" in (ROOT / ".github/workflows/c3-all-qubits.yml").read_text(encoding="utf-8"),
             "The lemma checks are not a CI step")
-    # Additions of versions 1.5.0 through 1.7.0: Kramers floor, saturation equivalences, Lemmas 20-21,
+    # Additions of versions 1.5.0 through 1.8.0: Kramers floor, saturation equivalences, Lemmas 20-21,
     # Theorem 22, Theorem 19 (all 9 vertex cases, including eigenvalue multisets), Corollaries 16 & 18,
-    # Proposition 16' SDP dual, Propositions 3/8/10, asymptotics, and Clifford transport in Lean 4,
-    # plus exact cubic-trace checks (97 for n=3..5, 39 for n=6) and C3 SDP-dual check (15 checks).
+    # Proposition 16' SDP dual, Theorem 16'' exact C3 binary optima (368 and 344), Propositions 3/8/10,
+    # asymptotics, Clifford transport, Theorem 13b infinite non-closed determinant family (plus N=6 kernel
+    # degree 2016), and ExactDegreesN4N5 ladders/CSS witnesses/unconditional bounds in Lean 4,
+    # plus exact computational verifiers.
     new_verify_src = (ROOT / "lean/VerifyNewFormalizations.lean").read_text(encoding="utf-8")
     new_audited = {line.split()[2] for line in new_verify_src.splitlines() if line.startswith("#print axioms ")}
     new_log = (ROOT / "results/new-formalizations-lean-axioms.log").read_text(encoding="utf-8")
@@ -134,8 +136,8 @@ def main():
             new_reports[name.strip("'")] = {a.strip() for a in axioms.rstrip("]").split(",") if a.strip()}
         elif line.endswith(" does not depend on any axioms"):
             new_reports[line.split("'")[1]] = set()
-    require(len(new_audited) == 77 and new_audited == set(new_reports),
-            "VerifyNewFormalizations.lean axiom report does not match the 77 declarations")
+    require(len(new_audited) == 100 and new_audited == set(new_reports),
+            "VerifyNewFormalizations.lean axiom report does not match the 100 declarations")
     require(all(a <= allowed for a in new_reports.values()), "Nonstandard axiom in VerifyNewFormalizations.lean")
     require({
         "HoggarBound.hoggar_bound_quaternionic",
@@ -153,17 +155,39 @@ def main():
         "HoggarBound.AuditUpgrades.jonah_conjecture_e_all_nine_cases_spectra",
         "HoggarBound.AuditUpgrades.corollary16_sigmaB_sdp_lower",
         "HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened",
-    } <= set(new_reports), "Required v1.7.0 Lean theorems missing from axiom report")
+        "HoggarBound.C3ExactOptima.corollary16_sigmaA_exact_lower",
+        "HoggarBound.C3ExactOptima.corollary16_sigmaB_exact_lower",
+        "HoggarBound.C3ExactOptima.corollary16_exact_binary_optima",
+        "HoggarBound.det6_degree",
+        "HoggarBound.NormPhaseFamily.detPhase_isFlatState",
+        "HoggarBound.NormPhaseFamily.infinite_nonclosed_saturated_family",
+        "HoggarBound.NormPhaseFamily.infinite_nonclosed_family_contextual",
+        "HoggarBound.ExactDegreesN4N5.transv_violatedLines_eq",
+        "HoggarBound.ExactDegreesN4N5.q7minus_css_witness",
+        "HoggarBound.ExactDegreesN4N5.w72_css_witness",
+        "HoggarBound.ExactDegreesN4N5.q9plus_css_witness",
+        "HoggarBound.ExactDegreesN4N5.w72_ge_1455",
+        "HoggarBound.ExactDegreesN4N5.q9plus_ge_6444",
+        "HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315",
+    } <= set(new_reports), "Required v1.8.0 Lean theorems missing from axiom report")
     trace_counts = json.loads((ROOT / "results/conjecture_e_trace_formula.json").read_text(encoding="utf-8"))["checks"]
     require(trace_counts == {"passed": 97, "total": 97}, "Universal cubic-trace formula checks (n=3..5) incomplete")
     trace_counts_n6 = json.loads((ROOT / "results/conjecture_e_trace_formula_n6.json").read_text(encoding="utf-8"))["checks"]
     require(trace_counts_n6 == {"passed": 39, "total": 39}, "Universal cubic-trace formula checks (n=6) incomplete")
     sdp_counts = json.loads((ROOT / "results/c3_sdp_dual_check.json").read_text(encoding="utf-8"))["checks"]
     require(sdp_counts == {"passed": 15, "total": 15}, "C3 QUBO SDP-dual checks incomplete")
+    c3_exact_counts = json.loads((ROOT / "results/c3_exact_optima_check.json").read_text(encoding="utf-8"))["checks"]
+    require(c3_exact_counts == {"passed": 10, "total": 10}, "C3 exact binary optima checks incomplete")
+    norm_family_counts = json.loads((ROOT / "results/norm_phase_family.json").read_text(encoding="utf-8"))["checks"]
+    require(norm_family_counts == {"passed": 32, "total": 32}, "Norm phase family checks incomplete")
+    exact_deg_counts = json.loads((ROOT / "results/exact_degrees_n4_n5.json").read_text(encoding="utf-8"))["checks"]
+    require(exact_deg_counts == {"passed": 9, "total": 9}, "Exact degrees N=4..5 checks incomplete")
     wf_text = (ROOT / ".github/workflows/conjecture-e-all-cases.yml").read_text(encoding="utf-8")
     require("conjecture_e_trace_formula.py" in wf_text and "c3_sdp_dual_check.py" in wf_text
-            and "AuditUpgrades" in wf_text,
-            "v1.7.0 verification steps are not all present in CI")
+            and "c3_exact_optima_check.py" in wf_text and "norm_phase_family.py" in wf_text
+            and "exact_degrees_n4_n5.py" in wf_text and "C3ExactOptima" in wf_text
+            and "NormPhaseFamily" in wf_text and "ExactDegreesN4N5" in wf_text,
+            "v1.8.0 verification steps are not all present in CI")
     report = {
         "status": "pass",
         "verification_kind": "Documentation-release continuity, not a new Lean compilation",
@@ -189,10 +213,13 @@ def main():
         "c3_all_qubits_commit": C3_ALL_QUBITS_COMMIT,
         "c3_all_qubits_audited_declarations": len(audited),
         "theorem_19_lemma_checks": lemma_checks,
-        "v170_new_formalizations_audited_declarations": len(new_audited),
+        "v180_new_formalizations_audited_declarations": len(new_audited),
         "theorem_22_trace_formula_checks": trace_counts,
         "theorem_22_trace_formula_n6_checks": trace_counts_n6,
         "proposition_16_prime_sdp_dual_checks": sdp_counts,
+        "theorem_16_double_prime_exact_optima_checks": c3_exact_counts,
+        "theorem_13b_norm_phase_family_checks": norm_family_counts,
+        "exact_degrees_n4_n5_checks": exact_deg_counts,
         "checks": checked,
     }
     output = ROOT / args.output

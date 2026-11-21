@@ -91,3 +91,32 @@
 'HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'HoggarBound.C3ExactOptima.corollary16_sigmaA_exact_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.C3ExactOptima.corollary16_sigmaB_exact_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.C3ExactOptima.corollary16_exact_binary_optima' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.det6_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.det6_contexts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.det6_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NormPhaseFamily.detPhase_isFlatState' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NormPhaseFamily.detSupport_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NormPhaseFamily.detSupport_not_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NormPhaseFamily.detSupport_flags_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NormPhaseFamily.infinite_nonclosed_saturated_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.NormPhaseFamily.infinite_nonclosed_family_contextual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.ExactDegreesN4N5.transv_violatedLines_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.q7minus_css_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.w72_css_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.q9plus_css_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.d_W72_of_Q7minus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.d_Q9plus_of_W72' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.w72_ge_1455' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.q9plus_ge_6444' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.lemma_L1_q7minus_section_le_92' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.lemma_L4_w52_hyperplane_le_21' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

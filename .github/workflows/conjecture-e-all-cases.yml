@@ -10,12 +10,27 @@ on:
       - "lean/HoggarBound/ConjectureE.lean"
       - "lean/HoggarBound/ConjectureEExtras.lean"
       - "lean/HoggarBound/AuditUpgrades.lean"
+      - "lean/HoggarBound/C3ExactOptimaData.lean"
+      - "lean/HoggarBound/C3ExactOptima.lean"
+      - "lean/HoggarBound/SaturatedPhaseSix.lean"
+      - "lean/HoggarBound/NormPhaseFamily.lean"
+      - "lean/HoggarBound/ExactDegreesN4N5.lean"
       - "lean/VerifyNewFormalizations.lean"
       - "scripts/conjecture_e_trace_formula.py"
       - "results/conjecture_e_trace_formula.json"
       - "results/conjecture_e_trace_formula_n6.json"
       - "scripts/c3_sdp_dual_check.py"
       - "results/c3_sdp_dual_check.json"
+      - "scripts/c3_exact_optima_check.py"
+      - "data/c3_exact_optima_certs.json"
+      - "results/c3_exact_optima_check.json"
+      - "scripts/norm_phase_family.py"
+      - "data/flat/n6_det6.txt"
+      - "results/norm_phase_family.json"
+      - "scripts/exact_degrees_n4_n5.py"
+      - "data/w52_orbits_42.tsv"
+      - "data/q7minus_42_certs.json"
+      - "results/exact_degrees_n4_n5.json"
       - ".github/workflows/conjecture-e-all-cases.yml"
   workflow_dispatch:
 
@@ -32,7 +47,7 @@ defaults:
 
 jobs:
   exact-trace-formula:
-    name: Exact cubic-trace identity (Theorem 22, n=3..6, 136 checks) & C3 SDP dual (15 checks)
+    name: Exact verifiers (Thm 22 n=3..6, C3 SDP & exact optima, Thm 13b, N=4..5 42-orbit certs)
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
@@ -59,9 +74,24 @@ jobs:
           python scripts/c3_sdp_dual_check.py | tee results/ci-c3-sdp-dual-check.log
           tail -1 results/ci-c3-sdp-dual-check.log | grep -q "15 of 15 checks passed"
           git diff --exit-code -- results/c3_sdp_dual_check.json
+      - name: Run exact four-qubit C3 global binary optima verification (10 checks)
+        run: |
+          python scripts/c3_exact_optima_check.py | tee results/ci-c3-exact-optima-check.log
+          tail -1 results/ci-c3-exact-optima-check.log | grep -q "10 of 10 checks passed"
+          git diff --exit-code -- results/c3_exact_optima_check.json
+      - name: Run infinite pure-CCZ determinant family verification (32 checks)
+        run: |
+          python scripts/norm_phase_family.py | tee results/ci-norm-phase-family.log
+          tail -1 results/ci-norm-phase-family.log | grep -q "32 of 32 checks passed"
+          git diff --exit-code -- results/norm_phase_family.json
+      - name: Run exact N=4..5 degrees, ladders & 42-orbit pure-integer verification (9 checks)
+        run: |
+          python scripts/exact_degrees_n4_n5.py | tee results/ci-exact-degrees-n4-n5.log
+          tail -1 results/ci-exact-degrees-n4-n5.log | grep -q "9 of 9 checks passed"
+          git diff --exit-code -- results/exact_degrees_n4_n5.json
 
   lean-formalization-audit:
-    name: Lean 4.35.0 kernel - Kramers, Saturation, Thm 19/22, Cor 16/18 & AuditUpgrades (77 axioms)
+    name: Lean 4.35.0 kernel - all v1.5.0-v1.8.0 modules (100 audited axioms)
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
@@ -81,13 +111,17 @@ jobs:
           lake exe cache get Mathlib.Analysis.Matrix.Spectrum \
             Mathlib.Algebra.Order.Chebyshev Mathlib.Data.ZMod.Basic Mathlib.Tactic \
             Mathlib.LinearAlgebra.Matrix.Charpoly.Basic Mathlib.LinearAlgebra.Matrix.Kronecker \
-            Mathlib.LinearAlgebra.Matrix.Trace Mathlib.LinearAlgebra.Matrix.Block
+            Mathlib.LinearAlgebra.Matrix.Trace Mathlib.LinearAlgebra.Matrix.Block \
+            Mathlib.FieldTheory.Finite.GaloisField Mathlib.FieldTheory.Finite.Trace
           git diff --exit-code -- lean-toolchain lake-manifest.json
-      - name: Build Kramers, SaturationTheory, ConjectureE, ConjectureEExtras, AuditUpgrades
+      - name: Build all v1.5.0-v1.8.0 Lean modules
         working-directory: lean
         run: |
           mkdir -p ../results
-          lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades 2>&1 | tee ../results/ci-lean-new-formalizations-build.log
+          lake build HoggarBound.Kramers HoggarBound.SaturationTheory \
+            HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades \
+            HoggarBound.C3ExactOptima HoggarBound.SaturatedPhaseSix \
+            HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5 2>&1 | tee ../results/ci-lean-new-formalizations-build.log
       - name: Run VerifyNewFormalizations.lean axiom audit
         working-directory: lean
         run: |
@@ -100,7 +134,7 @@ jobs:
           allowed = {"propext", "Classical.choice", "Quot.sound"}
           source = pathlib.Path("lean/VerifyNewFormalizations.lean").read_text(encoding="utf-8")
           expected = set(re.findall(r"#print axioms\s+(\S+)", source))
-          assert len(expected) == 77, f"Expected 77 audited declarations, found {len(expected)}"
+          assert len(expected) == 100, f"Expected 100 audited declarations, found {len(expected)}"
           required = {
               "HoggarBound.hoggar_bound_quaternionic",
               "HoggarBound.saturation_tfae",
@@ -117,6 +151,22 @@ jobs:
               "HoggarBound.AuditUpgrades.jonah_conjecture_e_all_nine_cases_spectra",
               "HoggarBound.AuditUpgrades.corollary16_sigmaB_sdp_lower",
               "HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened",
+              "HoggarBound.C3ExactOptima.corollary16_sigmaA_exact_lower",
+              "HoggarBound.C3ExactOptima.corollary16_sigmaB_exact_lower",
+              "HoggarBound.C3ExactOptima.corollary16_exact_binary_optima",
+              "HoggarBound.det6_card",
+              "HoggarBound.det6_contexts",
+              "HoggarBound.det6_degree",
+              "HoggarBound.NormPhaseFamily.detPhase_isFlatState",
+              "HoggarBound.NormPhaseFamily.infinite_nonclosed_saturated_family",
+              "HoggarBound.NormPhaseFamily.infinite_nonclosed_family_contextual",
+              "HoggarBound.ExactDegreesN4N5.transv_violatedLines_eq",
+              "HoggarBound.ExactDegreesN4N5.q7minus_css_witness",
+              "HoggarBound.ExactDegreesN4N5.w72_css_witness",
+              "HoggarBound.ExactDegreesN4N5.q9plus_css_witness",
+              "HoggarBound.ExactDegreesN4N5.w72_ge_1455",
+              "HoggarBound.ExactDegreesN4N5.q9plus_ge_6444",
+              "HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315",
           }
           assert required <= expected, f"Missing required declarations: {required - expected}"
           log = pathlib.Path("results/ci-lean-new-formalizations-axioms.log").read_text(encoding="utf-8")
@@ -128,7 +178,7 @@ jobs:
           for name in sorted(expected):
               actual = {a.strip() for a in found[name].split(",") if a.strip()}
               assert actual <= allowed, f"Unexpected axioms in {name}: {actual - allowed}"
-          for rel in [
+          strict_files = [
               "lean/HoggarBound/Kramers.lean",
               "lean/HoggarBound/SaturationTheory.lean",
               "lean/HoggarBound/ConjectureECore.lean",
@@ -136,18 +186,27 @@ jobs:
               "lean/HoggarBound/ConjectureE.lean",
               "lean/HoggarBound/ConjectureEExtras.lean",
               "lean/HoggarBound/AuditUpgrades.lean",
+              "lean/HoggarBound/C3ExactOptimaData.lean",
+              "lean/HoggarBound/NormPhaseFamily.lean",
               "lean/VerifyNewFormalizations.lean",
-          ]:
+          ]
+          kernel_eval_files = [
+              "lean/HoggarBound/C3ExactOptima.lean",
+              "lean/HoggarBound/SaturatedPhaseSix.lean",
+              "lean/HoggarBound/ExactDegreesN4N5.lean",
+          ]
+          for rel in strict_files + kernel_eval_files:
               code = re.sub(r"/-.*?-/", "", pathlib.Path(rel).read_text(encoding="utf-8"), flags=re.S)
               code = re.sub(r"--.*", "", code)
-              for word in ("sorry", "admit", "native_decide", "unsafe", "set_option"):
+              words = ("sorry", "admit", "native_decide", "unsafe", "set_option") if rel in strict_files else ("sorry", "admit", "native_decide", "unsafe")
+              for word in words:
                   assert not re.search(rf"\b{word}\b", code), f"Forbidden {word} in {rel}"
               assert not re.search(r"^\s*axiom\b", code, flags=re.M), f"Custom axiom in {rel}"
           print(f"PASS: All {len(expected)} audited theorems verified strictly within {sorted(allowed)}.")
           PY
       - name: Preserve Lean evidence logs
         if: always()
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f4646cd9 # v7
         with:
           name: conjecture-e-all-cases-lean-evidence
           path: results/ci-lean-new-formalizations-*.log

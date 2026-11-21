@@ -1,0 +1,188 @@
+{
+  "family": "pure-CCZ determinant phase states |Psi_{3m}> = 2^{-3m/2} sum (-1)^{Tr_{F_q/F_2}(x1 x2 x3)} |x>",
+  "closed_forms": {
+    "N": "3m",
+    "q": "2^m",
+    "rank": "2m",
+    "modulus": "2^{-m} = 1/q",
+    "points": "(q^3 - 1) q^2",
+    "contexts_per_point": "(q^4 + q^3 - 3 q^2) / 2",
+    "violated_per_point": "q (q - 1) (q - 2) / 4",
+    "contexts": "(q^3 - 1) q^4 (q^2 + q - 3) / 6",
+    "degree": "(q^3 - 1) q^3 (q - 1) (q - 2) / 12",
+    "non_closed_and_contextual": "all m >= 2"
+  },
+  "members": {
+    "m1_N3": {
+      "m": 1,
+      "N": 3,
+      "q": 2,
+      "rank": 2,
+      "points": 28,
+      "contexts": 56,
+      "degree": 0,
+      "beta": 56,
+      "t_deg": 6,
+      "v_deg": 0,
+      "excess": 6,
+      "ccz_gates": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "line_closed": false
+    },
+    "m2_N6": {
+      "m": 2,
+      "N": 6,
+      "q": 4,
+      "rank": 4,
+      "points": 1008,
+      "contexts": 45696,
+      "degree": 2016,
+      "beta": 41664,
+      "t_deg": 136,
+      "v_deg": 6,
+      "excess": 124,
+      "ccz_gates": [
+        [
+          0,
+          2,
+          5
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          3,
+          5
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "line_closed": false,
+      "degree_histogram": [
+        [
+          [
+            136,
+            6
+          ],
+          1008
+        ]
+      ]
+    },
+    "m3_N9": {
+      "m": 3,
+      "N": 9,
+      "q": 8,
+      "rank": 6,
+      "points": 32704,
+      "contexts": 24070144,
+      "degree": 915712,
+      "beta": 22238720,
+      "t_deg": 2208,
+      "v_deg": 84,
+      "excess": 2040,
+      "ccz_gates": [
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          0,
+          4,
+          8
+        ],
+        [
+          0,
+          5,
+          7
+        ],
+        [
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          4,
+          7
+        ],
+        [
+          1,
+          5,
+          6
+        ],
+        [
+          1,
+          5,
+          8
+        ],
+        [
+          2,
+          3,
+          7
+        ],
+        [
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          8
+        ]
+      ],
+      "line_closed": false
+    },
+    "m4_N12": {
+      "m": 4,
+      "N": 12,
+      "q": 16,
+      "rank": 8,
+      "points": 1048320,
+      "contexts": 12031918080,
+      "degree": 293529600,
+      "beta": 11444858880,
+      "t_deg": 34432,
+      "v_deg": 840,
+      "excess": 32752,
+      "num_ccz_gates": 27,
+      "line_closed": false
+    }
+  },
+  "checks": {
+    "passed": 32,
+    "total": 32
+  }
+}

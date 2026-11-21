@@ -1,17 +1,21 @@
 # Summary in plain language
 
-Repository version 1.7.0, 21 November 2026. Research preprint, not peer reviewed. The combined study brings
+Repository version 1.8.0, 21 November 2026. Research preprint, not peer reviewed. The combined study brings
 together the Claude/Anthropic spectral-floor work, the OpenAI Codex C3/independent-verification work, and
-the Google Gemini / Antigravity Lean 4 formalizations and audit upgrades under the direction of Alexander S. Donahue, 0thernes LLC.
+the Google Gemini / Antigravity Lean 4 formalizations and frontier resolutions under the direction of Alexander S. Donahue, 0thernes LLC.
 Version 1.3.0 added Claude/Anthropic results that answer Jonah's Conjecture E in all nine vertex cases for
 every number of qubits from four on, and version 1.4.0 made that proof self-contained. Versions 1.5.0 through
-1.7.0 formalize all nine vertex cases of Conjecture E (including canonical Hermitian eigenvalue multisets and
+1.8.0 formalize all nine vertex cases of Conjecture E (including canonical Hermitian eigenvalue multisets and
 signed-Clifford orbit transport), the quaternionic (Kramers) spectral floor, the five-way saturation
 equivalence, quantum-metric and two-character theorems (Propositions 3, 8, 10), asymptotic $1/2$ limits,
-Lemmas 20 and 21, the universal cubic-trace identity (Theorem 22), Corollaries 16 and 18, and Proposition 16'
-(tightening the four-qubit C3 lower bound for the second carrier from 315 to 330 via an exact QUBO SDP dual)
-in Lean 4.35.0 (77 audited declarations, strictly standard axioms), accompanied by 136 exact integer checks of
-Theorem 22 through six qubits and 15 exact checks of Proposition 16'.
+Lemmas 20 and 21, Theorem 22, Corollary 18, **exact global binary completion optima 368 and 344** (exact gap
+24) for the four-qubit C3 pair (Theorem 16''), an **infinite non-closed contextual floor-saturating pure-CCZ
+determinant family** $|\Psi_{3m}\rangle$ for every $m\ge1$ (Theorem 13b, including six-qubit exact degree
+2016), and exact CSS witnesses, double-counting ladders and unconditional Kramers-lifted bounds
+$d(W(7,2))\ge1455$ and $d(Q^+(9,2))\ge6444$ in Lean 4.35.0 (**100** audited declarations, strictly standard
+axioms), accompanied by exact integer checks through six qubits, an independent 42-orbit C census and
+pure-integer dual verification reproducing Jonah's exact triple (315, 1575, 6975), and a 540.3M-form
+cyclic-symmetry census ruling out constant rank 8 on nine qubits across all 25 cyclic-invariant subspaces.
 
 The [unified paper](paper/unified-contextuality.md) asks two connected questions: what lower bounds can
 spectral information certify, and which completion information can a section's spectrum fail to retain?

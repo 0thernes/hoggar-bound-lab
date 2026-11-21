@@ -2,7 +2,7 @@
 
 **Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E**
 
-Version **1.6.0** (21 November 2026; built on version 1.4.0 and Lean formalization release version 1.5.0; version 1.2.0 was titled *Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate*). Author: **Alexander S. Donahue — 0thernes LLC**. Correspondence:
+Version **1.8.0** (21 November 2026; built cleanly on versions 1.4.0–1.7.0; version 1.2.0 was titled *Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate*). Author: **Alexander S. Donahue — 0thernes LLC**. Correspondence:
 **0_0@0thernes.art**. ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648).
 
 This is the single current manuscript requested by the author. The earlier spectral-floor and C3
@@ -24,7 +24,7 @@ saved account details are not submission receipts or evidence of acceptance.
 | [Submission metadata](unified-metadata.json) | Title, author, abstract, public URLs and actual declaration status |
 | [Plain-text abstract](unified-abstract.txt), [BibTeX](unified-citation.bib) | Form-ready abstract and preprint citation without invented journal or DOI fields |
 | [Build record](../results/unified-paper-build.json) | Compiler versions, file hashes, counts and artifact consistency |
-| [Proof and source continuity](../results/publication-v1.6.0-audit.json) | Retained C3 artifacts, unchanged Lean sources, 49-declaration audit and 97-check trace formula |
+| [Proof and source continuity](../results/publication-v1.8.0-audit.json) | Retained C3 artifacts, unchanged Lean sources, 100-declaration Lean audit and all exact integer verifiers |
 
 The [eight-destination distribution plan](DISTRIBUTION-PLAN.md) distinguishes journal review, preprint
 hosting, discovery, author identity and preservation. Google Scholar and OpenAIRE require observed
@@ -41,32 +41,39 @@ Prepared descriptive cover text:
 
 > This manuscript studies what spectral information establishes about Pauli contextuality and what
 > it fails to retain in a related completion problem. It integrates a Lean 4 formalization of the
-> previously known spectral floor with configurations attaining that floor and explicit sign carriers
-> whose spectra agree while their completion spectra differ. A four-qubit C3 pair has completion cubic
-> traces 14976 and 15360 and different exact binary completion minima (<=344 < 347); a graph family
-> settles case C3 for every N >= 4, and variants together with a cone pair swap and a universal
-> cubic-trace identity settle all nine vertex cases for every N >= 4, proving Jonah's Conjecture E.
-> All nine cases, Corollaries 16 and 18, Lemmas 20 and 21, the universal cubic-trace identity, the
-> quaternionic/Kramers refinement (Theorem 2) and the saturation equivalences (Theorems 3 and 4) are
-> formalized in Lean 4.35.0 using only standard axioms, and are checked by exact computation for three
-> to six qubits. The manuscript claims no priority for the spectral floor.
+> previously known spectral floor with configurations attaining that floor---including an infinite
+> family of non-closed contextual pure-CCZ determinant states |Psi_{3m}> (m >= 1) and finite degrees
+> 75, 480, 2016 and 729344---and explicit sign carriers whose spectra agree while their completion
+> spectra differ. On the classical four- and five-qubit geometries, Lean 4 proves exact CSS witnesses,
+> double-counting ladders, and unconditional Kramers-lifted bounds d(W(7,2)) >= 1455 and
+> d(Q^+(9,2)) >= 6444, alongside an independent 42-orbit C census and pure-integer dual check
+> reproducing Jonah's exact triple (315, 1575, 6975). A four-qubit C3 pair has completion cubic
+> traces 14976 and 15360 and exact global binary completion minima 368 and 344 (exact gap 24,
+> kernel-certified via pure-integer MET-SDP triangle-cut duals); a graph family settles case C3 for
+> every N >= 4, and variants together with a cone pair swap and a universal cubic-trace identity
+> settle all nine vertex cases at the eigenvalue-multiset level for every N >= 4, proving Jonah's
+> Conjecture E. All main theorems (100 newly audited declarations in VerifyNewFormalizations.lean plus
+> retained baseline, saturation and C3 audits) are formalized in Lean 4.35.0 using only standard
+> axioms, and are checked by exact computation through six qubits. The manuscript claims no priority
+> for the spectral floor or for Jonah's exact classical degrees.
 >
 > The paper connects these components through shared notation and exact reconstruction. It separates
-> kernel-checked theorems and finite counts, among them the seven-qubit counts, from additional
-> algebraic arguments and executable computations. The public source release supplies proof sources,
-> audit records, reproducible programs and deliberate error controls. Substantive Claude/Anthropic,
-> OpenAI Codex, and Google Gemini / Antigravity involvement is disclosed with its actual scope.
+> kernel-checked theorems and finite counts from additional algebraic arguments and executable
+> computations (including the 42-orbit W(5,2) census and the 540.3M-form nine-qubit rank-8 cyclic
+> census). The public source release supplies proof sources, audit records, reproducible programs and
+> deliberate error controls. Substantive Claude/Anthropic, OpenAI Codex, and Google Gemini /
+> Antigravity involvement is disclosed with its actual scope.
 >
 > The manuscript is relevant to quantum foundations and mathematical physics because it treats both
 > quantitative noncontextual constraints and an explicit limit on the information carried by a
 > spectral invariant. Earlier source preprints and their archived versions are disclosed in the
-> publication map; the submitted work is the combined manuscript.
+> publication map; the submitted work is the combined manuscript (version 1.8.0).
 
 The descriptive cover text above makes no certification of journal exclusivity, acceptance, or
 completed human critical review. The later [author declarations](AUTHOR-DECLARATIONS.md) record
 conditional approval/accountability, the no-competing-interest statement and accepted arXiv rights
 and license. They were recorded for version 1.2.0; use their precise scope, and record any approval
-of version 1.6.0 before submitting it. An AI tool must not write responses
+of version 1.8.0 before submitting it. An AI tool must not write responses
 to future referee reports where the publisher requires the author's own evaluation.
 
 ## Author-controlled declarations
@@ -76,8 +83,8 @@ and declares no competing interests. The author approved version 1.2.0 and accep
 conditional on the assistant's readiness assessment, which supports offering it as a disclosed research
 preprint. For version 1.3.0 the author directed the assistant to fold in the addenda and publish, for
 version 1.4.0 to continue, and on 21 November 2026 gave explicit autonomous-approval instructions for
-versions 1.5.0–1.6.0; no separate human line-by-line review of the 1.3.0–1.6.0 text or Lean code is
-recorded (AUTHOR-DECLARATIONS.md, Versions 1.3.0–1.6.0). His recorded direction, goals, resources and funding are described in
+versions 1.5.0–1.8.0; no separate human line-by-line review of the 1.3.0–1.8.0 text or Lean code is
+recorded (AUTHOR-DECLARATIONS.md, Versions 1.3.0–1.8.0). His recorded direction, goals, resources and funding are described in
 [AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md); no personal mathematical/reference review or
 critical intellectual revision was identified. Those activities cannot be inferred from permission.
 The listed distribution destinations are repositories/indexes/archives, with no other journal named.

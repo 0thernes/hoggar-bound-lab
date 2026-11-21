@@ -1,0 +1,26 @@
+EXHAUST	Z_73(F_512)	dim=3	forms=7	reps=7	rank8_hits=0
+EXHAUST	Z_51(F_256xF_2)	dim=1	forms=1	reps=11	rank8_hits=0
+EXHAUST	Z_17(F_256xF_2)	dim=9	forms=511	reps=31	rank8_hits=0
+EXHAUST	Z_31(F_32xF_16)	dim=14	forms=16383	reps=31	rank8_hits=0
+EXHAUST	Z_21(F_8^2xF_4xF_2)	dim=11	forms=2047	reps=39	rank8_hits=0
+EXHAUST	Z_15(F_16^2xF_2,r=14)	dim=9	forms=511	reps=35	rank8_hits=0
+EXHAUST	Z_15(F_16^2xF_2,r=13)	dim=9	forms=511	reps=35	rank8_hits=0
+EXHAUST	Z_15(F_16^2xF_2,r=11)	dim=9	forms=511	reps=35	rank8_hits=0
+EXHAUST	Z_15(F_16^2xF_2,r=8)	dim=1	forms=1	reps=35	rank8_hits=0
+EXHAUST	Z_15(F_16^2xF_2,r=7)	dim=9	forms=511	reps=35	rank8_hits=0
+EXHAUST	Z_15(F_16^2xF_2,r=4)	dim=1	forms=1	reps=35	rank8_hits=0
+EXHAUST	Z_15(F_16^2xF_2,r=2)	dim=1	forms=1	reps=35	rank8_hits=0
+EXHAUST	Z_15(F_16^2xF_2,r=1)	dim=1	forms=1	reps=35	rank8_hits=0
+EXHAUST	Z_9(F_64xF_8)	dim=19	forms=524287	reps=63	rank8_hits=0
+EXHAUST	Z_7(F_8^3,r2=6,r3=0)	dim=21	forms=2097151	reps=79	rank8_hits=0
+EXHAUST	Z_7(F_8^3,r2=6,r3=1)	dim=18	forms=262143	reps=73	rank8_hits=0
+EXHAUST	Z_7(F_8^3,r2=6,r3=2)	dim=18	forms=262143	reps=73	rank8_hits=0
+EXHAUST	Z_7(F_8^3,r2=6,r3=3)	dim=18	forms=262143	reps=73	rank8_hits=0
+EXHAUST	Z_7(F_8^3,r2=2,r3=4)	dim=27	forms=134217727	reps=73	rank8_hits=0
+EXHAUST	Z_7(F_8^3,r2=1,r3=1)	dim=27	forms=134217727	reps=73	rank8_hits=0
+EXHAUST	Z_7(F_8^3,r2=1,r3=2)	dim=27	forms=134217727	reps=73	rank8_hits=0
+EXHAUST	Z_5(F_16^2xF_2,r=1)	dim=25	forms=33554431	reps=103	rank8_hits=0
+EXHAUST	Z_5(F_16^2xF_2,r=2)	dim=25	forms=33554431	reps=103	rank8_hits=0
+EXHAUST	Z_5(F_16^2xF_2,r=3)	dim=25	forms=33554431	reps=103	rank8_hits=0
+EXHAUST	Z_5(F_16^2xF_2,r=4)	dim=25	forms=33554431	reps=103	rank8_hits=0
+TOTAL	forms=540299769	rank8_hits=0

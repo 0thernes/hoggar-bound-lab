@@ -12,16 +12,30 @@
      (Proposition 10), signed-Clifford orbit transport, eigenvalue-multiset Conjecture E across
      all nine vertex cases, and tightened Corollary 16 via exact QUBO SDP dual (330 ≤ F(σ₁) ≤ 344,
      347 ≤ F(σ₀) ≤ 368).
+   - Frontier resolutions (v1.8.0):
+     * Exact global binary completion optima of four-qubit C3: min F(σ₀) = 368 and min F(σ₁) = 344,
+       exact binary gap 24 (`C3ExactOptimaData.lean`, `C3ExactOptima.lean`).
+     * Infinite family of non-closed contextual floor-saturating pure-CCZ determinant phase states
+       `|Ψ_{3m}⟩` for every `m ≥ 1` (`NormPhaseFamily.lean`) plus exact kernel-checked `m = 2`
+       six-qubit member: 1,008 observables, 45,696 contexts, exact degree 2,016 (`SaturatedPhaseSix.lean`).
+     * Symplectic transvection invariance, exact CSS witnesses (315, 1575, 6975), double-counting
+       ladders (`Q⁻(7,2) → W(7,2) → Q⁺(9,2)`), unconditional Kramers-lifted bounds `d(W(7,2)) ≥ 1455`
+       and `d(Q⁺(9,2)) ≥ 6444`, pigeonhole Lemmas L1 & L4, and exact master reduction
+       (`ExactDegreesN4N5.lean`).
 
    Every `#print axioms` line must report a subset of `[propext, Classical.choice, Quot.sound]`.
 
    run:
-     cd lean && lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades && lake env lean VerifyNewFormalizations.lean -/
+     cd lean && lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades HoggarBound.C3ExactOptima HoggarBound.SaturatedPhaseSix HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5 && lake env lean VerifyNewFormalizations.lean -/
 import HoggarBound.Kramers
 import HoggarBound.SaturationTheory
 import HoggarBound.ConjectureE
 import HoggarBound.ConjectureEExtras
 import HoggarBound.AuditUpgrades
+import HoggarBound.C3ExactOptima
+import HoggarBound.SaturatedPhaseSix
+import HoggarBound.NormPhaseFamily
+import HoggarBound.ExactDegreesN4N5
 
 -- Theorem 2: Quaternionic / Kramers spectral floor and elliptic quadrics
 #print axioms HoggarBound.kramers_even_mult
@@ -116,3 +130,33 @@ import HoggarBound.AuditUpgrades
 #print axioms HoggarBound.AuditUpgrades.corollary16_sigmaB_sdp_lower
 #print axioms HoggarBound.AuditUpgrades.corollary16_sigmaA_witness
 #print axioms HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened
+
+-- C3ExactOptima (v1.8.0): Exact global binary completion optima of four-qubit C3 (368 and 344, gap 24)
+#print axioms HoggarBound.C3ExactOptima.corollary16_sigmaA_exact_lower
+#print axioms HoggarBound.C3ExactOptima.corollary16_sigmaB_exact_lower
+#print axioms HoggarBound.C3ExactOptima.corollary16_exact_binary_optima
+
+-- SaturatedPhaseSix & NormPhaseFamily (v1.8.0): Infinite non-closed contextual floor-saturating family |Ψ_{3m}⟩
+#print axioms HoggarBound.det6_card
+#print axioms HoggarBound.det6_contexts
+#print axioms HoggarBound.det6_degree
+#print axioms HoggarBound.NormPhaseFamily.detPhase_isFlatState
+#print axioms HoggarBound.NormPhaseFamily.detSupport_card
+#print axioms HoggarBound.NormPhaseFamily.detSupport_not_closed
+#print axioms HoggarBound.NormPhaseFamily.detSupport_flags_card
+#print axioms HoggarBound.NormPhaseFamily.infinite_nonclosed_saturated_family
+#print axioms HoggarBound.NormPhaseFamily.infinite_nonclosed_family_contextual
+
+-- ExactDegreesN4N5 (v1.8.0): Transvection invariance, CSS witnesses (315, 1575, 6975), ladders,
+-- unconditional Kramers-lifted bounds (W(7,2) ≥ 1455, Q⁺(9,2) ≥ 6444), Lemmas L1 & L4, master reduction
+#print axioms HoggarBound.ExactDegreesN4N5.transv_violatedLines_eq
+#print axioms HoggarBound.ExactDegreesN4N5.q7minus_css_witness
+#print axioms HoggarBound.ExactDegreesN4N5.w72_css_witness
+#print axioms HoggarBound.ExactDegreesN4N5.q9plus_css_witness
+#print axioms HoggarBound.ExactDegreesN4N5.d_W72_of_Q7minus
+#print axioms HoggarBound.ExactDegreesN4N5.d_Q9plus_of_W72
+#print axioms HoggarBound.ExactDegreesN4N5.w72_ge_1455
+#print axioms HoggarBound.ExactDegreesN4N5.q9plus_ge_6444
+#print axioms HoggarBound.ExactDegreesN4N5.lemma_L1_q7minus_section_le_92
+#print axioms HoggarBound.ExactDegreesN4N5.lemma_L4_w52_hyperplane_le_21
+#print axioms HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315

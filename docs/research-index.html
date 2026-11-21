@@ -79,14 +79,14 @@
             <span class="label">Derived algebraically</span>
             <h3>Further exact consequences</h3>
             <ul><li>The paper gives the explicit common characteristic-polynomial factorization.</li><li>The largest completion eigenvalues differ by exactly 2.</li><li>The continuous-relaxation values differ by 32.</li></ul>
-            <p>These deductions are established in the paper and are outside the original 42-declaration C3 audit. The combined paper (Corollary 16 &amp; Proposition 16&#8217;, formalized in Lean 4 via <code>ConjectureEExtras.lean</code> and <code>AuditUpgrades.lean</code>) also proves the binary completion minima differ and encloses them in [347, 368] and [330, 344], with the lower bound 330 certified via an exact QUBO SDP dual.</p>
+            <p>These deductions are established in the paper and are outside the original 42-declaration C3 audit. In version 1.8.0 (Theorem 16&#8217;&#8217;, formalized in Lean 4 via <code>C3ExactOptima.lean</code> alongside <code>ConjectureEExtras.lean</code> and <code>AuditUpgrades.lean</code>), BOTH binary completion optima are determined exactly inside Lean 4’s kernel: min F(&#963;<sub>0</sub>) = <strong>368</strong> and min F(&#963;<sub>1</sub>) = <strong>344</strong> (exact binary gap <strong>24</strong>), certified via pure-integer MET-SDP frustrated-triangle duals.</p>
             <a class="small-link" href="paper/c3-spectral-counterexample.html">Follow the algebraic proof →</a>
           </article>
           <article class="card">
             <span class="label">Open to review</span>
-            <h3>From four qubits to all nine vertex cases</h3>
-            <p>This four-qubit pair was the first instance of the strict-law failure predicted by Jonah’s Conjecture E. The combined paper extends it to every number of qubits N ≥ 4 across all nine vertex cases; as of v1.5.0–v1.7.0, all nine cases (including canonical Hermitian eigenvalue multisets and signed-Clifford orbit transport), Corollaries 16 &amp; 18, Proposition 16&#8217;, Lemmas 20–21, Theorem 22, the Kramers floor (Theorem 2), saturation equivalences (Theorems 3–4), Propositions 3/8/10, and asymptotic 1/2 limits are all proved in Lean 4 (77 audited declarations, strictly standard axioms) and checked by exact computation through six qubits.</p>
-            <p>The preprint is not peer reviewed. The work makes no claim of absolute historical priority, a new contextuality degree, or a physical quantum-hardware experiment.</p>
+            <h3>From four qubits to all nine vertex cases &amp; infinite families</h3>
+            <p>This four-qubit pair was the first instance of the strict-law failure predicted by Jonah’s Conjecture E. The combined paper extends it to every number of qubits N ≥ 4 across all nine vertex cases; as of v1.5.0–v1.8.0, all nine cases (including canonical Hermitian eigenvalue multisets and signed-Clifford orbit transport), exact four-qubit C3 binary optima (368 and 344), an infinite non-closed contextual floor-saturating pure-CCZ determinant family |&#936;<sub>3m</sub>&#10217; (all m ≥ 1, plus six-qubit exact degree 2,016), N=4–5 CSS witnesses, ladders and unconditional Kramers-lifted bounds (d(W(7,2)) ≥ 1455, d(Q<sup>+</sup>(9,2)) ≥ 6444), the Kramers floor (Theorem 2), saturation equivalences (Theorems 3–4), Propositions 3/8/10, and asymptotic 1/2 limits are all proved in Lean 4 (<strong>100</strong> audited declarations, strictly standard axioms) and checked by exact computation through six qubits.</p>
+            <p>The preprint is not peer reviewed. The work makes no claim of absolute historical priority or a physical quantum-hardware experiment.</p>
             <a class="small-link" href="https://github.com/0thernes/hoggar-bound-lab/blob/main/VERIFICATION.md">Inspect the evidence and limits →</a>
           </article>
         </div>
@@ -94,10 +94,10 @@
       </section>
 
       <section class="section" id="papers" aria-labelledby="papers-title">
-        <div class="section-head"><h2 id="papers-title">One paper, reproducible components</h2><a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.7.0">Combined release v1.7.0 →</a></div>
+        <div class="section-head"><h2 id="papers-title">One paper, reproducible components</h2><a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.8.0">Combined release v1.8.0 →</a></div>
         <div class="papers">
           <article class="paper-card featured">
-            <span class="pill">Combined research manuscript · v1.7.0</span>
+            <span class="pill">Combined research manuscript · v1.8.0</span>
             <h3>Spectral bounds and their limits in Pauli contextuality</h3>
             <p>The spectral floor, exact attaining configurations, the four-qubit C3 certificate, case C3 for every number of qubits from four on and a proof of Jonah’s Conjecture E in one manuscript, with common notation, references, and explicit proof boundaries.</p>
             <div class="inline-links"><a href="paper/unified-contextuality.html">Read HTML</a><a href="paper/unified-contextuality.pdf">Download PDF</a><a href="c3-lab/">Run the C3 verifier</a><a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/CITATION.cff">Citation</a></div>
@@ -140,7 +140,7 @@
     </main>
 
     <footer class="footer">
-      <div><p>Alexander S. Donahue / 0thernes LLC · Hoggar Bound Lab<br>AI-assisted research preprint. Mathematical verification does not substitute for external review.</p><p class="edition">Combined manuscript and repository edition <a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.7.0">v1.7.0</a>. The original C3 artifact is preserved at <a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate">v0.2.0-c3-certificate</a>.</p></div>
+      <div><p>Alexander S. Donahue / 0thernes LLC · Hoggar Bound Lab<br>AI-assisted research preprint. Mathematical verification does not substitute for external review.</p><p class="edition">Combined manuscript and repository edition <a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.8.0">v1.8.0</a>. The original C3 artifact is preserved at <a href="https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate">v0.2.0-c3-certificate</a>.</p></div>
       <div><a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/LICENSE">License</a> · <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/NOTICE">Third-party notices</a> · <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/LEGAL.md">Legal</a></div>
     </footer>
   </div>

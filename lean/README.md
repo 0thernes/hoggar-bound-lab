@@ -71,9 +71,9 @@ theorem c3_strict_law_fails_general (hm : 3 ≤ m) :
 `p`, `q`. The 74 audited declarations use only the standard axioms (`results/lean-c3-all-qubits-axioms.log`).
 See Section 9.3 of the combined paper for what the statement leaves to the reader.
 
-### Kramers floor, saturation theory, Corollaries 16 & 18, Conjecture E across all nine vertex cases, and v1.7.0 audit upgrades (`v1.5.0`–`v1.7.0`)
+### Kramers floor, saturation theory, Conjecture E across all nine vertex cases, exact C3 binary optima, infinite determinant family, and N=4–5 ladders (`v1.5.0`–`v1.8.0`)
 
-Seven additional sorry-free modules (9,728 lines total) audited by `VerifyNewFormalizations.lean` (**77** declarations strictly within `[propext, Classical.choice, Quot.sound]`, log in `../results/new-formalizations-lean-axioms.log`) prove:
+Twelve additional sorry-free modules (13,910 lines total) audited by `VerifyNewFormalizations.lean` (**100** declarations strictly within `[propext, Classical.choice, Quot.sound]`, log in `../results/new-formalizations-lean-axioms.log`) prove:
 
 - **Theorem 2 (`HoggarBound/Kramers.lean`):** `kramers_even_mult`, `hoggar_bound_quaternionic`, `card_ellipticPoints`, `card_flags_elliptic`, `elliptic_fraction`, and finite elliptic-quadric bounds `three_qubit_elliptic_contexts` (9), `four_qubit_elliptic_contexts` (291), `five_qubit_elliptic_contexts` (6501).
 - **Theorems 3 and 4 (`HoggarBound/SaturationTheory.lean`):** `opA_sq_eq`, `saturation_tfae` (full five-way saturation equivalence for nonempty supports), and `saturation_mul_isSquare` (`(2^N - 1)|S| = □` for `N ≥ 2`).
@@ -86,6 +86,10 @@ Seven additional sorry-free modules (9,728 lines total) audited by `VerifyNewFor
   - Signed-Clifford orbit transport (`clifford_preserves_symp`, `clifford_transport_comm_product`, `clifford_transport_opA`, `clifford_transport_carrier_charpoly`, `clifford_transport_completion_charpoly`, `clifford_transport_strict_law_fails`);
   - Canonical Hermitian eigenvalue-multiset Conjecture E across all nine vertex cases (`completionMat_isHermitian`, `real_hermitian_charpoly_eq_iff_roots_eq`, `strict_law_fails_to_spectra`, `jonah_conjecture_e_all_nine_cases_spectra`);
   - Proposition 16' QUBO SDP-dual tightened Corollary 16 (`c3SdpBlock_pos_def`, `c3_shift_quad_zero`, `corollary16_sigmaB_sdp_lower`, `corollary16_sigmaA_witness`, `corollary16_binary_minima_tightened`: `330 ≤ min_y F(σ₁, y) ≤ 344 < 347 ≤ min_y F(σ₀, y) ≤ 368`).
+- **Version 1.8.0 frontier resolutions:**
+  - **Theorem 16'' (`HoggarBound/C3ExactOptimaData.lean`, `HoggarBound/C3ExactOptima.lean`, 1,374 lines):** Exact global binary completion optima of four-qubit C3 (`corollary16_sigmaA_exact_lower`: `≥ 368`, `corollary16_sigmaB_exact_lower`: `≥ 344`, `corollary16_exact_binary_optima`: exact minima `368` and `344`, exact gap `24`), via pure-integer MET-SDP frustrated-triangle duals and strictly diagonally dominant integer Cholesky certificates.
+  - **Theorem 13b (`HoggarBound/NormPhaseFamily.lean`, `HoggarBound/SaturatedPhaseSix.lean`, 1,519 lines):** Infinite non-closed contextual floor-saturating pure-CCZ determinant family `|Ψ_{3m}⟩` for every `m ≥ 1` (`detPhase_isFlatState`, `detSupport_card`, `detSupport_not_closed`, `detSupport_flags_card`, `infinite_nonclosed_saturated_family`, `infinite_nonclosed_family_contextual`) plus kernel-checked `m = 2` six-qubit mask (`det6_card`: `1,008`, `det6_contexts`: `45,696`, `det6_degree`: `2,016`).
+  - **Classical `N = 4, 5` exact ladders & unconditional bounds (`HoggarBound/ExactDegreesN4N5.lean`, 1,289 lines):** Symplectic transvection invariance (`transv_violatedLines_eq`), CSS witnesses (`q7minus_css_witness`: `315`, `w72_css_witness`: `1575`, `q9plus_css_witness`: `6975`), exact double-counting ladders (`d_W72_of_Q7minus`, `d_Q9plus_of_W72`), unconditional Kramers-lifted bounds (`w72_ge_1455`, `q9plus_ge_6444`), Lemmas L1 & L4 (`lemma_L1_q7minus_section_le_92`, `lemma_L4_w52_hyperplane_le_21`), and master reduction (`exact_degrees_n4_n5_of_q7minus_315`).
 
 ## Modules
 
@@ -109,6 +113,9 @@ Seven additional sorry-free modules (9,728 lines total) audited by `VerifyNewFor
 | `HoggarBound/ConjectureECones.lean`, `ConjectureE.lean` | Table 8 outside character sums and Theorem 19 across all nine vertex cases (`jonah_conjecture_e_all_nine_cases`) |
 | `HoggarBound/ConjectureEExtras.lean` | Corollary 18 (general cone lift, C11 from C3) and Corollary 16 (four-qubit C3 binary completion minima separation `≤ 344 < 347`) |
 | `HoggarBound/AuditUpgrades.lean` | Version 1.7.0 audit upgrades: asymptotics, Propositions 3/8/10, Clifford orbit transport, eigenvalue-multiset Conjecture E across all 9 cases, and Proposition 16' QUBO SDP-dual tightened Corollary 16 (`330 ≤ F(σ₁) ≤ 344`, `347 ≤ F(σ₀) ≤ 368`) |
+| `HoggarBound/C3ExactOptimaData.lean`, `C3ExactOptima.lean` | Theorem 16'': exact global binary completion optima of four-qubit C3 (`min F(σ₀) = 368`, `min F(σ₁) = 344`, exact gap `24`) |
+| `HoggarBound/SaturatedPhaseSix.lean`, `NormPhaseFamily.lean` | Theorem 13b: infinite non-closed contextual pure-CCZ determinant family `|Ψ_{3m}⟩` for every `m ≥ 1` + six-qubit exact degree `2,016` |
+| `HoggarBound/ExactDegreesN4N5.lean` | Transvection invariance, CSS witnesses (`315 / 1575 / 6975`), double-counting ladders, unconditional `d(W(7,2)) ≥ 1455` & `d(Q⁺(9,2)) ≥ 6444`, Lemmas L1/L4, master reduction |
 | `HoggarBound/IndependentContexts.lean`, `IndependentWitness.lean` | written by the independent companion review |
 | `HoggarBound/C3*.lean`, `Stability.lean` | the companion C3 note (separate work) |
 
@@ -150,7 +157,7 @@ lake env lean HoggarBound/CarrierFamily.lean
 ```
 
 ```bash
-lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades
+lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades HoggarBound.C3ExactOptima HoggarBound.SaturatedPhaseSix HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5
 ```
 
 ```bash
@@ -161,10 +168,8 @@ lake env lean VerifyNewFormalizations.lean
 exact-degree modules (expected output `../results/lean-saturated-axioms.log`),
 `SaturatedSevenVerification.lean` those of the thirteen seven-qubit declarations
 (`../results/lean-saturated-seven-axioms.log`), `CarrierFamily.lean` those of its 74 declarations
-(`../results/lean-c3-all-qubits-axioms.log`), and `VerifyNewFormalizations.lean` those of the 77
-declarations across `Kramers.lean`, `SaturationTheory.lean`, `ConjectureECore.lean`,
-`ConjectureECones.lean`, `ConjectureE.lean`, `ConjectureEExtras.lean`, and `AuditUpgrades.lean`
-(`../results/new-formalizations-lean-axioms.log`). `IndependentVerification.lean` does the
+(`../results/lean-c3-all-qubits-axioms.log`), and `VerifyNewFormalizations.lean` those of the **100**
+declarations across the twelve `v1.5.0`–`v1.8.0` modules (`../results/new-formalizations-lean-axioms.log`). `IndependentVerification.lean` does the
 same for the core modules (expected output: `../results/lean-axioms.log`).
 
 Resources: the default build takes a few minutes after the Mathlib cache is fetched. In the successful

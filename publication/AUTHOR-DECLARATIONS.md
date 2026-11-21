@@ -145,3 +145,34 @@ agents (building on the Claude/Anthropic and OpenAI Codex work), nothing is exte
 Clifford orbit transport across hyperplane classes remains a paper argument using [J3, Theorem B4], and
 no separate human line-by-line review of the v1.5.0–v1.6.0 Lean code or text, and no new arXiv, journal
 or Zenodo declaration, is recorded.
+
+## Versions 1.7.0 and 1.8.0 (21 November 2026)
+
+On 21 November 2026 the author gave explicit autonomous-approval instructions for the multi-layer audit
+and upgrade (`v1.7.0`) and for executing all four open frontier items (`v1.8.0`):
+
+- **v1.7.0** added `AuditUpgrades.lean` (expanding `VerifyNewFormalizations.lean` to 77 audited
+  declarations: asymptotic `Filter.Tendsto` limits, Propositions 3, 8 and 10, signed-Clifford orbit
+  transport, canonical Hermitian eigenvalue-multiset Conjecture E across all nine vertex cases, and
+  Proposition 16' tightening the lower bound for `σ₁` from 315 to 330 via an exact zero-sum QUBO SDP
+  dual), six-qubit Theorem 22 verification (`scripts/conjecture_e_trace_formula.py 6`, 136 checks total),
+  and software/typesetting fixes.
+- **v1.8.0** added `C3ExactOptimaData.lean` and `C3ExactOptima.lean` (Theorem 16'': exact global binary
+  completion optima `min F(σ₀) = 368` and `min F(σ₁) = 344`, exact gap `24`, via pure-integer MET-SDP
+  frustrated-triangle duals), `NormPhaseFamily.lean` and `SaturatedPhaseSix.lean` (Theorem 13b: infinite
+  non-closed contextual floor-saturating pure-CCZ determinant family `|Ψ_{3m}⟩` for every `m ≥ 1` plus
+  concrete six-qubit exact degree `2016`), and `ExactDegreesN4N5.lean` (transvection invariance, exact CSS
+  witnesses `315 / 1575 / 6975`, double-counting ladders, unconditional Kramers-lifted bounds
+  `d(W(7,2)) ≥ 1455` and `d(Q⁺(9,2)) ≥ 6444`, Lemmas L1/L4, and master reduction), expanding
+  `VerifyNewFormalizations.lean` to **100** audited declarations strictly within
+  `[propext, Classical.choice, Quot.sound]`, accompanied by independent computational verifiers
+  (`scripts/c3_exact_optima_check.py`, `scripts/norm_phase_family.py`, `scripts/exact_degrees_n4_n5.py`,
+  `src/w52_census_verify.c`, and `src/n9_rank8_search.c`) and refreshed v1.8.0 submission packets.
+
+All previously stated human-review and venue-policy boundaries apply unchanged: the v1.5.0–v1.8.0 Lean
+code, computational verifiers, and manuscript updates were produced by Google Gemini / Antigravity agents
+(building on the Claude/Anthropic and OpenAI Codex work), nothing is externally peer reviewed, no separate
+human line-by-line review of the v1.5.0–v1.8.0 Lean code or text is recorded, and all authenticated
+external platform actions (ORCID work update to v1.8.0, `quant-ph` arXiv endorser/upload, Zenodo
+AI-origin eligibility resolution, and *Journal of Physics A* ScholarOne login and authorship attestation)
+remain strictly the author's own decisions and actions.

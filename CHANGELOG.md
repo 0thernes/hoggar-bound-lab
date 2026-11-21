@@ -4,6 +4,54 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
+## 1.8.0 - 21 November 2026: exact C3 binary optima (`368` / `344`), infinite non-closed determinant family (`|Psi_{3m}>`), N=4..5 classical ladders & 42-orbit verification, 100 audited Lean 4 declarations
+
+Resolves all four open frontier targets on top of frozen `v1.7.0` (`7b0f769`), leaving every previously
+audited Lean module (`v0.2.0-c3-certificate` through `v1.7.0`) byte-identical:
+
+- **Item 1 — Theorem 16'' (Exact global binary completion optima of four-qubit C3: `368` and `344`, exact gap `24`):**
+  - Closed BOTH remaining gaps (`[347, 368]` for `signA`/`sigma_0` and `[330, 344]` for `signB`/`sigma_1`)
+    to exact zero inside Lean 4's kernel (`lean/HoggarBound/C3ExactOptimaData.lean`,
+    `lean/HoggarBound/C3ExactOptima.lean`: `corollary16_sigmaA_exact_lower`,
+    `corollary16_sigmaB_exact_lower`, `corollary16_exact_binary_optima`).
+  - Pure-integer MET-SDP frustrated-triangle dual certificates with lower-triangular integer Cholesky
+    factorizations and strictly diagonally dominant Gershgorin residuals (`Q = 48, K = 2048`: `signA >= 368`
+    with 421 cuts and margin `+262,747`; `signB >= 344` with 442 cuts and margin `+460,491`).
+  - Independent exact integer verifier `scripts/c3_exact_optima_check.py` (10 of 10 checks including 4
+    negative controls; `data/c3_exact_optima_certs.json`, `results/c3_exact_optima_check.json`).
+- **Item 2 — Exact degrees, CSS witnesses, double-counting ladders, and unconditional Kramers-lifted bounds on `Q^-(7,2)`, `W(7,2)`, `Q^+(9,2)`:**
+  - `lean/HoggarBound/ExactDegreesN4N5.lean` (1,289 lines) proves general symplectic transvection
+    invariance (`transv_violatedLines_eq`), exact CSS witnesses (`315`, `1575`, `6975`), exact
+    double-counting ladders (`d_W72_of_Q7minus`, `d_Q9plus_of_W72` via the zero-gauge lift `lift4to5`),
+    **unconditional Lean 4 lower bounds `w72_ge_1455` (`+4` above `1451`) and `q9plus_ge_6444` (`+244`
+    above `6200` and `+18` above `6426`)**, pigeonhole Lemmas L1 & L4, and the master reduction
+    `exact_degrees_n4_n5_of_q7minus_315`.
+  - Independent from-scratch multithreaded C census (`src/w52_census_verify.c`, `data/w52_orbits_42.tsv`:
+    18,752 classes on `H`, 18 stabilizer orbits, `|C_0| = 9,017,680`, **42 `Sp(6,2)` orbits**,
+    **17,652,160** total classes) and pure-integer 42-orbit dual verification
+    (`scripts/exact_degrees_n4_n5.py`, 9 of 9 checks, `data/q7minus_42_certs.json`, zero floating point)
+    reproducing Jonah's [J1] exact triple `(315, 1575, 6975)`.
+- **Item 3 — Theorem 13b (Infinite non-closed contextual floor-saturating family `|Psi_{3m}>`) & nine-qubit rank-8 cyclic census:**
+  - `lean/HoggarBound/NormPhaseFamily.lean` (1,414 lines; zero `set_option`) settles the open problem of
+    building an infinite family of non-closed contextual configurations attaining the spectral floor: for
+    every `m >= 1` (`N = 3m`, `q = 2^m`), proves directly from the state vector that the pure-CCZ
+    determinant phase state of `Tr_{F_q/F_2}(x_1 x_2 x_3)` is flat (`detPhase_isFlatState`), strictly
+    non-closed (`detSupport_not_closed`), and attains exact degree `(q^3 - 1) q^3 (q - 1) (q - 2) / 12`
+    (`infinite_nonclosed_saturated_family`, strictly contextual for every `m >= 2`).
+  - `lean/HoggarBound/SaturatedPhaseSix.lean` (105 lines) independently kernel-verifies the six-qubit
+    `m = 2` (6-CCZ) mask: `1,008` observables, `45,696` contexts, exact degree `2,016` (`det6_degree`).
+  - `scripts/norm_phase_family.py` (32 of 32 checks, `data/flat/n6_det6.txt`, `results/norm_phase_family.json`)
+    verifies `m = 1..4` (`N = 3, 6, 9, 12`), including full exact WHT on `m = 3` (`N = 9`, 12 CCZ,
+    `32,704` observables, `24,070,144` contexts, exact degree `915,712`).
+  - `src/n9_rank8_search.c` (`results/n9_rank8_search.tsv`) exhaustively tests **540,299,769** nonzero
+    realizable symmetric trilinear forms across all 25 cyclic-invariant subspaces of `GL(9,2)` for
+    constant rank 8: **0 hits** (tightest near-miss `504/511`).
+- **Item 4 — `VerifyNewFormalizations.lean` expanded to 100 audited declarations & all submission packets refreshed to `v1.8.0`:**
+  - All 100 declarations across 12 Lean modules (13,910 lines) verified strictly within
+    `[propext, Classical.choice, Quot.sound]` (`results/new-formalizations-lean-axioms.log`).
+  - Rebuilt unified manuscript (PDF/HTML), *Journal of Physics A* manuscript + supplement, portable
+    `arxiv-source.zip`, 1,897-char plain abstract, and updated all `publication/*.md` submission packets.
+
 ## 1.7.0 - 21 November 2026: multi-layer audit upgrades, Proposition 16' QUBO SDP dual (`330`), 77 audited Lean 4 declarations, and six-qubit Theorem 22 checks
 
 Follows a comprehensive multi-layer repository, mathematical, Lean 4, software, and typesetting audit,

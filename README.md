@@ -11,7 +11,7 @@ experiments use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 [![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
 [![Case C3 for every number of qubits](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml)
 [![Conjecture E all 9 cases Lean 4 audit](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/conjecture-e-all-cases.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/conjecture-e-all-cases.yml)
-[![Version 1.7.0](https://img.shields.io/badge/version-1.7.0-informational)](CHANGELOG.md)
+[![Version 1.8.0](https://img.shields.io/badge/version-1.8.0-informational)](CHANGELOG.md)
 
 **Unified paper:** [Spectral bounds and their limits in Pauli contextuality](paper/unified-contextuality.md) ([PDF](paper/unified-contextuality.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html)).
 &nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
@@ -20,12 +20,19 @@ experiments use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 **Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
 [GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, repository version 1.7.0, 21 November 2026. Not peer reviewed. AI-generated under human
+Status: research preprint, repository version 1.8.0, 21 November 2026. Not peer reviewed. AI-generated under human
 direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
+
+**New in 1.8.0** (paper Sections 5.1, 5.3, 6, 7, 8.5, 9.4, 11.3, 12; `VerifyNewFormalizations.lean` expanded to **100** audited declarations strictly within `[propext, Classical.choice, Quot.sound]`):
+
+* **Theorem 16'' — Exact global binary completion optima of four-qubit C3 (`368` and `344`, exact gap `24`).** `C3ExactOptimaData.lean` and `C3ExactOptima.lean` close BOTH remaining gaps (`[347, 368]` and `[330, 344]`) to zero inside Lean 4's kernel via pure-integer MET-SDP frustrated-triangle dual certificates (421 and 442 cuts, lower-triangular integer Cholesky + Gershgorin diagonal dominance, zero floating point): `corollary16_exact_binary_optima` proves $\min_y F(\sigma_0,y)=368$ and $\min_y F(\sigma_1,y)=344$. Independently verified by `python scripts/c3_exact_optima_check.py` (10 of 10 checks including 4 negative controls; [results/c3_exact_optima_check.json](results/c3_exact_optima_check.json)).
+* **Theorem 13b — Infinite non-closed contextual floor-saturating family (`NormPhaseFamily.lean`, `SaturatedPhaseSix.lean`).** Settles the open problem of building an infinite family of non-closed contextual configurations attaining the spectral floor: for every $m\ge1$ ($N=3m$, $q=2^m$), the pure-CCZ determinant phase state $`|\Psi_{3m}\rangle`$ of $`\operatorname{Tr}_{\mathbb F_q/\mathbb F_2}(x_1x_2x_3)`$ is proved directly in Lean 4 to be flat on a strictly non-closed support of size $(q^3-1)q^2$ with exact degree $\tfrac1{12}(q^3-1)q^3(q-1)(q-2)$ (strictly positive for every $m\ge2$), alongside the kernel-checked six-qubit ($m=2$, 6 CCZ) certificate (`det6_degree`: 1,008 observables, 45,696 contexts, exact degree **2,016**) and exact checks through $m=4$ (`python scripts/norm_phase_family.py`, 32 of 32 checks). An exhaustive C census (`src/n9_rank8_search.c`, `results/n9_rank8_search.tsv`) rules out constant rank 8 on nine qubits across all 25 cyclic-invariant subspaces of $GL(9,2)$ (540,299,769 forms, 0 hits).
+* **Classical $N=4, 5$ exact ladders, CSS witnesses, unconditional Lean bounds & independent 42-orbit verification (`ExactDegreesN4N5.lean`, `src/w52_census_verify.c`, `scripts/exact_degrees_n4_n5.py`).** Lean 4 proves symplectic transvection invariance (`transv_violatedLines_eq`), exact CSS witnesses (315, 1575, 6975), double-counting ladders ($`Q^-(7,2)\to W(7,2)\to Q^+(9,2)`$), **unconditional Kramers-lifted bounds $d(W(7,2))\ge1455$ and $d(Q^+(9,2))\ge6444$**, pigeonhole Lemmas L1 & L4, and the exact master reduction to $d(Q^-(7,2))\ge315$, paired with a clean from-scratch C census (42 orbits, 17,652,160 classes) and pure-integer 42-orbit dual certification (9 of 9 checks, zero floating point) reproducing Jonah's [J1] exact triple $(315, 1575, 6975)$.
+* **Refreshed v1.8.0 submission packets (`publication/`).** All prepared submission packets, cover texts, arXiv source archive, 1,897-char plain abstract, BibTeX, and metadata synchronized to v1.8.0 with full AI disclosure and explicit verification boundaries.
 
 **New in 1.7.0** (paper Sections 4, 5, 6, 8.5, 8.7, 9.4, 11.3):
 
-* **Proposition 16' — Tightened QUBO SDP-dual lower bound for four-qubit C3 (`315 -> 330`).** Using the exact zero-sum geometric shift $`d_{16}(p\bmod4)\in\{-40,+8,+8,+24\}`$ on the four 16-point orbits of $\Lambda_{\sigma_1}$, `AuditUpgrades.lean` proves **`330 <= min_y F(sigma_1, y) <= 344`** (halving the uncertainty interval from 29 to 14 integers and hitting the exact ceiling of the full 64-variable elliptope SDP dual $329.8560\ldots$) alongside **`347 <= min_y F(sigma_0, y) <= 368`** (where $d=0$ is already optimal). Independently checked by `python scripts/c3_sdp_dual_check.py` (15 of 15 exact integer/SymPy checks; [results/c3_sdp_dual_check.json](results/c3_sdp_dual_check.json)).
+* **Proposition 16' — Tightened QUBO SDP-dual lower bound for four-qubit C3 (`315 -> 330`).** Using the exact zero-sum geometric shift $`d_{16}(p\bmod4)\in\{-40,+8,+8,+24\}`$ on the four 16-point orbits of $`\Lambda_{\sigma_1}`$, `AuditUpgrades.lean` proves **`330 <= min_y F(sigma_1, y) <= 344`** (halving the uncertainty interval from 29 to 14 integers and hitting the exact ceiling of the full 64-variable elliptope SDP dual $329.8560\ldots$) alongside **`347 <= min_y F(sigma_0, y) <= 368`** (where $d=0$ is already optimal). Independently checked by `python scripts/c3_sdp_dual_check.py` (15 of 15 exact integer/SymPy checks; [results/c3_sdp_dual_check.json](results/c3_sdp_dual_check.json)).
 * **Six additional formalization gaps closed in Lean 4.35.0 (`lean/HoggarBound/AuditUpgrades.lean`, 2,042 lines; `VerifyNewFormalizations.lean` expanded to 77 audited declarations):**
   - Asymptotic `Filter.Tendsto` limit theorems for Corollary A ($d/L\to1/2$ for full space, hyperbolic, and elliptic quadrics);
   - Quantum-metric and Berry-curvature criteria (Propositions 3 and 8) and the two-character hyperplane-intersection theorem (Proposition 10);
@@ -99,7 +106,9 @@ classical families, with their exact contextuality degrees:
 |---|---|---|---|---|---|
 | 4 | equal superposition of the basis states 0011, 0111, 1011, 1100, 1101 and $i$ times 1110 | 135 | 1095 | **75** | Lean (`pivot_degree`) |
 | 5 | CS(0,1) CS(1,3) CS(2,4) CCZ(0,1,4) CCZ(0,2,3) applied to the all-plus state | 496 | 10880 | **480** | Lean (`phase5_degree`, `cieslinski5_degree`) |
+| 6 | six CCZ gates applied to the all-plus state ($m=2$ member of Theorem 13b) | 1008 | 45696 | **2016** | Lean (`det6_degree`, `infinite_nonclosed_saturated_family`) |
 | 7 | three CS and eight CCZ gates applied to the all-plus state (Theorem 13) | 8128 | 2824192 | **729344** | Lean (`phase7_degree`) |
+| $3m$ | pure-CCZ determinant phase state of $`\operatorname{Tr}_{\mathbb F_{2^m}/\mathbb F_2}(x_1x_2x_3)`$ ($m\ge1$, Theorem 13b) | $(q^3-1)q^2$ | $\tfrac16(q^3-1)q^4(q^2+q-3)$ | **$\tfrac1{12}(q^3-1)q^3(q-1)(q-2)$** | Lean (`NormPhaseFamily.lean`, all $m\ge1$) |
 
 The five-qubit configuration is, up to a Clifford operation, the Pauli support of a state found
 numerically by Cieśliński (arXiv:2610.07172). Its circuit description, the classification of all such
@@ -151,7 +160,7 @@ What this repository adds:
 
 | path | what |
 |---|---|
-| `lean/HoggarBound/` | the Lean 4 development (`Moment`, `Pauli`, `Bound`, `Counting`, `Corollaries`, `Quadric`; the exact degrees `MaskConfig`, `Saturated`, `SaturatedFive`, `SaturatedPhaseFive`, `MaskRows`, `SaturatedPhaseSeven` with generated data `FlatData`, `PhaseData`; case C3 for every N >= 4, `CarrierFamily`; v1.5.0–v1.7.0 formalizations `Kramers`, `SaturationTheory`, `ConjectureECore`, `ConjectureECones`, `ConjectureE`, `ConjectureEExtras`, `AuditUpgrades`; plus the independently written `IndependentContexts`, `IndependentWitness` and C3 certificate modules `C3*`, `Stability`) |
+| `lean/HoggarBound/` | the Lean 4 development (`Moment`, `Pauli`, `Bound`, `Counting`, `Corollaries`, `Quadric`; the exact degrees `MaskConfig`, `Saturated`, `SaturatedFive`, `SaturatedPhaseFive`, `MaskRows`, `SaturatedPhaseSix`, `SaturatedPhaseSeven` with generated data `FlatData`, `PhaseData`; case C3 for every N >= 4, `CarrierFamily`; v1.5.0–v1.8.0 formalizations `Kramers`, `SaturationTheory`, `ConjectureECore`, `ConjectureECones`, `ConjectureE`, `ConjectureEExtras`, `AuditUpgrades`, `C3ExactOptimaData`, `C3ExactOptima`, `NormPhaseFamily`, `ExactDegreesN4N5`; plus `IndependentContexts`, `IndependentWitness`, `C3*`, `Stability`) |
 | `src/hoggar.c` | engine: geometry, exact integer bounds, verification, annealing search, falsification harness |
 | `src/moonlab_experiment.mjs` | the experiment on Moonlab (WebAssembly) |
 | `src/qgt_hoggar.c` | quantum geometric tensor of the Hoggar state with the QGTL kernels |

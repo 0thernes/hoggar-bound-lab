@@ -1,0 +1,25 @@
+{
+  "sigmaA": {
+    "exact_binary_min": 368,
+    "Q": 48,
+    "mu": 273,
+    "K": 2048,
+    "num_cuts": 421,
+    "sum_w": 9790,
+    "detail": "Q=48, mu=273, cuts=421, sum_w=9790, 37052 < 37056, K=2048, min_diagdom_margin=+262747"
+  },
+  "sigmaB": {
+    "exact_binary_min": 344,
+    "Q": 48,
+    "mu": 431,
+    "K": 2048,
+    "num_cuts": 442,
+    "sum_w": 7033,
+    "detail": "Q=48, mu=431, cuts=442, sum_w=7033, 41650 < 41664, K=2048, min_diagdom_margin=+460491"
+  },
+  "exact_binary_gap": 24,
+  "checks": {
+    "passed": 10,
+    "total": 10
+  }
+}

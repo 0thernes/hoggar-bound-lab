@@ -39,10 +39,10 @@
 
 \maketitle
 
-Hoggar Bound Lab, version 1.7.0, 21 November 2026. Research preprint. Not peer reviewed.
+Hoggar Bound Lab, version 1.8.0, 21 November 2026. Research preprint. Not peer reviewed.
 Research and manuscript preparation used Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity agents under the author\textquotesingle s direction; see Section 13.
 
-This journal-format document is derived from the complete paper, version 1.7.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
+This journal-format document is derived from the complete paper, version 1.8.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
 
 \subsection{10. A running example on the Tsotchke stack}\label{10-a-running-example-on-the-tsotchke-stack}
 
@@ -359,15 +359,41 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   witnesses (368 and 344), and three negative controls (including failure of positive definiteness at
   threshold \(230/16\)).
 \item
+  \nolinkurl{scripts/c3_exact_optima_check.py} (10 checks, record \nolinkurl{results/c3_exact_optima_check.json}, certificates
+  \nolinkurl{data/c3_exact_optima_certs.json}) verifies Theorem 16\textquotesingle\textquotesingle{} in pure integer arithmetic: both MET-SDP
+  frustrated-triangle dual certificates (\texttt{signA\ \textgreater{}=\ 368}: 421 cuts, \(Q=48\), \(\mu=273\), \(K=2048\), margin
+  \(+262\,747\); \texttt{signB\ \textgreater{}=\ 344}: 442 cuts, \(Q=48\), \(\mu=431\), \(K=2048\), margin \(+460\,491\)), both binary
+  witnesses (368 and 344), and four negative controls (targets 369 and 345 rejected, non-frustrated cut
+  rejected, perturbed Cholesky entry rejected).
+\item
+  \nolinkurl{scripts/norm_phase_family.py} (32 checks, record \nolinkurl{results/norm_phase_family.json}, mask
+  \nolinkurl{data/flat/n6_det6.txt}) verifies Theorem 13b in exact integer arithmetic for \(m = 1, 2, 3, 4\)
+  (\(N = 3, 6, 9, 12\)), including full integer Walsh--Hadamard verification of \(|\Psi_6\rangle\) (1008
+  observables, 45 696 contexts, degree 2016) and \(|\Psi_9\rangle\) (32 704 observables, 24 070 144
+  contexts, degree 915 712), two-character sets, non-closure, and two negative controls.
+\item
+  \nolinkurl{scripts/exact_degrees_n4_n5.py} (9 checks, record \nolinkurl{results/exact_degrees_n4_n5.json}, certificates
+  \nolinkurl{data/q7minus_42_certs.json}) verifies the CSS witnesses (315, 1575, 6975), the \(N=4\) and \(N=5\)
+  double-counting ladders, the closed-form degree-4 SOS identities matching the Kramers floor 291, the
+  independent C census table \nolinkurl{data/w52_orbits_42.tsv} produced by \nolinkurl{src/w52_census_verify.c} (42 orbits,
+  17 652 160 classes, \(|C_0|=9\,017\,680\)), pure-integer dual certification of all 42 orbits
+  (\(n_k + F(\sigma_k) \ge 315\): 28 spectral, 10 diagonal-shift, 4 triangle-cut), and a negative control
+  rejecting \(F \ge 253\) on the Hoggar orbit.
+\item
+  \nolinkurl{src/n9_rank8_search.c} (\nolinkurl{results/n9_rank8_search.tsv}) exhaustively tests all 540 299 769 nonzero
+  realizable symmetric trilinear forms across all 25 cyclic-invariant subspaces of \(GL(9,2)\) for constant
+  rank 8 (0 hits; tightest near-miss 504/511).
+\item
   \texttt{scripts/c3\_sparse\_search.py\ 3\ 3} is the exhaustive four-qubit search of Remark (d); \texttt{3\ 4} is the
   five-qubit search, about fifteen minutes.
 \end{itemize}
 
-All eight are stages of \nolinkurl{scripts/run_all.sh}; the first six and the sparse search are steps of \emph{Case C3
-for every number of qubits}, and \nolinkurl{scripts/conjecture_e_trace_formula.py} (both \(n=3\text{–}5\) and \(n=6\))
-and \nolinkurl{scripts/c3_sdp_dual_check.py} are steps of \emph{Conjecture E (all 9 cases), Kramers floor \& saturation
+The Python verifiers are stages of \nolinkurl{scripts/run_all.sh}; the first six and the sparse search are steps of
+\emph{Case C3 for every number of qubits}, and \nolinkurl{scripts/conjecture_e_trace_formula.py} (\(n=3\text{–}6\)),
+\nolinkurl{scripts/c3_sdp_dual_check.py}, \nolinkurl{scripts/c3_exact_optima_check.py}, \nolinkurl{scripts/norm_phase_family.py}, and
+\nolinkurl{scripts/exact_degrees_n4_n5.py} are steps of \emph{Conjecture E (all 9 cases), Kramers floor \& saturation
 Lean 4 audit}, each requiring regenerated JSON records to equal the committed ones. No floating point
-enters a comparison of characteristic polynomials.
+enters a comparison of characteristic polynomials or any integer dual certificate.
 
 \subsection{References}\label{references}
 

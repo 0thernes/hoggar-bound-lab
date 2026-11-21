@@ -49,6 +49,9 @@ stage "Conjecture E: Lemmas 20 and 21 in every vertex case, n = 6 (46 checks)" b
 stage "Conjecture E: universal cubic-trace identity (Theorem 22) and Table 8, n = 3..5 (97 checks)" bash -c 'python scripts/conjecture_e_trace_formula.py | tee results/conjecture_e_trace_formula.log | tail -1 | grep -q "97 of 97"'
 stage "Conjecture E: universal cubic-trace identity (Theorem 22) and Table 8, n = 6 (39 checks)" bash -c 'python scripts/conjecture_e_trace_formula.py 6 | tee results/conjecture_e_trace_formula_n6.log | tail -1 | grep -q "39 of 39"'
 stage "C3 Corollary 16 tightened QUBO SDP-dual lower bound (15 checks)" bash -c 'python scripts/c3_sdp_dual_check.py | tee results/c3_sdp_dual_check.log | tail -1 | grep -q "15 of 15"'
+stage "C3 Theorem 16'' exact global binary completion optima 368 and 344 (10 checks)" bash -c 'python scripts/c3_exact_optima_check.py | tee results/c3_exact_optima_check.log | tail -1 | grep -q "10 of 10"'
+stage "Theorem 13b infinite pure-CCZ determinant family m=1..4 (32 checks)" bash -c 'python scripts/norm_phase_family.py | tee results/norm_phase_family.log | tail -1 | grep -q "32 of 32"'
+stage "Exact degrees N=4..5 CSS witnesses, ladders & 42-orbit integer certs (9 checks)" bash -c 'python scripts/exact_degrees_n4_n5.py | tee results/exact_degrees_n4_n5.log | tail -1 | grep -q "9 of 9"'
 stage "C3: exhaustive search near the all-plus carrier, four qubits" bash -c 'python scripts/c3_sparse_search.py 3 3 | grep -v "^time:" | tee results/c3_sparse_search_four.log | grep -q "different block spectra: 4; of these with different r_D (different completion cubic traces): 3"'
 rm -f results/.stage.log
 [ $fail -eq 0 ] && echo "ALL STAGES PASSED" || echo "SOME STAGES FAILED"

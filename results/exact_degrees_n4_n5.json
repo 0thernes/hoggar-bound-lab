@@ -1,0 +1,26 @@
+{
+  "unconditional_degree4_sos": {
+    "exact_analytic_upper_bound": "119 * sqrt(17) = 490.649569...",
+    "rational_p": "1/50",
+    "d_Q7minus_lb": 291,
+    "d_W72_lb": 1455,
+    "d_Q9plus_lb": 6444
+  },
+  "exact_degrees_with_census": {
+    "d_Q7minus": 315,
+    "d_W72": 1575,
+    "d_Q9plus": 6975,
+    "w52_orbits": 42,
+    "w52_classes": 17652160,
+    "w52_C0": 9017680,
+    "cert_methods": {
+      "eig": 28,
+      "diag": 10,
+      "tri": 4
+    }
+  },
+  "checks": {
+    "passed": 9,
+    "total": 9
+  }
+}
