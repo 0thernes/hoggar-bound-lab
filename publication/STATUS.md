@@ -1,4 +1,39 @@
-# Publication status: combined paper v1.6.0
+# Publication status: combined paper v1.7.0
+
+## Version 1.7.0 (21 November 2026)
+
+The current manuscript is **Spectral bounds and their limits in Pauli contextuality: exact
+configurations and a proof of Jonah's Conjecture E**, version 1.7.0, by **Alexander S. Donahue —
+0thernes LLC**. Built cleanly on top of frozen release `v1.6.0` (commit `1f028ea`) following a
+multi-layer repository, mathematical, Lean 4, software, and typesetting audit, version 1.7.0 adds
+`lean/HoggarBound/AuditUpgrades.lean` (2,042 lines; expanding `lean/VerifyNewFormalizations.lean`
+from 49 to **77** audited declarations strictly within `[propext, Classical.choice, Quot.sound]`:
+asymptotic `Filter.Tendsto` 1/2 limits, Propositions 3/8/10, signed-Clifford orbit transport,
+canonical Hermitian eigenvalue-multiset Conjecture E across all nine vertex cases, and **Proposition 16'**
+tightening Corollary 16's lower bound for $\sigma_1$ from 315 to 330 via an exact zero-sum QUBO SDP
+dual), extends `scripts/conjecture_e_trace_formula.py` to six qubits (39/39 checks, 136 total), adds
+`scripts/c3_sdp_dual_check.py` (15/15 checks), fixes Python script warnings/dependencies and wide TeX
+overflows, updates all documentation and compiled outputs, and leaves every previously audited Lean file
+byte-identical. The [distribution record](../results/publication-v1.7.0-distribution.json) holds every
+receipt below.
+
+| Destination | Observed status for v1.7.0 |
+| --- | --- |
+| GitHub / project website | **Public.** [Release v1.7.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.7.0), published 2026-11-21 13:28:56 UTC, marked Latest, tag on commit `7b0f769`; all twelve assets downloaded and SHA-256 verified round-trip. [Pages deployment 44909087733](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44909087733) at `7b0f769`: live PDF SHA-256 `62fac6aa…` and live HTML SHA-256 `fa2f817c…` match the release byte-for-byte. |
+| Software Heritage | **Preserved and verified.** Save request 2675827 succeeded (`visit_status: full`, 2026-11-21 13:29:38 UTC); snapshot `swh:1:snp:4fb332121197dd97e4d57c082c3cd32457692b41` holds `refs/tags/v1.7.0` (tag object `79fc6f12…`) and `main` at [revision 7b0f769](https://archive.softwareheritage.org/browse/revision/7b0f7690c5a83d436315b7b18f950509078ecc29/). |
+| Master research archive | Registered as `0TH-2026-002` (`v1.7.0`) and `0TH-DISC-010` in [0thernes-research-archive](https://github.com/0thernes/0thernes-research-archive) with pinned submodule (`7b0f769`), fresh frozen PDF, and SHA-256 manifest. |
+| Internet Archive | Not separately captured for v1.7.0 (v1.4.0 captures remain preserved below). |
+| ORCID | The public work entry still shows version 1.2.0 and its title. Updating it needs the author's login. |
+| arXiv | Not submitted. The quant-ph endorsement is still needed; the submission is the author's. |
+| Journal of Physics A | Not submitted. The ScholarOne login, the declarations and the authorship assessment are the author's. |
+| Zenodo | No deposit, no DOI. The eligibility of AI-originated research under Zenodo's policy is still to be decided. |
+| Google Scholar, OpenAIRE | Indexing is automatic; not observed. |
+
+Verification of the release content at commit `7b0f7690c5a83d436315b7b18f950509078ecc29`:
+- [Conjecture E (all 9 cases), Kramers floor & saturation Lean 4 audit run 44908422882](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44908422882): **passed** on clean Ubuntu 24.04 — `Lean 4.35.0 kernel - Kramers, Saturation, Thm 19/22, Cor 16/18 & AuditUpgrades (77 axioms)` (5m01s) and `Exact cubic-trace identity (Theorem 22, n=3..6, 136 checks) & C3 SDP dual (15 checks)` (6m26s, zero git diffs).
+- [Publication documentation checks run 44908424191](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44908424191): **passed** (`publication_release_audit.py`, `unified_publication_audit.py`, `frontier_c3_browser_test.cjs`, `unified_section_score.py`, `independent_site.py`).
+- All 2,043 formulas in `paper/unified-contextuality.md` and 33 formulas in `README.md` passed `scripts/check_github_math.py` (0 altered, 0 stray, 0 double-escaped).
+- Published under Alexander S. Donahue's explicit 21 November 2026 autonomous-approval directive; no separate human line-by-line review of the v1.5.0–v1.7.0 Lean code or text is recorded ([AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md)). Nothing here is peer review.
 
 ## Version 1.6.0 (21 November 2026)
 

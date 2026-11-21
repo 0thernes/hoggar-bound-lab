@@ -1,0 +1,110 @@
+{
+  "status": "published_and_preserved",
+  "recorded_at_utc": "2026-11-21T13:28:56Z",
+  "version": "1.7.0",
+  "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E",
+  "author": "Alexander S. Donahue, 0thernes LLC (ORCID 0009-0006-8168-9648)",
+  "change_from_1_6_0": "Built on top of frozen v1.6.0 (commit 1f028ea) following a comprehensive multi-layer repository, mathematical, Lean 4, software, and typesetting audit. Adds lean/HoggarBound/AuditUpgrades.lean (2,042 lines), expanding VerifyNewFormalizations.lean from 49 to 77 audited declarations strictly within [propext, Classical.choice, Quot.sound]: asymptotic Filter.Tendsto 1/2 limits (Corollary A), Propositions 3 & 8 (quantum metric & Berry curvature), Proposition 10 (two-character hyperplane sums), signed-Clifford orbit transport, canonical Hermitian eigenvalue-multiset Conjecture E across all nine vertex cases, and Proposition 16' tightening Corollary 16's lower bound for sigma_1 from 315 to 330 via an exact zero-sum QUBO SDP dual (enclosures [347,368] and [330,344]). Extends scripts/conjecture_e_trace_formula.py to six qubits (39/39 checks, 136 total across n=3..6), adds scripts/c3_sdp_dual_check.py (15/15 checks), repairs Python script dependencies/warnings and wide TeX overflows, and synchronizes all documentation and legal disclosures without modifying any previously audited Lean module.",
+  "release": {
+    "url": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.7.0",
+    "tag": "v1.7.0",
+    "tag_object": "79fc6f12363d2ae73104d5c37644a9d689e6c99e",
+    "commit": "7b0f7690c5a83d436315b7b18f950509078ecc29",
+    "published_at_utc": "2026-11-21T13:28:56Z",
+    "marked_latest": true,
+    "assets": {
+      "unified-contextuality.pdf": {
+        "sha256": "62fac6aa4c0f83b57b26786318426087bb5be2a53d4b7e9c29791550ab483961",
+        "bytes": 571612
+      },
+      "unified-contextuality.html": {
+        "sha256": "fa2f817c7198daba7f1f6b0fb270d68a101af498e3aa9655ee5f965787d059e0",
+        "bytes": 284785
+      },
+      "unified-arxiv-source.zip": {
+        "sha256": "93d87bbecf73c0127ca92c41093ae192d10272f52aeb396439d6b657fade62e3",
+        "bytes": 237017
+      },
+      "jphysa-manuscript.pdf": {
+        "sha256": "dc6636805c2e0b24dca8fa98201a8dea026d633d2bf18320a341c59f40699598",
+        "bytes": 479340
+      },
+      "jphysa-supplementary.pdf": {
+        "sha256": "5e182c3cd351e1ccf549cddb5da1a6be4554936b1fa8bfa2b2501f22ba3c1d74",
+        "bytes": 177247
+      },
+      "new-formalizations-lean-axioms.log": {
+        "sha256": "a9f568a97328aca269e93107d2f34570f6bb603a831dbaca0c63cdbccd06706a",
+        "bytes": 8393
+      },
+      "conjecture_e_trace_formula.json": {
+        "sha256": "a5ed66586f23d4482b731bcbab25352fa54b70951e2e3cc9b86f48ff2d8f8c97",
+        "bytes": 4073
+      },
+      "conjecture_e_trace_formula_n6.json": {
+        "sha256": "d932eb9094cef4667df37b481639a92749f4f71a93a41593bc2c93d6e35b25c2",
+        "bytes": 1753
+      },
+      "c3_sdp_dual_check.json": {
+        "sha256": "f913fb29c5826ec2ffacf8e2109830094ffa2d038bf5ee28922199684aaab4d8",
+        "bytes": 2197
+      },
+      "publication-v1.7.0-audit.json": {
+        "sha256": "0d3ac67c13586c7f3cb8189665fc03b1161c028c2550ac3dece7c7e3af2d541a",
+        "bytes": 18533
+      },
+      "unified-publication-audit.json": {
+        "sha256": "cea5fcd4481eb8f718b25fc860e8e4aff94797ed688d49bacb026a1c4e982ed8",
+        "bytes": 609
+      }
+    },
+    "asset_round_trip": "All 12 release assets (including SHA256SUMS.txt) downloaded again from release v1.7.0 and verified byte-for-byte against local SHA-256 hashes: OK."
+  },
+  "verification_runs": {
+    "conjecture_e_all_cases_v170": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44908422882",
+      "commit": "7b0f7690c5a83d436315b7b18f950509078ecc29",
+      "conclusion": "success",
+      "jobs": {
+        "Lean 4.35.0 kernel - Kramers, Saturation, Thm 19/22, Cor 16/18 & AuditUpgrades (77 axioms)": "success (5m01s)",
+        "Exact cubic-trace identity (Theorem 22, n=3..6, 136 checks) & C3 SDP dual (15 checks)": "success (6m26s)"
+      },
+      "scope": "Fresh Ubuntu 24.04 build of Kramers, SaturationTheory, ConjectureECore, ConjectureECones, ConjectureE, ConjectureEExtras, AuditUpgrades; 77/77 declarations audited in VerifyNewFormalizations.lean strictly within [propext, Classical.choice, Quot.sound], zero forbidden tokens; 97/97 (n=3..5) + 39/39 (n=6) checks in conjecture_e_trace_formula.py + 15/15 checks in c3_sdp_dual_check.py with git diff --exit-code."
+    },
+    "publication_documentation_v170": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44908424191",
+      "commit": "7b0f7690c5a83d436315b7b18f950509078ecc29",
+      "conclusion": "success",
+      "scope": "publication_release_audit.py, unified_publication_audit.py, tests/frontier_c3_browser_test.cjs, unified_section_score.py, independent_site.py."
+    }
+  },
+  "github_pages": {
+    "deployment_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44909087733",
+    "commit": "7b0f7690c5a83d436315b7b18f950509078ecc29",
+    "conclusion": "success",
+    "landing_page": "https://0thernes.github.io/hoggar-bound-lab/",
+    "paper_html": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+    "paper_pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+    "live_check": "Live PDF SHA-256 62fac6aa4c0f83b57b26786318426087bb5be2a53d4b7e9c29791550ab483961 equals the release PDF; live HTML SHA-256 fa2f817c7198daba7f1f6b0fb270d68a101af498e3aa9655ee5f965787d059e0 equals the release HTML."
+  },
+  "software_heritage": {
+    "save_request": "https://archive.softwareheritage.org/api/1/origin/save/2675827/",
+    "save_request_status": "accepted",
+    "save_task_status": "succeeded",
+    "visit_date": "2026-11-21T13:29:38.061000+00:00",
+    "visit_status": "full",
+    "snapshot": "swh:1:snp:4fb332121197dd97e4d57c082c3cd32457692b41",
+    "tag_v1_7_0": "refs/tags/v1.7.0 -> release 79fc6f12363d2ae73104d5c37644a9d689e6c99e (annotated tag object)",
+    "main": "refs/heads/main -> revision 7b0f7690c5a83d436315b7b18f950509078ecc29",
+    "browse": "https://archive.softwareheritage.org/browse/revision/7b0f7690c5a83d436315b7b18f950509078ecc29/"
+  },
+  "not_done": {
+    "arXiv": "Needs an endorser for quant-ph and the author's own submission; not attempted.",
+    "Journal of Physics A": "Needs the author's ScholarOne login, declarations and authorship assessment; not attempted.",
+    "Zenodo": "The AI-originated research workflow needs an eligibility decision under Zenodo's policy; no deposit, no DOI.",
+    "ORCID": "The public work entry still names version 1.2.0 and its title; updating it needs the author's login.",
+    "Internet Archive": "Not separately captured in this automated run (v1.4.0 Wayback captures remain archived).",
+    "Google Scholar and OpenAIRE": "Indexing is automatic and not observed; nothing submitted.",
+    "peer review": "None. Lean 4 kernel verification and automated checks only."
+  }
+}
