@@ -1,0 +1,122 @@
+{
+  "status": "published_and_preserved",
+  "recorded_at_utc": "2026-11-21T23:05:19Z",
+  "version": "1.8.0",
+  "title": "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E",
+  "author": "Alexander S. Donahue, 0thernes LLC (ORCID 0009-0006-8168-9648)",
+  "change_from_1_7_0": "Built strictly on top of frozen v1.7.0 (commit 7b0f769) leaving every previously audited Lean file from v0.2.0 through v1.7.0 byte-identical. Adds five Lean 4.35.0 modules (C3ExactOptimaData.lean, C3ExactOptima.lean, SaturatedPhaseSix.lean, NormPhaseFamily.lean, ExactDegreesN4N5.lean), expanding VerifyNewFormalizations.lean from 77 to 100 audited declarations strictly within [propext, Classical.choice, Quot.sound] (13,910 library lines across 12 modules): Theorem 16'' closes both four-qubit C3 binary QUBO completion gaps to exact global binary optima min F(sigma_0) = 368 and min F(sigma_1) = 344 (exact gap 24) via pure-integer MET-SDP duals; Theorem 13b proves the infinite non-closed contextual floor-saturating pure-CCZ determinant family |Psi_{3m}> for every m >= 1 directly from the state vector (plus the concrete N=6 kernel degree 2,016 and a 540.3M-form N=9 cyclic-symmetry rank-8 C census); ExactDegreesN4N5.lean formalizes symplectic transvection invariance, exact CSS witnesses (315, 1575, 6975), double-counting ladders, unconditional Kramers-lifted bounds d(W(7,2)) >= 1455 and d(Q^+(9,2)) >= 6444, Lemmas L1/L4 and master reduction, paired with a from-scratch C orbit census of W(5,2) (42 orbits, 17,652,160 classes) and pure-integer 42-orbit dual check reproducing Jonah [J1]'s (315, 1575, 6975). Rebuilds all 26 unified manuscript and submission-packet artifacts cleanly (2,308/2,308 math formulas passing, 0 overfull TeX boxes).",
+  "release": {
+    "url": "https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.8.0",
+    "tag": "v1.8.0",
+    "tag_object": "ac135cc6e06a9a112211c72b111027a4b8cf0929",
+    "commit": "eb2d83ef72f882b33a89d81bead66def2ab5283d",
+    "published_at_utc": "2026-11-21T23:05:19Z",
+    "marked_latest": true,
+    "assets": {
+      "unified-contextuality.pdf": {
+        "sha256": "6d963d6da3381c91acae602a049b28c60d366b97d6d4fbd4553adb97a15b4ac1",
+        "bytes": 609030
+      },
+      "unified-contextuality.html": {
+        "sha256": "77b6774791ece14a875cf9741ba60f62ef4314b27fb25e6722cf625ae635e088",
+        "bytes": 316964
+      },
+      "unified-arxiv-source.zip": {
+        "sha256": "980bbdc2ad84235bae87820379981e704e3ea90ccefbedc4062467d830183e2c",
+        "bytes": 244730
+      },
+      "jphysa-manuscript.pdf": {
+        "sha256": "ed24e605e55e0393eddd023ab3725627aca83ba46be9540ab7f9d217d0b1fc3c",
+        "bytes": 513874
+      },
+      "jphysa-supplementary.pdf": {
+        "sha256": "ac81228463fd22932415cfff7db86afa7ef6eaee4ea398b97f0509d6c5b09830",
+        "bytes": 181082
+      },
+      "new-formalizations-lean-axioms.log": {
+        "sha256": "3d8bfd5eee64c81225c1c8e747b164447d1cfabd2e83040c80cecaabdf528149",
+        "bytes": 10922
+      },
+      "conjecture_e_trace_formula.json": {
+        "sha256": "a5ed66586f23d4482b731bcbab25352fa54b70951e2e3cc9b86f48ff2d8f8c97",
+        "bytes": 4073
+      },
+      "conjecture_e_trace_formula_n6.json": {
+        "sha256": "d932eb9094cef4667df37b481639a92749f4f71a93a41593bc2c93d6e35b25c2",
+        "bytes": 1753
+      },
+      "c3_sdp_dual_check.json": {
+        "sha256": "f913fb29c5826ec2ffacf8e2109830094ffa2d038bf5ee28922199684aaab4d8",
+        "bytes": 2197
+      },
+      "c3_exact_optima_check.json": {
+        "sha256": "43979e41a669ca9c135859f6bdfa00233c3f536b1e3687e268723bfd9657b1b3",
+        "bytes": 548
+      },
+      "norm_phase_family.json": {
+        "sha256": "dc464e47809364841547cc325e7fd91c1b1c1569d1f6be0dc36e83712a519bc1",
+        "bytes": 2991
+      },
+      "exact_degrees_n4_n5.json": {
+        "sha256": "4027583c228d33a70e24551048a94d8cdc7696ee34f228235ec5a9a138931618",
+        "bytes": 510
+      },
+      "publication-v1.8.0-audit.json": {
+        "sha256": "e860064f7733698acd60e13f675b6c797c38829c7d28ccf4b35e8ff25ec25164",
+        "bytes": 18790
+      },
+      "unified-publication-audit.json": {
+        "sha256": "267a303112b4554f4e76cc1e7b1b741bc0af3651576fa293406835c3a33e2f49",
+        "bytes": 609
+      }
+    },
+    "asset_round_trip": "All 15 release assets (including SHA256SUMS.txt, SHA-256 7fddf0796834fbacadb65ebe63743f683fab5da82d050f5c2649ce45771e4390) downloaded again from release v1.8.0 and verified byte-for-byte against local SHA-256 hashes: OK."
+  },
+  "verification_runs": {
+    "conjecture_e_all_cases_v180": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959312365",
+      "commit": "eb2d83ef72f882b33a89d81bead66def2ab5283d",
+      "conclusion": "success",
+      "jobs": {
+        "Lean 4.35.0 kernel - all v1.5.0-v1.8.0 modules (100 audited axioms)": "success (6m37s)",
+        "Exact verifiers (Thm 22 n=3..6, C3 SDP & exact optima, Thm 13b, N=4..5 42-orbit certs)": "success (6m17s)"
+      },
+      "scope": "Fresh Ubuntu 24.04 build of all 12 v1.5.0-v1.8.0 modules (Kramers, SaturationTheory, ConjectureECore, ConjectureECones, ConjectureE, ConjectureEExtras, AuditUpgrades, C3ExactOptimaData, C3ExactOptima, SaturatedPhaseSix, NormPhaseFamily, ExactDegreesN4N5); 100/100 declarations audited in VerifyNewFormalizations.lean strictly within [propext, Classical.choice, Quot.sound], zero forbidden tokens; 202/202 exact checks (97 n=3..5 + 39 n=6 Thm 22, 15 C3 SDP dual, 10 C3 exact binary optima, 32 Thm 13b norm-phase family, 9 N=4..5 42-orbit pure-integer certs) with git diff --exit-code."
+    },
+    "publication_documentation_v180": {
+      "run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959313235",
+      "commit": "eb2d83ef72f882b33a89d81bead66def2ab5283d",
+      "conclusion": "success",
+      "scope": "publication_release_audit.py, unified_publication_audit.py, tests/frontier_c3_browser_test.cjs, unified_section_score.py, independent_site.py."
+    }
+  },
+  "github_pages": {
+    "deployment_run": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959947275",
+    "commit": "eb2d83ef72f882b33a89d81bead66def2ab5283d",
+    "conclusion": "success",
+    "landing_page": "https://0thernes.github.io/hoggar-bound-lab/",
+    "paper_html": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+    "paper_pdf": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+    "live_check": "Live PDF SHA-256 6d963d6da3381c91acae602a049b28c60d366b97d6d4fbd4553adb97a15b4ac1 (609,030 bytes) equals the release PDF; live HTML SHA-256 77b6774791ece14a875cf9741ba60f62ef4314b27fb25e6722cf625ae635e088 (316,964 bytes) equals the release HTML."
+  },
+  "software_heritage": {
+    "save_request": "https://archive.softwareheritage.org/api/1/origin/save/2677244/",
+    "save_request_status": "accepted",
+    "save_task_status": "succeeded",
+    "visit_date": "2026-11-21T23:05:41.019000+00:00",
+    "visit_status": "full",
+    "snapshot": "swh:1:snp:f8afa748054409dffbad57b721d07eb57a545757",
+    "tag_v1_8_0": "refs/tags/v1.8.0 -> release ac135cc6e06a9a112211c72b111027a4b8cf0929 (annotated tag object)",
+    "main": "refs/heads/main -> revision eb2d83ef72f882b33a89d81bead66def2ab5283d",
+    "browse": "https://archive.softwareheritage.org/browse/revision/eb2d83ef72f882b33a89d81bead66def2ab5283d/"
+  },
+  "not_done": {
+    "arXiv": "Needs an endorser for quant-ph and the author's own submission; not attempted.",
+    "Journal of Physics A": "Needs the author's ScholarOne login, declarations and authorship assessment; not attempted.",
+    "Zenodo": "The AI-originated research workflow needs an eligibility decision under Zenodo's policy; no deposit, no DOI.",
+    "ORCID": "The public work entry still names version 1.2.0 and its title; updating it needs the author's login.",
+    "Internet Archive": "Not separately captured in this automated run (v1.4.0 Wayback captures remain archived).",
+    "Google Scholar and OpenAIRE": "Indexing is automatic and not observed; nothing submitted.",
+    "peer review": "None. Lean 4 kernel verification and automated checks only."
+  }
+}

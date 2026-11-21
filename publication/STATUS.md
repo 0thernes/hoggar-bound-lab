@@ -1,4 +1,46 @@
-# Publication status: combined paper v1.7.0
+# Publication status: combined paper v1.8.0
+
+## Version 1.8.0 (21 November 2026)
+
+The current manuscript is **Spectral bounds and their limits in Pauli contextuality: exact
+configurations and a proof of Jonah's Conjecture E**, version 1.8.0, by **Alexander S. Donahue —
+0thernes LLC**. Built strictly on top of frozen release `v1.7.0` (commit `7b0f769`), version 1.8.0
+adds five self-contained Lean 4.35.0 modules (`C3ExactOptimaData.lean`, `C3ExactOptima.lean`,
+`SaturatedPhaseSix.lean`, `NormPhaseFamily.lean`, `ExactDegreesN4N5.lean`), expanding
+`lean/VerifyNewFormalizations.lean` from 77 to **100** audited declarations strictly within
+`[propext, Classical.choice, Quot.sound]` (13,910 library lines across 12 modules): **Theorem 16''**
+closes both four-qubit C3 binary QUBO completion gaps to exact global binary optima
+$\min_y F(\sigma_0, y) = 368$ and $\min_y F(\sigma_1, y) = 344$ (exact gap 24) via kernel-checked
+pure-integer MET-SDP duals (`scripts/c3_exact_optima_check.py`, 10/10 checks); **Theorem 13b** proves
+the infinite non-closed contextual floor-saturating pure-CCZ determinant family $|\Psi_{3m}\rangle$
+for every $m \ge 1$ directly from the state vector (plus the concrete six-qubit kernel certificate
+`1,008` points, `45,696` contexts, exact degree `2,016`, `scripts/norm_phase_family.py` 32/32 checks,
+and an exhaustive 540.3M-form nine-qubit cyclic-symmetry rank-8 C census); and `ExactDegreesN4N5.lean`
+formalizes symplectic transvection invariance, exact CSS witnesses (`315`, `1575`, `6975`),
+double-counting ladders, unconditional Kramers-lifted lower bounds $d(W(7,2)) \ge 1455$ and
+$d(Q^+(9,2)) \ge 6444$, Lemmas L1/L4 and master reduction, paired with a from-scratch C orbit census of
+$W(5,2)$ (`42` orbits, `17,652,160` classes) and pure-integer 42-orbit dual check
+(`scripts/exact_degrees_n4_n5.py`, 9/9 checks) reproducing Jonah `[J1]`'s `(315, 1575, 6975)`. Every
+previously audited Lean file from `v0.2.0` through `v1.7.0` remains byte-identical. The
+[distribution record](../results/publication-v1.8.0-distribution.json) holds every receipt below.
+
+| Destination | Observed status for v1.8.0 |
+| --- | --- |
+| GitHub / project website | **Public.** [Release v1.8.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.8.0), published 2026-11-21 23:05:19 UTC, marked Latest, tag on commit `eb2d83e`; all fifteen assets (including `SHA256SUMS.txt`) downloaded and SHA-256 verified round-trip. [Pages deployment 44959947275](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959947275) at `eb2d83e`: live PDF SHA-256 `6d963d6d…` and live HTML SHA-256 `77b67747…` match the release byte-for-byte. |
+| Software Heritage | **Preserved and verified.** Save request 2677244 succeeded (`visit_status: full`, 2026-11-21 23:05:41 UTC); snapshot `swh:1:snp:f8afa748054409dffbad57b721d07eb57a545757` holds `refs/tags/v1.8.0` (tag object `ac135cc6…`) and `main` at [revision eb2d83e](https://archive.softwareheritage.org/browse/revision/eb2d83ef72f882b33a89d81bead66def2ab5283d/). |
+| Master research archive | Registered as `0TH-2026-002` (`v1.8.0`) and `0TH-DISC-010` in [0thernes-research-archive](https://github.com/0thernes/0thernes-research-archive) with pinned submodule (`eb2d83e`), fresh frozen PDF, and SHA-256 manifest. |
+| Internet Archive | Not separately captured for v1.8.0 (v1.4.0 captures remain preserved below). |
+| ORCID | The public work entry still shows version 1.2.0 and its title. Updating it needs the author's login. |
+| arXiv | Not submitted. The quant-ph endorsement is still needed; the submission is the author's. |
+| Journal of Physics A | Not submitted. The ScholarOne login, the declarations and the authorship assessment are the author's. |
+| Zenodo | No deposit, no DOI. The eligibility of AI-originated research under Zenodo's policy is still to be decided. |
+| Google Scholar, OpenAIRE | Indexing is automatic; not observed. |
+
+Verification of the release content at commit `eb2d83ef72f882b33a89d81bead66def2ab5283d`:
+- [Conjecture E (all 9 cases), Kramers floor & saturation Lean 4 audit run 44959312365](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959312365): **passed** on clean Ubuntu 24.04 — `Lean 4.35.0 kernel - all v1.5.0-v1.8.0 modules (100 audited axioms)` (6m37s) and `Exact verifiers (Thm 22 n=3..6, C3 SDP & exact optima, Thm 13b, N=4..5 42-orbit certs)` (6m17s, 202 exact checks, zero git diffs).
+- [Publication documentation checks run 44959313235](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959313235): **passed** (`publication_release_audit.py`, `unified_publication_audit.py`, `frontier_c3_browser_test.cjs`, `unified_section_score.py`, `independent_site.py`).
+- All 2,308 formulas in `paper/unified-contextuality.md` and 60 formulas in `README.md` passed `scripts/check_github_math.py` (0 altered, 0 stray, 0 double-escaped).
+- Published under Alexander S. Donahue's explicit 21 November 2026 autonomous-approval directive; no separate human line-by-line review of the v1.5.0–v1.8.0 Lean code or text is recorded ([AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md)). Nothing here is peer review.
 
 ## Version 1.7.0 (21 November 2026)
 
