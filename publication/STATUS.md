@@ -1,4 +1,41 @@
-# Publication status: combined paper v1.4.0
+# Publication status: combined paper v1.6.0
+
+## Version 1.6.0 (21 November 2026)
+
+The current manuscript is **Spectral bounds and their limits in Pauli contextuality: exact
+configurations and a proof of Jonah's Conjecture E**, version 1.6.0, by **Alexander S. Donahue —
+0thernes LLC**. Built cleanly on top of frozen Lean release `v1.5.0` (commit `5d4f489`), version 1.6.0
+adds `lean/HoggarBound/ConjectureEExtras.lean` (formalizing Corollary 18's general cone lift and
+Corollary 16's four-qubit C3 binary completion minima separation `≤ 344 < 347`), expands
+`lean/VerifyNewFormalizations.lean` to **49** audited declarations strictly within
+`[propext, Classical.choice, Quot.sound]`, adds **Theorem 22** (universal cubic-trace identity) and
+**Table 8** together with `scripts/conjecture_e_trace_formula.py` (97 of 97 exact checks), updates the
+unified paper and all compiled outputs, and leaves every previously audited Lean file byte-identical.
+The [distribution record](../results/publication-v1.6.0-distribution.json) holds every receipt below.
+
+| Destination | Observed status for v1.6.0 |
+| --- | --- |
+| GitHub / project website | **Public.** [Release v1.6.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.6.0), published 2026-11-21 10:27:33 UTC, marked Latest, tag on commit `1f028ea`; all ten assets downloaded and SHA-256 verified round-trip. [Pages deployment 44894442243](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44894442243) at `1f028ea`: live PDF SHA-256 `0530863d…` and live HTML SHA-256 `9399da3c…` match the release byte-for-byte. |
+| Software Heritage | **Preserved and verified.** Save request 2675180 succeeded (`visit_status: full`, 2026-11-21 10:29:03 UTC); snapshot `swh:1:snp:07ed74047cfdffb78f4e0a64e7461199a8bb0cf9` holds `refs/tags/v1.6.0` (tag object `61affc0b…`) and `main` at [revision 1f028ea](https://archive.softwareheritage.org/browse/revision/1f028ea8654997a12453e84701f759b073fb2085/). |
+| Master research archive | Registered as `0TH-2026-002` (`v1.6.0`) and `0TH-DISC-010` in [0thernes-research-archive](https://github.com/0thernes/0thernes-research-archive) with pinned submodule, fresh frozen PDF, and SHA-256 manifest. |
+| Internet Archive | Not separately captured for v1.6.0 (v1.4.0 captures remain preserved below). |
+| ORCID | The public work entry still shows version 1.2.0 and its title. Updating it needs the author's login. |
+| arXiv | Not submitted. The quant-ph endorsement is still needed; the submission is the author's. |
+| Journal of Physics A | Not submitted. The ScholarOne login, the declarations and the authorship assessment are the author's. |
+| Zenodo | No deposit, no DOI. The eligibility of AI-originated research under Zenodo's policy is still to be decided. |
+| Google Scholar, OpenAIRE | Indexing is automatic; not observed. |
+
+Verification of the release content at commit `1f028ea8654997a12453e84701f759b073fb2085`:
+- [Conjecture E (all 9 cases), Kramers floor & saturation Lean 4 audit run 44893871335](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44893871335): **passed** on clean Ubuntu 24.04 — `Exact cubic-trace identity (Theorem 22) & Table 8 checks (97 checks)` (22s) and `Lean 4.35.0 kernel - Kramers, Saturation, Lemmas 20-21, Thm 19/22, Cor 16/18 (49 axioms)` (5m53s).
+- [Publication documentation checks run 44893872314](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44893872314): **passed** (`publication_release_audit.py`, `unified_publication_audit.py`, `frontier_c3_browser_test.cjs`, `unified_section_score.py`, `independent_site.py`).
+- All 1,977 formulas in `paper/unified-contextuality.md` and 23 formulas in `README.md` passed `scripts/check_github_math.py` (0 altered, 0 stray).
+- Published under Alexander S. Donahue's explicit 21 November 2026 autonomous-approval directive; no separate human line-by-line review of the v1.5.0–v1.6.0 Lean code or text is recorded ([AUTHOR-DECLARATIONS.md](AUTHOR-DECLARATIONS.md)). Nothing here is peer review.
+
+## Version 1.5.0 (21 November 2026)
+
+Frozen Lean formalization release [v1.5.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.5.0) at commit `5d4f48901812b0265d292ba5db7b76eba657e5a7`, adding 6,071 lines of Lean 4.35.0 formalizations (`Kramers.lean`, `SaturationTheory.lean`, `ConjectureECore.lean`, `ConjectureECones.lean`, `ConjectureE.lean`; 37 audited declarations in `VerifyNewFormalizations.lean`). Verified on Ubuntu 24.04 CI by runs [44888403135](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44888403135) (Conjecture E all 9 cases, 1m56s), [44888403141](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44888403141) (Saturated configurations, 17m12s), [44888403175](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44888403175) (Case C3 all qubits, 8m38s), and [44888403133](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44888403133) (Independent verification, 48m7s). Superseded by v1.6.0 above, which adds `ConjectureEExtras.lean` and the complete updated unified manuscript.
+
+The rest of this page records the v1.4.0, v1.3.0 and v1.2.0 releases, which remain as published.
 
 ## Version 1.4.0 (10 November 2026)
 
