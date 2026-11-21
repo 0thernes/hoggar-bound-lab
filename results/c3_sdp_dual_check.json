@@ -11,16 +11,16 @@
     "3": 24
   },
   "threshold_ratio": "231/16",
-  "sigma0_unshifted_lmax": 13.34452079060599,
-  "sigma0_sdp_dual_lb": 346.48766735030415,
+  "sigma0_unshifted_lmax": 13.344520791,
+  "sigma0_sdp_dual_lb": 346.48766735,
   "sigma0_enclosure": [
     347,
     368
   ],
-  "sigma1_unshifted_lmax": 15.344520790605985,
-  "sigma1_unshifted_lb": 314.48766735030426,
-  "sigma1_shifted_lmax": 14.404976959501045,
-  "sigma1_shifted_lb": 329.5203686479833,
+  "sigma1_unshifted_lmax": 15.344520791,
+  "sigma1_unshifted_lb": 314.48766735,
+  "sigma1_shifted_lmax": 14.40497696,
+  "sigma1_shifted_lb": 329.520368648,
   "sigma1_enclosure_old": [
     315,
     344
@@ -44,7 +44,7 @@
         "140959928128383",
         "26923346272521153"
       ],
-      "min_eigenvalue_float": 1.0650237943508114
+      "min_eigenvalue_approx": 1.065023794
     },
     {
       "block_index": 1,
@@ -60,7 +60,7 @@
         "30789149952636975",
         "8343859637164620225"
       ],
-      "min_eigenvalue_float": 48.233274227418576
+      "min_eigenvalue_approx": 48.233274227
     },
     {
       "block_index": 2,
@@ -76,7 +76,7 @@
         "4168191419184975",
         "996197749185209025"
       ],
-      "min_eigenvalue_float": 13.890576815238308
+      "min_eigenvalue_approx": 13.890576815
     },
     {
       "block_index": 3,
@@ -92,7 +92,7 @@
         "142986233888799",
         "41037049126085313"
       ],
-      "min_eigenvalue_float": 0.5203686479836784
+      "min_eigenvalue_approx": 0.520368648
     }
   ],
   "negative_controls": {

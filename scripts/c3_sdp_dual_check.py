@@ -204,7 +204,7 @@ def main():
             "D1_diag": int(D1[k]),
             "ldlt_scale": str(res[0]),
             "sylvester_minors": [str(m) for m in minors],
-            "min_eigenvalue_float": float(np.linalg.eigvalsh(Bk.astype(float))[0]),
+            "min_eigenvalue_approx": round(float(np.linalg.eigvalsh(Bk.astype(float))[0]), 9),
         })
 
     # Exact SymPy characteristic polynomial match between 64x64 M64 and (B_0 (+) B_1 (+) B_2 (+) B_3)^2!
@@ -259,13 +259,13 @@ def main():
         "checks": {"passed": npass, "total": len(CHECKS)},
         "shift_16_by_p_mod_4": {"0": -40, "1": 8, "2": 8, "3": 24},
         "threshold_ratio": "231/16",
-        "sigma0_unshifted_lmax": float(w0[-1]),
-        "sigma0_sdp_dual_lb": float(560.0 - 16.0 * w0[-1]),
+        "sigma0_unshifted_lmax": round(float(w0[-1]), 9),
+        "sigma0_sdp_dual_lb": round(float(560.0 - 16.0 * w0[-1]), 9),
         "sigma0_enclosure": [347, 368],
-        "sigma1_unshifted_lmax": float(w1[-1]),
-        "sigma1_unshifted_lb": float(560.0 - 16.0 * w1[-1]),
-        "sigma1_shifted_lmax": lmax_shifted,
-        "sigma1_shifted_lb": lb_shifted,
+        "sigma1_unshifted_lmax": round(float(w1[-1]), 9),
+        "sigma1_unshifted_lb": round(float(560.0 - 16.0 * w1[-1]), 9),
+        "sigma1_shifted_lmax": round(lmax_shifted, 9),
+        "sigma1_shifted_lb": round(lb_shifted, 9),
         "sigma1_enclosure_old": [315, 344],
         "sigma1_enclosure_new": [330, 344],
         "blocks": block_records,
