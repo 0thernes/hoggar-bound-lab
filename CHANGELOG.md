@@ -4,6 +4,29 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
+## 1.5.0 - 21 November 2026: complete Lean 4 formalization of Conjecture E (all 9 vertex cases), Kramers floor, and saturation theory
+
+Closes the formalization gaps documented in Sections 1.1, 2.2, 3, 8.6-8.7, 9.3, and 12 of the
+combined paper (v1.4.0) by adding 6,071 lines of sorry-free Lean 4.35.0 proofs (zero `sorry`,
+zero `native_decide`, zero custom axioms; all 37 audited declarations strictly within
+`[propext, Classical.choice, Quot.sound]`):
+
+- `lean/HoggarBound/Kramers.lean` (821 lines): Theorem 2 — quaternionic / Kramers spectral floor
+  and elliptic quadrics `Q-(2N-1,2)` (`hoggar_bound_quaternionic`, `elliptic_fraction`).
+- `lean/HoggarBound/SaturationTheory.lean` (868 lines): Theorems 3 and 4 — full 5-way saturation
+  equivalences (`saturation_tfae`), Pauli expansion of `A^2`, and `(2^N - 1)|S| = square`
+  (`saturation_mul_isSquare`).
+- `lean/HoggarBound/ConjectureECore.lean` (843 lines): Lemmas 20 and 21 (Jordan restriction action
+  and Sylvester / symmetric cubic-trace identities) plus universal cubic-trace identity.
+- `lean/HoggarBound/ConjectureECones.lean` (1,144 lines) and `lean/HoggarBound/ConjectureE.lean`
+  (2,333 lines): Theorem 19 — machine-checked proof of Jonah's Conjecture E across all nine vertex
+  cases (`C1, C3, C5, C6, C8, C11, C12, C14, C15`) for every `N >= 4`
+  (`jonah_conjecture_e_all_nine_cases`), with C1, C3, C6, C11 also proved for `N >= 3`.
+- `lean/VerifyNewFormalizations.lean`, `results/new-formalizations-lean-axioms.log`, and
+  `.github/workflows/conjecture-e-all-cases.yml`: reproducible 37-declaration axiom audit and Linux CI.
+- Prior frozen releases (`v0.2.0-c3-certificate`, `v1.1.1`, `v1.2.0`, `v1.4.0`) and their proof
+  sources remain completely unchanged.
+
 ## 1.4.0 - 10 November 2026: a self-contained proof of Conjecture E
 
 The combined paper is revised to version 1.4.0; its title and its theorem statements are unchanged.

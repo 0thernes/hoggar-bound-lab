@@ -1,0 +1,100 @@
+name: Conjecture E (all 9 cases), Kramers floor & saturation Lean 4 audit
+
+on:
+  push:
+    paths:
+      - "lean/HoggarBound/Kramers.lean"
+      - "lean/HoggarBound/SaturationTheory.lean"
+      - "lean/HoggarBound/ConjectureECore.lean"
+      - "lean/HoggarBound/ConjectureECones.lean"
+      - "lean/HoggarBound/ConjectureE.lean"
+      - "lean/VerifyNewFormalizations.lean"
+      - ".github/workflows/conjecture-e-all-cases.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: conjecture-e-all-cases-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  lean-formalization-audit:
+    name: Lean 4.35.0 kernel - Kramers, Saturation, Lemmas 20-21, Conjecture E (all 9 cases)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Install the pinned Lean environment
+        uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
+        with:
+          lake-package-directory: lean
+          auto-config: false
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Retrieve pinned Mathlib dependencies
+        working-directory: lean
+        run: |
+          lake exe cache get Mathlib.Analysis.Matrix.Spectrum \
+            Mathlib.Algebra.Order.Chebyshev Mathlib.Data.ZMod.Basic Mathlib.Tactic \
+            Mathlib.LinearAlgebra.Matrix.Charpoly.Basic Mathlib.LinearAlgebra.Matrix.Kronecker \
+            Mathlib.LinearAlgebra.Matrix.Trace Mathlib.LinearAlgebra.Matrix.Block
+          git diff --exit-code -- lean-toolchain lake-manifest.json
+      - name: Build Kramers, SaturationTheory, ConjectureECore, ConjectureECones, ConjectureE
+        working-directory: lean
+        run: |
+          mkdir -p ../results
+          lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE 2>&1 | tee ../results/ci-lean-new-formalizations-build.log
+      - name: Run VerifyNewFormalizations.lean axiom audit
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake env lean VerifyNewFormalizations.lean 2>&1 | tee ../results/ci-lean-new-formalizations-axioms.log
+      - name: Enforce standard axiom allowlist and zero forbidden constructs
+        run: |
+          python3 - <<'PY'
+          import pathlib, re
+          allowed = {"propext", "Classical.choice", "Quot.sound"}
+          source = pathlib.Path("lean/VerifyNewFormalizations.lean").read_text(encoding="utf-8")
+          expected = set(re.findall(r"#print axioms\s+(\S+)", source))
+          assert len(expected) == 37, f"Expected 37 audited declarations, found {len(expected)}"
+          assert "HoggarBound.ConjectureE.jonah_conjecture_e_all_nine_cases" in expected
+          log = pathlib.Path("results/ci-lean-new-formalizations-axioms.log").read_text(encoding="utf-8")
+          assert "error:" not in log and "sorry" not in log
+          flat = re.sub(r"\s+", " ", log)
+          found = dict(re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", flat))
+          found.update((name, "") for name in re.findall(r"'([^']+)' does not depend on any axioms", flat))
+          assert expected <= found.keys(), f"Missing axiom reports: {expected - found.keys()}"
+          for name in sorted(expected):
+              actual = {a.strip() for a in found[name].split(",") if a.strip()}
+              assert actual <= allowed, f"Unexpected axioms in {name}: {actual - allowed}"
+          for rel in [
+              "lean/HoggarBound/Kramers.lean",
+              "lean/HoggarBound/SaturationTheory.lean",
+              "lean/HoggarBound/ConjectureECore.lean",
+              "lean/HoggarBound/ConjectureECones.lean",
+              "lean/HoggarBound/ConjectureE.lean",
+              "lean/VerifyNewFormalizations.lean",
+          ]:
+              code = re.sub(r"/-.*?-/", "", pathlib.Path(rel).read_text(encoding="utf-8"), flags=re.S)
+              code = re.sub(r"--.*", "", code)
+              for word in ("sorry", "admit", "native_decide", "unsafe", "set_option"):
+                  assert not re.search(rf"\b{word}\b", code), f"Forbidden {word} in {rel}"
+              assert not re.search(r"^\s*axiom\b", code, flags=re.M), f"Custom axiom in {rel}"
+          print(f"PASS: All {len(expected)} audited theorems verified strictly within {sorted(allowed)}.")
+          PY
+      - name: Preserve Lean evidence logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: conjecture-e-all-cases-lean-evidence
+          path: results/ci-lean-new-formalizations-*.log
+          if-no-files-found: error
+          retention-days: 30
