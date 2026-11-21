@@ -1,44 +1,12 @@
 note: Running TeX ...
 note: Rerunning TeX because "manuscript.out" changed ...
 note: Running xdvipdfmx ...
-note: Writing `manuscript.log` (24.921875 KiB)
-note: Writing `manuscript.pdf` (451.18359375 KiB)
+note: Writing `manuscript.pdf` (468.10546875 KiB)
+note: Writing `manuscript.log` (21.79296875 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)
 Fontconfig error: Cannot load default config file: No such file: (null)
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-warning: manuscript.tex:268: Overfull \hbox (6.1329pt too wide) in paragraph at lines 265--268
-warning: manuscript.tex:493: Overfull \hbox (0.73146pt too wide) in paragraph at lines 493--493
-warning: manuscript.tex:493: Overfull \hbox (1.81253pt too wide) in paragraph at lines 493--493
-warning: manuscript.tex:708: Overfull \hbox (4.03928pt too wide) in paragraph at lines 707--708
-warning: manuscript.tex:716: Overfull \hbox (3.93723pt too wide) in paragraph at lines 716--716
-warning: manuscript.tex:740: Overfull \hbox (15.09172pt too wide) detected at line 740
-warning: manuscript.tex:747: Overfull \hbox (12.66608pt too wide) detected at line 747
-warning: manuscript.tex:875: Overfull \hbox (6.32605pt too wide) in paragraph at lines 875--875
-warning: manuscript.tex:875: Overfull \hbox (0.57942pt too wide) in paragraph at lines 875--875
-warning: manuscript.tex:894: Overfull \hbox (4.13441pt too wide) in paragraph at lines 894--894
-warning: manuscript.tex:894: Overfull \hbox (2.53174pt too wide) in paragraph at lines 894--894
-warning: manuscript.tex:895: Overfull \hbox (2.53174pt too wide) in paragraph at lines 895--895
-warning: manuscript.tex:896: Overfull \hbox (2.53174pt too wide) in paragraph at lines 896--896
-warning: manuscript.tex:1635: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1634--1635
-warning: manuscript.tex:1943: Underfull \hbox (badness 2119) in paragraph at lines 1937--1943
-warning: manuscript.tex:1973: Underfull \hbox (badness 4954) in paragraph at lines 1967--1973
-warning: manuscript.tex:1973: Underfull \hbox (badness 5403) in paragraph at lines 1967--1973
+warning: manuscript.tex:279: Overfull \hbox (6.1329pt too wide) in paragraph at lines 276--279
 warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-warning: manuscript.tex:268: Overfull \hbox (6.1329pt too wide) in paragraph at lines 265--268
-warning: manuscript.tex:493: Overfull \hbox (0.73146pt too wide) in paragraph at lines 493--493
-warning: manuscript.tex:493: Overfull \hbox (1.81253pt too wide) in paragraph at lines 493--493
-warning: manuscript.tex:708: Overfull \hbox (4.03928pt too wide) in paragraph at lines 707--708
-warning: manuscript.tex:716: Overfull \hbox (3.93723pt too wide) in paragraph at lines 716--716
-warning: manuscript.tex:740: Overfull \hbox (15.09172pt too wide) detected at line 740
-warning: manuscript.tex:747: Overfull \hbox (12.66608pt too wide) detected at line 747
-warning: manuscript.tex:875: Overfull \hbox (6.32605pt too wide) in paragraph at lines 875--875
-warning: manuscript.tex:875: Overfull \hbox (0.57942pt too wide) in paragraph at lines 875--875
-warning: manuscript.tex:894: Overfull \hbox (4.13441pt too wide) in paragraph at lines 894--894
-warning: manuscript.tex:894: Overfull \hbox (2.53174pt too wide) in paragraph at lines 894--894
-warning: manuscript.tex:895: Overfull \hbox (2.53174pt too wide) in paragraph at lines 895--895
-warning: manuscript.tex:896: Overfull \hbox (2.53174pt too wide) in paragraph at lines 896--896
-warning: manuscript.tex:1635: Overfull \hbox (13.68536pt too wide) in paragraph at lines 1634--1635
-warning: manuscript.tex:1943: Underfull \hbox (badness 2119) in paragraph at lines 1937--1943
-warning: manuscript.tex:1973: Underfull \hbox (badness 4954) in paragraph at lines 1967--1973
-warning: manuscript.tex:1973: Underfull \hbox (badness 5403) in paragraph at lines 1967--1973
+warning: manuscript.tex:279: Overfull \hbox (6.1329pt too wide) in paragraph at lines 276--279
 warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

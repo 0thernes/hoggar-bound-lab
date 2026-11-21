@@ -1,14 +1,17 @@
 # Summary in plain language
 
-Repository version 1.6.0, 21 November 2026. Research preprint, not peer reviewed. The combined study brings
+Repository version 1.7.0, 21 November 2026. Research preprint, not peer reviewed. The combined study brings
 together the Claude/Anthropic spectral-floor work, the OpenAI Codex C3/independent-verification work, and
-the Google Gemini / Antigravity Lean 4 formalizations under the direction of Alexander S. Donahue, 0thernes LLC.
+the Google Gemini / Antigravity Lean 4 formalizations and audit upgrades under the direction of Alexander S. Donahue, 0thernes LLC.
 Version 1.3.0 added Claude/Anthropic results that answer Jonah's Conjecture E in all nine vertex cases for
-every number of qubits from four on, and version 1.4.0 made that proof self-contained. Versions 1.5.0 and
-1.6.0 formalize all nine vertex cases of Conjecture E, the quaternionic (Kramers) spectral floor, the
-five-way saturation equivalence, Lemmas 20 and 21, the universal cubic-trace identity (Theorem 22), and
-Corollaries 16 and 18 in Lean 4.35.0 (49 audited declarations, strictly standard axioms), accompanied by
-97 exact integer checks of Theorem 22.
+every number of qubits from four on, and version 1.4.0 made that proof self-contained. Versions 1.5.0 through
+1.7.0 formalize all nine vertex cases of Conjecture E (including canonical Hermitian eigenvalue multisets and
+signed-Clifford orbit transport), the quaternionic (Kramers) spectral floor, the five-way saturation
+equivalence, quantum-metric and two-character theorems (Propositions 3, 8, 10), asymptotic $1/2$ limits,
+Lemmas 20 and 21, the universal cubic-trace identity (Theorem 22), Corollaries 16 and 18, and Proposition 16'
+(tightening the four-qubit C3 lower bound for the second carrier from 315 to 330 via an exact QUBO SDP dual)
+in Lean 4.35.0 (77 audited declarations, strictly standard axioms), accompanied by 136 exact integer checks of
+Theorem 22 through six qubits and 15 exact checks of Proposition 16'.
 
 The [unified paper](paper/unified-contextuality.md) asks two connected questions: what lower bounds can
 spectral information certify, and which completion information can a section's spectrum fail to retain?
@@ -96,7 +99,7 @@ bash scripts/run_all.sh
 ```
 
 ```bash
-cd lean && lake exe cache get && lake build && lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras && lake env lean HoggarBound/CarrierFamily.lean && lake env lean VerifyNewFormalizations.lean
+cd lean && lake exe cache get && lake build && lake build HoggarBound.Saturated HoggarBound.SaturatedPhaseFive HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades && lake env lean HoggarBound/CarrierFamily.lean && lake env lean VerifyNewFormalizations.lean
 ```
 
 See [INDEX.md](INDEX.md) for where each claim is proved and tested, and [GLOSSARY.md](GLOSSARY.md) for

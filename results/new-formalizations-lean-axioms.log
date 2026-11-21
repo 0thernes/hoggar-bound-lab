@@ -47,3 +47,47 @@
 'HoggarBound.ConjectureE.corollary16_sigmaB_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HoggarBound.ConjectureE.corollary16_sigmaB_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
 'HoggarBound.ConjectureE.corollary16_binary_minima_differ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.floor_deficit_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.full_space_fraction_tendsto_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.hyperbolic_fraction_tendsto_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.full_space_violated_fraction_eventually_gt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.AuditUpgrades.elliptic_violated_fraction_eventually_gt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.AuditUpgrades.proposition3_commuting_qgt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.anticommuting_qgt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.proposition3_violated_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.proposition3_satisfied_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.proposition8_flat_state_qgt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.pure_state_pauli_sq_transform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.proposition10_two_character_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.proposition10_hyperplane_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.clifford_preserves_symp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.clifford_transport_comm_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.clifford_transport_opA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.clifford_transport_carrier_charpoly' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.AuditUpgrades.clifford_transport_completion_charpoly' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.AuditUpgrades.clifford_transport_strict_law_fails' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.AuditUpgrades.completionMat_isHermitian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.real_hermitian_charpoly_eq_iff_roots_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.AuditUpgrades.strict_law_fails_to_spectra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.jonah_conjecture_e_all_nine_cases_spectra' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'HoggarBound.AuditUpgrades.c3SdpBlock_pos_def' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.c3_shift_quad_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.corollary16_sigmaB_sdp_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.corollary16_sigmaA_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

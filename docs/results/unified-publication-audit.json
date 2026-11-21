@@ -1,12 +1,12 @@
 {
   "status": "pass",
-  "version": "1.6.0",
-  "manuscript_lf_sha256": "d7bd7481f330a7e8e746eea545a58a43580fc5cf71edba062994d262cfdf6ca9",
-  "public_pdf_sha256": "0530863d7e6feaa55fdf1a3314855d7cd557261081a6ecf77193548c5e8089d2",
+  "version": "1.7.0",
+  "manuscript_lf_sha256": "eb4425999472d3d1b2887a897c5439382286e3a11efe79a379cf96640e1cf592",
+  "public_pdf_sha256": "62fac6aa4c0f83b57b26786318426087bb5be2a53d4b7e9c29791550ab483961",
   "compiled_artifacts_checked": 24,
   "scholarly_metadata_consistent": true,
   "public_pdf_equals_typeset_pdf": true,
   "recorded_full_ci": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638647",
-  "proof_sources_unchanged": "See publication-v1.6.0-audit.json",
+  "proof_sources_unchanged": "See publication-v1.7.0-audit.json",
   "scope": "Artifact consistency and recorded CI provenance; not a new Lean build or peer review."
 }

@@ -40,8 +40,23 @@ def check(name, ok, detail=""):
 
 
 def tr_prod_real(Ar, Ai, Pr, Pi):
-    """Real part of tr(A P) for A = Ar + i Ai, P = Pr + i Pi (integer matrices)."""
+    """Real part of tr(A P) for A = Ar + i Ai, P = Pr + i Pi (exact integer arithmetic)."""
+    # For n <= 6, |Ar|, |Ai| <= 4096^2 and |Pr|, |Pi| <= 1, so elementwise products and sums
+    # fit safely inside signed 64-bit integers; guard explicitly and fall back to Python ints otherwise.
+    bound = int(max(int(np.abs(Ar).max()), int(np.abs(Ai).max()))) * int(Ar.size)
+    if bound < (1 << 61):
+        return int((Ar * Pr.T).sum(dtype=np.int64) - (Ai * Pi.T).sum(dtype=np.int64))
     return int((Ar.astype(object) * Pr.T.astype(object)).sum() - (Ai.astype(object) * Pi.T.astype(object)).sum())
+
+
+def tr_lambda_cube(L):
+    """Exact tr(Lambda^3) for symmetric integer matrix Lambda with entries in {-1, 0, 1}."""
+    L2 = L @ L
+    # Since L is symmetric, tr(L^3) = sum_{i,j} (L^2)_{ij} L_{ij}.
+    max_abs = int(np.abs(L2).max()) if L2.size else 0
+    if max_abs * int(L2.size) < (1 << 61):
+        return int((L2 * L).sum(dtype=np.int64))
+    return int((L2.astype(object) * L.astype(object)).sum())
 
 
 def moments(A, H, n):
@@ -61,10 +76,10 @@ def formula_holds(n, H, O, sig, S, coef=3):
     D = 1 << n
     A = cl.carrier(H, n, sig)
     L = cl.completion_matrix(H, O, sig)
-    t = cl.lambda_traces(L)
+    t3L = tr_lambda_cube(L)
     m, t3 = moments(A, H, n)
     rhs = len(O) * t3 + coef * sum(S[u] * sig[u] * m[u] for u in H)
-    return 4 * D * t[2] == rhs, t[2], m, t3
+    return 4 * D * t3L == rhs, t3L, m, t3
 
 
 def closed_form(case, n, u, e, d, c0):
@@ -118,7 +133,7 @@ def pair_swap_moments(case, n, H, O, sig, tau_, e, d, kappa_W):
     want_t = {e: D * (h - 1), d: D * (5 - h), ed: D * (5 - h)}
     ok_m = all(ms[v] == want_s[v] and mt[v] == want_t[v] for v in (e, d, ed))
     K = D * D // 4 if kappa_W else D * D // 8
-    gap = cl.lambda_traces(cl.completion_matrix(H, O, sig))[2] - cl.lambda_traces(cl.completion_matrix(H, O, tau_))[2]
+    gap = tr_lambda_cube(cl.completion_matrix(H, O, sig)) - tr_lambda_cube(cl.completion_matrix(H, O, tau_))
     return check("%s, n = %d: tr(A^2 P_v) = D(5 - |H|), D(5 - |H|), D(|H| - 1) for sigma and D(|H| - 1), D(5 - |H|), "
                  "D(5 - |H|) for tau at v = e, d, e + d; difference -3K(|H| - 3) = %d" % (case, n, -3 * K * (h - 3)),
                  ok_m and gap == -3 * K * (h - 3), "difference %d" % gap)

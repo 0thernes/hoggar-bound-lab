@@ -23,14 +23,15 @@ The repository is publicly available under those terms; it is not offered under 
 
 The project-written QGTL `stub/cblas.h` is identified separately in `NOTICE`. Preserve the original third-party copyright, license, and attribution notices. Use of these components does not imply endorsement by their authors.
 
-Eshkol is used through an installed compiler for the recorded replication runs. Those executions do not relicense Eshkol or make it part of the project's own copyright claim. Tsotchke project names, Lean, Mathlib, Claude, and OpenAI Codex identify the tools and sources used; they do not imply institutional sponsorship or endorsement.
+Eshkol is used through an installed compiler for the recorded replication runs. Those executions do not relicense Eshkol or make it part of the project's own copyright claim. Tsotchke project names, Lean, Mathlib, Claude, OpenAI Codex, and Google Gemini / Antigravity identify the tools and sources used; they do not imply institutional sponsorship or endorsement.
 
 ## Authorship and AI disclosure
 
-Both research studies credit **Alexander S. Donahue**, affiliated with **0thernes LLC**. Public correspondence is `0_0@0thernes.art`.
+All research studies and combined manuscript versions credit **Alexander S. Donahue**, affiliated with **0thernes LLC**. Public correspondence is `0_0@0thernes.art`.
 
-- The [spectral-floor and flat-state paper](paper/spectral-floor.md) discloses Claude/Anthropic as the AI research system used under the author's direction. Its paper, programs, formalization, and result records have their own scope; see [SUMMARY.md](SUMMARY.md), [INDEX.md](INDEX.md), and [CITATION.cff](CITATION.cff).
-- The independent companion review and [C3 paper](paper/c3-spectral-counterexample.md) disclose substantive OpenAI Codex agent work on literature research, discovery, derivation, code, formalization, verification, figures, and writing. Use the [C3 citation file](paper/c3-citation.cff) for that study and its fixed research release.
+- The [spectral-floor and flat-state paper](paper/spectral-floor.md) and the `v1.3.0`–`v1.4.0` Conjecture E constructions (plus `scripts/conjecture_e_trace_formula.py`) disclose Claude/Anthropic as the AI research system used under the author's direction.
+- The independent companion review, [C3 paper](paper/c3-spectral-counterexample.md), and `v1.2.0` combined manuscript integration disclose substantive OpenAI Codex agent work on literature research, discovery, derivation, code, formalization, verification, figures, and writing. Use the [C3 citation file](paper/c3-citation.cff) for that study and its fixed research release.
+- Versions `v1.5.0`–`v1.7.0` (the seven Lean 4.35.0 formalization modules `Kramers.lean`, `SaturationTheory.lean`, `ConjectureECore.lean`, `ConjectureECones.lean`, `ConjectureE.lean`, `ConjectureEExtras.lean`, `AuditUpgrades.lean`; Proposition 16' QUBO SDP-dual bound; six-qubit Theorem 22 checks; software/typesetting audit fixes; and unified manuscript updates) disclose substantive Google Gemini / Antigravity agent work under the author's explicit autonomous-approval direction.
 
 AI tools are disclosed as tools, not listed as authors. Automated checks and separately implemented programs do not establish that a human has critically reviewed and approved a manuscript. Venue-specific contribution, approval, and accountability statements must describe the human author's actual actions; they cannot be inferred from a successful program or Lean build.
 
@@ -48,6 +49,6 @@ The [C3 formal audit](results/frontier-c3-lean-audit.md) covers 42 declarations 
 
 These works are research preprints, not peer-reviewed journal articles. A public GitHub release, a DOI deposit, an arXiv announcement, indexing, journal submission, and acceptance are distinct events. [Publication status](publication/STATUS.md) records the C3 dissemination history; the spectral-floor submission materials are under [publication/spectral-floor/](publication/spectral-floor/).
 
-The `v1.2.0` project release combines the source studies into [one manuscript](paper/unified-contextuality.md), with corrected hypotheses and scope statements recorded in the [integration errata](publication/UNIFIED-ERRATA.md). It preserves the original papers and their fixed proof sources, including `v0.2.0-c3-certificate`. It grants no additional rights. Consult [CHANGELOG.md](CHANGELOG.md) and the release record for version history.
+The `v1.2.0`–`v1.7.0` project releases combine the source studies into [one manuscript](paper/unified-contextuality.md), with corrected hypotheses and scope statements recorded in the [integration errata](publication/UNIFIED-ERRATA.md) and expanded Lean 4 formalizations (`VerifyNewFormalizations.lean`, 77 audited declarations). They preserve all original papers and fixed proof sources byte-for-byte, including `v0.2.0-c3-certificate`, and grant no additional rights. Consult [CHANGELOG.md](CHANGELOG.md) and the release record for version history.
 
 Author-supplied ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648).

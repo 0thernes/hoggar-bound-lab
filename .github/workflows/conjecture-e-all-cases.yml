@@ -9,9 +9,13 @@ on:
       - "lean/HoggarBound/ConjectureECones.lean"
       - "lean/HoggarBound/ConjectureE.lean"
       - "lean/HoggarBound/ConjectureEExtras.lean"
+      - "lean/HoggarBound/AuditUpgrades.lean"
       - "lean/VerifyNewFormalizations.lean"
       - "scripts/conjecture_e_trace_formula.py"
       - "results/conjecture_e_trace_formula.json"
+      - "results/conjecture_e_trace_formula_n6.json"
+      - "scripts/c3_sdp_dual_check.py"
+      - "results/c3_sdp_dual_check.json"
       - ".github/workflows/conjecture-e-all-cases.yml"
   workflow_dispatch:
 
@@ -28,9 +32,9 @@ defaults:
 
 jobs:
   exact-trace-formula:
-    name: Exact cubic-trace identity (Theorem 22) & Table 8 checks (97 checks)
+    name: Exact cubic-trace identity (Theorem 22, n=3..6, 136 checks) & C3 SDP dual (15 checks)
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -38,16 +42,26 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
         with:
           python-version: "3.12"
-      - name: Install NumPy
-        run: python -m pip install --quiet numpy==2.0.2
-      - name: Run universal cubic-trace identity & Table 8 checks (97 checks)
+      - name: Install NumPy and SymPy
+        run: python -m pip install --quiet numpy==2.0.2 sympy==1.14.0
+      - name: Run universal cubic-trace identity & Table 8 checks for n=3..5 (97 checks)
         run: |
           python scripts/conjecture_e_trace_formula.py | tee results/ci-conjecture-e-trace-formula.log
           tail -1 results/ci-conjecture-e-trace-formula.log | grep -q "97 of 97 checks passed"
           git diff --exit-code -- results/conjecture_e_trace_formula.json
+      - name: Run universal cubic-trace identity & Table 8 checks for n=6 (39 checks)
+        run: |
+          python scripts/conjecture_e_trace_formula.py 6 | tee results/ci-conjecture-e-trace-formula-n6.log
+          tail -1 results/ci-conjecture-e-trace-formula-n6.log | grep -q "39 of 39 checks passed"
+          git diff --exit-code -- results/conjecture_e_trace_formula_n6.json
+      - name: Run exact four-qubit C3 QUBO SDP-dual verification (15 checks)
+        run: |
+          python scripts/c3_sdp_dual_check.py | tee results/ci-c3-sdp-dual-check.log
+          tail -1 results/ci-c3-sdp-dual-check.log | grep -q "15 of 15 checks passed"
+          git diff --exit-code -- results/c3_sdp_dual_check.json
 
   lean-formalization-audit:
-    name: Lean 4.35.0 kernel - Kramers, Saturation, Lemmas 20-21, Thm 19/22, Cor 16/18 (49 axioms)
+    name: Lean 4.35.0 kernel - Kramers, Saturation, Thm 19/22, Cor 16/18 & AuditUpgrades (77 axioms)
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
@@ -69,11 +83,11 @@ jobs:
             Mathlib.LinearAlgebra.Matrix.Charpoly.Basic Mathlib.LinearAlgebra.Matrix.Kronecker \
             Mathlib.LinearAlgebra.Matrix.Trace Mathlib.LinearAlgebra.Matrix.Block
           git diff --exit-code -- lean-toolchain lake-manifest.json
-      - name: Build Kramers, SaturationTheory, ConjectureE, ConjectureEExtras
+      - name: Build Kramers, SaturationTheory, ConjectureE, ConjectureEExtras, AuditUpgrades
         working-directory: lean
         run: |
           mkdir -p ../results
-          lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras 2>&1 | tee ../results/ci-lean-new-formalizations-build.log
+          lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades 2>&1 | tee ../results/ci-lean-new-formalizations-build.log
       - name: Run VerifyNewFormalizations.lean axiom audit
         working-directory: lean
         run: |
@@ -86,7 +100,7 @@ jobs:
           allowed = {"propext", "Classical.choice", "Quot.sound"}
           source = pathlib.Path("lean/VerifyNewFormalizations.lean").read_text(encoding="utf-8")
           expected = set(re.findall(r"#print axioms\s+(\S+)", source))
-          assert len(expected) == 49, f"Expected 49 audited declarations, found {len(expected)}"
+          assert len(expected) == 77, f"Expected 77 audited declarations, found {len(expected)}"
           required = {
               "HoggarBound.hoggar_bound_quaternionic",
               "HoggarBound.saturation_tfae",
@@ -95,6 +109,14 @@ jobs:
               "HoggarBound.ConjectureE.jonah_conjecture_e_all_nine_cases",
               "HoggarBound.ConjectureE.corollary18_c11_from_c3",
               "HoggarBound.ConjectureE.corollary16_binary_minima_differ",
+              "HoggarBound.AuditUpgrades.full_space_fraction_tendsto_half",
+              "HoggarBound.AuditUpgrades.proposition3_violated_iff",
+              "HoggarBound.AuditUpgrades.proposition8_flat_state_qgt",
+              "HoggarBound.AuditUpgrades.proposition10_two_character_sum",
+              "HoggarBound.AuditUpgrades.clifford_transport_strict_law_fails",
+              "HoggarBound.AuditUpgrades.jonah_conjecture_e_all_nine_cases_spectra",
+              "HoggarBound.AuditUpgrades.corollary16_sigmaB_sdp_lower",
+              "HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened",
           }
           assert required <= expected, f"Missing required declarations: {required - expected}"
           log = pathlib.Path("results/ci-lean-new-formalizations-axioms.log").read_text(encoding="utf-8")
@@ -113,6 +135,7 @@ jobs:
               "lean/HoggarBound/ConjectureECones.lean",
               "lean/HoggarBound/ConjectureE.lean",
               "lean/HoggarBound/ConjectureEExtras.lean",
+              "lean/HoggarBound/AuditUpgrades.lean",
               "lean/VerifyNewFormalizations.lean",
           ]:
               code = re.sub(r"/-.*?-/", "", pathlib.Path(rel).read_text(encoding="utf-8"), flags=re.S)

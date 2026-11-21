@@ -24,6 +24,8 @@
 \makeatother
 \setkeys{Gin}{width=\maxwidth,keepaspectratio}
 
+\setlength{\tabcolsep}{2.5pt}
+\setlength{\emergencystretch}{1.5em}
 \hypersetup{pdftitle={Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah\textquotesingle s Conjecture E},pdfauthor={Alexander S. Donahue; 0thernes LLC}}
 
 
@@ -37,7 +39,7 @@
 
 \maketitle
 
-Hoggar Bound Lab, version 1.6.0, 21 November 2026. Research preprint. Not peer reviewed.
+Hoggar Bound Lab, version 1.7.0, 21 November 2026. Research preprint. Not peer reviewed.
 Research and manuscript preparation used Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity agents under the author\textquotesingle s direction; see Section 13.
 
 \textbf{A general Lean 4 bound, configurations that attain it, and cospectral sign carriers with different completion spectra in every vertex case}
@@ -48,14 +50,15 @@ the three classical families are due to Jonah {[}J2{]} and the works identified 
 question, the strict law, the classification into sixteen hyperplane cases, the block structure of the
 carrier, the Jordan representation of the completion, the cone lift and Conjecture E are due to Jonah {[}J3{]}.
 This paper combines a formalization and exact configurations attaining the floor with explicit sign
-carriers that prove Conjecture E in all nine vertex cases. As of versions 1.5.0 and 1.6.0, Lean 4.35.0
-formalizes the spectral floor (Theorem 1), its quaternionic refinement for elliptic quadrics (Theorem 2),
-the five-way saturation equivalences and integrality criterion (Theorems 3 and 4), the exact contextuality
-degrees 75, 480 and 729344, the four-qubit C3 spectral certificate and binary completion minima separation
-(Theorem 14, Corollary 16), the all-qubit C3 and cone-lift C11 constructions (Theorem 17, Corollary 18),
-Lemmas 20 and 21, the universal cubic-trace identity (Theorem 22), and Theorem 19 across all nine vertex
-cases for every \(N\ge4\), all strictly within the standard axioms. None of this invalidates the spectral
-floor.
+carriers that prove Conjecture E in all nine vertex cases. As of version 1.7.0, Lean 4.35.0 formalizes
+the spectral floor and its asymptotic \(1/2\) limit (Theorem 1, Corollary A), its quaternionic refinement
+for elliptic quadrics (Theorem 2), the five-way saturation equivalences, quantum-metric and two-character
+theorems (Theorems 3--4, Propositions 3, 8, 10), the exact contextuality degrees 75, 480 and 729344, the
+four-qubit C3 spectral certificate and tightened two-sided binary completion enclosures \([347,368]\) and
+\([330,344]\) (Theorem 14, Corollary 16 and Proposition 16\textquotesingle), the all-qubit C3 and cone-lift C11
+constructions (Theorem 17, Corollary 18), Lemmas 20--21, Theorem 22, signed-Clifford orbit transport, and
+Theorem 19 at the eigenvalue-multiset level across all nine vertex cases for every \(N\ge4\), all strictly
+within the standard axioms. None of this invalidates the spectral floor.
 \end{quote}
 
 \begin{abstract}
@@ -63,24 +66,24 @@ floor.
 Spectral methods give rigorous bounds on Pauli contextuality, yet a spectrum need not retain the
 information needed by a related completion problem.
 For \(N\) qubits, \(D=2^N\), and any set \(S\) of nonidentity Pauli observables, Lean 4 proves Jonah\textquotesingle s spectral
-floor-\/-\/-satisfied minus violated commuting triples is at most \((D-2)|S|^{3/2}/(6\sqrt{D-1})\)-\/-\/-together
-with its quaternionic (Kramers) refinement for elliptic quadrics and the five-way saturation equivalence
-linking equality to pure states with a single nonzero Pauli modulus. Saturating supports outside the
-classical families have exact contextuality degrees 75 (135 four-qubit observables), 480 (496 five-qubit
-observables) and 729344 (8128 seven-qubit observables), all proved in Lean with kernel-checked counts. We
-relate saturation to two-character sets and flat phase states, and classify a third-level phase-state
-family through five qubits.
+floor-\/-\/-satisfied minus violated commuting triples is at most \((D-2)|S|^{3/2}/(6\sqrt{D-1})\), forcing
+asymptotic violation fraction \(1/2\)-\/-\/-its quaternionic (Kramers) refinement, five-way saturation
+equivalence, and quantum-metric and two-character theorems. Saturating supports outside the classical
+families have exact contextuality degrees 75 (135 four-qubit observables), 480 (496 five-qubit
+observables) and 729344 (8128 seven-qubit observables), all proved in Lean with kernel-checked counts, and
+we classify a third-level flat phase-state family through five qubits.
 
 We then test Jonah\textquotesingle s strict law: does a sign carrier\textquotesingle s spectrum on a hyperplane section determine its
 completion spectrum on the remaining observables? On a 71-point section of the real four-qubit quadric,
 two assignments give cospectral \(16\times16\) carriers whose \(64\times64\) completions have cubic traces
-14976 and 15360 and distinct binary minima (\(\le344\lt347\)). A graph construction extends the gap to every
-\(N\ge4\) in case C3 (difference \(\tfrac32\,8^{N-1}\)), and variants over \(\mathbb R\), \(\mathbb C\) and
-\(\mathbb H\), a cone pair swap and a universal cubic-trace identity yield cospectral carriers with distinct
-completion spectra in all nine vertex cases for every \(N\ge4\), proving Jonah\textquotesingle s Conjecture E. All nine
-cases, Corollaries 16 and 18, Lemmas 20 and 21 and the cubic-trace identity are proved in Lean 4 using
-standard axioms only, with exact verifiers and Tsotchke demonstrations. The work is AI-assisted and is
-neither externally peer reviewed nor a quantum-hardware experiment.
+14976 and 15360 and separated binary minima enclosed in \([347,368]\) and \([330,344]\) (the lower bound 330
+proved via an exact QUBO SDP dual). A graph construction extends the gap to every \(N\ge4\) in case C3
+(difference \(\tfrac32\,8^{N-1}\)), and variants over \(\mathbb R\), \(\mathbb C\) and \(\mathbb H\), a cone
+pair swap and a universal cubic-trace identity yield cospectral carriers with distinct completion
+eigenvalue multisets in all nine vertex cases for every \(N\ge4\), proving Jonah\textquotesingle s Conjecture E. All nine
+cases, Clifford transport, Corollaries 16 and 18, Lemmas 20--21 and Theorem 22 are proved in Lean 4 with
+standard axioms only, plus exact checks through six qubits and Tsotchke demonstrations. The work is
+AI-assisted and is neither externally peer reviewed nor a quantum-hardware experiment.
 
 \end{abstract}
 
@@ -120,34 +123,42 @@ Lean; the seven-qubit counts are double sums with \(2^{28}\) terms, evaluated by
 sets of codes. Their interpretation as Pauli supports of particular states is checked separately by
 exact programs. The Pauli expansion of \(A^2\), the full five-way saturation equivalence of Theorems 3
 and 4, and the integrality condition that \((D-1)|S|\) is a perfect square for \(N\ge2\) are formalized in
-Lean (\texttt{SaturationTheory.lean}: \texttt{opA\_sq\_eq}, \texttt{saturation\_tfae}, \texttt{saturation\_mul\_isSquare}). The
-quantum-metric interpretation, two-character-set result and classification of specified flat phase
-states are mathematical and executable results with the boundaries stated in Section 9.
+Lean (\nolinkurl{SaturationTheory.lean}: \texttt{opA\_sq\_eq}, \texttt{saturation\_tfae}, \nolinkurl{saturation_mul_isSquare}). In version
+1.7.0, \nolinkurl{AuditUpgrades.lean} additionally formalizes the asymptotic \texttt{Filter.Tendsto} limit \(d/L\to1/2\)
+(Corollary A), the quantum-metric and Berry-curvature criteria (Propositions 3 and 8), and the
+two-character hyperplane-intersection theorem (Proposition 10); the remaining phase-state classification
+results (Propositions 4, 6, 9, 11 and Theorems 12--13) are mathematical and executable results with the
+boundaries stated in Section 9.
 
 Section 8 concerns Jonah\textquotesingle s strict law and Conjecture E {[}J3{]}. It first supplies a fully specified
 four-qubit C3 certificate: two assignments on the 71-point section of the real quadric have equal
 carrier spectra, different completion spectra (Theorem 14) and different exact binary completion
-minima (Corollary 16). Lean checks the equal carrier spectra and different completion spectra in the
-actual Pauli and signed-context interpretation in \texttt{C3Spectra.lean} (42-declaration audit), and
-\texttt{ConjectureEExtras.lean} additionally formalizes Corollary 16 (\nolinkurl{corollary16_binary_minima_differ}:
-\(\le344\lt347\)) via Lemma 20 and exact integer \(LDL^{\mathsf T}\) positivity certificates; the printed
-factorizations and continuous-relaxation gap 32 rest on exact algebraic and executable checks. It then
-gives an explicit family of pairs with equal carrier spectra and different completion spectra for every
-\(N\ge4\), built from graphs with one edge for each nonzero difference (Theorem 17), proved in Lean by
-\nolinkurl{c3_strict_law_fails_general} (\texttt{CarrierFamily.lean}, 74 audited declarations) about the same Pauli
-matrices, real quadric and context signs as the floor. By the cone lift of {[}J3, Lemma D (D2){]}, proved
-both on paper and in Lean (\texttt{ConjectureEExtras.lean}: \nolinkurl{cone_lift_strict_law_fails},
-\texttt{corollary18\_c11\_from\_c3}), this also settles case C11 (Corollary 18). Finally, variants of the
-construction and an eigenvalue-free universal cubic-trace identity (Theorem 22) prove Conjecture E in
-all nine vertex cases (Theorem 19). In versions 1.5.0 and 1.6.0, Lemmas 20 and 21, Theorem 22, all
-closed-form outside character sums of Table 8, and Theorem 19 across all nine vertex cases for every
-\(N\ge4\) (\nolinkurl{jonah_conjecture_e_all_nine_cases}, plus \(N\ge3\) for C1, C3, C6 and C11) are all formalized
-in Lean 4 (\texttt{ConjectureECore.lean}, \texttt{ConjectureECones.lean}, \texttt{ConjectureE.lean}, \texttt{ConjectureEExtras.lean};
-49 audited declarations in \nolinkurl{VerifyNewFormalizations.lean}, strictly standard axioms) and checked by exact
-computation on the complete configurations for three to six qubits (\texttt{scripts/conjecture\_e.py},
-\nolinkurl{scripts/conjecture_e_lemmas.py}, \nolinkurl{scripts/conjecture_e_trace_formula.py}). Transport from the fixed
-hyperplane representative of each case to every hyperplane class of that case remains a paper argument
-using the single-orbit classification of {[}J3, Theorem B4{]}.
+minima (Corollary 16 and Proposition 16\textquotesingle). Lean checks the equal carrier spectra and different completion
+spectra in the actual Pauli and signed-context interpretation in \texttt{C3Spectra.lean} (42-declaration audit),
+\nolinkurl{ConjectureEExtras.lean} formalizes Corollary 16 (\nolinkurl{corollary16_binary_minima_differ}: \(\le344\lt347\))
+via Lemma 20 and exact integer \(LDL^{\mathsf T}\) positivity certificates, and \nolinkurl{AuditUpgrades.lean}
+formalizes Proposition 16\textquotesingle{} (\nolinkurl{corollary16_sigmaB_sdp_lower}, \nolinkurl{corollary16_sigmaA_witness},
+\nolinkurl{corollary16_binary_minima_tightened}), tightening the lower bound for \(\sigma_1\) by \(+15\) from 315 to
+the exact elliptope SDP-dual ceiling 330 and certifying both two-sided enclosures \([347,368]\) and
+\([330,344]\); the printed factorizations and continuous-relaxation gap 32 rest on exact algebraic and
+executable checks. It then gives an explicit family of pairs with equal carrier spectra and different
+completion spectra for every \(N\ge4\), built from graphs with one edge for each nonzero difference
+(Theorem 17), proved in Lean by \nolinkurl{c3_strict_law_fails_general} (\nolinkurl{CarrierFamily.lean}, 74 audited
+declarations) about the same Pauli matrices, real quadric and context signs as the floor. By the cone
+lift of {[}J3, Lemma D (D2){]}, proved both on paper and in Lean (\nolinkurl{ConjectureEExtras.lean}:
+\nolinkurl{cone_lift_strict_law_fails}, \nolinkurl{corollary18_c11_from_c3}), this also settles case C11 (Corollary 18).
+Finally, variants of the construction and an eigenvalue-free universal cubic-trace identity (Theorem 22)
+prove Conjecture E in all nine vertex cases (Theorem 19). Across versions 1.5.0 through 1.7.0, Lemmas 20
+and 21, Theorem 22, all closed-form outside character sums of Table 8, signed-Clifford orbit transport,
+and Theorem 19 across all nine vertex cases for every \(N\ge4\)---both at the characteristic-polynomial level
+(\nolinkurl{jonah_conjecture_e_all_nine_cases}, plus \(N\ge3\) for C1, C3, C6 and C11) and upgraded to canonical
+Hermitian eigenvalue lists and real root multisets (\nolinkurl{jonah_conjecture_e_all_nine_cases_spectra})---are all
+formalized in Lean 4 (\nolinkurl{ConjectureECore.lean}, \nolinkurl{ConjectureECones.lean}, \texttt{ConjectureE.lean},
+\nolinkurl{ConjectureEExtras.lean}, \nolinkurl{AuditUpgrades.lean}; 77 audited declarations in \nolinkurl{VerifyNewFormalizations.lean},
+strictly standard axioms) and checked by exact computation on the complete configurations for three to
+six qubits (\nolinkurl{scripts/conjecture_e.py}, \nolinkurl{scripts/conjecture_e_lemmas.py},
+\nolinkurl{scripts/conjecture_e_trace_formula.py} {[}136 checks{]}, \nolinkurl{scripts/c3_sdp_dual_check.py} {[}15 checks{]}). Only
+the single-orbit group transitivity classification of {[}J3, Theorem B4{]} remains a cited paper input.
 
 The two 135-point configurations must be distinguished. The pivot support \(S_B\) is not a quadric and
 has 1095 contexts and degree 75. The C3 ambient configuration is the real quadric \(Q^+(7,2)\), with
@@ -329,7 +340,7 @@ multiplicity, with the same \(m\).
 
 Theorem 2 and the elliptic-quadric counts and violated-fraction bound below are formalized in Lean 4
 (\nolinkurl{lean/HoggarBound/Kramers.lean}: \texttt{kramers\_even\_mult}, \nolinkurl{hoggar_bound_quaternionic},
-\texttt{card\_ellipticPoints}, \texttt{card\_flags\_elliptic}, \texttt{elliptic\_fraction}, \nolinkurl{three_qubit_elliptic_contexts},
+\nolinkurl{card_ellipticPoints}, \nolinkurl{card_flags_elliptic}, \texttt{elliptic\_fraction}, \nolinkurl{three_qubit_elliptic_contexts},
 \nolinkurl{four_qubit_elliptic_contexts}, \nolinkurl{five_qubit_elliptic_contexts}; see Section 9.4) and checked
 numerically (Section 11).
 
@@ -423,7 +434,8 @@ the flows \(e^{-itP_v/2}\). Consider a context \(\{u, v, w\}\) with sign \(s\) a
 \(4|g_{uv}| = |p_w| + |p_u p_v|\) and satisfied exactly when \(4|g_{uv}| = \big||p_w| - |p_u p_v|\big|\).
 
 \emph{Proof.} \(\langle P_uP_v\rangle = s\,p_w\); the context is violated when \(s\,p_w\) and \(p_u p_v\) have opposite
-signs. \(\qquad\blacksquare\)
+signs. Formalized in Lean 4 (\nolinkurl{lean/HoggarBound/AuditUpgrades.lean}: \nolinkurl{proposition3_commuting_qgt},
+\nolinkurl{proposition3_violated_iff}, \nolinkurl{proposition3_satisfied_iff}). \(\qquad\blacksquare\)
 
 For \(\psi_H\): \(g_{vv} = 2/9\); \(|g_{uv}| = 1/9\) on the 189 commuting pairs lying on the 63 violated contexts,
 \(1/18\) on the 756 pairs lying on satisfied contexts, \(1/36\) on the 1008 anticommuting pairs; the Berry
@@ -474,7 +486,7 @@ exactly once); comparing Pauli coefficients with the identity gives (d). The flo
 attained, which for \(D \gt 2\) forces \(\sqrt{(D-1)|S|}\) to be rational. The operator expansion, the
 equivalences (a)--(d), and the integrality statement that \((D-1)|S|\) is a perfect square for \(N\ge2\) are
 formalized in Lean 4 (\nolinkurl{lean/HoggarBound/SaturationTheory.lean}: \texttt{opA\_sq\_eq}, \texttt{saturation\_tfae},
-\texttt{saturation\_mul\_isSquare}; see Section 9.4). \(\qquad\blacksquare\)
+\nolinkurl{saturation_mul_isSquare}; see Section 9.4). \(\qquad\blacksquare\)
 
 Condition (d) replaces the \emph{violation-regularity} of {[}J2, Theorem 6{]}, to which it reduces when every
 point lies on the same number of contexts. For \(N \le 5\) the number \(D - 1\) is squarefree, so a set that
@@ -589,7 +601,7 @@ if \(w \in S_5\) and in 240 otherwise, as for the complement of \(Q^+(9,2)\); \(
 
 \emph{Proof.} The counts are finite computations in \(\mathbb{Z}[i]\). The lower bound is Theorem 1 with
 \(|S| = 496\), \(D = 32\): \(\beta \le 30 \cdot 496 \cdot 124/(6 \cdot 31) = 9920 = 10880 - 2\cdot 480\). In Lean
-this is \texttt{cieslinski5\_degree}. No state vanishes on every observable of a hyperbolic quadric: these are the
+this is \nolinkurl{cieslinski5_degree}. No state vanishes on every observable of a hyperbolic quadric: these are the
 observables commuting with an antiunitary \(\theta\) with \(\theta^2 = 1\), and the condition would give
 \(\rho + \theta\rho\,\theta^{-1} = 2I/D\), of rank \(D\), for a projector \(\rho\) of rank one. \(\qquad\blacksquare\)
 
@@ -602,7 +614,8 @@ assignment are exactly the pairs with \(4|g_{uv}|\) larger than \(\mu\). The Ber
 \(\mu/2\) on anticommuting pairs whose product is in \(S\) and vanishes on all other pairs.
 
 \emph{Proof.} Proposition 3 with \(|p| = \mu\) on \(S\) and \(p = 0\) outside; for anticommuting \(u, v\) the product
-\(P_uP_v\) is \(\pm i P_{u+v}\), so \(\langle P_uP_v\rangle\) is imaginary, of modulus \(|p_{u+v}|\).
+\(P_uP_v\) is \(\pm i P_{u+v}\), so \(\langle P_uP_v\rangle\) is imaginary, of modulus \(|p_{u+v}|\). Formalized
+in Lean 4 (\nolinkurl{lean/HoggarBound/AuditUpgrades.lean}: \nolinkurl{proposition8_flat_state_qgt}).
 \(\qquad\blacksquare\)
 
 \textbf{Proposition 9 (two mutually unbiased stabilizer states).} Let \(s_1, s_2\) be stabilizer state vectors
@@ -648,7 +661,9 @@ the values \(\pm D/2\): then \(S\) is a Hadamard difference set, the support of 
 \emph{Proof.} For a pure state \(\rho\) and any \(w\), \(\operatorname{tr}(\rho P_w \rho P_w) = \langle P_w\rangle^2\).
 Writing \(\rho = D^{-1}\sum_v p_v P_v\) with \(p_0 = 1\) and using \(P_wP_vP_w = (-1)^{\langle v,w\rangle}P_v\)
 gives \(p_w^2 = D^{-1}\sum_v (-1)^{\langle v,w\rangle}p_v^2\). Insert \(p_v^2 = k^{-2}\) on \(S\), \(1\) at \(v = 0\)
-and \(0\) elsewhere. \(\qquad\blacksquare\)
+and \(0\) elsewhere. Formalized in Lean 4 (\nolinkurl{lean/HoggarBound/AuditUpgrades.lean}:
+\nolinkurl{pure_state_pauli_sq_transform}, \nolinkurl{proposition10_two_character_sum}, \nolinkurl{proposition10_hyperplane_card}).
+\(\qquad\blacksquare\)
 
 The identity for \(p_w^2\) holds for every pure state and is standard; we did not find its consequence for
 flat states stated. It accounts for the hyperplane numbers in Theorems 5 and 7. For the two four-qubit
@@ -726,7 +741,7 @@ Clifford operation, the Pauli support of a circuit of five gates. The excluded z
 diagonal-Clifford stabilizer states, which are flat in every number of qubits.
 
 \emph{Proof.} Exhaustive enumeration, with the orbits computed from the transvections that generate
-\(GL(N,2)\) (\texttt{src/third\_level.c}; for \(N \le 4\) also \texttt{scripts/phase\_states.py}). The two symplectic maps
+\(GL(N,2)\) (\texttt{src/third\_level.c}; for \(N \le 4\) also \nolinkurl{scripts/phase_states.py}). The two symplectic maps
 are found by search and verified on every point; the second is recorded in \nolinkurl{results/phase_states.json}.
 \(\qquad\blacksquare\)
 
@@ -734,15 +749,18 @@ For \(N = 2\) the state is that of {[}LLY{]} up to a phase and complex conjugati
 \(X = (x_1, x_2, \alpha) \in \mathbb{F}_q \times \mathbb{F}_q \times \mathbb{F}_2\) with \(q = 4\), the
 five-qubit form is
 
-\[T(X,Y,Z) = \operatorname{Tr}\big[x_1y_1z_2^2 + x_1y_2^2z_1 + x_2^2y_1z_1 + x_2y_2z_1^2 + x_2y_1^2z_2 + x_1^2y_2z_2\big]
- + \alpha\,\sigma(y,z) + \beta\,\sigma(x,z) + \gamma\,\sigma(x,y),\]
+\[\begin{aligned}
+T(X,Y,Z) &= \operatorname{Tr}\big[x_1y_1z_2^2 + x_1y_2^2z_1 + x_2^2y_1z_1 + x_2y_2z_1^2 + x_2y_1^2z_2 + x_1^2y_2z_2\big]\\ &\quad + \alpha\,\sigma(y,z) + \beta\,\sigma(x,z) + \gamma\,\sigma(x,y),
+\end{aligned}\]
 
 where \(\sigma(y,z) = \operatorname{Tr}[a\,(y_1z_2 + y_2z_1)]\), \(\operatorname{Tr}\) is the trace to
 \(\mathbb{F}_2\) and \(a\) generates \(\mathbb{F}_4\). It is invariant under \((x_1, x_2) \mapsto (\lambda x_1, \lambda^{-1}x_2)\).
 
 \textbf{Theorem 13 (seven qubits).} Let
 
-\[|\Phi_7\rangle = CS_{01}\,CS_{23}\,CS_{45}\;\, CCZ_{012}\,CCZ_{035}\,CCZ_{124}\;\, CCZ_{046}\,CCZ_{056}\,CCZ_{136}\,CCZ_{236}\,CCZ_{256}\; |{+}\rangle^{\otimes 7}\]
+\[\begin{aligned}
+|\Phi_7\rangle &= CS_{01}\,CS_{23}\,CS_{45}\;\, CCZ_{012}\,CCZ_{035}\,CCZ_{124}\\ &\quad \times CCZ_{046}\,CCZ_{056}\,CCZ_{136}\,CCZ_{236}\,CCZ_{256}\; |{+}\rangle^{\otimes 7}
+\end{aligned}\]
 
 and let \(S_7\) be its Pauli support.
 
@@ -768,11 +786,11 @@ and let \(S_7\) be its Pauli support.
 \end{enumerate}
 
 \emph{Proof.} Item 1 and the counts of item 2 are finite computations in \(\mathbb{Z}[i]\), made exactly by
-\texttt{scripts/phase\_states.py}, which records the counts per observable in \nolinkurl{results/phase_states.json}.
+\nolinkurl{scripts/phase_states.py}, which records the counts per observable in \nolinkurl{results/phase_states.json}.
 Two programs that share no code with it recount the totals 8128, 2 824 192 and 729 344 (Section 11):
 the Moonlab program from the expectation values of the simulated state, which also give the support
 and the modulus \(1/8\) up to rounding, and the QGTL program in C from the support and signs that
-\texttt{scripts/phase\_states.py} writes to \texttt{data/flat/}. The lower bound is Theorem 1 with \(|S| = 8128\), \(D = 128\):
+\nolinkurl{scripts/phase_states.py} writes to \texttt{data/flat/}. The lower bound is Theorem 1 with \(|S| = 8128\), \(D = 128\):
 \(\beta \le 126 \cdot 8128 \cdot 1016/(6\cdot 127) = 1\,365\,504 = 2\,824\,192 - 2 \cdot 729\,344\). In Lean, for
 the set of observables given by the mask of \(S_7\), these are \texttt{phase7\_contexts} and \texttt{phase7\_degree}
 (Section 9.1). For item 3,
@@ -811,8 +829,10 @@ proof, that Table 1 is complete up to five qubits.
 \subsection{\texorpdfstring{6. Consequences for all \(N\)}{6. Consequences for all N}}\label{6-consequences-for-all-n}
 
 \textbf{Corollary A (full space).} For every \(N \ge 1\) every assignment of the \(D^2 - 1\) Pauli observables
-violates at least \(\varphi(D)\,L\) contexts (Lean: \texttt{full\_space\_fraction}). Since a uniformly random
-assignment violates \(L/2\) contexts on average, \(d/L \to 1/2\).
+violates at least \(\varphi(D)\,L\) contexts (Lean: \nolinkurl{full_space_fraction}). Since a uniformly random
+assignment violates \(L/2\) contexts on average, \(d/L \to 1/2\) (formalized as filter limits in
+\nolinkurl{AuditUpgrades.lean}: \nolinkurl{full_space_fraction_tendsto_half}, \nolinkurl{hyperbolic_fraction_tendsto_half},
+\nolinkurl{full_space_violated_fraction_eventually_gt}, \nolinkurl{elliptic_violated_fraction_eventually_gt}).
 
 The count inequality also covers \(N=1\), when there are no contexts. The ratios and noise thresholds
 below are stated for \(N\ge2\), so \(L\gt 0\).
@@ -1163,16 +1183,52 @@ the 30 outside labels listed in Appendix B and \(+1\) at the other 34; counting 
 one by one gives 344 violated lines, equivalently \(y^{\mathsf T}\Lambda_{\sigma_1}y=864\).
 \(\qquad\blacksquare\)
 
-Simulated annealing with 6000 restarts found a completion of \(\sigma_0\) violating 368 outside lines
-(also listed in Appendix B). The two exact minima therefore lie in \([347,368]\) and \([315,344]\); the
-upper ends are search results, not proved optima. Corollary 16 is formalized in Lean 4
-(\nolinkurl{lean/HoggarBound/ConjectureEExtras.lean}: \texttt{c3\_quadForm\_eq}, \nolinkurl{corollary16_sigmaA_lower},
-\nolinkurl{corollary16_sigmaB_lower}, \nolinkurl{corollary16_sigmaB_witness}, \nolinkurl{corollary16_binary_minima_differ}; see
-Section 9.4), proving the strict spectral upper bounds directly via Lemma 20 and pure-integer
-fraction-free \(LDL^{\mathsf T}\) positivity certificates for \(111I-4C_0\) and \(111I-4C_1\) together with
-kernel evaluation of the 30-label witness. Independently, \nolinkurl{scripts/cospectral_pair.py} (30 checks)
-rebuilds the configuration, both carriers, both degree-64 completion polynomials, the enclosure of
-\(\rho\) and both witnesses in exact arithmetic, without code shared with the C3 programs of Section 11.2.
+Simulated annealing and 1000-restart 2-opt local search found a completion of \(\sigma_0\) violating 368
+outside lines (also listed in Appendix B; kernel-checked in \nolinkurl{AuditUpgrades.lean} as
+\nolinkurl{corollary16_sigmaA_witness}). The basic spherical relaxation alone encloses the two minima in
+\([347,368]\) and \([315,344]\). However, the diagonal-shift QUBO semidefinite dual reveals a striking
+structural asymmetry between the two cospectral carriers:
+
+\textbf{Proposition 16\textquotesingle{} (tightened SDP-dual lower bound for \(\sigma_1\)).} Every binary completion
+\(y\in\{-1,+1\}^O\) of \(\sigma_1\) violates at least \textbf{330} of the 1120 outside lines, tightening the
+enclosure for \(\sigma_1\) from \([315,344]\) to \textbf{\([330,344]\)} (halving the gap from 29 to 14 integers),
+while the basic spherical bound 347 for \(\sigma_0\) is already optimal for the full 64-variable
+elliptope SDP dual.
+
+\emph{Proof.} For any diagonal shift \(d\in\mathbb R^O\) with \(\sum_{p\in O} d_p = 0\) and any binary vector
+\(y\in\{-1,+1\}^O\), \(y^{\mathsf T}\operatorname{diag}(d)y = \sum_{p\in O} d_p = 0\), so
+\(y^{\mathsf T}\Lambda_\sigma y = y^{\mathsf T}(\Lambda_\sigma + \operatorname{diag}(d))y \le 64\,\lambda_{\max}(\Lambda_\sigma + \operatorname{diag}(d))\).
+For \(\sigma_0\), the 8-dimensional top eigenspace of \(\Lambda_{\sigma_0}\) has perfectly uniform diagonal
+projector entries \(P_{pp} = 1/8\) on all 64 outside points, so \(d=0\) is already the exact global optimum of
+the full 64-variable elliptope SDP dual (\(560 - 16\lambda_{\max} = 346.4877\ldots\), ceiling 347). For
+\(\sigma_1\), by contrast, the 2-dimensional top eigenspace of \(\Lambda_{\sigma_1}\) partitions the 64
+outside points into four 16-point orbits indexed purely by the two low X-bits
+\((a_1(p), a_0(p)) = p \bmod 4\) (equivalently, commutation with the two unpaired negative section
+observables \(144 = ZIIZ\) and \(176 = ZIZZ\)). Setting the zero-sum geometric shift
+\(d_{16}(p) = 16\,d_p \in \{-40, +8, +8, +24\}\) for \(p \bmod 4 = 0, 1, 2, 3\) respectively gives
+\(\lambda_{\max}(\Lambda_{\sigma_1} + \operatorname{diag}(d_{16})/16) = 14.404977\ldots \lt 231/16 = 14.4375\)
+(within \(0.021\) of the exact full-SDP optimum \(14.383998\ldots\), whose bound \(329.8560\ldots\) has the
+same integer ceiling 330). Under the Lemma 20 Jordan representation (C6), the \(64\times 64\) shifted
+residual matrix \(M_{64} = 231 I_{64} - 16\Lambda_{\sigma_1} - \operatorname{diag}(d_{16})\)
+block-diagonalizes identically into two copies each of four \(8\times 8\) integer symmetric blocks
+\(B_k = 231 I_8 - 8(C_1 + (D_1)_k I_8) - \operatorname{diag}_i(d_{16}(i \oplus k))\) (\(k=0,1,2,3\)), each
+certified strictly positive definite by a pure-integer fraction-free \(LDL^{\mathsf T}\) factorization.
+Hence \(y^{\mathsf T}\Lambda_{\sigma_1}y \lt 64 \cdot (231/16) = 924\) and
+\(F(\sigma_1,y) \gt 560 - 924/4 = 329\), so \(F(\sigma_1,y) \ge 330\). \(\qquad\blacksquare\)
+
+Both Corollary 16 (\nolinkurl{lean/HoggarBound/ConjectureEExtras.lean}: \texttt{c3\_quadForm\_eq}, \nolinkurl{corollary16_sigmaA_lower},
+\nolinkurl{corollary16_sigmaB_lower}, \nolinkurl{corollary16_sigmaB_witness}, \nolinkurl{corollary16_binary_minima_differ}) and
+Proposition 16\textquotesingle{} together with the complete two-sided enclosures \([347,368]\) and \([330,344]\)
+(\nolinkurl{lean/HoggarBound/AuditUpgrades.lean}: \nolinkurl{c3SdpBlock_pos_def}, \nolinkurl{c3_shift_quad_zero},
+\nolinkurl{corollary16_sigmaB_sdp_lower}, \nolinkurl{corollary16_sigmaA_witness}, \nolinkurl{corollary16_binary_minima_tightened}; see
+Section 9.4) are formalized in Lean 4 via Lemma 20 and pure-integer fraction-free \(LDL^{\mathsf T}\)
+certificates. Independently, \nolinkurl{scripts/cospectral_pair.py} (30 checks) rebuilds the configuration, both
+carriers, both degree-64 completion polynomials, the enclosure of \(\rho\) and both witnesses in exact
+arithmetic without code shared with the C3 programs of Section 11.2, and \nolinkurl{scripts/c3_sdp_dual_check.py}
+(15 checks; \nolinkurl{results/c3_sdp_dual_check.json}) verifies the exact SymPy characteristic-polynomial block
+factorization of \(M_{64}\), all four integer \(LDL^{\mathsf T}\) certificates and Sylvester minors, both
+binary witnesses, and three negative controls (including failure of positive definiteness at threshold
+\(230/16\)).
 
 \pandocbounded{\includegraphics[keepaspectratio,alt={Figure 3}]{c3-figures/spectra.pdf}}
 
@@ -1311,7 +1367,7 @@ and \(8\cdot(-288)=-2304\) for the three-qubit pair of Remark (a). The general c
 completion characteristic polynomials, Hadamard diagonalization, cubic-trace identity and preservation of
 strict-law failure) and Corollary 18 are formalized in Lean 4 (\nolinkurl{lean/HoggarBound/ConjectureEExtras.lean}:
 \nolinkurl{cone_lift_carrier_charpoly}, \nolinkurl{cone_lift_completion_charpoly}, \nolinkurl{cone_lift_completion_trace_cube},
-\nolinkurl{cone_lift_strict_law_fails}, \texttt{corollary18\_c11\_from\_c3}; see Section 9.4).
+\nolinkurl{cone_lift_strict_law_fails}, \nolinkurl{corollary18_c11_from_c3}; see Section 9.4).
 
 \textbf{Remarks.} (a) For \(N=3\) a single edge cannot be a component away from \(t\), but the triangle
 \(\{0,1,3\}\) with \(t=2\) (\(u_1=0\), \(u_2=1\), \(u_3=0\)) is, and the same proof gives a pair with difference
@@ -1400,7 +1456,11 @@ symplectic maps \(g\) with \(g(X)=X\), and each such \(g\) is induced by a Cliff
 \((X,d)\), \(\sigma'(gs)=\nu(s)\sigma(s)\) is one on the section of \((X,gd)\), with \(A_{\sigma'}=UA_\sigma U^\dagger\).
 Conjugating \(P_sP_pP_q=s_\ell I\) by \(U\) gives \(s_{g\ell}=\nu(s)\nu(p)\nu(q)s_\ell\), so
 \((\Lambda_{\sigma'})_{gp,gq}=\nu(p)\nu(q)(\Lambda_\sigma)_{pq}\): the completion matrix is conjugated by a
-signed permutation. Both spectra are therefore preserved.
+signed permutation. Both spectra are therefore preserved. This signed-Clifford orbit-transport invariance
+is formalized for arbitrary configurations \((X,d)\) in \nolinkurl{AuditUpgrades.lean} (\nolinkurl{clifford_preserves_symp},
+\nolinkurl{clifford_transport_comm_product}, \nolinkurl{clifford_transport_opA}, \nolinkurl{clifford_transport_carrier_charpoly},
+\nolinkurl{clifford_transport_completion_charpoly}, \nolinkurl{clifford_transport_strict_law_fails}), leaving only the
+group-transitivity classification of {[}J3, Theorem B4{]} outside Lean.
 
 The proof uses two lemmas of {[}J3{]}, whose proofs we write out so that the argument can be checked
 here. Lemma 20 is {[}J3, Theorem A{]}, with essentially its proof. Lemma 21 is the linear algebra of Steps 3
@@ -1629,7 +1689,7 @@ are conjugate by a controlled-NOT. That gate fixes \(d\) and maps the section on
 \(e^\perp\) to \((e+d)^\perp\); an outside point \(p\) has \(\langle p,e+d\rangle=1\), so its image lies outside \(e^\perp\)
 and hence outside \(X\). The gate therefore does not carry one completion problem to the other.
 
-\textbf{Table 7. Exact values for the pairs of Table 6}, three to six qubits (\texttt{scripts/conjecture\_e.py}).
+\textbf{Table 7. Exact values for the pairs of Table 6}, three to six qubits (\nolinkurl{scripts/conjecture_e.py}).
 
 {\def\LTcaptype{none} % do not increment counter
 {\small
@@ -1717,9 +1777,9 @@ For the cone pair swap of C6, C11 and C14, direct Pauli multiplication gives
 
 {\def\LTcaptype{none} % do not increment counter
 {\small
-\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1634}}>{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4762}}>{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3604}}@{}}
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1622}}>{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4728}}>{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3650}}@{}}
 \toprule\noalign{}
-Vertex cases & \(S_O(u)\) on \(u\in H\) & Lean theorem (\texttt{ConjectureECones.lean}) \\
+Vertex cases & \(S_O(u)\) on \(u\in H\) & Lean theorem (\nolinkurl{ConjectureECones.lean}) \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -1728,17 +1788,21 @@ C1 & \(-\frac{D^2}{2}\,\delta_{u,d}\) & \texttt{charSumOut\_C1} \\
 C3, C5 & \(-\frac{D^2}{4}\,\delta_{u,d}\) & \texttt{charSumOut\_C3\_C5} \\
 C6 & \(\frac{D^2}{4}\,(\delta_{u,e}-\delta_{u,d}-\delta_{u,e+d})\) & \texttt{charSumOut\_C6} \\
 C8 & \(-\frac{D^2}{8}\,\delta_{u,d}\) & \texttt{charSumOut\_C8} \\
-C11, C14 & \(\frac{D^2}{8}\,(\delta_{u,e}-\delta_{u,d}-\delta_{u,e+d})\) & \texttt{charSumOut\_C11\_C14} \\
-C12, C15 & \(\frac{D^2}{8}\,\delta_{u,e}+\frac{D}{2}\,(1-2c_0)\) (\(c_0=0\) for C12, \(1\) for C15) & \texttt{charSumOut\_C12\_C15} \\
+C11, C14 & \(\frac{D^2}{8}\,(\delta_{u,e}-\delta_{u,d}-\delta_{u,e+d})\) & \nolinkurl{charSumOut_C11_C14} \\
+C12, C15 & \(\frac{D^2}{8}\,\delta_{u,e}+\frac{D}{2}\,(1-2c_0)\) (\(c_0=0\) for C12, \(1\) for C15) & \nolinkurl{charSumOut_C12_C15} \\
 \end{longtable}
 }
 }
 
 Theorem 22 (\nolinkurl{trace_completion_cube_universal}), Lemmas 20 and 21, every entry of Table 8, and Theorem 19
-in all nine vertex cases (\nolinkurl{jonah_conjecture_e_all_nine_cases}) are formalized in Lean 4 (Section 9.4).
-Independently, \nolinkurl{scripts/conjecture_e_trace_formula.py} verifies (E13) on every pair of Table 6 and on
-random sign carriers, every formula of Table 8, the six pair-swap moments and three negative controls in
-exact integer arithmetic for three to five qubits (97 of 97 checks passed; \nolinkurl{results/conjecture_e_trace_formula.json}).
+in all nine vertex cases---both at the characteristic-polynomial level (\nolinkurl{jonah_conjecture_e_all_nine_cases})
+and upgraded to canonical Hermitian eigenvalue lists and real root multisets with multiplicities
+(\nolinkurl{jonah_conjecture_e_all_nine_cases_spectra})---are formalized in Lean 4 (Section 9.4). Independently,
+\nolinkurl{scripts/conjecture_e_trace_formula.py} verifies (E13) on every pair of Table 6 and on random sign
+carriers, every formula of Table 8, the six pair-swap moments and three negative controls in exact integer
+arithmetic for three to five qubits (97 of 97 checks passed; \nolinkurl{results/conjecture_e_trace_formula.json})
+and, with the argument \texttt{6}, across all nine vertex cases at six qubits (39 of 39 checks passed;
+\nolinkurl{results/conjecture_e_trace_formula_n6.json}, 136 exact checks in total).
 
 \subsubsection{8.8 Why the spectral floor survives}\label{88-why-the-spectral-floor-survives}
 
@@ -1757,7 +1821,7 @@ The sources are in \texttt{lean/HoggarBound/} (Lean 4.35.0, Mathlib v4.35.0).
 
 {\def\LTcaptype{none} % do not increment counter
 {\small
-\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4444}}>{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5556}}@{}}
+\begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4471}}>{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5529}}@{}}
 \toprule\noalign{}
 module & content \\
 \midrule\noalign{}
@@ -1767,20 +1831,21 @@ module & content \\
 \texttt{Moment.lean} & \texttt{sum\_cube\_le} (the scalar inequality); \nolinkurl{trace_pow_eq_sum_eigenvalues_pow} (\(\operatorname{tr}A^k = \sum \lambda_i^k\) for Hermitian \(A\)); \texttt{trace\_cube\_le} \\
 \texttt{Pauli.lean} & bit vectors \texttt{Fin\ N\ →\ ZMod\ 2}; Weyl operators and \texttt{pauli\ u} as explicit complex matrices; \texttt{pauli\_mul}, \texttt{context\_product} (\(P_uP_vP_{u+v} = \tau(u,v) I\)), \texttt{pauli\_comm}; traces of one, two and three Pauli operators; \(\tau = \pm 1\) on commuting pairs \\
 \texttt{Bound.lean} & \texttt{flags} (ordered commuting pairs with product in \(S\): six per context), \texttt{beta6}, the operator \texttt{opA}; \texttt{trace\_opA\_cube} (\(\operatorname{tr}A^3 = D\,\beta_6\)); \textbf{\texttt{hoggar\_bound}} \\
-\texttt{Counting.lean} & \texttt{violated}, \texttt{beta6\_eq\_card}; the flag count of the full space for every \(N\) (\texttt{card\_flags\_all}); \texttt{violatedLines} and \texttt{card\_violated\_le}; \texttt{four\_qubit\_contexts} \\
-\texttt{Corollaries.lean} & \texttt{full\_space\_bound}, \texttt{full\_space\_fraction} (all \(N\)); \texttt{three\_qubit\_contexts}, \texttt{five\_qubit\_contexts} \\
+\texttt{Counting.lean} & \texttt{violated}, \texttt{beta6\_eq\_card}; the flag count of the full space for every \(N\) (\texttt{card\_flags\_all}); \texttt{violatedLines} and \texttt{card\_violated\_le}; \nolinkurl{four_qubit_contexts} \\
+\texttt{Corollaries.lean} & \texttt{full\_space\_bound}, \nolinkurl{full_space_fraction} (all \(N\)); \nolinkurl{three_qubit_contexts}, \nolinkurl{five_qubit_contexts} \\
 \texttt{Quadric.lean} & the real quadric; its point and flag counts for every \(N\) by character sums; \nolinkurl{four_qubit_hyperbolic_contexts}, \nolinkurl{five_qubit_hyperbolic_contexts} \\
-\texttt{MaskConfig.lean} & configurations and assignments given by bit masks; \texttt{card\_flags\_cfg}, \texttt{card\_violated\_cfg} (their flag counts as sums the kernel can evaluate); \texttt{degree\_of\_certificate} \\
-\texttt{FlatData.lean}, \texttt{SaturatedFive.lean} & generated: the masks of the first six rows of Table 1, and the five-qubit counts in 32 blocks \\
-\texttt{Saturated.lean} & \textbf{\texttt{pivot\_degree}}, \textbf{\texttt{cieslinski5\_degree}}, \texttt{quadric\_degree}, \texttt{hoggar\_degree}, \texttt{ccz\_degree}, \texttt{lly\_degree} \\
+\texttt{MaskConfig.lean} & configurations and assignments given by bit masks; \texttt{card\_flags\_cfg}, \texttt{card\_violated\_cfg} (their flag counts as sums the kernel can evaluate); \nolinkurl{degree_of_certificate} \\
+\texttt{FlatData.lean}, \nolinkurl{SaturatedFive.lean} & generated: the masks of the first six rows of Table 1, and the five-qubit counts in 32 blocks \\
+\texttt{Saturated.lean} & \textbf{\texttt{pivot\_degree}}, \textbf{\nolinkurl{cieslinski5_degree}}, \texttt{quadric\_degree}, \texttt{hoggar\_degree}, \texttt{ccz\_degree}, \texttt{lly\_degree} \\
 \texttt{MaskRows.lean} & packed sets of codes; \texttt{flagRow\_eq\_fast}, \texttt{violRow\_eq\_fast} (a row of either count, evaluated with a bounded number of operations on large numbers, for every \(N\)) \\
-\texttt{PhaseData.lean}, \texttt{SaturatedPhaseFive.lean}, \nolinkurl{SaturatedPhaseSeven.lean} & generated: the masks of \(\Phi_5\) and \(\Phi_7\); \textbf{\texttt{phase5\_degree}}, \textbf{\texttt{phase7\_degree}} \\
-\texttt{CarrierFamily.lean} & case C3 for every number of qubits from four on (Section 9.3): \textbf{\nolinkurl{c3_strict_law_fails_general}}, \nolinkurl{c3_all_qubits_completion} \\
-\texttt{Kramers.lean} & Theorem 2 (Section 9.4): \texttt{kramers\_even\_mult}, \textbf{\nolinkurl{hoggar_bound_quaternionic}}, \texttt{card\_ellipticPoints}, \texttt{card\_flags\_elliptic}, \textbf{\texttt{elliptic\_fraction}}, \nolinkurl{three_qubit_elliptic_contexts}, \nolinkurl{four_qubit_elliptic_contexts}, \nolinkurl{five_qubit_elliptic_contexts} \\
-\texttt{SaturationTheory.lean} & Theorems 3 and 4 (Section 9.4): \texttt{sum\_cube\_eq\_iff}, \texttt{matrix\_eq\_sum\_pauli}, \textbf{\texttt{opA\_sq\_eq}}, \textbf{\texttt{saturation\_tfae}}, \textbf{\texttt{saturation\_mul\_isSquare}} \\
-\texttt{ConjectureECore.lean} & Lemmas 20 and 21 and Theorem 22 (Section 9.4): \textbf{\texttt{lemma20\_jordan\_action}}, \texttt{trace\_completion\_pow\_eq}, \textbf{\nolinkurl{trace_completion_cube_universal}}, \textbf{\nolinkurl{lemma21_trace_cube_sylvester}}, \textbf{\texttt{lemma21\_trace\_cube\_symm}} \\
-\texttt{ConjectureECones.lean}, \texttt{ConjectureE.lean} & Table 8 outside character sums (\texttt{charSumOut\_C1} through \texttt{charSumOut\_C12\_C15}) and Theorem 19 across all nine vertex cases for every \(N\ge4\) (\texttt{c1\_strict\_law\_fails} through \texttt{c15\_strict\_law\_fails}, \textbf{\nolinkurl{jonah_conjecture_e_all_nine_cases}}) \\
-\texttt{ConjectureEExtras.lean} & Corollary 18 general cone lift (\nolinkurl{cone_lift_carrier_charpoly}, \nolinkurl{cone_lift_completion_charpoly}, \nolinkurl{cone_lift_completion_trace_cube}, \textbf{\nolinkurl{cone_lift_strict_law_fails}}, \textbf{\texttt{corollary18\_c11\_from\_c3}}) and Corollary 16 four-qubit C3 binary completion minima separation (\texttt{c3\_quadForm\_eq}, \nolinkurl{corollary16_sigmaA_lower}, \nolinkurl{corollary16_sigmaB_lower}, \nolinkurl{corollary16_sigmaB_witness}, \textbf{\nolinkurl{corollary16_binary_minima_differ}}) \\
+\texttt{PhaseData.lean}, \nolinkurl{SaturatedPhaseFive.lean}, \nolinkurl{SaturatedPhaseSeven.lean} & generated: the masks of \(\Phi_5\) and \(\Phi_7\); \textbf{\texttt{phase5\_degree}}, \textbf{\texttt{phase7\_degree}} \\
+\nolinkurl{CarrierFamily.lean} & case C3 for every number of qubits from four on (Section 9.3): \textbf{\nolinkurl{c3_strict_law_fails_general}}, \nolinkurl{c3_all_qubits_completion} \\
+\texttt{Kramers.lean} & Theorem 2 (Section 9.4): \texttt{kramers\_even\_mult}, \textbf{\nolinkurl{hoggar_bound_quaternionic}}, \nolinkurl{card_ellipticPoints}, \nolinkurl{card_flags_elliptic}, \textbf{\texttt{elliptic\_fraction}}, \nolinkurl{three_qubit_elliptic_contexts}, \nolinkurl{four_qubit_elliptic_contexts}, \nolinkurl{five_qubit_elliptic_contexts} \\
+\nolinkurl{SaturationTheory.lean} & Theorems 3 and 4 (Section 9.4): \texttt{sum\_cube\_eq\_iff}, \nolinkurl{matrix_eq_sum_pauli}, \textbf{\texttt{opA\_sq\_eq}}, \textbf{\texttt{saturation\_tfae}}, \textbf{\nolinkurl{saturation_mul_isSquare}} \\
+\nolinkurl{ConjectureECore.lean} & Lemmas 20 and 21 and Theorem 22 (Section 9.4): \textbf{\nolinkurl{lemma20_jordan_action}}, \nolinkurl{trace_completion_pow_eq}, \textbf{\nolinkurl{trace_completion_cube_universal}}, \textbf{\nolinkurl{lemma21_trace_cube_sylvester}}, \textbf{\nolinkurl{lemma21_trace_cube_symm}} \\
+\nolinkurl{ConjectureECones.lean}, \texttt{ConjectureE.lean} & Table 8 outside character sums (\texttt{charSumOut\_C1} through \nolinkurl{charSumOut_C12_C15}) and Theorem 19 across all nine vertex cases for every \(N\ge4\) (\nolinkurl{c1_strict_law_fails} through \nolinkurl{c15_strict_law_fails}, \textbf{\nolinkurl{jonah_conjecture_e_all_nine_cases}}) \\
+\nolinkurl{ConjectureEExtras.lean} & Corollary 18 general cone lift (\nolinkurl{cone_lift_carrier_charpoly}, \nolinkurl{cone_lift_completion_charpoly}, \nolinkurl{cone_lift_completion_trace_cube}, \textbf{\nolinkurl{cone_lift_strict_law_fails}}, \textbf{\nolinkurl{corollary18_c11_from_c3}}) and Corollary 16 four-qubit C3 binary completion minima separation (\texttt{c3\_quadForm\_eq}, \nolinkurl{corollary16_sigmaA_lower}, \nolinkurl{corollary16_sigmaB_lower}, \nolinkurl{corollary16_sigmaB_witness}, \textbf{\nolinkurl{corollary16_binary_minima_differ}}) \\
+\nolinkurl{AuditUpgrades.lean} & Version 1.7.0 audit upgrades (Section 9.4): asymptotic \texttt{Filter.Tendsto} limits (\textbf{\nolinkurl{full_space_fraction_tendsto_half}}, \nolinkurl{hyperbolic_fraction_tendsto_half}, \nolinkurl{full_space_violated_fraction_eventually_gt}, \nolinkurl{elliptic_violated_fraction_eventually_gt}); Propositions 3 and 8 (\textbf{\nolinkurl{proposition3_violated_iff}}, \nolinkurl{proposition3_satisfied_iff}, \textbf{\nolinkurl{proposition8_flat_state_qgt}}); Proposition 10 (\textbf{\nolinkurl{proposition10_two_character_sum}}, \nolinkurl{proposition10_hyperplane_card}); signed-Clifford orbit transport (\textbf{\nolinkurl{clifford_transport_strict_law_fails}}); eigenvalue-multiset Conjecture E (\textbf{\nolinkurl{jonah_conjecture_e_all_nine_cases_spectra}}); Proposition 16\textquotesingle{} SDP-dual tightened Corollary 16 (\textbf{\nolinkurl{corollary16_sigmaB_sdp_lower}}, \nolinkurl{corollary16_sigmaA_witness}, \textbf{\nolinkurl{corollary16_binary_minima_tightened}}) \\
 \end{longtable}
 }
 }
@@ -1809,25 +1874,26 @@ Lean theorem & statement \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\texttt{full\_space\_fraction} & for all \(N \ge 1\): \(\#\text{violated flags} \ge \big(\tfrac12 - \sqrt{2^N+1}/(2^N+2)\big)\,\#\text{flags}\) \\
-\texttt{three\_qubit\_contexts} & every assignment of the 63 observables violates at least 63 contexts \\
-\texttt{four\_qubit\_contexts} & every assignment of the 255 observables violates at least 1451 contexts \\
-\texttt{five\_qubit\_contexts} & every assignment of the 1023 observables violates at least 28786 contexts \\
+\nolinkurl{full_space_fraction} & for all \(N \ge 1\): \(\#\text{violated flags} \ge \big(\tfrac12 - \sqrt{2^N+1}/(2^N+2)\big)\,\#\text{flags}\) \\
+\nolinkurl{three_qubit_contexts} & every assignment of the 63 observables violates at least 63 contexts \\
+\nolinkurl{four_qubit_contexts} & every assignment of the 255 observables violates at least 1451 contexts \\
+\nolinkurl{five_qubit_contexts} & every assignment of the 1023 observables violates at least 28786 contexts \\
 \nolinkurl{four_qubit_hyperbolic_contexts} & every assignment of the 135 real observables violates at least 315 contexts \\
 \nolinkurl{five_qubit_hyperbolic_contexts} & every assignment of the 527 real observables violates at least 6426 contexts \\
 \nolinkurl{hoggar_bound_quaternionic}, \texttt{elliptic\_fraction} & Theorem 2 for every \(N \ge 2\) and elliptic quadric \(Q^-(2N-1,2)\); finite bounds \(d(Q^-(5,2))\ge9\), \(d(Q^-(7,2))\ge291\), \(d(Q^-(9,2))\ge6501\) \\
-\texttt{opA\_sq\_eq}, \texttt{saturation\_tfae}, \texttt{saturation\_mul\_isSquare} & Theorems 3 and 4: exact Pauli expansion of \(A^2\), five-way saturation equivalence for nonempty \(S\), and \((2^N-1)\vert S\vert=\square\) for \(N\ge2\) \\
+\texttt{opA\_sq\_eq}, \texttt{saturation\_tfae}, \nolinkurl{saturation_mul_isSquare} & Theorems 3 and 4: exact Pauli expansion of \(A^2\), five-way saturation equivalence for nonempty \(S\), and \((2^N-1)\vert S\vert=\square\) for \(N\ge2\) \\
 \texttt{pivot\_degree} & for the 135 observables of \(S_B\): every assignment violates at least 75 contexts, and some assignment violates exactly 75 \\
-\texttt{cieslinski5\_degree} & for the 496 observables of \(S_5\): at least 480, and exactly 480 for some assignment \\
+\nolinkurl{cieslinski5_degree} & for the 496 observables of \(S_5\): at least 480, and exactly 480 for some assignment \\
 \texttt{phase5\_degree} & the same statement for the 496 observables in the support of the circuit state \(\Phi_5\) \\
 \texttt{phase7\_degree} & for the 8128 observables in the support of the circuit state \(\Phi_7\): at least 729344, and exactly 729344 for some assignment \\
 \texttt{quadric\_degree}, \texttt{hoggar\_degree} & the same two-sided statements with 315 (four-qubit hyperbolic quadric) and 63 (three qubits) \\
 \texttt{ccz\_degree}, \texttt{lly\_degree} & some assignment of the 28 (respectively 12) observables violates no context \\
-\nolinkurl{c3_strict_law_fails_general} & Theorem 17: cospectral sign carriers with unequal completion spectra in case C3 for every \(N\ge4\) (\texttt{CarrierFamily.lean}) \\
-\texttt{lemma20\_jordan\_action}, \nolinkurl{lemma21_trace_cube_sylvester}, \texttt{lemma21\_trace\_cube\_symm}, \nolinkurl{trace_completion_cube_universal} & Lemmas 20 and 21 and Theorem 22 (universal cubic-trace identity) for arbitrary closed Pauli configurations (\texttt{ConjectureECore.lean}) \\
-\nolinkurl{jonah_conjecture_e_all_nine_cases} & Theorem 19: cospectral sign carriers with unequal completion characteristic polynomials across all nine vertex cases C1, C3, C5, C6, C8, C11, C12, C14, C15 for every \(N\ge4\) (and \(N\ge3\) for C1, C3, C6, C11; \texttt{ConjectureE.lean}) \\
-\nolinkurl{cone_lift_strict_law_fails}, \texttt{corollary18\_c11\_from\_c3} & General cone lift ({[}J3, Lemma D (D2){]}) and Corollary 18 (case C11 from case C3 for every \(N\ge4\); \texttt{ConjectureEExtras.lean}) \\
-\nolinkurl{corollary16_binary_minima_differ} & Corollary 16: for the four-qubit C3 pair, \(\min_y F(\sigma_1,y)\le344\lt347\le\min_y F(\sigma_0,y)\) and \(315\le\min_y F(\sigma_1,y)\) (\texttt{ConjectureEExtras.lean}) \\
+\nolinkurl{c3_strict_law_fails_general} & Theorem 17: cospectral sign carriers with unequal completion spectra in case C3 for every \(N\ge4\) (\nolinkurl{CarrierFamily.lean}) \\
+\nolinkurl{lemma20_jordan_action}, \nolinkurl{lemma21_trace_cube_sylvester}, \nolinkurl{lemma21_trace_cube_symm}, \nolinkurl{trace_completion_cube_universal} & Lemmas 20 and 21 and Theorem 22 (universal cubic-trace identity) for arbitrary closed Pauli configurations (\nolinkurl{ConjectureECore.lean}) \\
+\nolinkurl{jonah_conjecture_e_all_nine_cases}, \nolinkurl{jonah_conjecture_e_all_nine_cases_spectra} & Theorem 19: cospectral sign carriers with identical canonical Hermitian carrier eigenvalue lists and unequal completion characteristic polynomials, eigenvalue lists and real root multisets across all nine vertex cases C1, C3, C5, C6, C8, C11, C12, C14, C15 for every \(N\ge4\) (and \(N\ge3\) for C1, C3, C6, C11; \texttt{ConjectureE.lean}, \nolinkurl{AuditUpgrades.lean}) \\
+\nolinkurl{cone_lift_strict_law_fails}, \nolinkurl{corollary18_c11_from_c3}, \nolinkurl{clifford_transport_strict_law_fails} & General cone lift ({[}J3, Lemma D (D2){]}), Corollary 18 (case C11 from case C3 for every \(N\ge4\)), and signed-Clifford orbit transport of strict-law failure (\nolinkurl{ConjectureEExtras.lean}, \nolinkurl{AuditUpgrades.lean}) \\
+\nolinkurl{corollary16_binary_minima_differ}, \nolinkurl{corollary16_sigmaB_sdp_lower}, \nolinkurl{corollary16_binary_minima_tightened} & Corollary 16 and Proposition 16\textquotesingle: complete two-sided enclosures \(347\le\min_y F(\sigma_0,y)\le368\) and \(330\le\min_y F(\sigma_1,y)\le344\) via Lemma 20 and exact integer \(LDL^{\mathsf T}\) certificates (\nolinkurl{ConjectureEExtras.lean}, \nolinkurl{AuditUpgrades.lean}) \\
+\nolinkurl{full_space_fraction_tendsto_half}, \nolinkurl{proposition3_violated_iff}, \nolinkurl{proposition8_flat_state_qgt}, \nolinkurl{proposition10_two_character_sum} & Asymptotic limit \(d/L\to1/2\) (\texttt{Filter.Tendsto}), Fubini--Study and Berry-curvature criteria of Propositions 3 and 8, and the two-character hyperplane sums of Proposition 10 (\nolinkurl{AuditUpgrades.lean}) \\
 \end{longtable}
 }
 }
@@ -1841,7 +1907,7 @@ it. \texttt{MaskConfig.lean} proves, for every \(N\) and every mask, that the nu
 and the number of flags violated by an assignment that is itself given by a mask are double sums over
 codes of Boolean expressions built from bit tests, exclusive or and addition of natural numbers. The
 kernel evaluates these sums (\texttt{decide\ +kernel}); for five qubits each sum has \(2^{20}\) terms and is
-evaluated in 16 blocks. \texttt{degree\_of\_certificate} then combines three evaluated numbers (observables,
+evaluated in 16 blocks. \nolinkurl{degree_of_certificate} then combines three evaluated numbers (observables,
 flags, flags violated by the witness) with \texttt{hoggar\_bound}. That the masks are the supports and sign
 patterns of the states of Table 1 is checked by the programs of Section 11 in exact arithmetic; it is
 not needed for, and not part of, the Lean statements. For seven qubits the two sums have \(2^{28}\) terms
@@ -1851,19 +1917,20 @@ remainder, and proves for every \(N\) that the result is the row; the kernel the
 \(S_7\) is the theorem \texttt{phase7\_degree}, and \texttt{phase7\_contexts} gives its 2 824 192 contexts.
 
 \textbf{Floor and saturation results outside the formalization.} The state-to-mask identifications of Table 1;
-the quantum-metric and two-character-set propositions (Propositions 3, 4, 6 and 8 to 11); the exhaustive
-enumerations of Theorems 12 and 13, and item 1 and the local numbers of item 2 of Theorem 13; the
-asymptotic limit statement as a theorem about limits (the inequality for each \(N\) is formal); and the
-external computer-assisted exact values of {[}J1{]}. For the classical families beyond three qubits and
-\(Q^+(7,2)\), upper bounds are witnesses checked by the programs of Section 11.
+the probabilistic upper bound, phase-state family and support propositions (Propositions 4, 6, 9 and 11);
+the exhaustive enumerations of Theorems 12 and 13, and item 1 and the local numbers of item 2 of Theorem 13;
+and the external computer-assisted exact values of {[}J1{]}. (Propositions 3, 8 and 10 and the asymptotic
+\texttt{Filter.Tendsto} limit statements of Corollary A are now formalized in \nolinkurl{AuditUpgrades.lean}.) For the
+classical families beyond three qubits and \(Q^+(7,2)\), upper bounds are witnesses checked by the programs of
+Section 11.
 
 \textbf{Independent audit.} A separate set of agent sessions, working concurrently in the same repository
 and without editing our files, re-checked the first six modules from source, confirmed the axiom
-report, and added two modules of its own (\nolinkurl{IndependentContexts.lean}, \texttt{IndependentWitness.lean}). They
+report, and added two modules of its own (\nolinkurl{IndependentContexts.lean}, \nolinkurl{IndependentWitness.lean}). They
 prove that a violated context carries exactly six violated flags (used in \texttt{MaskConfig.lean}) and, by
 kernel evaluation of an integer certificate, that the explicit assignment
 "\(f(a,c) = +1\) if \(a = 0\) or \(c = 0\) or the number of \(Y\) factors is at least 2, and \(-1\) otherwise"
-violates exactly 63 contexts. Their reports are in \texttt{results/lean-audit.md},
+violates exactly 63 contexts. Their reports are in \nolinkurl{results/lean-audit.md},
 \nolinkurl{results/literature-audit.md} and \nolinkurl{results/stack-independent-audit.md}, and their companion note is
 \nolinkurl{paper/independent-research-note.md}. The literature audit is what first pointed us to {[}J1{]}. The
 modules from \texttt{MaskConfig.lean} on, and everything in Section 5, were written after that audit and are
@@ -1922,12 +1989,12 @@ noncomputable def completionMatrix (m : ℕ) (σ : Pt (m + 1) → ℝ) :
 symplectic form, the sign of the context \texttt{\{u,\ v,\ u\ +\ v\}} defined by the product of the three Pauli
 matrices, and the signed sum of Pauli matrices. Lean places the polar point on qubit 0, which is a
 relabelling of the qubits of Section 8.6. The file also proves that the definitions have the intended
-meaning: the polar point lies on the quadric and in the section (\texttt{polar\_mem\_sectionPts}); two distinct
+meaning: the polar point lies on the quadric and in the section (\nolinkurl{polar_mem_sectionPts}); two distinct
 commuting outside points span a context whose third point lies in the section, and only then
-(\texttt{add\_mem\_sectionPts}, \texttt{add\_mem\_sectionPts\_iff}); a commuting section point and outside point span a
-context with a second outside point (\texttt{add\_mem\_outsidePts}); the polar point commutes with no outside
-point (\texttt{symp\_polar\_outside}); \(|O|=k^2\) and \(|H|=1+2|R|=k^2+k-1\) (\texttt{card\_outsidePts}, \texttt{card\_sectionPts},
-\texttt{card\_sectionPts\_add\_one}); the
+(\nolinkurl{add_mem_sectionPts}, \nolinkurl{add_mem_sectionPts_iff}); a commuting section point and outside point span a
+context with a second outside point (\nolinkurl{add_mem_outsidePts}); the polar point commutes with no outside
+point (\nolinkurl{symp_polar_outside}); \(|O|=k^2\) and \(|H|=1+2|R|=k^2+k-1\) (\texttt{card\_outsidePts}, \texttt{card\_sectionPts},
+\nolinkurl{card_sectionPts_add_one}); the
 completion matrix is symmetric (\nolinkurl{completionMatrix_transpose}). The companion statement
 \nolinkurl{c3_all_qubits_completion} gives the difference (E3) in coordinates, and
 \nolinkurl{completionMatrix_liftCarrier} identifies those coordinates with \texttt{completionMatrix}.
@@ -1939,10 +2006,10 @@ definitions with the objects of {[}J3{]}, the fact that equal characteristic pol
 real symmetric matrices mean equal spectra with multiplicities, and the trust base: the Lean kernel,
 Mathlib at the pinned revision and the three standard axioms.
 
-\subsubsection{9.4 Kramers floor, saturation equivalences, Corollaries 16 and 18, and Conjecture E across all nine vertex cases}\label{94-kramers-floor-saturation-equivalences-corollaries-16-and-18-and-conjecture-e-across-all-nine-vertex-cases}
+\subsubsection{9.4 Kramers floor, saturation equivalences, Corollaries 16 and 18, Conjecture E, and version 1.7.0 audit upgrades}\label{94-kramers-floor-saturation-equivalences-corollaries-16-and-18-conjecture-e-and-version-170-audit-upgrades}
 
-Versions 1.5.0 and 1.6.0 add six self-contained Lean 4.35.0 modules (7,686 lines of library source,
-changing no previously audited Lean file) together with the 49-declaration audit entry point
+Versions 1.5.0 through 1.7.0 add seven self-contained Lean 4.35.0 modules (9,728 lines of library source,
+changing no previously audited Lean file) together with the 77-declaration audit entry point
 \nolinkurl{lean/VerifyNewFormalizations.lean}:
 
 \begin{itemize}
@@ -1950,40 +2017,56 @@ changing no previously audited Lean file) together with the 49-declaration audit
 \item
   \texttt{Kramers.lean} (821 lines) proves Kramers degeneracy (\texttt{kramers\_even\_mult}), the quaternionic spectral
   floor (\nolinkurl{hoggar_bound_quaternionic}), the exact point and flag counts of the elliptic quadric
-  \(Q^-(2N-1,2)\) (\texttt{card\_ellipticPoints}, \texttt{card\_flags\_elliptic}), the universal elliptic violated-fraction
+  \(Q^-(2N-1,2)\) (\nolinkurl{card_ellipticPoints}, \nolinkurl{card_flags_elliptic}), the universal elliptic violated-fraction
   bound (\texttt{elliptic\_fraction}), and the three-, four- and five-qubit elliptic bounds 9, 291 and 6501.
 \item
-  \texttt{SaturationTheory.lean} (868 lines) proves the Pauli expansion of \(A^2\) (\texttt{opA\_sq\_eq}), the full
+  \nolinkurl{SaturationTheory.lean} (868 lines) proves the Pauli expansion of \(A^2\) (\texttt{opA\_sq\_eq}), the full
   five-way saturation equivalence (\texttt{saturation\_tfae}) uniting Theorems 3 and 4 for any nonempty
   non-identity support \(S\), and the integrality condition \((2^N-1)|S|=\square\) for \(N\ge2\)
-  (\texttt{saturation\_mul\_isSquare}).
+  (\nolinkurl{saturation_mul_isSquare}).
 \item
-  \texttt{ConjectureECore.lean} (843 lines) proves Lemma 20 (\texttt{lemma20\_jordan\_action}), the general power-trace
-  formula (\texttt{trace\_completion\_pow\_eq}), Theorem 22 (\nolinkurl{trace_completion_cube_universal}), and the cubic
-  trace forms of Lemma 21 (\nolinkurl{lemma21_trace_cube_sylvester}, \texttt{lemma21\_trace\_cube\_symm}).
+  \nolinkurl{ConjectureECore.lean} (843 lines) proves Lemma 20 (\nolinkurl{lemma20_jordan_action}), the general power-trace
+  formula (\nolinkurl{trace_completion_pow_eq}), Theorem 22 (\nolinkurl{trace_completion_cube_universal}), and the cubic
+  trace forms of Lemma 21 (\nolinkurl{lemma21_trace_cube_sylvester}, \nolinkurl{lemma21_trace_cube_symm}).
 \item
-  \texttt{ConjectureECones.lean} (1,144 lines) and \texttt{ConjectureE.lean} (2,333 lines) prove every closed-form
-  outside character sum of Table 8 (\texttt{charSumOut\_C1} through \texttt{charSumOut\_C12\_C15}) and Theorem 19 across
-  all nine vertex cases (\texttt{c1\_strict\_law\_fails} through \texttt{c15\_strict\_law\_fails}, packaged in
+  \nolinkurl{ConjectureECones.lean} (1,144 lines) and \texttt{ConjectureE.lean} (2,333 lines) prove every closed-form
+  outside character sum of Table 8 (\texttt{charSumOut\_C1} through \nolinkurl{charSumOut_C12_C15}) and Theorem 19 across
+  all nine vertex cases (\nolinkurl{c1_strict_law_fails} through \nolinkurl{c15_strict_law_fails}, packaged in
   \nolinkurl{jonah_conjecture_e_all_nine_cases} for every \(N\ge4\), plus \(N\ge3\) for C1, C3, C6 and C11), stated
   directly about \texttt{HoggarBound.pauli}, \texttt{opA}, and \texttt{completionMat}.
 \item
-  \texttt{ConjectureEExtras.lean} (1,677 lines) proves Jonah\textquotesingle s general cone lift ({[}J3, Lemma D (D2){]}:
-  \texttt{cone\_lift\_opA\_reindex}, \nolinkurl{cone_lift_carrier_charpoly}, \nolinkurl{cone_lift_completion_reindex},
+  \nolinkurl{ConjectureEExtras.lean} (1,677 lines) proves Jonah\textquotesingle s general cone lift ({[}J3, Lemma D (D2){]}:
+  \nolinkurl{cone_lift_opA_reindex}, \nolinkurl{cone_lift_carrier_charpoly}, \nolinkurl{cone_lift_completion_reindex},
   \nolinkurl{cone_lift_completion_charpoly}, \nolinkurl{cone_lift_completion_trace_cube}, \nolinkurl{cone_lift_strict_law_fails}),
-  Corollary 18 (\texttt{corollary18\_c11\_from\_c3}), and Corollary 16 (\texttt{c3\_quadForm\_eq},
+  Corollary 18 (\nolinkurl{corollary18_c11_from_c3}), and Corollary 16 (\texttt{c3\_quadForm\_eq},
   \nolinkurl{corollary16_sigmaA_lower}, \nolinkurl{corollary16_sigmaB_lower}, \nolinkurl{corollary16_sigmaB_witness},
   \nolinkurl{corollary16_binary_minima_differ}) via pure-integer fraction-free \(LDL^{\mathsf T}\) positivity
   certificates for \(111I-4C_0\) and \(111I-4C_1\) and kernel evaluation of the 30-label witness.
+\item
+  \nolinkurl{AuditUpgrades.lean} (2,042 lines, added in version 1.7.0) closes six remaining formalization gaps
+  and formalizes Proposition 16\textquotesingle: asymptotic \texttt{Filter.Tendsto} limit theorems
+  (\nolinkurl{floor_deficit_tendsto_zero}, \nolinkurl{full_space_fraction_tendsto_half}, \nolinkurl{hyperbolic_fraction_tendsto_half},
+  \nolinkurl{full_space_violated_fraction_eventually_gt}, \nolinkurl{elliptic_violated_fraction_eventually_gt}); Propositions
+  3 and 8 (\nolinkurl{proposition3_commuting_qgt}, \texttt{anticommuting\_qgt}, \nolinkurl{proposition3_violated_iff},
+  \nolinkurl{proposition3_satisfied_iff}, \nolinkurl{proposition8_flat_state_qgt}); Proposition 10
+  (\nolinkurl{pure_state_pauli_sq_transform}, \nolinkurl{proposition10_two_character_sum}, \nolinkurl{proposition10_hyperplane_card});
+  signed-Clifford / symplectic orbit transport (\nolinkurl{clifford_preserves_symp},
+  \nolinkurl{clifford_transport_comm_product}, \nolinkurl{clifford_transport_opA}, \nolinkurl{clifford_transport_carrier_charpoly},
+  \nolinkurl{clifford_transport_completion_charpoly}, \nolinkurl{clifford_transport_strict_law_fails}); full
+  eigenvalue-multiset Conjecture E across all nine vertex cases (\nolinkurl{completionMat_isHermitian},
+  \nolinkurl{real_hermitian_charpoly_eq_iff_roots_eq}, \nolinkurl{strict_law_fails_to_spectra},
+  \nolinkurl{jonah_conjecture_e_all_nine_cases_spectra}); and Proposition 16\textquotesingle{} tightening Corollary 16 via the exact
+  zero-sum geometric SDP dual (\nolinkurl{c3SdpBlock_pos_def}, \nolinkurl{c3_shift_quad_zero}, \nolinkurl{corollary16_sigmaB_sdp_lower},
+  \nolinkurl{corollary16_sigmaA_witness}, \nolinkurl{corollary16_binary_minima_tightened}).
 \end{itemize}
 
-All 49 declarations in \nolinkurl{lean/VerifyNewFormalizations.lean} depend strictly on
+All 77 declarations in \nolinkurl{lean/VerifyNewFormalizations.lean} depend strictly on
 \texttt{{[}propext,\ Classical.choice,\ Quot.sound{]}}, with zero \texttt{sorry}, \texttt{admit}, \texttt{native\_decide}, \texttt{unsafe},
-\texttt{set\_option}, or custom \texttt{axiom} declarations across all six modules (\nolinkurl{results/new-formalizations-lean-axioms.log}).
-For each of the nine vertex cases, \nolinkurl{jonah_conjecture_e_all_nine_cases} formalizes the fixed canonical
-hyperplane representative \((X,d)\); transporting a pair from that representative to every other
-hyperplane class of the case remains a paper argument using the single-orbit classification of
-{[}J3, Theorem B4{]}.
+\texttt{set\_option}, or custom \texttt{axiom} declarations across all seven modules (\nolinkurl{results/new-formalizations-lean-axioms.log}).
+For each of the nine vertex cases, \nolinkurl{jonah_conjecture_e_all_nine_cases_spectra} formalizes the canonical
+hyperplane representative \((X,d)\) at the eigenvalue-multiset level, and \nolinkurl{clifford_transport_strict_law_fails}
+formalizes the unitary transport to every Clifford image \((g(X), g(d))\); only the single-orbit group
+transitivity classification of {[}J3, Theorem B4{]} remains a cited paper input.
 
 \textbf{Table 10. Boundaries that matter for interpreting the combined result.}
 
@@ -1996,22 +2079,22 @@ Claim & Evidence boundary \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Arbitrary-support spectral floor (Theorem 1), quaternionic/Kramers floor (Theorem 2), and stated finite corollaries & Lean statements about the defined Pauli/context model (\texttt{Bound.lean}, \texttt{Corollaries.lean}, \texttt{Quadric.lean}, \texttt{Kramers.lean}) \\
-Saturation equivalences (Theorems 3 and 4) and \((2^N-1)\vert S\vert=\square\) & Lean theorems for arbitrary nonempty supports (\texttt{SaturationTheory.lean}: \texttt{opA\_sq\_eq}, \texttt{saturation\_tfae}, \texttt{saturation\_mul\_isSquare}) \\
+Arbitrary-support spectral floor (Theorem 1), quaternionic/Kramers floor (Theorem 2), finite bounds, and asymptotic limits \(d/L\to1/2\) & Lean statements about the defined Pauli/context model (\texttt{Bound.lean}, \texttt{Corollaries.lean}, \texttt{Quadric.lean}, \texttt{Kramers.lean}, \nolinkurl{AuditUpgrades.lean}) \\
+Saturation equivalences (Theorems 3 and 4), \((2^N-1)\vert S\vert=\square\), quantum-metric criteria (Propositions 3 and 8), and two-character hyperplane sums (Proposition 10) & Lean theorems for arbitrary nonempty supports and pure states (\nolinkurl{SaturationTheory.lean}, \nolinkurl{AuditUpgrades.lean}) \\
 Degrees 75, 480 and 729344 for the explicit masks & Lean lower bounds, witnesses and kernel-evaluated counts; state-to-mask interpretation checked separately by programs \\
-Quantum-metric propositions (Propositions 3, 8), two-character-set and flat phase-state classification (Propositions 4, 6, 9--11, Theorems 12--13) & Mathematical arguments and executable computations; not Lean theorems \\
+Probabilistic upper bound and flat phase-state enumerations (Propositions 4, 6, 9, 11, Theorems 12--13) & Mathematical arguments and executable computations; not Lean theorems \\
 Four-qubit C3 carrier cospectrality, unequal completion spectra and cube traces (Theorem 14) & Complete 42-declaration Lean audit (\texttt{C3Spectra.lean}), including original Pauli and context-sign bridges \\
-Four-qubit C3 binary completion minima separation (\(\le344\lt347\), Corollary 16) & Lean theorems in \texttt{ConjectureEExtras.lean} (\nolinkurl{corollary16_binary_minima_differ}) via Lemma 20 and exact integer \(LDL^{\mathsf T}\) certificates; printed C3 block/carrier factorizations, largest-eigenvalue gap 2 and spherical gap 32 remain separately checked algebraic/executable results \\
-Case C3 for every \(N\ge4\) (Theorem 17) & Lean theorem \nolinkurl{c3_strict_law_fails_general} (\texttt{CarrierFamily.lean}, 74 audited declarations) and \texttt{c3\_strict\_law\_fails} (\texttt{ConjectureE.lean}, \(N\ge3\)) \\
-General cone lift and case C11 (Corollary 18), Lemmas 20--21, Theorem 22, Table 8, and Conjecture E across all nine vertex cases for every \(N\ge4\) (Theorem 19) & Lean theorems in \texttt{ConjectureECore.lean}, \texttt{ConjectureECones.lean}, \texttt{ConjectureE.lean}, \texttt{ConjectureEExtras.lean} (49 audited declarations in \nolinkurl{VerifyNewFormalizations.lean}, strictly standard axioms) plus exact integer checks up to six qubits; Clifford orbit transport to arbitrary hyperplane classes uses {[}J3, Theorem B4{]} on paper \\
+Four-qubit C3 binary completion minima enclosures (\(330\le\min_y F(\sigma_1,y)\le344\lt347\le\min_y F(\sigma_0,y)\le368\), Corollary 16 \& Proposition 16\textquotesingle) & Lean theorems in \nolinkurl{ConjectureEExtras.lean} and \nolinkurl{AuditUpgrades.lean} via Lemma 20 and exact integer \(LDL^{\mathsf T}\) certificates plus \nolinkurl{scripts/c3_sdp_dual_check.py} (15 checks); printed C3 block/carrier factorizations, largest-eigenvalue gap 2 and spherical gap 32 remain separately checked algebraic/executable results \\
+Case C3 for every \(N\ge4\) (Theorem 17) & Lean theorem \nolinkurl{c3_strict_law_fails_general} (\nolinkurl{CarrierFamily.lean}, 74 audited declarations) and \nolinkurl{c3_strict_law_fails} (\texttt{ConjectureE.lean}, \(N\ge3\)) \\
+General cone lift and case C11 (Corollary 18), Lemmas 20--21, Theorem 22, Table 8, Clifford transport, and eigenvalue-multiset Conjecture E across all nine vertex cases for every \(N\ge4\) (Theorem 19) & Lean theorems in \nolinkurl{ConjectureECore.lean}, \nolinkurl{ConjectureECones.lean}, \texttt{ConjectureE.lean}, \nolinkurl{ConjectureEExtras.lean}, \nolinkurl{AuditUpgrades.lean} (77 audited declarations in \nolinkurl{VerifyNewFormalizations.lean}, strictly standard axioms) plus 136 exact integer checks up to six qubits; single-orbit transitivity across hyperplane classes cites {[}J3, Theorem B4{]} \\
 Physical hardware, compiler correctness, historical priority or external peer review & Not established by these theorem checks \\
 \end{longtable}
 }
 }
 
-The floor, saturation, C3, all-qubit C3, and v1.5.0/v1.6.0 audits have distinct scopes. Every Lean file
-of the earlier audits (\texttt{v0.2.0-c3-certificate}, \texttt{v1.1.1}, \texttt{v1.2.0}, \texttt{v1.3.0}, \texttt{v1.4.0}) remains
-byte-identical to its audited version, and no earlier theorem\textquotesingle s hypotheses or conclusion change.
+The floor, saturation, C3, all-qubit C3, and v1.5.0--v1.7.0 audits have distinct scopes. Every Lean file
+of the earlier audits (\nolinkurl{v0.2.0-c3-certificate}, \texttt{v1.1.1}, \texttt{v1.2.0}, \texttt{v1.3.0}, \texttt{v1.4.0}, \texttt{v1.5.0}, \texttt{v1.6.0})
+remains byte-identical to its audited version, and no earlier theorem\textquotesingle s hypotheses or conclusion change.
 
 Successful CI provides a second recorded execution at commit \texttt{87f08a0}. The
 \href{https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638647}{full verification run}
@@ -2025,17 +2108,17 @@ new proof produced by combining the texts; the auxiliary stability results are n
 
 The subsequent additions have their own recorded runs on clean Ubuntu machines. The
 \href{https://github.com/0thernes/hoggar-bound-lab/actions/runs/42808984960}{seven-qubit run} of the
-saturation workflow, at commit \texttt{b7b0273}, built \texttt{SaturatedPhaseSeven} in 1 minute 26 seconds with a
+saturation workflow, at commit \texttt{b7b0273}, built \nolinkurl{SaturatedPhaseSeven} in 1 minute 26 seconds with a
 maximum resident set of 6 271 660 KiB (6.4 GB) and passed its 13-declaration axiom audit
 (\nolinkurl{results/saturation-seven-ci-audit.json}). It repeats, after a review that made one program check
 able to fail and corrected a comment, the first run
 (\href{https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861}{42791713861}, commit
 \texttt{77a529f}), whose Lean results were the same. The workflow \emph{Case C3 for every number of qubits} checked
-\texttt{CarrierFamily.lean} and enforced the allowlist on its 74 declarations at commits \texttt{5dcea35}
+\nolinkurl{CarrierFamily.lean} and enforced the allowlist on its 74 declarations at commits \texttt{5dcea35}
 (\href{https://github.com/0thernes/hoggar-bound-lab/actions/runs/42797323071}{run}) and \texttt{f294d9d}
 (\href{https://github.com/0thernes/hoggar-bound-lab/actions/runs/42801908151}{run}). The first run also
 repeated the C3 checks of Section 11.3 (\texttt{scripts/cospectral\_family.py\ -\/-six}, the tensor check, the
-cone lifts and the four-qubit search); the second added \texttt{scripts/conjecture\_e.py} for three to five
+cone lifts and the four-qubit search); the second added \nolinkurl{scripts/conjecture_e.py} for three to five
 qubits (81 checks). Version 1.3.0 added the six-qubit step (\texttt{scripts/conjecture\_e.py\ 6}, 36 checks); at
 commit \texttt{6189b62}, whose programs and Lean files are those of that release, the workflow ran every
 step and passed (\href{https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684}{run}; logs in
@@ -2046,10 +2129,15 @@ step and passed (\href{https://github.com/0thernes/hoggar-bound-lab/actions/runs
 floor \& saturation Lean 4 audit} (\nolinkurl{.github/workflows/conjecture-e-all-cases.yml}); at commit \texttt{5d4f489}
 it passed all 37 declarations on clean Ubuntu in 1 minute 56 seconds
 (\href{https://github.com/0thernes/hoggar-bound-lab/actions/runs/44888403135}{run}), alongside green runs of
-the saturation and C3 all-qubits workflows. Version 1.6.0 extends that workflow to build
-\texttt{ConjectureEExtras.lean}, enforce the standard axiom allowlist across all 49 declarations of
-\nolinkurl{VerifyNewFormalizations.lean}, and execute \nolinkurl{scripts/conjecture_e_trace_formula.py} (97 checks); its
-release CI receipts are recorded in \texttt{publication/STATUS.md} and \nolinkurl{results/publication-v1.6.0-distribution.json}.
+the saturation and C3 all-qubits workflows. Version 1.6.0 extended that workflow to build \nolinkurl{ConjectureEExtras.lean}, enforce the standard axiom
+allowlist across 49 declarations of \nolinkurl{VerifyNewFormalizations.lean}, and execute
+\nolinkurl{scripts/conjecture_e_trace_formula.py} (97 checks), passing on clean Ubuntu
+(\href{https://github.com/0thernes/hoggar-bound-lab/actions/runs/44920343997}{run}; receipts in
+\nolinkurl{results/publication-v1.6.0-distribution.json}). Version 1.7.0 extends the same workflow to build
+\nolinkurl{AuditUpgrades.lean}, enforce the standard axiom allowlist across all 77 declarations of
+\nolinkurl{VerifyNewFormalizations.lean}, execute \nolinkurl{scripts/conjecture_e_trace_formula.py} for three to five qubits
+(97 checks) and six qubits (39 checks), and execute \nolinkurl{scripts/c3_sdp_dual_check.py} (15 checks); its
+release CI receipts are recorded in \nolinkurl{publication/STATUS.md} and \nolinkurl{results/publication-v1.7.0-distribution.json}.
 
 \subsection{10. A running example on the Tsotchke stack}\label{10-a-running-example-on-the-tsotchke-stack}
 
@@ -2182,7 +2270,7 @@ supports they return the three values of Proposition 8 to \(10^{-16}\); the pair
 recover the 75 violated contexts of \(S_B\) (225 pairs of 9045), the 480 of \(S_5\) and of the support of
 \(\Phi_5\) (1440 pairs of 122760), and the 729 344 of \(S_7\) (2 188 032 pairs of 33 028 128), and no others.
 
-\textbf{Eshkol} (\texttt{src/eshkol/hoggar.esk}, \nolinkurl{src/eshkol/saturated.esk}). An exhaustive pass over all \(2^{15}\)
+\textbf{Eshkol} (\nolinkurl{src/eshkol/hoggar.esk}, \nolinkurl{src/eshkol/saturated.esk}). An exhaustive pass over all \(2^{15}\)
 two-qubit assignments gives minimum 3, attained 640 times. The Hoggar signs violate 63 contexts.
 Reverse-mode automatic differentiation of the cubic form at the Hoggar Pauli vector \(x^\ast\) gives
 \(T(x^\ast) = 7 = (D-1)(D-2)/6\) and \(\nabla T(x^\ast) = 3x^\ast\) to \(7\times10^{-16}\) (the Lagrange condition
@@ -2213,7 +2301,7 @@ measurements reproduce every context sign in every state. (P7) For a flat state,
 Theorem 4 holds. A counterexample to P1 would provide a finite assignment whose violation count can
 be recomputed independently from the context definitions.
 
-\textbf{Tests} (\texttt{scripts/run\_all.sh}).
+\textbf{Tests} (\nolinkurl{scripts/run_all.sh}).
 
 \begin{itemize}
 \tightlist
@@ -2221,7 +2309,7 @@ be recomputed independently from the context definitions.
   \texttt{hoggar\ exhaust2}: all 32768 two-qubit assignments; minimum 3 (640 assignments); for the square,
   minimum 1.
 \item
-  \texttt{scripts/run\_falsify.sh}: 20 runs over \(N = 2, \dots, 5\) and the three families; 20000, 5000 and 500
+  \nolinkurl{scripts/run_falsify.sh}: 20 runs over \(N = 2, \dots, 5\) and the three families; 20000, 5000 and 500
   uniformly random assignments and 1500, 200 and 12 annealed ones per configuration for
   \(N = 3, 4, 5\). No assignment below the floor. Minima reached by annealing: 63, 21, 9 (\(N=3\));
   1575, 315, 315 (\(N=4\)); 31479, 6975, 7087 (\(N=5\)). These equal the best known values in every case.
@@ -2229,7 +2317,7 @@ be recomputed independently from the context definitions.
   A negative control: the false claim \(d(W(5,2)) \ge 64\) is refuted by the Hoggar witness with exit
   code 3, showing that the harness can fail.
 \item
-  \texttt{scripts/flat\_states.py} (68 checks, integer arithmetic in \(\mathbb{Z}[i]\) except one labelled check):
+  \nolinkurl{scripts/flat_states.py} (68 checks, integer arithmetic in \(\mathbb{Z}[i]\) except one labelled check):
   for the six states of Table 1, the single modulus, the support, the number of contexts, the number
   violated, the floor, condition (d) at every point and the vanishing of every outside sum; the statements
   of Theorem 5 about \(S_B\); Proposition 6 on all 4096 phase patterns; Proposition 9 for one to four
@@ -2239,16 +2327,16 @@ be recomputed independently from the context definitions.
   \texttt{build/third\_level} (seven seconds): the enumeration of Theorem 12, all 33 554 431 forms for five
   qubits included, with the orbit computation; it fails if any count differs from the table.
 \item
-  \texttt{scripts/phase\_states.py} (81 checks, integer arithmetic): for \(CS|{+}{+}\rangle\), \(CCZ|{+}{+}{+}\rangle\),
+  \nolinkurl{scripts/phase_states.py} (81 checks, integer arithmetic): for \(CS|{+}{+}\rangle\), \(CCZ|{+}{+}{+}\rangle\),
   \(CS\,CS|{+}{+}{+}\rangle\), \(\Phi_5\) and \(\Phi_7\), the constant rank, the single modulus, the support, the
   numbers of contexts and violated contexts, condition (d) and the outside sums, and the description of
   the support in Proposition 11; Proposition 10 for all eleven states of this paper; the enumeration of
   Theorem 12 for \(N \le 4\) by a second implementation; the two symplectic maps of Theorem 12; and the
   finite-field descriptions of the five- and seven-qubit forms.
 \item
-  \texttt{scripts/run\_family7.sh} (about eight core-hours, not part of the everyday run): the enumeration of
+  \nolinkurl{scripts/run_family7.sh} (about eight core-hours, not part of the everyday run): the enumeration of
   Theorem 13, the orbit computation, and the random census of the other types; its output is
-  \texttt{results/family7.log}. The two counts agree: 13 271 040 solutions found, and
+  \nolinkurl{results/family7.log}. The two counts agree: 13 271 040 solutions found, and
   \(92\,897\,280/7 = 13\,271\,040\) for one orbit with a stabilizer of order 7.
 \item
   The seven-qubit numbers 8128, 2 824 192 and 729 344 are computed three times without shared code: in
@@ -2257,7 +2345,7 @@ be recomputed independently from the context definitions.
   checks), with the evaluation that the kernel carries out, compared with the direct double loop and
   with two negative controls.
 \item
-  \texttt{scripts/analysis.py} (62 checks) and \texttt{scripts/ladder.py} (14 checks): P3 on random data to machine
+  \nolinkurl{scripts/analysis.py} (62 checks) and \texttt{scripts/ladder.py} (14 checks): P3 on random data to machine
   precision; P4 on all 120 four-qubit elliptic quadrics; P5; the geometry of the violated sets; closed-form
   counts against enumeration; agreement of the C and Python integer bounds.
 \item
@@ -2265,8 +2353,8 @@ be recomputed independently from the context definitions.
 \end{itemize}
 
 \textbf{Independent implementations.} The geometry, the context signs and the counts are implemented five
-times: C (\texttt{src/hoggar.c}), Python with explicit matrices or exact integers (\texttt{scripts/analysis.py},
-\texttt{scripts/flat\_states.py}), JavaScript (\nolinkurl{src/moonlab_experiment.mjs}, \nolinkurl{src/moonlab_saturated.mjs}),
+times: C (\texttt{src/hoggar.c}), Python with explicit matrices or exact integers (\nolinkurl{scripts/analysis.py},
+\nolinkurl{scripts/flat_states.py}), JavaScript (\nolinkurl{src/moonlab_experiment.mjs}, \nolinkurl{src/moonlab_saturated.mjs}),
 Eshkol, and the Lean model, in which the signs are theorems about matrix products. Their overlapping
 checks agree on the counts recorded for those tests. This does not mean that each implementation
 checks every result: in particular, the C3 checks use the separate programs described next.
@@ -2325,7 +2413,7 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   \nolinkurl{scripts/cospectral_family_cone_lift.py} (21 checks) builds the C11 configurations with 4, 5 and 6
   qubits from the definitions, without the lifting lemma, and checks the lifted pairs of Table 5.
 \item
-  \texttt{scripts/conjecture\_e.py} (81 checks; with the argument \texttt{6} a further 36 checks at six qubits, record
+  \nolinkurl{scripts/conjecture_e.py} (81 checks; with the argument \texttt{6} a further 36 checks at six qubits, record
   \nolinkurl{results/conjecture_e_n6.json}) builds every vertex case at four and five qubits, and at three
   qubits for C1, C3, C6 and C11, from the definitions of {[}J3{]}: the type of the quadric and of \(e\) and \(d\)
   as in {[}J3, Table 1{]}, the vertex set of the section, the outside lines and their signs (checked against
@@ -2350,22 +2438,31 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   equal to the first, must fail. The record is
   \nolinkurl{results/conjecture_e_lemmas.json}.
 \item
-  \nolinkurl{scripts/conjecture_e_trace_formula.py} (97 checks, record \nolinkurl{results/conjecture_e_trace_formula.json})
+  \nolinkurl{scripts/conjecture_e_trace_formula.py} (97 checks, record \nolinkurl{results/conjecture_e_trace_formula.json};
+  with the argument \texttt{6} a further 39 checks at six qubits, record \nolinkurl{results/conjecture_e_trace_formula_n6.json})
   checks Theorem 22 (equation E13) in exact integer arithmetic across all nine vertex cases for three to
-  five qubits on every pair of Table 6 and on three random sign carriers per case, checks every closed
-  form of Table 8 on the complete section, checks the six central pair-swap moments
-  \(\operatorname{tr}(A^2P_v)\) (\(v\in\{e,d,e+d\}\)) and the resulting difference \(-3K(|H|-3)\) for C6,
-  C11 and C14, and enforces three negative controls (wrong coefficient, perturbed \(S_O(e)\) and dropped
-  outside point).
+  six qubits on every pair of Table 6 and on random sign carriers, checks every closed form of Table 8 on
+  the complete section, checks the six central pair-swap moments \(\operatorname{tr}(A^2P_v)\)
+  (\(v\in\{e,d,e+d\}\)) and the resulting difference \(-3K(|H|-3)\) for C6, C11 and C14, and enforces three
+  negative controls (wrong coefficient, perturbed \(S_O(e)\) and dropped outside point).
+\item
+  \nolinkurl{scripts/c3_sdp_dual_check.py} (15 checks, record \nolinkurl{results/c3_sdp_dual_check.json}) verifies
+  Proposition 16\textquotesingle{} in exact integer and SymPy arithmetic: uniform top-eigenspace diagonal \(P_{ii}=1/8\) for
+  \(\sigma_0\), four-orbit geometric shift \(d_{16}(p\bmod4)\in\{-40,+8,+8,+24\}\) for \(\sigma_1\), exact
+  SymPy characteristic-polynomial identity \(\chi_{M_{64}}(t)=\prod_{k=0}^3\chi_{B_k}(t)^2\), all four
+  fraction-free integer \(LDL^{\mathsf T}\) factorizations and positive Sylvester minors, both binary
+  witnesses (368 and 344), and three negative controls (including failure of positive definiteness at
+  threshold \(230/16\)).
 \item
   \texttt{scripts/c3\_sparse\_search.py\ 3\ 3} is the exhaustive four-qubit search of Remark (d); \texttt{3\ 4} is the
   five-qubit search, about fifteen minutes.
 \end{itemize}
 
-All seven are stages of \texttt{scripts/run\_all.sh}; the first six and the sparse search are steps of \emph{Case C3
-for every number of qubits}, and \nolinkurl{scripts/conjecture_e_trace_formula.py} is a step of \emph{Conjecture E (all
-9 cases), Kramers floor \& saturation Lean 4 audit}, each requiring regenerated JSON records to equal the
-committed ones. No floating point enters a comparison of characteristic polynomials.
+All eight are stages of \nolinkurl{scripts/run_all.sh}; the first six and the sparse search are steps of \emph{Case C3
+for every number of qubits}, and \nolinkurl{scripts/conjecture_e_trace_formula.py} (both \(n=3\text{–}5\) and \(n=6\))
+and \nolinkurl{scripts/c3_sdp_dual_check.py} are steps of \emph{Conjecture E (all 9 cases), Kramers floor \& saturation
+Lean 4 audit}, each requiring regenerated JSON records to equal the committed ones. No floating point
+enters a comparison of characteristic polynomials.
 
 \subsection{12. Limitations and open problems}\label{12-limitations-and-open-problems}
 
@@ -2400,22 +2497,25 @@ committed ones. No floating point enters a comparison of characteristic polynomi
   \(d(Q^+(7,2))=315\), which has the Lean proofs described above. A formal proof of \(d(W(7,2))=1575\) would be a
   natural next target; our Lean development gives the lower bound 1451 only.
 \item
-  The quaternionic floor (Theorem 2), saturation equivalences (Theorems 3 and 4), Corollary 16,
-  Corollary 18, Lemmas 20 and 21, Theorem 22 and Theorem 19 across all nine vertex cases for every
-  \(N\ge4\) are now formalized in Lean 4 (Section 9.4). Remaining formalization boundaries include the
-  state-to-mask identifications of Table 1, Propositions 3, 4, 6 and 8 to 11, the enumerations of
-  Theorems 12 and 13, and Clifford orbit transport from the canonical hyperplane representative of each
-  vertex case to every hyperplane class of that case (which remains a paper argument using {[}J3,
-  Theorem B4{]}).
+  The quaternionic floor (Theorem 2), saturation equivalences (Theorems 3 and 4), Propositions 3, 8 and
+  10, the asymptotic limit \(d/L\to1/2\), Corollary 16 and Proposition 16\textquotesingle, Corollary 18, Lemmas 20 and 21,
+  Theorem 22, signed-Clifford orbit transport, and eigenvalue-multiset Theorem 19 across all nine vertex
+  cases for every \(N\ge4\) are now formalized in Lean 4 (Section 9.4). Remaining formalization boundaries
+  include the state-to-mask identifications of Table 1, Propositions 4, 6, 9 and 11, the enumerations of
+  Theorems 12 and 13, and the single-orbit group-transitivity classification of {[}J3, Theorem B4{]} linking
+  arbitrary hyperplane classes to each canonical representative.
 \item
   Conjecture E is settled and machine-checked for explicit sign-carrier families in all nine vertex
   cases, but sign carriers in general are not classified, completion optima for the \(N\ge5\) families are
   not studied, and no external referee has reviewed the proofs.
 \item
-  For the four-qubit pair the exact binary completion minima are separated in Lean (\(\le344\lt347\),
-  Corollary 16) but still only enclosed, in \([347,368]\) and \([315,344]\); the upper ends come from a
-  heuristic search. The completion results do not invalidate the spectral floor or revise the
-  contextuality degrees.
+  For the four-qubit pair the exact binary completion minima are separated and enclosed in Lean
+  (\(330\le\min_y F(\sigma_1,y)\le344\lt347\le\min_y F(\sigma_0,y)\le368\), Corollary 16 and Proposition 16\textquotesingle),
+  tightening the lower bound for \(\sigma_1\) by \(+15\) to the exact ceiling of the 64-variable elliptope
+  SDP dual; the upper ends 368 and 344 are kernel-checked binary witnesses found by heuristic search, not
+  yet proved optima (exact branch-and-bound / Sum-of-Squares resolution of the remaining 21- and 14-integer
+  gaps is open). The completion results do not invalidate the spectral floor or revise the contextuality
+  degrees.
 \item
   The literature comparison is bounded and qualitative. An exact finite certificate proves its
   stated mathematical conclusion, not that no earlier author knew it or that a venue will accept it.
@@ -2468,16 +2568,25 @@ dependence on {[}J3{]}), each finding by one or two adversarial verifiers. No ma
 found; the 13 confirmed findings, on notation, on credit to {[}J3{]} and on the passage from one
 hyperplane class to all, are corrected (\nolinkurl{results/review-lemmas-20-21/}).
 
-Versions 1.5.0 and 1.6.0 (21 November 2026) were produced under Alexander S. Donahue\textquotesingle s direction and
+Versions 1.5.0 through 1.7.0 (21 November 2026) were produced under Alexander S. Donahue\textquotesingle s direction and
 explicit autonomous-approval directive by Google Gemini / Antigravity agents working on top of the
 existing repository and integrating the exact cubic-trace check (\nolinkurl{scripts/conjecture_e_trace_formula.py},
-prepared in the Claude line of work). Version 1.5.0 added \texttt{Kramers.lean}, \texttt{SaturationTheory.lean},
-\texttt{ConjectureECore.lean}, \texttt{ConjectureECones.lean}, \texttt{ConjectureE.lean}, the initial 37-declaration
+prepared in the Claude line of work). Version 1.5.0 added \texttt{Kramers.lean}, \nolinkurl{SaturationTheory.lean},
+\nolinkurl{ConjectureECore.lean}, \nolinkurl{ConjectureECones.lean}, \texttt{ConjectureE.lean}, the initial 37-declaration
 \nolinkurl{VerifyNewFormalizations.lean}, and the CI workflow \nolinkurl{.github/workflows/conjecture-e-all-cases.yml}.
-Version 1.6.0 added \texttt{ConjectureEExtras.lean} (Corollaries 16 and 18), expanded
+Version 1.6.0 added \nolinkurl{ConjectureEExtras.lean} (Corollaries 16 and 18), expanded
 \nolinkurl{VerifyNewFormalizations.lean} to 49 audited declarations, added Theorem 22 and Table 8 together with
 \nolinkurl{scripts/conjecture_e_trace_formula.py} (97 exact checks) to the paper, CI and release audits, and
-rebuilt all publication outputs without modifying any previously audited Lean module.
+rebuilt all publication outputs. Version 1.7.0 followed a multi-layer repository, mathematical, software
+and typesetting audit: it added \nolinkurl{AuditUpgrades.lean} (expanding \nolinkurl{VerifyNewFormalizations.lean} to 77
+audited declarations: asymptotic \texttt{Filter.Tendsto} limits, Propositions 3, 8 and 10, signed-Clifford orbit
+transport, eigenvalue-multiset Conjecture E across all nine vertex cases, and Proposition 16\textquotesingle{} tightening
+Corollary 16\textquotesingle s lower bound for \(\sigma_1\) from 315 to 330 via an exact zero-sum QUBO SDP dual), extended
+\nolinkurl{scripts/conjecture_e_trace_formula.py} to six qubits (39 additional checks, 136 total), added
+\nolinkurl{scripts/c3_sdp_dual_check.py} (15 exact checks), repaired Python script warnings and broken dependencies
+(\nolinkurl{check_github_math.py}, \nolinkurl{fix_github_math.py}, \texttt{analysis.py}, \texttt{ladder.py}), eliminated wide TeX equation
+and URL overflows in the unified PDF build, and synchronized all documentation and legal disclosures
+without modifying any previously audited Lean module.
 
 \textbf{AI disclosure statement.} Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity were
 used for substantive research, software, formalization and writing, not merely language correction. The
@@ -2580,15 +2689,15 @@ lake env lean SaturatedSevenVerification.lean
 # case C3 for every number of qubits from four on (Theorem 17)
 lake build HoggarBound.Bound HoggarBound.Quadric
 lake env lean HoggarBound/CarrierFamily.lean
-# Theorem 2 (Kramers), Theorems 3-4 (Saturation), Lemmas 20-21, Theorem 22, Theorem 19 (all 9 cases), Corollaries 16 & 18
-lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras
+# Theorem 2 (Kramers), Theorems 3-4 (Saturation), Lemmas 20-21, Theorem 22, Theorem 19 (all 9 cases), Corollaries 16 & 18, Prop 16' & AuditUpgrades (77 axioms)
+lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades
 lake env lean VerifyNewFormalizations.lean
 # the seven-qubit enumeration of Theorem 13 (about eight core-hours)
 cd .. && bash scripts/run_family7.sh
 \end{verbatim}
 
-The completion minima, the seven-qubit evaluation, the carrier families, the nine vertex cases and the
-universal cubic-trace identity, from the repository root:
+The completion minima, the seven-qubit evaluation, the carrier families, the nine vertex cases, the
+universal cubic-trace identity and the C3 QUBO SDP dual, from the repository root:
 
 \begin{verbatim}
 python scripts/cospectral_pair.py
@@ -2601,11 +2710,14 @@ python scripts/conjecture_e.py 6
 python scripts/conjecture_e_lemmas.py
 python scripts/conjecture_e_lemmas.py 6
 python scripts/conjecture_e_trace_formula.py
+python scripts/conjecture_e_trace_formula.py 6
+python scripts/c3_sdp_dual_check.py
 python scripts/c3_sparse_search.py 3 3
 \end{verbatim}
 
 Their last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21}, \texttt{81\ of\ 81},
-\texttt{36\ of\ 36}, \texttt{115\ of\ 115}, \texttt{46\ of\ 46} and \texttt{97\ of\ 97\ checks\ passed}; the search prints its class counts. NumPy is required.
+\texttt{36\ of\ 36}, \texttt{115\ of\ 115}, \texttt{46\ of\ 46}, \texttt{97\ of\ 97}, \texttt{39\ of\ 39} and \texttt{15\ of\ 15\ checks\ passed}; the search
+prints its class counts. NumPy is required (and SymPy for \nolinkurl{c3_sdp_dual_check.py}).
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 
@@ -2641,7 +2753,7 @@ distinguish local Windows line endings from Git-normalized text.
 
 \subsection{Appendix B. Witness assignments}\label{appendix-b-witness-assignments}
 
-\texttt{data/witness/nN\_t.txt} holds, for \(N\) qubits and family \(t\) (\texttt{f} full, \texttt{h} hyperbolic, \texttt{e} elliptic), one
+\nolinkurl{data/witness/nN_t.txt} holds, for \(N\) qubits and family \(t\) (\texttt{f} full, \texttt{h} hyperbolic, \texttt{e} elliptic), one
 header line and a hexadecimal mask whose bit \(v\) is set when \(f(v) = -1\), with \(v = a + 2^N c\). The
 three-qubit Hoggar witness produced by the Moonlab run is
 
@@ -2652,7 +2764,7 @@ three-qubit Hoggar witness produced by the Moonlab run is
 
 \texttt{build/hoggar\ verify\ N\ t\ file} recounts any witness from the definitions.
 
-\texttt{data/flat/nN\_name.txt} holds the configurations of Table 1: a header line with \(N\), the numbers of
+\nolinkurl{data/flat/nN_name.txt} holds the configurations of Table 1: a header line with \(N\), the numbers of
 observables and contexts and the degree; the mask of the configuration; and the mask of the optimal
 assignment. For the pivot configuration:
 
@@ -2685,7 +2797,7 @@ The best completion found for \(\sigma_0\), 368 violated outside lines (500 in a
 8 12 13 14 24 26 28 30 40 41 44 45 56 59 60 63 90 93 105 110 123 125 126 153 155 157 159 170 171 174 175 189 190 217 219 234 235 255
 \end{verbatim}
 
-The record is \nolinkurl{results/cospectral_pair.json} (\texttt{completion\_witnesses}). The carriers of Sections 8.6 and
+The record is \nolinkurl{results/cospectral_pair.json} (\nolinkurl{completion_witnesses}). The carriers of Sections 8.6 and
 8.7 are defined by formulas; their complete sign tables, graphs and characteristic polynomials are in
 \nolinkurl{results/cospectral_family.json}, \nolinkurl{results/cospectral_family_cone_lift.json},
 \nolinkurl{results/conjecture_e.json}, \nolinkurl{results/conjecture_e_n6.json}, \nolinkurl{results/conjecture_e_lemmas.json} and

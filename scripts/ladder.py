@@ -130,6 +130,7 @@ check("N=5: d(Q-(9,2)) >= 6501 and d(W(9,2)) >= max(28786, ceil(496*6501/112)) =
 out["N5"] = dict(sub_spaces=len(Js), sub_spaces_per_context=112, d_hyperbolic_direct=d_hyp5_direct, d_hyperbolic_averaged=d_hyp5_avg,
                  elliptic_quadrics=len(ells5), d_elliptic_lower=d_ell5, d_full_direct=d_full5_direct, d_full_averaged=d_full5_avg)
 out["failures"] = failures
-json.dump(out, open(os.path.join(ROOT, "results", "ladder.json"), "w"), indent=1)
+with open(os.path.join(ROOT, "results", "ladder.json"), "w", encoding="utf-8", newline="\n") as _out_fh:
+    json.dump(out, _out_fh, indent=1)
 print("LADDER-PASS" if not failures else "LADDER-FAIL")
 sys.exit(1 if failures else 0)

@@ -24,6 +24,8 @@
 \makeatother
 \setkeys{Gin}{width=\maxwidth,keepaspectratio}
 
+\setlength{\tabcolsep}{2.5pt}
+\setlength{\emergencystretch}{1.5em}
 \hypersetup{pdftitle={Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah\textquotesingle s Conjecture E},pdfauthor={Alexander S. Donahue; 0thernes LLC}}
 
 
@@ -37,10 +39,10 @@
 
 \maketitle
 
-Hoggar Bound Lab, version 1.6.0, 21 November 2026. Research preprint. Not peer reviewed.
+Hoggar Bound Lab, version 1.7.0, 21 November 2026. Research preprint. Not peer reviewed.
 Research and manuscript preparation used Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity agents under the author\textquotesingle s direction; see Section 13.
 
-This journal-format document is derived from the complete paper, version 1.6.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
+This journal-format document is derived from the complete paper, version 1.7.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
 
 \subsection{10. A running example on the Tsotchke stack}\label{10-a-running-example-on-the-tsotchke-stack}
 
@@ -173,7 +175,7 @@ supports they return the three values of Proposition 8 to \(10^{-16}\); the pair
 recover the 75 violated contexts of \(S_B\) (225 pairs of 9045), the 480 of \(S_5\) and of the support of
 \(\Phi_5\) (1440 pairs of 122760), and the 729 344 of \(S_7\) (2 188 032 pairs of 33 028 128), and no others.
 
-\textbf{Eshkol} (\texttt{src/eshkol/hoggar.esk}, \nolinkurl{src/eshkol/saturated.esk}). An exhaustive pass over all \(2^{15}\)
+\textbf{Eshkol} (\nolinkurl{src/eshkol/hoggar.esk}, \nolinkurl{src/eshkol/saturated.esk}). An exhaustive pass over all \(2^{15}\)
 two-qubit assignments gives minimum 3, attained 640 times. The Hoggar signs violate 63 contexts.
 Reverse-mode automatic differentiation of the cubic form at the Hoggar Pauli vector \(x^\ast\) gives
 \(T(x^\ast) = 7 = (D-1)(D-2)/6\) and \(\nabla T(x^\ast) = 3x^\ast\) to \(7\times10^{-16}\) (the Lagrange condition
@@ -204,7 +206,7 @@ measurements reproduce every context sign in every state. (P7) For a flat state,
 Theorem 4 holds. A counterexample to P1 would provide a finite assignment whose violation count can
 be recomputed independently from the context definitions.
 
-\textbf{Tests} (\texttt{scripts/run\_all.sh}).
+\textbf{Tests} (\nolinkurl{scripts/run_all.sh}).
 
 \begin{itemize}
 \tightlist
@@ -212,7 +214,7 @@ be recomputed independently from the context definitions.
   \texttt{hoggar\ exhaust2}: all 32768 two-qubit assignments; minimum 3 (640 assignments); for the square,
   minimum 1.
 \item
-  \texttt{scripts/run\_falsify.sh}: 20 runs over \(N = 2, \dots, 5\) and the three families; 20000, 5000 and 500
+  \nolinkurl{scripts/run_falsify.sh}: 20 runs over \(N = 2, \dots, 5\) and the three families; 20000, 5000 and 500
   uniformly random assignments and 1500, 200 and 12 annealed ones per configuration for
   \(N = 3, 4, 5\). No assignment below the floor. Minima reached by annealing: 63, 21, 9 (\(N=3\));
   1575, 315, 315 (\(N=4\)); 31479, 6975, 7087 (\(N=5\)). These equal the best known values in every case.
@@ -220,7 +222,7 @@ be recomputed independently from the context definitions.
   A negative control: the false claim \(d(W(5,2)) \ge 64\) is refuted by the Hoggar witness with exit
   code 3, showing that the harness can fail.
 \item
-  \texttt{scripts/flat\_states.py} (68 checks, integer arithmetic in \(\mathbb{Z}[i]\) except one labelled check):
+  \nolinkurl{scripts/flat_states.py} (68 checks, integer arithmetic in \(\mathbb{Z}[i]\) except one labelled check):
   for the six states of Table 1, the single modulus, the support, the number of contexts, the number
   violated, the floor, condition (d) at every point and the vanishing of every outside sum; the statements
   of Theorem 5 about \(S_B\); Proposition 6 on all 4096 phase patterns; Proposition 9 for one to four
@@ -230,16 +232,16 @@ be recomputed independently from the context definitions.
   \texttt{build/third\_level} (seven seconds): the enumeration of Theorem 12, all 33 554 431 forms for five
   qubits included, with the orbit computation; it fails if any count differs from the table.
 \item
-  \texttt{scripts/phase\_states.py} (81 checks, integer arithmetic): for \(CS|{+}{+}\rangle\), \(CCZ|{+}{+}{+}\rangle\),
+  \nolinkurl{scripts/phase_states.py} (81 checks, integer arithmetic): for \(CS|{+}{+}\rangle\), \(CCZ|{+}{+}{+}\rangle\),
   \(CS\,CS|{+}{+}{+}\rangle\), \(\Phi_5\) and \(\Phi_7\), the constant rank, the single modulus, the support, the
   numbers of contexts and violated contexts, condition (d) and the outside sums, and the description of
   the support in Proposition 11; Proposition 10 for all eleven states of this paper; the enumeration of
   Theorem 12 for \(N \le 4\) by a second implementation; the two symplectic maps of Theorem 12; and the
   finite-field descriptions of the five- and seven-qubit forms.
 \item
-  \texttt{scripts/run\_family7.sh} (about eight core-hours, not part of the everyday run): the enumeration of
+  \nolinkurl{scripts/run_family7.sh} (about eight core-hours, not part of the everyday run): the enumeration of
   Theorem 13, the orbit computation, and the random census of the other types; its output is
-  \texttt{results/family7.log}. The two counts agree: 13 271 040 solutions found, and
+  \nolinkurl{results/family7.log}. The two counts agree: 13 271 040 solutions found, and
   \(92\,897\,280/7 = 13\,271\,040\) for one orbit with a stabilizer of order 7.
 \item
   The seven-qubit numbers 8128, 2 824 192 and 729 344 are computed three times without shared code: in
@@ -248,7 +250,7 @@ be recomputed independently from the context definitions.
   checks), with the evaluation that the kernel carries out, compared with the direct double loop and
   with two negative controls.
 \item
-  \texttt{scripts/analysis.py} (62 checks) and \texttt{scripts/ladder.py} (14 checks): P3 on random data to machine
+  \nolinkurl{scripts/analysis.py} (62 checks) and \texttt{scripts/ladder.py} (14 checks): P3 on random data to machine
   precision; P4 on all 120 four-qubit elliptic quadrics; P5; the geometry of the violated sets; closed-form
   counts against enumeration; agreement of the C and Python integer bounds.
 \item
@@ -256,8 +258,8 @@ be recomputed independently from the context definitions.
 \end{itemize}
 
 \textbf{Independent implementations.} The geometry, the context signs and the counts are implemented five
-times: C (\texttt{src/hoggar.c}), Python with explicit matrices or exact integers (\texttt{scripts/analysis.py},
-\texttt{scripts/flat\_states.py}), JavaScript (\nolinkurl{src/moonlab_experiment.mjs}, \nolinkurl{src/moonlab_saturated.mjs}),
+times: C (\texttt{src/hoggar.c}), Python with explicit matrices or exact integers (\nolinkurl{scripts/analysis.py},
+\nolinkurl{scripts/flat_states.py}), JavaScript (\nolinkurl{src/moonlab_experiment.mjs}, \nolinkurl{src/moonlab_saturated.mjs}),
 Eshkol, and the Lean model, in which the signs are theorems about matrix products. Their overlapping
 checks agree on the counts recorded for those tests. This does not mean that each implementation
 checks every result: in particular, the C3 checks use the separate programs described next.
@@ -316,7 +318,7 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   \nolinkurl{scripts/cospectral_family_cone_lift.py} (21 checks) builds the C11 configurations with 4, 5 and 6
   qubits from the definitions, without the lifting lemma, and checks the lifted pairs of Table 5.
 \item
-  \texttt{scripts/conjecture\_e.py} (81 checks; with the argument \texttt{6} a further 36 checks at six qubits, record
+  \nolinkurl{scripts/conjecture_e.py} (81 checks; with the argument \texttt{6} a further 36 checks at six qubits, record
   \nolinkurl{results/conjecture_e_n6.json}) builds every vertex case at four and five qubits, and at three
   qubits for C1, C3, C6 and C11, from the definitions of {[}J3{]}: the type of the quadric and of \(e\) and \(d\)
   as in {[}J3, Table 1{]}, the vertex set of the section, the outside lines and their signs (checked against
@@ -341,22 +343,31 @@ completion polynomials, the enclosure of \(\rho\) and the two witnesses of Corol
   equal to the first, must fail. The record is
   \nolinkurl{results/conjecture_e_lemmas.json}.
 \item
-  \nolinkurl{scripts/conjecture_e_trace_formula.py} (97 checks, record \nolinkurl{results/conjecture_e_trace_formula.json})
+  \nolinkurl{scripts/conjecture_e_trace_formula.py} (97 checks, record \nolinkurl{results/conjecture_e_trace_formula.json};
+  with the argument \texttt{6} a further 39 checks at six qubits, record \nolinkurl{results/conjecture_e_trace_formula_n6.json})
   checks Theorem 22 (equation E13) in exact integer arithmetic across all nine vertex cases for three to
-  five qubits on every pair of Table 6 and on three random sign carriers per case, checks every closed
-  form of Table 8 on the complete section, checks the six central pair-swap moments
-  \(\operatorname{tr}(A^2P_v)\) (\(v\in\{e,d,e+d\}\)) and the resulting difference \(-3K(|H|-3)\) for C6,
-  C11 and C14, and enforces three negative controls (wrong coefficient, perturbed \(S_O(e)\) and dropped
-  outside point).
+  six qubits on every pair of Table 6 and on random sign carriers, checks every closed form of Table 8 on
+  the complete section, checks the six central pair-swap moments \(\operatorname{tr}(A^2P_v)\)
+  (\(v\in\{e,d,e+d\}\)) and the resulting difference \(-3K(|H|-3)\) for C6, C11 and C14, and enforces three
+  negative controls (wrong coefficient, perturbed \(S_O(e)\) and dropped outside point).
+\item
+  \nolinkurl{scripts/c3_sdp_dual_check.py} (15 checks, record \nolinkurl{results/c3_sdp_dual_check.json}) verifies
+  Proposition 16\textquotesingle{} in exact integer and SymPy arithmetic: uniform top-eigenspace diagonal \(P_{ii}=1/8\) for
+  \(\sigma_0\), four-orbit geometric shift \(d_{16}(p\bmod4)\in\{-40,+8,+8,+24\}\) for \(\sigma_1\), exact
+  SymPy characteristic-polynomial identity \(\chi_{M_{64}}(t)=\prod_{k=0}^3\chi_{B_k}(t)^2\), all four
+  fraction-free integer \(LDL^{\mathsf T}\) factorizations and positive Sylvester minors, both binary
+  witnesses (368 and 344), and three negative controls (including failure of positive definiteness at
+  threshold \(230/16\)).
 \item
   \texttt{scripts/c3\_sparse\_search.py\ 3\ 3} is the exhaustive four-qubit search of Remark (d); \texttt{3\ 4} is the
   five-qubit search, about fifteen minutes.
 \end{itemize}
 
-All seven are stages of \texttt{scripts/run\_all.sh}; the first six and the sparse search are steps of \emph{Case C3
-for every number of qubits}, and \nolinkurl{scripts/conjecture_e_trace_formula.py} is a step of \emph{Conjecture E (all
-9 cases), Kramers floor \& saturation Lean 4 audit}, each requiring regenerated JSON records to equal the
-committed ones. No floating point enters a comparison of characteristic polynomials.
+All eight are stages of \nolinkurl{scripts/run_all.sh}; the first six and the sparse search are steps of \emph{Case C3
+for every number of qubits}, and \nolinkurl{scripts/conjecture_e_trace_formula.py} (both \(n=3\text{–}5\) and \(n=6\))
+and \nolinkurl{scripts/c3_sdp_dual_check.py} are steps of \emph{Conjecture E (all 9 cases), Kramers floor \& saturation
+Lean 4 audit}, each requiring regenerated JSON records to equal the committed ones. No floating point
+enters a comparison of characteristic polynomials.
 
 \subsection{References}\label{references}
 
@@ -436,15 +447,15 @@ lake env lean SaturatedSevenVerification.lean
 # case C3 for every number of qubits from four on (Theorem 17)
 lake build HoggarBound.Bound HoggarBound.Quadric
 lake env lean HoggarBound/CarrierFamily.lean
-# Theorem 2 (Kramers), Theorems 3-4 (Saturation), Lemmas 20-21, Theorem 22, Theorem 19 (all 9 cases), Corollaries 16 & 18
-lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras
+# Theorem 2 (Kramers), Theorems 3-4 (Saturation), Lemmas 20-21, Theorem 22, Theorem 19 (all 9 cases), Corollaries 16 & 18, Prop 16' & AuditUpgrades (77 axioms)
+lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades
 lake env lean VerifyNewFormalizations.lean
 # the seven-qubit enumeration of Theorem 13 (about eight core-hours)
 cd .. && bash scripts/run_family7.sh
 \end{verbatim}
 
-The completion minima, the seven-qubit evaluation, the carrier families, the nine vertex cases and the
-universal cubic-trace identity, from the repository root:
+The completion minima, the seven-qubit evaluation, the carrier families, the nine vertex cases, the
+universal cubic-trace identity and the C3 QUBO SDP dual, from the repository root:
 
 \begin{verbatim}
 python scripts/cospectral_pair.py
@@ -457,11 +468,14 @@ python scripts/conjecture_e.py 6
 python scripts/conjecture_e_lemmas.py
 python scripts/conjecture_e_lemmas.py 6
 python scripts/conjecture_e_trace_formula.py
+python scripts/conjecture_e_trace_formula.py 6
+python scripts/c3_sdp_dual_check.py
 python scripts/c3_sparse_search.py 3 3
 \end{verbatim}
 
 Their last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21}, \texttt{81\ of\ 81},
-\texttt{36\ of\ 36}, \texttt{115\ of\ 115}, \texttt{46\ of\ 46} and \texttt{97\ of\ 97\ checks\ passed}; the search prints its class counts. NumPy is required.
+\texttt{36\ of\ 36}, \texttt{115\ of\ 115}, \texttt{46\ of\ 46}, \texttt{97\ of\ 97}, \texttt{39\ of\ 39} and \texttt{15\ of\ 15\ checks\ passed}; the search
+prints its class counts. NumPy is required (and SymPy for \nolinkurl{c3_sdp_dual_check.py}).
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 
@@ -497,7 +511,7 @@ distinguish local Windows line endings from Git-normalized text.
 
 \subsection{Appendix B. Witness assignments}\label{appendix-b-witness-assignments}
 
-\texttt{data/witness/nN\_t.txt} holds, for \(N\) qubits and family \(t\) (\texttt{f} full, \texttt{h} hyperbolic, \texttt{e} elliptic), one
+\nolinkurl{data/witness/nN_t.txt} holds, for \(N\) qubits and family \(t\) (\texttt{f} full, \texttt{h} hyperbolic, \texttt{e} elliptic), one
 header line and a hexadecimal mask whose bit \(v\) is set when \(f(v) = -1\), with \(v = a + 2^N c\). The
 three-qubit Hoggar witness produced by the Moonlab run is
 
@@ -508,7 +522,7 @@ three-qubit Hoggar witness produced by the Moonlab run is
 
 \texttt{build/hoggar\ verify\ N\ t\ file} recounts any witness from the definitions.
 
-\texttt{data/flat/nN\_name.txt} holds the configurations of Table 1: a header line with \(N\), the numbers of
+\nolinkurl{data/flat/nN_name.txt} holds the configurations of Table 1: a header line with \(N\), the numbers of
 observables and contexts and the degree; the mask of the configuration; and the mask of the optimal
 assignment. For the pivot configuration:
 
@@ -541,7 +555,7 @@ The best completion found for \(\sigma_0\), 368 violated outside lines (500 in a
 8 12 13 14 24 26 28 30 40 41 44 45 56 59 60 63 90 93 105 110 123 125 126 153 155 157 159 170 171 174 175 189 190 217 219 234 235 255
 \end{verbatim}
 
-The record is \nolinkurl{results/cospectral_pair.json} (\texttt{completion\_witnesses}). The carriers of Sections 8.6 and
+The record is \nolinkurl{results/cospectral_pair.json} (\nolinkurl{completion_witnesses}). The carriers of Sections 8.6 and
 8.7 are defined by formulas; their complete sign tables, graphs and characteristic polynomials are in
 \nolinkurl{results/cospectral_family.json}, \nolinkurl{results/cospectral_family_cone_lift.json},
 \nolinkurl{results/conjecture_e.json}, \nolinkurl{results/conjecture_e_n6.json}, \nolinkurl{results/conjecture_e_lemmas.json} and

@@ -4,6 +4,63 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
+## 1.7.0 - 21 November 2026: multi-layer audit upgrades, Proposition 16' QUBO SDP dual (`330`), 77 audited Lean 4 declarations, and six-qubit Theorem 22 checks
+
+Follows a comprehensive multi-layer repository, mathematical, Lean 4, software, and typesetting audit,
+built cleanly on top of the frozen `v1.6.0` release commit `1f028ea`:
+
+- **New mathematical & formal result — Proposition 16' (Tightened QUBO SDP-dual lower bound for four-qubit C3 `sigma_1`):**
+  - Proved that the 8-dimensional top eigenspace of `Lambda_0` (`sigma_0`) has perfectly uniform diagonal
+    projector entries `P_ii = 1/8`, so `d = 0` is already the exact global optimum of the 64-variable
+    elliptope SDP dual (`346.4877...`, ceiling `347`).
+  - Proved that the 2-dimensional top eigenspace of `Lambda_1` (`sigma_1`) splits the 64 outside points
+    into 4 equal orbits of size 16 determined purely by `(a_1(p), a_0(p)) = p mod 4`, yielding the exact
+    zero-sum geometric shift `d_16(p mod 4) in {-40, +8, +8, +24}` (`d = (-5/2, +1/2, +1/2, +3/2)`).
+  - Under Lemma 20, `M_64 = 231 I_64 - 16 Lambda_1 - diag(d_16)` block-diagonalizes into two copies each
+    of four `8 x 8` integer symmetric blocks `B_0..B_3`, each certified strictly positive definite by a
+    pure-integer fraction-free `L D L^T` certificate, proving **`330 <= min_y F(sigma_1, y) <= 344`**
+    (tightening the lower bound by `+15` from `315` to the exact elliptope SDP-dual ceiling `330` and
+    halving the uncertainty interval from 29 to 14 integers), alongside the kernel-certified two-sided
+    enclosure **`347 <= min_y F(sigma_0, y) <= 368`**.
+  - Verified independently by `scripts/c3_sdp_dual_check.py` (15 of 15 checks passed, exact SymPy
+    characteristic polynomial factorization, integer `L D L^T` + Sylvester minors, witnesses, and 3
+    negative controls; `results/c3_sdp_dual_check.json`).
+- **`lean/HoggarBound/AuditUpgrades.lean` (2,042 lines; zero `sorry`, `admit`, `native_decide`, `unsafe`,
+  `set_option`, or custom `axiom`; compiles cleanly in ~26s with 0 warnings):**
+  - Asymptotic `Filter.Tendsto` limit theorems for Corollary A (`floor_deficit_tendsto_zero`,
+    `full_space_fraction_tendsto_half`, `hyperbolic_fraction_tendsto_half`,
+    `full_space_violated_fraction_eventually_gt`, `elliptic_violated_fraction_eventually_gt`).
+  - Propositions 3 & 8 quantum-metric and Berry-curvature criteria (`proposition3_commuting_qgt`,
+    `anticommuting_qgt`, `proposition3_violated_iff`, `proposition3_satisfied_iff`,
+    `proposition8_flat_state_qgt`).
+  - Proposition 10 two-character set and hyperplane-intersection cardinality (`pure_state_pauli_sq_transform`,
+    `proposition10_two_character_sum`, `proposition10_hyperplane_card`).
+  - Signed-Clifford / symplectic orbit transport (`clifford_preserves_symp`, `clifford_transport_comm_product`,
+    `clifford_transport_opA`, `clifford_transport_carrier_charpoly`, `clifford_transport_completion_charpoly`,
+    `clifford_transport_strict_law_fails`).
+  - Eigenvalue-multiset Conjecture E across all nine vertex cases for every `N >= 4`
+    (`completionMat_isHermitian`, `real_hermitian_charpoly_eq_iff_roots_eq`, `strict_law_fails_to_spectra`,
+    `jonah_conjecture_e_all_nine_cases_spectra`).
+  - Proposition 16' and tightened Corollary 16 (`c3SdpBlock_pos_def`, `c3_shift_quad_zero`,
+    `corollary16_sigmaB_sdp_lower`, `corollary16_sigmaA_witness`, `corollary16_binary_minima_tightened`).
+- **`lean/VerifyNewFormalizations.lean`** expanded from 49 to **77** audited declarations across all seven
+  new Lean modules (9,728 lines total; `results/new-formalizations-lean-axioms.log`), every single
+  declaration strictly within `[propext, Classical.choice, Quot.sound]`.
+- **Six-qubit Theorem 22 verification (`scripts/conjecture_e_trace_formula.py 6`):** optimized cubic-trace
+  and real-product traces using overflow-guarded `int64` arithmetic; verified all 9 vertex cases at 6
+  qubits (**39 of 39 checks passed**, `results/conjecture_e_trace_formula_n6.json`; **136 total exact
+  checks** across `n = 3..6`), added to `scripts/run_all.sh`, CI, and release audits.
+- **Software, typesetting, and documentation hygiene fixes:**
+  - Fixed `scripts/check_github_math.py` (`ModuleNotFoundError: commonmark` crash + `SyntaxWarning` + unclosed
+    file handle) and `scripts/fix_github_math.py` (`SyntaxWarning` + unclosed handles), plus `ResourceWarning`
+    file-handle leaks in `scripts/analysis.py` and `scripts/ladder.py`.
+  - Fixed wide TeX equation overflows (`T(X,Y,Z)` and `|\Phi_7\rangle`), URL wrap threshold (`24 -> 18`),
+    table padding (`\tabcolsep`), and a `'Section13'` typo in `scripts/build_unified_paper.py`.
+  - Synchronized `LEGAL.md`, `VERIFICATION.md`, `README.md`, `SUMMARY.md`, `INDEX.md`, `docs/CLAIMS.md`,
+    `docs/RESEARCH-SUMMARY.md`, `docs/research-index.html`, `lean/README.md`, `CITATION.cff`, and all
+    publication metadata through `v1.7.0`. Every previously audited Lean module (`v0.2.0-c3-certificate`
+    through `v1.6.0`) remains byte-identical.
+
 ## 1.6.0 - 21 November 2026: complete unified manuscript, Corollaries 16 & 18 in Lean 4, and Theorem 22 (universal cubic-trace identity)
 
 Completes the Lean 4.35.0 formalization of Conjecture E and its corollaries and updates the unified

@@ -6,7 +6,26 @@ The numbers **42** and **6** count audited declarations: 42 for C3 and six for t
 
 ## Frozen research and documentation versions
 
-The mathematical record is [research release `v0.2.0-c3-certificate`](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), at commit [`d3811e3b53048fa8f3206f08494f0a9834eed287`](https://github.com/0thernes/hoggar-bound-lab/tree/d3811e3b53048fa8f3206f08494f0a9834eed287). It was published on 10 November 2026 at 01:33:37 UTC. This guide accompanies documentation release `v1.2.0`, with the same proof sources. The research release, PDF, and historical verification records retain their original version identifiers.
+The mathematical record for the four-qubit finite C3 certificate is [research release `v0.2.0-c3-certificate`](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v0.2.0-c3-certificate), at commit [`d3811e3b53048fa8f3206f08494f0a9834eed287`](https://github.com/0thernes/hoggar-bound-lab/tree/d3811e3b53048fa8f3206f08494f0a9834eed287) (published 10 November 2026 at 01:33:37 UTC). Every subsequent combined release through **`v1.7.0`** preserves all 21 `v0.2.0-c3-certificate` proof/configuration files, all 28 `v1.1.1` saturation/shared Lean files (`87f08a0`), the seven-qubit kernel-evaluation files (`b7b0273`), and `CarrierFamily.lean` (`5dcea35`) byte-identical while adding separate, independently audited Lean 4.35.0 modules and exact Python verifiers. The frozen research release, PDF, and historical verification records retain their original version identifiers.
+
+### Additional verified layers (`v1.3.0`–`v1.7.0`)
+
+Beyond the frozen 42-declaration C3 certificate (`C3Verification.lean`), 22-declaration baseline (`IndependentVerification.lean`), 14-declaration saturation (`SaturatedVerification.lean`), and 13-declaration seven-qubit (`SaturatedSevenVerification.lean`) audits, the repository adds two independently audited Lean 4 suites (zero modifications to any earlier Lean file):
+
+- **Case C3 for all `N >= 4` (`v1.3.0`, 74 declarations):** `lean/HoggarBound/CarrierFamily.lean` (`c3_strict_law_fails_general`), audited in `results/lean-c3-all-qubits-axioms.log` and CI workflow `.github/workflows/c3-all-qubits.yml`.
+- **Kramers floor, saturation equivalences, Lemmas 20–21, Theorem 22, Conjecture E across all 9 vertex cases, Corollaries 16 & 18, Proposition 16' QUBO SDP dual, Propositions 3/8/10, asymptotics, and Clifford transport (`v1.5.0`–`v1.7.0`, 77 declarations):** seven modules (`Kramers.lean`, `SaturationTheory.lean`, `ConjectureECore.lean`, `ConjectureECones.lean`, `ConjectureE.lean`, `ConjectureEExtras.lean`, `AuditUpgrades.lean`; 9,728 lines) audited by `lean/VerifyNewFormalizations.lean` (`results/new-formalizations-lean-axioms.log`) and CI workflow `.github/workflows/conjecture-e-all-cases.yml`, alongside exact integer verifiers `scripts/conjecture_e_trace_formula.py` (97 checks for `n = 3..5` + 39 checks for `n = 6` = 136 total) and `scripts/c3_sdp_dual_check.py` (15 checks).
+
+To rebuild and audit the `v1.5.0`–`v1.7.0` formalization suite locally (takes ~2 minutes total after fetching the pinned Mathlib cache):
+
+```bash
+cd lean
+lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades
+lake env lean VerifyNewFormalizations.lean
+cd ..
+python scripts/conjecture_e_trace_formula.py
+python scripts/conjecture_e_trace_formula.py 6
+python scripts/c3_sdp_dual_check.py
+```
 
 The [source manifest](results/frontier-c3-lean-source-sha256.json) records 21 proof/configuration files, exact local hashes, and hashes after normalizing CRLF to LF. All 21 LF hashes match this documentation checkout and the frozen research sources. The [published Linux source-equivalence record](https://github.com/0thernes/hoggar-bound-lab/releases/download/v0.2.0-c3-certificate/linux-proof-source-equivalence.json) connects the successful Linux proof to the publication commit.
 

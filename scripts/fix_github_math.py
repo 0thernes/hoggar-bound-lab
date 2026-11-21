@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Make inline math in a Markdown file survive GitHub's renderer.
+r"""Make inline math in a Markdown file survive GitHub's renderer.
 
   python -I fix_github_math.py <file.md> [--write]
 
@@ -74,7 +74,8 @@ def fix_text(text):
 def main():
     path = sys.argv[1]
     sys.stdout.reconfigure(encoding="utf-8")
-    text = open(path, encoding="utf-8").read()
+    with open(path, encoding="utf-8") as fh:
+        text = fh.read()
     new, log = fix_text(text)
     for why, a, b in log:
         print("%-28s %s  ->  %s" % (why, a, b))
@@ -82,7 +83,8 @@ def main():
     again, log2 = fix_text(new)
     assert again == new and not log2, "not idempotent"
     if "--write" in sys.argv:
-        open(path, "w", encoding="utf-8", newline="\n").write(new)
+        with open(path, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(new)
         print("written", path)
 
 

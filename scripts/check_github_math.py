@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 check_github_math.py - checks that every formula in the Markdown sources reaches GitHub's math renderer
 unchanged.
 
@@ -12,19 +12,49 @@ it double-escapes < and >. The sources therefore use the code form $`...`$ for s
 \gt for the two relations, \vert inside tables, and fenced ```math blocks for displays.
 
 The script sends each file to GitHub's Markdown API (needs the `gh` CLI, logged in, and network access),
-extracts what the renderer will typeset, and compares it with the formulas found by build_paper.py.
+extracts what the renderer will typeset, and compares it with the formulas found by protect_math.
 Exit status 1 if any formula differs, is missing, or a stray dollar sign is left in the text.
 """
 import collections, html, json, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "scripts"))
-import build_paper as bp
+
+
+def protect_math(text):
+    """Replace math by placeholders; returns (text, store). Matches build_paper.protect_math."""
+    store = []
+
+    def keep(tex, display):
+        store.append((tex, display))
+        return "\ue000M%d\ue001" % (len(store) - 1)
+
+    out = []
+    parts = re.split(r"(^```.*?^```[ \t]*$)", text, flags=re.S | re.M)
+    for part in parts:
+        if part.startswith("```"):
+            first, rest = part.split("\n", 1)
+            if first.strip() == "```math":
+                body = rest.rsplit("```", 1)[0]
+                out.append("\n" + keep(body.strip(), True) + "\n")
+            else:
+                out.append(part)
+            continue
+        part = re.sub(r"\$`([^`\n]+)`\$", lambda m: keep(m.group(1), False), part)
+        pieces = re.split(r"(`[^`\n]+`)", part)
+        for i, piece in enumerate(pieces):
+            if piece.startswith("`"):
+                continue
+            piece = re.sub(r"\$\$(.+?)\$\$", lambda m: keep(m.group(1).strip(), True), piece, flags=re.S)
+            piece = re.sub(r"(?<![\\$])\$(?!\s)([^$\n]+?)(?<!\s)\$", lambda m: keep(m.group(1), False), piece)
+            pieces[i] = piece
+        out.append("".join(pieces))
+    return "".join(out), store
 
 
 def check(rel):
-    src = open(os.path.join(ROOT, rel), encoding="utf-8").read()
-    _, store = bp.protect_math(src)
+    with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
+        src = fh.read()
+    _, store = protect_math(src)
     body = json.dumps({"text": src, "mode": "gfm"})
     r = subprocess.run(["gh", "api", "markdown", "--method", "POST", "--input", "-"],
                        input=body.encode("utf-8"), capture_output=True)

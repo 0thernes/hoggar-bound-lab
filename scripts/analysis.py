@@ -389,7 +389,9 @@ check("closed-form point and line counts agree with enumeration for N = 2..5", o
 tf = os.path.join(RES, "table.txt")
 if os.path.exists(tf):
     ok = True
-    for line in open(tf):
+    with open(tf, encoding="utf-8") as _tf_fh:
+        _tf_lines = _tf_fh.readlines()
+    for line in _tf_lines:
         if line.startswith("#"):
             continue
         s = line.split(); N, t = int(s[0]), s[1]
@@ -465,6 +467,7 @@ except Exception as exc:  # figures are optional
     print("figure generation skipped:", exc)
 
 report["failures"] = failures
-json.dump(report, open(os.path.join(RES, "analysis.json"), "w"), indent=1, default=lambda o: int(o) if isinstance(o, np.integer) else str(o))
+with open(os.path.join(RES, "analysis.json"), "w", encoding="utf-8", newline="\n") as _out_fh:
+    json.dump(report, _out_fh, indent=1, default=lambda o: int(o) if isinstance(o, np.integer) else str(o))
 print(("ANALYSIS-PASS" if not failures else "ANALYSIS-FAIL: " + "; ".join(failures)))
 sys.exit(1 if failures else 0)

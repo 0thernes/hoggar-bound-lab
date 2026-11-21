@@ -1,5 +1,5 @@
-/- Axiom audit for the new formalizations closing the gaps of the combined paper
-   (Sections 1.1, 2.2, 3, 4, 5.1, 8.5–8.7, 9.3, and 12):
+/- Axiom audit for the formalizations closing the gaps of the combined paper
+   (Sections 1.1, 2.2, 3, 4, 5.1, 6, 8.5–8.7, 9.3–9.4, and 12):
    - Theorem 2: Quaternionic / Kramers spectral floor & elliptic quadrics Q⁻(2N-1,2) (`Kramers.lean`)
    - Theorems 3 & 4: Full 5-way saturation equivalences & (2^N-1)|S| = □ (`SaturationTheory.lean`)
    - Lemmas 20 & 21 and Theorem 22 (Universal Cubic-Trace Identity) (`ConjectureECore.lean`)
@@ -7,15 +7,21 @@
      (`ConjectureECones.lean`, `ConjectureE.lean`)
    - Corollaries 16 & 18: Four-qubit C3 binary completion minima separation (≤ 344 < 347) and
      general cone lift from C3 to C11 for every N ≥ 4 (`ConjectureEExtras.lean`)
+   - Audit upgrades (`AuditUpgrades.lean`): asymptotic Filter.Tendsto limits (Corollary A),
+     quantum metric & Berry curvature (Propositions 3 & 8), two-character hyperplane sums
+     (Proposition 10), signed-Clifford orbit transport, eigenvalue-multiset Conjecture E across
+     all nine vertex cases, and tightened Corollary 16 via exact QUBO SDP dual (330 ≤ F(σ₁) ≤ 344,
+     347 ≤ F(σ₀) ≤ 368).
 
    Every `#print axioms` line must report a subset of `[propext, Classical.choice, Quot.sound]`.
 
    run:
-     cd lean && lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras && lake env lean VerifyNewFormalizations.lean -/
+     cd lean && lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades && lake env lean VerifyNewFormalizations.lean -/
 import HoggarBound.Kramers
 import HoggarBound.SaturationTheory
 import HoggarBound.ConjectureE
 import HoggarBound.ConjectureEExtras
+import HoggarBound.AuditUpgrades
 
 -- Theorem 2: Quaternionic / Kramers spectral floor and elliptic quadrics
 #print axioms HoggarBound.kramers_even_mult
@@ -79,3 +85,34 @@ import HoggarBound.ConjectureEExtras
 #print axioms HoggarBound.ConjectureE.corollary16_sigmaB_lower
 #print axioms HoggarBound.ConjectureE.corollary16_sigmaB_witness
 #print axioms HoggarBound.ConjectureE.corollary16_binary_minima_differ
+
+-- AuditUpgrades (v1.7.0): Asymptotics, Propositions 3/8/10, Clifford transport,
+-- eigenvalue-multiset Conjecture E across all nine cases, and SDP-dual tightened Corollary 16
+#print axioms HoggarBound.AuditUpgrades.floor_deficit_tendsto_zero
+#print axioms HoggarBound.AuditUpgrades.full_space_fraction_tendsto_half
+#print axioms HoggarBound.AuditUpgrades.hyperbolic_fraction_tendsto_half
+#print axioms HoggarBound.AuditUpgrades.full_space_violated_fraction_eventually_gt
+#print axioms HoggarBound.AuditUpgrades.elliptic_violated_fraction_eventually_gt
+#print axioms HoggarBound.AuditUpgrades.proposition3_commuting_qgt
+#print axioms HoggarBound.AuditUpgrades.anticommuting_qgt
+#print axioms HoggarBound.AuditUpgrades.proposition3_violated_iff
+#print axioms HoggarBound.AuditUpgrades.proposition3_satisfied_iff
+#print axioms HoggarBound.AuditUpgrades.proposition8_flat_state_qgt
+#print axioms HoggarBound.AuditUpgrades.pure_state_pauli_sq_transform
+#print axioms HoggarBound.AuditUpgrades.proposition10_two_character_sum
+#print axioms HoggarBound.AuditUpgrades.proposition10_hyperplane_card
+#print axioms HoggarBound.AuditUpgrades.clifford_preserves_symp
+#print axioms HoggarBound.AuditUpgrades.clifford_transport_comm_product
+#print axioms HoggarBound.AuditUpgrades.clifford_transport_opA
+#print axioms HoggarBound.AuditUpgrades.clifford_transport_carrier_charpoly
+#print axioms HoggarBound.AuditUpgrades.clifford_transport_completion_charpoly
+#print axioms HoggarBound.AuditUpgrades.clifford_transport_strict_law_fails
+#print axioms HoggarBound.AuditUpgrades.completionMat_isHermitian
+#print axioms HoggarBound.AuditUpgrades.real_hermitian_charpoly_eq_iff_roots_eq
+#print axioms HoggarBound.AuditUpgrades.strict_law_fails_to_spectra
+#print axioms HoggarBound.AuditUpgrades.jonah_conjecture_e_all_nine_cases_spectra
+#print axioms HoggarBound.AuditUpgrades.c3SdpBlock_pos_def
+#print axioms HoggarBound.AuditUpgrades.c3_shift_quad_zero
+#print axioms HoggarBound.AuditUpgrades.corollary16_sigmaB_sdp_lower
+#print axioms HoggarBound.AuditUpgrades.corollary16_sigmaA_witness
+#print axioms HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened
