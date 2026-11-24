@@ -64,7 +64,7 @@ jobs:
           QR=third_party/quantum_rng/src/quantum_rng
           cc -std=gnu11 -O2 -Wall -Wextra -o build/hoggar src/hoggar.c "$QR/quantum_rng.c" -I"$QR" -lm
           ./build/hoggar table 3
-          ./build/hoggar verify 3 f data/witness/n3_f.txt
+          ./build/hoggar verify 3 f data/witness/n3_f_hoggar_moonlab.txt
 
   c-sanitizers:
     name: C11 ASan + UBSan sanitizers (ubuntu-24.04)
@@ -80,7 +80,8 @@ jobs:
           QR=third_party/quantum_rng/src/quantum_rng
           cc -std=gnu11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -o build/hoggar-san src/hoggar.c "$QR/quantum_rng.c" -I"$QR" -lm
           ./build/hoggar-san table 4
-          ./build/hoggar-san verify 3 f data/witness/n3_f.txt
+          ./build/hoggar-san exhaust2
+          ./build/hoggar-san verify 3 f data/witness/n3_f_hoggar_moonlab.txt
           ./build/hoggar-san verify 4 h data/witness/n4_h.txt
           cc -std=gnu11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -pthread -o build/w52-san src/w52_census_verify.c -lm
           cc -std=gnu11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -pthread -o build/n9-san src/n9_rank8_search.c -lm

@@ -123,6 +123,16 @@ static geo_t *geo_new(int N, char type, int want_adj) {
     return g;
 }
 
+static void geo_free(geo_t *g) {
+    if (!g) return;
+    free(g->inS);
+    free(g->pos);
+    free(g->pts);
+    free(g->adj_off);
+    free(g->adj);
+    free(g);
+}
+
 /* ------------------------------------------------------------------ the bound */
 
 /* n_eff: number of independent spectral atoms (D, or D/2 with Kramers pairs for the elliptic quadric). */
@@ -158,6 +168,13 @@ static asg_t *asg_new(const geo_t *g) {
     memset(a->f, 1, g->n);
     a->score = (int32_t *)calloc(g->npts, sizeof(int32_t));
     return a;
+}
+
+static void asg_free(asg_t *a) {
+    if (!a) return;
+    free(a->f);
+    free(a->score);
+    free(a);
 }
 
 static void asg_recount(asg_t *a) {
@@ -281,6 +298,7 @@ static int cmd_table(int Nmax) {
             if (g->nlines) print_row(g);
             else printf("%d %c %u 0 0 0 0 0 0\n", N, *t, g->npts);
             fflush(stdout);
+            geo_free(g);
         }
     return 0;
 }
@@ -306,14 +324,18 @@ static int cmd_verify(int N, char type, const char *path, long long claim) {
     printf("violated-lines-per-point histogram:");
     for (int d = 0; d <= maxdeg; d++) if (hist[d]) printf(" %d:%u", d, hist[d]);
     printf("\n");
-    if (a->viol != v2) { printf("MISMATCH between incremental and from-scratch counts\n"); return 1; }
-    if ((int64_t)g->nlines - 2 * a->viol > b) { printf("THEOREM FALSIFIED: beta exceeds the bound\n"); return 3; }
-    if (claim >= 0 && a->viol < claim) {
+    free(hist);
+    int rc = 0;
+    if (a->viol != v2) { printf("MISMATCH between incremental and from-scratch counts\n"); rc = 1; }
+    else if ((int64_t)g->nlines - 2 * a->viol > b) { printf("THEOREM FALSIFIED: beta exceeds the bound\n"); rc = 3; }
+    else if (claim >= 0 && a->viol < claim) {
         printf("CLAIM REFUTED: an assignment with %lld violated contexts exists, below the claimed minimum %lld\n",
                (long long)a->viol, claim);
-        return 3;
+        rc = 3;
     }
-    return 0;
+    asg_free(a);
+    geo_free(g);
+    return rc;
 }
 
 static int cmd_search(int N, char type, uint64_t seed, int restarts, uint64_t steps, double T0, double T1,
@@ -341,6 +363,10 @@ static int cmd_search(int N, char type, uint64_t seed, int restarts, uint64_t st
     printf("N=%d type=%c best=%lld recount=%lld lower_bound=%lld lines=%llu\n", N, type, (long long)best,
            (long long)check, (long long)dlow, (unsigned long long)g->nlines);
     if (out) asg_write(g, best_f, best, out);
+    free(best_f);
+    free(run_f);
+    asg_free(a);
+    geo_free(g);
     return (check == best && best >= dlow) ? 0 : 3;
 }
 
@@ -369,6 +395,9 @@ static int cmd_falsify(int N, char type, uint64_t seed, uint64_t trials, uint64_
     printf("N=%d type=%c lines=%llu lower_bound=%lld trials=%llu mean_random=%.2f min_random=%lld min_optimised=%lld counterexamples=%llu\n",
            N, type, (unsigned long long)g->nlines, (long long)dlow, (unsigned long long)trials, sumraw / (double)trials,
            (long long)minraw, steps ? (long long)minopt : -1LL, (unsigned long long)below);
+    free(tmp);
+    asg_free(a);
+    geo_free(g);
     return below ? 3 : 0;
 }
 
@@ -387,6 +416,8 @@ static int cmd_exhaust2(void) {
                (unsigned long long)g->nlines, (long long)(((int64_t)g->nlines - b) / 2));
         for (int d = 0; d < 32; d++) if (hist[d]) printf(" %d:%u", d, hist[d]);
         printf("\n");
+        asg_free(a);
+        geo_free(g);
     }
     return 0;
 }
@@ -402,6 +433,7 @@ static int cmd_lines(int N, char type) {
             if (p < q) printf("%u %u %u %d\n", p, q, r, (e >> 31) ? -1 : 1);
         }
     }
+    geo_free(g);
     return 0;
 }
 
