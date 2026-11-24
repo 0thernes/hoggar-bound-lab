@@ -43,12 +43,17 @@ FILES=[
     'results/full-ci-87-audit.json','results/saturation-ci-audit.json',
     'results/publication-v1.2.0-audit.json','results/publication-v1.3.0-audit.json',
     'results/publication-v1.4.0-audit.json','results/publication-v1.6.0-audit.json',
+    'results/publication-v1.8.0-audit.json','results/publication-v1.9.0-audit.json',
     'publication/ADDENDUM-completion-optima.md','publication/ADDENDUM-seven-qubit-lean.md',
     'publication/ADDENDUM-c3-all-qubits.md','publication/ADDENDUM-conjecture-e.md',
     'results/cospectral_pair.json','results/cospectral_family.json','results/cospectral_family_cone_lift.json',
     'results/conjecture_e.json','results/conjecture_e_n6.json','results/c3_sparse_search.json','results/lean-c3-all-qubits-axioms.log',
     'results/conjecture_e_lemmas.json','results/conjecture_e_lemmas_n6.json',
-    'results/conjecture_e_trace_formula.json','results/new-formalizations-lean-axioms.log',
+    'results/conjecture_e_trace_formula.json','results/conjecture_e_trace_formula_n6.json',
+    'results/c3_sdp_dual_check.json','results/c3_exact_optima_check.json',
+    'results/norm_phase_family.json','results/exact_degrees_n4_n5.json',
+    'results/arithmetic-audit.json','results/citation-audit.json',
+    'results/new-formalizations-lean-axioms.log',
     'results/phase_seven_lean.json','results/saturation-seven-ci-audit.json','results/lean-saturated-seven-axioms.log',
 ]
 FILES += [str(p.relative_to(ROOT)).replace('\\','/') for p in sorted((ROOT/'paper'/'figures').glob('*.png'))]
@@ -70,6 +75,13 @@ for name in FILES:
             raise RuntimeError(f'Unrewritten relative link in {name}')
     dst.write_bytes(payload)
     manifest[name]=hashlib.sha256(dst.read_bytes()).hexdigest()
+# Mount Lean Blueprint cleanly at /blueprint/ (avoiding a conflicting second Pages workflow)
+bp_dst_dir = DEST / 'blueprint'
+bp_dst_dir.mkdir(parents=True, exist_ok=True)
+for bp_src_rel, bp_dst_name in [('blueprint/web/index.html', 'index.html'), ('blueprint/web/blueprint-graph.json', 'blueprint-graph.json')]:
+    bp_bytes = (ROOT / bp_src_rel).read_bytes().replace(b'\r\n', b'\n')
+    (bp_dst_dir / bp_dst_name).write_bytes(bp_bytes)
+    manifest[f'blueprint/{bp_dst_name}'] = hashlib.sha256(bp_bytes).hexdigest()
 main_page=(ROOT/'docs'/'research-index.html').read_text(encoding='utf-8')
 if '\ufffd' in main_page:
     raise RuntimeError('Research landing page contains a Unicode replacement character')
@@ -97,7 +109,7 @@ class Links(HTMLParser):
                     if not target.is_file():
                         raise RuntimeError(f'Broken local link in {self.page.name}: {value}')
                     self.references.append((target,unquote(parsed.fragment),value))
-pages=[DEST/'index.html']+[DEST/name for name in FILES if name.endswith('.html')]
+pages=[DEST/'index.html', DEST/'blueprint'/'index.html']+[DEST/name for name in FILES if name.endswith('.html')]
 parsed_pages={}
 for page in pages:
     parser=Links(page)

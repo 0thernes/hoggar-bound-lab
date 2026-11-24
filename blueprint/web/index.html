@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Hoggar Bound Lab — Lean 4 Blueprint &amp; Dependency Graph</title>
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:#0b1020; color:#e2e8f0; margin:0; line-height:1.55; }
+  main { max-width:1160px; margin:0 auto; padding:2rem 1.25rem 4rem; }
+  h1 { font-size:2rem; margin:0 0 .5rem; color:#f8fafc; }
+  .sub { color:#94a3b8; margin:0 0 1.5rem; }
+  .nav { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem; font-size:.92rem; }
+  .nav a { color:#38bdf8; text-decoration:none; }
+  .nav a:hover { text-decoration:underline; }
+  .graph { background:#0f172a; border:1px solid #334155; border-radius:14px; padding:1rem; margin-bottom:2rem; overflow-x:auto; }
+  .card { background:#0f172a; border:1px solid #334155; border-radius:12px; padding:1.15rem 1.35rem; margin-bottom:1rem; }
+  .card-head { display:flex; gap:.65rem; align-items:center; flex-wrap:wrap; margin-bottom:.4rem; }
+  .kind { font-size:.75rem; font-weight:700; letter-spacing:.06em; color:#38bdf8; }
+  .label { font-family:ui-monospace,monospace; font-size:.8rem; color:#94a3b8; margin-left:auto; }
+  .pill { font-size:.75rem; padding:.15rem .55rem; border-radius:999px; background:#1e293b; color:#cbd5e1; }
+  .pill.ok { background:#14532d; color:#86efac; }
+  h2 { font-size:1.2rem; margin:.2rem 0 .5rem; color:#f8fafc; }
+  .meta { font-size:.9rem; color:#cbd5e1; margin:.4rem 0; }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.82rem; background:#1e293b; padding:.12rem .38rem; border-radius:5px; display:inline-block; margin:.12rem .2rem .12rem 0; color:#e2e8f0; }
+  a { color:#38bdf8; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="nav">
+    <a href="../index.html">&larr; Hoggar Bound Lab Home</a>
+    <a href="../paper/unified-contextuality.html">Unified Paper (HTML)</a>
+    <a href="../paper/unified-contextuality.pdf">Unified Paper (PDF)</a>
+    <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/docs/statement-fidelity.md">Statement Fidelity Table</a>
+    <a href="https://github.com/0thernes/hoggar-bound-lab/blob/main/lean/HoggarBound/Challenge.lean">Challenge.lean</a>
+  </nav>
+  <h1>Hoggar Bound Lab — Lean 4 Blueprint &amp; Dependency Graph</h1>
+  <p class="sub">v1.9.0 · Lean 4.35.0 / Mathlib v4.35.0 · <strong>13</strong> verified nodes · <strong>70</strong> declaration-checked Lean bindings · 0 sorry in proof modules · standard axioms <code>[propext, Classical.choice, Quot.sound]</code> only. Not externally peer reviewed.</p>
+  <section class="graph">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1580 760" width="100%" role="img" aria-label="Hoggar Bound Lab Lean 4 Blueprint Dependency Graph">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 10 5 L 0 9 z" fill="#64748b"/></marker></defs>
+<rect width="1580" height="760" rx="12" fill="#0f172a"/>
+<line x1="640.0" y1="117.0" x2="340.0" y2="177.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="940.0" y1="117.0" x2="340.0" y2="177.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="340.0" y1="251.0" x2="190.0" y2="311.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="640.0" y1="117.0" x2="640.0" y2="177.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="940.0" y1="117.0" x2="640.0" y2="177.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="340.0" y1="251.0" x2="490.0" y2="311.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="340.0" y1="251.0" x2="790.0" y2="311.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="490.0" y1="385.0" x2="790.0" y2="445.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="640.0" y1="251.0" x2="1090.0" y2="311.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="640.0" y1="117.0" x2="940.0" y2="177.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="640.0" y1="117.0" x2="1240.0" y2="177.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1240.0" y1="251.0" x2="1390.0" y2="311.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="640.0" y1="251.0" x2="1390.0" y2="311.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="340.0" y1="251.0" x2="790.0" y2="579.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="640.0" y1="251.0" x2="790.0" y2="579.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="490.0" y1="385.0" x2="790.0" y2="579.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="790.0" y1="519.0" x2="790.0" y2="579.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1090.0" y1="385.0" x2="790.0" y2="579.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="940.0" y1="251.0" x2="790.0" y2="579.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1390.0" y1="385.0" x2="790.0" y2="579.0" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<a href="#def:pauli">
+<rect x="510.0" y="45.0" width="260" height="72" rx="10" fill="#1e3a5f" stroke="#38bdf8" stroke-width="2"/>
+<text x="522.0" y="69.0" fill="#38bdf8" font-family="ui-monospace,monospace" font-size="11" font-weight="700">DEFINITION · 5 Lean decls</text>
+<text x="522.0" y="94.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Pauli Operators and Symplectic ...</text>
+</a>
+<a href="#lem:okumura">
+<rect x="810.0" y="45.0" width="260" height="72" rx="10" fill="#1e3a3a" stroke="#2dd4bf" stroke-width="2"/>
+<text x="822.0" y="69.0" fill="#2dd4bf" font-family="ui-monospace,monospace" font-size="11" font-weight="700">LEMMA · 2 Lean decls</text>
+<text x="822.0" y="94.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Okumura Third-Moment Inequality</text>
+</a>
+<a href="#thm:spectral-floor">
+<rect x="210.0" y="179.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="222.0" y="203.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 2 Lean decls</text>
+<text x="222.0" y="228.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Theorem 1: Universal Spectral F...</text>
+</a>
+<a href="#cor:asymptotic-half">
+<rect x="60.0" y="313.0" width="260" height="72" rx="10" fill="#3b235a" stroke="#c084fc" stroke-width="2"/>
+<text x="72.0" y="337.0" fill="#c084fc" font-family="ui-monospace,monospace" font-size="11" font-weight="700">COROLLARY · 3 Lean decls</text>
+<text x="72.0" y="362.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Corollary A: Asymptotic 1/2 Vio...</text>
+</a>
+<a href="#thm:kramers">
+<rect x="510.0" y="179.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="522.0" y="203.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 7 Lean decls</text>
+<text x="522.0" y="228.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Theorem 2: Quaternionic / Krame...</text>
+</a>
+<a href="#thm:saturation">
+<rect x="360.0" y="313.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="372.0" y="337.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 6 Lean decls</text>
+<text x="372.0" y="362.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Theorems 3--4 &amp; Propositions 3,...</text>
+</a>
+<a href="#thm:finite-saturated">
+<rect x="660.0" y="313.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="672.0" y="337.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 4 Lean decls</text>
+<text x="672.0" y="362.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Finite Saturated Configurations...</text>
+</a>
+<a href="#thm:norm-phase-family">
+<rect x="660.0" y="447.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="672.0" y="471.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 6 Lean decls</text>
+<text x="672.0" y="496.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Theorem 13b: Infinite Pure-CCZ ...</text>
+</a>
+<a href="#thm:exact-n4-n5">
+<rect x="960.0" y="313.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="972.0" y="337.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 10 Lean decls</text>
+<text x="972.0" y="362.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Classical N=4, 5 CSS Witnesses,...</text>
+</a>
+<a href="#thm:c3-exact-optima">
+<rect x="810.0" y="179.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="822.0" y="203.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 6 Lean decls</text>
+<text x="822.0" y="228.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Theorem 14 &amp; Theorem 16&#x27;&#x27;: Four...</text>
+</a>
+<a href="#thm:universal-cubic-trace">
+<rect x="1110.0" y="179.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="1122.0" y="203.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 5 Lean decls</text>
+<text x="1122.0" y="228.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Lemmas 20--21 &amp; Theorem 22: Uni...</text>
+</a>
+<a href="#thm:conjecture-e">
+<rect x="1260.0" y="313.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="1272.0" y="337.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 6 Lean decls</text>
+<text x="1272.0" y="362.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Theorem 17, Corollary 18 &amp; Theo...</text>
+</a>
+<a href="#thm:comparator">
+<rect x="660.0" y="581.0" width="260" height="72" rx="10" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+<text x="672.0" y="605.0" fill="#4ade80" font-family="ui-monospace,monospace" font-size="11" font-weight="700">THEOREM · 8 Lean decls</text>
+<text x="672.0" y="630.0" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Six-Kernel Comparator Isolation...</text>
+</a>
+</svg>
+  </section>
+  
+<article id="def:pauli" class="card">
+  <div class="card-head">
+    <span class="kind">DEFINITION</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">def:pauli</span>
+  </div>
+  <h2>Pauli Operators and Symplectic Form</h2>
+  <p>For $N$ qubits ($D = 2^N$), each non-identity Pauli observable $P_u$ ($u \in \mathbb{F}_2^{2N} \setminus \{0\}$) is a Hermitian unitary with commutation governed by the symplectic form $\langle u, v \rangle \in \mathbb{F}_2$ and commuting triple sign $\tau(u,v) \in \{\pm 1\}$.</p>
+  <p class="meta"><strong>Depends on:</strong> <em>None (foundational)</em></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (5):</strong><br/><code>HoggarBound.pauli</code> <code>HoggarBound.symp</code> <code>HoggarBound.lineSign</code> <code>HoggarBound.flags</code> <code>HoggarBound.violatedLines</code></p>
+</article>
+<article id="lem:okumura" class="card">
+  <div class="card-head">
+    <span class="kind">LEMMA</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">lem:okumura</span>
+  </div>
+  <h2>Okumura Third-Moment Inequality</h2>
+  <p>For any traceless Hermitian operator $A$ on $\mathbb{C}^D$ ($D \ge 2$) with $\operatorname{tr}(A^2) = D m$, $(D-1)\operatorname{tr}(A^3) \le D(D-2)m\sqrt{(D-1)m}$.</p>
+  <p class="meta"><strong>Depends on:</strong> <em>None (foundational)</em></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (2):</strong><br/><code>HoggarBound.sum_cube_le</code> <code>HoggarBound.trace_cube_le</code></p>
+</article>
+<article id="thm:spectral-floor" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:spectral-floor</span>
+  </div>
+  <h2>Theorem 1: Universal Spectral Floor</h2>
+  <p>For every $N \ge 1$, every subset $S$ of non-identity $N$-qubit Pauli observables, and every $\pm 1$ assignment $f$, $(D-1)\beta_6(S,f) \le (D-2)|S|\sqrt{(D-1)|S|}$.</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#def:pauli">def:pauli</a>, <a href="#lem:okumura">lem:okumura</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (2):</strong><br/><code>HoggarBound.hoggar_bound</code> <code>HoggarBound.NonVacuity.spectral_floor_nonvacuous</code></p>
+</article>
+<article id="cor:asymptotic-half" class="card">
+  <div class="card-head">
+    <span class="kind">COROLLARY</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">cor:asymptotic-half</span>
+  </div>
+  <h2>Corollary A: Asymptotic 1/2 Violated Fraction</h2>
+  <p>As $N \to \infty$, the minimum violated context fraction on $W(2N-1,2)$, $Q^+(2N-1,2)$, and $Q^-(2N-1,2)$ converges to $1/2$ (`Filter.Tendsto`).</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#thm:spectral-floor">thm:spectral-floor</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (3):</strong><br/><code>HoggarBound.AuditUpgrades.full_space_fraction_tendsto_half</code> <code>HoggarBound.AuditUpgrades.hyperbolic_fraction_tendsto_half</code> <code>HoggarBound.AuditUpgrades.elliptic_violated_fraction_eventually_gt</code></p>
+</article>
+<article id="thm:kramers" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:kramers</span>
+  </div>
+  <h2>Theorem 2: Quaternionic / Kramers Spectral Floor</h2>
+  <p>When an antiunitary symmetry $\theta = P_w K$ with $\theta^2 = -I$ commutes with $A_f$, every eigenvalue has even multiplicity, halving the effective dimension to $2^{N-1}$ and yielding $d(Q^-(5,2)) \ge 9$, $d(Q^-(7,2)) \ge 291$, and $d(Q^-(9,2)) \ge 6501$.</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#def:pauli">def:pauli</a>, <a href="#lem:okumura">lem:okumura</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (7):</strong><br/><code>HoggarBound.kramers_even_mult</code> <code>HoggarBound.hoggar_bound_quaternionic</code> <code>HoggarBound.elliptic_fraction</code> <code>HoggarBound.three_qubit_elliptic_contexts</code> <code>HoggarBound.four_qubit_elliptic_contexts</code> <code>HoggarBound.five_qubit_elliptic_contexts</code> <code>HoggarBound.NonVacuity.kramers_nonvacuous</code></p>
+</article>
+<article id="thm:saturation" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:saturation</span>
+  </div>
+  <h2>Theorems 3--4 &amp; Propositions 3, 8, 10: Five-Way Saturation Equivalence</h2>
+  <p>For nonempty $S$, saturating the spectral floor is equivalent to existence of a pure Pauli-flat state on $S$, forcing $(2^N-1)|S| = \square$ and two-character hyperplane intersections.</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#thm:spectral-floor">thm:spectral-floor</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (6):</strong><br/><code>HoggarBound.saturation_tfae</code> <code>HoggarBound.saturation_mul_isSquare</code> <code>HoggarBound.AuditUpgrades.proposition3_violated_iff</code> <code>HoggarBound.AuditUpgrades.proposition8_flat_state_qgt</code> <code>HoggarBound.AuditUpgrades.proposition10_two_character_sum</code> <code>HoggarBound.NonVacuity.saturation_tfae_nonvacuous</code></p>
+</article>
+<article id="thm:finite-saturated" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:finite-saturated</span>
+  </div>
+  <h2>Finite Saturated Configurations: Degrees 75, 480, 2016, 729344</h2>
+  <p>Kernel-verified exact contextuality degrees outside the classical families: 75 (4 qubits), 480 (5 qubits), 2,016 (6 qubits), and 729,344 (7 qubits).</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#thm:spectral-floor">thm:spectral-floor</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (4):</strong><br/><code>HoggarBound.pivot_degree</code> <code>HoggarBound.phase5_degree</code> <code>HoggarBound.det6_degree</code> <code>HoggarBound.phase7_degree</code></p>
+</article>
+<article id="thm:norm-phase-family" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:norm-phase-family</span>
+  </div>
+  <h2>Theorem 13b: Infinite Pure-CCZ Determinant Family</h2>
+  <p>For every $m \ge 1$ ($N = 3m$, $q = 2^m$), the pure-CCZ determinant phase state $|\Psi_{3m}\rangle$ is flat on a strictly non-closed support of size $(q^3-1)q^2$ with exact degree $\frac{1}{12}(q^3-1)q^3(q-1)(q-2)$, strictly positive for every $m \ge 2$.</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#thm:saturation">thm:saturation</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (6):</strong><br/><code>HoggarBound.NormPhaseFamily.detPhase_isFlatState</code> <code>HoggarBound.NormPhaseFamily.detSupport_card</code> <code>HoggarBound.NormPhaseFamily.detSupport_not_closed</code> <code>HoggarBound.NormPhaseFamily.infinite_nonclosed_saturated_family</code> <code>HoggarBound.NormPhaseFamily.infinite_nonclosed_family_contextual</code> <code>HoggarBound.NonVacuity.norm_phase_family_nonvacuous</code></p>
+</article>
+<article id="thm:exact-n4-n5" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:exact-n4-n5</span>
+  </div>
+  <h2>Classical N=4, 5 CSS Witnesses, Ladders and Unconditional Bounds</h2>
+  <p>Lean 4 proves symplectic transvection invariance, CSS witnesses (315, 1575, 6975), exact double-counting ladders, unconditional Kramers-lifted bounds $d(W(7,2)) \ge 1455$ and $d(Q^+(9,2)) \ge 6444$, Lemmas L1 &amp; L4, and the exact reduction of $(315, 1575, 6975)$ to $d(Q^-(7,2)) \ge 315$ (independently checked over all 42 $W(5,2)$ orbits in C/Python).</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#thm:kramers">thm:kramers</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (10):</strong><br/><code>HoggarBound.ExactDegreesN4N5.transv_violatedLines_eq</code> <code>HoggarBound.ExactDegreesN4N5.q7minus_css_witness</code> <code>HoggarBound.ExactDegreesN4N5.w72_css_witness</code> <code>HoggarBound.ExactDegreesN4N5.q9plus_css_witness</code> <code>HoggarBound.ExactDegreesN4N5.w72_ge_1455</code> <code>HoggarBound.ExactDegreesN4N5.q9plus_ge_6444</code> <code>HoggarBound.ExactDegreesN4N5.lemma_L1_q7minus_section_le_92</code> <code>HoggarBound.ExactDegreesN4N5.lemma_L4_w52_hyperplane_le_21</code> <code>HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315</code> <code>HoggarBound.NonVacuity.exact_degrees_ladders_nonvacuous</code></p>
+</article>
+<article id="thm:c3-exact-optima" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:c3-exact-optima</span>
+  </div>
+  <h2>Theorem 14 &amp; Theorem 16&#x27;&#x27;: Four-Qubit C3 Pair and Exact Binary Optima 368 vs 344</h2>
+  <p>On the 71-point four-qubit C3 section, two cospectral $16 \times 16$ carriers have $64 \times 64$ completions with cubic traces 14,976 and 15,360 and kernel-certified exact global binary completion minima 368 and 344 (exact gap 24, proved via pure-integer MET-SDP triangle-cut duals).</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#def:pauli">def:pauli</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (6):</strong><br/><code>HoggarBound.C3.four_qubit_C3_spectral_counterexample</code> <code>HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened</code> <code>HoggarBound.C3ExactOptima.corollary16_sigmaA_exact_lower</code> <code>HoggarBound.C3ExactOptima.corollary16_sigmaB_exact_lower</code> <code>HoggarBound.C3ExactOptima.corollary16_exact_binary_optima</code> <code>HoggarBound.NonVacuity.c3_exact_optima_nonvacuous</code></p>
+</article>
+<article id="thm:universal-cubic-trace" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:universal-cubic-trace</span>
+  </div>
+  <h2>Lemmas 20--21 &amp; Theorem 22: Universal Cubic-Trace Identity</h2>
+  <p>For every closed Pauli configuration $X$ and hyperplane $d^\perp$, the completion matrix equals Jordan multiplication by the carrier on outside Paulis, yielding an eigenvalue-free identity for $\operatorname{tr}(\Lambda_\sigma^3)$.</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#def:pauli">def:pauli</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (5):</strong><br/><code>HoggarBound.ConjectureE.lemma20_jordan_action</code> <code>HoggarBound.ConjectureE.trace_completion_pow_eq</code> <code>HoggarBound.ConjectureE.trace_completion_cube_universal</code> <code>HoggarBound.ConjectureE.lemma21_trace_cube_sylvester</code> <code>HoggarBound.ConjectureE.lemma21_trace_cube_symm</code></p>
+</article>
+<article id="thm:conjecture-e" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:conjecture-e</span>
+  </div>
+  <h2>Theorem 17, Corollary 18 &amp; Theorem 19: Jonah&#x27;s Conjecture E Across All Nine Vertex Cases</h2>
+  <p>For every $N \ge 4$ and every one of Jonah&#x27;s nine vertex cases (C1, C3, C5, C6, C8, C11, C12, C14, C15), explicit cospectral Hermitian carriers admit distinct completion eigenvalue lists and root multisets, invariant under signed-Clifford orbit transport.</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#thm:universal-cubic-trace">thm:universal-cubic-trace</a>, <a href="#thm:kramers">thm:kramers</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (6):</strong><br/><code>HoggarBound.C3AllQubits.c3_strict_law_fails_general</code> <code>HoggarBound.ConjectureE.corollary18_c11_from_c3</code> <code>HoggarBound.ConjectureE.jonah_conjecture_e_all_nine_cases</code> <code>HoggarBound.AuditUpgrades.clifford_transport_strict_law_fails</code> <code>HoggarBound.AuditUpgrades.jonah_conjecture_e_all_nine_cases_spectra</code> <code>HoggarBound.NonVacuity.conjecture_e_nonvacuous</code></p>
+</article>
+<article id="thm:comparator" class="card">
+  <div class="card-head">
+    <span class="kind">THEOREM</span>
+    <span class="pill ok">leanok · kernel verified</span>
+    <span class="label">thm:comparator</span>
+  </div>
+  <h2>Six-Kernel Comparator Isolation Target</h2>
+  <p>All eight headline theorems are isolated in `HoggarBound.Challenge` and replayed from sorry-free `HoggarBound.Solution` via `lake comparator --config comparator.json --paranoid` across all six bundled Lean 4.35.0 kernels.</p>
+  <p class="meta"><strong>Depends on:</strong> <a href="#thm:spectral-floor">thm:spectral-floor</a>, <a href="#thm:kramers">thm:kramers</a>, <a href="#thm:saturation">thm:saturation</a>, <a href="#thm:norm-phase-family">thm:norm-phase-family</a>, <a href="#thm:exact-n4-n5">thm:exact-n4-n5</a>, <a href="#thm:c3-exact-optima">thm:c3-exact-optima</a>, <a href="#thm:conjecture-e">thm:conjecture-e</a></p>
+  <p class="meta"><strong>Verified Lean 4 declarations (8):</strong><br/><code>HoggarBound.ComparatorTarget.target_spectral_floor</code> <code>HoggarBound.ComparatorTarget.target_kramers_floor</code> <code>HoggarBound.ComparatorTarget.target_saturation_mul_isSquare</code> <code>HoggarBound.ComparatorTarget.target_infinite_nonclosed_saturated_family</code> <code>HoggarBound.ComparatorTarget.target_c3_exact_binary_optima</code> <code>HoggarBound.ComparatorTarget.target_jonah_conjecture_e_all_nine_cases</code> <code>HoggarBound.ComparatorTarget.target_w72_ge_1455</code> <code>HoggarBound.ComparatorTarget.target_q9plus_ge_6444</code></p>
+</article>
+</main>
+</body>
+</html>

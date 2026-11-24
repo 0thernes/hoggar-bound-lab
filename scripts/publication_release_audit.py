@@ -7,13 +7,14 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 RESEARCH_COMMIT = "d3811e3b53048fa8f3206f08494f0a9834eed287"
 SATURATION_COMMIT = "87f08a0fb5007c8529abc13eabeec093027c0eba"
 C3_ALL_QUBITS_COMMIT = "5dcea35"  # CarrierFamily.lean as checked by its workflow
-VERSION = "1.8.0"
+VERSION = "1.9.0"
 PDF_HASH = "5be6ba1318ce5cfeebf3a89b79dcfd428f87e228234e2f5075b14807a7f34836"
 
 
@@ -129,15 +130,14 @@ def main():
     new_verify_src = (ROOT / "lean/VerifyNewFormalizations.lean").read_text(encoding="utf-8")
     new_audited = {line.split()[2] for line in new_verify_src.splitlines() if line.startswith("#print axioms ")}
     new_log = (ROOT / "results/new-formalizations-lean-axioms.log").read_text(encoding="utf-8")
+    flat_new = re.sub(r"\s+", " ", new_log)
     new_reports = {}
-    for line in new_log.splitlines():
-        if " depends on axioms: [" in line:
-            name, _, axioms = line.partition(" depends on axioms: [")
-            new_reports[name.strip("'")] = {a.strip() for a in axioms.rstrip("]").split(",") if a.strip()}
-        elif line.endswith(" does not depend on any axioms"):
-            new_reports[line.split("'")[1]] = set()
-    require(len(new_audited) == 100 and new_audited == set(new_reports),
-            "VerifyNewFormalizations.lean axiom report does not match the 100 declarations")
+    for name, axioms in re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", flat_new):
+        new_reports[name] = {a.strip() for a in axioms.split(",") if a.strip()}
+    for name in re.findall(r"'([^']+)' does not depend on any axioms", flat_new):
+        new_reports[name] = set()
+    require(len(new_audited) == 110 and new_audited == set(new_reports),
+            "VerifyNewFormalizations.lean axiom report does not match the 110 declarations")
     require(all(a <= allowed for a in new_reports.values()), "Nonstandard axiom in VerifyNewFormalizations.lean")
     require({
         "HoggarBound.hoggar_bound_quaternionic",
@@ -169,7 +169,11 @@ def main():
         "HoggarBound.ExactDegreesN4N5.w72_ge_1455",
         "HoggarBound.ExactDegreesN4N5.q9plus_ge_6444",
         "HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315",
-    } <= set(new_reports), "Required v1.8.0 Lean theorems missing from axiom report")
+        "HoggarBound.NonVacuity.spectral_floor_nonvacuous",
+        "HoggarBound.NonVacuity.conjecture_e_nonvacuous",
+        "HoggarBound.NonVacuity.norm_phase_family_nonvacuous",
+        "HoggarBound.NonVacuity.c3_exact_optima_nonvacuous",
+    } <= set(new_reports), "Required v1.9.0 Lean theorems missing from axiom report")
     trace_counts = json.loads((ROOT / "results/conjecture_e_trace_formula.json").read_text(encoding="utf-8"))["checks"]
     require(trace_counts == {"passed": 97, "total": 97}, "Universal cubic-trace formula checks (n=3..5) incomplete")
     trace_counts_n6 = json.loads((ROOT / "results/conjecture_e_trace_formula_n6.json").read_text(encoding="utf-8"))["checks"]
@@ -213,7 +217,7 @@ def main():
         "c3_all_qubits_commit": C3_ALL_QUBITS_COMMIT,
         "c3_all_qubits_audited_declarations": len(audited),
         "theorem_19_lemma_checks": lemma_checks,
-        "v180_new_formalizations_audited_declarations": len(new_audited),
+        "v190_new_formalizations_audited_declarations": len(new_audited),
         "theorem_22_trace_formula_checks": trace_counts,
         "theorem_22_trace_formula_n6_checks": trace_counts_n6,
         "proposition_16_prime_sdp_dual_checks": sdp_counts,

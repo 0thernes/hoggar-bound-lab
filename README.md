@@ -6,22 +6,30 @@ spectra need not determine equal completion spectra, in every vertex case of Jon
 and for every number of qubits from four on, which proves Jonah's Conjecture E. Reproducible
 experiments use Moonlab, quantum_geometric_tensor, quantum_rng and Eshkol.
 
+[![CI](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/ci.yml)
 [![Saturated configurations](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/saturated-configurations.yml)
 [![Independent verification](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/independent-verification.yml)
 [![Lean 4.35.0](https://img.shields.io/badge/Lean-4.35.0-blue)](lean/README.md)
 [![Case C3 for every number of qubits](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/c3-all-qubits.yml)
 [![Conjecture E all 9 cases Lean 4 audit](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/conjecture-e-all-cases.yml/badge.svg)](https://github.com/0thernes/hoggar-bound-lab/actions/workflows/conjecture-e-all-cases.yml)
-[![Version 1.8.0](https://img.shields.io/badge/version-1.8.0-informational)](CHANGELOG.md)
+[![Version 1.9.0](https://img.shields.io/badge/version-1.9.0-informational)](CHANGELOG.md)
 
 **Unified paper:** [Spectral bounds and their limits in Pauli contextuality](paper/unified-contextuality.md) ([PDF](paper/unified-contextuality.pdf), [HTML](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html)).
+&nbsp;·&nbsp; **Lean Blueprint:** [Interactive dependency graph](https://0thernes.github.io/hoggar-bound-lab/blueprint/)
 &nbsp;·&nbsp; **Proofs:** [lean/README.md](lean/README.md)
 &nbsp;·&nbsp; **Independent review:** [INDEPENDENT-REVIEW.md](INDEPENDENT-REVIEW.md)
 
-**Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) ·
-[GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
+**Start here:** [SUMMARY.md](SUMMARY.md) (plain language) · [CLAIMS.md](CLAIMS.md) (structured claim register) · [INDEX.md](INDEX.md) (every claim, with its proof, test and log) · [LIMITATIONS.md](LIMITATIONS.md) · [REPLICATION.md](REPLICATION.md) · [docs/statement-fidelity.md](docs/statement-fidelity.md) · [GLOSSARY.md](GLOSSARY.md) · [CHANGELOG.md](CHANGELOG.md) · [LEGAL.md](LEGAL.md) · [CITATION.cff](CITATION.cff)
 
-Status: research preprint, repository version 1.8.0, 21 November 2026. Not peer reviewed. AI-generated under human
+Status: research preprint, repository version 1.9.0, 24 November 2026. Not peer reviewed. AI-generated under human
 direction. Author: Alexander S. Donahue, 0thernes LLC ([ORCID 0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648)).
+
+**New in 1.9.0** (six-layer verification hardening, Build Standard v1.1.0 upgrade, and ten-pass audit; `VerifyNewFormalizations.lean` expanded to **110** audited declarations strictly within `[propext, Classical.choice, Quot.sound]`, leaving every frozen proof file byte-identical):
+
+* **Multi-kernel Lean 4 replay, Non-Vacuity & Batteries Linter (`NonVacuity.lean`, `Challenge.lean`, `Solution.lean`, `comparator.json`).** Ten explicit existential non-vacuity witnesses (`HoggarBound.NonVacuity.*`) rule out vacuous hypotheses across all headline theorem families; an isolated statement-only specification stub (`Challenge.lean`) is checked against sorry-free `Solution.lean` via Lean 4.35.0's built-in 6-kernel `lake comparator --config comparator.json --paranoid` (C++ kernel, `leanchecker-paranoid`, `lean4lean`, `nanoda 0.4.19`, `con-leche`, `con-ron`); and Batteries `lake exe runLinter` passes cleanly across all editable v1.5.0–v1.9.0 modules.
+* **Interactive Lean Blueprint & Statement Fidelity Table (`blueprint/`, `docs/statement-fidelity.md`).** Declaration-checked dependency graph verifying 70/70 Lean declarations across 13 proof nodes (`scripts/build_blueprint.py`), published cleanly at [`/blueprint/`](https://0thernes.github.io/hoggar-bound-lab/blueprint/) inside the single GitHub Pages site, alongside a line-by-line paper-to-Lean Statement Fidelity Table and CI-enforced verbatim `#print axioms` 5-second proof block below (`scripts/check_readme_axioms.py`).
+* **Arithmetic precision audit, citation resolution check, property/mutation/fuzz tests & SLSA provenance.** `scripts/arithmetic_audit.py` explicitly classifies all 47 Python scripts (`0` unclassified float scripts; exploratory scripts labeled `numerical_approximation`); `scripts/check_citations.py --online` verified all DOIs/arXiv IDs/URLs and caught a dead 404 GitHub Actions run ID in manuscript Section 9.4 (`44920343997` fixed to verified run `44893871335`); `tests/test_properties.py` and `tests/test_mutation_and_fuzz.py` add Hypothesis property, metamorphic, negative, mutation-killing, and 300-payload fuzz tests; and `.github/workflows/ci.yml` + `release.yml` add cross-platform CI, ASan/UBSan C sanitizers, secret/dependency scanning, and Sigstore SLSA build provenance attestations (`actions/attest-build-provenance`).
+* **Build Standard v1.1.0 & Palomar metadata (`AGENTS.md`, `llms.txt`, `repo.yaml`, `formalization.yaml`, `CLAIMS.md`, `LIMITATIONS.md`, `REPLICATION.md`, `docs/reviews/2026-11-24-ten-pass-playbook-audit.md`).** Full repository documentation, ADRs, threat model, transparent owner-decision disclosures (including `0thernes LLC` entity-status note and verification-only license notice in `LIMITATIONS.md`), and automated `scripts/Audit-Repo.ps1` / `scripts/audit-repo.sh` compliance checks.
 
 **New in 1.8.0** (paper Sections 5.1, 5.3, 6, 7, 8.5, 9.4, 11.3, 12; `VerifyNewFormalizations.lean` expanded to **100** audited declarations strictly within `[propext, Classical.choice, Quot.sound]`):
 
@@ -175,6 +183,81 @@ What this repository adds:
 | `third_party/` | vendored Moonlab engine, quantum_rng and one QGTL source file, with licences and provenance |
 | `independent-review/`, `tests/`, `results/*audit*` | the independent companion review |
 
+## Exact Lean 4 Axiom Audit (5-Second Proof)
+
+Every headline theorem below is machine-checked in Lean 4.35.0 with zero `sorry`, zero `admit`, zero `native_decide`, and zero custom axioms (strictly within `[propext, Classical.choice, Quot.sound]`). This verbatim block is automatically verified against the recorded Lean axiom logs in CI via `python3 scripts/check_readme_axioms.py`.
+
+<!-- BEGIN:AXIOMS_5SEC -->
+```text
+'HoggarBound.hoggar_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.three_qubit_exact_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.full_space_fraction_tendsto_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.hoggar_bound_quaternionic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.saturation_tfae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.saturation_mul_isSquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.pivot_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.phase5_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.det6_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.phase7_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NormPhaseFamily.infinite_nonclosed_saturated_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NormPhaseFamily.infinite_nonclosed_family_contextual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.w72_ge_1455' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.q9plus_ge_6444' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.C3.four_qubit_C3_spectral_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.C3ExactOptima.corollary16_exact_binary_optima' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.C3AllQubits.c3_strict_law_fails_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ConjectureE.trace_completion_cube_universal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.ConjectureE.corollary18_c11_from_c3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.clifford_transport_strict_law_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.AuditUpgrades.jonah_conjecture_e_all_nine_cases_spectra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.conjecture_e_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.norm_phase_family_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+```
+<!-- END:AXIOMS_5SEC -->
+
+See [docs/statement-fidelity.md](docs/statement-fidelity.md) for the line-by-line Statement Fidelity Table mapping each paper theorem to its exact Lean 4 type signature and existential non-vacuity witness (`lean/HoggarBound/NonVacuity.lean`), and browse the declaration-checked [Lean Blueprint](https://0thernes.github.io/hoggar-bound-lab/blueprint/).
+
+## Quickstart
+
+Clone the repository and run the fast pure-integer exact verification, property/mutation tests, and README axiom audit in under 30 seconds:
+
+```bash
+git clone https://github.com/0thernes/hoggar-bound-lab.git
+cd hoggar-bound-lab
+python3 -m pip install -r requirements.txt
+python3 scripts/c3_exact_optima_check.py
+python3 scripts/norm_phase_family.py
+python3 scripts/exact_degrees_n4_n5.py
+python3 scripts/check_readme_axioms.py
+python3 -m unittest tests/test_properties.py tests/test_mutation_and_fuzz.py
+```
+
+Or use `just` (`just verify-fast`, `just lean-verify`, `just audit`) or `bash scripts/dev.sh verify-fast`. See [REPLICATION.md](REPLICATION.md) for full reproduction timings and hardware requirements.
+
+## Usage and Examples
+
+Inspect individual certificates, rebuild the Blueprint, or replay the Lean 4 multi-kernel audit:
+
+```bash
+# Verify the four-qubit C3 binary completion optima (368 vs. 344, exact gap 24)
+python3 scripts/c3_exact_optima_check.py
+
+# Verify Theorem 22 universal cubic-trace identity across all 9 vertex cases (N=3..6)
+python3 scripts/conjecture_e_trace_formula.py
+python3 scripts/conjecture_e_trace_formula.py 6
+
+# Verify arithmetic precision tiers across all 47 scripts and check citations
+python3 scripts/arithmetic_audit.py
+python3 scripts/check_citations.py
+
+# Verify 70/70 Blueprint declarations and rebuild blueprint/web/index.html
+python3 scripts/build_blueprint.py
+
+# Run 6-kernel Lean 4 comparator (--paranoid) and 110-declaration axiom audit
+cd lean && lake env lean VerifyNewFormalizations.lean && lake comparator --config comparator.json --paranoid
+```
+
 ## Reproduce
 
 ```bash
@@ -207,10 +290,10 @@ cd lean && lake build HoggarBound.MaskRows HoggarBound.SaturatedPhaseSeven && la
 cd lean && lake build HoggarBound.Bound HoggarBound.Quadric && lake env lean HoggarBound/CarrierFamily.lean
 ```
 
-Theorem 2 (Kramers/elliptic), Theorems 3–4 (saturation), Propositions 3/8/10, asymptotics, Clifford transport, Lemmas 20–21, Theorem 22, eigenvalue-multiset Theorem 19 (all nine vertex cases), Corollaries 16 & 18, and Proposition 16' SDP dual (77 audited declarations):
+Theorem 2 (Kramers/elliptic), Theorems 3–4 (saturation), Propositions 3/8/10, asymptotics, Clifford transport, Lemmas 20–21, Theorem 22, eigenvalue-multiset Theorem 19 (all nine vertex cases), Corollaries 16 & 18, Proposition 16' SDP dual, Theorem 16'' exact C3 binary optima (368/344), Theorem 13b infinite non-closed determinant family (plus N=6 exact degree 2,016), N=4–5 CSS witnesses/ladders/unconditional bounds, and 10 explicit existential non-vacuity witnesses (**110 audited declarations**):
 
 ```bash
-cd lean && lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades && lake env lean VerifyNewFormalizations.lean
+cd lean && lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades HoggarBound.C3ExactOptima HoggarBound.SaturatedPhaseSix HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5 HoggarBound.NonVacuity HoggarBound.Solution && lake env lean VerifyNewFormalizations.lean
 ```
 
 `run_all.sh` needs gcc, Python 3 with NumPy and Matplotlib, and Node; Eshkol is optional. It prints one
@@ -231,13 +314,22 @@ build needs [elan](https://github.com/leanprover/elan); it downloads Lean 4.35.0
   of the named states is checked by programs, outside Lean. The uniqueness statement for seven qubits
   is proved by enumeration inside one family of forms only.
 * Conjecture E (Theorem 19 across all nine vertex cases for every $N \ge 4$ at the canonical Hermitian
-  eigenvalue-multiset level), signed-Clifford orbit transport, Corollaries 16 and 18, Proposition 16'
-  ($330 \le \min_y F(\sigma_1,y) \le 344 \lt 347 \le \min_y F(\sigma_0,y) \le 368$), Lemmas 20 and 21,
-  Theorem 22, the quaternionic refinement (Theorem 2), the saturation equivalences (Theorems 3 and 4),
-  Propositions 3, 8 and 10, and the asymptotic $1/2$ limit (Corollary A) are all proved in Lean 4 (77
-  audited declarations in `VerifyNewFormalizations.lean`, strictly standard axioms) and checked by exact
-  computation through six qubits. Only the single-orbit group transitivity classification of Jonah
-  [J3, Theorem B4] remains a cited paper input. No external referee has reviewed the proofs.
+  eigenvalue-multiset level), signed-Clifford orbit transport, Corollaries 16 and 18, Proposition 16',
+  Theorem 16'' (exact global binary completion optima 368 and 344, exact gap 24), Theorem 13b (infinite
+  non-closed contextual floor-saturating pure-CCZ determinant family $`|\Psi_{3m}\rangle`$ for all $m \ge 1$
+  plus six-qubit exact degree 2,016), N=4–5 CSS witnesses/ladders and unconditional bounds
+  $d(W(7,2)) \ge 1455$ and $d(Q^+(9,2)) \ge 6444$, Lemmas 20 and 21, Theorem 22, the quaternionic refinement
+  (Theorem 2), the saturation equivalences (Theorems 3 and 4), Propositions 3, 8 and 10, the asymptotic $1/2$
+  limit (Corollary A), and 10 existential non-vacuity witnesses (`NonVacuity.lean`) are all proved in Lean 4
+  (**110** audited declarations in `VerifyNewFormalizations.lean`, strictly standard axioms, multi-kernel checked
+  via `lake comparator --paranoid`) and checked by exact computation through six qubits. Only the single-orbit
+  group transitivity classification of Jonah [J3, Theorem B4] and the 42-orbit $W(5,2)$ census step of [J1]
+  remain outside Lean's kernel (the latter independently reproduced in `src/w52_census_verify.c` and
+  `scripts/exact_degrees_n4_n5.py`). No external referee has reviewed the proofs.
+
+## Limitations
+
+See [LIMITATIONS.md](LIMITATIONS.md) for the complete list of verification boundaries, exploratory `numerical_approximation` scripts, open mathematical targets, and legal/entity disclosures (including the `0thernes LLC` registration-status note and verification-only license terms).
 * Novelty of the Section 5 results is claimed to the extent of a bounded literature search.
 * Moonlab is a classical simulator; quantum_rng is a classical "quantum-inspired" generator; only the
   `diffgeo_*` kernels of QGTL are used. Nothing here is a measurement on quantum hardware.

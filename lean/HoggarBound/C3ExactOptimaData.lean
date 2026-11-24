@@ -10,18 +10,29 @@ namespace HoggarBound.C3ExactOptimaData
 
 /-- A frustrated triangle cut `(i, j, k, s1, s2, s3, w)` on `{0, ..., 63}` with `s1*s2*s3 = -1` and `w > 0`. -/
 structure TriCut where
+  /-- First outside-point index `i ∈ Fin 64`. -/
   i : Nat
+  /-- Second outside-point index `j ∈ Fin 64`. -/
   j : Nat
+  /-- Third outside-point index `k ∈ Fin 64`. -/
   k : Nat
+  /-- Sign coefficient `s₁ ∈ {±1}` on pair `(i, j)`. -/
   s1 : Int
+  /-- Sign coefficient `s₂ ∈ {±1}` on pair `(i, k)`. -/
   s2 : Int
+  /-- Sign coefficient `s₃ ∈ {±1}` on pair `(j, k)`. -/
   s3 : Int
+  /-- Nonnegative integer dual weight on the frustrated triangle cut. -/
   w : Int
 deriving DecidableEq, Repr
 
+/-- Integer denominator `Q` scaling the `signA` MET-SDP dual certificate. -/
 def certAQ : Int := 48
+/-- Uniform diagonal shift `μ` for the `signA` MET-SDP dual certificate. -/
 def certAMu : Int := 273
+/-- Integer Gram factor scale `K` for the `signA` MET-SDP dual certificate. -/
 def certAK : Int := 2048
+/-- Zero-sum diagonal shift vector `d` for the `signA` MET-SDP dual certificate. -/
 def certAD : List Int := [0, -4, -1, 0, 7, -7, -3, 13, -1, -3, 16, 5, -2, 8, -2, -5, -1, 7, 13, -17, 0, 6, -5, -4, -2, -4, 3, 0, -8, 0, 9, -2, -2, 3, 3, -6, 1, -3, 6, 6, -8, -1, 7, 6, 4, -6, 2, -1, -6, -7, 5, -2, -5, -2, 7, -11, -7, -3, -4, 9, 1, -2, 0, 0]
 private def certACuts_0 : List TriCut := [
   ⟨32, 52, 53, 1, 1, -1, 46⟩, ⟨49, 51, 58, 1, -1, 1, 41⟩, ⟨54, 55, 63, 1, 1, -1, 44⟩, ⟨52, 53, 61, 1, -1, 1, 48⟩,
@@ -141,6 +152,7 @@ private def certACuts_5 : List TriCut := [
   ⟨17, 25, 44, 1, 1, -1, 6⟩, ⟨6, 48, 53, -1, 1, 1, 10⟩, ⟨6, 12, 50, -1, -1, -1, 11⟩, ⟨2, 24, 36, 1, 1, -1, 8⟩,
   ⟨6, 10, 27, 1, 1, -1, 9⟩
 ]
+/-- Complete list of 421 frustrated-triangle cuts for the `signA` (`368`) MET-SDP dual. -/
 def certACuts : List TriCut := certACuts_0 ++ certACuts_1 ++ certACuts_2 ++ certACuts_3 ++ certACuts_4 ++ certACuts_5
 private def certAL_0 : List (List Int) := [
   [33823],
@@ -222,11 +234,16 @@ private def certAL_7 : List (List Int) := [
   [0, -3574, -6837, 787, 4736, -1256, -757, -7139, 632, 5442, 7930, -2919, -630, -4242, 5199, -2119, 3821, 694, 743, -3866, -3935, 1620, 1002, 6684, -7380, 1419, -2879, 49, -587, 622, -120, 246, -4202, 4425, 4898, -1439, 2444, -11161, 3693, 1596, 9246, -5939, 8228, -2162, -5683, -724, 3547, 8811, 2289, 5555, -1315, 817, -3679, -4992, -2783, -2008, -1612, -1929, -3470, 757, -569, -2965, 7356],
   [0, 5916, 7262, -1116, 8237, 1058, -395, -3156, -5516, 3685, 4893, 4658, -4352, 5771, 1634, 4061, 1443, 3884, -10479, 4837, -3712, 1194, -1044, 4988, 535, -2310, -1440, 2738, -764, -2933, -2325, -293, 1893, 1185, 7166, -1909, 7675, 4052, 6586, 12293, -5068, 4274, 2832, 4174, 1238, -4899, -6158, -719, -4716, -201, -274, -3303, -1115, -5298, -929, -21, -300, -2472, -303, -250, 2810, 1226, 1547, 6978]
 ]
+/-- Lower-triangular integer factor `L` certifying PSD residual for `signA` (`368`). -/
 def certAL : List (List Int) := certAL_0 ++ certAL_1 ++ certAL_2 ++ certAL_3 ++ certAL_4 ++ certAL_5 ++ certAL_6 ++ certAL_7
 
+/-- Integer denominator `Q` scaling the `signB` MET-SDP dual certificate. -/
 def certBQ : Int := 48
+/-- Uniform diagonal shift `μ` for the `signB` MET-SDP dual certificate. -/
 def certBMu : Int := 431
+/-- Integer Gram factor scale `K` for the `signB` MET-SDP dual certificate. -/
 def certBK : Int := 2048
+/-- Zero-sum diagonal shift vector `d` for the `signB` MET-SDP dual certificate. -/
 def certBD : List Int := [-85, 92, -4, -4, -100, 92, -4, 15, -85, -4, -100, -4, -82, 92, -100, 93, -82, 8, -100, -3, -99, 92, -3, 16, -99, -3, 93, 9, -78, 92, -3, -3, -78, -4, 93, -4, 92, 8, 93, -3, -3, -4, -4, 15, 92, -4, 92, -4, -100, 93, -4, -3, 92, -4, -100, -4, -3, 16, -100, 93, 92, -3, -100, 9]
 private def certBCuts_0 : List TriCut := [
   ⟨27, 37, 39, -1, 1, 1, 10⟩, ⟨17, 27, 39, -1, 1, 1, 10⟩, ⟨19, 37, 63, 1, 1, -1, 10⟩, ⟨17, 19, 63, 1, -1, 1, 10⟩,
@@ -351,6 +368,7 @@ private def certBCuts_5 : List TriCut := [
   ⟨9, 11, 55, 1, -1, 1, 19⟩, ⟨2, 22, 30, 1, 1, -1, 17⟩, ⟨2, 9, 43, 1, 1, -1, 9⟩, ⟨2, 7, 9, 1, -1, 1, 9⟩,
   ⟨36, 37, 50, 1, 1, -1, 6⟩, ⟨13, 17, 50, 1, 1, -1, 6⟩
 ]
+/-- Complete list of 442 frustrated-triangle cuts for the `signB` (`344`) MET-SDP dual. -/
 def certBCuts : List TriCut := certBCuts_0 ++ certBCuts_1 ++ certBCuts_2 ++ certBCuts_3 ++ certBCuts_4 ++ certBCuts_5
 private def certBL_0 : List (List Int) := [
   [46507],
@@ -432,6 +450,7 @@ private def certBL_7 : List (List Int) := [
   [180, -5339, -4845, 23, 3224, -1315, -1102, -5962, -955, -5110, 3219, 1783, -188, -4826, -486, -2617, 1831, 481, -4097, -5481, -4481, -2554, -2822, 1796, -2273, -4497, 2613, 2695, -5643, -1435, 2404, -938, -3115, 407, 3135, 4763, -1750, -3843, 8120, -671, -1556, 4106, 9878, 3074, -4499, 1399, 11629, 9548, -2202, -1054, -4341, 11121, -2295, -7194, -14328, -10077, -7153, -3558, -23989, -7094, -3297, -5329, 11959],
   [0, 5343, 4863, -5, 5458, 1612, 2471, -2830, -3562, 197, 1201, 5996, 5095, 1454, 2314, 2818, 1109, 2473, -2900, 2978, -1351, 1473, 1723, 7895, 1318, -1668, 1679, 8240, 1204, -3170, 2626, -1759, 1541, -2280, -3854, 1345, -3224, -611, -1709, -190, -9835, -323, -1942, 3776, 3594, 139, -8250, -7550, -7799, 2636, 2746, 979, -6010, -10604, -526, -11311, -6729, -21936, -90, -7364, 1894, 5289, -21, 11477]
 ]
+/-- Lower-triangular integer factor `L` certifying PSD residual for `signB` (`344`). -/
 def certBL : List (List Int) := certBL_0 ++ certBL_1 ++ certBL_2 ++ certBL_3 ++ certBL_4 ++ certBL_5 ++ certBL_6 ++ certBL_7
 
 end HoggarBound.C3ExactOptimaData

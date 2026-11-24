@@ -36,6 +36,7 @@ import HoggarBound.C3ExactOptima
 import HoggarBound.SaturatedPhaseSix
 import HoggarBound.NormPhaseFamily
 import HoggarBound.ExactDegreesN4N5
+import HoggarBound.NonVacuity
 
 -- Theorem 2: Quaternionic / Kramers spectral floor and elliptic quadrics
 #print axioms HoggarBound.kramers_even_mult
@@ -160,3 +161,15 @@ import HoggarBound.ExactDegreesN4N5
 #print axioms HoggarBound.ExactDegreesN4N5.lemma_L1_q7minus_section_le_92
 #print axioms HoggarBound.ExactDegreesN4N5.lemma_L4_w52_hyperplane_le_21
 #print axioms HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315
+
+-- NonVacuity (v1.9.0): Explicit non-vacuity witness lemmas for every headline theorem family
+#print axioms HoggarBound.NonVacuity.spectral_floor_nonvacuous
+#print axioms HoggarBound.NonVacuity.kramers_nonvacuous
+#print axioms HoggarBound.NonVacuity.saturation_tfae_nonvacuous
+#print axioms HoggarBound.NonVacuity.conjecture_e_nonvacuous
+#print axioms HoggarBound.NonVacuity.clifford_transport_nonvacuous
+#print axioms HoggarBound.NonVacuity.cone_lift_nonvacuous
+#print axioms HoggarBound.NonVacuity.norm_phase_family_nonvacuous
+#print axioms HoggarBound.NonVacuity.c3_exact_optima_nonvacuous
+#print axioms HoggarBound.NonVacuity.exact_degrees_ladders_nonvacuous
+#print axioms HoggarBound.NonVacuity.propositions_qgt_twochar_nonvacuous

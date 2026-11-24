@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" role="img" aria-label="Hoggar Bound Lab v1.9.0 — Lean 4.35.0 Pauli Contextuality Spectral Bounds and Jonah's Conjecture E">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="100%" stop-color="#141e38"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect x="48" y="48" width="1184" height="544" rx="20" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <rect x="48" y="48" width="1184" height="8" rx="4" fill="url(#accent)"/>
+  <text x="96" y="132" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#38bdf8" letter-spacing="2">HOGGAR BOUND LAB · v1.9.0 · LEAN 4.35.0</text>
+  <text x="96" y="205" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="46" font-weight="800" fill="#f8fafc">Spectral Bounds and Their Limits</text>
+  <text x="96" y="262" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="46" font-weight="800" fill="#f8fafc">in Pauli Contextuality</text>
+  <text x="96" y="316" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="24" fill="#cbd5e1">Exact Configurations, Infinite Family |Ψ₃ₘ⟩, C3 Binary Optima (368 vs 344), and Jonah’s Conjecture E</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20">
+    <rect x="96" y="365" width="335" height="118" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="120" y="405" fill="#38bdf8" font-weight="700">110 NEW LEAN AXIOM AUDITS</text>
+    <text x="120" y="437" fill="#e2e8f0">0 sorry · 3 standard axioms</text>
+    <text x="120" y="465" fill="#94a3b8">6-kernel lake comparator</text>
+
+    <rect x="462" y="365" width="335" height="118" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="486" y="405" fill="#a78bfa" font-weight="700">CONJECTURE E (ALL 9 CASES)</text>
+    <text x="486" y="437" fill="#e2e8f0">All N ≥ 4 · C3 optima 368 vs 344</text>
+    <text x="486" y="465" fill="#94a3b8">Exact MET-SDP integer duals</text>
+
+    <rect x="828" y="365" width="356" height="118" rx="12" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+    <text x="852" y="405" fill="#34d399" font-weight="700">EXACT FLOOR SATURATION</text>
+    <text x="852" y="437" fill="#e2e8f0">d = 75, 480, 2016, 729344</text>
+    <text x="852" y="465" fill="#94a3b8">+ Infinite non-closed |Ψ₃ₘ⟩</text>
+  </g>
+
+  <text x="96" y="548" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" fill="#94a3b8">Alexander S. Donahue · ORCID 0009-0006-8168-9648 · Research preprint (not peer reviewed; AI-assisted under human direction)</text>
+</svg>

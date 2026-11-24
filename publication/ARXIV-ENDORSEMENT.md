@@ -24,11 +24,12 @@ again unless the proposed action or terms materially change.
    its abstract pages provide a link identifying eligible endorsers among a paper's authors.
 3. A prospective endorser can inspect the [combined paper](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html),
    [PDF](https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf),
-   [latest release v1.8.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.8.0)
+   [interactive Lean Blueprint](https://0thernes.github.io/hoggar-bound-lab/blueprint/),
+   [latest release v1.9.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.9.0)
    (historical checkpoint release [v1.2.0](https://github.com/0thernes/hoggar-bound-lab/releases/tag/v1.2.0)),
    and [ORCID record](https://orcid.org/0009-0006-8168-9648). Preserve the substantive AI-use disclosure
    and the distinction between formal proof checks and human review.
-4. After endorsement is granted, resume the same draft with the prepared v1.8.0 source archive
+4. After endorsement is granted, resume the same draft with the prepared v1.9.0 source archive
    (`publication/unified-contextuality/arxiv-source.zip`), plain-text abstract (`publication/unified-abstract.txt`,
    1,897 characters, within arXiv's 1,920-character limit) and metadata (`publication/unified-metadata.json`),
    check arXiv's compiled XeLaTeX output, and complete the submission. A submitted draft is not yet an

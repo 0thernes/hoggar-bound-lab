@@ -1,0 +1,5 @@
+# Pinned Python dependencies for exact verifiers, audits, and property-based tests (B02).
+numpy==2.0.2
+sympy==1.14.0
+hypothesis==6.124.0
+pytest==8.3.4

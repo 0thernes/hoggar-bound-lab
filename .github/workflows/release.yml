@@ -1,0 +1,91 @@
+name: Release assets, checksums & Sigstore SLSA provenance
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag to attest/publish (e.g. v1.9.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    name: Stage release artifacts, mint SLSA provenance & publish GitHub Release
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: "3.12"
+      - name: Determine release tag and version
+        id: meta
+        shell: bash
+        run: |
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          VER="${TAG#v}"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "version=${VER}" >> "$GITHUB_OUTPUT"
+      - name: Run continuity, publication & README axiom audits before releasing
+        run: |
+          python3 scripts/publication_release_audit.py
+          python3 scripts/unified_publication_audit.py
+          python3 scripts/check_readme_axioms.py
+          python3 scripts/arithmetic_audit.py
+          python3 scripts/build_blueprint.py
+          python3 scripts/check_citations.py
+      - name: Stage release assets and compute SHA256SUMS.txt
+        shell: bash
+        run: |
+          mkdir -p release-assets
+          VER="${{ steps.meta.outputs.version }}"
+          cp paper/unified-contextuality.pdf release-assets/unified-contextuality.pdf
+          cp paper/unified-contextuality.html release-assets/unified-contextuality.html
+          cp paper/unified-contextuality.md release-assets/unified-contextuality.md
+          cp publication/unified-contextuality/jphysa/manuscript.pdf release-assets/unified-jphysa-manuscript.pdf
+          cp publication/unified-contextuality/jphysa/supplementary.pdf release-assets/unified-jphysa-supplementary.pdf
+          cp publication/unified-contextuality/arxiv-source.zip release-assets/unified-arxiv-source.zip
+          cp results/new-formalizations-lean-axioms.log release-assets/new-formalizations-lean-axioms.log
+          cp results/conjecture_e_trace_formula.json release-assets/conjecture_e_trace_formula.json
+          cp results/conjecture_e_trace_formula_n6.json release-assets/conjecture_e_trace_formula_n6.json
+          cp results/c3_sdp_dual_check.json release-assets/c3_sdp_dual_check.json
+          cp results/c3_exact_optima_check.json release-assets/c3_exact_optima_check.json
+          cp results/norm_phase_family.json release-assets/norm_phase_family.json
+          cp results/exact_degrees_n4_n5.json release-assets/exact_degrees_n4_n5.json
+          cp results/arithmetic-audit.json release-assets/arithmetic-audit.json
+          cp results/citation-audit.json release-assets/citation-audit.json
+          cp "results/publication-v${VER}-audit.json" "release-assets/publication-v${VER}-audit.json"
+          cp blueprint/web/index.html release-assets/blueprint-index.html
+          (cd release-assets && sha256sum * > SHA256SUMS.txt)
+          cat release-assets/SHA256SUMS.txt
+      - name: Attest build provenance (Sigstore / SLSA) for release artifacts
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2
+        with:
+          subject-path: |
+            release-assets/*
+      - name: Create or update GitHub Release with staged assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          TAG="${{ steps.meta.outputs.tag }}"
+          VER="${{ steps.meta.outputs.version }}"
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            gh release upload "${TAG}" release-assets/* --clobber
+          else
+            gh release create "${TAG}" release-assets/* \
+              --title "Hoggar Bound Lab ${TAG} — Six-layer verification hardening, 110 Lean axioms, 6-kernel comparator, Blueprint & Build Standard v1.1.0" \
+              --notes-file CHANGELOG.md \
+              --latest
+          fi

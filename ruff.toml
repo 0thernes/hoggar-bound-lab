@@ -1,0 +1,8 @@
+# ruff report-only static analysis configuration (Build Standard v1.1.0 item B17)
+# Run with: ruff check scripts/ tests/
+line-length = 120
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "W", "B"]
+ignore = ["E501"]

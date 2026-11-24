@@ -1,0 +1,52 @@
+# Palomar-compatible formalization metadata & epistemic disclosure
+# Honest AI/human provenance record (not a claim of Palomar registration or peer review)
+title: "Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E"
+repository: "https://github.com/0thernes/hoggar-bound-lab"
+version: "1.9.0"
+date: "2026-11-24"
+authors:
+  - name: "Alexander S. Donahue"
+    orcid: "0009-0006-8168-9648"
+    role: "Independent researcher (note: earlier files and LICENSE cite '0thernes LLC'; legal entity formation and re-licensing remain pending owner action per LIMITATIONS.md)"
+lean_toolchain: "leanprover/lean4:v4.35.0"
+mathlib_rev: "v4.35.0"
+lake_package_dir: "lean"
+challenge_module: "HoggarBound.Challenge"
+solution_module: "HoggarBound.Solution"
+comparator_config: "lean/comparator.json"
+axiom_audit_file: "lean/VerifyNewFormalizations.lean"
+audited_declarations_new: 110
+audited_declarations_retained:
+  c3_four_qubit: 42
+  c3_all_qubits: 74
+  scalar_stability: 6
+  baseline_floor: 22
+  saturation_v110: 14
+  saturation_seven: 13
+permitted_axioms:
+  - "propext"
+  - "Classical.choice"
+  - "Quot.sound"
+kernels_configured:
+  - "Lean 4.35.0 official C++ kernel"
+  - "leanchecker-paranoid (v4.35.0)"
+  - "lean4lean (v4.35.0)"
+  - "nanoda (0.4.19)"
+  - "con-leche (v4.35.0)"
+  - "con-ron (v4.35.0)"
+automation:
+  origin: "AI-assisted formalization and mathematical research under human direction"
+  models:
+    - "Claude (Anthropic): spectral-floor & saturation study, v1.3.0-v1.4.0 Conjecture E paper proofs & trace-formula verifier"
+    - "OpenAI Codex: independent validation, four-qubit C3 counterexample & v1.2.0 manuscript integration"
+    - "Google Gemini / Antigravity: v1.5.0-v1.9.0 Lean 4.35.0 formalizations (110 newly audited declarations across 13 modules), Theorem 16'' exact C3 binary optima (368/344), Theorem 13b infinite family |Psi_{3m}>, N=4..5 ladders & 42-orbit C/Python verification, NonVacuity/Challenge/Solution/Blueprint & Build Standard v1.1.0 verification infrastructure"
+  human_credit_roles:
+    - "Conceptualization"
+    - "Project administration"
+    - "Resources (self-funded)"
+    - "Supervision & publication direction"
+  human_line_by_line_review_recorded: false
+  statement_fidelity_table: "docs/statement-fidelity.md"
+review_status: "Research preprint; NOT externally peer reviewed; NOT yet submitted to Palomar Registry, arXiv, Zenodo, or any journal."
+license_status: "Currently verification-only LICENSE (preserved byte-identical for frozen audit continuity; Apache-2.0 / CC-BY-4.0 re-licensing is an owner-controlled prerequisite for Mathlib upstreaming and JOSS)."
+limitations: "See LIMITATIONS.md and CLAIMS.md. In particular: the 42-orbit W(5,2) C census and 42 pure-integer certificates reproducing Jonah [J1]'s (315, 1575, 6975), the 540.3M-form N=9 cyclic-symmetry rank-8 census, and Jonah [J3, Theorem B4]'s single-orbit group transitivity classification lie outside the Lean 4 kernel boundary."

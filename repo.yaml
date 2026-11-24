@@ -1,0 +1,118 @@
+# yaml-language-server: $schema=./repo-standard.schema.json
+# Project manifest for the Build Standard for LLMs v1.1.0. Read by scripts/audit-repo.sh and scripts/Audit-Repo.ps1.
+# Keep each item on one line. status: done | todo | partial | n/a (n/a needs a note).
+standard: "1.1.0"
+name: "hoggar-bound-lab"
+description: "Machine-checked Lean 4.35.0 proofs and exact verifiers for Pauli contextuality spectral bounds, infinite floor-saturating family |Psi_{3m}>, exact four-qubit C3 binary optima (368 vs 344), and Jonah's Conjecture E across all 9 vertex cases for all N >= 4."
+owner: "Alexander S. Donahue (0thernes)"
+year: "2026"
+project_type: research
+stack: [lean, python, c-cpp, node]
+flags:
+  public: true
+  package: false
+  visual: true
+  ui: true
+  native: true
+  ai: false
+  personal_data: false
+  service: false
+  deployed: false
+  api: false
+  perf: false
+  concurrent: false
+  numeric: true
+  experimental: true
+  ml: false
+  formal: true
+items:
+  A01: {status: done}  # README with a one-line purpose [core]
+  A02: {status: done}  # Badge ribbon [recommended]
+  A03: {status: done}  # Quickstart that works from a clean clone [core]
+  A04: {status: done}  # Usage examples [core]
+  A05: {status: done}  # Demo media [recommended]
+  A06: {status: done}  # LICENSE [core]
+  A07: {status: done}  # CHANGELOG [core]
+  A08: {status: done}  # Semantic version, tags and a single version source [core]
+  A09: {status: done}  # Automated tests that pass [core]
+  A10: {status: done}  # Informational CI [core]
+  A11: {status: done}  # Releases [recommended]
+  A12: {status: done}  # .gitignore [core]
+  A13: {status: done}  # .gitattributes and .editorconfig [recommended]
+  A14: {status: done}  # CONTRIBUTING guide [recommended]
+  A15: {status: done}  # CODE_OF_CONDUCT [recommended]
+  A16: {status: done}  # SECURITY.md [core]
+  A17: {status: done}  # SUPPORT.md [recommended]
+  A18: {status: done}  # Issue templates [recommended]
+  A19: {status: done}  # About description and topics [core]
+  A20: {status: done}  # docs/ folder [recommended]
+  A21: {status: done}  # Architecture Decision Records [recommended]
+  A22: {status: done}  # CITATION.cff [advanced]
+  A23: {status: done}  # Clean history and correct identity [core]
+  A24: {status: done}  # No secrets, build output or huge files committed [core]
+  A25: {status: done}  # Cross-platform CI [recommended]
+  A26: {status: done}  # Social preview image [recommended]
+  A27: {status: done}  # Pages demo or docs site [advanced]
+  A28: {status: n/a, note: "Research repository, not an installable package"}  # Package manifest [recommended]
+  A29: {status: done}  # ROADMAP.md [recommended]
+  A30: {status: done}  # Labels including the six finding classes [recommended]
+  A31: {status: done}  # Task runner with one-word commands [core]
+  A32: {status: done}  # Agent entry points: AGENTS.md canonical, plus CLAUDE.md, GEMINI.md, Cursor rules, llms.txt [core]
+  A33: {status: done}  # Environment and configuration documented [core]
+  A34: {status: n/a, note: "Not a long-running service or server"}  # Observability basics: logs, errors, health [recommended]
+  A35: {status: done}  # Data, migrations, backups and an offsite repo mirror [recommended]
+  A36: {status: n/a, note: "Static GitHub Pages only; no deployed application backend"}  # One-command deploy and rollback [recommended]
+  A37: {status: n/a, note: "No speed or latency claims"}  # Performance budgets [advanced]
+  A38: {status: done}  # Accessibility and internationalization [core]
+  A39: {status: done}  # Third-party licensing and attribution [recommended]
+  A40: {status: n/a, note: "Code neither calls nor ships an AI model; authoring AI disclosure is in formalization.yaml"}  # AI components pinned, evaluated and budgeted [core]
+  A41: {status: n/a, note: "Research repository, not a library or public API"}  # Deprecation and upgrade path [advanced]
+  A42: {status: done}  # Maintenance status [recommended]
+  A43: {status: n/a, note: "Research repository, not an installable library"}  # examples/ directory [recommended]
+  A44: {status: done}  # FAQ and glossary [recommended]
+  A45: {status: n/a, note: "Collects, stores, and processes zero personal data"}  # Privacy and personal-data handling [core]
+  B01: {status: done}  # Reproducible build from a clean clone [core]
+  B02: {status: done}  # Pinned toolchains and lockfiles [core]
+  B03: {status: done}  # Determinism checks [core]
+  B04: {status: done}  # CLAIMS.md ledger [core]
+  B05: {status: done}  # Falsifiable tests per claim [core]
+  B06: {status: done}  # Negative tests [core]
+  B07: {status: done}  # Regression test per fixed bug [core]
+  B08: {status: done}  # Golden and snapshot tests [recommended]
+  B09: {status: n/a, note: "No network API or external protocol exposed"}  # Contract and API tests [recommended]
+  B10: {status: done}  # Property-based tests [core]
+  B11: {status: done}  # Differential testing [recommended]
+  B12: {status: done}  # Reference implementation as test oracle [recommended]
+  B13: {status: done}  # Mutation testing [recommended]
+  B14: {status: done}  # Metamorphic testing [advanced]
+  B15: {status: done}  # Fuzzing [recommended]
+  B16: {status: done}  # Sanitizers and runtime checkers [core]
+  B17: {status: done}  # Static analysis and linters, report-only [recommended]
+  B18: {status: done}  # Strict type checking [recommended]
+  B19: {status: n/a, note: "Deterministic single-threaded verifiers and formal proofs"}  # Concurrency and race testing [advanced]
+  B20: {status: done}  # Numeric and floating-point stability [advanced]
+  B21: {status: n/a, note: "No networked service or external runtime dependency"}  # Failure injection [advanced]
+  B22: {status: done}  # Formal specification and proof [advanced]
+  B23: {status: n/a, note: "Deductive Lean 4 theorem proving rather than distributed state-machine model checking"}  # Design model checking [advanced]
+  B24: {status: done}  # Verified implementation language [advanced]
+  B25: {status: n/a, note: "C11 census programs verified via ASan/UBSan and exact integer Python duals"}  # Bounded model checking of real code [advanced]
+  B26: {status: n/a, note: "No performance or speed claims"}  # Honest benchmarks [core]
+  B27: {status: n/a, note: "No performance claims"}  # Performance tracking over time, report-only [advanced]
+  B28: {status: n/a, note: "Deterministic exact mathematical proofs and censuses, not stochastic multi-seed trials"}  # Controls and multiple seeds [core]
+  B29: {status: n/a, note: "Exact algebraic theorems and integer bounds, not statistical significance tests"}  # Significance testing [core]
+  B30: {status: n/a, note: "Exact integers and formal bounds, not statistical confidence intervals"}  # Effect sizes and confidence intervals [core]
+  B31: {status: n/a, note: "No multi-arm statistical hypothesis testing"}  # Multiple-comparison correction [recommended]
+  B32: {status: n/a, note: "Deductive formal mathematics and deterministic exhaustive censuses, not empirical trials"}  # Pre-registration of hypotheses [advanced]
+  B33: {status: n/a, note: "No ML models trained or evaluated"}  # ML evaluation on held-out data [core]
+  B34: {status: n/a, note: "Code neither calls nor ships generative AI"}  # AI hallucination and regression evals [core]
+  B35: {status: done}  # Security scanning, report-only, with optional SBOM [recommended]
+  B36: {status: done}  # Threat model [recommended]
+  B37: {status: done}  # Release hashes and checksums [core]
+  B38: {status: done}  # Build provenance and attestations [recommended]
+  B39: {status: done}  # Data checksums and dataset versioning [recommended]
+  B40: {status: done}  # Audit trail [recommended]
+  B41: {status: done}  # Limitations and real-vs-metaphor [core]
+  B42: {status: done}  # What would prove us wrong [core]
+  B43: {status: done}  # Replication protocol [core]
+  B44: {status: done}  # Independent replication [advanced]
+  B45: {status: done}  # Peer and red-team review [recommended]

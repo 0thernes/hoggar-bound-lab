@@ -1,0 +1,19 @@
+{
+  "challenge_module": "HoggarBound.Challenge",
+  "solution_module": "HoggarBound.Solution",
+  "theorem_names": [
+    "HoggarBound.ComparatorTarget.target_spectral_floor",
+    "HoggarBound.ComparatorTarget.target_kramers_floor",
+    "HoggarBound.ComparatorTarget.target_saturation_mul_isSquare",
+    "HoggarBound.ComparatorTarget.target_infinite_nonclosed_saturated_family",
+    "HoggarBound.ComparatorTarget.target_c3_exact_binary_optima",
+    "HoggarBound.ComparatorTarget.target_jonah_conjecture_e_all_nine_cases",
+    "HoggarBound.ComparatorTarget.target_w72_ge_1455",
+    "HoggarBound.ComparatorTarget.target_q9plus_ge_6444"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

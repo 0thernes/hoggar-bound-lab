@@ -675,6 +675,7 @@ lemma cnotVec_invol {N : ℕ} (hN : 2 ≤ N) (x : Vec N) : cnotVec hN (cnotVec h
   · subst hi; simp [h10, add_assoc, zmod2_add_self]
   · simp [hi]
 
+/-- Involutive CNOT equivalence on `Vec N` (`N ≥ 2`). -/
 def cnotEquiv {N : ℕ} (hN : 2 ≤ N) : Vec N ≃ Vec N :=
   ⟨cnotVec hN, cnotVec hN, cnotVec_invol hN, cnotVec_invol hN⟩
 

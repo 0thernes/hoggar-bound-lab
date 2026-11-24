@@ -71,9 +71,9 @@ theorem c3_strict_law_fails_general (hm : 3 ≤ m) :
 `p`, `q`. The 74 audited declarations use only the standard axioms (`results/lean-c3-all-qubits-axioms.log`).
 See Section 9.3 of the combined paper for what the statement leaves to the reader.
 
-### Kramers floor, saturation theory, Conjecture E across all nine vertex cases, exact C3 binary optima, infinite determinant family, and N=4–5 ladders (`v1.5.0`–`v1.8.0`)
+### Kramers floor, saturation theory, Conjecture E across all nine vertex cases, exact C3 binary optima, infinite determinant family, N=4–5 ladders, non-vacuity & multi-kernel comparator (`v1.5.0`–`v1.9.0`)
 
-Twelve additional sorry-free modules (13,910 lines total) audited by `VerifyNewFormalizations.lean` (**100** declarations strictly within `[propext, Classical.choice, Quot.sound]`, log in `../results/new-formalizations-lean-axioms.log`) prove:
+Fifteen additional modules audited by `VerifyNewFormalizations.lean` (**110** declarations strictly within `[propext, Classical.choice, Quot.sound]`, log in `../results/new-formalizations-lean-axioms.log`) plus isolated `Challenge.lean` / `Solution.lean` (`comparator.json`) prove:
 
 - **Theorem 2 (`HoggarBound/Kramers.lean`):** `kramers_even_mult`, `hoggar_bound_quaternionic`, `card_ellipticPoints`, `card_flags_elliptic`, `elliptic_fraction`, and finite elliptic-quadric bounds `three_qubit_elliptic_contexts` (9), `four_qubit_elliptic_contexts` (291), `five_qubit_elliptic_contexts` (6501).
 - **Theorems 3 and 4 (`HoggarBound/SaturationTheory.lean`):** `opA_sq_eq`, `saturation_tfae` (full five-way saturation equivalence for nonempty supports), and `saturation_mul_isSquare` (`(2^N - 1)|S| = □` for `N ≥ 2`).
@@ -90,6 +90,10 @@ Twelve additional sorry-free modules (13,910 lines total) audited by `VerifyNewF
   - **Theorem 16'' (`HoggarBound/C3ExactOptimaData.lean`, `HoggarBound/C3ExactOptima.lean`, 1,374 lines):** Exact global binary completion optima of four-qubit C3 (`corollary16_sigmaA_exact_lower`: `≥ 368`, `corollary16_sigmaB_exact_lower`: `≥ 344`, `corollary16_exact_binary_optima`: exact minima `368` and `344`, exact gap `24`), via pure-integer MET-SDP frustrated-triangle duals and strictly diagonally dominant integer Cholesky certificates.
   - **Theorem 13b (`HoggarBound/NormPhaseFamily.lean`, `HoggarBound/SaturatedPhaseSix.lean`, 1,519 lines):** Infinite non-closed contextual floor-saturating pure-CCZ determinant family `|Ψ_{3m}⟩` for every `m ≥ 1` (`detPhase_isFlatState`, `detSupport_card`, `detSupport_not_closed`, `detSupport_flags_card`, `infinite_nonclosed_saturated_family`, `infinite_nonclosed_family_contextual`) plus kernel-checked `m = 2` six-qubit mask (`det6_card`: `1,008`, `det6_contexts`: `45,696`, `det6_degree`: `2,016`).
   - **Classical `N = 4, 5` exact ladders & unconditional bounds (`HoggarBound/ExactDegreesN4N5.lean`, 1,289 lines):** Symplectic transvection invariance (`transv_violatedLines_eq`), CSS witnesses (`q7minus_css_witness`: `315`, `w72_css_witness`: `1575`, `q9plus_css_witness`: `6975`), exact double-counting ladders (`d_W72_of_Q7minus`, `d_Q9plus_of_W72`), unconditional Kramers-lifted bounds (`w72_ge_1455`, `q9plus_ge_6444`), Lemmas L1 & L4 (`lemma_L1_q7minus_section_le_92`, `lemma_L4_w52_hyperplane_le_21`), and master reduction (`exact_degrees_n4_n5_of_q7minus_315`).
+- **Version 1.9.0 verification hardening:**
+  - **Existential non-vacuity witnesses (`HoggarBound/NonVacuity.lean`):** Ten explicit existential witnesses (`spectral_floor_nonvacuous`, `kramers_nonvacuous`, `saturation_tfae_nonvacuous`, `conjecture_e_nonvacuous`, `clifford_transport_nonvacuous`, `cone_lift_nonvacuous`, `norm_phase_family_nonvacuous`, `c3_exact_optima_nonvacuous`, `exact_degrees_ladders_nonvacuous`, `propositions_qgt_twochar_nonvacuous`) proving that hypotheses of every headline theorem family are genuinely satisfiable.
+  - **Isolated specification & multi-kernel replay (`HoggarBound/Challenge.lean`, `HoggarBound/Solution.lean`, `comparator.json`):** Statement-only specification stub checked against sorry-free proofs via Lean 4.35.0's built-in 6-kernel `lake comparator --config comparator.json --paranoid`.
+  - **Batteries linter (`lake exe runLinter`):** Zero lint errors across all editable v1.5.0–v1.9.0 modules (frozen `d3811e3` files `C3Data.lean` and `C3Geometry.lean` remain byte-identical).
 
 ## Modules
 
@@ -116,6 +120,8 @@ Twelve additional sorry-free modules (13,910 lines total) audited by `VerifyNewF
 | `HoggarBound/C3ExactOptimaData.lean`, `C3ExactOptima.lean` | Theorem 16'': exact global binary completion optima of four-qubit C3 (`min F(σ₀) = 368`, `min F(σ₁) = 344`, exact gap `24`) |
 | `HoggarBound/SaturatedPhaseSix.lean`, `NormPhaseFamily.lean` | Theorem 13b: infinite non-closed contextual pure-CCZ determinant family `|Ψ_{3m}⟩` for every `m ≥ 1` + six-qubit exact degree `2,016` |
 | `HoggarBound/ExactDegreesN4N5.lean` | Transvection invariance, CSS witnesses (`315 / 1575 / 6975`), double-counting ladders, unconditional `d(W(7,2)) ≥ 1455` & `d(Q⁺(9,2)) ≥ 6444`, Lemmas L1/L4, master reduction |
+| `HoggarBound/NonVacuity.lean` | Ten explicit existential non-vacuity witness theorems covering all headline theorem families |
+| `HoggarBound/Challenge.lean`, `Solution.lean` | Isolated statement-only specification stub and sorry-free proofs for 6-kernel `lake comparator --paranoid` |
 | `HoggarBound/IndependentContexts.lean`, `IndependentWitness.lean` | written by the independent companion review |
 | `HoggarBound/C3*.lean`, `Stability.lean` | the companion C3 note (separate work) |
 

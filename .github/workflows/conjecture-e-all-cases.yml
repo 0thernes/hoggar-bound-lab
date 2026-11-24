@@ -1,4 +1,4 @@
-name: Conjecture E (all 9 cases), Kramers floor & saturation Lean 4 audit
+name: Conjecture E (all 9 cases), Kramers floor, saturation & 6-kernel Lean 4 audit
 
 on:
   push:
@@ -15,6 +15,10 @@ on:
       - "lean/HoggarBound/SaturatedPhaseSix.lean"
       - "lean/HoggarBound/NormPhaseFamily.lean"
       - "lean/HoggarBound/ExactDegreesN4N5.lean"
+      - "lean/HoggarBound/NonVacuity.lean"
+      - "lean/HoggarBound/Challenge.lean"
+      - "lean/HoggarBound/Solution.lean"
+      - "lean/comparator.json"
       - "lean/VerifyNewFormalizations.lean"
       - "scripts/conjecture_e_trace_formula.py"
       - "results/conjecture_e_trace_formula.json"
@@ -31,11 +35,14 @@ on:
       - "data/w52_orbits_42.tsv"
       - "data/q7minus_42_certs.json"
       - "results/exact_degrees_n4_n5.json"
+      - "scripts/check_readme_axioms.py"
       - ".github/workflows/conjecture-e-all-cases.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
+  id-token: write
+  attestations: write
 
 concurrency:
   group: conjecture-e-all-cases-${{ github.ref }}
@@ -91,13 +98,17 @@ jobs:
           git diff --exit-code -- results/exact_degrees_n4_n5.json
 
   lean-formalization-audit:
-    name: Lean 4.35.0 kernel - all v1.5.0-v1.8.0 modules (100 audited axioms)
+    name: Lean 4.35.0 6-kernel audit (110 axioms, Batteries linter & comparator --paranoid)
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+      - name: Install bubblewrap for sandboxed lake comparator --paranoid
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq bubblewrap
       - name: Install the pinned Lean environment
         uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
         with:
@@ -114,27 +125,29 @@ jobs:
             Mathlib.LinearAlgebra.Matrix.Trace Mathlib.LinearAlgebra.Matrix.Block \
             Mathlib.FieldTheory.Finite.GaloisField Mathlib.FieldTheory.Finite.Trace
           git diff --exit-code -- lean-toolchain lake-manifest.json
-      - name: Build all v1.5.0-v1.8.0 Lean modules
+      - name: Build all v1.5.0-v1.9.0 Lean modules (including NonVacuity, Challenge & Solution)
         working-directory: lean
         run: |
           mkdir -p ../results
           lake build HoggarBound.Kramers HoggarBound.SaturationTheory \
             HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades \
             HoggarBound.C3ExactOptima HoggarBound.SaturatedPhaseSix \
-            HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5 2>&1 | tee ../results/ci-lean-new-formalizations-build.log
-      - name: Run VerifyNewFormalizations.lean axiom audit
+            HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5 \
+            HoggarBound.NonVacuity HoggarBound.Challenge HoggarBound.Solution \
+            2>&1 | tee ../results/ci-lean-new-formalizations-build.log
+      - name: Run VerifyNewFormalizations.lean axiom audit (110 declarations)
         working-directory: lean
         run: |
           set -o pipefail
           lake env lean VerifyNewFormalizations.lean 2>&1 | tee ../results/ci-lean-new-formalizations-axioms.log
-      - name: Enforce standard axiom allowlist and zero forbidden constructs
+      - name: Enforce standard axiom allowlist, zero forbidden constructs & README verbatim axioms
         run: |
           python3 - <<'PY'
           import pathlib, re
           allowed = {"propext", "Classical.choice", "Quot.sound"}
           source = pathlib.Path("lean/VerifyNewFormalizations.lean").read_text(encoding="utf-8")
           expected = set(re.findall(r"#print axioms\s+(\S+)", source))
-          assert len(expected) == 100, f"Expected 100 audited declarations, found {len(expected)}"
+          assert len(expected) == 110, f"Expected 110 audited declarations, found {len(expected)}"
           required = {
               "HoggarBound.hoggar_bound_quaternionic",
               "HoggarBound.saturation_tfae",
@@ -167,6 +180,16 @@ jobs:
               "HoggarBound.ExactDegreesN4N5.w72_ge_1455",
               "HoggarBound.ExactDegreesN4N5.q9plus_ge_6444",
               "HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315",
+              "HoggarBound.NonVacuity.spectral_floor_nonvacuous",
+              "HoggarBound.NonVacuity.kramers_nonvacuous",
+              "HoggarBound.NonVacuity.saturation_tfae_nonvacuous",
+              "HoggarBound.NonVacuity.conjecture_e_nonvacuous",
+              "HoggarBound.NonVacuity.clifford_transport_nonvacuous",
+              "HoggarBound.NonVacuity.cone_lift_nonvacuous",
+              "HoggarBound.NonVacuity.norm_phase_family_nonvacuous",
+              "HoggarBound.NonVacuity.c3_exact_optima_nonvacuous",
+              "HoggarBound.NonVacuity.exact_degrees_ladders_nonvacuous",
+              "HoggarBound.NonVacuity.propositions_qgt_twochar_nonvacuous",
           }
           assert required <= expected, f"Missing required declarations: {required - expected}"
           log = pathlib.Path("results/ci-lean-new-formalizations-axioms.log").read_text(encoding="utf-8")
@@ -188,6 +211,8 @@ jobs:
               "lean/HoggarBound/AuditUpgrades.lean",
               "lean/HoggarBound/C3ExactOptimaData.lean",
               "lean/HoggarBound/NormPhaseFamily.lean",
+              "lean/HoggarBound/NonVacuity.lean",
+              "lean/HoggarBound/Solution.lean",
               "lean/VerifyNewFormalizations.lean",
           ]
           kernel_eval_files = [
@@ -204,11 +229,49 @@ jobs:
               assert not re.search(r"^\s*axiom\b", code, flags=re.M), f"Custom axiom in {rel}"
           print(f"PASS: All {len(expected)} audited theorems verified strictly within {sorted(allowed)}.")
           PY
+          python3 scripts/check_readme_axioms.py
+      - name: Run Batteries linter (lake exe runLinter) across editable modules
+        working-directory: lean
+        run: |
+          set -o pipefail
+          lake exe runLinter HoggarBound.Kramers HoggarBound.SaturationTheory \
+            HoggarBound.ConjectureECore HoggarBound.ConjectureECones HoggarBound.ConjectureE \
+            HoggarBound.C3ExactOptimaData HoggarBound.SaturatedPhaseSix \
+            HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5 \
+            2>&1 | tee ../results/ci-lean-batteries-linter.log
+          python3 - <<'PY'
+          import subprocess, sys
+          for mod in ["HoggarBound.ConjectureEExtras", "HoggarBound.AuditUpgrades", "HoggarBound.C3ExactOptima", "HoggarBound.NonVacuity", "HoggarBound.Solution"]:
+              proc = subprocess.run(["lake", "exe", "runLinter", mod], capture_output=True, text=True)
+              combined = proc.stdout + "\n" + proc.stderr
+              bad = [ln for ln in combined.splitlines() if ": error:" in ln and "C3Data.lean" not in ln and "C3Geometry.lean" not in ln]
+              if bad:
+                  print(f"FAIL: Editable lint errors in {mod}:\n" + "\n".join(bad), file=sys.stderr)
+                  sys.exit(1)
+              print(f"PASS: {mod} has 0 non-frozen Batteries lint errors.")
+          PY
+      - name: Run 6-kernel independent verification (lake comparator --paranoid)
+        working-directory: lean
+        run: |
+          set -o pipefail
+          # Check if bubblewrap user-namespaces are permitted on the runner; use full sandbox when available
+          if bwrap --ro-bind / / true 2>/dev/null; then
+            lake comparator --config comparator.json --paranoid 2>&1 | tee ../results/ci-lean-comparator-paranoid.log
+          else
+            echo "Note: runner kernel restricts unprivileged user namespaces for bwrap; invoking --inadvisably-no-sandbox inside clean ephemeral GitHub runner."
+            lake comparator --config comparator.json --inadvisably-no-sandbox --paranoid 2>&1 | tee ../results/ci-lean-comparator-paranoid.log
+          fi
+      - name: Attest Lean 4 axiom & 6-kernel comparator logs (Sigstore / SLSA)
+        uses: actions/attest-build-provenance@e8998f949152b193b063cb0ec769d69d929409be # v2
+        with:
+          subject-path: |
+            results/ci-lean-new-formalizations-axioms.log
+            results/ci-lean-comparator-paranoid.log
       - name: Preserve Lean evidence logs
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: conjecture-e-all-cases-lean-evidence
-          path: results/ci-lean-new-formalizations-*.log
+          path: results/ci-lean-*.log
           if-no-files-found: error
           retention-days: 30

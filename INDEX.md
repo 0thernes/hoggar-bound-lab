@@ -1,6 +1,6 @@
 # Index: where each claim is proved, tested and recorded
 
-Repository version 1.8.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
+Repository version 1.9.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a non-technical overview see
 [SUMMARY.md](SUMMARY.md); for the full text see the [unified paper](paper/unified-contextuality.md).
 
 ## Documents
@@ -26,7 +26,7 @@ Repository version 1.8.0. For the terms see [GLOSSARY.md](GLOSSARY.md); for a no
 ## C3 research and publication guide
 
 - [C3 summary](docs/RESEARCH-SUMMARY.md): the explicit four-qubit pair and what it establishes.
-- [Claim register](docs/CLAIMS.md): named C3 theorems, the 42-declaration audit, six stability declarations, the separately scoped 14 saturation declarations, for version 1.3.0 the 13 seven-qubit and 74 `CarrierFamily.lean` declarations, for version 1.4.0 the lemma checks of Theorem 19, and for versions 1.5.0–1.8.0 the **100** audited declarations of `VerifyNewFormalizations.lean` (Kramers, saturation, Propositions 3/8/10, asymptotics, Clifford transport, Lemmas 20–21, Theorem 22, eigenvalue-multiset Theorem 19 in all nine cases, Corollary 18, exact four-qubit C3 binary optima 368/344, Theorem 13b infinite determinant family + N=6 degree 2016, and N=4–5 CSS witnesses/ladders/unconditional bounds).
+- [Claim register](docs/CLAIMS.md) & [root CLAIMS.md](CLAIMS.md): named C3 theorems, the 42-declaration audit, six stability declarations, the separately scoped 14 saturation declarations, for version 1.3.0 the 13 seven-qubit and 74 `CarrierFamily.lean` declarations, for version 1.4.0 the lemma checks of Theorem 19, and for versions 1.5.0–1.9.0 the **110** audited declarations of `VerifyNewFormalizations.lean` (Kramers, saturation, Propositions 3/8/10, asymptotics, Clifford transport, Lemmas 20–21, Theorem 22, eigenvalue-multiset Theorem 19 in all nine cases, Corollary 18, exact four-qubit C3 binary optima 368/344, Theorem 13b infinite determinant family + N=6 degree 2016, N=4–5 CSS witnesses/ladders/unconditional bounds, and 10 existential non-vacuity witnesses in `NonVacuity.lean`), plus 6-kernel `lake comparator --paranoid` (`Challenge.lean`/`Solution.lean`), Batteries `runLinter`, and the 70-declaration [Lean Blueprint](https://0thernes.github.io/hoggar-bound-lab/blueprint/).
 - [Verification guide](VERIFICATION.md): original-model connection, exact commands, evidence and measured proof-checking costs.
 - [Affiliation records](publication/AFFILIATIONS.md): 0thernes LLC across prepared records and the observed state of each live service.
 - [Publication status](publication/STATUS.md): public releases versus pending archive/journal steps.

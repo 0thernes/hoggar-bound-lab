@@ -11,8 +11,8 @@ authors:
   alias: 0thernes
   affiliation: 0thernes LLC
   email: 0_0@0thernes.art
-version: 1.8.0
-date-released: 2026-11-21
+version: 1.9.0
+date-released: 2026-11-24
 repository-code: https://github.com/0thernes/hoggar-bound-lab
 url: https://0thernes.github.io/hoggar-bound-lab/
 abstract: A combined study of spectral bounds and their information limits in Pauli contextuality. It
@@ -27,10 +27,12 @@ abstract: A combined study of spectral bounds and their information limits in Pa
   exact global binary completion minima 368 and 344 (exact gap 24, kernel-certified via pure-integer
   MET-SDP triangle-cut duals); a graph family settles case C3 for every N>=4, and variants together with
   a cone pair swap and universal cubic-trace identity settle all nine vertex cases at the
-  eigenvalue-multiset level for every N>=4, proving Jonah's Conjecture E. All main theorems (100 newly
+  eigenvalue-multiset level for every N>=4, proving Jonah's Conjecture E. All main theorems (110 newly
   audited declarations plus retained audits) are formalized in Lean 4 using only standard axioms,
-  accompanied by exact computational verifiers through six qubits. The manuscript distinguishes
-  kernel-checked statements, paper proofs, executable counts, prior work, and open questions.
+  independently checked across multiple Lean kernels via lake comparator --paranoid, Batteries linted,
+  accompanied by existential non-vacuity witnesses, a declaration-checked Lean Blueprint, and exact
+  computational verifiers through six qubits. The manuscript distinguishes kernel-checked statements,
+  paper proofs, executable counts, prior work, and open questions.
 keywords:
 - quantum contextuality
 - Pauli group
@@ -57,12 +59,13 @@ preferred-citation:
   institution:
     name: 0thernes LLC
   url: https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf
-  notes: Combined research preprint, version 1.8.0, not peer reviewed. Spectral-floor and saturation work
+  notes: Combined research preprint, version 1.9.0, not peer reviewed. Spectral-floor and saturation work
     and the results added in versions 1.3.0 and 1.4.0 used Claude/Anthropic; the four-qubit C3 study, independent
-    validation and the version 1.2.0 integration used OpenAI Codex; the v1.5.0-v1.8.0 Lean 4 formalizations
-    (100 audited declarations), exact C3 binary optima (368/344), infinite determinant family |Psi_{3m}>,
-    N=4-5 classical ladders/42-orbit verification and manuscript updates used Google Gemini / Antigravity. See the
-    manuscript for the actual roles and verification boundaries.
+    validation and the version 1.2.0 integration used OpenAI Codex; the v1.5.0-v1.9.0 Lean 4 formalizations
+    (110 audited declarations, multi-kernel comparator, non-vacuity witnesses, Blueprint, and Build Standard v1.1.0),
+    exact C3 binary optima (368/344), infinite determinant family |Psi_{3m}>, N=4-5 classical ladders/42-orbit
+    verification and manuscript updates used Google Gemini / Antigravity. See the manuscript for the actual roles
+    and verification boundaries.
 references:
 - type: generic
   title: Structure theorems for hyperplane completions in Pauli contextuality

@@ -1,0 +1,390 @@
+{
+  "status": "pass",
+  "total_scripts": 47,
+  "counts": {
+    "exact_integer_or_symbolic": 15,
+    "numerical_approximation": 8,
+    "timing_or_plot_float": 12,
+    "exact_or_non_numeric": 12,
+    "unclassified_float": 0
+  },
+  "policy": "No headline mathematical theorem relies solely on IEEE-754 float64. All exploratory numerical scripts are explicitly labeled numerical_approximation.",
+  "scripts": [
+    {
+      "script": "scripts/analysis.py",
+      "tier": "numerical_approximation",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "numerical_approximation: exploratory floating-point spectral analysis and diagnostics (not used to prove any theorem)."
+    },
+    {
+      "script": "scripts/arithmetic_audit.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/build_blueprint.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/build_journal.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/build_latex.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/build_paper.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/build_unified_paper.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": false,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/c3_exact_optima_check.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer MET-SDP dual & Gram check; float used only for elapsed-time logging."
+    },
+    {
+      "script": "scripts/c3_sdp_dual_check.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer LDL^T & SymPy charpoly check; float rounded to 9 decimals only for diagnostic display."
+    },
+    {
+      "script": "scripts/c3_sparse_search.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer NumPy int64 arithmetic; zero floating-point tolerances."
+    },
+    {
+      "script": "scripts/check_citations.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/check_github_math.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/check_readme_axioms.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/conjecture_e.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer NumPy object/int arithmetic; zero floating-point claims."
+    },
+    {
+      "script": "scripts/conjecture_e_lemmas.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer/SymPy checks of Lemmas 20 & 21; float used only for timing."
+    },
+    {
+      "script": "scripts/conjecture_e_trace_formula.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer/object-dtype verification of Theorem 22 & Table 8 (97 + 39 checks)."
+    },
+    {
+      "script": "scripts/cospectral_family.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer matrix & SymPy verification; float used only for timing."
+    },
+    {
+      "script": "scripts/cospectral_family_cone_lift.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer matrix verification of Corollary 18 cone lift."
+    },
+    {
+      "script": "scripts/cospectral_family_tensor_check.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer tensor-product check of C3 all-qubit family."
+    },
+    {
+      "script": "scripts/cospectral_pair.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer/SymPy verification of four-qubit C3 pair; float used only for timing."
+    },
+    {
+      "script": "scripts/exact_degrees_n4_n5.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "Pure-integer 42-orbit dual & ladder verification (zero floating point in proofs; float used only for timing)."
+    },
+    {
+      "script": "scripts/fix_github_math.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/flat_states.py",
+      "tier": "numerical_approximation",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "numerical_approximation: exploratory flat-state discovery using 1e-12 float64 tolerance; exact masks are independently proved in Lean 4."
+    },
+    {
+      "script": "scripts/frontier_c3_axioms.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/frontier_c3_certificate_audit.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer NumPy object/int certificate audit."
+    },
+    {
+      "script": "scripts/frontier_c3_context_verify.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer context reconstruction (1120 outside contexts)."
+    },
+    {
+      "script": "scripts/frontier_c3_demo.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/frontier_c3_extend.py",
+      "tier": "numerical_approximation",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "numerical_approximation: exploratory search/diagnostics; formal proof is in CarrierFamily.lean and ConjectureE.lean."
+    },
+    {
+      "script": "scripts/frontier_c3_figure.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/frontier_c3_integer_bounds.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/frontier_c3_paper_build.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/frontier_c3_search.py",
+      "tier": "numerical_approximation",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "numerical_approximation: heuristic search that located the C3 witness; witness itself is proved exactly in Lean 4."
+    },
+    {
+      "script": "scripts/frontier_c3_similarity.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/frontier_c3_sparse_family.py",
+      "tier": "numerical_approximation",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "numerical_approximation: exploratory sparse-carrier search; exact family is proved in Lean 4."
+    },
+    {
+      "script": "scripts/frontier_c3_verify.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "Exact integer matrix & SymPy factorization verifier."
+    },
+    {
+      "script": "scripts/independent_demo_data.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/independent_figures.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": true,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/independent_paper_build.py",
+      "tier": "timing_or_plot_float",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Build, formatting, demo-data, or figure-rendering utility (not a theorem proof)."
+    },
+    {
+      "script": "scripts/independent_site.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/ladder.py",
+      "tier": "numerical_approximation",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "numerical_approximation: exploratory float64/integer ladder diagnostics; exact N=4..5 bounds are proved in ExactDegreesN4N5.lean and exact_degrees_n4_n5.py."
+    },
+    {
+      "script": "scripts/norm_phase_family.py",
+      "tier": "exact_integer_or_symbolic",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "Pure-integer verification of Theorem 13b through m=4 (32/32 exact checks)."
+    },
+    {
+      "script": "scripts/phase_seven_lean.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/phase_states.py",
+      "tier": "numerical_approximation",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": true,
+      "note": "numerical_approximation: exploratory phase-state rank/support finder (float64 + exact integer checks); exact N=5,6,7,3m degrees are proved in Lean 4."
+    },
+    {
+      "script": "scripts/publication_release_audit.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/stack_audit.py",
+      "tier": "numerical_approximation",
+      "uses_numpy": true,
+      "uses_float_ops": true,
+      "uses_exact_arithmetic": true,
+      "note": "numerical_approximation: Tsotchke classical software stack demonstration audit (float64 simulation checks)."
+    },
+    {
+      "script": "scripts/unified_publication_audit.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    },
+    {
+      "script": "scripts/unified_section_score.py",
+      "tier": "exact_or_non_numeric",
+      "uses_numpy": false,
+      "uses_float_ops": false,
+      "uses_exact_arithmetic": false,
+      "note": "No NumPy or floating-point operations detected."
+    }
+  ]
+}

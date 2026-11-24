@@ -286,6 +286,7 @@ lemma addTriCut_spec {M : List (List ℤ)} (hM : Mat64WF M)
   rw [hrew]
   nlinarith
 
+/-- Sum of integer weights across a list of frustrated-triangle cuts. -/
 def sumWeights (cuts : List TriCut) : ℤ :=
   cuts.foldl (fun acc c => acc + c.w) 0
 
@@ -359,6 +360,7 @@ def checkRowDomAux (K2 : ℤ) (li : List ℤ) (i : ℕ) :
   | _, [], [], diag, off => decide (off < diag)
   | _, _, _, _, _ => false
 
+/-- Recursive row-wise Gershgorin diagonal-dominance checker for `K² M - L Lᵀ`. -/
 def checkMatDomAux (K2 : ℤ) (Lrows : List (List ℤ)) :
     ℕ → List (List ℤ) → List (List ℤ) → Bool
   | i, mRow :: mRest, li :: lRest =>
@@ -367,6 +369,7 @@ def checkMatDomAux (K2 : ℤ) (Lrows : List (List ℤ)) :
   | _, [], [] => true
   | _, _, _ => false
 
+/-- Boolean certificate check asserting `K² M - L Lᵀ` is strictly diagonally dominant. -/
 def checkGramDiagDom (K : ℤ) (Mrows Lrows : List (List ℤ)) : Bool :=
   (Lrows.length == 64) &&
   Lrows.all (fun r => r.length ≤ 64) &&
@@ -839,6 +842,7 @@ theorem c3_lower_of_met_sdp_cert
 
 /-! ### Part 5. Instantiation on `signA` (Exact Minimum 368) and `signB` (Exact Minimum 344) -/
 
+/-- Fast computable lookup encoding `signB` on 8-bit Pauli codes. -/
 def signBFast (w : ℕ) : ℤ :=
   if w == 87 || w == 144 || w == 176 || w == 215 then -1 else 1
 

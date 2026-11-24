@@ -34,6 +34,7 @@ namespace HoggarBound.NormPhaseFamily
 /-! ### Part 1. Characteristic-2 Finite Field Trace and Frobenius Inverse -/
 
 /-- The `F → ZMod 2` field trace. -/
+@[nolint unusedArguments]
 noncomputable abbrev trF (F : Type*) [Field F] [Fintype F] [Algebra (ZMod 2) F] :
     F →ₗ[ZMod 2] ZMod 2 :=
   Algebra.trace (ZMod 2) F
@@ -205,10 +206,15 @@ lemma trF_sqrtF {m : ℕ} (hm : 1 ≤ m) (hcard : Fintype.card F = 2 ^ m) (x : F
 
 /-! ### Part 2. The Determinant Cubic Form on `F³` and Exact Character Sum -/
 
+/-- Cubic monomial `x₀ x₁ x₂` on `F³`. -/
 def detP (x : Fin 3 → F) : F := x 0 * x 1 * x 2
+/-- Standard dot product `a₀ b₀ + a₁ b₁ + a₂ b₂` on `F³`. -/
 def dotF (a b : Fin 3 → F) : F := a 0 * b 0 + a 1 * b 1 + a 2 * b 2
+/-- Quadratic directional derivative of `detP` along `a`. -/
 def detQ (a x : Fin 3 → F) : F := a 0 * x 1 * x 2 + a 1 * x 0 * x 2 + a 2 * x 0 * x 1
+/-- Linear second derivative of `detP` along `a`. -/
 def detL (a x : Fin 3 → F) : F := a 1 * a 2 * x 0 + a 0 * a 2 * x 1 + a 0 * a 1 * x 2
+/-- Alternating trilinear polarization of `detP`. -/
 def detT (a x y : Fin 3 → F) : F :=
   a 0 * x 1 * y 2 + a 0 * x 2 * y 1 + a 1 * x 0 * y 2 +
   a 1 * x 2 * y 0 + a 2 * x 0 * y 1 + a 2 * x 1 * y 0
@@ -925,6 +931,7 @@ noncomputable def ptEquiv {m : ℕ} {F : Type*} [Field F] [Fintype F] [Decidable
   e.toEquiv.prodCongr (traceDualEquiv e).toEquiv
 
 /-- The pure-CCZ determinant flat phase state `|Ψ_{3m}⟩` on `3m` qubits. -/
+@[nolint unusedArguments]
 noncomputable def detPhaseState {m : ℕ} {F : Type*} [Field F] [Fintype F] [DecidableEq F]
     [CharP F 2] [Algebra (ZMod 2) F] (e : Vec (3 * m) ≃ₗ[ZMod 2] (Fin 3 → F)) :
     Vec (3 * m) → ℂ :=

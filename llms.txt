@@ -1,0 +1,26 @@
+# Hoggar Bound Lab
+
+> Machine-checked Lean 4.35.0 proofs and exact integer/symbolic verifiers for Pauli contextuality spectral bounds, floor-saturating configurations, exact four-qubit C3 binary optima (368 vs 344), and a full proof of Jonah's Conjecture E across all nine vertex cases for every N >= 4. Built and verified to the Build Standard for LLMs v1.1.0 and the Independent Scientist's Verification Playbook (2026 Edition).
+
+Start with `AGENTS.md` for commands, frozen-file invariants, and rules. `llms-full.txt` contains `AGENTS.md` plus the full Build Standard v1.1.0 in one file.
+
+## Agent instructions
+
+- [AGENTS.md](AGENTS.md): canonical agent instructions, hard rules, finding classes, 90-item checklist, known traps
+- [Build standard](docs/build-standard.md): all 90 items with why, how, examples, done-when checks and evidence
+- [Repository manifest](repo.yaml): machine-readable project flags and per-item audit statuses
+
+## Research & verification entry points
+
+- [README](README.md): overview, quickstart, 5-second verbatim `#print axioms` proof, statement fidelity table, usage
+- [Unified paper](paper/unified-contextuality.md): canonical research manuscript (v1.9.0)
+- [Claims ledger](CLAIMS.md): every claim mapped to its epistemic tier, Lean theorem, exact command, and falsifier
+- [Limitations](LIMITATIONS.md): epistemic boundaries, non-peer-reviewed status, legal/entity and licensing notes
+- [Replication protocol](REPLICATION.md): clean-clone reproduction commands and dated replication ledger
+- [Formalization manifest](formalization.yaml): Palomar-format AI/human CRediT disclosure and multi-kernel metadata
+- [Isolated Challenge/Solution](lean/HoggarBound/Challenge.lean): statement-only target verified against `lean/HoggarBound/Solution.lean` via `lake comparator --paranoid`
+- [Lean Blueprint](blueprint/src/content.tex): declaration-checked mathematical dependency DAG
+
+## Optional
+
+- [Full context](llms-full.txt): `AGENTS.md` plus the full Build Standard v1.1.0 in one file

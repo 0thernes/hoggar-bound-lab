@@ -39,10 +39,10 @@
 
 \maketitle
 
-Hoggar Bound Lab, version 1.8.0, 21 November 2026. Research preprint. Not peer reviewed.
+Hoggar Bound Lab, version 1.9.0, 24 November 2026. Research preprint. Not peer reviewed.
 Research and manuscript preparation used Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity agents under the author\textquotesingle s direction; see Section 13.
 
-This journal-format document is derived from the complete paper, version 1.8.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
+This journal-format document is derived from the complete paper, version 1.9.0. Original section numbers and cross-references are retained; gaps are intentional. The supplement contains: 10. A running example on the Tsotchke stack, 11. Falsifiability and replication, Appendix A. Reproduction, Appendix B. Witness assignments. References are reproduced in both journal documents.
 
 \subsection{10. A running example on the Tsotchke stack}\label{10-a-running-example-on-the-tsotchke-stack}
 
@@ -473,15 +473,21 @@ lake env lean SaturatedSevenVerification.lean
 # case C3 for every number of qubits from four on (Theorem 17)
 lake build HoggarBound.Bound HoggarBound.Quadric
 lake env lean HoggarBound/CarrierFamily.lean
-# Theorem 2 (Kramers), Theorems 3-4 (Saturation), Lemmas 20-21, Theorem 22, Theorem 19 (all 9 cases), Corollaries 16 & 18, Prop 16' & AuditUpgrades (77 axioms)
-lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades
+# All v1.5.0-v1.9.0 Lean formalizations (110 axioms), Batteries linter, and multi-kernel comparator
+lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE \
+  HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades HoggarBound.C3ExactOptima \
+  HoggarBound.SaturatedPhaseSix HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5 \
+  HoggarBound.NonVacuity HoggarBound.Solution
 lake env lean VerifyNewFormalizations.lean
+lake comparator --config comparator.json --paranoid
 # the seven-qubit enumeration of Theorem 13 (about eight core-hours)
 cd .. && bash scripts/run_family7.sh
 \end{verbatim}
 
 The completion minima, the seven-qubit evaluation, the carrier families, the nine vertex cases, the
-universal cubic-trace identity and the C3 QUBO SDP dual, from the repository root:
+universal cubic-trace identity, the C3 QUBO SDP dual and exact binary optima, the infinite pure-CCZ
+determinant family, the N=4-5 42-orbit integer dual check, and the v1.9.0 verification audits, from
+the repository root:
 
 \begin{verbatim}
 python scripts/cospectral_pair.py
@@ -496,12 +502,22 @@ python scripts/conjecture_e_lemmas.py 6
 python scripts/conjecture_e_trace_formula.py
 python scripts/conjecture_e_trace_formula.py 6
 python scripts/c3_sdp_dual_check.py
+python scripts/c3_exact_optima_check.py
+python scripts/norm_phase_family.py
+python scripts/exact_degrees_n4_n5.py
 python scripts/c3_sparse_search.py 3 3
+python scripts/check_readme_axioms.py
+python scripts/arithmetic_audit.py
+python scripts/build_blueprint.py
+python scripts/check_citations.py
+python -m unittest tests/test_properties.py tests/test_mutation_and_fuzz.py
 \end{verbatim}
 
-Their last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21}, \texttt{81\ of\ 81},
-\texttt{36\ of\ 36}, \texttt{115\ of\ 115}, \texttt{46\ of\ 46}, \texttt{97\ of\ 97}, \texttt{39\ of\ 39} and \texttt{15\ of\ 15\ checks\ passed}; the search
-prints its class counts. NumPy is required (and SymPy for \nolinkurl{c3_sdp_dual_check.py}).
+Their exact-verifier last lines read \texttt{30\ of\ 30}, \texttt{14\ of\ 14}, \texttt{43\ of\ 43}, \texttt{18\ of\ 18}, \texttt{21\ of\ 21},
+\texttt{81\ of\ 81}, \texttt{36\ of\ 36}, \texttt{115\ of\ 115}, \texttt{46\ of\ 46}, \texttt{97\ of\ 97}, \texttt{39\ of\ 39}, \texttt{15\ of\ 15}, \texttt{10\ of\ 10},
+\texttt{32\ of\ 32} and \texttt{9\ of\ 9\ checks\ passed}; the search prints its class counts; and the v1.9.0 verification
+audits and property/mutation/fuzz tests exit with status 0. NumPy is required (and SymPy for
+\nolinkurl{c3_sdp_dual_check.py}).
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 

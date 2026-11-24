@@ -1091,6 +1091,7 @@ def c3Shift16 (r : ℕ) : ℤ :=
   | _ => 8
 
 /-- The diagonal `D₁` block of `carrierB` (`signB`). -/
+@[nolint defsWithUnderscore]
 def c3BlockB_D (k : Fin 8) : ℤ :=
   (![3, -5, -1, -1, 3, -5, -1, -1] : Fin 8 → ℤ) k
 
@@ -1101,9 +1102,11 @@ def c3SdpBlock (k : Fin 4) : Matrix (Fin 8) (Fin 8) ℤ := fun i j =>
 
 /-- Pure-integer fraction-free `L D Lᵀ` certificates for the four `8 × 8` blocks `c3SdpBlock 0..3`. -/
 def sdpScale0 : ℤ := 514482260100738982971
+/-- Diagonal integer weight vector for SDP residual block 0. -/
 def sdpW0 : Fin 8 → ℤ :=
   ![3235737484910308069, 136362151161461, 7180399349, 98266111679241145747461,
     1257637, 13539094890971228238933, 106497827840852969474997, 98266111679241145747461]
+/-- Lower-triangular integer factor for SDP residual block 0. -/
 def sdpL0 : Matrix (Fin 8) (Fin 8) ℤ := !![
   159, 0, 0, 0, 0, 0, 0, 0;
   -64, 23729, 0, 0, 0, 0, 0, 0;
@@ -1114,10 +1117,13 @@ def sdpL0 : Matrix (Fin 8) (Fin 8) ℤ := !![
   0, 0, 0, 0, 0, 0, 1, 0;
   0, 0, 0, 0, 0, 0, 0, 1]
 
+/-- Positive integer scale factor for SDP residual block 1. -/
 def sdpScale1 : ℤ := 25914963568192907323325
+/-- Diagonal integer weight vector for SDP residual block 1. -/
 def sdpW1 : Fin 8 → ℤ :=
   ![148085506103959470419, 3210247482147011, 60108921635, 7022955126980277884621075,
     1614515, 6723074715731810416155875, 6608315709889191367447875, 7022955126980277884621075]
+/-- Lower-triangular integer factor for SDP residual block 1. -/
 def sdpL1 : Matrix (Fin 8) (Fin 8) ℤ := !![
   175, 0, 0, 0, 0, 0, 0, 0;
   -64, 46129, 0, 0, 0, 0, 0, 0;
@@ -1128,10 +1134,13 @@ def sdpL1 : Matrix (Fin 8) (Fin 8) ℤ := !![
   0, 0, 0, 0, 0, 0, 1, 0;
   0, 0, 0, 0, 0, 0, 0, 1]
 
+/-- Positive integer scale factor for SDP residual block 2. -/
 def sdpScale2 : ℤ := 5377628548612118799
+/-- Diagonal integer weight vector for SDP residual block 2. -/
 def sdpW2 : Fin 8 → ℤ :=
   ![37605794046238593, 14577772598361, 436942649, 1285253223118296392961,
     49800465, 792203013117053723185, 1543379393451678095313, 1285253223118296392961]
+/-- Lower-triangular integer factor for SDP residual block 2. -/
 def sdpL2 : Matrix (Fin 8) (Fin 8) ℤ := !![
   143, 0, 0, 0, 0, 0, 0, 0;
   -64, 7739, 0, 0, 0, 0, 0, 0;
@@ -1142,10 +1151,13 @@ def sdpL2 : Matrix (Fin 8) (Fin 8) ℤ := !![
   0, 0, 0, 0, 0, 0, 1, 0;
   0, 0, 0, 0, 0, 0, 0, 1]
 
+/-- Positive integer scale factor for SDP residual block 3. -/
 def sdpScale3 : ℤ := 813590682324977243825
+/-- Diagonal integer weight vector for SDP residual block 3. -/
 def sdpW3 : Fin 8 → ℤ :=
   ![6406225845078560975, 288659750600575, 10745077951, 233500525827268468977775,
     2818511, 20045391670191561484575, 194448173075669561274175, 233500525827268468977775]
+/-- Lower-triangular integer factor for SDP residual block 3. -/
 def sdpL3 : Matrix (Fin 8) (Fin 8) ℤ := !![
   127, 0, 0, 0, 0, 0, 0, 0;
   -64, 22193, 0, 0, 0, 0, 0, 0;
@@ -1340,10 +1352,12 @@ operator `T̃₁₆(y) = ∑_p d₁₆(p) y_p P_p`. -/
 noncomputable def c3T16 (y : Fin 64 → ℝ) : Matrix (Fin 16) (Fin 16) ℂ :=
   ∑ i : Fin 64, (y i : ℂ) • (realPauliCode (outsideLabel i)).map (Int.castRingHom ℂ)
 
+/-- Shifted 16×16 completion operator for the zero-sum SDP dual. -/
 noncomputable def c3T16Shift (y : Fin 64 → ℝ) : Matrix (Fin 16) (Fin 16) ℂ :=
   ∑ i : Fin 64, ((c3Shift16 (outsideLabel i).val : ℂ) * (y i : ℂ)) •
     (realPauliCode (outsideLabel i)).map (Int.castRingHom ℂ)
 
+/-- Reindexed 16×16 carrier matrix on `Fin 16`. -/
 noncomputable def c3A16 (f : Fin 256 → ℤ) : Matrix (Fin 16) (Fin 16) ℂ :=
   (carrierOf f).map (Int.castRingHom ℂ)
 
@@ -1398,6 +1412,7 @@ private lemma trace_reindex_symm_eq {α β R : Type*} [Fintype α] [Fintype β] 
   simp only [Matrix.trace, Matrix.diag_apply, Matrix.reindex_apply, Matrix.submatrix_apply]
   exact Equiv.sum_comp e.symm (fun i => M i i)
 
+@[nolint unusedArguments]
 private lemma reindex_mul_symm {α β R : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
     [Semiring R] (e : α ≃ β) (A B : Matrix α α R) :
     Matrix.reindex e e A * Matrix.reindex e e B = Matrix.reindex e e (A * B) := by
@@ -1912,19 +1927,23 @@ def c3WitnessANegCodes : Finset (Fin 256) :=
    90, 93, 105, 110, 123, 125, 126, 153, 155, 157, 159, 170, 171,
    174, 175, 189, 190, 217, 219, 234, 235, 255}
 
+/-- Integer `±1` binary completion witness on the 64 outside points for `signA` (attaining `368`). -/
 def c3WitnessAInt (i : Fin 64) : ℤ :=
   if outsideLabel i ∈ c3WitnessANegCodes then -1 else 1
 
+/-- Real-valued cast of `c3WitnessAInt` attaining `368` violated outside contexts for `signA`. -/
 def c3WitnessAReal (i : Fin 64) : ℝ := (c3WitnessAInt i : ℝ)
 
 lemma c3WitnessAReal_values (i : Fin 64) : c3WitnessAReal i = 1 ∨ c3WitnessAReal i = -1 := by
   unfold c3WitnessAReal c3WitnessAInt; split_ifs <;> simp
 
+/-- Fast computable lookup encoding `signA` on 8-bit Pauli codes. -/
 def signAFast (w : ℕ) : ℤ :=
   if w == 48 || w == 102 || w == 176 || w == 230 then -1 else 1
 
 lemma signA_eq_fast : ∀ w : Fin 256, signA w = signAFast w.val := by decide +kernel
 
+/-- Paired list of 64 outside codes and `c3WitnessAInt` signs for kernel evaluation. -/
 def outWithSignA : List (ℕ × ℤ) :=
   outNatArr.map fun c =>
     (c, if c == 8 || c == 12 || c == 13 || c == 14 || c == 24 || c == 26 || c == 28 || c == 30 ||

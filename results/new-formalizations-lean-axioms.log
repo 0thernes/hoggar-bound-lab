@@ -120,3 +120,13 @@
 'HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'HoggarBound.NonVacuity.spectral_floor_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.kramers_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.saturation_tfae_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.conjecture_e_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.clifford_transport_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.cone_lift_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.norm_phase_family_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.c3_exact_optima_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.exact_degrees_ladders_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+'HoggarBound.NonVacuity.propositions_qgt_twochar_nonvacuous' depends on axioms: [propext, Classical.choice, Quot.sound]

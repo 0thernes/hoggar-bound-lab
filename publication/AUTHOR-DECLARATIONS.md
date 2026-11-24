@@ -168,11 +168,19 @@ and upgrade (`v1.7.0`) and for executing all four open frontier items (`v1.8.0`)
   `[propext, Classical.choice, Quot.sound]`, accompanied by independent computational verifiers
   (`scripts/c3_exact_optima_check.py`, `scripts/norm_phase_family.py`, `scripts/exact_degrees_n4_n5.py`,
   `src/w52_census_verify.c`, and `src/n9_rank8_search.c`) and refreshed v1.8.0 submission packets.
+- **v1.9.0** (24 November 2026) executed a comprehensive audit against Build Standard for LLMs v1.1.0 and
+  the Independent Scientist's Verification Playbook (2026 Edition), adding `NonVacuity.lean` (expanding
+  `VerifyNewFormalizations.lean` to **110** declarations), isolated `Challenge.lean`/`Solution.lean` for
+  multi-kernel `lake comparator --paranoid`, Batteries `runLinter` hygiene on editable modules, a
+  70-declaration Lean Blueprint mounted at `/blueprint/`, verbatim `#print axioms` CI enforcement,
+  arithmetic & live citation audits (fixing a dead 404 GitHub Actions URL in Section 9.4),
+  property/mutation/fuzz tests, cross-platform CI + C sanitizers, Sigstore SLSA release attestations,
+  and transparent `LIMITATIONS.md`/`formalization.yaml` disclosures.
 
-All previously stated human-review and venue-policy boundaries apply unchanged: the v1.5.0–v1.8.0 Lean
+All previously stated human-review and venue-policy boundaries apply unchanged: the v1.5.0–v1.9.0 Lean
 code, computational verifiers, and manuscript updates were produced by Google Gemini / Antigravity agents
 (building on the Claude/Anthropic and OpenAI Codex work), nothing is externally peer reviewed, no separate
-human line-by-line review of the v1.5.0–v1.8.0 Lean code or text is recorded, and all authenticated
-external platform actions (ORCID work update to v1.8.0, `quant-ph` arXiv endorser/upload, Zenodo
+human line-by-line review of the v1.5.0–v1.9.0 Lean code or text is recorded, and all authenticated
+external platform actions (ORCID work update to v1.9.0, `quant-ph` arXiv endorser/upload, Zenodo
 AI-origin eligibility resolution, and *Journal of Physics A* ScholarOne login and authorship attestation)
 remain strictly the author's own decisions and actions.

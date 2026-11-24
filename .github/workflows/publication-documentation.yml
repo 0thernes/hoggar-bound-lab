@@ -1,6 +1,21 @@
 name: Publication documentation checks
 
 on:
+  push:
+    paths:
+      - "VERSION"
+      - "README.md"
+      - "paper/unified-contextuality.md"
+      - "publication/**"
+      - "blueprint/**"
+      - "scripts/publication_release_audit.py"
+      - "scripts/unified_publication_audit.py"
+      - "scripts/independent_site.py"
+      - "scripts/check_readme_axioms.py"
+      - "scripts/arithmetic_audit.py"
+      - "scripts/build_blueprint.py"
+      - "scripts/check_citations.py"
+      - ".github/workflows/publication-documentation.yml"
   workflow_dispatch:
 
 permissions:
@@ -23,18 +38,27 @@ jobs:
         run: python3 scripts/publication_release_audit.py
       - name: Verify the unified paper artifacts and scholarly metadata
         run: python3 scripts/unified_publication_audit.py
+      - name: Verify README 5-second verbatim axiom block, arithmetic tiers, Blueprint & citations
+        run: |
+          python3 scripts/check_readme_axioms.py
+          python3 scripts/arithmetic_audit.py
+          python3 scripts/build_blueprint.py
+          python3 scripts/check_citations.py
+          python3 scripts/check_github_math.py README.md paper/unified-contextuality.md
       - name: Verify the exact interactive demonstration and negative controls
         run: node tests/frontier_c3_browser_test.cjs
       - name: Recount the combined paper's section-score connection
         run: python3 scripts/unified_section_score.py
-      - name: Assemble and check the publication site
+      - name: Assemble and check the publication site (including /blueprint/)
         run: python3 scripts/independent_site.py
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: publication-documentation-evidence
           path: |
-            results/publication-v1.8.0-audit.json
+            results/publication-v1.9.0-audit.json
             results/unified-publication-audit.json
             results/unified-section-score.json
+            results/arithmetic-audit.json
+            results/citation-audit.json
             build/independent-site/artifact-sha256.json
           if-no-files-found: error

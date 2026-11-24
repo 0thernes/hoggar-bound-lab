@@ -2,7 +2,7 @@
 
 **Spectral bounds and their limits in Pauli contextuality: exact configurations and a proof of Jonah's Conjecture E**
 
-Version **1.8.0** (21 November 2026; built cleanly on versions 1.4.0–1.7.0; version 1.2.0 was titled *Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate*). Author: **Alexander S. Donahue — 0thernes LLC**. Correspondence:
+Version **1.9.0** (24 November 2026; built cleanly on versions 1.4.0–1.8.0; version 1.2.0 was titled *Spectral bounds and their limits in Pauli contextuality: exact configurations and a four-qubit C3 certificate*). Author: **Alexander S. Donahue — 0thernes LLC**. Correspondence:
 **0_0@0thernes.art**. ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648).
 
 This is the single current manuscript requested by the author. The earlier spectral-floor and C3
@@ -24,7 +24,7 @@ saved account details are not submission receipts or evidence of acceptance.
 | [Submission metadata](unified-metadata.json) | Title, author, abstract, public URLs and actual declaration status |
 | [Plain-text abstract](unified-abstract.txt), [BibTeX](unified-citation.bib) | Form-ready abstract and preprint citation without invented journal or DOI fields |
 | [Build record](../results/unified-paper-build.json) | Compiler versions, file hashes, counts and artifact consistency |
-| [Proof and source continuity](../results/publication-v1.8.0-audit.json) | Retained C3 artifacts, unchanged Lean sources, 100-declaration Lean audit and all exact integer verifiers |
+| [Proof and source continuity](../results/publication-v1.9.0-audit.json) | Retained C3 artifacts, unchanged Lean sources, 110-declaration Lean audit, multi-kernel comparator, and all exact integer verifiers |
 
 The [eight-destination distribution plan](DISTRIBUTION-PLAN.md) distinguishes journal review, preprint
 hosting, discovery, author identity and preservation. Google Scholar and OpenAIRE require observed
@@ -52,10 +52,12 @@ Prepared descriptive cover text:
 > kernel-certified via pure-integer MET-SDP triangle-cut duals); a graph family settles case C3 for
 > every N >= 4, and variants together with a cone pair swap and a universal cubic-trace identity
 > settle all nine vertex cases at the eigenvalue-multiset level for every N >= 4, proving Jonah's
-> Conjecture E. All main theorems (100 newly audited declarations in VerifyNewFormalizations.lean plus
-> retained baseline, saturation and C3 audits) are formalized in Lean 4.35.0 using only standard
-> axioms, and are checked by exact computation through six qubits. The manuscript claims no priority
-> for the spectral floor or for Jonah's exact classical degrees.
+> Conjecture E. All main theorems (110 newly audited declarations in VerifyNewFormalizations.lean plus
+> retained baseline, saturation and C3 audits, independently checked via multi-kernel lake comparator
+> --paranoid and Batteries runLinter, with existential non-vacuity witnesses and a 70-declaration Lean
+> Blueprint) are formalized in Lean 4.35.0 using only standard axioms, and are checked by exact
+> computation through six qubits. The manuscript claims no priority for the spectral floor or for
+> Jonah's exact classical degrees.
 >
 > The paper connects these components through shared notation and exact reconstruction. It separates
 > kernel-checked theorems and finite counts from additional algebraic arguments and executable
@@ -67,13 +69,13 @@ Prepared descriptive cover text:
 > The manuscript is relevant to quantum foundations and mathematical physics because it treats both
 > quantitative noncontextual constraints and an explicit limit on the information carried by a
 > spectral invariant. Earlier source preprints and their archived versions are disclosed in the
-> publication map; the submitted work is the combined manuscript (version 1.8.0).
+> publication map; the submitted work is the combined manuscript (version 1.9.0).
 
 The descriptive cover text above makes no certification of journal exclusivity, acceptance, or
 completed human critical review. The later [author declarations](AUTHOR-DECLARATIONS.md) record
 conditional approval/accountability, the no-competing-interest statement and accepted arXiv rights
 and license. They were recorded for version 1.2.0; use their precise scope, and record any approval
-of version 1.8.0 before submitting it. An AI tool must not write responses
+of version 1.9.0 before submitting it. An AI tool must not write responses
 to future referee reports where the publisher requires the author's own evaluation.
 
 ## Author-controlled declarations

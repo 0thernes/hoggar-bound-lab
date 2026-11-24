@@ -4,6 +4,26 @@ Hoggar Bound Lab - Alexander S. Donahue, 0thernes LLC.
 
 Project releases cover the spectral-floor study and the surrounding repository. The independent review and the C3 study also have fixed companion tags: `v0.1.0-independent-verification` and `v0.2.0-c3-certificate`. Their version numbers identify those artifacts, not earlier editions of the spectral-floor paper. [Publication status](publication/STATUS.md) records archive and journal milestones separately.
 
+## 1.9.0 - 24 November 2026: six-layer verification hardening, 110 Lean axioms, 6-kernel comparator, Blueprint, and Build Standard v1.1.0
+
+Hardens verification, reproducibility, and repository engineering against the Build Standard for LLMs v1.1.0 and the Independent Scientist's Verification Playbook (2026 Edition), without modifying any frozen proof or legal file (`LICENSE`, `NOTICE`, `d3811e3`, `87f08a0`, `5dcea35`):
+
+- **Layer 1 & 2 — Lean 4 multi-kernel replay, Non-Vacuity & Batteries Linter (`lean/`):**
+  - Added `lean/HoggarBound/NonVacuity.lean` with 10 explicit existential witness theorems ruling out vacuous hypotheses across every headline theorem family, expanding `lean/VerifyNewFormalizations.lean` from `100` to **`110`** audited declarations strictly within `[propext, Classical.choice, Quot.sound]`.
+  - Added isolated statement-only specification stub `lean/HoggarBound/Challenge.lean`, sorry-free `lean/HoggarBound/Solution.lean`, and `lean/comparator.json` to run Lean 4.35.0's built-in 6-kernel `lake comparator --config comparator.json --paranoid` (C++ kernel, `leanchecker-paranoid`, `lean4lean`, `nanoda 0.4.19`, `con-leche`, `con-ron`).
+  - Added missing docstrings and targeted `@[nolint]` annotations across all editable `v1.5.0–v1.9.0` modules so Batteries `lake exe runLinter` passes cleanly with zero non-frozen errors.
+- **Layer 3 — Statement Fidelity, Lean Blueprint & 5-Second Verbatim Axiom Proof:**
+  - Added `blueprint/src/content.tex` and `scripts/build_blueprint.py` (`70/70` Lean declarations checked across 13 DAG nodes, depth 4), mounted at `/blueprint/` inside the single GitHub Pages site (`scripts/independent_site.py`, `docs/research-index.html`).
+  - Added `docs/statement-fidelity.md` (line-by-line paper-to-Lean type and non-vacuity mapping).
+  - Added CI-checked verbatim `#print axioms` 5-second proof block in `README.md` (`scripts/check_readme_axioms.py`, 24 headline declarations).
+- **Layer 4 & 5 — Arithmetic Audit, Live Citation Resolution, Property/Mutation/Fuzz Tests & C Sanitizers:**
+  - Added `scripts/arithmetic_audit.py` explicitly classifying all 47 Python scripts (`0` unclassified float scripts; 15 exact verifiers; 8 exploratory scripts labeled `numerical_approximation`).
+  - Added `scripts/check_citations.py` (live DOI Handle API + arXiv + HTTPS resolution checker); **caught and fixed a real 404 GitHub Actions run link in manuscript Section 9.4 (`44920343997` → verified v1.6.0 run `44893871335`)**.
+  - Added `tests/test_properties.py` (Hypothesis property, metamorphic, negative, and regression checks) and `tests/test_mutation_and_fuzz.py` (6/6 certificate mutants killed + 300-payload deterministic fuzz harness).
+  - Added `.github/workflows/ci.yml` (cross-platform `ubuntu`/`macos`/`windows`, C11 `-Wall -Wextra`, ASan/UBSan `-fsanitize=address,undefined`, report-only `ruff`/`mypy`/`cppcheck`, `audit-repo.sh`, `gitleaks`/`osv-scanner`) and `.github/workflows/release.yml` (automated `SHA256SUMS.txt` + Sigstore SLSA `actions/attest-build-provenance@v2` release publication).
+- **Layer 6 — Build Standard v1.1.0, Palomar Metadata & Honest Disclosures:**
+  - Added `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursor/rules/build-standard.mdc`, `llms.txt`, `llms-full.txt`, `repo.yaml`, `repo-standard.schema.json`, `formalization.yaml`, `requirements.txt`, `justfile`, `scripts/dev.sh`, `scripts/Audit-Repo.ps1`, `scripts/audit-repo.sh`, `CLAIMS.md`, `LIMITATIONS.md`, `REPLICATION.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, `SUPPORT.md`, `ROADMAP.md`, `data/MANIFEST.sha256`, ADRs (`docs/adr/0001–0003`), `docs/architecture.md`, `docs/threat-model.md`, `docs/configuration.md`, `docs/operations.md`, `docs/faq.md`, `docs/glossary.md`, `docs/run-log.md`, `docs/reviews/2026-11-24-ten-pass-playbook-audit.md`, `docs/media/social-preview.svg`, `.editorconfig`, `.github/labels.tsv`, and `.github/ISSUE_TEMPLATE/`.
+
 ## 1.8.0 - 21 November 2026: exact C3 binary optima (`368` / `344`), infinite non-closed determinant family (`|Psi_{3m}>`), N=4..5 classical ladders & 42-orbit verification, 100 audited Lean 4 declarations
 
 Resolves all four open frontier targets on top of frozen `v1.7.0` (`7b0f769`), leaving every previously

@@ -1,0 +1,237 @@
+{
+  "status": "pass",
+  "mode": "online",
+  "dois": [
+    "10.1088/1751-8121/aca36f",
+    "10.1088/2058-9565/ae3028",
+    "10.5281/zenodo.23510634",
+    "10.5281/zenodo.23518569",
+    "10.5281/zenodo.23524332",
+    "10.5281/zenodo.23538829",
+    "10.5281/zenodo.23692357"
+  ],
+  "arxiv_ids": [
+    "1002.3135",
+    "1608.06596",
+    "1609.03075",
+    "2105.13798",
+    "2305.10225",
+    "2312.07738",
+    "2407.02928",
+    "2609.19862",
+    "2610.07172",
+    "2610.26465"
+  ],
+  "url_count": 19,
+  "urls": [
+    "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+    "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+    "https://doi.org/10.1088/1751-8121/aca36f",
+    "https://doi.org/10.5281/zenodo.23524332",
+    "https://github.com/0thernes/hoggar-bound-lab",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638647",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638912",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42797323071",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42801908151",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42808984960",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831157",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44888403135",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44893871335",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44908422882",
+    "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959312365",
+    "https://orcid.org/0009-0006-8168-9648",
+    "https://zenodo.org/records/23524332"
+  ],
+  "placeholder_hits": [],
+  "online_checks": [
+    {
+      "url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.html",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://0thernes.github.io/hoggar-bound-lab/paper/unified-contextuality.pdf",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1002.3135",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1608.06596",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1609.03075",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2105.13798",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.10225",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2312.07738",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.02928",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.19862",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.07172",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.26465",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://doi.org/10.1088/1751-8121/aca36f",
+      "handle_api": "https://doi.org/api/handles/10.1088/1751-8121/aca36f",
+      "status": 200,
+      "responseCode": 1,
+      "ok": true
+    },
+    {
+      "url": "https://doi.org/10.1088/2058-9565/ae3028",
+      "handle_api": "https://doi.org/api/handles/10.1088/2058-9565/ae3028",
+      "status": 200,
+      "responseCode": 1,
+      "ok": true
+    },
+    {
+      "url": "https://doi.org/10.5281/zenodo.23510634",
+      "handle_api": "https://doi.org/api/handles/10.5281/zenodo.23510634",
+      "status": 200,
+      "responseCode": 1,
+      "ok": true
+    },
+    {
+      "url": "https://doi.org/10.5281/zenodo.23518569",
+      "handle_api": "https://doi.org/api/handles/10.5281/zenodo.23518569",
+      "status": 200,
+      "responseCode": 1,
+      "ok": true
+    },
+    {
+      "url": "https://doi.org/10.5281/zenodo.23524332",
+      "handle_api": "https://doi.org/api/handles/10.5281/zenodo.23524332",
+      "status": 200,
+      "responseCode": 1,
+      "ok": true
+    },
+    {
+      "url": "https://doi.org/10.5281/zenodo.23538829",
+      "handle_api": "https://doi.org/api/handles/10.5281/zenodo.23538829",
+      "status": 200,
+      "responseCode": 1,
+      "ok": true
+    },
+    {
+      "url": "https://doi.org/10.5281/zenodo.23692357",
+      "handle_api": "https://doi.org/api/handles/10.5281/zenodo.23692357",
+      "status": 200,
+      "responseCode": 1,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638647",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42741638912",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42791713861",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42797323071",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42801908151",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42808984960",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42817286684",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/42834831157",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44888403135",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44893871335",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44908422882",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959312365",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://orcid.org/0009-0006-8168-9648",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "https://zenodo.org/records/23524332",
+      "handle_api": "https://doi.org/api/handles/10.5281/zenodo.23524332",
+      "status": 200,
+      "responseCode": 1,
+      "ok": true,
+      "note": "verified_via_doi_handle_api (zenodo web blocks automated HEAD/GET)"
+    }
+  ]
+}

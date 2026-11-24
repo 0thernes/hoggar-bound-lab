@@ -531,15 +531,20 @@ lemma symp_Y0_ptOfCode (N : ℕ) (hN : 1 ≤ N) (z : ℕ) :
     symp (Y0 N hN) (ptOfCode N z) = bitZ z 0 + bitZ z N := by
   simp [symp, Y0, ptOfCode, single_dotProduct, dotProduct_single]
 
--- Exact bitmasks and CSS negative-sign masks for Q⁻(7,2), W(7,2), and Q⁺(9,2).
+/-- Bitmask of the 119-point elliptic quadric `Q⁻(7,2)` on four qubits. -/
 def q7minusMask : ℕ := 0xc33c96690ff05aa533cc6699ff00aa553c3c6969f0f0a5a5cccc999900005554
+/-- Negative-sign bitmask for the 315-violation CSS witness on `Q⁻(7,2)`. -/
 def q7minusNeg  : ℕ := 0x8114022805500aa4114422985500aa54141429285050a5a44444999800000000
 
+/-- Bitmask of the 255-point full symplectic space `W(7,2)` on four qubits. -/
 def w72Mask : ℕ := 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe
+/-- Negative-sign bitmask for the 1,575-violation CSS witness on `W(7,2)`. -/
 def w72Neg  : ℕ := 0x8116033e055e0ffe117633fe55fefffe17163f3e5f5efffe7776fffefffe0000
 
+/-- Bitmask of the 527-point hyperbolic quadric `Q⁺(9,2)` on five qubits. -/
 def q9plusMask : ℕ :=
   0x69969669c33c3cc3a55a5aa50ff0f00f9966669933cccc3355aaaa55ff0000ff969669693c3cc3c35a5aa5a5f0f00f0f66669999cccc3333aaaa55550000ffff966996693cc33cc35aa55aa5f00ff00f66996699cc33cc33aa55aa5500ff00ff69696969c3c3c3c3a5a5a5a50f0f0f0f999999993333333355555555fffffffe
+/-- Negative-sign bitmask for the 6,975-violation CSS witness on `Q⁺(9,2)`. -/
 def q9plusNeg : ℕ :=
   0x68808000c0000002a00000040000000e880000100000003200000054000000fe80800100000003020000050400000f0e0000111000003332000055540000fffe800180000003000200050004000f000e00110010003300320055005400ff00fe0101010003030302050505040f0f0f0e11111110333333325555555400000000
 
@@ -744,6 +749,7 @@ theorem q9plus_css_witness :
 
 /-- General flag double-counting inequality: if every flag of `T` lies in at most `c` subconfigurations
 `S a` (`a ∈ I`, each `S a ⊆ T`), then `∑_{a ∈ I} #violatedLines(S a) ≤ c · #violatedLines(T)`. -/
+@[nolint unusedArguments]
 lemma sum_violatedLines_le_of_cover {N : ℕ} {α : Type*} [DecidableEq α]
     (T : Finset (Pt N)) (h0 : (0 : Pt N) ∉ T) (I : Finset α) (S : α → Finset (Pt N))
     (hsub : ∀ a ∈ I, S a ⊆ T) (c : ℕ)

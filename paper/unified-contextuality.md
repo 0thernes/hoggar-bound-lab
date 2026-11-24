@@ -3,7 +3,7 @@
 **A general Lean 4 bound, configurations that attain it, and cospectral sign carriers with different completion spectra in every vertex case**
 
 Alexander S. Donahue, 0thernes LLC, Washington, USA. ORCID: [0009-0006-8168-9648](https://orcid.org/0009-0006-8168-9648). Correspondence: 0_0@0thernes.art<br>
-Hoggar Bound Lab, version 1.8.0, 21 November 2026. Research preprint. Not peer reviewed.<br>
+Hoggar Bound Lab, version 1.9.0, 24 November 2026. Research preprint. Not peer reviewed.<br>
 Research and manuscript preparation used Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity agents under the author's direction; see Section 13.
 
 > **Prior work and scope.** The spectral floor, its quaternionic (Kramers) refinement and its saturation in
@@ -12,7 +12,7 @@ Research and manuscript preparation used Claude (Anthropic), OpenAI Codex, and G
 > carrier, the Jordan representation of the completion, the cone lift and Conjecture E are due to Jonah [J3].
 > The computer-assisted exact degrees $d(Q^-(7,2))=315$, $d(W(7,2))=1575$ and $d(Q^+(9,2))=6975$ are due to
 > Jonah [J1]. This paper combines a formalization and exact configurations attaining the floor with explicit
-> sign carriers that prove Conjecture E in all nine vertex cases. As of version 1.8.0, Lean 4.35.0 formalizes
+> sign carriers that prove Conjecture E in all nine vertex cases. As of version 1.9.0, Lean 4.35.0 formalizes
 > the spectral floor and its asymptotic $1/2$ limit (Theorem 1, Corollary A), its quaternionic refinement
 > for elliptic quadrics (Theorem 2), the five-way saturation equivalences, quantum-metric and two-character
 > theorems (Theorems 3–4, Propositions 3, 8, 10), an infinite family of non-closed contextual floor-saturating
@@ -23,10 +23,12 @@ Research and manuscript preparation used Claude (Anthropic), OpenAI Codex, and G
 > and 42 pure-integer dual certificates reproducing Jonah's [J1] exact triple $`(315,1575,6975)`$), the
 > four-qubit C3 spectral certificate and **exact global binary completion optima 368 and 344** (exact gap
 > 24; Theorem 14, Corollary 16, Proposition 16' and Theorem 16''), the all-qubit C3 and cone-lift C11
-> constructions (Theorem 17, Corollary 18), Lemmas 20–21, Theorem 22, signed-Clifford orbit transport, and
-> Theorem 19 at the eigenvalue-multiset level across all nine vertex cases for every $N\ge4$, all strictly
-> within the standard axioms (100 audited declarations in `VerifyNewFormalizations.lean` alongside the
-> retained baseline, saturation and C3 audits). None of this invalidates the spectral floor.
+> constructions (Theorem 17, Corollary 18), Lemmas 20–21, Theorem 22, signed-Clifford orbit transport,
+> Theorem 19 at the eigenvalue-multiset level across all nine vertex cases for every $N\ge4$, and ten
+> existential non-vacuity witnesses (`NonVacuity.lean`), all strictly within the standard axioms (110
+> audited declarations in `VerifyNewFormalizations.lean` alongside the retained baseline, saturation and C3
+> audits, checked across multiple Lean kernels via `lake comparator --paranoid`, Batteries linted, and
+> cross-checked in a declaration-verified Lean Blueprint). None of this invalidates the spectral floor.
 
 ## Abstract
 
@@ -48,7 +50,7 @@ $16\times16$ carriers have $64\times64$ completions with cubic traces 14976 and 
 binary completion minima 368 and 344 (exact gap 24, kernel-certified via pure-integer MET-SDP duals).
 Graph constructions over $\mathbb R$, $\mathbb C$ and $\mathbb H$, a cone pair swap and a universal
 cubic-trace identity give cospectral carriers with distinct completion eigenvalue multisets in all nine
-vertex cases for every $N\ge4$, proving Jonah's Conjecture E. All main theorems (100 newly audited
+vertex cases for every $N\ge4$, proving Jonah's Conjecture E. All main theorems (110 newly audited
 declarations plus retained audits) are proved in Lean 4 with standard axioms only, with exact checks
 through six qubits and Tsotchke demonstrations. The work is AI-assisted and is neither externally peer
 reviewed nor a quantum-hardware experiment.
@@ -2210,17 +2212,26 @@ it passed all 37 declarations on clean Ubuntu in 1 minute 56 seconds
 the saturation and C3 all-qubits workflows. Version 1.6.0 extended that workflow to build `ConjectureEExtras.lean`, enforce the standard axiom
 allowlist across 49 declarations of `VerifyNewFormalizations.lean`, and execute
 `scripts/conjecture_e_trace_formula.py` (97 checks), passing on clean Ubuntu
-([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44920343997); receipts in
+([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44893871335); receipts in
 `results/publication-v1.6.0-distribution.json`). Version 1.7.0 extended the same workflow to build `AuditUpgrades.lean`, enforce the standard axiom
 allowlist across 77 declarations of `VerifyNewFormalizations.lean`, execute `scripts/conjecture_e_trace_formula.py`
 for three to five qubits (97 checks) and six qubits (39 checks), and execute `scripts/c3_sdp_dual_check.py`
 (15 checks), passing on clean Ubuntu ([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44908422882);
-receipts in `results/publication-v1.7.0-distribution.json`). Version 1.8.0 extends that workflow to build
+receipts in `results/publication-v1.7.0-distribution.json`). Version 1.8.0 extended that workflow to build
 `C3ExactOptima`, `SaturatedPhaseSix`, `NormPhaseFamily` and `ExactDegreesN4N5`, enforce the standard
-axiom allowlist across all 100 declarations of `VerifyNewFormalizations.lean`, and execute
+axiom allowlist across 100 declarations of `VerifyNewFormalizations.lean`, and execute
 `scripts/c3_exact_optima_check.py` (10 checks), `scripts/norm_phase_family.py` (32 checks) and
-`scripts/exact_degrees_n4_n5.py` (9 checks); its release CI receipts are recorded in `publication/STATUS.md`
-and `results/publication-v1.8.0-distribution.json`.
+`scripts/exact_degrees_n4_n5.py` (9 checks), passing on clean Ubuntu
+([run](https://github.com/0thernes/hoggar-bound-lab/actions/runs/44959312365); receipts in
+`results/publication-v1.8.0-distribution.json`). Version 1.9.0 expands `VerifyNewFormalizations.lean` to
+110 declarations by adding ten existential non-vacuity witnesses (`NonVacuity.lean`), adds isolated
+specification verification (`Challenge.lean`, `Solution.lean`, `comparator.json`) replayed across
+independent Lean kernels via `lake comparator --paranoid`, adds Batteries `runLinter` verification on
+editable modules, adds a declaration-checked Lean Blueprint (`blueprint/`, mounted at `/blueprint/`),
+enforces the verbatim `#print axioms` README block and arithmetic/citation audits in CI, and adds
+cross-platform property/mutation/fuzz tests, C sanitizers (ASan/UBSan), and Sigstore SLSA build
+provenance attestations; its release CI receipts are recorded in `publication/STATUS.md` and
+`results/publication-v1.9.0-distribution.json`.
 
 <!-- journal:supplement -->
 ## 10. A running example on the Tsotchke stack
@@ -2535,9 +2546,10 @@ enters a comparison of characteristic polynomials or any integer dual certificat
   10, the asymptotic limit $d/L\to1/2$, Theorem 13b (infinite non-closed determinant family), exact
   Corollary 16 / Theorem 16'' (exact global binary optima 368 and 344), Corollary 18, Lemmas 20 and 21,
   Theorem 22, signed-Clifford orbit transport, eigenvalue-multiset Theorem 19 across all nine vertex
-  cases for every $N\ge4$, and the $Q^-(7,2)$, $W(7,2)$ and $Q^+(9,2)$ witnesses, ladders and unconditional
-  Kramers-lifted bounds are all formalized in Lean 4 (100 audited declarations in
-  `VerifyNewFormalizations.lean`, Section 9.4). Remaining formalization boundaries include the
+  cases for every $N\ge4$, the $Q^-(7,2)$, $W(7,2)$ and $Q^+(9,2)$ witnesses, ladders and unconditional
+  Kramers-lifted bounds, and ten existential non-vacuity witnesses (`NonVacuity.lean`) are all formalized
+  in Lean 4 (110 audited declarations in `VerifyNewFormalizations.lean`, Section 9.4, independently
+  replayed via `lake comparator --paranoid`). Remaining formalization boundaries include the
   state-to-mask identifications of the finite Table 1 rows (other than $`|\Psi_{3m}\rangle`$, which is
   proved directly from the state vector), Propositions 4, 6, 9 and 11, the enumerations of Theorems 12
   and 13, the 42-orbit $W(5,2)$ census step of [J1], and the single-orbit group-transitivity
@@ -2596,7 +2608,7 @@ dependence on [J3]), each finding by one or two adversarial verifiers. No mathem
 found; the 13 confirmed findings, on notation, on credit to [J3] and on the passage from one
 hyperplane class to all, are corrected (`results/review-lemmas-20-21/`).
 
-Versions 1.5.0 through 1.8.0 (21 November 2026) were produced under Alexander S. Donahue's direction and
+Versions 1.5.0 through 1.9.0 (21–24 November 2026) were produced under Alexander S. Donahue's direction and
 explicit autonomous-approval directive by Google Gemini / Antigravity agents working on top of the
 existing repository and integrating the exact cubic-trace check (`scripts/conjecture_e_trace_formula.py`,
 prepared in the Claude line of work). Version 1.5.0 added `Kramers.lean`, `SaturationTheory.lean`,
@@ -2625,6 +2637,19 @@ expanding `VerifyNewFormalizations.lean` to **100** audited declarations strictl
 alongside independent computational verifiers (`scripts/c3_exact_optima_check.py`,
 `scripts/norm_phase_family.py`, `scripts/exact_degrees_n4_n5.py`, `src/w52_census_verify.c`, and
 `src/n9_rank8_search.c`) and refreshed v1.8.0 submission packets.
+Version 1.9.0 (24 November 2026) implements a full six-layer verification-hardening and repository-standard
+audit without modifying any frozen proof or legal file: it adds `NonVacuity.lean` (ten existential
+non-vacuity witnesses, expanding `VerifyNewFormalizations.lean` to **110** audited declarations),
+`Challenge.lean`, `Solution.lean` and `comparator.json` for multi-kernel independent verification via
+`lake comparator --paranoid`, Batteries `runLinter` hygiene across all editable Lean modules, a
+declaration-checked Lean Blueprint (`blueprint/`, published at `/blueprint/`), a line-by-line Statement
+Fidelity Table (`docs/statement-fidelity.md`), CI-checked verbatim `#print axioms` in `README.md`, an
+arithmetic precision audit labeling exploratory floating-point scripts as `numerical_approximation`
+(`scripts/arithmetic_audit.py`), live citation/URL resolution checking (`scripts/check_citations.py`,
+which detected and fixed a stale 404 GitHub Actions run URL in Section 9.4), property/mutation/fuzz tests
+(`tests/test_properties.py`, `tests/test_mutation_and_fuzz.py`), cross-platform CI with C ASan/UBSan
+sanitizers and Sigstore SLSA release provenance attestations, and transparent `LIMITATIONS.md` /
+`formalization.yaml` / Build Standard v1.1.0 documentation.
 
 **AI disclosure statement.** Claude (Anthropic), OpenAI Codex, and Google Gemini / Antigravity were
 used for substantive research, software, formalization and writing, not merely language correction. The
@@ -2698,15 +2723,21 @@ lake env lean SaturatedSevenVerification.lean
 # case C3 for every number of qubits from four on (Theorem 17)
 lake build HoggarBound.Bound HoggarBound.Quadric
 lake env lean HoggarBound/CarrierFamily.lean
-# Theorem 2 (Kramers), Theorems 3-4 (Saturation), Lemmas 20-21, Theorem 22, Theorem 19 (all 9 cases), Corollaries 16 & 18, Prop 16' & AuditUpgrades (77 axioms)
-lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades
+# All v1.5.0-v1.9.0 Lean formalizations (110 axioms), Batteries linter, and multi-kernel comparator
+lake build HoggarBound.Kramers HoggarBound.SaturationTheory HoggarBound.ConjectureE \
+  HoggarBound.ConjectureEExtras HoggarBound.AuditUpgrades HoggarBound.C3ExactOptima \
+  HoggarBound.SaturatedPhaseSix HoggarBound.NormPhaseFamily HoggarBound.ExactDegreesN4N5 \
+  HoggarBound.NonVacuity HoggarBound.Solution
 lake env lean VerifyNewFormalizations.lean
+lake comparator --config comparator.json --paranoid
 # the seven-qubit enumeration of Theorem 13 (about eight core-hours)
 cd .. && bash scripts/run_family7.sh
 ```
 
 The completion minima, the seven-qubit evaluation, the carrier families, the nine vertex cases, the
-universal cubic-trace identity and the C3 QUBO SDP dual, from the repository root:
+universal cubic-trace identity, the C3 QUBO SDP dual and exact binary optima, the infinite pure-CCZ
+determinant family, the N=4-5 42-orbit integer dual check, and the v1.9.0 verification audits, from
+the repository root:
 
 ```text
 python scripts/cospectral_pair.py
@@ -2721,12 +2752,22 @@ python scripts/conjecture_e_lemmas.py 6
 python scripts/conjecture_e_trace_formula.py
 python scripts/conjecture_e_trace_formula.py 6
 python scripts/c3_sdp_dual_check.py
+python scripts/c3_exact_optima_check.py
+python scripts/norm_phase_family.py
+python scripts/exact_degrees_n4_n5.py
 python scripts/c3_sparse_search.py 3 3
+python scripts/check_readme_axioms.py
+python scripts/arithmetic_audit.py
+python scripts/build_blueprint.py
+python scripts/check_citations.py
+python -m unittest tests/test_properties.py tests/test_mutation_and_fuzz.py
 ```
 
-Their last lines read `30 of 30`, `14 of 14`, `43 of 43`, `18 of 18`, `21 of 21`, `81 of 81`,
-`36 of 36`, `115 of 115`, `46 of 46`, `97 of 97`, `39 of 39` and `15 of 15 checks passed`; the search
-prints its class counts. NumPy is required (and SymPy for `c3_sdp_dual_check.py`).
+Their exact-verifier last lines read `30 of 30`, `14 of 14`, `43 of 43`, `18 of 18`, `21 of 21`,
+`81 of 81`, `36 of 36`, `115 of 115`, `46 of 46`, `97 of 97`, `39 of 39`, `15 of 15`, `10 of 10`,
+`32 of 32` and `9 of 9 checks passed`; the search prints its class counts; and the v1.9.0 verification
+audits and property/mutation/fuzz tests exit with status 0. NumPy is required (and SymPy for
+`c3_sdp_dual_check.py`).
 
 The C3 verification programs require Python, NumPy, SymPy and Node.js. From the repository root:
 

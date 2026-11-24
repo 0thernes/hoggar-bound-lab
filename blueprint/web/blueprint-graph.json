@@ -1,0 +1,240 @@
+{
+  "status": "pass",
+  "nodes": 13,
+  "checked_lean_declarations": 70,
+  "all_leanok": true,
+  "dag_depth": 4,
+  "items": [
+    {
+      "id": "def:pauli",
+      "kind": "definition",
+      "title": "Pauli Operators and Symplectic Form",
+      "lean": [
+        "HoggarBound.pauli",
+        "HoggarBound.symp",
+        "HoggarBound.lineSign",
+        "HoggarBound.flags",
+        "HoggarBound.violatedLines"
+      ],
+      "uses": [],
+      "leanok": true,
+      "description": "For $N$ qubits ($D = 2^N$), each non-identity Pauli observable $P_u$ ($u \\in \\mathbb{F}_2^{2N} \\setminus \\{0\\}$) is a Hermitian unitary with commutation governed by the symplectic form $\\langle u, v \\rangle \\in \\mathbb{F}_2$ and commuting triple sign $\\tau(u,v) \\in \\{\\pm 1\\}$."
+    },
+    {
+      "id": "lem:okumura",
+      "kind": "lemma",
+      "title": "Okumura Third-Moment Inequality",
+      "lean": [
+        "HoggarBound.sum_cube_le",
+        "HoggarBound.trace_cube_le"
+      ],
+      "uses": [],
+      "leanok": true,
+      "description": "For any traceless Hermitian operator $A$ on $\\mathbb{C}^D$ ($D \\ge 2$) with $\\operatorname{tr}(A^2) = D m$, $(D-1)\\operatorname{tr}(A^3) \\le D(D-2)m\\sqrt{(D-1)m}$."
+    },
+    {
+      "id": "thm:spectral-floor",
+      "kind": "theorem",
+      "title": "Theorem 1: Universal Spectral Floor",
+      "lean": [
+        "HoggarBound.hoggar_bound",
+        "HoggarBound.NonVacuity.spectral_floor_nonvacuous"
+      ],
+      "uses": [
+        "def:pauli",
+        "lem:okumura"
+      ],
+      "leanok": true,
+      "description": "For every $N \\ge 1$, every subset $S$ of non-identity $N$-qubit Pauli observables, and every $\\pm 1$ assignment $f$, $(D-1)\\beta_6(S,f) \\le (D-2)|S|\\sqrt{(D-1)|S|}$."
+    },
+    {
+      "id": "cor:asymptotic-half",
+      "kind": "corollary",
+      "title": "Corollary A: Asymptotic 1/2 Violated Fraction",
+      "lean": [
+        "HoggarBound.AuditUpgrades.full_space_fraction_tendsto_half",
+        "HoggarBound.AuditUpgrades.hyperbolic_fraction_tendsto_half",
+        "HoggarBound.AuditUpgrades.elliptic_violated_fraction_eventually_gt"
+      ],
+      "uses": [
+        "thm:spectral-floor"
+      ],
+      "leanok": true,
+      "description": "As $N \\to \\infty$, the minimum violated context fraction on $W(2N-1,2)$, $Q^+(2N-1,2)$, and $Q^-(2N-1,2)$ converges to $1/2$ (`Filter.Tendsto`)."
+    },
+    {
+      "id": "thm:kramers",
+      "kind": "theorem",
+      "title": "Theorem 2: Quaternionic / Kramers Spectral Floor",
+      "lean": [
+        "HoggarBound.kramers_even_mult",
+        "HoggarBound.hoggar_bound_quaternionic",
+        "HoggarBound.elliptic_fraction",
+        "HoggarBound.three_qubit_elliptic_contexts",
+        "HoggarBound.four_qubit_elliptic_contexts",
+        "HoggarBound.five_qubit_elliptic_contexts",
+        "HoggarBound.NonVacuity.kramers_nonvacuous"
+      ],
+      "uses": [
+        "def:pauli",
+        "lem:okumura"
+      ],
+      "leanok": true,
+      "description": "When an antiunitary symmetry $\\theta = P_w K$ with $\\theta^2 = -I$ commutes with $A_f$, every eigenvalue has even multiplicity, halving the effective dimension to $2^{N-1}$ and yielding $d(Q^-(5,2)) \\ge 9$, $d(Q^-(7,2)) \\ge 291$, and $d(Q^-(9,2)) \\ge 6501$."
+    },
+    {
+      "id": "thm:saturation",
+      "kind": "theorem",
+      "title": "Theorems 3--4 & Propositions 3, 8, 10: Five-Way Saturation Equivalence",
+      "lean": [
+        "HoggarBound.saturation_tfae",
+        "HoggarBound.saturation_mul_isSquare",
+        "HoggarBound.AuditUpgrades.proposition3_violated_iff",
+        "HoggarBound.AuditUpgrades.proposition8_flat_state_qgt",
+        "HoggarBound.AuditUpgrades.proposition10_two_character_sum",
+        "HoggarBound.NonVacuity.saturation_tfae_nonvacuous"
+      ],
+      "uses": [
+        "thm:spectral-floor"
+      ],
+      "leanok": true,
+      "description": "For nonempty $S$, saturating the spectral floor is equivalent to existence of a pure Pauli-flat state on $S$, forcing $(2^N-1)|S| = \\square$ and two-character hyperplane intersections."
+    },
+    {
+      "id": "thm:finite-saturated",
+      "kind": "theorem",
+      "title": "Finite Saturated Configurations: Degrees 75, 480, 2016, 729344",
+      "lean": [
+        "HoggarBound.pivot_degree",
+        "HoggarBound.phase5_degree",
+        "HoggarBound.det6_degree",
+        "HoggarBound.phase7_degree"
+      ],
+      "uses": [
+        "thm:spectral-floor"
+      ],
+      "leanok": true,
+      "description": "Kernel-verified exact contextuality degrees outside the classical families: 75 (4 qubits), 480 (5 qubits), 2,016 (6 qubits), and 729,344 (7 qubits)."
+    },
+    {
+      "id": "thm:norm-phase-family",
+      "kind": "theorem",
+      "title": "Theorem 13b: Infinite Pure-CCZ Determinant Family",
+      "lean": [
+        "HoggarBound.NormPhaseFamily.detPhase_isFlatState",
+        "HoggarBound.NormPhaseFamily.detSupport_card",
+        "HoggarBound.NormPhaseFamily.detSupport_not_closed",
+        "HoggarBound.NormPhaseFamily.infinite_nonclosed_saturated_family",
+        "HoggarBound.NormPhaseFamily.infinite_nonclosed_family_contextual",
+        "HoggarBound.NonVacuity.norm_phase_family_nonvacuous"
+      ],
+      "uses": [
+        "thm:saturation"
+      ],
+      "leanok": true,
+      "description": "For every $m \\ge 1$ ($N = 3m$, $q = 2^m$), the pure-CCZ determinant phase state $|\\Psi_{3m}\\rangle$ is flat on a strictly non-closed support of size $(q^3-1)q^2$ with exact degree $\\frac{1}{12}(q^3-1)q^3(q-1)(q-2)$, strictly positive for every $m \\ge 2$."
+    },
+    {
+      "id": "thm:exact-n4-n5",
+      "kind": "theorem",
+      "title": "Classical N=4, 5 CSS Witnesses, Ladders and Unconditional Bounds",
+      "lean": [
+        "HoggarBound.ExactDegreesN4N5.transv_violatedLines_eq",
+        "HoggarBound.ExactDegreesN4N5.q7minus_css_witness",
+        "HoggarBound.ExactDegreesN4N5.w72_css_witness",
+        "HoggarBound.ExactDegreesN4N5.q9plus_css_witness",
+        "HoggarBound.ExactDegreesN4N5.w72_ge_1455",
+        "HoggarBound.ExactDegreesN4N5.q9plus_ge_6444",
+        "HoggarBound.ExactDegreesN4N5.lemma_L1_q7minus_section_le_92",
+        "HoggarBound.ExactDegreesN4N5.lemma_L4_w52_hyperplane_le_21",
+        "HoggarBound.ExactDegreesN4N5.exact_degrees_n4_n5_of_q7minus_315",
+        "HoggarBound.NonVacuity.exact_degrees_ladders_nonvacuous"
+      ],
+      "uses": [
+        "thm:kramers"
+      ],
+      "leanok": true,
+      "description": "Lean 4 proves symplectic transvection invariance, CSS witnesses (315, 1575, 6975), exact double-counting ladders, unconditional Kramers-lifted bounds $d(W(7,2)) \\ge 1455$ and $d(Q^+(9,2)) \\ge 6444$, Lemmas L1 & L4, and the exact reduction of $(315, 1575, 6975)$ to $d(Q^-(7,2)) \\ge 315$ (independently checked over all 42 $W(5,2)$ orbits in C/Python)."
+    },
+    {
+      "id": "thm:c3-exact-optima",
+      "kind": "theorem",
+      "title": "Theorem 14 & Theorem 16'': Four-Qubit C3 Pair and Exact Binary Optima 368 vs 344",
+      "lean": [
+        "HoggarBound.C3.four_qubit_C3_spectral_counterexample",
+        "HoggarBound.AuditUpgrades.corollary16_binary_minima_tightened",
+        "HoggarBound.C3ExactOptima.corollary16_sigmaA_exact_lower",
+        "HoggarBound.C3ExactOptima.corollary16_sigmaB_exact_lower",
+        "HoggarBound.C3ExactOptima.corollary16_exact_binary_optima",
+        "HoggarBound.NonVacuity.c3_exact_optima_nonvacuous"
+      ],
+      "uses": [
+        "def:pauli"
+      ],
+      "leanok": true,
+      "description": "On the 71-point four-qubit C3 section, two cospectral $16 \\times 16$ carriers have $64 \\times 64$ completions with cubic traces 14,976 and 15,360 and kernel-certified exact global binary completion minima 368 and 344 (exact gap 24, proved via pure-integer MET-SDP triangle-cut duals)."
+    },
+    {
+      "id": "thm:universal-cubic-trace",
+      "kind": "theorem",
+      "title": "Lemmas 20--21 & Theorem 22: Universal Cubic-Trace Identity",
+      "lean": [
+        "HoggarBound.ConjectureE.lemma20_jordan_action",
+        "HoggarBound.ConjectureE.trace_completion_pow_eq",
+        "HoggarBound.ConjectureE.trace_completion_cube_universal",
+        "HoggarBound.ConjectureE.lemma21_trace_cube_sylvester",
+        "HoggarBound.ConjectureE.lemma21_trace_cube_symm"
+      ],
+      "uses": [
+        "def:pauli"
+      ],
+      "leanok": true,
+      "description": "For every closed Pauli configuration $X$ and hyperplane $d^\\perp$, the completion matrix equals Jordan multiplication by the carrier on outside Paulis, yielding an eigenvalue-free identity for $\\operatorname{tr}(\\Lambda_\\sigma^3)$."
+    },
+    {
+      "id": "thm:conjecture-e",
+      "kind": "theorem",
+      "title": "Theorem 17, Corollary 18 & Theorem 19: Jonah's Conjecture E Across All Nine Vertex Cases",
+      "lean": [
+        "HoggarBound.C3AllQubits.c3_strict_law_fails_general",
+        "HoggarBound.ConjectureE.corollary18_c11_from_c3",
+        "HoggarBound.ConjectureE.jonah_conjecture_e_all_nine_cases",
+        "HoggarBound.AuditUpgrades.clifford_transport_strict_law_fails",
+        "HoggarBound.AuditUpgrades.jonah_conjecture_e_all_nine_cases_spectra",
+        "HoggarBound.NonVacuity.conjecture_e_nonvacuous"
+      ],
+      "uses": [
+        "thm:universal-cubic-trace",
+        "thm:kramers"
+      ],
+      "leanok": true,
+      "description": "For every $N \\ge 4$ and every one of Jonah's nine vertex cases (C1, C3, C5, C6, C8, C11, C12, C14, C15), explicit cospectral Hermitian carriers admit distinct completion eigenvalue lists and root multisets, invariant under signed-Clifford orbit transport."
+    },
+    {
+      "id": "thm:comparator",
+      "kind": "theorem",
+      "title": "Six-Kernel Comparator Isolation Target",
+      "lean": [
+        "HoggarBound.ComparatorTarget.target_spectral_floor",
+        "HoggarBound.ComparatorTarget.target_kramers_floor",
+        "HoggarBound.ComparatorTarget.target_saturation_mul_isSquare",
+        "HoggarBound.ComparatorTarget.target_infinite_nonclosed_saturated_family",
+        "HoggarBound.ComparatorTarget.target_c3_exact_binary_optima",
+        "HoggarBound.ComparatorTarget.target_jonah_conjecture_e_all_nine_cases",
+        "HoggarBound.ComparatorTarget.target_w72_ge_1455",
+        "HoggarBound.ComparatorTarget.target_q9plus_ge_6444"
+      ],
+      "uses": [
+        "thm:spectral-floor",
+        "thm:kramers",
+        "thm:saturation",
+        "thm:norm-phase-family",
+        "thm:exact-n4-n5",
+        "thm:c3-exact-optima",
+        "thm:conjecture-e"
+      ],
+      "leanok": true,
+      "description": "All eight headline theorems are isolated in `HoggarBound.Challenge` and replayed from sorry-free `HoggarBound.Solution` via `lake comparator --config comparator.json --paranoid` across all six bundled Lean 4.35.0 kernels."
+    }
+  ]
+}

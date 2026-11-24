@@ -27,6 +27,7 @@ open Finset Matrix
 
 namespace HoggarBound.ConjectureE
 
+@[nolint unusedArguments]
 private lemma reindex_mul_eq {α β R : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
     [Semiring R] (e : α ≃ β) (A B : Matrix α α R) :
     Matrix.reindex e e (A * B) = Matrix.reindex e e A * Matrix.reindex e e B := by
@@ -591,12 +592,14 @@ def c3BlockB : Matrix (Fin 8) (Fin 8) ℤ := fun i j => carrierB (Fin.castAdd 8 
 with `ldltScale0 > 0`, `ldltW0 k > 0`, `ldltL0` lower-triangular with strictly positive diagonal. -/
 def ldltScale0 : ℤ := 77983400744792110830313798577535
 
+/-- Diagonal integer weight vector `W₀` for the first `8 × 8` `LDLᵀ` block certificate. -/
 def ldltW0 : Fin 8 → ℤ :=
   ![1163931354399882251198713411605, 207511384275250891638208845,
     43478810606470911182565, 595293135456428326948960294485,
     27169167556720504285, 194840750440219623869,
     4075866812255516685, 8170165545041533924775792916217341]
 
+/-- Lower-triangular integer factor `L₀` for the first `8 × 8` `LDLᵀ` block certificate. -/
 def ldltL0 : Matrix (Fin 8) (Fin 8) ℤ := !![
   67, 0, 0, 0, 0, 0, 0, 0;
   -32, 5609, 0, 0, 0, 0, 0, 0;
@@ -611,10 +614,12 @@ def ldltL0 : Matrix (Fin 8) (Fin 8) ℤ := !![
 /-- Pure-integer fraction-free `L D Lᵀ` certificate for `111 • I - 4 • C₁`. -/
 def ldltScale1 : ℤ := 294700838952328035
 
+/-- Diagonal integer weight vector `W₁` for the second `8 × 8` `LDLᵀ` block certificate. -/
 def ldltW1 : Fin 8 → ℤ :=
   ![4398519984363105, 784189692345, 128299841, 33890596479517724025,
     1127409, 2949225788301841225, 33890596479517724025, 33890596479517724025]
 
+/-- Lower-triangular integer factor `L₁` for the second `8 × 8` `LDLᵀ` block certificate. -/
 def ldltL1 : Matrix (Fin 8) (Fin 8) ℤ := !![
   67, 0, 0, 0, 0, 0, 0, 0;
   -32, 5609, 0, 0, 0, 0, 0, 0;
@@ -632,6 +637,7 @@ def c3WitnessNegCodes : Finset (Fin 256) :=
   {26, 41, 59, 63, 72, 88, 90, 104, 105, 120, 123, 153, 155, 159, 170, 171, 175,
    204, 205, 206, 217, 219, 220, 222, 234, 235, 236, 237, 252, 255}
 
+/-- Integer `±1` binary completion witness on the 64 outside points for `signB` (attaining `344`). -/
 def c3WitnessInt (i : Fin 64) : ℤ :=
   if outsideLabel i ∈ c3WitnessNegCodes then -1 else 1
 
@@ -691,6 +697,7 @@ lemma map_outsideLabel_witness :
     (List.finRange 64).map (fun i => ((outsideLabel i).val, c3WitnessInt i)) = outWithSign := by
   decide +kernel
 
+/-- Real-valued cast of `c3WitnessInt` attaining `344` violated outside contexts for `signB`. -/
 def c3WitnessReal (i : Fin 64) : ℝ := (c3WitnessInt i : ℝ)
 
 lemma c3WitnessReal_values (i : Fin 64) : c3WitnessReal i = 1 ∨ c3WitnessReal i = -1 := by

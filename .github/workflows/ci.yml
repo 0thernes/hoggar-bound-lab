@@ -1,0 +1,114 @@
+name: CI (cross-platform, exact verifiers, sanitizers & Build Standard audit)
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-matrix:
+    name: Verify (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - name: Install pinned Python dependencies
+        run: python -m pip install --quiet -r requirements.txt
+      - name: Run property-based (Hypothesis), metamorphic, negative, mutation & fuzz tests
+        run: python -m pytest -v tests/test_properties.py tests/test_mutation_and_fuzz.py
+      - name: Run fast pure-integer exact certificate verifiers
+        run: |
+          python scripts/c3_sdp_dual_check.py
+          python scripts/c3_exact_optima_check.py
+          python scripts/norm_phase_family.py
+          python scripts/exact_degrees_n4_n5.py
+      - name: Run README axiom audit, arithmetic audit, Blueprint checkdecls, citation syntax & math check
+        run: |
+          python scripts/check_readme_axioms.py
+          python scripts/arithmetic_audit.py
+          python scripts/build_blueprint.py
+          python scripts/check_citations.py
+          python scripts/check_github_math.py README.md paper/unified-contextuality.md
+      - name: Run Node exact interactive & demo tests
+        run: |
+          node tests/frontier_c3_browser_test.cjs
+          node tests/independent_demo_test.cjs
+      - name: Build & smoke-test C11 engine (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          mkdir -p build
+          cc -std=c11 -O2 -Wall -Wextra -o build/hoggar src/hoggar.c -lm
+          ./build/hoggar table 3
+          ./build/hoggar verify 3 f data/witness/n3_f.txt
+
+  c-sanitizers:
+    name: C11 ASan + UBSan sanitizers (ubuntu-24.04)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Build and exercise C engines under AddressSanitizer & UndefinedBehaviorSanitizer
+        run: |
+          mkdir -p build
+          cc -std=c11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -o build/hoggar-san src/hoggar.c -lm
+          ./build/hoggar-san table 4
+          ./build/hoggar-san verify 3 f data/witness/n3_f.txt
+          ./build/hoggar-san verify 4 h data/witness/n4_h.txt
+          cc -std=c11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -pthread -o build/w52-san src/w52_census_verify.c -lm
+          cc -std=c11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -pthread -o build/n9-san src/n9_rank8_search.c -lm
+
+  static-and-standard-audit:
+    name: Build Standard v1.1.0 audit, data integrity & informational static/security checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: "3.12"
+      - name: Verify data/MANIFEST.sha256 checksums
+        run: sha256sum -c data/MANIFEST.sha256
+      - name: Run Build Standard v1.1.0 automated repository audit
+        run: |
+          bash scripts/audit-repo.sh --json results/ci-build-standard-audit.json || true
+          cat results/ci-build-standard-audit.json
+      - name: Informational Python lint, type check & dependency vulnerability audit
+        run: |
+          python -m pip install --quiet ruff mypy pip-audit
+          ruff check scripts/arithmetic_audit.py scripts/build_blueprint.py scripts/check_citations.py scripts/check_readme_axioms.py tests/test_properties.py tests/test_mutation_and_fuzz.py || true
+          mypy --ignore-missing-imports scripts/arithmetic_audit.py scripts/build_blueprint.py scripts/check_citations.py scripts/check_readme_axioms.py || true
+          pip-audit -r requirements.txt || true
+      - name: Upload Build Standard audit report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: build-standard-audit
+          path: results/ci-build-standard-audit.json
+          retention-days: 30
