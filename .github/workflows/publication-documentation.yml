@@ -39,6 +39,8 @@ jobs:
       - name: Verify the unified paper artifacts and scholarly metadata
         run: python3 scripts/unified_publication_audit.py
       - name: Verify README 5-second verbatim axiom block, arithmetic tiers, Blueprint & citations
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           python3 scripts/check_readme_axioms.py
           python3 scripts/arithmetic_audit.py

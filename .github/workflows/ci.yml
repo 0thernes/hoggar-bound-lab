@@ -45,6 +45,8 @@ jobs:
           python scripts/norm_phase_family.py
           python scripts/exact_degrees_n4_n5.py
       - name: Run README axiom audit, arithmetic audit, Blueprint checkdecls, citation syntax & math check
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           python scripts/check_readme_axioms.py
           python scripts/arithmetic_audit.py
@@ -59,7 +61,8 @@ jobs:
         if: runner.os != 'Windows'
         run: |
           mkdir -p build
-          cc -std=c11 -O2 -Wall -Wextra -o build/hoggar src/hoggar.c -lm
+          QR=third_party/quantum_rng/src/quantum_rng
+          cc -std=gnu11 -O2 -Wall -Wextra -o build/hoggar src/hoggar.c "$QR/quantum_rng.c" -I"$QR" -lm
           ./build/hoggar table 3
           ./build/hoggar verify 3 f data/witness/n3_f.txt
 
@@ -74,12 +77,13 @@ jobs:
       - name: Build and exercise C engines under AddressSanitizer & UndefinedBehaviorSanitizer
         run: |
           mkdir -p build
-          cc -std=c11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -o build/hoggar-san src/hoggar.c -lm
+          QR=third_party/quantum_rng/src/quantum_rng
+          cc -std=gnu11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -o build/hoggar-san src/hoggar.c "$QR/quantum_rng.c" -I"$QR" -lm
           ./build/hoggar-san table 4
           ./build/hoggar-san verify 3 f data/witness/n3_f.txt
           ./build/hoggar-san verify 4 h data/witness/n4_h.txt
-          cc -std=c11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -pthread -o build/w52-san src/w52_census_verify.c -lm
-          cc -std=c11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -pthread -o build/n9-san src/n9_rank8_search.c -lm
+          cc -std=gnu11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -pthread -o build/w52-san src/w52_census_verify.c -lm
+          cc -std=gnu11 -O1 -g -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -pthread -o build/n9-san src/n9_rank8_search.c -lm
 
   static-and-standard-audit:
     name: Build Standard v1.1.0 audit, data integrity & informational static/security checks
